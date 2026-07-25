@@ -1,0 +1,9 @@
+{
+  "name": "render-match-scripts",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Helper scripts for the render-match skill (PerfectPixel-style overlay + pixel diff).",
+  "dependencies": {
+    "jimp": "0.22.12"
+  }
+}

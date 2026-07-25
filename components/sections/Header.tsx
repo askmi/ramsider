@@ -18,7 +18,7 @@ export function Header({ currentLocale }: HeaderProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link href={`/${currentLocale}`} className="font-display text-2xl font-bold tracking-wider">
+          <Link href={`/${currentLocale}`} className="font-display text-2xl font-light tracking-extra-wide">
             RAMSIDER
           </Link>
 

@@ -28,31 +28,37 @@ export function FeaturesSection() {
           </div>
         </ScrollReveal>
 
-        <div className="space-y-24">
+        <div className="space-y-16 lg:space-y-24">
           {features.map((feature, index) => (
             <ScrollReveal key={index} delay={index * 100}>
-              <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+              <div className="grid gap-6 lg:grid-cols-2 lg:gap-16 lg:items-center">
+                {/* Mobile: Image always first, Desktop: Alternate sides */}
                 <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-2xl lg:rounded-3xl">
                     <Image
                       src={feature.image}
                       alt={feature.alt}
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                   </div>
                 </div>
+                {/* Mobile: Text with number badge on the right, Desktop: Standard layout */}
                 <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                  <div className="mb-6 inline-block rounded-full bg-ramsider-purple px-6 py-2 font-display text-2xl font-bold text-white">
-                    {t(`items.${index}.number`)}
+                  <div className="flex items-start gap-4 lg:block">
+                    <div className="flex-1 lg:mb-6">
+                      <h3 className="mb-2 font-display text-xl font-bold sm:text-2xl lg:mb-4 lg:text-3xl xl:text-4xl">
+                        {t(`items.${index}.title`)}
+                      </h3>
+                      <p className="font-body text-sm text-ramsider-gray sm:text-base lg:text-lg">
+                        {t(`items.${index}.description`)}
+                      </p>
+                    </div>
+                    <div className="flex-shrink-0 rounded-full bg-ramsider-purple px-4 py-1 font-display text-lg font-bold text-white lg:inline-block lg:px-6 lg:py-2 lg:text-2xl">
+                      {t(`items.${index}.number`)}
+                    </div>
                   </div>
-                  <h3 className="mb-4 font-display text-3xl font-bold sm:text-4xl">
-                    {t(`items.${index}.title`)}
-                  </h3>
-                  <p className="font-body text-lg text-ramsider-gray">
-                    {t(`items.${index}.description`)}
-                  </p>
                 </div>
               </div>
             </ScrollReveal>

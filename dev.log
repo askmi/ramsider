@@ -2,52 +2,29 @@
 > ramsider@1.0.0 dev
 > next dev
 
-   ▲ Next.js 15.5.21
+   ▲ Next.js 15.5.22
    - Local:        http://localhost:3000
    - Network:      http://192.168.100.4:3000
    - Experiments (use with caution):
      · optimizePackageImports
 
  ✓ Starting...
- ✓ Ready in 2.2s
- ⚠ Fast Refresh had to perform a full reload due to a runtime error.
- ✓ Compiled /middleware in 273ms (146 modules)
+ ✓ Ready in 2.1s
+ ✓ Compiled /middleware in 277ms (146 modules)
  ○ Compiling /[locale] ...
- ✓ Compiled /[locale] in 2.9s (854 modules)
- ⚠ Fast Refresh had to perform a full reload due to a runtime error.
- GET /en 200 in 3004ms
- ✓ Compiled in 67ms (304 modules)
- GET /en 200 in 24ms
- ⚠ Fast Refresh had to perform a full reload due to a runtime error.
- GET /en 200 in 4ms
- GET /en 200 in 738ms
- GET /en 200 in 117ms
- GET /en 200 in 149ms
- GET /de 200 in 108ms
- GET /fr 200 in 124ms
- GET /es 200 in 103ms
- GET /ru 200 in 99ms
- GET /ar 200 in 96ms
- GET /ja 200 in 141ms
- GET /de 200 in 102ms
- GET /de 200 in 142ms
- GET /fr 200 in 101ms
- GET /en 200 in 174ms
- GET /en 200 in 184ms
- GET /ru 200 in 69ms
- GET /ja 200 in 44ms
- GET /ar 200 in 60ms
- GET /en 200 in 58ms
- GET /ru 200 in 63ms
- GET /ja 200 in 67ms
- GET /zh 200 in 43ms
- GET /de 200 in 73ms
- GET /ru 200 in 69ms
- GET /en 200 in 37ms
- GET /en 200 in 187ms
- ✓ Compiled in 391ms (836 modules)
- GET /en 200 in 271ms
- GET /en 200 in 273ms
- GET /en 200 in 183ms
- GET /en 200 in 219ms
+ ✓ Compiled /[locale] in 2.8s (854 modules)
+ ✓ Compiled in 49ms (304 modules)
+ GET /en 200 in 3576ms
  GET /en 200 in 115ms
+ GET /en 200 in 123ms
+ GET /en 200 in 183ms
+ GET /ru 200 in 139ms
+ GET /en 200 in 113ms
+ GET /en 200 in 119ms
+ GET /en 200 in 110ms
+ GET /en 200 in 259ms
+ GET /en 200 in 140ms
+ GET /en 200 in 141ms
+ GET /en 200 in 137ms
+ ⚠ Cross origin request detected from 192.168.100.4 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins

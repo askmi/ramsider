@@ -51,20 +51,20 @@ export function Header({ currentLocale }: HeaderProps) {
           </div>
         </div>
 
-        {/* Language Bar */}
-        <div className="hidden border-t border-ramsider-border py-3 lg:block">
-          <div className="flex items-center justify-center gap-6">
+        {/* Language Bar - Mobile: Flags only, Desktop: Flags + Labels */}
+        <div className="border-t border-ramsider-border py-3">
+          <div className="flex items-center justify-center gap-3 sm:gap-6">
             {locales.map((locale) => (
               <Link
                 key={locale}
                 href={`/${locale}`}
                 className={cn(
-                  'flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors hover:bg-ramsider-purple/10',
+                  'flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm font-medium transition-colors hover:bg-ramsider-purple/10 sm:px-3',
                   locale === currentLocale && 'bg-ramsider-purple/5'
                 )}
               >
-                <span className="text-lg">{localeFlags[locale]}</span>
-                <span className="uppercase">{locale}</span>
+                <span className="text-lg sm:text-xl">{localeFlags[locale]}</span>
+                <span className="hidden uppercase lg:inline">{locale}</span>
               </Link>
             ))}
           </div>

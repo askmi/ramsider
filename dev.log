@@ -9,22 +9,69 @@
      · optimizePackageImports
 
  ✓ Starting...
- ✓ Ready in 2.1s
- ✓ Compiled /middleware in 277ms (146 modules)
+ ✓ Ready in 1334ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled /middleware in 125ms (146 modules)
  ○ Compiling /[locale] ...
- ✓ Compiled /[locale] in 2.8s (854 modules)
- ✓ Compiled in 49ms (304 modules)
- GET /en 200 in 3576ms
- GET /en 200 in 115ms
- GET /en 200 in 123ms
- GET /en 200 in 183ms
- GET /ru 200 in 139ms
- GET /en 200 in 113ms
- GET /en 200 in 119ms
- GET /en 200 in 110ms
- GET /en 200 in 259ms
- GET /en 200 in 140ms
- GET /en 200 in 141ms
+ ✓ Compiled /[locale] in 1054ms (839 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /en 200 in 1199ms
+ ✓ Compiled in 70ms (305 modules)
+ GET /en 200 in 26ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /en 200 in 1793ms
+ GET /en 200 in 809ms
+ GET /en 200 in 770ms
+ ✓ Compiled in 212ms (305 modules)
+ GET /en 200 in 52ms
+ ✓ Compiled in 408ms (839 modules)
  GET /en 200 in 137ms
- ⚠ Cross origin request detected from 192.168.100.4 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
-Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ✓ Compiled in 199ms (839 modules)
+ GET /en 200 in 86ms
+ ✓ Compiled in 390ms (846 modules)
+ GET /en 200 in 158ms
+ GET /en 200 in 622ms
+ GET /en 200 in 611ms
+ ✓ Compiled in 522ms (846 modules)
+ GET /en 200 in 167ms
+ ✓ Compiled in 192ms (846 modules)
+ GET /en 200 in 137ms
+ GET /en 200 in 626ms
+ GET /en 200 in 510ms
+ ✓ Compiled in 329ms (846 modules)
+ GET /en 200 in 132ms
+ ✓ Compiled in 238ms (846 modules)
+ GET /en 200 in 109ms
+ GET /en 200 in 658ms
+ GET /en 200 in 544ms
+ ✓ Compiled in 316ms (846 modules)
+ GET /en 200 in 179ms
+ ✓ Compiled in 517ms (846 modules)
+ GET /en 200 in 113ms
+ GET /en 200 in 564ms
+ GET /en 200 in 523ms
+ GET /en 200 in 535ms
+ ✓ Compiled in 397ms (846 modules)
+ GET /en 200 in 160ms
+ ✓ Compiled in 221ms (846 modules)
+ GET /en 200 in 226ms
+ ✓ Compiled in 256ms (846 modules)
+ GET /en 200 in 117ms
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+   ▲ Next.js 15.5.22
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.100.4:3000
+   - Experiments (use with caution):
+     · optimizePackageImports
+
+ ✓ Starting...
+ ✓ Ready in 1648ms
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+   ▲ Next.js 15.5.22
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.100.4:3000
+   - Experiments (use with caution):
+     · optimizePackageImports
+
+ ✓ Starting...
+ ✓ Ready in 1559ms

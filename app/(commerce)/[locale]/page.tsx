@@ -6,6 +6,8 @@ import { StatsSection } from '@/components/sections/StatsSection'
 import { ProductsSection } from '@/components/sections/ProductsSection'
 import { FeaturesSection } from '@/components/sections/FeaturesSection'
 import { HowItWorksSection } from '@/components/sections/HowItWorksSection'
+import { TestimonialSection } from '@/components/sections/TestimonialSection'
+import { ShippingSection } from '@/components/sections/ShippingSection'
 import { Footer } from '@/components/sections/Footer'
 
 export default async function HomePage({
@@ -25,6 +27,8 @@ export default async function HomePage({
         <ProductsSection />
         <FeaturesSection />
         <HowItWorksSection />
+        <TestimonialSection />
+        <ShippingSection />
         <Footer />
       </main>
     </>

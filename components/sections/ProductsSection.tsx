@@ -9,18 +9,13 @@ export function ProductsSection() {
 
   const products = [
     {
-      name: 'UNO<br/>LIGHT',
-      price: '700 $',
-      image: '/images/products/uno-light-pure.png',
-    },
-    {
       name: 'UNO<br/>PRO',
-      price: '1000 $',
+      price: '999 $',
       image: '/images/products/uno-pro-pure.png',
     },
     {
       name: 'UNO<br/>GOLD',
-      price: '2000 $',
+      price: '2499 $',
       image: '/images/products/uno-gold-pure.png',
     },
   ]
@@ -40,7 +35,7 @@ export function ProductsSection() {
           </div>
         </ScrollReveal>
 
-        <div className="space-y-12 md:grid md:grid-cols-3 md:gap-8 md:space-y-0">
+        <div className="space-y-12 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
           {products.map((product, index) => (
             <ScrollReveal key={index} delay={index * 150}>
               <Card className="group relative overflow-hidden transition-transform duration-300 hover:-translate-y-2">

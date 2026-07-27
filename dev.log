@@ -75,3 +75,62 @@
 
  ✓ Starting...
  ✓ Ready in 1559ms
+ ✓ Compiled /middleware in 470ms (146 modules)
+ ○ Compiling /[locale] ...
+ ✓ Compiled /[locale] in 2.7s (864 modules)
+ ✓ Compiled in 80ms (308 modules)
+ GET /en 200 in 3822ms
+ GET /en 200 in 165ms
+ ✓ Compiled in 374ms (846 modules)
+ GET /en 200 in 143ms
+ GET /en 200 in 494ms
+ ✓ Compiled in 372ms (846 modules)
+ GET /en 200 in 149ms
+ ✓ Compiled in 339ms (846 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ ReferenceError: useEffect is not defined
+    at Header (components/sections/Header.tsx:17:3)
+  15 |   const [showLanguageBar, setShowLanguageBar] = useState(true)
+  16 |
+> 17 |   useEffect(() => {
+     |   ^
+  18 |     let lastScrollY = window.scrollY
+  19 |
+  20 |     const handleScroll = () => { {
+  digest: '3634608306'
+}
+ GET /en 200 in 385ms
+ GET /en 500 in 188ms
+ ✓ Compiled in 181ms (846 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ ReferenceError: useEffect is not defined
+    at Header (components/sections/Header.tsx:17:3)
+  15 |   const [showLanguageBar, setShowLanguageBar] = useState(true)
+  16 |
+> 17 |   useEffect(() => {
+     |   ^
+  18 |     let lastScrollY = window.scrollY
+  19 |
+  20 |     const handleScroll = () => { {
+  digest: '3634608306'
+}
+ GET /en 500 in 168ms
+ ✓ Compiled in 306ms (846 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /en 200 in 227ms
+ ✓ Compiled in 280ms (846 modules)
+ GET /en 200 in 144ms
+ GET /en 200 in 217ms
+ ✓ Compiled in 498ms (846 modules)
+ GET /en 200 in 97ms
+ ✓ Compiled in 280ms (846 modules)
+ GET /en 200 in 167ms
+ GET /en 200 in 380ms
+ GET /en 200 in 166ms
+ ✓ Compiled in 757ms (846 modules)
+ GET /en 200 in 199ms
+ GET /en 200 in 40ms
+ ✓ Compiled in 336ms (846 modules)
+ GET /en 200 in 128ms
+ GET /en 200 in 63ms
+ GET /en 200 in 382ms

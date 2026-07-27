@@ -7,7 +7,7 @@ export function HeroSection() {
   const t = useTranslations('hero')
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-ramsider-white to-white px-4 pb-12 pt-24 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-gradient-to-b from-ramsider-white to-white px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 lg:items-center">
           {/* Left: Content */}

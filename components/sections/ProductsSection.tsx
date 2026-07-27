@@ -21,10 +21,10 @@ export function ProductsSection() {
   ]
 
   return (
-    <section className="bg-white px-4 py-24 sm:px-6 lg:px-8">
+    <section className="bg-white px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <ScrollReveal>
-          <div className="mb-16 text-center">
+          <div className="mb-8 text-center">
             <h2
               className="font-display text-3xl font-light leading-tight tracking-extra-wide sm:text-4xl lg:text-5xl"
               dangerouslySetInnerHTML={{ __html: t('sectionTitle') }}
@@ -73,7 +73,7 @@ export function ProductsSection() {
 
         {/* Trust Badges */}
         <ScrollReveal delay={500}>
-          <div className="mt-16 grid grid-cols-3 gap-4 border-t border-ramsider-border pt-8 sm:gap-8">
+          <div className="mt-8 grid grid-cols-3 gap-4 border-t border-ramsider-border pt-6 sm:gap-8">
             <div className="flex flex-col items-center space-y-2 text-center sm:space-y-3">
               <svg className="h-8 w-8 text-ramsider-purple sm:h-10 sm:w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />

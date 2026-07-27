@@ -8,7 +8,7 @@ export function BusinessSection() {
   const t = useTranslations('business')
 
   return (
-    <section className="bg-white pb-24 pt-12">
+    <section className="bg-white py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-gray-50 to-white">

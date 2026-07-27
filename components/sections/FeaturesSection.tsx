@@ -14,10 +14,10 @@ export function FeaturesSection() {
   ]
 
   return (
-    <section className="bg-ramsider-white px-4 py-24 sm:px-6 lg:px-8">
+    <section className="bg-ramsider-white px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <ScrollReveal>
-          <div className="mb-20 text-center">
+          <div className="mb-12 text-center">
             <h2
               className="font-display text-3xl font-light leading-tight tracking-extra-wide sm:text-4xl lg:text-5xl"
               dangerouslySetInnerHTML={{ __html: t('sectionTitle') }}
@@ -28,7 +28,7 @@ export function FeaturesSection() {
           </div>
         </ScrollReveal>
 
-        <div className="space-y-16 lg:space-y-24">
+        <div className="space-y-8 lg:space-y-12">
           {features.map((feature, index) => (
             <ScrollReveal key={index} delay={index * 100}>
               <div className="grid gap-6 lg:grid-cols-2 lg:gap-16 lg:items-center">
@@ -66,7 +66,7 @@ export function FeaturesSection() {
         </div>
 
         <ScrollReveal delay={500}>
-          <div className="mt-24 rounded-3xl bg-ramsider-black p-12 text-center text-white">
+          <div className="mt-12 rounded-3xl bg-ramsider-black p-8 sm:p-12 text-center text-white">
             <h3
               className="mb-4 font-display text-3xl font-bold sm:text-4xl lg:text-5xl"
               dangerouslySetInnerHTML={{ __html: t('cta.title') }}

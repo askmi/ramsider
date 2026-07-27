@@ -22,10 +22,10 @@ export function HowItWorksSection() {
   ]
 
   return (
-    <section className="bg-white px-4 py-24 sm:px-6 lg:px-8">
+    <section className="bg-white px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <ScrollReveal>
-          <h2 className="mb-16 text-center font-display text-3xl font-light tracking-extra-wide sm:text-4xl lg:text-5xl">
+          <h2 className="mb-8 text-center font-display text-3xl font-light tracking-extra-wide sm:text-4xl lg:text-5xl">
             {t('sectionTitle')}
           </h2>
         </ScrollReveal>
@@ -65,7 +65,7 @@ export function HowItWorksSection() {
         </div>
 
         <ScrollReveal delay={500}>
-          <div className="relative mt-24 overflow-hidden rounded-3xl bg-gradient-to-br from-ramsider-black via-ramsider-black to-ramsider-purple/20 p-12 text-center text-white">
+          <div className="relative mt-12 overflow-hidden rounded-3xl bg-gradient-to-br from-ramsider-black via-ramsider-black to-ramsider-purple/20 p-8 sm:p-12 text-center text-white">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(200,38,211,0.15),transparent_50%)]" />
             <div className="relative z-10">
               <h3

@@ -75,7 +75,7 @@ export function StatsSection() {
   ]
 
   return (
-    <section className="bg-ramsider-white px-4 py-16 sm:py-24 sm:px-6 lg:px-8">
+    <section className="bg-ramsider-white px-4 py-8 sm:py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="flex items-stretch divide-x divide-ramsider-border">
           {stats.map((stat, index) => (

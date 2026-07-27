@@ -8,7 +8,7 @@ export function ShippingSection() {
   const t = useTranslations('worldwide')
 
   return (
-    <section className="bg-white px-4 py-24 sm:px-6 lg:px-8">
+    <section className="bg-white px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <ScrollReveal>
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">

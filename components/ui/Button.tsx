@@ -12,7 +12,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={cn(
-          'group relative inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-semibold tracking-wider transition-all duration-300',
+          'group relative inline-flex items-center justify-start gap-2 whitespace-nowrap rounded-full px-6 py-4 text-left text-sm font-semibold tracking-wider transition-all duration-300',
           'disabled:pointer-events-none disabled:opacity-50',
           {
             'bg-ramsider-black text-ramsider-white hover:shadow-[0_0_30px_rgba(200,38,211,0.4)] hover:scale-[1.02]':

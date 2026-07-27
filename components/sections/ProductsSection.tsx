@@ -26,7 +26,7 @@ export function ProductsSection() {
         <ScrollReveal>
           <div className="mb-8 text-center">
             <h2
-              className="font-display text-3xl font-light leading-tight tracking-extra-wide sm:text-4xl lg:text-5xl"
+              className="whitespace-nowrap font-display text-[clamp(1.5rem,7vw,1.875rem)] font-light leading-tight tracking-wide sm:text-4xl sm:tracking-extra-wide lg:text-5xl"
               dangerouslySetInnerHTML={{ __html: t('sectionTitle') }}
             />
             <p className="mt-6 font-body text-base text-ramsider-gray sm:text-lg">
@@ -38,31 +38,37 @@ export function ProductsSection() {
         <div className="space-y-12 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
           {products.map((product, index) => (
             <ScrollReveal key={index} delay={index * 150}>
-              <Card className="group relative overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+              <Card className="group relative overflow-hidden p-4 transition-transform duration-300 hover:-translate-y-2 md:p-8">
                 {/* Mobile: Horizontal layout, Desktop: Vertical */}
-                <div className="grid grid-cols-[35%_65%] gap-4 md:grid-cols-1 md:gap-0">
+                <div className="grid min-h-[220px] grid-cols-[42%_58%] gap-3 md:min-h-0 md:grid-cols-1 md:gap-0">
                   {/* Image - Right on mobile, Top on desktop */}
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-2xl md:order-first">
+                  <div className="relative order-last h-full min-h-[220px] scale-110 overflow-hidden rounded-2xl md:order-first md:aspect-[3/4] md:min-h-0 md:scale-100">
                     <div className="absolute inset-0 bg-gradient-radial from-ramsider-purple/20 via-transparent to-transparent opacity-100 transition-opacity duration-500 md:opacity-0 md:group-hover:opacity-100" />
                     <Image
                       src={product.image}
                       alt={product.name.replace('<br/>', ' ')}
                       fill
                       className="object-contain"
-                      sizes="(max-width: 768px) 65vw, 33vw"
+                      sizes="(max-width: 767px) 58vw, 33vw"
                     />
                   </div>
 
                   {/* Content - Left on mobile, Bottom on desktop */}
-                  <div className="flex flex-col justify-center space-y-3 text-left md:mt-6 md:space-y-4 md:text-center">
+                  <div className="order-first flex min-w-0 flex-col justify-center space-y-3 text-left md:order-last md:mt-6 md:space-y-4 md:text-center">
                     <h3
                       className="font-display text-xl font-light leading-tight tracking-wide md:text-2xl lg:text-3xl"
                       dangerouslySetInnerHTML={{ __html: product.name }}
                     />
                     <div className="h-px w-8 bg-ramsider-purple md:hidden" />
                     <p className="font-body text-2xl font-normal md:text-3xl">{product.price}</p>
-                    <Button variant="primary" className="w-full text-sm md:text-base">
-                      {t('versions.0.cta')}
+                    <Button
+                      variant="ghost"
+                      className="w-fit gap-2 rounded-none px-0 py-0 text-[10px] font-medium tracking-wider text-ramsider-black hover:text-ramsider-black sm:text-xs"
+                    >
+                      <span className="border-b border-ramsider-black pb-0.5">
+                        {t('versions.0.cta')}
+                      </span>
+                      <span aria-hidden="true">→</span>
                     </Button>
                   </div>
                 </div>

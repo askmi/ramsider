@@ -7,62 +7,62 @@ export function HeroSection() {
   const t = useTranslations('hero')
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-ramsider-white to-white px-4 py-2 sm:py-6 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid gap-2 lg:grid-cols-2 lg:gap-12 lg:items-center">
+    <section className="relative overflow-hidden bg-gradient-to-b from-ramsider-white to-white px-4 py-3 sm:px-8 sm:py-6 lg:px-12 lg:py-8">
+      <div className="mx-auto max-w-[1400px]">
+        <div className="grid grid-cols-[40%_60%] items-center gap-2 sm:grid-cols-2 sm:gap-8 lg:gap-12">
           {/* Left: Content */}
-          <div className="space-y-1.5 sm:space-y-3">
+          <div className="order-first space-y-1.5 pr-2 sm:space-y-3 sm:pr-4 lg:space-y-4 lg:pr-8">
             <ScrollReveal delay={0}>
               <h1
-                className="font-display text-2xl font-light leading-none tracking-extra-wide sm:text-4xl lg:text-6xl xl:text-7xl"
+                className="font-display text-3xl font-light leading-none tracking-extra-wide sm:text-6xl sm:leading-[0.85] lg:text-7xl xl:text-8xl"
                 dangerouslySetInnerHTML={{ __html: t('productName') }}
               />
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
-              <h2 className="font-body text-sm font-normal tracking-wide text-ramsider-gray sm:text-base lg:text-lg">
+              <h2 className="font-body text-[10px] font-normal tracking-wide text-ramsider-gray sm:text-sm lg:text-base">
                 {t('tagline')}
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={200}>
               <p
-                className="font-body text-xs font-normal leading-snug sm:text-sm lg:text-base"
+                className="max-w-sm font-body text-[9px] font-normal leading-snug sm:text-xs lg:text-sm"
                 dangerouslySetInnerHTML={{ __html: t('description') }}
               />
             </ScrollReveal>
 
             <ScrollReveal delay={300}>
-              <div className="space-y-1">
-                <div className="flex items-baseline gap-2">
-                  <span className="font-body text-[10px] font-semibold tracking-widest text-ramsider-gray">
+              <div className="space-y-0.5 pt-0.5 sm:pt-2">
+                <div className="flex items-baseline gap-1">
+                  <span className="font-body text-[7px] font-semibold tracking-widest text-ramsider-gray uppercase sm:text-[10px]">
                     {t('priceFrom')}
                   </span>
-                  <span className="font-display text-2xl font-bold sm:text-3xl">
+                  <span className="font-display text-xl font-normal sm:text-3xl lg:text-4xl">
                     {t('price')}
                   </span>
                 </div>
-                <p className="font-body text-[10px] font-medium tracking-wide text-ramsider-gray">
+                <p className="font-body text-[7px] font-medium tracking-wide text-ramsider-gray sm:text-[10px]">
                   {t('shipping')}
                 </p>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={400}>
-              <div className="flex flex-col gap-2">
-                <Button variant="primary" className="w-full py-2 text-xs sm:w-auto sm:py-3 sm:text-sm">
+              <div className="flex max-w-[240px] flex-col gap-1 pt-1 sm:max-w-xs sm:gap-2 sm:pt-3">
+                <Button variant="primary" className="w-full py-1.5 text-[8px] font-semibold sm:py-3 sm:text-xs lg:text-sm">
                   {t('cta.preOrder')}
                 </Button>
-                <Button variant="secondary" className="w-full py-2 text-xs sm:w-auto sm:py-3 sm:text-sm">
+                <Button variant="secondary" className="w-full py-1.5 text-[8px] font-semibold sm:py-3 sm:text-xs lg:text-sm">
                   {t('cta.business')}
                 </Button>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={500}>
-              <button className="group flex items-center gap-1.5 font-body text-[10px] font-semibold tracking-wider transition-colors hover:text-ramsider-purple">
-                <div className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-ramsider-black transition-colors group-hover:border-ramsider-purple">
-                  <svg className="h-2.5 w-2.5" fill="currentColor" viewBox="0 0 24 24">
+              <button className="group flex items-center gap-1 whitespace-nowrap pt-0.5 font-body text-[8px] font-semibold tracking-wider transition-colors hover:text-ramsider-purple sm:gap-1.5 sm:pt-2 sm:text-[11px]">
+                <div className="flex h-5 w-5 items-center justify-center rounded-full border border-ramsider-black transition-colors group-hover:border-ramsider-purple sm:h-8 sm:w-8">
+                  <svg className="h-2 w-2 sm:h-3 sm:w-3" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
@@ -72,8 +72,8 @@ export function HeroSection() {
           </div>
 
           {/* Right: Product Image */}
-          <ScrollReveal delay={200} className="relative">
-            <div className="relative aspect-[3/4] w-full max-h-[200px] sm:max-h-[400px] lg:max-h-none">
+          <ScrollReveal delay={200} className="relative order-last">
+            <div className="relative h-[250px] w-full sm:h-[400px] lg:h-[500px] xl:h-[600px]">
               <div className="absolute inset-0 bg-gradient-radial from-ramsider-purple-glow/20 via-transparent to-transparent blur-3xl" />
               <Image
                 src="/images/products/uno-light-hero-pure.png"
@@ -81,7 +81,7 @@ export function HeroSection() {
                 fill
                 priority
                 className="object-contain"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 639px) 40vw, 50vw"
               />
             </div>
           </ScrollReveal>

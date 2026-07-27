@@ -36,7 +36,7 @@ export function LanguageSelector({ currentLocale }: LanguageSelectorProps) {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 rounded-lg border border-ramsider-border px-4 py-2 text-sm font-medium transition-colors hover:border-ramsider-purple"
+        className="flex items-center gap-2 whitespace-nowrap rounded-lg border border-ramsider-border px-4 py-2 text-sm font-medium transition-colors hover:border-ramsider-purple"
         aria-label="Select language"
       >
         <span>{localeFlags[currentLocale]}</span>

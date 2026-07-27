@@ -14,12 +14,12 @@ interface StatCardProps {
 function StatCard({ icon, value, label, delay }: StatCardProps) {
   return (
     <ScrollReveal delay={delay}>
-      <div className="flex flex-col items-center space-y-1.5 text-center sm:space-y-3">
-        <div className="text-ramsider-gray [&>svg]:h-6 [&>svg]:w-6 sm:[&>svg]:h-10 sm:[&>svg]:w-10">{icon}</div>
-        <div className="space-y-0.5 sm:space-y-1">
-          <p className="font-body text-xs font-semibold sm:text-sm lg:text-base">{value}</p>
+      <div className="flex flex-col items-center space-y-1 text-center">
+        <div className="text-ramsider-gray [&>svg]:h-5 [&>svg]:w-5 sm:[&>svg]:h-8 sm:[&>svg]:w-8">{icon}</div>
+        <div className="space-y-0.5">
+          <p className="font-body text-[10px] font-semibold sm:text-xs lg:text-sm">{value}</p>
           <p
-            className="font-body text-[8px] font-semibold tracking-wider text-ramsider-gray uppercase sm:text-[10px] sm:tracking-widest"
+            className="font-body text-[7px] font-semibold tracking-wider text-ramsider-gray uppercase sm:text-[9px]"
             dangerouslySetInnerHTML={{ __html: label }}
           />
         </div>
@@ -75,11 +75,11 @@ export function StatsSection() {
   ]
 
   return (
-    <section className="bg-ramsider-white px-4 py-2 sm:py-6 sm:px-6 lg:px-8">
+    <section className="bg-ramsider-white px-3 py-1.5 sm:py-4 sm:px-4 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="flex items-stretch divide-x divide-ramsider-border">
           {stats.map((stat, index) => (
-            <div key={index} className="flex-1 px-3 sm:px-6 lg:px-8">
+            <div key={index} className="flex-1 px-2 sm:px-4 lg:px-6">
               <StatCard {...stat} delay={index * 100} />
             </div>
           ))}

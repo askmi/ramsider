@@ -14,12 +14,12 @@ interface StatCardProps {
 function StatCard({ icon, value, label, delay }: StatCardProps) {
   return (
     <ScrollReveal delay={delay}>
-      <div className="flex flex-col items-center space-y-3 text-center sm:space-y-4">
-        <div className="text-ramsider-gray">{icon}</div>
-        <div className="space-y-1 sm:space-y-2">
-          <p className="font-body text-sm font-semibold sm:text-base lg:text-lg">{value}</p>
+      <div className="flex flex-col items-center space-y-1.5 text-center sm:space-y-3">
+        <div className="text-ramsider-gray [&>svg]:h-6 [&>svg]:w-6 sm:[&>svg]:h-10 sm:[&>svg]:w-10">{icon}</div>
+        <div className="space-y-0.5 sm:space-y-1">
+          <p className="font-body text-xs font-semibold sm:text-sm lg:text-base">{value}</p>
           <p
-            className="font-body text-[10px] font-semibold tracking-wider text-ramsider-gray uppercase sm:text-xs sm:tracking-widest"
+            className="font-body text-[8px] font-semibold tracking-wider text-ramsider-gray uppercase sm:text-[10px] sm:tracking-widest"
             dangerouslySetInnerHTML={{ __html: label }}
           />
         </div>
@@ -75,7 +75,7 @@ export function StatsSection() {
   ]
 
   return (
-    <section className="bg-ramsider-white px-4 py-8 sm:py-12 sm:px-6 lg:px-8">
+    <section className="bg-ramsider-white px-4 py-2 sm:py-6 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="flex items-stretch divide-x divide-ramsider-border">
           {stats.map((stat, index) => (

@@ -8,25 +8,25 @@ export function BusinessSection() {
   const t = useTranslations('business')
 
   return (
-    <section className="bg-white py-12">
+    <section className="bg-white py-2 sm:py-8">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-gray-50 to-white">
-            <div className="grid gap-8 lg:grid-cols-[40%_60%] lg:gap-0">
+          <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-gray-50 to-white">
+            <div className="grid gap-3 lg:grid-cols-[40%_60%] lg:gap-0">
               {/* Left: Content */}
-              <div className="flex items-center px-8 py-12 sm:px-12 lg:px-16 lg:py-16">
-                <div className="space-y-6">
-                  <Badge>{t('badge')}</Badge>
+              <div className="flex items-center px-4 py-4 sm:px-8 sm:py-8 lg:px-12 lg:py-12">
+                <div className="space-y-2 sm:space-y-4">
+                  <Badge className="text-[10px] px-2 py-0.5">{t('badge')}</Badge>
 
-                  <h2 className="font-body text-2xl font-normal leading-tight sm:text-3xl lg:text-4xl">
+                  <h2 className="font-body text-sm font-normal leading-tight sm:text-xl lg:text-2xl">
                     {t('title')}
                   </h2>
 
-                  <div className="flex flex-col gap-4 pt-2">
-                    <Button variant="primary">
+                  <div className="flex flex-col gap-2 pt-1">
+                    <Button variant="primary" className="py-1.5 text-xs">
                       {t('cta.explore')}
                     </Button>
-                    <Button variant="secondary">
+                    <Button variant="secondary" className="py-1.5 text-xs">
                       {t('cta.request')}
                     </Button>
                   </div>
@@ -34,7 +34,7 @@ export function BusinessSection() {
               </div>
 
               {/* Right: Image with gradient fade on left edge */}
-              <div className="relative aspect-[4/3] lg:aspect-auto">
+              <div className="relative aspect-[4/3] max-h-[150px] sm:max-h-[250px] lg:aspect-auto lg:max-h-none">
                 <div className="absolute inset-0">
                   <Image
                     src="/images/products/business-lifestyle-pure.png"

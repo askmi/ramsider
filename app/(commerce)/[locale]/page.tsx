@@ -20,7 +20,7 @@ export default async function HomePage({
   return (
     <>
       <Header currentLocale={locale as Locale} />
-      <main className="pt-[140px]">
+      <main className="pt-20 sm:pt-[140px]">
         <HeroSection />
         <BusinessSection />
         <StatsSection />

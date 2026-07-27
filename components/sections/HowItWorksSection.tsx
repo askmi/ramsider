@@ -22,7 +22,7 @@ export function HowItWorksSection() {
   ]
 
   return (
-    <section className="bg-white px-4 py-12 sm:px-6 lg:px-8">
+    <section className="bg-white px-4 py-3 sm:py-8 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <ScrollReveal>
           <h2 className="mb-8 text-center font-display text-3xl font-light tracking-extra-wide sm:text-4xl lg:text-5xl">

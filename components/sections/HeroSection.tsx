@@ -7,11 +7,11 @@ export function HeroSection() {
   const t = useTranslations('hero')
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-ramsider-white to-white px-4 py-12 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-gradient-to-b from-ramsider-white to-white px-4 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 lg:items-center">
+        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 lg:items-center">
           {/* Left: Content */}
-          <div className="space-y-6 sm:space-y-8">
+          <div className="space-y-4 sm:space-y-6">
             <ScrollReveal delay={0}>
               <h1
                 className="font-display text-5xl font-light leading-none tracking-extra-wide sm:text-7xl lg:text-8xl xl:text-9xl"
@@ -33,23 +33,23 @@ export function HeroSection() {
             </ScrollReveal>
 
             <ScrollReveal delay={300}>
-              <div className="space-y-3 sm:space-y-4">
-                <div className="flex items-baseline gap-3">
-                  <span className="font-body text-xs font-semibold tracking-widest text-ramsider-gray sm:text-sm">
+              <div className="space-y-2">
+                <div className="flex items-baseline gap-2">
+                  <span className="font-body text-xs font-semibold tracking-widest text-ramsider-gray">
                     {t('priceFrom')}
                   </span>
-                  <span className="font-display text-4xl font-bold sm:text-5xl">
+                  <span className="font-display text-3xl font-bold sm:text-4xl">
                     {t('price')}
                   </span>
                 </div>
-                <p className="font-body text-xs font-medium tracking-wide text-ramsider-gray sm:text-sm">
+                <p className="font-body text-xs font-medium tracking-wide text-ramsider-gray">
                   {t('shipping')}
                 </p>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={400}>
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <div className="flex flex-col gap-2 sm:gap-3">
                 <Button variant="primary" className="w-full sm:w-auto">
                   {t('cta.preOrder')}
                 </Button>
@@ -60,9 +60,9 @@ export function HeroSection() {
             </ScrollReveal>
 
             <ScrollReveal delay={500}>
-              <button className="group flex items-center gap-2 font-body text-xs font-semibold tracking-wider transition-colors hover:text-ramsider-purple sm:text-sm">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-ramsider-black transition-colors group-hover:border-ramsider-purple sm:h-10 sm:w-10">
-                  <svg className="h-3 w-3 sm:h-4 sm:w-4" fill="currentColor" viewBox="0 0 24 24">
+              <button className="group flex items-center gap-2 font-body text-xs font-semibold tracking-wider transition-colors hover:text-ramsider-purple">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-ramsider-black transition-colors group-hover:border-ramsider-purple">
+                  <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
@@ -72,7 +72,7 @@ export function HeroSection() {
           </div>
 
           {/* Right: Product Image */}
-          <ScrollReveal delay={200} className="relative order-first lg:order-last">
+          <ScrollReveal delay={200} className="relative">
             <div className="relative aspect-[3/4] w-full">
               <div className="absolute inset-0 bg-gradient-radial from-ramsider-purple-glow/20 via-transparent to-transparent blur-3xl" />
               <Image

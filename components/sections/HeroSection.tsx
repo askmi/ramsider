@@ -7,11 +7,11 @@ export function HeroSection() {
   const t = useTranslations('hero')
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-ramsider-white to-white px-4 py-3 sm:px-8 sm:py-6 lg:px-12 lg:py-8">
+    <section className="relative overflow-hidden bg-gradient-to-b from-ramsider-white to-white px-4 py-0 sm:px-8 sm:py-6 lg:px-12 lg:py-8">
       <div className="mx-auto max-w-[1400px]">
         <div className="grid grid-cols-[2fr_3fr] items-center gap-2 sm:grid-cols-2 sm:gap-8 lg:gap-12">
           {/* Left: Content */}
-          <div className="order-first space-y-1.5 pr-2 sm:space-y-3 sm:pr-4 lg:space-y-4 lg:pr-8">
+          <div className="order-first translate-x-4 space-y-1.5 pr-2 sm:translate-x-0 sm:space-y-3 sm:pr-4 lg:space-y-4 lg:pr-8">
             <ScrollReveal delay={0}>
               <h1
                 className="font-display text-3xl font-light leading-none tracking-extra-wide sm:text-6xl sm:leading-[0.85] lg:text-7xl xl:text-8xl"
@@ -73,7 +73,7 @@ export function HeroSection() {
 
           {/* Right: Product Image */}
           <ScrollReveal delay={200} className="relative order-last">
-            <div className="relative h-[420px] w-full -translate-y-3 translate-x-[3px] sm:h-[480px] sm:translate-x-8 lg:h-[600px] lg:translate-x-12 xl:h-[700px]">
+            <div className="relative -mb-12 h-[420px] w-full -translate-y-3 translate-x-8 sm:mb-0 sm:h-[480px] lg:h-[600px] lg:translate-x-12 xl:h-[700px]">
               <div className="absolute inset-0 bg-gradient-radial from-ramsider-purple-glow/20 via-transparent to-transparent blur-3xl" />
               <Image
                 src="/images/products/uno-light-hero-pure.png"

@@ -16,17 +16,17 @@ export function ProductsSection() {
     {
       name: 'UNO<br/>GOLD',
       price: '2499 $',
-      image: '/images/products/uno-gold-pure.png',
+      image: '/images/products/uno-gold-card.png',
     },
   ]
 
   return (
-    <section className="bg-white px-4 py-3 sm:py-8 sm:px-6 lg:px-8">
+    <section className="bg-white px-4 pb-3 pt-8 sm:px-6 sm:py-8 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <ScrollReveal>
           <div className="mb-8 text-center">
             <h2
-              className="whitespace-nowrap font-display text-[clamp(1.5rem,7vw,1.875rem)] font-light leading-tight tracking-wide sm:text-4xl sm:tracking-extra-wide lg:text-5xl"
+              className="whitespace-nowrap font-display text-xl font-light leading-tight tracking-wide sm:text-4xl sm:tracking-extra-wide lg:text-5xl"
               dangerouslySetInnerHTML={{ __html: t('sectionTitle') }}
             />
             <p className="mt-6 font-body text-base text-ramsider-gray sm:text-lg">
@@ -38,23 +38,23 @@ export function ProductsSection() {
         <div className="space-y-12 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
           {products.map((product, index) => (
             <ScrollReveal key={index} delay={index * 150}>
-              <Card className="group relative overflow-hidden p-4 transition-transform duration-300 hover:-translate-y-2 md:p-8">
+              <Card className="group relative overflow-hidden p-0 transition-transform duration-300 hover:-translate-y-2 md:p-8">
                 {/* Mobile: Horizontal layout, Desktop: Vertical */}
-                <div className="grid min-h-[220px] grid-cols-[42%_58%] gap-3 md:min-h-0 md:grid-cols-1 md:gap-0">
+                <div className="grid min-h-[220px] grid-cols-[42%_58%] md:min-h-0 md:grid-cols-1">
                   {/* Image - Right on mobile, Top on desktop */}
-                  <div className="relative order-last h-full min-h-[220px] scale-110 overflow-hidden rounded-2xl md:order-first md:aspect-[3/4] md:min-h-0 md:scale-100">
+                  <div className="relative order-last h-full min-h-[220px] overflow-hidden md:order-first md:aspect-[3/4] md:min-h-0 md:rounded-2xl">
                     <div className="absolute inset-0 bg-gradient-radial from-ramsider-purple/20 via-transparent to-transparent opacity-100 transition-opacity duration-500 md:opacity-0 md:group-hover:opacity-100" />
                     <Image
                       src={product.image}
                       alt={product.name.replace('<br/>', ' ')}
                       fill
-                      className="object-contain"
+                      className="object-cover md:object-contain"
                       sizes="(max-width: 767px) 58vw, 33vw"
                     />
                   </div>
 
                   {/* Content - Left on mobile, Bottom on desktop */}
-                  <div className="order-first flex min-w-0 flex-col justify-center space-y-3 text-left md:order-last md:mt-6 md:space-y-4 md:text-center">
+                  <div className="order-first flex min-w-0 flex-col justify-center space-y-3 p-4 text-left md:order-last md:mt-6 md:space-y-4 md:p-0 md:text-center">
                     <h3
                       className="font-display text-xl font-light leading-tight tracking-wide md:text-2xl lg:text-3xl"
                       dangerouslySetInnerHTML={{ __html: product.name }}

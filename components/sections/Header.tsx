@@ -12,14 +12,14 @@ interface HeaderProps {
 
 export function Header({ currentLocale }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [showLanguageBar, setShowLanguageBar] = useState(true)
+  const [showHeader, setShowHeader] = useState(true)
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
 
-      // Show language bar only when at the very top (within 10px)
-      setShowLanguageBar(currentScrollY <= 10)
+      // Show header only when at the very top (within 10px)
+      setShowHeader(currentScrollY <= 10)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -27,9 +27,14 @@ export function Header({ currentLocale }: HeaderProps) {
   }, [])
 
   return (
-    <>
+    <header
+      className={cn(
+        'fixed top-0 z-50 w-full bg-white/95 backdrop-blur-md transition-transform duration-300',
+        showHeader ? 'translate-y-0' : '-translate-y-full'
+      )}
+    >
       {/* Main Header Bar */}
-      <header className="fixed top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-ramsider-border">
+      <div className="border-b border-ramsider-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
@@ -66,15 +71,10 @@ export function Header({ currentLocale }: HeaderProps) {
             </div>
           </div>
         </div>
-      </header>
+      </div>
 
-      {/* Language Bar - Fixed below header */}
-      <div
-        className={cn(
-          'fixed top-20 z-40 w-full bg-white/95 backdrop-blur-md border-b border-ramsider-border transition-transform duration-300',
-          showLanguageBar ? 'translate-y-0' : '-translate-y-full'
-        )}
-      >
+      {/* Language Bar */}
+      <div className="border-b border-ramsider-border">
         <div className="mx-auto max-w-7xl">
           <div className="overflow-x-auto py-3 px-4 sm:px-6 lg:px-8 scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             <div className="flex items-center justify-center gap-3 sm:gap-6 min-w-max">
@@ -95,6 +95,6 @@ export function Header({ currentLocale }: HeaderProps) {
           </div>
         </div>
       </div>
-    </>
+    </header>
   )
 }

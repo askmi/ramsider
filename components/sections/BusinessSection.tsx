@@ -34,7 +34,7 @@ export function BusinessSection() {
               </div>
 
               {/* Right: Image with gradient fade on left edge */}
-              <div className="relative h-[120px] sm:h-[200px] lg:h-[280px]">
+              <div className="relative h-[170px] sm:h-[280px] lg:h-[380px]">
                 <div className="absolute inset-0">
                   <Image
                     src="/images/products/business-lifestyle-pure.png"

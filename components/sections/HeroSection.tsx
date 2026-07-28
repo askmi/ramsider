@@ -9,7 +9,7 @@ export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-ramsider-white to-white px-4 py-3 sm:px-8 sm:py-6 lg:px-12 lg:py-8">
       <div className="mx-auto max-w-[1400px]">
-        <div className="grid grid-cols-[40%_60%] items-center gap-2 sm:grid-cols-2 sm:gap-8 lg:gap-12">
+        <div className="grid grid-cols-[2fr_3fr] items-center gap-2 sm:grid-cols-2 sm:gap-8 lg:gap-12">
           {/* Left: Content */}
           <div className="order-first space-y-1.5 pr-2 sm:space-y-3 sm:pr-4 lg:space-y-4 lg:pr-8">
             <ScrollReveal delay={0}>
@@ -73,14 +73,14 @@ export function HeroSection() {
 
           {/* Right: Product Image */}
           <ScrollReveal delay={200} className="relative order-last">
-            <div className="relative h-[250px] w-full sm:h-[400px] lg:h-[500px] xl:h-[600px]">
+            <div className="relative h-[420px] w-full -translate-y-3 translate-x-[3px] sm:h-[480px] sm:translate-x-8 lg:h-[600px] lg:translate-x-12 xl:h-[700px]">
               <div className="absolute inset-0 bg-gradient-radial from-ramsider-purple-glow/20 via-transparent to-transparent blur-3xl" />
               <Image
                 src="/images/products/uno-light-hero-pure.png"
                 alt="Ramsider UNO Luxury Electronic Hookah"
                 fill
                 priority
-                className="object-contain"
+                className="object-contain object-right"
                 sizes="(max-width: 639px) 40vw, 50vw"
               />
             </div>

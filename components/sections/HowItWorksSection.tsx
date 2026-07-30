@@ -6,18 +6,20 @@ export function HowItWorksSection() {
   const t = useTranslations('howItWorks')
 
   const icons = [
-    <svg key="capsule" className="h-8 w-8 md:h-16 md:w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+    <svg key="capsule" className="h-5 w-7 md:h-16 md:w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <rect x="3" y="7" width="18" height="10" rx="5" strokeWidth={1.5} />
+      <path strokeLinecap="round" strokeWidth={1.5} d="M12 7v10" />
     </svg>,
-    <svg key="play" className="h-8 w-8 md:h-16 md:w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg key="play" className="h-7 w-7 md:h-16 md:w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>,
-    <svg key="clock" className="h-8 w-8 md:h-16 md:w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg key="clock" className="h-7 w-7 md:h-16 md:w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>,
-    <svg key="smile" className="h-8 w-8 md:h-16 md:w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    <svg key="smoke" className="h-6 w-7 md:h-16 md:w-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 17h10a4 4 0 0 0 .8-7.92A6 6 0 0 0 6.35 8.2 4.5 4.5 0 0 0 7 17Z" />
+      <path strokeLinecap="round" strokeWidth={1.5} d="M12 17v4" />
     </svg>,
   ]
 
@@ -25,36 +27,38 @@ export function HowItWorksSection() {
     <section className="bg-white px-4 py-3 sm:py-8 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <ScrollReveal>
-          <h2 className="mb-8 text-center font-display text-3xl font-light tracking-extra-wide sm:text-4xl lg:text-5xl">
+          <h2 className="mb-10 text-center font-display text-xl font-light tracking-extra-wide sm:text-2xl lg:text-5xl">
             {t('sectionTitle')}
           </h2>
         </ScrollReveal>
 
-        <div className="space-y-12 md:grid md:grid-cols-2 md:gap-12 md:space-y-0 lg:grid-cols-4">
+        <div className="mx-auto max-w-[280px] space-y-7 md:grid md:max-w-none md:grid-cols-2 md:gap-12 md:space-y-0 lg:grid-cols-4">
           {[0, 1, 2, 3].map((index) => (
             <ScrollReveal key={index} delay={index * 100}>
               <div className="relative">
                 {/* Mobile: Timeline connector */}
                 {index < 3 && (
-                  <div className="absolute left-[30px] top-[80px] h-[calc(100%+3rem)] w-px bg-ramsider-purple/30 md:hidden" />
+                  <div className="absolute left-5 top-10 h-[calc(100%+2rem)] w-px bg-ramsider-purple/30 md:hidden" />
                 )}
 
-                {/* Layout switches: horizontal on mobile, vertical on desktop */}
-                <div className="flex gap-6 text-left md:block md:text-center">
+                {/* Layout switches: compact horizontal rows on mobile, vertical on desktop */}
+                <div className="flex items-start gap-6 text-left md:block md:text-center">
                   {/* Icon */}
-                  <div className="relative z-10 flex h-[60px] w-[60px] flex-shrink-0 items-center justify-center rounded-full border-2 border-ramsider-purple bg-white text-ramsider-purple md:mb-6 md:inline-flex md:h-24 md:w-24">
+                  <div className="relative z-10 flex h-9 w-9 flex-shrink-0 items-center justify-center bg-white text-ramsider-purple md:mb-6 md:inline-flex md:h-24 md:w-24 md:rounded-full md:border-2 md:border-ramsider-purple">
                     {icons[index]}
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 pb-12 md:pb-0">
-                    <div className="mb-2 font-display text-5xl font-bold text-ramsider-purple md:mb-3 md:text-6xl">
-                      {t(`steps.${index}.number`)}
+                  <div className="w-[172px] min-w-0 pt-0.5 md:w-auto md:pt-0">
+                    <div className="mb-1 flex items-baseline gap-3 md:mb-0 md:block">
+                      <div className="font-display text-xs font-bold text-ramsider-purple md:mb-3 md:text-6xl">
+                        {t(`steps.${index}.number`)}
+                      </div>
+                      <h3 className="font-display text-xs font-bold md:mb-3 md:text-xl">
+                        {t(`steps.${index}.title`)}
+                      </h3>
                     </div>
-                    <h3 className="mb-2 font-display text-lg font-bold md:mb-3 md:text-xl">
-                      {t(`steps.${index}.title`)}
-                    </h3>
-                    <p className="font-body text-sm text-ramsider-gray md:text-base">
+                    <p className="font-body text-[10px] leading-relaxed text-ramsider-gray md:text-base">
                       {t(`steps.${index}.description`)}
                     </p>
                   </div>

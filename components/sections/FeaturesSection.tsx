@@ -24,7 +24,7 @@ export function FeaturesSection() {
               className="mx-auto max-w-[520px] font-display text-[28px] font-light leading-[1.4] tracking-extra-wide sm:text-4xl lg:max-w-none lg:text-5xl"
               dangerouslySetInnerHTML={{ __html: t('sectionTitle') }}
             />
-            <p className="mx-auto mt-12 max-w-[430px] font-body text-sm leading-[1.65] text-ramsider-gray sm:mt-8 sm:max-w-3xl sm:text-base">
+            <p className="mx-auto mt-6 max-w-[255px] font-body text-sm leading-[1.65] text-ramsider-gray sm:mt-8 sm:max-w-3xl sm:text-base">
               {t('subtitle')}
             </p>
           </div>

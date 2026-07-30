@@ -8,7 +8,10 @@ export function FeaturesSection() {
   const features = [
     { image: '/images/products/feature-display.png', alt: 'Smart Display' },
     { image: '/images/products/feature-water.png', alt: 'Water Cooling' },
-    { image: '/images/products/feature-materials.png', alt: 'Premium Materials' },
+    {
+      image: '/images/products/feature-materials.png',
+      alt: 'Premium Materials',
+    },
     { image: '/images/products/feature-design.png', alt: 'Precision Design' },
   ]
 
@@ -16,12 +19,12 @@ export function FeaturesSection() {
     <section className="bg-ramsider-white px-4 py-3 sm:py-8 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <ScrollReveal>
-          <div className="mb-12 text-center">
+          <div className="mb-10 text-center sm:mb-12">
             <h2
-              className="font-display text-3xl font-light leading-tight tracking-extra-wide sm:text-4xl lg:text-5xl"
+              className="mx-auto max-w-[520px] font-display text-[28px] font-light leading-[1.4] tracking-extra-wide sm:text-4xl lg:max-w-none lg:text-5xl"
               dangerouslySetInnerHTML={{ __html: t('sectionTitle') }}
             />
-            <p className="mx-auto mt-8 max-w-3xl font-body text-sm text-ramsider-gray sm:text-base">
+            <p className="mx-auto mt-12 max-w-[430px] font-body text-sm leading-[1.65] text-ramsider-gray sm:mt-8 sm:max-w-3xl sm:text-base">
               {t('subtitle')}
             </p>
           </div>

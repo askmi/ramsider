@@ -81,8 +81,9 @@ export function ProductsSection() {
         <ScrollReveal delay={500}>
           <div className="mt-8 grid grid-cols-3 gap-4 border-t border-ramsider-border pt-6 sm:gap-8">
             <div className="flex flex-col items-center space-y-2 text-center sm:space-y-3">
-              <svg className="h-8 w-8 text-ramsider-purple sm:h-10 sm:w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              <svg className="h-6 w-6 text-ramsider-gray sm:h-7 sm:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3 5 6v5c0 4.8 2.9 8.4 7 10 4.1-1.6 7-5.2 7-10V6l-7-3Z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="m9 12 2 2 4-4" />
               </svg>
               <p
                 className="font-body text-[10px] font-semibold tracking-wider sm:text-xs sm:tracking-widest"
@@ -90,8 +91,9 @@ export function ProductsSection() {
               />
             </div>
             <div className="flex flex-col items-center space-y-2 text-center sm:space-y-3">
-              <svg className="h-8 w-8 text-ramsider-purple sm:h-10 sm:w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+              <svg className="h-6 w-6 text-ramsider-gray sm:h-7 sm:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.5 3.5 10.2 2h3.6l.7 1.5 1.6.7 1.6-.6 2.6 2.6-.6 1.6.7 1.7 1.6.7v3.6l-1.6.7-.7 1.7.6 1.6-2.6 2.6-1.6-.6-1.6.7-.7 1.5h-3.6l-.7-1.5-1.6-.7-1.6.6-2.6-2.6.6-1.6-.7-1.7-1.6-.7v-3.6l1.6-.7.7-1.7-.6-1.6 2.6-2.6 1.6.6 1.6-.7Z" />
+                <circle cx="12" cy="12" r="2.5" strokeWidth={1.5} />
               </svg>
               <p
                 className="font-body text-[10px] font-semibold tracking-wider sm:text-xs sm:tracking-widest"
@@ -99,7 +101,7 @@ export function ProductsSection() {
               />
             </div>
             <div className="flex flex-col items-center space-y-2 text-center sm:space-y-3">
-              <svg className="h-8 w-8 text-ramsider-purple sm:h-10 sm:w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="h-6 w-6 text-ramsider-gray sm:h-7 sm:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
               <p

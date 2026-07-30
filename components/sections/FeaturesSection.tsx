@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-import { Button } from '@/components/ui/Button'
 import { ScrollReveal } from '@/components/ui/ScrollReveal'
 
 export function FeaturesSection() {
@@ -60,21 +59,6 @@ export function FeaturesSection() {
             </ScrollReveal>
           ))}
         </div>
-
-        <ScrollReveal delay={500}>
-          <div className="mt-12 rounded-3xl bg-ramsider-black p-8 sm:p-12 text-center text-white">
-            <h3
-              className="mb-4 font-display text-3xl font-bold sm:text-4xl lg:text-5xl"
-              dangerouslySetInnerHTML={{ __html: t('cta.title') }}
-            />
-            <p className="mb-8 font-body text-lg text-ramsider-gray">
-              {t('cta.subtitle')}
-            </p>
-            <Button variant="primary" className="bg-white text-ramsider-black hover:bg-ramsider-purple hover:text-white">
-              {t('cta.button')}
-            </Button>
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   )

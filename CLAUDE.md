@@ -57,7 +57,7 @@ This is a **pixel-fidelity rebuild** of four supplied design renders. The render
 
 Before changing any visual (spacing, image placement, type size, weight, tracking, color, layout order), **look at the relevant render** and reproduce what's there. Fonts, image positions, and proportions must match the render, not approximate it. Use the `render-match` skill when building a section to a render.
 
-**MOBILE IS THE PRIMARY AUDIENCE.** Design and verify mobile first, always. Tailwind here is mobile-first: unprefixed classes = mobile, `sm:`/`lg:`/`xl:` layer up. Every section is authored small-screen-first (see `HeroSection`: base sizes, then `sm:`/`lg:` overrides). Check the mobile render/layout before the desktop one. `screenshot.mjs` (Playwright) is the only capture script present, and it is currently **desktop-only** (1440px viewport, hardcoded port) — set a mobile viewport before using it to verify mobile.
+**MOBILE IS THE PRIMARY AUDIENCE.** Design and verify mobile first, always. Tailwind here is mobile-first: unprefixed classes = mobile, `sm:`/`lg:`/`xl:` layer up. Every section is authored small-screen-first (see `HeroSection`: base sizes, then `sm:`/`lg:` overrides). Check the mobile render/layout before the desktop one. Verify with the **`chrome-devtools-mcp`** skill — drive a live browser at a mobile viewport (~390px) and screenshot to compare against the render.
 
 **Fonts are settled — do not reintroduce serifs.** `FONTS.txt` documents that the renders use clean geometric **sans-serif** throughout (Playfair/serif was a prior mistake). Display = `Work_Sans` (`--font-display`, `font-display`), body = `Inter` (`--font-body`, `font-body`), both via `next/font/google` in `lib/fonts.ts`. Headings use wide tracking (`tracking-extra-wide` = 0.2em, `tracking-ultra-wide` = 0.3em).
 
@@ -72,7 +72,7 @@ npm run type-check   # tsc --noEmit — run before considering a change done
 npm run format       # prettier + tailwind class sorting
 ```
 
-Screenshot / visual-check: `node screenshot.mjs` (Playwright; captures a full-page **desktop** shot to `screenshot-full.png` — needs the dev server running, and note the hardcoded port inside the script). There is **no test suite** — verification is visual (against renders) plus `type-check` + `lint`.
+Visual verification (the MAIN RULE): run the dev server, then use the **`chrome-devtools-mcp`** skill to load the page at a mobile viewport and screenshot it against `renders/*.jpg`. There is **no test suite** — verification is visual (against renders) plus `type-check` + `lint`.
 
 ## Architecture
 
@@ -80,7 +80,7 @@ Single marketing/commerce page, statically generated per locale.
 
 - **Routing / i18n:** `next-intl` with `localePrefix: 'always'`. Every route is `/[locale]/...`. The only page is `app/(commerce)/[locale]/page.tsx`; `layout.tsx` wraps it in `NextIntlClientProvider`, sets `<html lang dir>` (RTL for Arabic), and loads the fonts. `middleware.ts` redirects to a locale prefix. **`params` is a `Promise`** in this Next version — `await params` before reading `locale` (see page/layout).
 - **11 locales, config-driven:** `lib/i18n/config.ts` is the source of truth (`locales`, `defaultLocale`, `localeNames`, `localeFlags`, `rtlLocales = ['ar']`). `lib/i18n/request.ts` loads messages from `public/locales/<locale>.json`. **All user-facing copy lives in those JSON files** and is read via `useTranslations('<namespace>')` — never hardcode strings in a section. If you add copy, add the key to **all 11** JSON files. Some values contain HTML and are rendered with `dangerouslySetInnerHTML` (e.g. hero `productName`, `description`).
-- **Page composition:** `page.tsx` renders `Header` + `<main className="pt-[140px]">` containing the sections in fixed order (Hero → Business → Stats → Products → Features → HowItWorks → Testimonial → Shipping → Footer). One file per section in `components/sections/`.
+- **Page composition:** `page.tsx` renders `Header` + `<main className="pt-[153px]">` (offset for the fixed header) containing the sections in fixed order (Hero → Business → Stats → Products → Features → HowItWorks → Testimonial → Shipping → Footer). One file per section in `components/sections/`.
 - **UI primitives:** `components/ui/` — `Button` (variant `primary`/`secondary`), `Card`, `Badge`, `LanguageSelector`, `ScrollReveal` (wraps content with a `delay` prop for staggered fade-up on scroll; sections stagger children with `delay={0,100,200,...}`).
 - **Images:** all product/feature art is in `public/images/products/` (`*-pure.png` = transparent cutouts, `*.webp` = full). Always use `next/image` with `fill` + `sizes` + `object-contain`, `priority` only for above-the-fold hero. Match placement to the render.
 - **Styling:** Tailwind only. Brand tokens live in `tailwind.config.ts` under `colors.ramsider` (`white #FAFAFA`, `black #0A0A0A`, `purple #C026D3`, `purple-glow #E879F9`, `gray #A1A1A1`, `border #E5E5E5`) — **use these tokens, not raw hex**. Custom animations (`fade-up`, `glow-pulse`, etc.) and extra spacing steps are also defined there. Global base styles + the `bg-gradient-radial` utility are in `app/globals.css`. Merge classes with `cn()` from `lib/utils.ts`; format prices with `formatPrice()`.

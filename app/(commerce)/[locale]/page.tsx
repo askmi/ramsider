@@ -23,9 +23,9 @@ export default async function HomePage({
       <main className="pt-[153px]">
         <HeroSection />
         <BusinessSection />
+        <StatsSection />
         <ProductsSection />
         <FeaturesSection />
-        <StatsSection />
         <HowItWorksSection />
         <TestimonialSection />
         <ShippingSection />

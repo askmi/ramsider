@@ -14,12 +14,12 @@ interface StatCardProps {
 function StatCard({ icon, value, label, delay }: StatCardProps) {
   return (
     <ScrollReveal delay={delay}>
-      <div className="flex flex-col items-center space-y-1 text-center">
-        <div className="text-ramsider-gray [&>svg]:h-5 [&>svg]:w-5 sm:[&>svg]:h-8 sm:[&>svg]:w-8">{icon}</div>
-        <div className="space-y-0.5">
-          <p className="font-body text-[10px] font-semibold sm:text-xs lg:text-sm">{value}</p>
+      <div className="flex min-h-[62px] items-center justify-center gap-1 text-left min-[480px]:gap-1.5 sm:gap-3">
+        <div className="flex-shrink-0 text-ramsider-gray [&>svg]:h-5 [&>svg]:w-5 min-[480px]:[&>svg]:h-6 min-[480px]:[&>svg]:w-6 sm:[&>svg]:h-8 sm:[&>svg]:w-8">{icon}</div>
+        <div className="min-w-0 space-y-0.5">
+          <p className="font-body text-[9px] font-semibold min-[480px]:text-[10px] sm:text-xs lg:text-sm">{value}</p>
           <p
-            className="font-body text-[7px] font-semibold tracking-wider text-ramsider-gray uppercase sm:text-[9px]"
+            className="font-body text-[6px] font-semibold leading-snug tracking-wider text-ramsider-gray uppercase min-[480px]:text-[7px] sm:text-[9px]"
             dangerouslySetInnerHTML={{ __html: label }}
           />
         </div>
@@ -79,7 +79,7 @@ export function StatsSection() {
       <div className="mx-auto max-w-7xl">
         <div className="flex items-stretch divide-x divide-ramsider-border">
           {stats.map((stat, index) => (
-            <div key={index} className="flex-1 px-2 sm:px-4 lg:px-6">
+            <div key={index} className="min-w-0 flex-1 px-1 min-[480px]:px-2 sm:px-4 lg:px-6">
               <StatCard {...stat} delay={index * 100} />
             </div>
           ))}

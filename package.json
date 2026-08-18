@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "rebuild": "rm -rf .next node_modules package-lock.json && npm install && npm run dev"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -25,7 +26,6 @@
     "autoprefixer": "^10.5.4",
     "eslint": "^9.17.0",
     "eslint-config-next": "^15.1.0",
-    "playwright": "^1.62.0",
     "postcss": "^8.5.23",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9",

@@ -15,7 +15,7 @@ export function ProductsSection() {
     },
     {
       name: 'UNO<br/>GOLD',
-      price: '2499 $',
+      price: '1999 $',
       image: '/images/products/uno-gold-card.png',
     },
   ]

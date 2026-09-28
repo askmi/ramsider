@@ -110,3 +110,27 @@
 [3]: https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan?utm_source=chatgpt.com "Using Codex with your ChatGPT plan | OpenAI Help Center"
 [4]: https://mcpmarket.com/tools/skills/frontend-design-codex?utm_source=chatgpt.com "Frontend Design Claude Code Skill | Apple-Style Web UI"
 [5]: https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra?utm_source=chatgpt.com "Rethinking skills and prompts for GPT-6 Astra | OpenAI Developers"
+
+
+
+### RTL Support
+Arabic language includes full RTL (right-to-left) layout with mirrored animations and proper text alignment.
+
+## 📱 Responsive Design
+
+- **Mobile-first**: Base styles for mobile devices
+- **Breakpoints**:
+  - `sm`: 640px
+  - `md`: 768px
+  - `lg`: 1024px
+  - `xl`: 1280px
+  - `2xl`: 1536px
+
+## ♿ Accessibility
+
+- **Semantic HTML**: Proper use of `<section>`, `<article>`, `<nav>`
+- **ARIA Labels**: All interactive elements properly labeled
+- **Keyboard Navigation**: Full tab order support
+- **Color Contrast**: WCAG AA compliant (4.5:1 minimum)
+- **Screen Readers**: Optimized for assistive technologies
+- **Motion**: Respects `prefers-reduced-motion`

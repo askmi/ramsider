@@ -1,0 +1,1108 @@
+# PRODUCT
+
+# Ramsider UNO - Luxury Electronic Hookah Commerce Page see references
+
+A blazing-fast, mobile-first Next.js commerce page built with pixel-perfect design and comprehensive localization support for 11 languages.
+
+## 🎯 Project Overview
+
+High-performance commerce page for Ramsider UNO luxury electronic hookah devices following all Vercel best practices and modern web standards.
+
+### Design Philosophy: Refined Luxury Minimalism
+Editorial-style commerce experience that elevates a premium product through restraint, precision, and sophisticated visual language.
+
+## ✨ Key Features
+
+- **Mobile-First**: Optimized for mobile devices with responsive design
+- **11 Languages**: Full localization support including RTL for Arabic Key value approach
+- **Blazing Fast**: Lighthouse score 95+ mobile, optimized for Core Web Vitals
+kinda infinite scroll without lags, later will be added heavy assets like videos animations images so potentially shoul dapply lazy loading and other optimization industry standards technics
+- **Pixel-Perfect**: Matches design renders exactly
+- **Accessible**: WCAG AA compliant with full keyboard navigation
+- **Modern Stack**: latest Vite, Next.js, React, TypeScript, Tailwind CSS
+
+## 🌍 Supported Languages
+
+- 🇺🇸 English (EN)
+- 🇷🇺 Russian (RU)
+- 🇩🇪 German (DE)
+- 🇫🇷 French (FR)
+- 🇪🇸 Spanish (ES)
+- 🇮🇹 Italian (IT)
+- 🇹🇷 Turkish (TR)
+- 🇸🇦 Arabic (AR) - RTL support
+- 🇨🇳 Chinese (ZH)
+- 🇯🇵 Japanese (JA)
+- 🇰🇷 Korean (KO)
+
+# ⭐ TOP-PRIORITY INSTRUCTIONS (override everything below)
+
+## GOALS
+- **MAIN AUDIENCE is the luxury mobile screen devices IPhone 17-18 Pro, for remaining responsive adoption.** 
+Design mobile-device-first: media queries, adaptive + responsive UI. Verify mobile before anything else.
+- **Pixel- and shape-perfect match to `design/references`** — the references is the ground truth for every UI/UX decision.
+- **Image placement, aspect ratio, fonts — everything must match the references exactly**, not approximately.
+- **Create a modern look & feel** using the available skills and plugins (see list at bottom).
+- **Write clean React** — follow current best practices and patterns.
+- **Spend fewer tokens** — never read trash/cache files; use this file as the index (see token-discipline section).
+- **Clean up redundant/unused code** as you go.
+
+## MAIN RULE — verify against the real screen, always
+When given any task to change or fix a UI component (placement, styles, spacing, images, etc.):
+1. Make the change.
+2. **ALWAYS capture the actual rendered screen and compare it to the target render** (use the screenshot/browser skills below, or create a small skill/script if it gets it done more efficiently).
+3. **NEVER say "done" until you have verified the real on-screen result** matches the render.
+4. Remove unused code
+
+**ALWAYS REMEMBER: the single focus is to follow `design/references` UI/UX exactly.**
+
+---
+
+## ⛔ Read this first — token discipline
+
+Don't burn tokens on generated/cache files — **never read these**:
+
+- `node_modules/`, `.next/`, `*.tsbuildinfo`, `package-lock.json`, `public/locales/*.json` (huge; grep for a key instead of reading whole files)
+- Any `*.png` capture at repo root — regenerate a fresh screenshot rather than reading a stale one.
+
+Root has been cleaned of the old deploy/status doc clutter; if throwaway `*_FIXED.md` / `DEPLOY_*` / `VERCEL_*` files reappear, treat them as noise, not truth. The **code and the `design/references`** are the only sources of truth.
+
+## 🎯 The one rule that matters: match `design/references` exactly
+
+This is a **pixel-fidelity rebuild** of four supplied design renders. The references are the spec — not your taste, not "best practices," not what looks modern in the abstract.
+
+/design/
+├── references/
+│      background.png
+|.     background_text.png  
+├── assets/
+│   └── fonts/
+└── source/
+    └── landing.psd
+
+Before changing any visual (spacing, image placement, type size, weight, tracking, color, layout order), **look at the relevant render** and reproduce what's there. Fonts, image positions, and proportions must match the render, not approximate it. Use the `render-match` skill when building a section to a render.
+
+**MOBILE IS THE PRIMARY AUDIENCE.** Design and verify mobile first, always. Tailwind here is mobile-first: unprefixed classes = mobile, `sm:`/`lg:`/`xl:` layer up. Every section is authored small-screen-first.
+
+```
+
+Screenshot / visual-check: `node screenshot.mjs` (Playwright; captures a full-page **desktop** shot to `screenshot-full.png` — needs the dev server running, and note the hardcoded port inside the script). There is **no test suite** — verification is visual (against renders) plus `type-check` + `lint`.
+
+
+### ATTENTION ###
+
+### DISCIPLINE ###
+
+ALWAYS use DISCIPLINE to achive best results and offload user prompting for each bug many times
+
+SHIFT from engineer -in-loop to full agent workflow automation
+
+Agent implement all work end to end from references to exact UI which is tested as actual result and match requirements without additional user prompting
+
+FIRST SETUP AI PROJECT structure
+
+EXPLORE referenced files in seq: 
+background, background + text, fonts make sure you can recognize content, understand whats need to be done and how it should look in ui and work and ready to start or add something ...
+
+### TOOLS REQUEST
+
+Обязательно:
+Codex Desktop + GPT-6 Sol + built-in Browser + Goal Mode + Codex Developer Mode + Playwright + AGENTS.md
++ pixel-perfect-ui-implementer 
++ Playwright 
++ AGENTS.md and AI Context project structure
++ React/Next.js architecture skill
+
+Только если реально понадобится:
+frontend-visualqa, mobile-responsive-qa, frontend-code-review
+
+init codex AI structure for project README.md AGENTS.md DESIGN.md PRODUCT.md rules requirements workflows skills agents keep AGENTS.md short with references to separate files for detailed info
+
+CREATE PROJECT with latest tech stack
+
+init nextjs, react, vite project structure with all related files use latest versions, follow industry standards and best practices
+follow vite, react and frontend styles best practices  
+
+### WORKFLOW LOOP AS DISCIPLINE 
+
+when Done — ITS GUARANTEED DONE Like DB transaction!!!! without bugs and errors
+
+explore design referenced -- understand whats need to be done -- implement -- open browser viewport / click / scroll / screenshot -- inspect visually verify ui result match [verify what/how actually renders, provide proofs of evidence like screenshots] -- fix → re-check
+then code maintanence
+review code -- improve clean code refactor remove unused code -- verify ui result match references
+then performance improvements
+measure -- improve performance -- verify uiresult match references
+then self improvements
+self-improvement-loop below all activities
+
+Для стабильных повторяемых workflow можно использовать Codex Record & Replay → reusable skill.
+
+HL Overview 
+
+            references
+                |
+              CODEX
+                │
+        ┌───────┴────────┐
+        │                │
+ IMPLEMENTATION     VERIFICATION
+        │                │
+        │         Playwright/browser
+        │                │
+        └──────► FIX ◄────┘
+                    │
+                    └── repeat
+
+дополнительные специализированные роли:
+
+Visual QA
+Interaction QA
+
+QA:
+"Does hero match reference?"
+"Is product centered?"
+"Is CTA visible?"
+"Does mobile layout match?"
+Screenshots produced
+Reference comparison executed
+Pixel diff measured
+Responsive breakpoints exercised
+Console inspected
+
+
+Engineering quality
+   - architecture reviewed
+   - component boundaries reviewed
+   - no unnecessary duplication
+   - reusable components extracted only where justified
+   - no oversized components
+   - correct Server/Client boundaries
+   - TypeScript strict
+   - lint/tests pass
+   - code remains understandable to a human developer
+
+
+И вот главное: твой Definition of Done
+
+Я бы буквально вставил это в AGENTS.md.
+
+A task is complete ONLY when:
+
+[ ] implementation is finished
+[ ] TypeScript passes
+[ ] lint passes
+[ ] app successfully starts
+[ ] page opens in a browser
+[ ] browser console contains no relevant errors
+[ ] desktop viewport verified
+[ ] mobile viewport verified
+[ ] reference screenshot captured
+[ ] implementation screenshot captured
+[ ] visual comparison performed
+[ ] material visual differences fixed
+[ ] verification repeated after fixes
+[ ] required interactions tested
+[ ] responsive behavior tested
+
+If any required verification step was not performed,
+the task MUST NOT be reported as complete.
+
+Вот это, пожалуй, самая важная часть всего setup.
+
+
+### AI Context project structure
+
+/
+├── AGENTS.md
+├── ARCHITECTURE.md
+├── PRODUCT.md
+├── DESIGN.md
+├── PERFORMANCE.md
+├── QUALITY.md
+├── LESSONS.md
+├── docs/
+│   ├── visual-qa.md
+│   ├── mobile.md
+│   └── definition-of-done.md
+└── .codex/
+    └── skills/
+        └── pixel-perfect-ui-implementer/
+
+Назначение:
+
+AGENTS.md — краткие глобальные правила + ссылки на остальные файлы.
+PRODUCT.md — что строим, аудитория, mobile-first, UX priorities.
+DESIGN.md — render fidelity, typography, backgrounds, responsive rules.
+ARCHITECTURE.md — React/Next.js структура, компоненты, SRP, reuse.
+PERFORMANCE.md — скорость, SSR/RSC, images/fonts, Core Web Vitals.
+QUALITY.md — code review, lint/typecheck/tests, anti-AI-slop.
+LESSONS.md — повторяющиеся ошибки и пользовательский feedback.
+docs/visual-qa.md — browser → screenshot → compare → fix loop.
+docs/definition-of-done.md — условия, без которых нельзя сказать DONE.
+.codex/skills/ — только реальные специализированные skills, например pixel-perfect-ui-implementer.
+
+Промпт модели:
+
+Before implementing the product, create and maintain the AI project operating system for this repository.
+
+Create:
+AGENTS.md, PRODUCT.md, DESIGN.md, ARCHITECTURE.md, PERFORMANCE.md,
+QUALITY.md, LESSONS.md, docs/visual-qa.md and docs/definition-of-done.md.
+
+AGENTS.md must stay short and act as a table of contents.
+Put detailed rules in the dedicated documents.
+Install/use project skills only for specialized workflows.
+Codex must read the relevant documents before each task and update LESSONS.md when recurring user feedback reveals a reusable mistake or rule.
+
+Это и есть правильная структура для твоего проекта. Skills отдельно, AGENTS.md короткий, знания проекта — в специализированных .md файлах.
+
+### SELF-IMPROVEMNT REQUEST
+
+self improvement on common problems and fixes requested by user after reviewing model results Теперь последний вопрос. Так как идеальные сетапы не бывает, всё равно модель будет тупить и совершать и повторять определённые ошибки, которые мне придётся постоянно заставлять модель исправлять снова, снова и снова. Поэтому я хочу, чтобы модель анализировала фидбэк от пользователя и проблемы, и баги, которые он просит исправить, которые он заставляет исправить, которые он видит, чтобы модель их анализировала и улучшала себя. Модель должна их отмечать себе и включать в общий сетап и больше их не повторять и предусматривать, предвидеть перед каждой следующей задачей. Делать она должна это сама. И это именно сетап для кодекса, чтобы он это сам делал автоматически. Краткий, краткий содержательный practical ответ.
+
+EXAMPLE
+
+сделать persistent project feedback loop.
+
+Сетап:
+
+AGENTS.md — постоянные правила проекта и Definition of Done.
+LESSONS.md или .codex/lessons.md — журнал повторяющихся ошибок: проблема → причина → правило, как больше не повторять.
+В AGENTS.md добавить правило: после каждого пользовательского исправления анализировать, является ли ошибка повторяемой; если да — обновлять LESSONS.md и учитывать его в следующих задачах.
+Не тащить весь журнал в контекст всегда: читать только релевантные секции. OpenAI прямо рекомендует держать AGENTS.md компактным и не раздувать контекст.
+Для стабильных повторяемых workflow можно использовать Codex Record & Replay → reusable skill.
+
+Пример правила:
+
+When the user asks to fix something caused by our implementation:
+1. identify the root cause;
+2. decide whether it is a reusable lesson;
+3. if yes, append/update the relevant rule in .codex/lessons.md;
+4. before similar future work, consult the relevant lesson;
+5. never add one-off cosmetic feedback as a global rule.
+
+Итог: AGENTS.md + structured LESSONS.md + automatic reflection after corrections — сейчас самый простой и надёжный self-improvement setup для Codex. Это лучше, чем постоянно добавлять новые skills.
+
+### PRODUCT PERFORMANCE REQUEST
+
+Еще самое главное, что сайт должен быть максимально быстро загружаться и отрисовываться в браузере, чтобы пользователь не видел ожидания загрузки. Все должно быть мгновенно, молниеносно, инстант. Все очень быстро, очень интерактивно и быстро, оптимально, оптимизировано. Используй все возможные техники. Во-первых, все последние фичи React по асинхронной ленивой загрузке, по приоритизации рендера. Все самые современные фичи React, все самые современные фичи Next.js, production сборку, компакшен, компрессион, оптимизацию, все лучшие интеграции с браузером, контент должен доставляться максимально быстро, максимально оптимально. Самый лучший пользовательский экспириенс. Сервер-сайт рендеринг тоже допустим. Нас интересует максимальный результат. Сделай краткий документ, очень краткий, содержательный, практический документ для модели. Ну, не очень краткий, но краткий. Не нужно дохрена, блядь, сейчас говна вываливать и текста. Очень краткий, содержательный, фокусированный документ, который заставит модель выполнять эти требования и фокусироваться на них и не пропускать это.
+
+### Frontend Performance Requirements
+
+Performance is a primary product requirement. The site must feel instant on modern mobile devices, especially iPhone Pro.
+
+Core rule
+
+Do not consider a feature complete if it is visually correct but introduces unnecessary loading, rendering, JavaScript, layout shifts, blocking work, or interaction latency.
+
+Required practices
+Prefer Next.js Server Components. Use Client Components only when interactivity requires them.
+Prefer SSR/static rendering for above-the-fold content. Stream slower content with Suspense when appropriate.
+Use React.lazy, dynamic imports and code splitting for non-critical components.
+Use startTransition, useTransition and useDeferredValue for non-urgent updates when they improve responsiveness.
+Use modern React features only when they measurably improve UX; do not add complexity without benefit.
+Minimize shipped JavaScript and hydration.
+Lazy-load below-the-fold images, components and third-party scripts.
+Never lazy-load the primary LCP/hero asset. Preload/prioritize critical visual assets.
+Use next/image where appropriate with correct dimensions, responsive sizes, modern formats and optimized quality.
+Use next/font or optimized self-hosted fonts. Load only required families, weights and subsets.
+Avoid font-induced layout shifts.
+Use responsive image/background assets; never ship unnecessarily large desktop assets to mobile.
+Optimize background images for correct crop, resolution and device pixel ratio.
+Preload only genuinely critical resources; avoid excessive preload.
+Avoid render-blocking third-party scripts and dependencies.
+Keep dependencies minimal and tree-shakeable.
+Prefer CSS/native browser capabilities over JavaScript when practical.
+Keep animations on compositor-friendly properties such as transform and opacity; avoid layout-heavy animations.
+Prevent unnecessary React renders, expensive effects and large client state.
+Use caching, CDN/static delivery and Next.js caching where appropriate.
+Enable production minification/compression and optimized production builds.
+UX constraints
+
+The initial viewport must appear immediately useful.
+
+Prioritize:
+
+hero/background;
+primary typography;
+primary CTA;
+first interactive elements.
+
+Below-the-fold content must not delay initial rendering.
+
+Interactions must remain responsive while background work occurs.
+
+Performance validation
+
+Before marking the task complete:
+
+test the production build, not only dev mode;
+test the primary mobile viewport;
+inspect network requests and transferred JS/assets;
+inspect browser console and performance traces;
+verify no unnecessary blocking requests;
+verify no visible layout shift or font/image flash;
+verify scrolling and animations remain smooth;
+check Core Web Vitals, especially LCP, INP and CLS;
+fix meaningful regressions before completion.
+
+After every substantial UI change, re-check visual fidelity and performance.
+
+Priority
+
+When trade-offs exist:
+
+visual fidelity + immediate UX + low interaction latency > implementation convenience.
+
+Do not sacrifice the approved design, but achieve it with the smallest practical runtime cost.
+
+React 19.3 возможностям вроде Suspense, transitions и View Transitions, а также текущим Next.js рекомендациям по оптимизации fonts/images
+
+
+
+----------------------------
+
+Рекомендации модели делай в таком же ключе если видишь что можно лучше делай лучше
+
+Да. Для твоего случая я бы сделал не обычный “AI coding setup”, а Visual-First Codex workflow, где задача физически не считается законченной, пока Codex не открыл страницу в браузере, не сделал screenshots, не сравнил их с reference render и не проверил интерактивность.
+
+Это особенно важно для твоего кейса: landing page по готовому Photoshop/render design, где “код компилируется” вообще ничего не значит.
+
+Архитектура, которую я рекомендую
+                   YOUR REFERENCE RENDERS
+                  desktop / tablet / mobile
+                           │
+                           ▼
+┌──────────────────────────────────────────────────────┐
+│                    CODEX APP                         │
+│                                                      │
+│  AGENTS.md                                           │
+│      │                                               │
+│      ├── ui-implementation skill                     │
+│      ├── visual-verification skill   ← самое важное  │
+│      ├── interaction-verification skill              │
+│      └── responsive-verification skill               │
+│                                                      │
+│                     │                                │
+│                     ▼                                │
+│                IMPLEMENTER                           │
+│                     │                                │
+└─────────────────────┼────────────────────────────────┘
+                      │
+                      ▼
+             Next.js / React
+                      │
+                      ▼
+                dev server
+                      │
+                      ▼
+              REAL BROWSER
+            Playwright / Codex
+                      │
+              ┌───────┴────────┐
+              ▼                ▼
+          screenshot       interactions
+              │                │
+              ▼                ▼
+        reference diff    console/errors
+              │
+              ▼
+           PASS?
+         /       \
+       NO         YES
+       │           │
+       ▼           ▼
+    FIX CODE     DONE
+       │
+       └───────────────► repeat
+
+Именно цикл снизу является главным. Не количество агентов.
+
+OpenAI сейчас прямо рекомендует не перегружать современные модели огромным количеством skills/prompts/scaffolding: skills лучше использовать для конкретных повторяемых workflows.
+
+1. Главный инструмент: Playwright
+
+Для твоей задачи я бы поставил Playwright первым, даже раньше Storybook.
+
+Он умеет делать:
+
+await expect(page).toHaveScreenshot();
+
+и сравнивать реальный browser rendering с эталонным screenshot. Playwright также сохраняет actual / expected / diff, которые можно визуально сравнивать.
+
+Установить:
+
+npm install -D @playwright/test
+npx playwright install
+
+Но стандартного toHaveScreenshot() недостаточно.
+
+У тебя эталон — не предыдущая версия сайта, а Photoshop/render.
+
+Поэтому структура должна быть примерно такая:
+
+project/
+├── reference/
+│   ├── desktop-1440.png
+│   ├── desktop-1920.png
+│   ├── tablet-768.png
+│   └── mobile-390.png
+│
+├── tests/
+│   ├── visual/
+│   │   ├── homepage.spec.ts
+│   │   └── product.spec.ts
+│   │
+│   └── interactions/
+│       └── landing.spec.ts
+│
+├── screenshots/
+│   ├── actual/
+│   └── diff/
+│
+├── skills/
+│   ├── implement-render/
+│   │   └── SKILL.md
+│   ├── visual-verify/
+│   │   └── SKILL.md
+│   ├── responsive-verify/
+│   │   └── SKILL.md
+│   └── interaction-verify/
+│       └── SKILL.md
+│
+└── AGENTS.md
+2. Самый важный Skill: visual-verify
+
+Вот этот skill я бы сделал обязательным.
+
+---
+name: visual-verify
+description: Verify UI implementations against provided reference renders using a real browser and screenshot comparison.
+---
+
+# Visual Verification
+
+Never consider a UI task complete based only on source-code inspection.
+
+For every visual UI task:
+
+1. Start the application.
+2. Open the target page in a real browser.
+3. Set the browser viewport to the required reference size.
+4. Wait until:
+   - fonts are loaded
+   - images are loaded
+   - animations affecting layout have stabilized
+5. Capture a screenshot.
+6. Compare the screenshot against the corresponding reference image.
+7. Inspect differences in:
+   - element position
+   - width and height
+   - spacing
+   - alignment
+   - typography
+   - font size
+   - font weight
+   - line height
+   - colors
+   - borders
+   - border radius
+   - shadows
+   - image crop
+   - background positioning
+   - responsive behavior
+8. If meaningful differences exist:
+   - identify the cause
+   - modify the implementation
+   - reload the page
+   - capture another screenshot
+   - compare again
+9. Repeat until the implementation satisfies the acceptance criteria.
+
+Never report completion without performing the final browser verification.
+
+A successful build, passing TypeScript, or passing unit tests does NOT mean
+the UI implementation is complete.
+
+The final response must report:
+
+- viewports tested
+- screenshots compared
+- visual differences remaining
+- interaction tests performed
+- browser console errors
+
+Это намного важнее какого-нибудь универсального frontend-development skill.
+
+Skills как раз предназначены для кодирования такого повторяемого workflow — instructions + supporting resources/scripts.
+
+3. Сделай AGENTS.md очень коротким
+
+Не надо писать туда 1000 строк.
+
+Например:
+
+# Project instructions
+
+This project is a render-driven ecommerce landing page.
+
+## Primary requirement
+
+Visual fidelity to the provided reference renders has higher priority than
+implementation convenience.
+
+## Definition of Done
+
+A UI task is NOT complete until the agent:
+
+1. builds/runs the application;
+2. opens the page in a real browser;
+3. verifies the implementation at all required viewports;
+4. captures screenshots;
+5. compares them against the provided reference renders;
+6. fixes meaningful visual discrepancies;
+7. repeats verification after changes;
+8. tests required interactions;
+9. checks browser console errors;
+10. confirms the final rendered state.
+
+Never claim a UI task is complete solely because:
+- the code compiles;
+- tests pass;
+- the implementation looks correct from reading CSS/JSX.
+
+## Required skills
+
+For render implementation:
+- use `implement-render`
+
+Before finishing any visual task:
+- use `visual-verify`
+- use `responsive-verify`
+
+For interactive components:
+- use `interaction-verify`
+
+## Browser
+
+Prefer browser/Playwright verification over reasoning from source code.
+
+Заметь: я не заставляю модель читать 15 skills каждый раз.
+
+4. Я бы использовал всего 3 роли/агента
+
+Не делал бы 10 агентов.
+
+A. Implementer
+
+Его работа:
+
+reference render
+       ↓
+layout decomposition
+       ↓
+React components
+       ↓
+CSS
+       ↓
+animations
+
+Он может работать быстро.
+
+B. Visual Verifier
+
+Отдельная роль.
+
+Она не должна доверять Implementer.
+
+Её задача:
+
+open browser
+↓
+screenshot
+↓
+reference
+↓
+diff
+↓
+identify mismatch
+↓
+request/fix changes
+↓
+verify again
+C. Interaction QA
+
+Проверяет:
+
+hover
+click
+scroll
+sticky behavior
+modal
+carousel
+CTA
+menu
+forms
+animations
+mobile navigation
+Но здесь есть важная деталь
+
+Я бы не создавал отдельного агента на каждый маленький frontend task.
+
+Лучше:
+
+Main Codex agent
+   │
+   ├── implementation
+   │
+   ├── subagent: visual verification
+   │
+   └── subagent: interaction QA
+
+Codex app как раз ориентирован на параллельную работу нескольких агентов.
+
+5. Самое важное правило: verifier должен видеть IMAGE, а не DOM
+
+Например, плохая проверка:
+
+Header has width: 1200px.
+CSS matches specification.
+Done.
+
+Это нам не подходит.
+
+Правильная:
+
+render page
+       ↓
+PNG screenshot
+       ↓
+visual model sees screenshot
+       ↓
+compare with target PNG
+
+Современный computer-use workflow именно так и работает: модель получает screenshots состояния UI и принимает дальнейшие действия на основании изображения. OpenAI отдельно рекомендует возвращать новый screenshot после группы действий, чтобы модель проверила полученный state.
+
+Это и есть твоя главная защита от:
+
+“I implemented it successfully.”
+
+когда визуально ничего не совпадает.
+
+6. Добавь автоматический image diff
+
+Я бы сделал ещё один маленький script.
+
+Например:
+
+reference.png
+      +
+actual.png
+      ↓
+ pixel diff
+      ↓
+difference.png
+      +
+difference %
+
+Можно использовать:
+
+pixelmatch
+sharp
+pngjs
+
+или Playwright screenshot comparison.
+
+Тогда агент получает не только:
+
+“посмотри глазами”
+
+но и:
+
+Reference
+Actual
+Diff
+Mismatch: 3.8%
+
+Получается два независимых сигнала:
+
+          VISUAL MODEL
+               │
+               │
+reference ──────┼────── actual
+               │
+               ▼
+         semantic check
+
++
+
+reference ───────── actual
+       \             /
+        \           /
+          Pixel diff
+              │
+              ▼
+           2.7%
+
+Очень мощная комбинация.
+
+7. Но НЕ делай требование pixel diff = 0%
+
+Это будет ошибкой.
+
+Причины:
+
+font antialiasing;
+subpixel rendering;
+browser differences;
+OS differences;
+shadows;
+image interpolation;
+transforms;
+fractional coordinates.
+
+Даже Playwright предупреждает, что screenshot rendering может различаться из-за OS, browser version, hardware и окружения.
+
+Поэтому лучше что-нибудь вроде:
+
+Pixel difference: < configurable threshold
+
+AND
+
+Visual agent:
+    no material layout/design differences
+
+А не:
+
+difference === 0
+8. Для твоего лендинга я бы зафиксировал viewports
+
+Например:
+
+1920 × 1080
+1440 × 900
+1280 × 800
+
+1024 × 768
+768 × 1024
+
+430 × 932
+390 × 844
+375 × 812
+
+Но не обязательно делать Photoshop render для всех.
+
+Например:
+
+REFERENCE
+1920 desktop
+390 mobile
+
+INTERPOLATION CHECKS
+1440
+1280
+1024
+768
+430
+375
+
+Codex должен проверять отсутствие:
+
+overlap
+overflow
+clipping
+unexpected wrapping
+broken image crop
+bad whitespace
+layout jumps
+
+на промежуточных размерах.
+
+9. Storybook + Chromatic я бы тоже добавил
+
+Но не вместо Playwright.
+
+Storybook хорош для:
+
+Button
+ProductCard
+Navbar
+Hero
+Gallery
+Accordion
+Modal
+QuantitySelector
+Testimonials
+
+в состояниях:
+
+default
+hover
+active
+disabled
+loading
+mobile
+desktop
+
+А Chromatic автоматически делает screenshot каждого Story и сравнивает его с baseline. Storybook прямо описывает visual tests как сравнение rendered pixels с предыдущими baseline snapshots; Chromatic поддерживает разные browsers/viewports и интеграцию в CI.
+
+Моя схема:
+
+            Playwright
+               │
+        FULL PAGE / UX
+               │
+       ┌───────┴───────┐
+       ▼               ▼
+    desktop           mobile
+
+
+            Storybook
+               │
+           COMPONENTS
+               │
+               ▼
+            Chromatic
+               │
+       regression testing
+10. Для animation verification
+
+Это отдельная проблема.
+
+Screenshot покажет только frame.
+
+Поэтому interactions skill должен делать примерно:
+
+1. open page
+2. screenshot initial state
+
+3. scroll 300 px
+4. wait 100ms
+5. screenshot
+
+6. wait 300ms
+7. screenshot
+
+8. hover CTA
+9. screenshot
+
+10. click gallery
+11. screenshot
+
+12. verify final state
+
+Для твоего проекта я бы использовал:
+
+CSS transitions
+Framer Motion / Motion
+GSAP
+
+только когда действительно требуется.
+
+Не надо заставлять AI использовать animation library везде.
+
+11. Очень полезное правило для animations
+
+В test environment:
+
+[data-test-disable-motion] * {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+}
+
+Для layout screenshot tests.
+
+А отдельно иметь:
+
+animation behavioral tests
+
+Иначе screenshot diff будет нестабильным.
+
+12. Я бы добавил ещё один Skill: implement-render
+
+Он должен заставлять Codex сначала декомпозировать изображение, а не сразу кодить.
+
+Например:
+
+# Render implementation workflow
+
+Before coding:
+
+1. Inspect the reference render.
+
+2. Identify:
+   - page sections
+   - content boundaries
+   - reusable components
+   - backgrounds
+   - foreground assets
+   - text layers
+   - interactive elements
+   - likely responsive behavior
+
+3. Determine which visual content should remain an image and which
+   should be implemented as HTML.
+
+4. Do not reproduce interactive text/buttons as baked-in pixels.
+
+5. Preserve the provided artwork whenever possible.
+
+6. Implement overlays using semantic HTML.
+
+7. Match the reference at its native viewport before implementing
+   responsive variants.
+
+8. After implementation invoke the visual verification workflow.
+
+Это особенно важно для твоего кейса.
+
+13. Background с текстом Photoshop
+
+Здесь я бы не использовал картинку с текстом как финальную страницу, если текст должен быть:
+
+selectable;
+searchable;
+responsive;
+accessible;
+animatable;
+clickable;
+SEO-visible.
+
+Лучший вариант:
+
+original render with text
+          │
+          │ used as visual reference
+          ▼
+
+background WITHOUT text
+          +
+        React
+          +
+ HTML text/buttons/components
+          =
+       webpage
+
+То есть твоя версия:
+
+background без текста
+
+идеальна как production asset.
+
+А:
+
+background + Photoshop text
+
+идеальна как ground truth/reference image.
+
+14. У тебя получается очень удобный workflow
+
+Ты отдаёшь Codex:
+
+assets/
+    hero-background.webp
+
+reference/
+    hero-desktop.png
+    hero-mobile.png
+
+И говоришь:
+
+Implement this section.
+
+Use the background asset.
+
+Recreate text and interactive controls using HTML/CSS/React.
+
+Do not finish until visual verification passes against
+hero-desktop.png and hero-mobile.png.
+
+Вот это уже workflow, который AI понимает намного лучше.
+
+15. Vite + Next.js
+
+Здесь маленькое уточнение.
+
+Для одного production landing page я бы не делал:
+
+Vite + Next.js
+
+вместе.
+
+Если ты используешь:
+
+Next.js
+React
+
+тебе Vite практически не нужен.
+
+Выбери:
+
+Next.js + React
+
+или:
+
+Vite + React
+
+Для sales/e-commerce landing я бы чаще выбрал:
+
+Next.js
+React
+TypeScript
+
+из-за:
+
+SEO
+images
+routing
+metadata
+server rendering
+analytics/integrations
+16. Мой стек для твоего проекта
+
+Я бы сделал вот так:
+
+Framework
+──────────────────────────
+Next.js
+React
+TypeScript
+
+
+Styling
+──────────────────────────
+CSS Modules
+или Tailwind
++ CSS variables
+
+
+Animation
+──────────────────────────
+Motion
+GSAP — только сложные sequences
+
+
+Agent
+──────────────────────────
+Codex desktop
+
+
+Browser verification
+──────────────────────────
+Codex built-in browser
++
+Playwright
+
+
+Visual comparison
+──────────────────────────
+Playwright 
+
+
+
+
+Quality
+──────────────────────────
+ESLint
+TypeScript
+Playwright

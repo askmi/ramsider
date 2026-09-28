@@ -1,0 +1,112 @@
+Ниже — короткий ответ под каждым пунктом, с учётом **Codex Desktop + GPT-6 Sol**.
+
+1. **Какой лучший setup для Codex Desktop?**
+   **Codex Desktop + GPT-6 Sol + built-in Browser/CDP + Playwright + `pixel-perfect-ui-implementer` + короткий `AGENTS.md`.** Это минимальный стек с хорошим балансом качества и простоты. GPT-6 Sol поддерживает image input, computer use, skills и MCP. ([OpenAI Developers][1])
+
+2. **Как сделать обязательную визуальную верификацию?**
+   В `AGENTS.md` зафиксировать: задача не `DONE`, пока Codex не открыл localhost, не проверил нужные viewport, не сравнил с reference и не повторил проверку после исправлений.
+
+3. **Playwright vs frontend-visualqa vs pixel-perfect-ui-implementer?**
+   Они решают разные задачи: **Playwright = автоматизация/тесты**, **pixel-perfect-ui-implementer = реализация по render**, **frontend-visualqa = дополнительный vision QA**. Для тебя первые два важнее.
+
+4. **Может ли UI Verify заменить frontend-visualqa?**
+   Не полностью. UI Verify сильнее как **visual regression/CI baseline system**, а frontend-visualqa — как AI, который визуально исследует живую страницу и проверяет natural-language claims. ([GitHub][2])
+
+5. **Что уже умеет Codex Desktop в браузере?**
+   Может работать с localhost, видеть и взаимодействовать со страницами, использовать annotations; через CDP — смотреть console, network, page state и JS performance. ([OpenAI Help Center][3])
+
+6. **Нужен ли frontend-visualqa?**
+   **Не обязателен.** Современный Codex сильно дублирует его возможности; имеет смысл добавлять только если встроенная visual verification окажется недостаточно строгой.
+
+7. **Нужен ли pixel-perfect-ui-implementer?**
+   **Да, рекомендую.** GPT-6 Sol сам способен реализовать UI по изображению, но этот skill добавляет специализированный workflow именно для fidelity к готовому render.
+
+8. **Нужен ли frontend-design-codex?**
+   **Нет.** Он предназначен прежде всего для создания/улучшения дизайна и Apple-like visual language; твой дизайн уже утверждён. ([MCP Market][4])
+
+9. **Как добиться максимального pixel-perfect?**
+   Зафиксированный viewport → reference screenshot → browser screenshot → visual/pixel comparison → fix → повторять. Не полагаться только на анализ CSS.
+
+10. **Как работать с background images?**
+    Использовать исходные качественные assets, корректные `background-size/object-fit`, `background-position`, responsive crop и отдельно проверять каждый главный viewport визуально.
+
+11. **Как сделать mobile-first?**
+    Сначала добиться идеального соответствия на **главном iPhone viewport**, и только после этого адаптировать tablet/desktop.
+
+12. **Как обеспечить адаптивность?**
+    Проверять несколько representative widths через Playwright, а не только один mobile и один desktop.
+
+13. **Нужен ли mobile-responsive-qa skill?**
+    **Не обязателен.** GPT-6 Sol + Playwright + хорошие правила в `AGENTS.md` для твоего проекта обычно достаточно.
+
+14. **Как проверять safe area / notch / viewport / tap targets?**
+    Через реальные mobile viewport tests + CSS `env(safe-area-inset-*)`, `dvh/svh`, overflow checks и browser visual inspection.
+
+15. **Как проверять animations/interactions?**
+    Playwright должен реально выполнять click/hover/scroll/modal/carousel сценарии, а Codex — визуально проверять состояние после действия.
+
+16. **Как организовать feedback loop?**
+    `implement → browser → screenshot/inspect → compare → fix → re-check`. Это должно быть обязательным Definition of Done.
+
+17. **Нужен ли pixel diff?**
+    **Полезен как второй сигнал, но недостаточен самостоятельно.** Лучшее сочетание: visual judgement модели + screenshot diff.
+
+18. **Как избежать ложных pixel diff?**
+    Использовать tolerance, одинаковые browser/viewport/fonts и отключать нестабильные animations. Не требовать абсолютные `0% diff`.
+
+19. **Как избежать AI-slop в коде?**
+    Добавить обязательный финальный **architecture/code-review + refactor pass** перед visual regression check.
+
+20. **Как обеспечить правильную React/Next architecture?**
+    Коротко зафиксировать правила: feature/component boundaries, reusable vs page-specific components, state location, naming, Server/Client boundaries.
+
+21. **Как обеспечить SRP/reusability/maintainability?**
+    Требовать review компонентов после реализации: ответственность, размер, duplication, API/props и оправданность abstractions.
+
+22. **Нужен ли отдельный React/Next architecture skill?**
+    **Скорее нет.** GPT-6 Sol уже специализирован на сложных coding/agentic задачах; для одного landing page лучше компактные project rules. ([OpenAI Developers][1])
+
+23. **Нужен ли frontend-code-review skill?**
+    **Опционально.** Обычно достаточно явно потребовать от GPT-6 Sol отдельный review/refactor pass.
+
+24. **Как построить Definition of Done?**
+    `build/lint/typecheck → browser visual QA → responsive QA → interactions → code review → refactor → повторный visual QA`.
+
+25. **Какие skills готовые, какие кастомные?**
+    Готовые: `pixel-perfect-ui-implementer`, `frontend-visualqa`, Playwright. Кастомно лучше делать только **короткие правила проекта в `AGENTS.md`**, а не плодить skills.
+
+26. **Зачем кастомные skills при наличии готовых?**
+    Только когда у тебя есть действительно специфичный повторяемый workflow. Иначе они увеличивают context noise.
+
+27. **Нуждается ли GPT-6 Sol в большом количестве skills?**
+    **Нет.** OpenAI рекомендует с современными моделями уменьшать лишний scaffolding и использовать skills для конкретных workflows. ([OpenAI Developers][5])
+
+28. **Много agents/skills может мешать?**
+    **Да.** Дублирующиеся инструкции увеличивают context noise, противоречия и стоимость работы.
+
+29. **Минимальный набор?**
+    **Codex Desktop + GPT-6 Sol + Browser/CDP + Playwright + pixel-perfect-ui-implementer + `AGENTS.md`.**
+
+30. **Распознает ли GPT-6 Sol typography по render?**
+    Хорошо определит текст, приблизительные size/weight/spacing/style. GPT-6 Sol принимает изображения, поэтому способен анализировать render напрямую. ([OpenAI Developers][1])
+
+31. **Можно ли доверять определению точного font family?**
+    **Нет.** По изображению невозможно гарантированно отличить очень похожие fonts; передавай font name/files или design specs.
+
+32. **Render с текстом + background без текста — правильно?**
+    **Да, это лучший вариант.** Render с текстом используется как visual reference, чистый background — production asset, а текст/buttons делаются HTML/CSS.
+
+33. **Нужны Storybook / Chromatic?**
+    Для одного landing page **скорее нет**. Добавляй Storybook, если появится большая библиотека переиспользуемых компонентов; Playwright пока достаточно.
+
+34. **Нужны отдельные Implementer / Verifier / QA agents?**
+    **Нет на старте.** GPT-6 Sol может выполнять эти роли последовательно; отдельный агент имеет смысл только для независимого second-pass review.
+
+35. **Какой финальный production stack?**
+    **Next.js + React + TypeScript + Codex Desktop/GPT-6 Sol + Playwright + pixel-perfect-ui-implementer + Browser/CDP + компактный `AGENTS.md`.** Это закрывает visual fidelity, mobile-first, interactions и качество кода без лишнего tooling. ([OpenAI Developers][1])
+
+[1]: https://developers.openai.com/api/docs/models/gpt-6-sol?utm_source=chatgpt.com "GPT-6 Sol Model | OpenAI API"
+[2]: https://github.com/uiverify/uiverify?utm_source=chatgpt.com "GitHub - uiverify/uiverify: Visual testing for agents: uiverify CLI, Vitest/Playwright SDKs, and agent skills. · GitHub"
+[3]: https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan?utm_source=chatgpt.com "Using Codex with your ChatGPT plan | OpenAI Help Center"
+[4]: https://mcpmarket.com/tools/skills/frontend-design-codex?utm_source=chatgpt.com "Frontend Design Claude Code Skill | Apple-Style Web UI"
+[5]: https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra?utm_source=chatgpt.com "Rethinking skills and prompts for GPT-6 Astra | OpenAI Developers"

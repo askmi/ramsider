@@ -71,12 +71,17 @@ Root has been cleaned of the old deploy/status doc clutter; if throwaway `*_FIXE
 
 This is a **pixel-fidelity rebuild** of four supplied design renders. The references are the spec — not your taste, not "best practices," not what looks modern in the abstract.
 
+сначала background потом background_text кот содердит наложенный текст
+распознай шрифты на фоне сами шрифты находятся в assets и там другие еще файлы тоде изучи из все
+выдели компонеты с текстом спланируй архитектуру и структуру старницы
+
 /design/
 ├── references/
 │      background.png
 |.     background_text.png  
 ├── assets/
-│   └── fonts/
+│   └── fonts
+    ..
 └── source/
     └── landing.psd
 
@@ -91,7 +96,7 @@ Screenshot / visual-check: `node screenshot.mjs` (Playwright; captures a full-pa
 
 ### ATTENTION ###
 
-### DISCIPLINE ###
+### SPECIFICATION ###
 
 ALWAYS use DISCIPLINE to achive best results and offload user prompting for each bug many times
 
@@ -123,7 +128,10 @@ CREATE PROJECT with latest tech stack
 init nextjs, react, vite project structure with all related files use latest versions, follow industry standards and best practices
 follow vite, react and frontend styles best practices  
 
+
 ### WORKFLOW LOOP AS DISCIPLINE 
+
+no AI slop! Define quality standards and follow clean code and clean component architecture
 
 when Done — ITS GUARANTEED DONE Like DB transaction!!!! without bugs and errors
 
@@ -285,7 +293,13 @@ When the user asks to fix something caused by our implementation:
 
 ### PRODUCT PERFORMANCE REQUEST
 
+Minimal first time to render
+
 Еще самое главное, что сайт должен быть максимально быстро загружаться и отрисовываться в браузере, чтобы пользователь не видел ожидания загрузки. Все должно быть мгновенно, молниеносно, инстант. Все очень быстро, очень интерактивно и быстро, оптимально, оптимизировано. Используй все возможные техники. Во-первых, все последние фичи React по асинхронной ленивой загрузке, по приоритизации рендера. Все самые современные фичи React, все самые современные фичи Next.js, production сборку, компакшен, компрессион, оптимизацию, все лучшие интеграции с браузером, контент должен доставляться максимально быстро, максимально оптимально. Самый лучший пользовательский экспириенс. Сервер-сайт рендеринг тоже допустим. Нас интересует максимальный результат. Сделай краткий документ, очень краткий, содержательный, практический документ для модели. Ну, не очень краткий, но краткий. Не нужно дохрена, блядь, сейчас говна вываливать и текста. Очень краткий, содержательный, фокусированный документ, который заставит модель выполнять эти требования и фокусироваться на них и не пропускать это.
+
+у нас весь беграунд фон это 1 имедж целиком
+есть опасения что он будет тормрзить страницу примени лучшие техники оптимизации чтобы его избежать но при этом без потери качества изображения
+например препроцессинг разрезать на блоки и погружать частями но так чтобы не было видно швов или еще както тормозило в ожидании или компрессия на твое усмотрение
 
 ### Frontend Performance Requirements
 
@@ -375,7 +389,6 @@ React 19.3 возможностям вроде Suspense, transitions и View Tra
                            ▼
 ┌──────────────────────────────────────────────────────┐
 │                    CODEX APP                         │
-│                                                      │
 │  AGENTS.md                                           │
 │      │                                               │
 │      ├── ui-implementation skill                     │

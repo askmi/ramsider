@@ -1,0 +1,22 @@
+# Observed content in the supplied long render
+
+Source: `design/references/background_text.png`, 941 × 32,127 px, inspected as twelve approximately equal vertical crops. This is an **inventory of visible design content**, not verified product data or a finished copy deck. The bands are inspection aids, not exact section boundaries. Before coding any band, reopen that crop at native resolution, compare the same coordinates in `background.png`, transcribe exact copy, mark layer boundaries, and record what its controls actually do. See [visual-qa.md](visual-qa.md) for source-to-browser calibration.
+
+| Band | Observed narrative, images, and controls |
+| --- | --- |
+| 1 | RAMSIDER wordmark and menu; “Introducing Fograiser. A New Category of Ritual Systems. UNO — Its First Expression”; white UNO hero; “Reserve now.” The problem setup begins: “Why Fire Had to End,” with ash, odor, heat spikes, inconsistent results and “Learn more.” |
+| 2 | Fire/temperature imagery; “The Moment, Returned” and “The Feeling, Precisely Repeated”; social scene; “Effortless Control.” The page moves from the problem to a repeatable shared experience. |
+| 3 | “Smooth Draw,” “Desired Intensity,” “Consistent Session”; “Hidden Complexity. The Engineering Behind its Value”; “Experience UNO Technologies / CLICK TO OPEN”; cutaway labels include Triple Heat, Smart Core, Touch & App, Water Sensor, Light & Sound, Poly Armor, Flow Guard. |
+| 4 | “Freedom of Choice” with personal blend and smart capsule copy; “Learn more”; capsule and shared preparation scene; “Time to Enjoy Anew” and the design's “precisely baked” wording. |
+| 5 | Pool/lifestyle scene; film play button and “Watch UNO Films”; “Beyond Shisha” expands to aromatic, sensory and wellness rituals; “Learn more”; second technology CTA. Media and health-related copy need source confirmation. |
+| 6 | Two devices: “One Architecture. Two Expressions”; “Choose Your Fograiser”; “Compare PRO & GOLD”; PRO line begins with “Performance, Built to Last” and material/part descriptions. |
+| 7 | PRO finishes and “Explore PRO”; GOLD line “Precision, Finished in Gold,” its sensors, heater, accessories, hose, reservoir, and “Explore GOLD”; complete-set headline and “Explore the Set.” Exact feature assertions require product validation. |
+| 8 | Complete set photographed with box/accessories; “We Build Your UNO to Order. You Make It Yours”; configure → confirm initial payment → ready to ship/final payment; the render shows PRO $599 + $400 and GOLD $999 + $1,000; “Create Your UNO.” Testing story begins. Prices and terms are unverified. |
+| 9 | “Tested Before It Reaches You” and “Confidence, Documented”; lab scene; cards for electrical safety, EMC, UAE conformity, RoHS, UAE telecom registration, plus “All Documents.” Each “View Document” needs a real, corresponding file before functioning as a link. |
+| 10 | “Chosen by Exceptional Venues” hospitality scene; MINI station; “RAMSIDER HOSPITALITY / Engineered for HoReCa / Designed for Your Team”; devices, stations, software, service, business-solutions CTA at the next transition. |
+| 11 | “Explore Business Solutions”; six FAQ questions about preordering, contents, shipping, tracking, support, and venues; “My RAMSIDER” and locked account/venue tiles; RAMS-GROUP parent-brand transition and “Select a Project.” FAQ answers and accounts are not shown in this crop. |
+| 12 | RAMSIDER, RAMSMOBILE, RAMSWEAR, RAMSFOOD project cards and project/video actions; closing UNO product image; “The New Ritual That Brings People Together” and final “Create Your UNO.” Other-project destinations are not present in the source files. |
+
+The narrative order matters: category introduction → problem → experience and engineering → blend choice → PRO/GOLD decision → set and order path → proof → venue use → objections and broader brand → final action. Keep repeated CTAs consistent with their destination and accessible name. A static background or a painted button cannot supply the interaction described by the composite. Do not embed its text, prices, labels, or document thumbnails as the only accessible content.
+
+The clean artwork and composite appear to share the long composition, but exact alignment, layer placement, and crop boundaries remain to be measured. Pick image seams at natural transitions and test the full scroll after responsive asset processing. Where a feature, price, certificate, video, or destination has only a visual placeholder, record that as a dependency rather than inventing content or a working service.

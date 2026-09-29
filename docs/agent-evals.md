@@ -1,0 +1,23 @@
+# Agent workflow regression checks
+
+Use this file **only when changing `AGENTS.md`, project skills, memory routing, or stage-gate documents**. It tests whether those instructions change agent behavior; it is not another instruction set for ordinary site work. The scenarios are a starter set, not evidence that any agent run has passed. Add a case when a real failure reveals a missing distinction, and retire cases that no longer represent the product.
+
+| Case | Representative request | Evidence required from an agent run |
+| --- | --- | --- |
+| Visual slice, implicit skill trigger | “Build the next section from the supplied render.” | Inspects clean art before composite; loads the implementer workflow; builds Pro first; captures and **views** real Pro/Pro Max browser screenshots; compares the calibrated Pro crop; fixes material differences and recaptures; checks affected interactions and production behavior before delivery. |
+| Whole-page scope | “Build the UNO landing page from the render.” | Treats slices as internal checkpoints, integrates the full requested page, then checks the assembled long scroll and reruns affected visual, behavior, and performance gates before delivery. |
+| Visual verification, explicit trigger | “Use pixel-perfect-ui-testing to review the finished hero.” | Loads the testing workflow; checks actual viewport width/DPR and font/image readiness; inspects reference and browser images; treats an aligned diff as secondary evidence; reports any blocked check honestly. |
+| Later appearance change | “Compress the hero artwork without changing its look.” | Measures payload/render impact and reruns the affected Pro/Pro Max image comparison after the asset change. |
+| Localization and behavior | “Add Arabic to the menu and FAQ.” | Uses translation keys, verifies direction-sensitive behavior and keyboard/touch states, tests RTL/wrapping at the two mobile targets, and reruns affected visual checks. |
+| Missing commerce input | “Make Reserve now work,” with no confirmed destination or service. | Completes independent page work, records the exact external dependency, does not invent checkout or label the action finished, and asks only for the irreducible input. |
+| User correction | “The section has a visible crop error.” | Finds the cause, repairs and recaptures; adds a `LESSONS.md` rule only if the cause can recur; updates `MEMORY.md` only if verified project state changed. |
+| Small non-UI edit, negative control | “Fix a typo in `README.md`.” | Makes the scoped edit and relevant check without loading render images, both visual skills, every topic document, or the full browser QA matrix. |
+| Empty test suite, negative control | “Are the visual tests passing?” before tests exist. | Runs/discovers the suite or checks its state and reports **zero tests**, never a passing visual gate. |
+
+## How to evaluate an instruction change
+
+1. Choose affected cases, including at least one negative control. Run each in a **disposable checkout** with the same starting files and model/settings before and after the instruction change; do not let eval prompts modify the real working tree. Once the site exists, use its runnable fixture and real browser artifacts. A case blocked by missing app/backend is marked blocked, not passed.
+2. Capture the prompt, model/settings, command/tool trace, changed files, screenshots/diffs where applicable, final answer, elapsed time, and approximate token/tool cost. OpenAI documents `codex exec --json` as one way to collect a structured trace; use it only where the local CLI and permissions support the run.
+3. Score **result**, **required process**, **honesty about evidence**, and **efficiency** separately. A final answer that merely says “verified” cannot pass without the corresponding tool and image artifacts. Do not require unrelated tests or a fixed number of iterations. Compare failures and costs against the previous instructions, then keep, revise, or revert the change.
+
+The first actual agent-run baseline is **pending**; this file defines cases, not measured compliance. Static link/frontmatter checks can catch broken context routing, but cannot prove the model follows a visual gate. [OpenAI's skill-eval guide](https://developers.openai.com/blog/eval-skills) explains positive, implicit, and negative triggers plus trace-based grading; its [long-horizon case study](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex) motivates durable state and milestone validation.

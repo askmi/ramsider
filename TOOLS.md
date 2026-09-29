@@ -4,7 +4,7 @@ Use this file only when selecting a tool for a stage. The mandatory outcome is a
 
 Choose the native Codex route when it can meet the evidence requirement. Add a project skill or external tool only for a distinct workflow or capability: the built-in browser is useful for quick exploration, Playwright supplies repeatable WebKit/DPR 3 device checks, and native [`/review`](https://learn.chatgpt.com/docs/code-review) supplies dedicated diff review. `/review` is a command, **not** an installed skill or a substitute for visual QA.
 
-## All 10 project-local skills
+## All 9 project-local skills
 
 | Skill | Use for this rebuild |
 | --- | --- |
@@ -17,11 +17,10 @@ Choose the native Codex route when it can meet the evidence requirement. Add a p
 | [screenshot](.agents/skills/screenshot/SKILL.md) | **Fallback.** Desktop/OS capture when a browser-native screenshot cannot cover the need; Playwright remains the site capture route. |
 | [define-goal](.agents/skills/define-goal/SKILL.md) | **Explicit goal requests only.** Ordinary site work does not require Goal Mode or a goal record. |
 | [playwright-interactive](.agents/skills/playwright-interactive/SKILL.md) | **Redundant in this session.** Its `js_repl` prerequisite is unavailable, while the built-in browser already provides persistent interactive inspection. Do not weaken sandbox settings merely to invoke it. |
-| [vite](.agents/skills/vite/SKILL.md) | **Out of scope.** The chosen app stack is Next.js; do not add Vite to it. |
 
 The two [MCP Market implementer](https://mcpmarket.com/tools/skills/pixel-perfect-ui-implementer) and [testing](https://mcpmarket.com/tools/skills/pixel-perfect-ui-testing) listings are third-party skills, not MCP servers or npm packages. The project-local versions are Codex-compatible **adaptations**, not claims that the original Claude-specific instructions run unchanged. They retain the render → implement → screenshot → compare → fix loop without unsupported agent calls or a fixed iteration cap.
 
-The `bencium-innovative-ux-designer` and `frontend-design` project skills were removed at the user's request because their design-generation defaults conflicted with the supplied render. Other skills visible in the Codex catalog (Figma, documents, spreadsheets, Sites, image generation, plugin management, and system setup) are platform capabilities, not part of this repository's ten local skills. They do not enter the Ramsider implementation path unless a later request actually needs their distinct workflow.
+The `bencium-innovative-ux-designer` and `frontend-design` project skills were removed at the user's request because their design-generation defaults conflicted with the supplied render. Other skills visible in the Codex catalog (Figma, documents, spreadsheets, Sites, image generation, plugin management, and system setup) are platform capabilities, not part of this repository's nine local skills. They do not enter the Ramsider implementation path unless a later request actually needs their distinct workflow.
 
 ## Executable state
 

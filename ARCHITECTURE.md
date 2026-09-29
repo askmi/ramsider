@@ -1,6 +1,6 @@
 # Architecture for the new application
 
-Read during stage 2 of [docs/discipline.md](docs/discipline.md). There is no app scaffold yet. At setup choose current compatible stable Next.js + React + strict TypeScript versions and verify APIs in the installed docs. The early source text says “Vite + Next.js”; its later conclusion chooses Next.js for SEO, metadata, routing, images, and server rendering. Do not add Vite to a Next.js app. Document real versions and commands after installation.
+Read during stage 2 of [docs/discipline.md](docs/discipline.md). There is no app scaffold yet. At setup choose current compatible stable Next.js + React + strict TypeScript versions and verify APIs in the installed docs. Use Next.js for routing, metadata, image delivery, server rendering, and its own development/build commands. Document real versions and commands after installation.
 
 ## Page composition and component responsibility
 

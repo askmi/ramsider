@@ -25,3 +25,9 @@ This is the repository's **error-prevention memory**, separate from current proj
 - **Problem:** Context-efficiency guidance was interpreted as measuring and shrinking only the fresh-session prompt.
 - **Cause:** It overlooked working-context growth from repeated code reads, giant reference images, browser screenshots, and command logs during implementation.
 - **Prevention:** Keep source images and full logs on disk; inspect the active section through useful crops and bounded output, reuse recorded findings, and rerun affected checks. Preserve the screenshot comparison and every other applicable quality gate.
+
+## Choose one application toolchain before adding skills
+
+- **Problem:** An unrelated build-tool skill remained installed after the project had chosen its application framework.
+- **Cause:** An early mixed-stack suggestion was treated as a skill-installation requirement instead of being reconciled with the later framework decision.
+- **Prevention:** Resolve framework and toolchain choices first. Install or retain only skills that serve the chosen stack or a required verification gap; remove obsolete skills and their active-document references when a decision changes. Preserve the original brief as a source record.

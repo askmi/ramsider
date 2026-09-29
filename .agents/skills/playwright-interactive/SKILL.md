@@ -643,7 +643,7 @@ npm start
 
 Before `page.goto(...)`, verify the chosen port is listening and the app responds.
 
-For Electron debugging, launch the app from `js_repl` through `_electron.launch(...)` so the same session owns the process. If the Electron renderer depends on a separate dev server (for example Vite or Next), keep that server running in a persistent TTY session and then relaunch or reload the Electron app from `js_repl`.
+For Electron debugging, launch the app from `js_repl` through `_electron.launch(...)` so the same session owns the process. If the Electron renderer depends on a separate development server, keep that server running in a persistent TTY session and then relaunch or reload the Electron app from `js_repl`.
 
 ## Cleanup
 

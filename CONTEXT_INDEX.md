@@ -4,7 +4,7 @@
 
 For substantive project work, start with the short [MEMORY.md](MEMORY.md) to see verified current state and open dependencies. Search [LESSONS.md](LESSONS.md) for the task's failure mode or area before a similar fix; it is the project's reusable error memory, not a general task log.
 
-**Context budget:** `AGENTS.md` is the always-loaded contract; `MEMORY.md` is a brief state check for substantive work. Open one stage's details when that stage begins, and search a specific section of a large file when possible. Do not preload `PROMPT.txt`, `SUMMARY.txt`, the whole skills catalog, or every document for an ordinary implementation task. The critical browser screenshot → compare → fix → recheck sequence is intentionally repeated at the rule, execution, and final-gate levels.
+**Context budget:** `AGENTS.md` is the always-loaded contract; `MEMORY.md` is a brief state check for substantive work. Open one stage's details when that stage begins, and search a specific section of a large file when possible. During implementation, keep large images/logs on disk and inspect only relevant crops or excerpts; retain small evidence records so later steps do not repeat discovery. Do not preload `PROMPT.txt`, `SUMMARY.txt`, the whole skills catalog, or every document for an ordinary implementation task. The critical browser screenshot → compare → fix → recheck sequence is intentionally repeated at the rule, execution, and final-gate levels.
 
 | Stage in `AGENTS.md` | Read | Purpose |
 | --- | --- | --- |

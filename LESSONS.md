@@ -19,3 +19,9 @@ This is the repository's **error-prevention memory**, separate from current proj
 - **Problem:** `LESSONS.md` alone did not make the current state, decisions, and open dependencies obvious to a future chat.
 - **Cause:** A root-cause journal was treated as the whole memory system, though it only records what to avoid repeating.
 - **Prevention:** Keep short, verified, up-to-date handoff facts in [MEMORY.md](MEMORY.md); keep recurring problem → cause → prevention entries here. Make [AGENTS.md](AGENTS.md) trigger both retrieval and maintenance, and correct stale memory against current files and user instructions.
+
+## Budget context throughout visual development
+
+- **Problem:** Context-efficiency guidance was interpreted as measuring and shrinking only the fresh-session prompt.
+- **Cause:** It overlooked working-context growth from repeated code reads, giant reference images, browser screenshots, and command logs during implementation.
+- **Prevention:** Keep source images and full logs on disk; inspect the active section through useful crops and bounded output, reuse recorded findings, and rerun affected checks. Preserve the screenshot comparison and every other applicable quality gate.

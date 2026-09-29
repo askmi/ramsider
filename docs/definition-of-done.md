@@ -33,6 +33,7 @@ The user's requested gate is strict: **do not say “done” when an applicable 
 - [ ] Keyboard, screen reader meaning, RTL where affected, touch targets, and reduced-motion behavior were checked.
 - [ ] Relevant animation intermediate and final states were checked with motion enabled, separately from stable layout screenshots.
 - [ ] The production mobile build's initial loading, asset/JS transfer, LCP, CLS, shifts, scrolling, and interaction latency were measured when affected; INP was measured from representative interactions or marked unavailable; meaningful regressions were fixed.
+- [ ] The production build's route output and HTML confirm the intended prerendered shell and request-time segments, where applicable; Server/Client boundaries and cache freshness were checked where affected. Rendering changes were kept only after comparable latency and client-cost measurements and affected visual checks.
 - [ ] Performance changes were followed by affected visual comparisons.
 - [ ] Changed verified project state, decisions, and blockers were reflected in `MEMORY.md`; reusable corrections were reflected in `LESSONS.md` without recording one-off noise.
 - [ ] For substantive work, the discipline auditor examined evidence at applicable gates, including final closeout; findings were fixed and rechecked. If subagents were unavailable, the main agent performed the explicit evidence audit and disclosed the lost independent check.

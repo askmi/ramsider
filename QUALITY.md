@@ -9,9 +9,13 @@ For code changes, invoke Codex's native `/review` on the changed diff before del
 - Does each section have one clear responsibility? Are component boundaries aligned with the visible composition and behavior?
 - Is reuse justified by repetition? Are there duplicate chunks, oversized components, tiny unnecessary wrappers, boolean-prop mazes, or deeply coupled state?
 - Are state and browser APIs limited to the interactive components that need them? Are Server/Client boundaries correct, with no unnecessary hydration?
+- Is each route's static, request-time server, or client rendering choice justified by actual content freshness and behavior? Did an accidental request API or fetch turn stable content dynamic, or did a broad `use client` boundary inflate the bundle?
+- Are data fetching, caching/revalidation, streaming/loading, and error states correct for the installed Next.js version? Are requests parallel where independent, private data isolated, and server-to-client props small?
+- Does server code read from its actual data source instead of making an unnecessary HTTP call to this app's own route handler?
 - Are props/types strict and clear? Can a human developer understand naming, file organization, and data flow without reverse engineering generated patterns?
 - Are design tokens, asset paths, translations, and responsive rules consistent? Is obsolete code removed?
 - Are dependency and animation-library additions necessary for observable behavior?
+- Are metadata, route semantics, and production behavior complete without one-off wrappers, duplicate data pipelines, or framework features added without a measured need?
 
 ## Accessibility and behavior review
 

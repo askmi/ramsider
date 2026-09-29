@@ -22,4 +22,6 @@ For substantive project work, start with the short [MEMORY.md](MEMORY.md) to see
 
 [docs/agent-evals.md](docs/agent-evals.md) holds regression scenarios for changes to AI instructions and skills. Use it during a harness review; it is not part of the normal page-building context.
 
+[docs/supervision.md](docs/supervision.md) defines the independent auditor's checkpoint handoff for substantive project work. The main agent opens it when starting that workflow; the auditor reads only the current gate's relevant sources and artifacts.
+
 `PROMPT.txt` is the original long brief. `SUMMARY.txt` is a later question-by-question synthesis. They are source records. Where their suggestions differ, `AGENTS.md` and explicit current user direction decide the workflow. Historical app code in Git is not the rebuild specification.

@@ -35,6 +35,7 @@ The user's requested gate is strict: **do not say “done” when an applicable 
 - [ ] The production mobile build's initial loading, asset/JS transfer, LCP, CLS, shifts, scrolling, and interaction latency were measured when affected; INP was measured from representative interactions or marked unavailable; meaningful regressions were fixed.
 - [ ] Performance changes were followed by affected visual comparisons.
 - [ ] Changed verified project state, decisions, and blockers were reflected in `MEMORY.md`; reusable corrections were reflected in `LESSONS.md` without recording one-off noise.
+- [ ] For substantive work, the discipline auditor examined evidence at applicable gates, including final closeout; findings were fixed and rechecked. If subagents were unavailable, the main agent performed the explicit evidence audit and disclosed the lost independent check.
 
 ## Final evidence
 

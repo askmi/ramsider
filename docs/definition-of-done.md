@@ -11,6 +11,7 @@ The user's requested gate is strict: **do not say “done” when an applicable 
 - [ ] Lint passes.
 - [ ] Relevant automated tests pass; a runner that discovers zero tests is not counted as a pass.
 - [ ] A production build passes and the app starts.
+- [ ] For code changes, native Codex `/review` (or its CLI equivalent) examined the actual diff; actionable findings were fixed or justified and affected checks rerun. If unavailable, the missing review is reported explicitly.
 - [ ] Architecture and component boundaries have been reviewed: responsibilities, reuse, duplication, component size, state, props, and Server/Client split.
 - [ ] Unused code and unnecessary dependencies introduced by the work are removed.
 - [ ] Refactoring changes were followed by affected visual and behavior checks.

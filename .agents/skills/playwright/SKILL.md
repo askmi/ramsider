@@ -1,13 +1,12 @@
 ---
 name: "playwright"
-description: "Use for exploratory real-browser automation in this repository via the project-local Playwright CLI. Use @playwright/test for repeatable Ramsider visual and interaction checks required by AGENTS.md."
+description: "Run repeatable Ramsider browser checks with @playwright/test on the configured iPhone WebKit and desktop profiles. Use the project-local Playwright CLI for scripted exploration when needed; the Codex browser covers quick one-off inspection."
 ---
 
 
 # Playwright CLI Skill
 
-Drive a real browser from the terminal using `playwright-cli`. Prefer the bundled wrapper script so the CLI works even when it is not globally installed.
-Use the CLI for exploratory browser inspection. Use the installed `@playwright/test` runner for repeatable visual and interaction checks required by `AGENTS.md`; this project already defines that QA route.
+Use the installed `@playwright/test` runner for repeatable visual and interaction checks required by `AGENTS.md`. For terminal-driven exploration, prefer the bundled `playwright-cli` wrapper so the CLI works even when it is not globally installed. In the Codex desktop app, the built-in browser is sufficient for a quick one-off inspect/click/screenshot pass; use this CLI when its scripted terminal workflow adds value.
 
 ## Prerequisite check (required)
 

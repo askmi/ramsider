@@ -8,6 +8,7 @@ Durable handoff for work in this repository, across chats and context compaction
 - The visual source is the pair of 941 × 32,127 PNGs under `design/references/`; relevant fonts, button art, and PSB sources are catalogued in [DESIGN.md](DESIGN.md). The iPhone 17 Pro and Pro Max emulation profiles are configured in [`playwright.config.mjs`](playwright.config.mjs); earlier blank-page viewport checks are recorded in [TOOLS.md](TOOLS.md), not evidence for a built site.
 - The agreed application direction is Next.js + React + strict TypeScript, mobile first from the approved render. [ARCHITECTURE.md](ARCHITECTURE.md) owns implementation choices; [PRODUCT.md](PRODUCT.md) owns narrative and factual dependencies. Do not treat this memory summary as a substitute for those files.
 - No project Codex hooks are configured. The current context is routed through [AGENTS.md](AGENTS.md) and [CONTEXT_INDEX.md](CONTEXT_INDEX.md); [TOOLS.md](TOOLS.md) records why a hook is deferred until an executable, narrow check exists.
+- The tool decision is native Codex capabilities where they meet the gate, with project skills/tools for distinct evidence: built-in browser for quick exploration, Playwright WebKit/DPR 3 for repeatable mobile QA, and native `/review` for code diffs. [TOOLS.md](TOOLS.md) records the distinction and current availability.
 - [docs/agent-evals.md](docs/agent-evals.md) defines workflow regression cases for future instruction changes. No agent-run baseline has been executed; the cases are preparation, not proof of compliance.
 
 ## Open dependencies

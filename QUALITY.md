@@ -2,6 +2,8 @@
 
 Read during stage 5 of [docs/discipline.md](docs/discipline.md). “Clean code” means the page remains understandable and changeable without undermining reference fidelity. Do a deliberate review/refactor pass **after** implementation and browser QA; then repeat visual and interaction checks touched by the refactor.
 
+For code changes, invoke Codex's native `/review` on the changed diff before delivery; in the CLI use its equivalent review command. Read the findings, fix actionable defects, and rerun the checks each fix could affect. Record an unavailable review as blocked and perform the code review below without claiming `/review` ran. `/review` is a Codex command, not a separate project skill; its clean result alone does not pass the visual, behavior, accessibility, or performance gates.
+
 ## Code review questions
 
 - Does each section have one clear responsibility? Are component boundaries aligned with the visible composition and behavior?

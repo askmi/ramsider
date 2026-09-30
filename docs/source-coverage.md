@@ -43,3 +43,11 @@ This is the maintenance map for the user's source brief, reviewed against the cu
 ## Remaining dependencies, not hidden assumptions
 
 The repository has no rebuilt site, production endpoint, confirmed copy/translation set, film, document PDFs, commerce/configuration backend, FAQ answers, or verified pricing/certification records. The render alone cannot resolve those. A future implementation should complete all independent work first, then surface only the decisions that genuinely block a functioning action or factual publication. Tool installation and a written gate are preparation; neither is evidence that the future site passed the gate.
+
+## 2026-09-30 amendment — autonomous change and defect history
+
+Current user instruction requires all project changes/defects to be tracked with what was wrong, the solution (including source → mapping → implementation), verification and approval. Its enforceable homes are [AGENTS.md](../AGENTS.md), [discipline](discipline.md), [Definition of Done](definition-of-done.md), [auditor protocol](supervision.md) and the authoritative [CHANGELOG.md](../CHANGELOG.md). The index and MEMORY route to it; LESSONS retains prevention, not the event history. This amendment supersedes any interpretation of the older memory guidance that omitted a complete change log. Historical “no rebuilt app” observations above describe the earlier rules audit, not current application state.
+
+## 2026-09-30 amendment — accountable causes and behavioral evaluation
+
+CHG-0023 extends the register with agent decision/action, missed control, evidence-backed responsibility, and a concrete prevention/eval link. Business is an additional input, not presumed user fault; wrong fonts/buttons and doubled FAQ are agent failures. Relevant history/lessons must inform fresh rebuilds. [Agent Eval](agent-evals.md) now documents use of the existing application, discoverable 12-test suite and local JSONL-capable Codex CLI. A controlled run and grading are still NOT_RUN; the earlier lack of application code is no longer a blocker. Repository memory/instruction updates do not change model weights.

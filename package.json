@@ -3,6 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
     "test:visual": "playwright test",
     "test:visual:ui": "playwright test --ui",
     "visual:diff": "node tools/visual-diff.mjs"
@@ -10,8 +15,19 @@
   "devDependencies": {
     "@playwright/cli": "^0.1.22",
     "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.11",
     "pixelmatch": "^7.2.0",
     "pngjs": "^7.0.0",
-    "sharp": "^0.35.5"
+    "sharp": "^0.35.5",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "next": "^16.2.11",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   }
 }

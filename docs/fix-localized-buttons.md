@@ -1,0 +1,22 @@
+# Localized one-line buttons — CHG-0004 follow-up
+
+## Defect and cause
+
+The user reported the German hero CTA `Jetzt reservieren` breaking onto two lines. The previous localized-button fix treated absence of clipping as success: CSS deliberately allowed `white-space:normal` and `overflow-wrap:anywhere`, while visible pill widths remained calibrated to English. This was an agent implementation and verification failure. The original render shows one-line CTAs; the user's correction requires one line in every locale and a surface proportional to each label.
+
+## Fix
+
+- `tools/subset-button-fallbacks.mjs` uses `pyftsubset` to derive small Arabic, Simplified Chinese, Japanese and Korean Noto Sans fallback fonts from the SIL OFL source WOFF2 files and licenses in `design/assets/Button_Font_Fallbacks/`. The page and standalone calibrator use the same font files; the four served subsets total about 27KB. `tools/calibrate-localized-buttons.mjs` reads the source TypeScript dictionaries and story IDs, then measures all ten pill labels per non-English locale in standalone WebKit with the actual bundled font stack at the 402px Pro baseline. It does not need a running app or an existing width map. `lib/button-localized-widths.json` records 100 source-space width/position pairs. English uses the unchanged reference geometry in `lib/button-map.json`.
+- `tools/generate-buttons.py` derives each localized SVG from the same supplied text-free variant. It changes only straight body/inner-rect width and the arrow's X position; source height, corner radius, stroke, gradient and arrow path remain intact. `Story` uses the matching localized width and SVG. Centered CTAs preserve their center where possible; left-anchored hero/fire buttons preserve their left edge, with all pills constrained inside the 941px canvas.
+- Localized story labels use `white-space:nowrap`; custom orbit, caption and outline buttons keep their own silhouettes. The separate 44px vertical hit area is unchanged. Arabic keeps its mirrored directional surface.
+
+If translations or button fonts change, install `fonttools[woff]` in a development environment and run `node tools/subset-button-fallbacks.mjs` (set `PYFTSUBSET` to its binary path if needed), then `node tools/calibrate-localized-buttons.mjs`, `python3 tools/generate-buttons.py`, rebuild and repeat the locale matrix. Do not use the precomputed values for a changed font without recalibration.
+
+## Evidence
+
+- `screenshots/actual/button-locales/reference-en-hero.png` is a native source crop. `en-402-hero.png` retains the original English pill scale and shape. `de-402-hero.png`, `de-440-hero.png`, `de-768-hero.png`, and `de-1440-hero.png` show the corrected one-line German CTA at the required Pro/Pro Max targets and responsive widths. Tight button images include long German/Russian labels, short Chinese labels and Arabic arrow direction. Full screenshots wait for hero artwork decode and two paint frames.
+- `screenshots/actual/button-locales/verified-matrix.json` / `verify-final.log`: 770/770 button states (14 mapped CTAs × 11 locales × 375, 402, 440, 768 and 1440px) have one visual line, matching locale asset, canvas bounds, text margins and arrow clearance. Browser measurement is the acceptance signal; `getClientRects()` fragments from nested `UNO` text are merged by overlapping line bands.
+- `tests/e2e/site.spec.ts`: the permanent locale regression checks all 11 languages in each mobile WebKit and desktop profile. Full suite: 24/24 passed. `interactions.log` checks hero and compare click/dialog behavior in all 11 locales. Typecheck, lint and production build passed.
+- Production Chromium at Pro DPR3 with 4× CPU: final English cold LCP 184ms, CLS 0, JS transfer 151,807B. The full-scroll pass measured p95 17.4ms with 0/162 frames above 33ms. Each Arabic, Chinese, Japanese and Korean route transferred only its own button subset (3.8–10.1KB); these route checks reused a warm browser context and their LCP values are not independent cold-load measurements. Local run had no network throttling; this is not a Lighthouse or INP score. Final native review found no actionable defect; its sandbox could not rerun WebKit, which the main-session 24/24 browser pass covered. The independent auditor passed visual, behavior, static, review and performance gates; see CHG-0004.
+
+The source PNG is English-only. German and other locales are judged against the source button's shape and composition plus the user's explicit one-line/proportional requirement, not against nonexistent localized renders.

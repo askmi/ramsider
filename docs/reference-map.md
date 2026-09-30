@@ -2,6 +2,8 @@
 
 Source: `design/references/background_text.png`, 941 × 32,127 px, inspected as twelve approximately equal vertical crops. This is an **inventory of visible design content**, not verified product data or a finished copy deck. The bands are inspection aids, not exact section boundaries. Before coding any band, reopen that crop at native resolution, compare the same coordinates in `background.png`, transcribe exact copy, mark layer boundaries, and record what its controls actually do. See [visual-qa.md](visual-qa.md) for source-to-browser calibration.
 
+**Later approved change to the original brief:** [locale-switcher reference](../design/references/locale-switcher/README.md) adds the first-screen, persistent scrolled, and open-menu states with country flags. Direct follow-up instructions refine the panel to a neutral translucent gold-rimmed surface and align the capsule with the desktop wordmark/menu before scrolling. They govern only the locale-switcher UI; the long render remains the source for the rest of the page. This inventory below describes the original render and therefore does not include that later control.
+
 | Band | Observed narrative, images, and controls |
 | --- | --- |
 | 1 | RAMSIDER wordmark and menu; “Introducing Fograiser. A New Category of Ritual Systems. UNO — Its First Expression”; white UNO hero; “Reserve now.” The problem setup begins: “Why Fire Had to End,” with ash, odor, heat spikes, inconsistent results and “Learn more.” |

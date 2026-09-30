@@ -38,6 +38,18 @@ The user's requested gate is strict: **do not say “done” when an applicable 
 - [ ] Changed verified project state, decisions, and blockers were reflected in `MEMORY.md`; reusable corrections were reflected in `LESSONS.md` without recording one-off noise.
 - [ ] For substantive work, the discipline auditor examined evidence at applicable gates, including final closeout; findings were fixed and rechecked. If subagents were unavailable, the main agent performed the explicit evidence audit and disclosed the lost independent check.
 
+## Change-log gate (all project changes)
+
+- [ ] Every logical change and discovered defect has a stable [CHANGELOG.md](../CHANGELOG.md) ID, including small edits, intermediate mapping/specification work, and agent-discovered regressions.
+- [ ] Each entry states actual versus expected, source/reference, cause, solution and how any mapping was applied, affected files and concrete verification evidence.
+- [ ] Each `VERIFIED` entry has dated technical approval naming the verifier and applicable auditor; checks meet the task's relevant gates. “Code changed,” a missing screenshot, a skipped check or a user silence is not technical approval.
+- [ ] Failed verdicts and reopen events remain in the history; unresolved defects have open IDs and are not silently bundled into a successful parent fix.
+- [ ] Explicit user approval is distinguished from technical approval. Its absence does not block routine authorized work, and no user approval is fabricated.
+- [ ] The final response identifies the relevant journal IDs or links; MEMORY and LESSONS stay consistent without duplicating the full event log.
+
+- [ ] Every defect explains responsibility, the observable causal action/decision, missed check and specific prevention; uncertain causes stay explicit and input changes are not misattributed to the user.
+- [ ] Reusable prevention links to LESSONS and an eval case with honest execution status. Fix approval, user acceptance and demonstrated behavioral improvement remain separate.
+
 ## Final evidence
 
 The model runs all feasible checks itself and keeps per-slice acceptance records; it does not ask the user to perform routine visual QA. The response names tested viewports, reference/actual/diff screenshots, interactions, type/lint/build/test results, performance measurements, remaining material differences, and any unavailable verification. Do not claim pixel-perfect fidelity, WCAG AA compliance, 95+ Lighthouse, “instant” loading, or zero bugs without corresponding evidence. A successful build alone never closes the task.

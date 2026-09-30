@@ -6,12 +6,14 @@
 | --- | --- | --- |
 | `design/references/background.png` | Clean artwork for implementation | 941 × 32,127 PNG, about 44 MB |
 | `design/references/background_text.png` | Composited visual target | 941 × 32,127 PNG, about 44 MB |
+| `design/references/fix_RAMSIDER_BUSINESS.png` | Approved supplemental correction to the main render | Adds **RAMSIDER Business** above the second account card subtitle; see [supplemental fix](docs/fix-ramsider-business.md) |
+| `design/references/locale-switcher/` | Approved supplemental reference for locale switching | Three user-approved concept renders with country flags: hero, persistent scrolled control, and open 11-language list. This changes the original brief for the switcher only; see [scope and precedence](design/references/locale-switcher/README.md) and [CHG-0029](CHANGELOG.md#chg-0029). The implemented states are recorded in [CHG-0032](CHANGELOG.md#chg-0032). Later direct instructions [CHG-0036](CHANGELOG.md#chg-0036)/[CHG-0037](CHANGELOG.md#chg-0037) supersede the PNG only for translucent gold-rimmed panel material and desktop top-line alignment. |
 | `design/assets/OPEN SAN.ZIP` | Candidate Open Sans fonts | Includes variable and static font files |
 | `design/assets/BankGothic Regular.zip` | Candidate Bank Gothic font | Includes a regular TTF |
 | `design/assets/RAMSIDER_Buttons.zip` | Button and arrow artwork | Contains PNG and SVG variants, including text-free buttons |
 | `design/source/fon-.psb`, `Fon+box.psb`, `Work-R153.psb` | Large editable Photoshop sources | Local sources; ignored by Git |
 
-The exact typeface used at each location still needs to be determined from the assets and reference. Inspect font metadata and visual fit; do not infer a family from appearance alone. Keep shipped font weights/subsets small and check licenses/readmes. The visible page sections and controls are mapped in [docs/reference-map.md](docs/reference-map.md); inspect the actual crop before implementing any one of them.
+The inspected typeface and button assignments are recorded in [docs/font-button-map.md](docs/font-button-map.md), including source coordinates, evidence, confidence limits, and the distinction between Open Sans wordmarks and BankGothic brand signatures. Exact font sizes/tracking still require browser calibration, and BankGothic embedding rights need confirmation before publication. Keep shipped font weights/subsets small. The visible page sections and controls are mapped in [docs/reference-map.md](docs/reference-map.md); inspect the actual crop before implementing any one of them.
 
 ## Implementation interpretation
 

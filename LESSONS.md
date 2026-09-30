@@ -146,6 +146,12 @@ This is the repository's **error-prevention memory**, separate from current proj
 - **Cause:** The agent treated extended artwork as per-row fill and split flat surfaces at fractional pixel boundaries. A container’s own `cqw` size also resolved against the viewport on wide screens; one-sided physical margins shifted RTL cards.
 - **Prevention:** Inspect the complete expanded section and final account boundary, using continuous artwork for exposed gutters and one backing surface per open card. Assert source-scaled closed canvas height above its max-width and explicit physical artwork alignment in RTL. Wait for image load/decode and browser paint before captures. Store code snapshots outside compiler globs or with a `.txt` extension: a temporary `.tsx` backup was accidentally compiled during this fix.
 
+## Check the outer pixels of derived artwork
+
+- **Problem:** A thin white line appeared at the right edge of several long background tiles after deployment (CHG-0041).
+- **Cause:** The agent exported 941 px tiles without checking that the source's last column had transparent runs. The WebP export flattened those runs to white, and section-centered visual checks missed the outer edge.
+- **Prevention:** Before exporting long artwork, scan both outer columns for alpha and unexpected color. Repair transparent edge pixels from adjacent source artwork, then inspect decoded production tiles and real browser screenshots at the top, middle, bottom, and tile joins on mobile and desktop. Keep the reference PNG untouched.
+
 ## Compare the background outside every disclosure card
 
 - **Problem:** CHG-0027 passed review/audit but the user found a different background in gaps and rounded corners whenever a question opened.

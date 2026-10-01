@@ -89,6 +89,9 @@ test('back-to-top appears on scroll, stays in the viewport, and restores top and
   expect(box.height).toBeGreaterThanOrEqual(44);
   expect(box.x + box.width).toBeLessThanOrEqual(page.viewportSize()!.width);
   expect(box.y + box.height).toBeLessThanOrEqual(page.viewportSize()!.height);
+  if (test.info().project.name.includes('iphone')) {
+    expect(page.viewportSize()!.height - box.y - box.height).toBeLessThanOrEqual(32);
+  }
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await control.focus();
   await page.keyboard.press('Enter');

@@ -181,7 +181,6 @@ html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.
 .back-to-top:hover{background:#211b17e0}
 .back-to-top:active{transform:translateY(1px)}
 .back-to-top:focus-visible{outline:3px solid #211b17;outline-offset:3px;box-shadow:0 0 0 9px #fff}
-@media(max-width:600px){.back-to-top{bottom:max(72px,calc(env(safe-area-inset-bottom) + 16px))}}
 .locale-switcher{--locale-top:max(4px,env(safe-area-inset-top),calc(80/941*min(100vw,941px) - 22px));position:fixed;z-index:21;top:var(--locale-top);right:calc(max(0px,(100vw - 941px)/2) + max(34px,min(8.5vw,80px)) + 48px);width:64px;height:44px;direction:ltr}
 .locale-switcher[data-scrolled="true"]{--locale-top:max(12px,env(safe-area-inset-top));right:calc(max(0px,(100vw - 941px)/2) + max(16px,env(safe-area-inset-right)))}
 .locale-toggle{display:grid;place-items:center;width:64px;height:44px;border:0;background:none;padding:0;color:#29221f;touch-action:manipulation}

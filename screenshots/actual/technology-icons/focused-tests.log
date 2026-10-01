@@ -1,0 +1,14 @@
+
+Running 3 tests using 3 workers
+
+(node:71925) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:71926) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:71924) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop-chromium] › tests/e2e/technology-icons.spec.ts:5:1 › all seven technology annotations use decoded source artwork (1.7s)
+  ✓  1 [iphone-17-pro-webkit] › tests/e2e/technology-icons.spec.ts:5:1 › all seven technology annotations use decoded source artwork (2.4s)
+  ✓  3 [iphone-17-pro-max-webkit] › tests/e2e/technology-icons.spec.ts:5:1 › all seven technology annotations use decoded source artwork (2.4s)
+
+  3 passed (3.6s)

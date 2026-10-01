@@ -25,6 +25,16 @@ const featureArt = [
   { name: 'consistent', x: 350, y: 5772, width: 80, height: 70 },
 ] as const;
 
+const technologyArt = [
+  { name: 'triple', x: 165, y: 7118, width: 240, height: 60 },
+  { name: 'core', x: 165, y: 7354, width: 210, height: 52 },
+  { name: 'touch', x: 165, y: 7500, width: 265, height: 130 },
+  { name: 'water', x: 165, y: 7808, width: 260, height: 65 },
+  { name: 'light', x: 600, y: 7321, width: 150, height: 155 },
+  { name: 'armor', x: 595, y: 7565, width: 152, height: 145 },
+  { name: 'flow', x: 460, y: 7814, width: 290, height: 145 },
+] as const;
+
 function sourceStyle(x: number, y: number, w: number, size?: number): React.CSSProperties {
   return {
     left: `${(x / 941) * 100}%`,
@@ -78,6 +88,9 @@ function OverlayNode({ node, locale }: { node: StoryNode; locale: Locale }) {
   }
   if (node.key === 'finalBrand') return <p {...props}><span>RAMSIDER</span> <em>UNO</em></p>;
   if (node.style === 'title') return <h2 {...props}>{textLines(text)}</h2>;
+  if (technologyArt.some(icon => icon.name === node.key)) {
+    return <p {...props}>{text.split('\n').map((line, index) => <span className="technology-label-line" key={index}>{index > 0 ? ' ' : ''}{line}</span>)}</p>;
+  }
   return <p {...props}>{textLines(text)}</p>;
 }
 
@@ -232,6 +245,19 @@ export function Story({ locale }: { locale: Locale }) {
         key={icon.name}
         className="feature-source-art"
         src={`/art/feature-${icon.name}.png`}
+        width={icon.width}
+        height={icon.height}
+        style={sourceStyle(icon.x, icon.y, icon.width)}
+        alt=""
+        aria-hidden="true"
+        unoptimized
+        loading="eager"
+        fetchPriority="low"
+      />)}
+      {technologyArt.map(icon => <Image
+        key={icon.name}
+        className="technology-source-art"
+        src={`/art/technology-${icon.name}.png`}
         width={icon.width}
         height={icon.height}
         style={sourceStyle(icon.x, icon.y, icon.width)}

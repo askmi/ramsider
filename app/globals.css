@@ -27,17 +27,7 @@ a{color:inherit}
 .overlay.body{font-weight:300;color:#5d5149;line-height:1.22}
 .overlay.label{font-weight:400;letter-spacing:.08em;line-height:1.25}
 .feature-source-art{position:absolute;z-index:3;height:auto;pointer-events:none}
-.key-triple::after,.key-core::after,.key-touch::after,.key-water::after,.key-light::after,.key-armor::after,.key-flow::after{content:"";position:absolute;top:50%;height:1px;width:calc(150/941*100cqw);background:#fff0ca}
-.key-triple::after,.key-core::after,.key-touch::after,.key-water::after{left:85%}
-.key-light::after,.key-armor::after,.key-flow::after{right:100%}
-.key-triple::before,.key-core::before,.key-touch::before,.key-water::before,.key-light::before,.key-armor::before,.key-flow::before{position:absolute;top:-1.55em;left:0;width:100%;font-size:1.15em;line-height:1;text-align:center;color:#bd955f}
-.key-triple::before{content:'♨'}
-.key-core::before{content:'▣'}
-.key-touch::before{content:'◇'}
-.key-water::before{content:'♧'}
-.key-light::before{content:'✧'}
-.key-armor::before{content:'⬡'}
-.key-flow::before{content:'≈'}
+.technology-source-art{position:absolute;z-index:3;height:auto;pointer-events:none}
 html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water){left:calc(70/941*100cqw)!important;width:calc(230/941*100cqw)!important;font-size:calc(29/941*100cqw)!important}
 html:not(:lang(en)) :is(.key-light,.key-armor,.key-flow){left:calc(645/941*100cqw)!important;width:calc(210/941*100cqw)!important;font-size:calc(29/941*100cqw)!important}
 html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.key-armor,.key-flow) span{white-space:normal}
@@ -216,6 +206,10 @@ html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.
 .key-mini .signature-name{font-size:calc(53/941*100cqw);letter-spacing:.16em}
 .key-mini .signature-divider{height:calc(53/941*100cqw)}
 .overlay:is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.key-armor,.key-flow) span:not(:first-child){font-size:.75em}
+.overlay .technology-label-line{display:block;white-space:normal;line-height:1.05}
+html:lang(en) .overlay:is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.key-armor,.key-flow){line-height:1.05}
+html:lang(en) .overlay:is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.key-armor,.key-flow) span:not(:first-child){font-size:.71em}
+html:lang(en) .overlay:not(.key-touch) .technology-label-line:not(:first-child){margin-top:calc(5/941*100cqw)}
 .button-orbit .uno-emphasis{font-size:1.35em}
 .key-open{color:#fff0cf!important;pointer-events:none}
 .canvas:not([data-locale="en"]) .button-label{font-size:.9em}

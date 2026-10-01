@@ -1,0 +1,12 @@
+
+> visual:diff
+> node tools/visual-diff.mjs screenshots/actual/technology-icons/reference-pro.png screenshots/actual/technology-icons/pro-en.png screenshots/actual/technology-icons/pro-diff.png 100
+
+{
+  "width": 1206,
+  "height": 1346,
+  "differingPixels": 133200,
+  "differencePercent": 8.205628617684239,
+  "maximumPercent": 100,
+  "diffPath": "screenshots/actual/technology-icons/pro-diff.png"
+}

@@ -4,7 +4,7 @@ import { mkdir } from 'node:fs/promises';
 const localeNames = ['English', 'Русский', 'Deutsch', 'Français', 'Español', 'Italiano', 'Türkçe', 'العربية', '中文', '日本語', '한국어'];
 const captureDir = process.env.VISUAL_OUTPUT_DIR ?? 'screenshots/actual/locale-switcher';
 
-test('language control matches its three states and keeps the reading position', async ({ page }, testInfo) => {
+test('language control stays in the header and works after returning to top', async ({ page }, testInfo) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/en');
@@ -21,6 +21,18 @@ test('language control matches its three states and keeps the reading position',
   const triggerBox = (await trigger.boundingBox())!;
   expect(triggerBox.width).toBeGreaterThanOrEqual(44);
   expect(triggerBox.height).toBeGreaterThanOrEqual(44);
+  const closedStyle = await trigger.evaluate(element => ({
+    position: getComputedStyle(element.parentElement!).position,
+    color: getComputedStyle(element).color,
+    codeSize: parseFloat(getComputedStyle(element.querySelector('.locale-code')!).fontSize),
+    flagSize: parseFloat(getComputedStyle(element.querySelector('.locale-flag')!).fontSize),
+    chevronWidth: element.querySelector('.locale-chevron')!.getBoundingClientRect().width,
+  }));
+  expect(closedStyle.position).toBe('absolute');
+  expect(closedStyle.color).toBe('rgb(0, 0, 0)');
+  expect(closedStyle.codeSize).toBeLessThan(expectedWidth === 1440 ? 22 : 11);
+  expect(closedStyle.flagSize).toBeLessThan(expectedWidth === 1440 ? 26 : 12);
+  expect(closedStyle.chevronWidth).toBeLessThan(expectedWidth === 1440 ? 22 : 10);
   await expect(trigger.locator('.locale-code')).toHaveText('EN');
   const closedSurface = await trigger.locator('.locale-toggle-face').evaluate(element => {
     const style = getComputedStyle(element);
@@ -41,7 +53,6 @@ test('language control matches its three states and keeps the reading position',
   await trigger.click();
   const panel = page.getByRole('navigation', { name: 'Language' });
   await expect(panel).toBeVisible();
-  const openBox = (await panel.boundingBox())!;
   const panelMaterial = await panel.evaluate(element => {
     const style = getComputedStyle(element);
     const label = getComputedStyle(element.querySelector('a')!);
@@ -99,7 +110,6 @@ test('language control matches its three states and keeps the reading position',
 
   await page.evaluate(() => scrollTo({ top: 6500, behavior: 'instant' }));
   await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(6400);
-  await expect(page.locator('.locale-switcher')).toHaveAttribute('data-scrolled', 'true');
   await page.evaluate(async () => {
     const image = [...document.querySelectorAll<HTMLImageElement>('.art img')].find(item => {
       const box = item.getBoundingClientRect();
@@ -107,23 +117,20 @@ test('language control matches its three states and keeps the reading position',
     });
     if (image) await image.decode();
   });
-  const scrolledY = await page.evaluate(() => scrollY);
-  const fixedBox = (await trigger.boundingBox())!;
-  expect(fixedBox.y).toBeGreaterThanOrEqual(0);
-  expect(fixedBox.y + fixedBox.height).toBeLessThanOrEqual(testInfo.project.use.viewport?.height ?? 900);
-  expect(Math.abs(fixedBox.x - triggerBox.x)).toBeLessThan(1);
-  expect(Math.abs(fixedBox.y - triggerBox.y)).toBeLessThan(1);
+  const scrolledBox = (await trigger.boundingBox())!;
+  expect(scrolledBox.y).toBeLessThan(-40);
+  expect(Math.abs(scrolledBox.x - triggerBox.x)).toBeLessThan(1);
+  expect(await trigger.evaluate(element => getComputedStyle(element).color)).toBe('rgb(0, 0, 0)');
   await page.screenshot({ path: `${captureDir}/scrolled-${testInfo.project.name}.png`, scale: 'css' });
 
+  await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
+  await expect.poll(async () => (await trigger.boundingBox())!.y).toBeGreaterThanOrEqual(0);
   await trigger.click();
   await expect(panel).toBeVisible();
-  const scrolledOpenBox = (await panel.boundingBox())!;
-  expect(Math.abs(scrolledOpenBox.x - openBox.x)).toBeLessThan(1);
   await panel.getByRole('link', { name: 'Русский' }).click();
   await expect(page).toHaveURL(/\/ru$/);
   await expect(page.locator('html')).toHaveAttribute('lang', 'ru');
   await expect(page.locator('#locale-toggle')).toHaveAttribute('aria-label', /Русский/);
-  await expect.poll(async () => Math.abs((await page.evaluate(() => scrollY)) - scrolledY)).toBeLessThan(130);
   expect(errors).toEqual([]);
 });
 
@@ -143,7 +150,9 @@ test('Arabic layout and narrow viewport keep the selector operable', async ({ pa
   await page.keyboard.press('Escape');
   await page.locator('#locale-toggle').evaluate(element => (element as HTMLElement).blur());
   await page.evaluate(() => scrollTo({ top: 6500, behavior: 'instant' }));
-  await expect(page.locator('.locale-switcher')).toHaveAttribute('data-scrolled', 'true');
+  await expect.poll(() => page.evaluate(() => [...document.querySelectorAll<HTMLImageElement>('.art img')]
+    .filter(item => { const box = item.getBoundingClientRect(); return box.bottom > 0 && box.top < innerHeight; })
+    .every(item => item.complete && item.naturalWidth > 0)), { timeout: 30000 }).toBe(true);
   await page.evaluate(async () => {
     const image = [...document.querySelectorAll<HTMLImageElement>('.art img')].find(item => {
       const box = item.getBoundingClientRect();
@@ -151,122 +160,9 @@ test('Arabic layout and narrow viewport keep the selector operable', async ({ pa
     });
     if (image) await image.decode();
   });
+  expect((await page.locator('#locale-toggle').boundingBox())!.y).toBeLessThan(-40);
   if (testInfo.project.name.includes('iphone')) await page.screenshot({ path: `${captureDir}/arabic-scrolled-${testInfo.project.name}.png`, scale: 'css' });
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(await page.evaluate(() => innerWidth));
-});
-
-test('translucent language panel remains readable over product and dark artwork', async ({ page }, testInfo) => {
-  test.skip(!testInfo.project.name.includes('iphone'));
-  await mkdir(captureDir, { recursive: true });
-  for (const locale of ['en', 'ar'] as const) {
-    if (locale === 'ar' && testInfo.project.name !== 'iphone-17-pro-webkit') continue;
-    await page.goto(`/${locale}`);
-    await page.evaluate(() => document.fonts.ready);
-    for (const [name, sourceY] of [['coal', 2800], ['amber', 15500], ['dark', 28800]] as const) {
-      await page.evaluate(y => {
-        const width = document.querySelector('.canvas')!.getBoundingClientRect().width;
-        scrollTo({ top: y * width / 941, behavior: 'instant' });
-      }, sourceY);
-      await expect(page.locator('.locale-switcher')).toHaveAttribute('data-scrolled', 'true');
-      if (name !== 'amber') {
-        await expect(page.locator('.locale-switcher')).toHaveAttribute('data-dark', 'true');
-        expect(await page.locator('.locale-code').evaluate(element => getComputedStyle(element).color)).toBe('rgb(255, 255, 255)');
-      }
-      await page.evaluate(async () => {
-        const images = [...document.querySelectorAll<HTMLImageElement>('.art img, .tail-art img')];
-        await Promise.all(images.filter(image => {
-          const box = image.getBoundingClientRect();
-          return box.bottom > 0 && box.top < innerHeight;
-        }).map(image => image.decode().catch(() => undefined)));
-      });
-      await page.locator('#locale-toggle').click();
-      const panel = page.locator('.locale-options');
-      await expect(panel).toBeVisible();
-      await expect(panel.locator('a')).toHaveCount(11);
-      await page.screenshot({ path: `${captureDir}/${locale}-${name}-open-${testInfo.project.name}.png`, scale: 'css' });
-      if (locale === 'en' && name === 'dark' && testInfo.project.name === 'iphone-17-pro-webkit') {
-        await page.keyboard.press('ArrowDown');
-        await expect(panel.getByRole('link', { name: 'Русский' })).toBeFocused();
-        await page.screenshot({ path: `${captureDir}/en-dark-focus-iphone-17-pro-webkit.png`, scale: 'css' });
-      }
-      await page.keyboard.press('Escape');
-    }
-  }
-});
-
-test('closed code changes contrast at artwork boundaries', async ({ page }, testInfo) => {
-  test.skip(!['iphone-17-pro-webkit', 'desktop-chromium'].includes(testInfo.project.name));
-  await mkdir(captureDir, { recursive: true });
-  for (const locale of ['en', 'ar'] as const) {
-    await page.goto(`/${locale}`);
-    const cases: Array<[string, number, boolean]> = locale === 'en'
-      ? [['before-coal', 2600, false], ['coal', 2850, true], ['dark-patch', 7580, true], ['after-group-dark', 29325, false]]
-      : [['rtl-before-coal', 2600, false], ['rtl-coal', 2790, true], ['rtl-after-coal', 3050, false]];
-    if (testInfo.project.name === 'desktop-chromium') cases.push(['coffee-machine', 30500, locale === 'en']);
-    for (const [name, sourceY, dark] of cases) {
-    await page.evaluate(y => {
-      const canvas = document.querySelector('.canvas')!.getBoundingClientRect();
-      const tail = document.querySelector('.story-tail')!.getBoundingClientRect();
-      const switcher = document.querySelector('.locale-switcher')!.getBoundingClientRect();
-      const scale = canvas.width / 941;
-      const top = y < 28207
-        ? scrollY + canvas.top + y * scale
-        : scrollY + tail.top + (y - 28207) * scale;
-      scrollTo({ top: top - switcher.top - 22, behavior: 'instant' });
-    }, sourceY);
-    await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
-    await expect(page.locator('.locale-switcher')).toHaveAttribute('data-dark', String(dark));
-    expect(await page.locator('.locale-code').evaluate(element => getComputedStyle(element).color))
-      .toBe(dark ? 'rgb(255, 255, 255)' : 'rgb(41, 34, 31)');
-      await page.screenshot({ path: `${captureDir}/boundary-${locale}-${name}-${testInfo.project.name}.png`, scale: 'css' });
-    }
-  }
-});
-
-test('narrow phones keep the closed control legible over dark artwork', async ({ page }, testInfo) => {
-  test.skip(testInfo.project.name !== 'iphone-17-pro-webkit');
-  await mkdir(captureDir, { recursive: true });
-  for (const width of [320, 350]) {
-    await page.setViewportSize({ width, height: 874 });
-    for (const locale of ['en', 'ar'] as const) {
-      await page.goto(`/${locale}`);
-      const positions = locale === 'ar' && width === 320
-        ? [['before', 10000, false], ['dark', 10800, true], ['after', 11500, false]] as const
-        : locale === 'ar'
-          ? [['before', 2600, false], ['dark', 2800, true], ['after', 3050, false]] as const
-          : [['before', 2600, false], ['dark', 2850, true], ['after', 3050, false]] as const;
-      for (const [name, y, white] of positions) {
-        await page.evaluate(sourceY => {
-          const canvas = document.querySelector('.canvas')!.getBoundingClientRect();
-          const switcher = document.querySelector('.locale-switcher')!.getBoundingClientRect();
-          scrollTo({ top: scrollY + canvas.top + sourceY * canvas.width / 941 - switcher.top - 22, behavior: 'instant' });
-        }, y);
-        await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
-        await expect(page.locator('.locale-switcher')).toHaveAttribute('data-dark', String(white));
-        await expect(page.locator('.locale-switcher')).toHaveAttribute('data-chevron-dark', String(white));
-        expect(await page.locator('.locale-code').evaluate(element => getComputedStyle(element).color))
-          .toBe(white ? 'rgb(255, 255, 255)' : 'rgb(41, 34, 31)');
-        expect(await page.locator('.locale-chevron').evaluate(element => getComputedStyle(element).stroke))
-          .toBe(white ? 'rgb(255, 255, 255)' : 'rgb(41, 34, 31)');
-        const box = await page.locator('.locale-toggle').boundingBox();
-        expect(box!.x).toBeGreaterThanOrEqual(0);
-        expect(box!.x + box!.width).toBeLessThanOrEqual(width);
-        await page.screenshot({ path: `${captureDir}/narrow-${width}-${locale}-${name}.png`, scale: 'css' });
-      }
-    }
-  }
-});
-
-test('expanded FAQ card keeps a dark locale label', async ({ page }, testInfo) => {
-  test.skip(testInfo.project.name !== 'iphone-17-pro-webkit');
-  await page.goto('/en');
-  await page.locator('.faq-item details').first().evaluate(details => { (details as HTMLDetailsElement).open = true; });
-  await page.locator('.faq-item').last().evaluate(item => {
-    const switcher = document.querySelector('.locale-switcher')!.getBoundingClientRect();
-    scrollTo({ top: scrollY + item.getBoundingClientRect().top - switcher.top - 22, behavior: 'instant' });
-  });
-  await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
-  await expect(page.locator('.locale-switcher')).toHaveAttribute('data-dark', 'false');
 });
 
 test('header controls retain a common line at intermediate widths', async ({ page }, testInfo) => {
@@ -317,6 +213,7 @@ test('every language row accepts center and near-edge touches without choosing a
       await option.tap({ position: { x: box.width / 2, y: edge === 'top' ? 3 : box.height - 3 } });
       await expect(page).toHaveURL(new RegExp(`/${locales[index]}$`));
       await expect(page.locator('html')).toHaveAttribute('lang', locales[index]);
+      await page.waitForLoadState('load');
     }
   }
 });

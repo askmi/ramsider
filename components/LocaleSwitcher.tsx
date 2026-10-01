@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import type { Locale } from '@/lib/i18n';
-import contrastMap from '@/lib/locale-contrast.json';
 
 const options: { locale: Locale; name: string; flag: string }[] = [
   { locale: 'en', name: 'English', flag: '🇬🇧' },
@@ -20,59 +19,12 @@ const options: { locale: Locale; name: string; flag: string }[] = [
 ];
 const scrollKey = 'ramsider:locale-scroll';
 const visibleArtWaitMs = 3000;
-const contrastBytes = new Map<string, Uint8Array>();
-function darkAt(encoded: string, sourceY: number) {
-  let bytes = contrastBytes.get(encoded);
-  if (!bytes) {
-    bytes = Uint8Array.from(atob(encoded), character => character.charCodeAt(0));
-    contrastBytes.set(encoded, bytes);
-  }
-  const index = Math.floor(sourceY / contrastMap.step);
-  return index >= 0 && index < bytes.length * 8 && !!(bytes[index >> 3] & (1 << (index & 7)));
-}
-
 export function LocaleSwitcher({ locale, label }: { locale: Locale; label: string }) {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [dark, setDark] = useState(false);
-  const [chevronDark, setChevronDark] = useState(false);
   const [pending, setPending] = useState(false);
   const container = useRef<HTMLDivElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const selected = options.find(option => option.locale === locale)!;
-
-  useEffect(() => {
-    let frame = 0;
-    const update = () => {
-      if (frame) return;
-      frame = requestAnimationFrame(() => {
-        frame = 0;
-        setScrolled(scrollY > 70);
-        const canvas = document.querySelector('.canvas')?.getBoundingClientRect();
-        const tail = document.querySelector('.story-tail')?.getBoundingClientRect();
-        const switcherY = container.current?.getBoundingClientRect().top ?? 0;
-        const sourceY = canvas && canvas.width > 0
-          ? tail && tail.top < switcherY + 22
-            ? 28207 + (switcherY + 22 - tail.top) * 941 / canvas.width
-            : (switcherY + 22 - canvas.top) * 941 / canvas.width
-          : 0;
-        const direction = document.documentElement.dir === 'rtl' ? 'rtl' : 'ltr';
-        const widthProfile = innerWidth <= 335 ? 'narrow' : innerWidth <= 365 ? 'compact' : 'standard';
-        const profile = contrastMap.profiles[direction][widthProfile];
-        const overFaq = [...document.querySelectorAll('.faq-item')].some(item => {
-          const rect = item.getBoundingClientRect();
-          return rect.top <= switcherY + 22 && rect.bottom >= switcherY + 22;
-        });
-        setDark(!overFaq && darkAt(profile.code, sourceY));
-        setChevronDark(!overFaq && darkAt(profile.chevron, sourceY));
-      });
-    };
-    update();
-    addEventListener('scroll', update, { passive: true });
-    addEventListener('resize', update);
-    document.addEventListener('toggle', update, true);
-    return () => { removeEventListener('scroll', update); removeEventListener('resize', update); document.removeEventListener('toggle', update, true); cancelAnimationFrame(frame); };
-  }, []);
 
   useEffect(() => {
     let saved: string | null = null;
@@ -118,7 +70,7 @@ export function LocaleSwitcher({ locale, label }: { locale: Locale; label: strin
     };
   }, [locale, open]);
 
-  return <div className="locale-switcher" data-scrolled={scrolled} data-dark={dark} data-chevron-dark={chevronDark} aria-busy={pending} ref={container}>
+  return <div className="locale-switcher" aria-busy={pending} ref={container}>
     <button
       id="locale-toggle"
       ref={trigger}

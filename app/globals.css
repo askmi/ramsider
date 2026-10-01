@@ -167,17 +167,17 @@ html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.
 .back-to-top:hover{background:#211b17e0}
 .back-to-top:active{transform:translateY(1px)}
 .back-to-top:focus-visible{outline:3px solid #211b17;outline-offset:3px;box-shadow:0 0 0 9px #fff}
-.locale-switcher{--locale-top:max(4px,env(safe-area-inset-top),calc(80/941*min(100vw,941px) - 22px));position:fixed;z-index:21;top:var(--locale-top);right:calc(max(0px,(100vw - 941px)/2) + max(34px,min(8.5vw,80px)) + 48px);width:64px;height:44px;direction:ltr}
-.locale-switcher[data-scrolled="true"]{--locale-top:max(12px,env(safe-area-inset-top));right:calc(max(0px,(100vw - 941px)/2) + max(16px,env(safe-area-inset-right)))}
-.locale-toggle{display:grid;place-items:center;width:64px;height:44px;border:0;background:none;padding:0;color:#29221f;touch-action:manipulation}
-.locale-toggle-face{display:flex;align-items:center;justify-content:center;gap:5px;width:64px;height:31px;background:#fcf6ee;border:1px solid #bea584;border-radius:999px;box-shadow:0 1px 5px #3929201f}
-.locale-toggle .locale-flag{font-size:15px;width:17px}
-.locale-code{font-size:14px;line-height:1;font-weight:400;letter-spacing:.02em}
-.locale-chevron{width:9px;height:7px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.locale-toggle:hover .locale-toggle-face{background:#fffaf2}
+.locale-switcher{--locale-top:max(4px,env(safe-area-inset-top),calc(80/941*min(100vw,941px) - 22px));position:fixed;z-index:21;top:var(--locale-top);left:calc(max(0px,(100vw - 941px)/2) + 475/941*min(100vw,941px));width:max(64px,calc(160/941*min(100vw,941px)));height:44px;direction:ltr}
+.locale-toggle{display:grid;place-items:center;width:100%;height:44px;border:0;background:none;padding:0;color:#29221f;touch-action:manipulation}
+.locale-toggle-face{display:flex;align-items:center;justify-content:center;gap:calc(8/941*min(100vw,941px));width:100%;height:44px;background:transparent;border:0;box-shadow:none}
+.locale-toggle .locale-flag{font-size:clamp(15px,calc(38/941*min(100vw,941px)),38px);width:calc(38/941*min(100vw,941px))}
+.locale-code{font-size:clamp(14px,calc(31/941*min(100vw,941px)),31px);line-height:1;font-weight:400;letter-spacing:.01em;text-shadow:0 0 2px #fff,0 0 3px #fff}
+.locale-chevron{width:max(10px,calc(24/941*min(100vw,941px)));height:max(7px,calc(16/941*min(100vw,941px)));fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 2px #fff)}
+.locale-toggle:hover .locale-toggle-face{background:transparent}
+.locale-switcher[data-dark="true"] .locale-code{color:#fff;text-shadow:0 1px 2px #211814}
+.locale-switcher[data-chevron-dark="true"] .locale-chevron{stroke:#fff;filter:drop-shadow(0 1px 2px #211814)}
 .locale-toggle:focus-visible{outline:3px solid #342519;outline-offset:1px;border-radius:999px;box-shadow:0 0 0 5px #fff}
 .locale-options{position:absolute;top:40px;right:-73px;width:min(112px,calc(100vw - 24px));max-height:calc(100dvh - var(--locale-top) - 52px);overflow-y:auto;overscroll-behavior:contain;background-color:rgb(250 247 242 / .45);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border:1px solid #b58c4e;border-radius:11px;box-shadow:0 9px 25px #21181438,inset 0 1px 0 rgb(255 255 255 / .45);padding:6px;color:#080503}
-.locale-switcher[data-scrolled="true"] .locale-options{right:0}
 .locale-options ul{list-style:none;padding:0;margin:0}
 .locale-options li{margin:0}
 .locale-options a{display:flex;align-items:center;gap:8px;min-height:26px;padding:2px 7px;border-radius:7px;text-decoration:none;font-size:13px;font-weight:600;line-height:1.2;white-space:nowrap}
@@ -186,11 +186,8 @@ html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.
 .locale-options a:focus-visible{outline:2px solid #704719;outline-offset:-2px}
 .locale-flag{display:inline-flex;align-items:center;justify-content:center;flex:none;width:22px;font-family:"Apple Color Emoji","Segoe UI Emoji",sans-serif;font-size:19px;line-height:1}
 .locale-options .locale-flag{width:18px;font-size:16px}
-[dir="rtl"] .locale-switcher{right:auto;left:calc(max(0px,(100vw - 941px)/2) + max(34px,min(8.5vw,80px)) + 48px)}
-[dir="rtl"] .locale-switcher[data-scrolled="true"]{right:auto;left:calc(max(0px,(100vw - 941px)/2) + max(16px,env(safe-area-inset-left)))}
+[dir="rtl"] .locale-switcher{left:auto;right:calc(max(0px,(100vw - 941px)/2) + 475/941*min(100vw,941px))}
 [dir="rtl"] .locale-options{right:auto;left:-73px}
-[dir="rtl"] .locale-switcher[data-scrolled="true"] .locale-options{right:auto;left:0}
-@media(max-width:360px){.locale-switcher:not([data-scrolled="true"]){right:76px}[dir="rtl"] .locale-switcher:not([data-scrolled="true"]){right:auto;left:76px}}
 @media(min-width:942px){body{background:#bda48c}.canvas{box-shadow:0 0 70px #4e302b33}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 /* Font assignments from docs/font-button-map.md. */

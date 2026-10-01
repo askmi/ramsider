@@ -1,5 +1,7 @@
 # Locale switcher — implementation and verification, 2026-09-30
 
+**Historical record.** The customer replaced the three referenced PNGs on 2026-10-01 with [current-switcher.jpg](../design/references/locale-switcher/current-switcher.jpg). The closed control and scrolling position described below are superseded by [CHG-0046](../CHANGELOG.md#chg-0046); the existing open dropdown remains in force.
+
 The [2026-10-01 follow-up](locale-switcher-follow-up-2026-10-01.md) records later user instructions and the current panel material/desktop header alignment. The original evidence below describes the first implementation cycle; current screenshots at the same paths were recaptured during the follow-up.
 
 The [approved supplement](../design/references/locale-switcher/README.md) governs this control only. The original long render still governs product art and page copy. The three required states are the hero control beside the hamburger, its persistent position near the viewport edge while scrolling, and the open list of eleven country flags and language names.

@@ -1,0 +1,62 @@
+
+Running 48 tests using 2 workers
+
+(node:38745) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:38746) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:7:1 › language control matches its three states and keeps the reading position (2.5s)
+  ✓   1 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:7:1 › language control matches its three states and keeps the reading position (2.6s)
+  ✓   3 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:130:1 › Arabic layout and narrow viewport keep the selector operable (1.0s)
+  ✓   4 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:130:1 › Arabic layout and narrow viewport keep the selector operable (1.0s)
+  ✓   6 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:158:1 › translucent language panel remains readable over product and dark artwork (1.2s)
+  -   7 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:197:1 › closed code changes contrast at artwork boundaries
+  ✓   5 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:158:1 › translucent language panel remains readable over product and dark artwork (1.7s)
+  -   8 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:226:1 › narrow phones keep the closed control legible over dark artwork
+  -  10 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:260:1 › expanded FAQ card keeps a dark locale label
+  -  11 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:272:1 › header controls retain a common line at intermediate widths
+  -  12 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:291:1 › every locale has its matching flag and selected language
+  -  13 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:308:1 › every language row accepts center and near-edge touches without choosing a neighbor
+  -  14 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:324:1 › keyboard focus, Escape, and Arabic alignment remain usable
+  ✓   9 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:197:1 › closed code changes contrast at artwork boundaries (1.3s)
+  -  15 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:371:1 › opening the list does not prefetch all routes and modified clicks keep the source tab
+  -  17 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:398:1 › small phone, tablet, and desktop keep the panel in view
+(node:38806) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  16 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:226:1 › narrow phones keep the closed control legible over dark artwork (1.9s)
+  ✓  19 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:260:1 › expanded FAQ card keeps a dark locale label (879ms)
+  -  20 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:272:1 › header controls retain a common line at intermediate widths
+  ✓  18 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:7:1 › language control matches its three states and keeps the reading position (1.9s)
+  ✓  22 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:130:1 › Arabic layout and narrow viewport keep the selector operable (1.0s)
+  -  23 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:158:1 › translucent language panel remains readable over product and dark artwork
+  ✓  21 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:291:1 › every locale has its matching flag and selected language (2.5s)
+  ✓  24 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:197:1 › closed code changes contrast at artwork boundaries (2.1s)
+  -  26 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:226:1 › narrow phones keep the closed control legible over dark artwork
+  -  27 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:260:1 › expanded FAQ card keeps a dark locale label
+  ✓  28 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:272:1 › header controls retain a common line at intermediate widths (778ms)
+  -  29 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:291:1 › every locale has its matching flag and selected language
+  -  30 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:308:1 › every language row accepts center and near-edge touches without choosing a neighbor
+  -  31 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:324:1 › keyboard focus, Escape, and Arabic alignment remain usable
+  ✓  32 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:371:1 › opening the list does not prefetch all routes and modified clicks keep the source tab (1.6s)
+  ✓  33 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:398:1 › small phone, tablet, and desktop keep the panel in view (4.2s)
+  ✓  25 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:308:1 › every language row accepts center and near-edge touches without choosing a neighbor (8.7s)
+(node:39135) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  34 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:324:1 › keyboard focus, Escape, and Arabic alignment remain usable (1.5s)
+  -  36 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:371:1 › opening the list does not prefetch all routes and modified clicks keep the source tab
+  -  37 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:398:1 › small phone, tablet, and desktop keep the panel in view
+  ✓  35 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:7:1 › language control matches its three states and keeps the reading position (6.0s)
+  ✓  38 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:130:1 › Arabic layout and narrow viewport keep the selector operable (1.2s)
+  -  39 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:158:1 › translucent language panel remains readable over product and dark artwork
+  -  40 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:197:1 › closed code changes contrast at artwork boundaries
+  -  41 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:226:1 › narrow phones keep the closed control legible over dark artwork
+  -  42 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:260:1 › expanded FAQ card keeps a dark locale label
+  -  43 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:272:1 › header controls retain a common line at intermediate widths
+  -  44 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:291:1 › every locale has its matching flag and selected language
+  -  45 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:308:1 › every language row accepts center and near-edge touches without choosing a neighbor
+  -  46 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:324:1 › keyboard focus, Escape, and Arabic alignment remain usable
+  -  47 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:371:1 › opening the list does not prefetch all routes and modified clicks keep the source tab
+  -  48 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:398:1 › small phone, tablet, and desktop keep the panel in view
+
+  28 skipped
+  20 passed (34.8s)

@@ -21,23 +21,27 @@ test('language control matches its three states and keeps the reading position',
   const triggerBox = (await trigger.boundingBox())!;
   expect(triggerBox.width).toBeGreaterThanOrEqual(44);
   expect(triggerBox.height).toBeGreaterThanOrEqual(44);
+  await expect(trigger.locator('.locale-code')).toHaveText('EN');
+  const closedSurface = await trigger.locator('.locale-toggle-face').evaluate(element => {
+    const style = getComputedStyle(element);
+    return { background: style.backgroundColor, border: style.borderTopWidth, shadow: style.boxShadow };
+  });
+  expect(closedSurface).toEqual({ background: 'rgba(0, 0, 0, 0)', border: '0px', shadow: 'none' });
   const wordmarkBox = (await page.locator('.wordmark').boundingBox())!;
   const menuBars = await page.locator('.menu summary span').all();
   const firstBar = (await menuBars[0].boundingBox())!;
   const lastBar = (await menuBars[1].boundingBox())!;
   const centers = [wordmarkBox.y + wordmarkBox.height / 2, triggerBox.y + triggerBox.height / 2, (firstBar.y + lastBar.y + lastBar.height) / 2];
   expect(Math.max(...centers) - Math.min(...centers)).toBeLessThanOrEqual(3);
-  if (testInfo.project.name.includes('iphone')) {
-    const right = expectedWidth - triggerBox.x - triggerBox.width;
-    expect(right).toBeGreaterThan(75);
-    expect(right).toBeLessThan(90);
-  }
+  const artworkLeft = Math.max(0, (expectedWidth - 941) / 2) + 475 / 941 * Math.min(expectedWidth, 941);
+  expect(Math.abs(triggerBox.x - artworkLeft)).toBeLessThan(2);
   await mkdir(captureDir, { recursive: true });
   await page.screenshot({ path: `${captureDir}/hero-${testInfo.project.name}.png`, scale: 'css' });
 
   await trigger.click();
   const panel = page.getByRole('navigation', { name: 'Language' });
   await expect(panel).toBeVisible();
+  const openBox = (await panel.boundingBox())!;
   const panelMaterial = await panel.evaluate(element => {
     const style = getComputedStyle(element);
     const label = getComputedStyle(element.querySelector('a')!);
@@ -107,12 +111,14 @@ test('language control matches its three states and keeps the reading position',
   const fixedBox = (await trigger.boundingBox())!;
   expect(fixedBox.y).toBeGreaterThanOrEqual(0);
   expect(fixedBox.y + fixedBox.height).toBeLessThanOrEqual(testInfo.project.use.viewport?.height ?? 900);
-  expect(fixedBox.y).toBeLessThanOrEqual(triggerBox.y);
-  if (testInfo.project.name.startsWith('desktop')) expect(triggerBox.y - fixedBox.y).toBeGreaterThan(40);
-  if (testInfo.project.name.includes('iphone')) expect(expectedWidth - fixedBox.x - fixedBox.width).toBeLessThanOrEqual(20);
+  expect(Math.abs(fixedBox.x - triggerBox.x)).toBeLessThan(1);
+  expect(Math.abs(fixedBox.y - triggerBox.y)).toBeLessThan(1);
   await page.screenshot({ path: `${captureDir}/scrolled-${testInfo.project.name}.png`, scale: 'css' });
 
   await trigger.click();
+  await expect(panel).toBeVisible();
+  const scrolledOpenBox = (await panel.boundingBox())!;
+  expect(Math.abs(scrolledOpenBox.x - openBox.x)).toBeLessThan(1);
   await panel.getByRole('link', { name: 'Русский' }).click();
   await expect(page).toHaveURL(/\/ru$/);
   await expect(page.locator('html')).toHaveAttribute('lang', 'ru');
@@ -156,12 +162,16 @@ test('translucent language panel remains readable over product and dark artwork'
     if (locale === 'ar' && testInfo.project.name !== 'iphone-17-pro-webkit') continue;
     await page.goto(`/${locale}`);
     await page.evaluate(() => document.fonts.ready);
-    for (const [name, sourceY] of [['amber', 15500], ['dark', 28800]] as const) {
+    for (const [name, sourceY] of [['coal', 2800], ['amber', 15500], ['dark', 28800]] as const) {
       await page.evaluate(y => {
         const width = document.querySelector('.canvas')!.getBoundingClientRect().width;
         scrollTo({ top: y * width / 941, behavior: 'instant' });
       }, sourceY);
       await expect(page.locator('.locale-switcher')).toHaveAttribute('data-scrolled', 'true');
+      if (name !== 'amber') {
+        await expect(page.locator('.locale-switcher')).toHaveAttribute('data-dark', 'true');
+        expect(await page.locator('.locale-code').evaluate(element => getComputedStyle(element).color)).toBe('rgb(255, 255, 255)');
+      }
       await page.evaluate(async () => {
         const images = [...document.querySelectorAll<HTMLImageElement>('.art img, .tail-art img')];
         await Promise.all(images.filter(image => {
@@ -182,6 +192,81 @@ test('translucent language panel remains readable over product and dark artwork'
       await page.keyboard.press('Escape');
     }
   }
+});
+
+test('closed code changes contrast at artwork boundaries', async ({ page }, testInfo) => {
+  test.skip(!['iphone-17-pro-webkit', 'desktop-chromium'].includes(testInfo.project.name));
+  await mkdir(captureDir, { recursive: true });
+  for (const locale of ['en', 'ar'] as const) {
+    await page.goto(`/${locale}`);
+    const cases: Array<[string, number, boolean]> = locale === 'en'
+      ? [['before-coal', 2600, false], ['coal', 2850, true], ['dark-patch', 7580, true], ['after-group-dark', 29325, false]]
+      : [['rtl-before-coal', 2600, false], ['rtl-coal', 2790, true], ['rtl-after-coal', 3050, false]];
+    if (testInfo.project.name === 'desktop-chromium') cases.push(['coffee-machine', 30500, locale === 'en']);
+    for (const [name, sourceY, dark] of cases) {
+    await page.evaluate(y => {
+      const canvas = document.querySelector('.canvas')!.getBoundingClientRect();
+      const tail = document.querySelector('.story-tail')!.getBoundingClientRect();
+      const switcher = document.querySelector('.locale-switcher')!.getBoundingClientRect();
+      const scale = canvas.width / 941;
+      const top = y < 28207
+        ? scrollY + canvas.top + y * scale
+        : scrollY + tail.top + (y - 28207) * scale;
+      scrollTo({ top: top - switcher.top - 22, behavior: 'instant' });
+    }, sourceY);
+    await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+    await expect(page.locator('.locale-switcher')).toHaveAttribute('data-dark', String(dark));
+    expect(await page.locator('.locale-code').evaluate(element => getComputedStyle(element).color))
+      .toBe(dark ? 'rgb(255, 255, 255)' : 'rgb(41, 34, 31)');
+      await page.screenshot({ path: `${captureDir}/boundary-${locale}-${name}-${testInfo.project.name}.png`, scale: 'css' });
+    }
+  }
+});
+
+test('narrow phones keep the closed control legible over dark artwork', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'iphone-17-pro-webkit');
+  await mkdir(captureDir, { recursive: true });
+  for (const width of [320, 350]) {
+    await page.setViewportSize({ width, height: 874 });
+    for (const locale of ['en', 'ar'] as const) {
+      await page.goto(`/${locale}`);
+      const positions = locale === 'ar' && width === 320
+        ? [['before', 10000, false], ['dark', 10800, true], ['after', 11500, false]] as const
+        : locale === 'ar'
+          ? [['before', 2600, false], ['dark', 2800, true], ['after', 3050, false]] as const
+          : [['before', 2600, false], ['dark', 2850, true], ['after', 3050, false]] as const;
+      for (const [name, y, white] of positions) {
+        await page.evaluate(sourceY => {
+          const canvas = document.querySelector('.canvas')!.getBoundingClientRect();
+          const switcher = document.querySelector('.locale-switcher')!.getBoundingClientRect();
+          scrollTo({ top: scrollY + canvas.top + sourceY * canvas.width / 941 - switcher.top - 22, behavior: 'instant' });
+        }, y);
+        await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+        await expect(page.locator('.locale-switcher')).toHaveAttribute('data-dark', String(white));
+        await expect(page.locator('.locale-switcher')).toHaveAttribute('data-chevron-dark', String(white));
+        expect(await page.locator('.locale-code').evaluate(element => getComputedStyle(element).color))
+          .toBe(white ? 'rgb(255, 255, 255)' : 'rgb(41, 34, 31)');
+        expect(await page.locator('.locale-chevron').evaluate(element => getComputedStyle(element).stroke))
+          .toBe(white ? 'rgb(255, 255, 255)' : 'rgb(41, 34, 31)');
+        const box = await page.locator('.locale-toggle').boundingBox();
+        expect(box!.x).toBeGreaterThanOrEqual(0);
+        expect(box!.x + box!.width).toBeLessThanOrEqual(width);
+        await page.screenshot({ path: `${captureDir}/narrow-${width}-${locale}-${name}.png`, scale: 'css' });
+      }
+    }
+  }
+});
+
+test('expanded FAQ card keeps a dark locale label', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'iphone-17-pro-webkit');
+  await page.goto('/en');
+  await page.locator('.faq-item details').first().evaluate(details => { (details as HTMLDetailsElement).open = true; });
+  await page.locator('.faq-item').last().evaluate(item => {
+    const switcher = document.querySelector('.locale-switcher')!.getBoundingClientRect();
+    scrollTo({ top: scrollY + item.getBoundingClientRect().top - switcher.top - 22, behavior: 'instant' });
+  });
+  await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+  await expect(page.locator('.locale-switcher')).toHaveAttribute('data-dark', 'false');
 });
 
 test('header controls retain a common line at intermediate widths', async ({ page }, testInfo) => {
@@ -269,8 +354,8 @@ test('keyboard focus, Escape, and Arabic alignment remain usable', async ({ page
     await expect(page.locator('#locale-options')).toBeHidden();
     if (locale === 'ar') {
       const box = (await trigger.boundingBox())!;
-      expect(box.x).toBeGreaterThan(75);
-      expect(box.x).toBeLessThan(95);
+      const mirroredX = 402 - 475 / 941 * 402 - box.width;
+      expect(Math.abs(box.x - mirroredX)).toBeLessThan(2);
     }
   }
   await page.goto('/en');

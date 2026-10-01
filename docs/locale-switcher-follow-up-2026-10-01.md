@@ -1,5 +1,7 @@
 # Locale switcher follow-up — 2026-10-01
 
+**Historical closed-control state:** [CHG-0046](../CHANGELOG.md#chg-0046) later replaced the capsule and its scrolled relocation with the customer's [current-switcher.jpg](../design/references/locale-switcher/current-switcher.jpg). The light translucent dropdown settings recorded below remain current; capsule screenshots and position descriptions are historical.
+
 ## Scope and source
 
 The user clarified the approved three-state [locale reference](../design/references/locale-switcher/README.md): the open list should show page artwork through a neutral translucent surface with a fine gold rim, and the top desktop capsule should share one visible line with RAMSIDER and the menu bars. After scroll the capsule may move to the viewport edge. These are [CHG-0036](../CHANGELOG.md#chg-0036) and [CHG-0037](../CHANGELOG.md#chg-0037). The user-provided desktop screenshot is preserved locally at `screenshots/source/locale-header-desktop-user-2026-09-30.png` (SHA-256 `56b115fa…54214e`). The original product art and copy have not been changed by this follow-up.

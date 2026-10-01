@@ -18,10 +18,12 @@ const options: { locale: Locale; name: string; flag: string }[] = [
   { locale: 'ko', name: '한국어', flag: '🇰🇷' },
 ];
 const scrollKey = 'ramsider:locale-scroll';
+const visibleArtWaitMs = 3000;
 
 export function LocaleSwitcher({ locale, label }: { locale: Locale; label: string }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [pending, setPending] = useState(false);
   const container = useRef<HTMLDivElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const selected = options.find(option => option.locale === locale)!;
@@ -84,12 +86,13 @@ export function LocaleSwitcher({ locale, label }: { locale: Locale; label: strin
     };
   }, [locale, open]);
 
-  return <div className="locale-switcher" data-scrolled={scrolled} ref={container}>
+  return <div className="locale-switcher" data-scrolled={scrolled} aria-busy={pending} ref={container}>
     <button
       id="locale-toggle"
       ref={trigger}
       className="locale-toggle"
       type="button"
+      disabled={pending}
       aria-label={`${label}: ${selected.name}`}
       aria-expanded={open}
       aria-controls="locale-options"
@@ -141,8 +144,29 @@ export function LocaleSwitcher({ locale, label }: { locale: Locale; label: strin
                 trigger.current?.focus();
                 return;
               }
-              try { sessionStorage.setItem(scrollKey, JSON.stringify({ locale: option.locale, y: scrollY })); } catch { /* Navigation still works if storage is unavailable. */ }
+              event.preventDefault();
+              const nextPath = `/${option.locale}`;
+              const y = scrollY;
+              setPending(true);
               setOpen(false);
+              void (async () => {
+                // The artwork URLs are shared by every locale. Keep this document visible
+                // until its current artwork is decoded; navigation then reuses those assets.
+                const visibleArt = [...document.querySelectorAll<HTMLImageElement>('.art img, .tail-art img')]
+                  .filter(image => {
+                    const rect = image.getBoundingClientRect();
+                    return rect.bottom > 0 && rect.top < innerHeight;
+                  });
+                let timeout: ReturnType<typeof setTimeout> | undefined;
+                await Promise.race([
+                  Promise.allSettled(visibleArt.map(image => image.decode())),
+                  new Promise<void>(resolve => { timeout = setTimeout(resolve, visibleArtWaitMs); }),
+                ]);
+                clearTimeout(timeout);
+                try { sessionStorage.setItem(scrollKey, JSON.stringify({ locale: option.locale, y })); } catch { /* Navigation still works if storage is unavailable. */ }
+                location.assign(nextPath);
+                setTimeout(() => setPending(false), 10000);
+              })();
             }}
           >
             <span className="locale-flag" aria-hidden="true">{option.flag}</span>

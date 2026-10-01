@@ -62,6 +62,12 @@ This is the repository's **error-prevention memory**, separate from current proj
 - **Cause:** Full-page capture and `decode()` do not guarantee that every lazy image below the fold has entered the loading threshold.
 - **Prevention:** Scroll through the page, wait for any image without `currentSrc` to load, then decode all tiles before the screenshot or image assertion. Keep the first tile eager for LCP.
 
+## Test fast travel and cold reload before approving long artwork delivery
+
+- **Problem:** The long page showed flat beige areas during fast scrolling and reload, then briefly showed the wrong position/art during a locale change (CHG-0042).
+- **Cause:** The earlier image strategy optimized only the initial hero and marked all distant tiles lazy. Verification scrolled after assets had loaded and did not capture the first frame of a mid-page full-document locale navigation.
+- **Prevention:** Exercise a cold load with artwork requests delayed, jump immediately to a distant section, and capture the first frame after a mid-page locale change on Pro, Pro Max and desktop. Preserve a tiny visual preview for each long tile and request compressed distant tiles in the background without competing with the hero. Verify the same visible artwork and scroll position before showing a new locale, with bounded waits so a stalled asset cannot trap navigation. Measure LCP, transfer and scroll frames after changing loading priority.
+
 ## Preserve readable access to reference-scale fine print
 
 - **Problem:** Source-sized document and project details became too small to read on the Pro viewport; directly enlarging every project line caused overlap with art and neighboring copy.

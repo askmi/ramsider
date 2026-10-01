@@ -10,6 +10,7 @@ import { MenuShell } from './MenuShell';
 import { ActionArrow } from './ActionArrow';
 import buttonMap from '@/lib/button-map.json';
 import localizedButtonWidths from '@/lib/button-localized-widths.json';
+import artPreviews from '@/lib/art-previews.json';
 
 // Keep the complete FAQ/account artwork in one tile: no image edge through a card.
 const artTiles = Array.from({ length: 12 }, (_, i) => ({
@@ -213,8 +214,10 @@ export function Story({ locale }: { locale: Locale }) {
           alt=""
           unoptimized
           preload={i === 0}
-          loading={i === 0 ? 'eager' : 'lazy'}
-          fetchPriority={i === 0 ? 'high' : 'auto'}
+          loading="eager"
+          fetchPriority={i === 0 ? 'high' : 'low'}
+          placeholder="blur"
+          blurDataURL={artPreviews[file as keyof typeof artPreviews]}
         />)}
       </div>
       <Menus locale={locale} />
@@ -225,8 +228,8 @@ export function Story({ locale }: { locale: Locale }) {
       <Faq locale={locale} />
       <section className="story-tail" aria-label={t(locale, 'account')}>
         <div className="tail-art" aria-hidden="true"><div className="tail-art-track">
-          <Image src="/art/09-10.webp" width={941} height={5600} alt="" unoptimized loading="lazy" />
-          <Image src="/art/11.webp" width={941} height={1327} alt="" unoptimized loading="lazy" />
+          <Image src="/art/09-10.webp" width={941} height={5600} alt="" unoptimized loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={artPreviews['09-10']} />
+          <Image src="/art/11.webp" width={941} height={1327} alt="" unoptimized loading="eager" fetchPriority="low" placeholder="blur" blurDataURL={artPreviews['11']} />
         </div></div>
         {storyNodes.filter(node => node.y >= 28207).map((node, index) => <OverlayNode node={node} locale={locale} key={`${node.key}-${index}`} />)}
       <button id="account-personal" type="button" className="account-hit" style={sourceStyle(45, 28230, 850)} popoverTarget="unavailable-account" aria-label={t(locale, 'account')} />

@@ -18,6 +18,13 @@ const artTiles = Array.from({ length: 12 }, (_, i) => ({
   height: i === 9 ? 5600 : Math.min(2800, 32127 - i * 2800),
 })).filter((_, i) => i !== 10);
 
+const featureArt = [
+  { name: 'control', x: 340, y: 5150, width: 100, height: 154 },
+  { name: 'draw', x: 340, y: 5352, width: 100, height: 161 },
+  { name: 'intensity', x: 340, y: 5565, width: 100, height: 158 },
+  { name: 'consistent', x: 350, y: 5772, width: 80, height: 70 },
+] as const;
+
 function sourceStyle(x: number, y: number, w: number, size?: number): React.CSSProperties {
   return {
     left: `${(x / 941) * 100}%`,
@@ -221,6 +228,19 @@ export function Story({ locale }: { locale: Locale }) {
         />)}
       </div>
       <Menus locale={locale} />
+      {featureArt.map(icon => <Image
+        key={icon.name}
+        className="feature-source-art"
+        src={`/art/feature-${icon.name}.png`}
+        width={icon.width}
+        height={icon.height}
+        style={sourceStyle(icon.x, icon.y, icon.width)}
+        alt=""
+        aria-hidden="true"
+        unoptimized
+        loading="eager"
+        fetchPriority="low"
+      />)}
       {storyNodes.filter(node => node.y < 28207).map((node, index) => <OverlayNode node={node} locale={locale} key={`${node.key}-${index}`} />)}
       <button id="film-play" type="button" className="film-play" style={sourceStyle(390, 11439, 160)} popoverTarget="unavailable-film" aria-label={t(locale, 'film')}><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M12 7L34 20L12 33Z" fill="currentColor" /></svg></button>
       <div className="order-panels" aria-hidden="true">{[20140, 20370, 20650].map((y, i) => <div key={y} className="source-panel" data-step={`0${i + 1}`} style={sourceStyle(95, y, 750)} />)}</div>

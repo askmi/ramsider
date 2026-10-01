@@ -25,8 +25,8 @@ a{color:inherit}
 .overlay span{white-space:nowrap}
 .overlay.title{font-weight:400;letter-spacing:0;line-height:1.2}
 .overlay.body{font-weight:300;color:#5d5149;line-height:1.22}
-.overlay.label{font-weight:400;letter-spacing:.08em;line-height:1.05}
-.overlay.label::before{position:absolute;top:-2.1em;left:0;width:100%;font-size:1.3em;text-align:center;color:#c28b3e;line-height:1}
+.overlay.label{font-weight:400;letter-spacing:.08em;line-height:1.25}
+.feature-source-art{position:absolute;z-index:3;height:auto;pointer-events:none}
 .key-triple::after,.key-core::after,.key-touch::after,.key-water::after,.key-light::after,.key-armor::after,.key-flow::after{content:"";position:absolute;top:50%;height:1px;width:calc(150/941*100cqw);background:#fff0ca}
 .key-triple::after,.key-core::after,.key-touch::after,.key-water::after{left:85%}
 .key-light::after,.key-armor::after,.key-flow::after{right:100%}
@@ -41,10 +41,6 @@ a{color:inherit}
 html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water){left:calc(70/941*100cqw)!important;width:calc(230/941*100cqw)!important;font-size:calc(29/941*100cqw)!important}
 html:not(:lang(en)) :is(.key-light,.key-armor,.key-flow){left:calc(645/941*100cqw)!important;width:calc(210/941*100cqw)!important;font-size:calc(29/941*100cqw)!important}
 html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.key-armor,.key-flow) span{white-space:normal}
-.overlay.key-control::before{content:'☷'}
-.overlay.key-draw::before{content:'≋'}
-.overlay.key-intensity::before{content:'▥'}
-.overlay.key-consistent::before{content:'○'}
 .overlay.small{font-weight:400;letter-spacing:.12em;color:#8b6b4f}
 .overlay.brand{font-family:BankGothic,OpenSans,sans-serif;letter-spacing:.18em}
 .overlay.align-center{text-align:center}

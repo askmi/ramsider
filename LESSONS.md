@@ -187,3 +187,9 @@ This is the repository's **error-prevention memory**, separate from current proj
 - **Problem:** The locale list remained too opaque and dark despite repeated requests for a light, see-through surface (CHG-0036). An intermediate light alpha 0.64 still looked too solid to the user.
 - **Cause:** The agent prioritized name legibility on busy artwork and treated its own visual pass as final before checking the degree of transparency the user actually requested.
 - **Prevention:** Record the user's latest material constraint, compare opacity and screenshots of each new candidate against the rejected one on light, amber and dark artwork, then verify names and interactions independently. Supersede old technical approval whenever the user rejects its appearance.
+
+## Use supplied icon shapes instead of Unicode lookalikes
+
+- **Problem:** The published Effortless Control, Smooth Draw, Desired Intensity and Consistent Session marks were tiny substitute glyphs with the wrong shapes, and their three fine dividers were missing (CHG-0044). This mismatch had already been recorded as CHG-0015 but was left unresolved.
+- **Cause:** The agent treated the clean background as the entire decorative source and inserted approximate CSS `content` characters, then accepted a partial visual pass without comparing each pictogram against `background_text.png`.
+- **Prevention:** Inventory both clean and composite source layers for every repeated decorative mark. If the composite contains the approved shape, map each mark and divider to source coordinates and extract only those pixels or use an exact supplied vector. Keep words as live localized text, compare an aligned browser crop against the source on Pro, then inspect Pro Max and RTL. Leave unrelated pictograms explicitly open; do not declare a broad visual gate passed while a known substituted mark remains.

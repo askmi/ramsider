@@ -1,0 +1,152 @@
+{
+  "source": "design/assets/ICON_Kit",
+  "sourceWidth": 941,
+  "customerLiftSourcePx": 28,
+  "icons": [
+    {
+      "id": "I01",
+      "key": "triple",
+      "asset": "01.png",
+      "group": "technology",
+      "x": 172,
+      "sourceY": 7123,
+      "y": 7095,
+      "width": 21,
+      "height": 24,
+      "render": true
+    },
+    {
+      "id": "I02",
+      "key": "core",
+      "asset": "02.png",
+      "group": "technology",
+      "x": 169,
+      "sourceY": 7359,
+      "y": 7331,
+      "width": 24,
+      "height": 24,
+      "render": true
+    },
+    {
+      "id": "I03",
+      "key": "touch",
+      "asset": "03.png",
+      "group": "technology",
+      "x": 168,
+      "sourceY": 7575,
+      "y": 7547,
+      "width": 22,
+      "height": 30,
+      "render": true
+    },
+    {
+      "id": "I04",
+      "key": "water",
+      "asset": "04.png",
+      "group": "technology",
+      "x": 170,
+      "sourceY": 7813,
+      "y": 7785,
+      "width": 19,
+      "height": 27,
+      "render": true
+    },
+    {
+      "id": "I05",
+      "key": "light",
+      "asset": "05.png",
+      "group": "technology",
+      "x": 711,
+      "sourceY": 7326,
+      "y": 7298,
+      "width": 28,
+      "height": 27,
+      "render": true
+    },
+    {
+      "id": "I06",
+      "key": "light-duplicate",
+      "asset": "06.png",
+      "group": "technology",
+      "x": 711,
+      "sourceY": 7326,
+      "y": 7298,
+      "width": 28,
+      "height": 27,
+      "render": false,
+      "duplicateOf": "I05"
+    },
+    {
+      "id": "I07",
+      "key": "armor",
+      "asset": "07.png",
+      "group": "technology",
+      "x": 714,
+      "sourceY": 7570,
+      "y": 7542,
+      "width": 19,
+      "height": 24,
+      "render": true
+    },
+    {
+      "id": "I08",
+      "key": "flow",
+      "asset": "08.png",
+      "group": "technology",
+      "x": 708,
+      "sourceY": 7819,
+      "y": 7791,
+      "width": 28,
+      "height": 27,
+      "render": true
+    },
+    {
+      "id": "I09",
+      "key": "control",
+      "asset": "09.png",
+      "group": "feature",
+      "x": 367,
+      "sourceY": 5155,
+      "y": 5127,
+      "width": 46,
+      "height": 54,
+      "render": true
+    },
+    {
+      "id": "I10",
+      "key": "draw",
+      "asset": "10.png",
+      "group": "feature",
+      "x": 361,
+      "sourceY": 5358,
+      "y": 5330,
+      "width": 65,
+      "height": 64,
+      "render": true
+    },
+    {
+      "id": "I11",
+      "key": "intensity",
+      "asset": "11.png",
+      "group": "feature",
+      "x": 365,
+      "sourceY": 5571,
+      "y": 5543,
+      "width": 50,
+      "height": 49,
+      "render": true
+    },
+    {
+      "id": "I12",
+      "key": "consistent",
+      "asset": "12.png",
+      "group": "feature",
+      "x": 361,
+      "sourceY": 5778,
+      "y": 5750,
+      "width": 58,
+      "height": 58,
+      "render": true
+    }
+  ]
+}

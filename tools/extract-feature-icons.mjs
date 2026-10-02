@@ -1,12 +1,11 @@
 import sharp from 'sharp';
 
-// The composite and clean reference have identical artwork pixels. Extract only
-// their decorative difference; the intervening words remain live HTML text.
+// Preserve only the reference dividers. Designer icons now come directly from
+// ICON_Kit and must never be copied out of the text composite again.
 const layers = [
-  { name: 'control', x: 340, y: 5150, width: 100, height: 154, bands: [[5155, 5211], [5299, 5302]] },
-  { name: 'draw', x: 340, y: 5352, width: 100, height: 161, bands: [[5357, 5424], [5507, 5510]] },
-  { name: 'intensity', x: 340, y: 5565, width: 100, height: 158, bands: [[5570, 5623], [5716, 5719]] },
-  { name: 'consistent', x: 350, y: 5772, width: 80, height: 70, bands: [[5777, 5838]] },
+  { name: 'control', x: 340, y: 5150, width: 100, height: 154, bands: [[5299, 5302]] },
+  { name: 'draw', x: 340, y: 5352, width: 100, height: 161, bands: [[5507, 5510]] },
+  { name: 'intensity', x: 340, y: 5565, width: 100, height: 158, bands: [[5716, 5719]] },
 ];
 
 for (const layer of layers) {
@@ -32,5 +31,5 @@ for (const layer of layers) {
     }
   }
   await sharp(rgba, { raw: { width: layer.width, height: layer.height, channels: 4 } })
-    .png().toFile(`public/art/feature-${layer.name}.png`);
+    .png().toFile(`public/art/feature-divider-${layer.name}.png`);
 }

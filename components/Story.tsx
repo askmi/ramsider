@@ -9,6 +9,7 @@ import { locales, t, type Key, type Locale } from '@/lib/i18n';
 import { MenuShell } from './MenuShell';
 import { ActionArrow } from './ActionArrow';
 import buttonMap from '@/lib/button-map.json';
+import iconMap from '@/lib/icon-map.json';
 import localizedButtonWidths from '@/lib/button-localized-widths.json';
 
 // Keep the complete FAQ/account artwork in one tile: no image edge through a card.
@@ -17,14 +18,13 @@ const artTiles = Array.from({ length: 12 }, (_, i) => ({
   height: (i === 9 ? 5600 : Math.min(2800, 32127 - i * 2800)) + (i === 0 ? 0 : 2),
 })).filter((_, i) => i !== 10);
 
-const featureArt = [
+const featureDividers = [
   { name: 'control', x: 340, y: 5150, width: 100, height: 154 },
   { name: 'draw', x: 340, y: 5352, width: 100, height: 161 },
   { name: 'intensity', x: 340, y: 5565, width: 100, height: 158 },
-  { name: 'consistent', x: 350, y: 5772, width: 80, height: 70 },
 ] as const;
 
-const technologyArt = [
+const technologyConnectors = [
   { name: 'triple', x: 165, y: 7118, width: 240, height: 60 },
   { name: 'core', x: 165, y: 7354, width: 210, height: 52 },
   { name: 'touch', x: 165, y: 7500, width: 265, height: 130 },
@@ -87,7 +87,7 @@ function OverlayNode({ node, locale }: { node: StoryNode; locale: Locale }) {
   }
   if (node.key === 'finalBrand') return <p {...props}><span>RAMSIDER</span> <em>UNO</em></p>;
   if (node.style === 'title') return <h2 {...props}>{textLines(text)}</h2>;
-  if (technologyArt.some(icon => icon.name === node.key)) {
+  if (technologyConnectors.some(icon => icon.name === node.key)) {
     return <p {...props}>{text.split('\n').map((line, index) => <span className="technology-label-line" key={index}>{index > 0 ? ' ' : ''}{line}</span>)}</p>;
   }
   return <p {...props}>{textLines(text)}</p>;
@@ -238,10 +238,10 @@ export function Story({ locale }: { locale: Locale }) {
         />)}
       </div>
       <Menus locale={locale} />
-      {featureArt.map(icon => <Image
+      {featureDividers.map(icon => <Image
         key={icon.name}
-        className="feature-source-art"
-        src={`/art/feature-${icon.name}.png`}
+        className="feature-divider-art"
+        src={`/art/feature-divider-${icon.name}.png`}
         width={icon.width}
         height={icon.height}
         style={sourceStyle(icon.x, icon.y, icon.width)}
@@ -251,10 +251,25 @@ export function Story({ locale }: { locale: Locale }) {
         loading="eager"
         fetchPriority="low"
       />)}
-      {technologyArt.map(icon => <Image
+      {technologyConnectors.map(icon => <Image
         key={icon.name}
-        className="technology-source-art"
-        src={`/art/technology-${icon.name}.png`}
+        className="technology-connector-art"
+        src={`/art/technology-connector-${icon.name}.png`}
+        width={icon.width}
+        height={icon.height}
+        style={sourceStyle(icon.x, icon.y, icon.width)}
+        alt=""
+        aria-hidden="true"
+        unoptimized
+        loading="eager"
+        fetchPriority="low"
+      />)}
+      {iconMap.icons.filter(icon => icon.render).map(icon => <Image
+        key={icon.id}
+        id={`icon-${icon.id.toLowerCase()}`}
+        data-icon-id={icon.id}
+        className={`designer-icon designer-icon-${icon.group}`}
+        src={`/art/icon-kit/${icon.asset}`}
         width={icon.width}
         height={icon.height}
         style={sourceStyle(icon.x, icon.y, icon.width)}

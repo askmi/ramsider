@@ -1,0 +1,138 @@
+[
+  {
+    "name": "pro",
+    "viewport": 402,
+    "dpr": 3,
+    "maxScroll": 12851,
+    "scrollSamples": 17,
+    "allVisibleTilesDecoded": true,
+    "failedArtRequests": [],
+    "scrollWidth": 402,
+    "captures": {
+      "top": {
+        "requested": 0,
+        "actual": 0,
+        "visible": [
+          {
+            "file": "00.png",
+            "loaded": true
+          }
+        ]
+      },
+      "feature": {
+        "requested": 2286,
+        "actual": 2286,
+        "visible": [
+          {
+            "file": "01.png",
+            "loaded": true
+          },
+          {
+            "file": "02.png",
+            "loaded": true
+          }
+        ]
+      },
+      "technology": {
+        "requested": 3183,
+        "actual": 3183,
+        "visible": [
+          {
+            "file": "02.png",
+            "loaded": true
+          },
+          {
+            "file": "03.png",
+            "loaded": true
+          }
+        ]
+      },
+      "footer": {
+        "requested": 12851,
+        "actual": 12851,
+        "visible": [
+          {
+            "file": "09-10.png",
+            "loaded": true
+          },
+          {
+            "file": "09-10.png",
+            "loaded": true
+          },
+          {
+            "file": "11.png",
+            "loaded": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "pro-max",
+    "viewport": 440,
+    "dpr": 3,
+    "maxScroll": 14066,
+    "scrollSamples": 17,
+    "allVisibleTilesDecoded": true,
+    "failedArtRequests": [],
+    "scrollWidth": 440,
+    "captures": {
+      "top": {
+        "requested": 0,
+        "actual": 0,
+        "visible": [
+          {
+            "file": "00.png",
+            "loaded": true
+          }
+        ]
+      },
+      "feature": {
+        "requested": 2502,
+        "actual": 2502,
+        "visible": [
+          {
+            "file": "01.png",
+            "loaded": true
+          },
+          {
+            "file": "02.png",
+            "loaded": true
+          }
+        ]
+      },
+      "technology": {
+        "requested": 3484,
+        "actual": 3484,
+        "visible": [
+          {
+            "file": "02.png",
+            "loaded": true
+          },
+          {
+            "file": "03.png",
+            "loaded": true
+          }
+        ]
+      },
+      "footer": {
+        "requested": 14066,
+        "actual": 14066,
+        "visible": [
+          {
+            "file": "09-10.png",
+            "loaded": true
+          },
+          {
+            "file": "09-10.png",
+            "loaded": true
+          },
+          {
+            "file": "11.png",
+            "loaded": true
+          }
+        ]
+      }
+    }
+  }
+]

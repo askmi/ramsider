@@ -1,28 +1,38 @@
 import { expect, test } from '@playwright/test';
 
-const names = ['triple', 'core', 'touch', 'water', 'light', 'armor', 'flow'];
+const mapped = [
+  ['I01', 'triple', '01.png'],
+  ['I02', 'core', '02.png'],
+  ['I03', 'touch', '03.png'],
+  ['I04', 'water', '04.png'],
+  ['I05', 'light', '05.png'],
+  ['I07', 'armor', '07.png'],
+  ['I08', 'flow', '08.png'],
+] as const;
 
-test('all seven technology annotations use decoded source artwork', async ({ page }) => {
+test('technology kit icons decode, map one-to-one and clear their labels', async ({ page }) => {
   for (const locale of ['en', 'ar']) {
     await page.goto(`/${locale}`);
-    const art = page.locator('img.technology-source-art');
-    await expect(art).toHaveCount(7);
-    const images = await art.evaluateAll(async elements => {
-      await Promise.all(elements.map(element => (element as HTMLImageElement).decode()));
-      return elements.map(element => ({
-        src: (element as HTMLImageElement).currentSrc,
-        loaded: (element as HTMLImageElement).naturalWidth > 0,
-        decorative: element.getAttribute('alt') === '' && element.getAttribute('aria-hidden') === 'true',
-      }));
-    });
-    expect(images.map(image => image.src.split('/').at(-1))).toEqual(names.map(name => `technology-${name}.png`));
-    expect(images.every(image => image.loaded && image.decorative)).toBe(true);
-    for (const name of names) {
-      const label = page.locator(`.overlay.key-${name}`);
+    await expect(page.locator('img.designer-icon-technology')).toHaveCount(7);
+    await expect(page.locator('#icon-i06')).toHaveCount(0);
+    await expect(page.locator('img.technology-source-art')).toHaveCount(0);
+    await expect(page.locator('img.technology-connector-art')).toHaveCount(7);
+    for (const [id, key, asset] of mapped) {
+      const icon = page.locator(`#icon-${id.toLowerCase()}`);
+      const label = page.locator(`.overlay.key-${key}`);
+      await expect(icon).toHaveAttribute('src', `/art/icon-kit/${asset}`);
+      await expect(icon).toHaveAttribute('alt', '');
+      await expect(icon).toHaveAttribute('aria-hidden', 'true');
       await expect(label).not.toBeEmpty();
-      expect(await label.textContent()).toContain(' ');
-      expect(await label.evaluate(element => getComputedStyle(element, '::before').content)).not.toMatch(/[♨▣◇♧✧⬡≈]/);
-      expect(await label.evaluate(element => getComputedStyle(element, '::after').content)).toBe('none');
+      expect(await icon.evaluate(async element => {
+        const image = element as HTMLImageElement;
+        await image.decode();
+        return image.naturalWidth > 0;
+      })).toBe(true);
+      const iconBox = await icon.boundingBox();
+      const labelBox = await label.boundingBox();
+      if (!iconBox || !labelBox) throw new Error(`Missing technology geometry: ${id}`);
+      expect(labelBox.y - (iconBox.y + iconBox.height)).toBeGreaterThanOrEqual(7);
     }
   }
 });

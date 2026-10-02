@@ -27,8 +27,7 @@ a{color:inherit}
 .overlay.title{font-weight:400;letter-spacing:0;line-height:1.2}
 .overlay.body{font-weight:300;color:#5d5149;line-height:1.22}
 .overlay.label{font-weight:400;letter-spacing:.08em;line-height:1.25}
-.feature-source-art{position:absolute;z-index:3;height:auto;pointer-events:none}
-.technology-source-art{position:absolute;z-index:3;height:auto;pointer-events:none}
+.feature-divider-art,.technology-connector-art,.designer-icon{position:absolute;z-index:3;height:auto;pointer-events:none}
 html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water){left:calc(70/941*100cqw)!important;width:calc(230/941*100cqw)!important;font-size:calc(29/941*100cqw)!important}
 html:not(:lang(en)) :is(.key-light,.key-armor,.key-flow){left:calc(645/941*100cqw)!important;width:calc(210/941*100cqw)!important;font-size:calc(29/941*100cqw)!important}
 html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.key-armor,.key-flow) span{white-space:normal}
@@ -189,7 +188,7 @@ html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.
 [dir="rtl"] .locale-options{right:auto;left:-73px}
 @media(min-width:942px){body{background:#bda48c}.canvas{box-shadow:0 0 70px #4e302b33}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-/* Font assignments from docs/font-button-map.md. */
+/* Font assignments from docs/elements-mapping.md. */
 .overlay:is(.key-mini,.key-projects){font-family:OpenSans,Arial,sans-serif;font-weight:400}
 .overlay:is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.key-armor,.key-flow,.key-pro1,.key-pro2,.key-pro3,.key-pro4,.key-pro5,.key-gold1,.key-gold2,.key-gold3,.key-gold4,.key-gold5,.key-step1b,.key-step2b,.key-step3b,.key-finalPayment,.key-hospitalityLabel,.key-account,.key-businessAccount,.key-finalBody){font-weight:400}
 .overlay:is(.key-accountBody,.key-venueAccount){font-weight:300}

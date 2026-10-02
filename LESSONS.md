@@ -84,7 +84,7 @@ This is the repository's **error-prevention memory**, separate from current proj
 
 - **Problem:** The completed page used the wrong-looking typography and generalized pill buttons despite supplied font and button files.
 - **Cause:** Font names were known from the asset inventory, but no per-text/per-CTA map was made from native reference crops and actual font/button specimens; a broad `brand` class and generic button rule then hid distinct treatments.
-- **Prevention:** Before styling, identify each supplied font from metadata and specimen glyphs, inspect representative crops across the full render, and record a source-coordinate map assigning family/weight to text roles and exact or custom artwork to each CTA. Separate English outlined button samples from translated live text; compare the implemented Pro screenshot to the same crops before closing visual QA. See [font-button-map.md](docs/font-button-map.md).
+- **Prevention:** Before styling, identify each supplied font from metadata and specimen glyphs, inspect representative crops across the full render, and record a source-coordinate map assigning family/weight to text roles and exact or custom artwork to each CTA. Separate English outlined button samples from translated live text; compare the implemented Pro screenshot to the same crops before closing visual QA. See [Elements Mapping](docs/elements-mapping.md).
 
 ## Inspect every button variant before assigning it
 
@@ -199,6 +199,12 @@ This is the repository's **error-prevention memory**, separate from current proj
 - **Problem:** The published Effortless Control, Smooth Draw, Desired Intensity and Consistent Session marks were tiny substitute glyphs with the wrong shapes, and their three fine dividers were missing (CHG-0044). The adjacent seven technology marks and connector paths had the same problem (CHG-0045). Both were part of the known CHG-0015 residual.
 - **Cause:** The agent treated the clean background as the entire decorative source and inserted approximate CSS `content` characters, then accepted a partial visual pass without comparing each pictogram against `background_text.png`.
 - **Prevention:** Inventory both clean and composite source layers for every repeated decorative mark in the contiguous section. If the composite contains the approved shape, map each mark, connector and divider to source coordinates and extract only those pixels or use an exact supplied vector. Keep words as live localized text, compare an aligned browser crop against the source on Pro, then inspect Pro Max and RTL. Track any remaining icon set explicitly and finish the complete known set before declaring the broader defect resolved.
+
+## Remap icons when a designer supplies canonical assets
+
+- **Problem:** The previous feature and technology icons were source extractions, but a later designer `ICON_Kit` superseded their shapes, and the first 16-source-px upward adjustment still left Smart Core only 3 CSS px above its label (CHG-0049).
+- **Cause:** The original combined images bundled icon pixels with dividers or connector routes. Replacing only their filenames would leave duplicate marks; a uniform spacing guess also missed the tightest icon-to-label pair. The new kit and customer spacing correction arrived after that implementation, so their absence then is a changed input, not evidence of user fault.
+- **Prevention:** Inventory every new asset and duplicate, build a stable ID → designer file → DOM map before UI edits, verify public hashes, and isolate decorative connectors/dividers from icon shapes. On real Pro and Pro Max screenshots, measure the **minimum gap across every icon**, not a representative example; reject a candidate that still looks crowded. Record intentional movement separately from exact source-shape fidelity. [EVAL-MAP](docs/agent-evals.md#eval-map) remains `NOT_RUN` as an agent evaluation.
 
 ## Verify color profiles and decoded artwork before approving a format change
 

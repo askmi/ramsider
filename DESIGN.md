@@ -13,7 +13,7 @@
 | `design/assets/RAMSIDER_Buttons.zip` | Button and arrow artwork | Contains PNG and SVG variants, including text-free buttons |
 | `design/source/fon-.psb`, `Fon+box.psb`, `Work-R153.psb` | Large editable Photoshop sources | Local sources; ignored by Git |
 
-The inspected typeface and button assignments are recorded in [docs/font-button-map.md](docs/font-button-map.md), including source coordinates, evidence, confidence limits, and the distinction between Open Sans wordmarks and BankGothic brand signatures. Exact font sizes/tracking still require browser calibration, and BankGothic embedding rights need confirmation before publication. Keep shipped font weights/subsets small. The visible page sections and controls are mapped in [docs/reference-map.md](docs/reference-map.md); inspect the actual crop before implementing any one of them.
+The inspected typeface, button, and designer icon assignments are recorded in [Elements Mapping](docs/elements-mapping.md), including source coordinates, evidence, confidence limits, and the distinction between Open Sans wordmarks and BankGothic brand signatures. Exact font sizes/tracking still require browser calibration, and BankGothic embedding rights need confirmation before publication. Keep shipped font weights/subsets small. The visible page sections and controls are mapped in [docs/reference-map.md](docs/reference-map.md); inspect the actual crop before implementing any one of them.
 
 ## Implementation interpretation
 

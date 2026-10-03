@@ -11,6 +11,7 @@ import { ActionArrow } from './ActionArrow';
 import buttonMap from '@/lib/button-map.json';
 import iconMap from '@/lib/icon-map.json';
 import localizedButtonWidths from '@/lib/button-localized-widths.json';
+import artPreviews from '@/lib/art-previews.json';
 
 // Keep the complete FAQ/account artwork in one tile: no image edge through a card.
 const artTiles = Array.from({ length: 12 }, (_, i) => ({
@@ -104,7 +105,7 @@ const docs: { key: Key; detail: string; x: number; y: number }[] = [
 function DocumentCards({ locale }: { locale: Locale }) {
   return <>
     {docs.map((doc) => <div className={`doc-card doc-card--${doc.key} source-panel`} key={doc.key} style={sourceStyle(doc.x, doc.y, 356)}>
-      <Image className="doc-thumb" src={`/art/doc-${doc.key}.png`} width={95} height={140} alt="" unoptimized />
+      <Image className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized />
       <strong>{textLines(t(locale, doc.key))}</strong>
       <small>{textLines(doc.detail)}</small>
       <button id={`document-${doc.key}`} type="button" aria-haspopup="dialog" popoverTarget={`doc-detail-${doc.key}`} aria-label={`${t(locale, 'docView')}: ${t(locale, doc.key).replaceAll('\n', ' ')}`}><span className="doc-action-label">{t(locale, 'docView')}</span><ActionArrow /></button>
@@ -138,8 +139,8 @@ function Faq({ locale }: { locale: Locale }) {
     } as React.CSSProperties}>
       <div className="faq-row-art" aria-hidden="true">
         {['top', 'middle', 'bottom'].map(part => <div className={`faq-art-${part}`} key={part}>
-          <Image src={`/art/faq-row-${index + 1}.png`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" />
-          {part === 'middle' && <Image className="faq-minus-cover" src={`/art/faq-row-${index + 1}.png`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" />}
+          <Image src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
+          {part === 'middle' && <Image className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
         </div>)}
       </div>
       <details>
@@ -227,7 +228,7 @@ export function Story({ locale }: { locale: Locale }) {
       <div className="art" aria-hidden="true">
         {artTiles.filter(({ file }) => file !== '11').map(({ file, height }, i) => <Image
           key={i}
-          src={`/art/${file}.png`}
+          src={`/art/${file}.webp`}
           width={941}
           height={height}
           alt=""
@@ -235,6 +236,7 @@ export function Story({ locale }: { locale: Locale }) {
           preload={i === 0}
           loading={i === 0 ? 'eager' : 'lazy'}
           fetchPriority={i === 0 ? 'high' : 'low'}
+          placeholder={i === 0 ? 'empty' : artPreviews[file as keyof typeof artPreviews] as `data:image/${string}`}
         />)}
       </div>
       <Menus locale={locale} />
@@ -298,8 +300,8 @@ export function Story({ locale }: { locale: Locale }) {
       <Faq locale={locale} />
       <section className="story-tail" aria-label={t(locale, 'account')}>
         <div className="tail-art" aria-hidden="true"><div className="tail-art-track">
-          <Image src="/art/09-10.png" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="low" />
-          <Image src="/art/11.png" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="low" />
+          <Image src="/art/09-10.webp" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['09-10'] as `data:image/${string}`} />
+          <Image src="/art/11.webp" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['11'] as `data:image/${string}`} />
         </div></div>
         {storyNodes.filter(node => node.y >= 28207).map((node, index) => <OverlayNode node={node} locale={locale} key={`${node.key}-${index}`} />)}
       <button id="account-personal" type="button" className="account-hit" style={sourceStyle(45, 28230, 850)} popoverTarget="unavailable-account" aria-label={t(locale, 'account')} />

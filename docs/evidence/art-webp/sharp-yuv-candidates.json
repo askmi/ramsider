@@ -1,0 +1,359 @@
+[
+  {
+    "file": "00.webp",
+    "baseline_bytes": 248236,
+    "sharp_bytes": 283436,
+    "baseline_delta_e76_p99": 3.848,
+    "sharp_delta_e76_p99": 3.29,
+    "baseline_rgb_p99": [
+      5.0,
+      4.0,
+      6.0
+    ],
+    "sharp_rgb_p99": [
+      5.0,
+      3.0,
+      5.0
+    ],
+    "baseline_local_mae": 5.086,
+    "sharp_local_mae": 3.842,
+    "baseline_local_red_shift": 20.354,
+    "sharp_local_red_shift": 22.472
+  },
+  {
+    "file": "01.webp",
+    "baseline_bytes": 348160,
+    "sharp_bytes": 390082,
+    "baseline_delta_e76_p99": 4.713,
+    "sharp_delta_e76_p99": 3.866,
+    "baseline_rgb_p99": [
+      6.0,
+      4.0,
+      6.0
+    ],
+    "sharp_rgb_p99": [
+      5.0,
+      4.0,
+      6.0
+    ],
+    "baseline_local_mae": 7.836,
+    "sharp_local_mae": 5.213,
+    "baseline_local_red_shift": 31.333,
+    "sharp_local_red_shift": 11.679
+  },
+  {
+    "file": "02.webp",
+    "baseline_bytes": 366112,
+    "sharp_bytes": 416176,
+    "baseline_delta_e76_p99": 4.868,
+    "sharp_delta_e76_p99": 4.039,
+    "baseline_rgb_p99": [
+      6.0,
+      4.0,
+      7.0
+    ],
+    "sharp_rgb_p99": [
+      5.0,
+      4.0,
+      6.0
+    ],
+    "baseline_local_mae": 6.504,
+    "sharp_local_mae": 4.479,
+    "baseline_local_red_shift": 5.92,
+    "sharp_local_red_shift": 2.672
+  },
+  {
+    "file": "03.webp",
+    "baseline_bytes": 746370,
+    "sharp_bytes": 823558,
+    "baseline_delta_e76_p99": 8.254,
+    "sharp_delta_e76_p99": 6.76,
+    "baseline_rgb_p99": [
+      10.0,
+      5.0,
+      12.0
+    ],
+    "sharp_rgb_p99": [
+      8.0,
+      5.0,
+      10.0
+    ],
+    "baseline_local_mae": 8.553,
+    "sharp_local_mae": 7.619,
+    "baseline_local_red_shift": 20.604,
+    "sharp_local_red_shift": 9.57
+  },
+  {
+    "file": "04.webp",
+    "baseline_bytes": 838236,
+    "sharp_bytes": 880778,
+    "baseline_delta_e76_p99": 7.467,
+    "sharp_delta_e76_p99": 5.968,
+    "baseline_rgb_p99": [
+      9.0,
+      5.0,
+      12.0
+    ],
+    "sharp_rgb_p99": [
+      8.0,
+      5.0,
+      10.0
+    ],
+    "baseline_local_mae": 8.219,
+    "sharp_local_mae": 6.454,
+    "baseline_local_red_shift": 12.949,
+    "sharp_local_red_shift": 4.361
+  },
+  {
+    "file": "05.webp",
+    "baseline_bytes": 526844,
+    "sharp_bytes": 594492,
+    "baseline_delta_e76_p99": 5.363,
+    "sharp_delta_e76_p99": 4.092,
+    "baseline_rgb_p99": [
+      7.0,
+      5.0,
+      8.0
+    ],
+    "sharp_rgb_p99": [
+      6.0,
+      4.0,
+      6.0
+    ],
+    "baseline_local_mae": 5.351,
+    "sharp_local_mae": 4.546,
+    "baseline_local_red_shift": 5.79,
+    "sharp_local_red_shift": 5.66
+  },
+  {
+    "file": "06.webp",
+    "baseline_bytes": 538912,
+    "sharp_bytes": 608310,
+    "baseline_delta_e76_p99": 4.41,
+    "sharp_delta_e76_p99": 3.745,
+    "baseline_rgb_p99": [
+      6.0,
+      4.0,
+      7.0
+    ],
+    "sharp_rgb_p99": [
+      5.0,
+      4.0,
+      6.0
+    ],
+    "baseline_local_mae": 5.157,
+    "sharp_local_mae": 4.219,
+    "baseline_local_red_shift": 18.812,
+    "sharp_local_red_shift": 3.855
+  },
+  {
+    "file": "07.webp",
+    "baseline_bytes": 634290,
+    "sharp_bytes": 694070,
+    "baseline_delta_e76_p99": 3.379,
+    "sharp_delta_e76_p99": 3.288,
+    "baseline_rgb_p99": [
+      5.0,
+      4.0,
+      6.0
+    ],
+    "sharp_rgb_p99": [
+      5.0,
+      4.0,
+      5.0
+    ],
+    "baseline_local_mae": 2.661,
+    "sharp_local_mae": 2.387,
+    "baseline_local_red_shift": 21.241,
+    "sharp_local_red_shift": 9.747
+  },
+  {
+    "file": "08.webp",
+    "baseline_bytes": 518666,
+    "sharp_bytes": 601174,
+    "baseline_delta_e76_p99": 4.451,
+    "sharp_delta_e76_p99": 3.526,
+    "baseline_rgb_p99": [
+      6.0,
+      4.0,
+      6.0
+    ],
+    "sharp_rgb_p99": [
+      5.0,
+      4.0,
+      5.0
+    ],
+    "baseline_local_mae": 4.647,
+    "sharp_local_mae": 3.656,
+    "baseline_local_red_shift": 9.843,
+    "sharp_local_red_shift": 3.488
+  },
+  {
+    "file": "09-10.webp",
+    "baseline_bytes": 660484,
+    "sharp_bytes": 756258,
+    "baseline_delta_e76_p99": 5.023,
+    "sharp_delta_e76_p99": 4.164,
+    "baseline_rgb_p99": [
+      6.0,
+      4.0,
+      7.0
+    ],
+    "sharp_rgb_p99": [
+      5.0,
+      4.0,
+      6.0
+    ],
+    "baseline_local_mae": 5.302,
+    "sharp_local_mae": 4.64,
+    "baseline_local_red_shift": 28.28,
+    "sharp_local_red_shift": 18.562
+  },
+  {
+    "file": "11.webp",
+    "baseline_bytes": 149812,
+    "sharp_bytes": 169642,
+    "baseline_delta_e76_p99": 3.62,
+    "sharp_delta_e76_p99": 3.102,
+    "baseline_rgb_p99": [
+      5.0,
+      4.0,
+      5.0
+    ],
+    "sharp_rgb_p99": [
+      5.0,
+      4.0,
+      5.0
+    ],
+    "baseline_local_mae": 3.394,
+    "sharp_local_mae": 2.583,
+    "baseline_local_red_shift": 28.0,
+    "sharp_local_red_shift": 13.029
+  },
+  {
+    "file": "faq-row-1.webp",
+    "baseline_bytes": 9950,
+    "sharp_bytes": 11620,
+    "baseline_delta_e76_p99": 2.789,
+    "sharp_delta_e76_p99": 2.793,
+    "baseline_rgb_p99": [
+      5.0,
+      3.0,
+      5.0
+    ],
+    "sharp_rgb_p99": [
+      5.0,
+      3.0,
+      4.0
+    ],
+    "baseline_local_mae": 1.629,
+    "sharp_local_mae": 1.583,
+    "baseline_local_red_shift": 2.269,
+    "sharp_local_red_shift": 1.309
+  },
+  {
+    "file": "faq-row-2.webp",
+    "baseline_bytes": 7834,
+    "sharp_bytes": 9276,
+    "baseline_delta_e76_p99": 2.49,
+    "sharp_delta_e76_p99": 2.755,
+    "baseline_rgb_p99": [
+      4.0,
+      3.0,
+      4.0
+    ],
+    "sharp_rgb_p99": [
+      4.0,
+      3.0,
+      4.0
+    ],
+    "baseline_local_mae": 1.584,
+    "sharp_local_mae": 1.603,
+    "baseline_local_red_shift": 19.814,
+    "sharp_local_red_shift": 18.864
+  },
+  {
+    "file": "faq-row-3.webp",
+    "baseline_bytes": 8988,
+    "sharp_bytes": 10332,
+    "baseline_delta_e76_p99": 2.481,
+    "sharp_delta_e76_p99": 2.452,
+    "baseline_rgb_p99": [
+      4.0,
+      3.0,
+      4.0
+    ],
+    "sharp_rgb_p99": [
+      4.0,
+      3.0,
+      4.0
+    ],
+    "baseline_local_mae": 1.719,
+    "sharp_local_mae": 1.709,
+    "baseline_local_red_shift": 20.609,
+    "sharp_local_red_shift": 18.781
+  },
+  {
+    "file": "faq-row-4.webp",
+    "baseline_bytes": 10810,
+    "sharp_bytes": 12290,
+    "baseline_delta_e76_p99": 2.838,
+    "sharp_delta_e76_p99": 2.567,
+    "baseline_rgb_p99": [
+      4.0,
+      3.0,
+      4.0
+    ],
+    "sharp_rgb_p99": [
+      4.0,
+      3.0,
+      4.0
+    ],
+    "baseline_local_mae": 1.766,
+    "sharp_local_mae": 1.785,
+    "baseline_local_red_shift": 19.922,
+    "sharp_local_red_shift": 17.562
+  },
+  {
+    "file": "faq-row-5.webp",
+    "baseline_bytes": 11720,
+    "sharp_bytes": 13338,
+    "baseline_delta_e76_p99": 2.949,
+    "sharp_delta_e76_p99": 3.059,
+    "baseline_rgb_p99": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "sharp_rgb_p99": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "baseline_local_mae": 1.903,
+    "sharp_local_mae": 1.902,
+    "baseline_local_red_shift": 1.924,
+    "sharp_local_red_shift": 2.153
+  },
+  {
+    "file": "faq-row-6.webp",
+    "baseline_bytes": 10272,
+    "sharp_bytes": 11930,
+    "baseline_delta_e76_p99": 3.261,
+    "sharp_delta_e76_p99": 2.81,
+    "baseline_rgb_p99": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "sharp_rgb_p99": [
+      4.0,
+      3.0,
+      5.0
+    ],
+    "baseline_local_mae": 1.972,
+    "sharp_local_mae": 1.957,
+    "baseline_local_red_shift": 6.06,
+    "sharp_local_red_shift": 2.2
+  }
+]

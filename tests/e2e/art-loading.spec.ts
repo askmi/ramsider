@@ -13,10 +13,10 @@ async function luminanceRange(png: Buffer, box: { left: number; top: number; wid
   return max - min;
 }
 
-test('source PNG tiles load after a fast distant scroll without WebP previews', async ({ page }, testInfo) => {
+test('color-managed WebP tiles load after a fast distant scroll', async ({ page }, testInfo) => {
   let releaseImages!: () => void;
   const imageGate = new Promise<void>(resolve => { releaseImages = resolve; });
-  await page.route('**/art/*.png', async route => { await imageGate; await route.continue(); });
+  await page.route('**/art/*.webp', async route => { await imageGate; await route.continue(); });
   try {
     await page.goto('/en', { waitUntil: 'domcontentloaded' });
     const first = await page.locator('.art img').first().evaluate(image => ({
@@ -31,7 +31,19 @@ test('source PNG tiles load after a fast distant scroll without WebP previews', 
       .filter(image => { const box = image.getBoundingClientRect(); return box.top < innerHeight && box.bottom > 0; })
       .map(image => ({ complete: image.complete, preview: getComputedStyle(image).backgroundImage })));
     expect(distant.length).toBeGreaterThan(0);
-    expect(distant.some(image => !image.complete && image.preview === 'none')).toBe(true);
+    expect(distant.some(image => !image.complete && image.preview.includes('data:image/webp;base64,'))).toBe(true);
+    const preview = await page.evaluate(async () => {
+      const visible = [...document.querySelectorAll<HTMLImageElement>('.art img')]
+        .find(image => { const r = image.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; });
+      const background = getComputedStyle(visible!).backgroundImage;
+      const url = background.slice(5, -2);
+      const image = new Image();
+      image.src = url;
+      await image.decode();
+      return { width: image.naturalWidth, height: image.naturalHeight };
+    });
+    expect(preview.width).toBe(118);
+    expect(preview.height).toBeGreaterThan(100);
   } finally {
     releaseImages();
   }
@@ -46,12 +58,15 @@ test('source PNG tiles load after a fast distant scroll without WebP previews', 
     .filter(image => { const box = image.getBoundingClientRect(); return box.top < innerHeight && box.bottom > 0; })
     .map(image => image.decode())));
   await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+  await expect.poll(() => page.locator('.art img').evaluateAll(images => images
+    .filter(image => { const r = image.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; })
+    .every(image => getComputedStyle(image).backgroundImage === 'none'))).toBe(true);
   const final = await page.screenshot({ scale: 'css', path: testInfo.outputPath('fast-scroll-loaded.png') });
   const width = testInfo.project.use.viewport!.width;
   expect(await luminanceRange(final, { left: 0, top: 210, width: Math.round(width * .42), height: 420 })).toBeGreaterThan(25);
 });
 
-for (const language of [{ code: 'ru', dir: 'ltr' }, { code: 'ar', dir: 'rtl' }]) test(`${language.code} change keeps PNG artwork available after scrolling`, async ({ page }, testInfo) => {
+for (const language of [{ code: 'ru', dir: 'ltr' }, { code: 'ar', dir: 'rtl' }]) test(`${language.code} change keeps WebP artwork available after scrolling`, async ({ page }, testInfo) => {
   await page.goto('/en');
   await page.route(`**/${language.code}`, async route => { await new Promise(resolve => setTimeout(resolve, 600)); await route.continue(); });
   await page.locator('#locale-toggle').click();

@@ -1,0 +1,1085 @@
+2026-10-03T22:56:49.298890Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-03T22:56:49.299008Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.159.2
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: low
+reasoning summaries: none
+session id: 01a103fc-0069-7d00-a70d-ce3c2e60553d
+--------
+user
+current changes
+2026-10-03T22:56:50.184660Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-03T22:56:50.184732Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+exec
+/bin/zsh -lc 'git status --short; git diff --stat; git diff --cached --stat; find .. -name AGENTS.md -o -name AGENTS.override.md | head -30' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 3433ms:
+ M AGENTS.md
+ M CHANGELOG.md
+ M LESSONS.md
+ M MEMORY.md
+ M PERFORMANCE.md
+ M app/globals.css
+ M components/Story.tsx
+ M design/references/background.png
+ D public/art/00.png
+ D public/art/01.png
+ D public/art/02.png
+ D public/art/03.png
+ D public/art/04.png
+ D public/art/05.png
+ D public/art/06.png
+ D public/art/07.png
+ D public/art/08.png
+ D public/art/09-10.png
+ D public/art/11.png
+ D public/art/doc-electrical.png
+ D public/art/doc-emc.png
+ D public/art/doc-rohs.png
+ D public/art/doc-telecom.png
+ D public/art/doc-uae.png
+ D public/art/faq-row-1.png
+ D public/art/faq-row-2.png
+ D public/art/faq-row-3.png
+ D public/art/faq-row-4.png
+ D public/art/faq-row-5.png
+ D public/art/faq-row-6.png
+ D public/art/unused-webp/00.webp
+ D public/art/unused-webp/01.webp
+ D public/art/unused-webp/02.webp
+ D public/art/unused-webp/03.webp
+ D public/art/unused-webp/04.webp
+ D public/art/unused-webp/05.webp
+ D public/art/unused-webp/06.webp
+ D public/art/unused-webp/07.webp
+ D public/art/unused-webp/08.webp
+ D public/art/unused-webp/09-10.webp
+ D public/art/unused-webp/09.webp
+ D public/art/unused-webp/10.webp
+ D public/art/unused-webp/11.webp
+ D public/art/unused-webp/README.txt
+ D public/art/unused-webp/doc-electrical.webp
+ D public/art/unused-webp/doc-emc.webp
+ D public/art/unused-webp/doc-rohs.webp
+ D public/art/unused-webp/doc-telecom.webp
+ D public/art/unused-webp/doc-uae.webp
+ D public/art/unused-webp/faq-row-1.webp
+ D public/art/unused-webp/faq-row-2.webp
+ D public/art/unused-webp/faq-row-3.webp
+ D public/art/unused-webp/faq-row-4.webp
+ D public/art/unused-webp/faq-row-5.webp
+ D public/art/unused-webp/faq-row-6.webp
+ M tests/e2e/art-loading.spec.ts
+ M tools/slice-background-png.py
+?? .agents/skills/artwork-color-pipeline/
+?? design/references/background_old.png
+?? docs/art-color-pipeline.md
+?? docs/evidence/art-webp/
+?? docs/evidence/png-reserve/
+?? lib/art-previews.json
+?? public/art/00.webp
+?? public/art/01.webp
+?? public/art/02.webp
+?? public/art/03.webp
+?? public/art/04.webp
+?? public/art/05.webp
+?? public/art/06.webp
+?? public/art/07.webp
+?? public/art/08.webp
+?? public/art/09-10.webp
+?? public/art/11.webp
+?? public/art/doc-electrical.webp
+?? public/art/doc-emc.webp
+?? public/art/doc-rohs.webp
+?? public/art/doc-telecom.webp
+?? public/art/doc-uae.webp
+?? public/art/faq-row-1.webp
+?? public/art/faq-row-2.webp
+?? public/art/faq-row-3.webp
+?? public/art/faq-row-4.webp
+?? public/art/faq-row-5.webp
+?? public/art/faq-row-6.webp
+?? public/art/original-png/
+?? tools/__pycache__/
+?? tools/check-art-assembly.mjs
+?? tools/check-art-browser.mjs
+?? tools/check-png-reserve-browser.mjs
+?? tools/convert-art-webp.py
+?? tools/measure-art-webp.mjs
+ AGENTS.md                                  |   1 +
+ CHANGELOG.md                               |  62 +++++++++++++++++++++++++++--
+ LESSONS.md                                 |   6 +--
+ MEMORY.md                                  |  13 ++++--
+ PERFORMANCE.md                             |   2 +-
+ app/globals.css                            |   2 +-
+ components/Story.tsx                       |  14 ++++---
+ design/references/background.png           | Bin 45550654 -> 45501546 bytes
+ public/art/00.png                          | Bin 3194801 -> 0 bytes
+ public/art/01.png                          | Bin 3514840 -> 0 bytes
+ public/art/02.png                          | Bin 3665828 -> 0 bytes
+ public/art/03.png                          | Bin 4798956 -> 0 bytes
+ public/art/04.png                          | Bin 4962948 -> 0 bytes
+ public/art/05.png                          | Bin 4048822 -> 0 bytes
+ public/art/06.png                          | Bin 4197021 -> 0 bytes
+ public/art/07.png                          | Bin 4290447 -> 0 bytes
+ public/art/08.png                          | Bin 4035149 -> 0 bytes
+ public/art/09-10.png                       | Bin 6957268 -> 0 bytes
+ public/art/11.png                          | Bin 1632336 -> 0 bytes
+ public/art/doc-electrical.png              | Bin 14736 -> 0 bytes
+ public/art/doc-emc.png                     | Bin 9846 -> 0 bytes
+ public/art/doc-rohs.png                    | Bin 9768 -> 0 bytes
+ public/art/doc-telecom.png                 | Bin 6399 -> 0 bytes
+ public/art/doc-uae.png                     | Bin 9249 -> 0 bytes
+ public/art/faq-row-1.png                   | Bin 192502 -> 0 bytes
+ public/art/faq-row-2.png                   | Bin 182769 -> 0 bytes
+ public/art/faq-row-3.png                   | Bin 185885 -> 0 bytes
+ public/art/faq-row-4.png                   | Bin 195347 -> 0 bytes
+ public/art/faq-row-5.png                   | Bin 198963 -> 0 bytes
+ public/art/faq-row-6.png                   | Bin 184937 -> 0 bytes
+ public/art/unused-webp/00.webp             | Bin 86118 -> 0 bytes
+ public/art/unused-webp/01.webp             | Bin 127612 -> 0 bytes
+ public/art/unused-webp/02.webp             | Bin 144212 -> 0 bytes
+ public/art/unused-webp/03.webp             | Bin 304794 -> 0 bytes
+ public/art/unused-webp/04.webp             | Bin 354854 -> 0 bytes
+ public/art/unused-webp/05.webp             | Bin 211296 -> 0 bytes
+ public/art/unused-webp/06.webp             | Bin 201726 -> 0 bytes
+ public/art/unused-webp/07.webp             | Bin 254174 -> 0 bytes
+ public/art/unused-webp/08.webp             | Bin 218120 -> 0 bytes
+ public/art/unused-webp/09-10.webp          | Bin 406042 -> 0 bytes
+ public/art/unused-webp/09.webp             | Bin 162438 -> 0 bytes
+ public/art/unused-webp/10.webp             | Bin 93928 -> 0 bytes
+ public/art/unused-webp/11.webp             | Bin 52396 -> 0 bytes
+ public/art/unused-webp/README.txt          |   1 -
+ public/art/unused-webp/doc-electrical.webp | Bin 2420 -> 0 bytes
+ public/art/unused-webp/doc-emc.webp        | Bin 1902 -> 0 bytes
+ public/art/unused-webp/doc-rohs.webp       | Bin 2210 -> 0 bytes
+ public/art/unused-webp/doc-telecom.webp    | Bin 1534 -> 0 bytes
+ public/art/unused-webp/doc-uae.webp        | Bin 2366 -> 0 bytes
+ public/art/unused-webp/faq-row-1.webp      | Bin 26984 -> 0 bytes
+ public/art/unused-webp/faq-row-2.webp      | Bin 20148 -> 0 bytes
+ public/art/unused-webp/faq-row-3.webp      | Bin 22612 -> 0 bytes
+ public/art/unused-webp/faq-row-4.webp      | Bin 29100 -> 0 bytes
+ public/art/unused-webp/faq-row-5.webp      | Bin 31868 -> 0 bytes
+ public/art/unused-webp/faq-row-6.webp      | Bin 25740 -> 0 bytes
+ tests/e2e/art-loading.spec.ts              |  23 +++++++++--
+ tools/slice-background-png.py              |  33 +++++++++++----
+ 57 files changed, 127 insertions(+), 30 deletions(-)
+../ramsider/.agents/skills/vercel-react-best-practices/AGENTS.md
+../ramsider/.agents/skills/vercel-composition-patterns/AGENTS.md
+../ramsider/AGENTS.md
+
+2026-10-03T22:56:59.218031Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a103fc-0069-7d00-a70d-ce3c2e60553d turn_id=01a103fc-010b-7881-86c5-5626aefac9b3 item_id="exec-e1982daf-7486-415d-923f-4222a7796f11"
+exec
+/bin/zsh -lc "git diff -- app/globals.css components/Story.tsx tests/e2e/art-loading.spec.ts tools/slice-background-png.py; cat tools/convert-art-webp.py; rg 'art/.*png|art/.*webp' --glob '"'!*.md'"' --glob '"'!*.json'"'" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 103ms:
+diff --git a/app/globals.css b/app/globals.css
+index b60c314..863fec6 100644
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -16,7 +16,7 @@ a{color:inherit}
+ :focus-visible{outline:3px solid #815013;outline-offset:3px}
+ .canvas{position:relative;container-type:inline-size;display:grid;grid-template-rows:auto auto auto;width:100%;max-width:941px;margin-inline:auto;overflow:clip;isolation:isolate;background:#d8bb9f}
+ .art{position:absolute;inset:0 0 auto;height:calc(27147/941*100cqw);overflow:hidden;z-index:0;pointer-events:none}
+-.art img,.tail-art img{display:block;width:100%;height:auto}
++.art img,.tail-art img{display:block;width:100%;height:auto;background-size:100% 100%;background-repeat:no-repeat}
+ .art img:not(:first-child),.tail-art-track img{margin-top:calc(-2/941*100cqw)}
+ .story-prefix-space{grid-row:1;height:calc(27147/941*100cqw)}
+ .story-tail{grid-row:3;position:relative;height:calc(3920/941*100cqw);--source-offset:calc(28207/941*100cqw)}
+diff --git a/components/Story.tsx b/components/Story.tsx
+index 12e261e..ba96214 100644
+--- a/components/Story.tsx
++++ b/components/Story.tsx
+@@ -11,6 +11,7 @@ import { ActionArrow } from './ActionArrow';
+ import buttonMap from '@/lib/button-map.json';
+ import iconMap from '@/lib/icon-map.json';
+ import localizedButtonWidths from '@/lib/button-localized-widths.json';
++import artPreviews from '@/lib/art-previews.json';
+
+ // Keep the complete FAQ/account artwork in one tile: no image edge through a card.
+ const artTiles = Array.from({ length: 12 }, (_, i) => ({
+@@ -104,7 +105,7 @@ const docs: { key: Key; detail: string; x: number; y: number }[] = [
+ function DocumentCards({ locale }: { locale: Locale }) {
+   return <>
+     {docs.map((doc) => <div className={`doc-card doc-card--${doc.key} source-panel`} key={doc.key} style={sourceStyle(doc.x, doc.y, 356)}>
+-      <Image className="doc-thumb" src={`/art/doc-${doc.key}.png`} width={95} height={140} alt="" unoptimized />
++      <Image className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized />
+       <strong>{textLines(t(locale, doc.key))}</strong>
+       <small>{textLines(doc.detail)}</small>
+       <button id={`document-${doc.key}`} type="button" aria-haspopup="dialog" popoverTarget={`doc-detail-${doc.key}`} aria-label={`${t(locale, 'docView')}: ${t(locale, doc.key).replaceAll('\n', ' ')}`}><span className="doc-action-label">{t(locale, 'docView')}</span><ActionArrow /></button>
+@@ -138,8 +139,8 @@ function Faq({ locale }: { locale: Locale }) {
+     } as React.CSSProperties}>
+       <div className="faq-row-art" aria-hidden="true">
+         {['top', 'middle', 'bottom'].map(part => <div className={`faq-art-${part}`} key={part}>
+-          <Image src={`/art/faq-row-${index + 1}.png`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" />
+-          {part === 'middle' && <Image className="faq-minus-cover" src={`/art/faq-row-${index + 1}.png`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" />}
++          <Image src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
++          {part === 'middle' && <Image className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
+         </div>)}
+       </div>
+       <details>
+@@ -227,7 +228,7 @@ export function Story({ locale }: { locale: Locale }) {
+       <div className="art" aria-hidden="true">
+         {artTiles.filter(({ file }) => file !== '11').map(({ file, height }, i) => <Image
+           key={i}
+-          src={`/art/${file}.png`}
++          src={`/art/${file}.webp`}
+           width={941}
+           height={height}
+           alt=""
+@@ -235,6 +236,7 @@ export function Story({ locale }: { locale: Locale }) {
+           preload={i === 0}
+           loading={i === 0 ? 'eager' : 'lazy'}
+           fetchPriority={i === 0 ? 'high' : 'low'}
++          placeholder={i === 0 ? 'empty' : artPreviews[file as keyof typeof artPreviews] as `data:image/${string}`}
+         />)}
+       </div>
+       <Menus locale={locale} />
+@@ -298,8 +300,8 @@ export function Story({ locale }: { locale: Locale }) {
+       <Faq locale={locale} />
+       <section className="story-tail" aria-label={t(locale, 'account')}>
+         <div className="tail-art" aria-hidden="true"><div className="tail-art-track">
+-          <Image src="/art/09-10.png" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="low" />
+-          <Image src="/art/11.png" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="low" />
++          <Image src="/art/09-10.webp" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['09-10'] as `data:image/${string}`} />
++          <Image src="/art/11.webp" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['11'] as `data:image/${string}`} />
+         </div></div>
+         {storyNodes.filter(node => node.y >= 28207).map((node, index) => <OverlayNode node={node} locale={locale} key={`${node.key}-${index}`} />)}
+       <button id="account-personal" type="button" className="account-hit" style={sourceStyle(45, 28230, 850)} popoverTarget="unavailable-account" aria-label={t(locale, 'account')} />
+diff --git a/tests/e2e/art-loading.spec.ts b/tests/e2e/art-loading.spec.ts
+index 197b2fd..9f48c32 100644
+--- a/tests/e2e/art-loading.spec.ts
++++ b/tests/e2e/art-loading.spec.ts
+@@ -13,10 +13,10 @@ async function luminanceRange(png: Buffer, box: { left: number; top: number; wid
+   return max - min;
+ }
+
+-test('source PNG tiles load after a fast distant scroll without WebP previews', async ({ page }, testInfo) => {
++test('color-managed WebP tiles load after a fast distant scroll', async ({ page }, testInfo) => {
+   let releaseImages!: () => void;
+   const imageGate = new Promise<void>(resolve => { releaseImages = resolve; });
+-  await page.route('**/art/*.png', async route => { await imageGate; await route.continue(); });
++  await page.route('**/art/*.webp', async route => { await imageGate; await route.continue(); });
+   try {
+     await page.goto('/en', { waitUntil: 'domcontentloaded' });
+     const first = await page.locator('.art img').first().evaluate(image => ({
+@@ -31,7 +31,19 @@ test('source PNG tiles load after a fast distant scroll without WebP previews',
+       .filter(image => { const box = image.getBoundingClientRect(); return box.top < innerHeight && box.bottom > 0; })
+       .map(image => ({ complete: image.complete, preview: getComputedStyle(image).backgroundImage })));
+     expect(distant.length).toBeGreaterThan(0);
+-    expect(distant.some(image => !image.complete && image.preview === 'none')).toBe(true);
++    expect(distant.some(image => !image.complete && image.preview.includes('data:image/webp;base64,'))).toBe(true);
++    const preview = await page.evaluate(async () => {
++      const visible = [...document.querySelectorAll<HTMLImageElement>('.art img')]
++        .find(image => { const r = image.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; });
++      const background = getComputedStyle(visible!).backgroundImage;
++      const url = background.slice(5, -2);
++      const image = new Image();
++      image.src = url;
++      await image.decode();
++      return { width: image.naturalWidth, height: image.naturalHeight };
++    });
++    expect(preview.width).toBe(118);
++    expect(preview.height).toBeGreaterThan(100);
+   } finally {
+     releaseImages();
+   }
+@@ -46,12 +58,15 @@ test('source PNG tiles load after a fast distant scroll without WebP previews',
+     .filter(image => { const box = image.getBoundingClientRect(); return box.top < innerHeight && box.bottom > 0; })
+     .map(image => image.decode())));
+   await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
++  await expect.poll(() => page.locator('.art img').evaluateAll(images => images
++    .filter(image => { const r = image.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; })
++    .every(image => getComputedStyle(image).backgroundImage === 'none'))).toBe(true);
+   const final = await page.screenshot({ scale: 'css', path: testInfo.outputPath('fast-scroll-loaded.png') });
+   const width = testInfo.project.use.viewport!.width;
+   expect(await luminanceRange(final, { left: 0, top: 210, width: Math.round(width * .42), height: 420 })).toBeGreaterThan(25);
+ });
+
+-for (const language of [{ code: 'ru', dir: 'ltr' }, { code: 'ar', dir: 'rtl' }]) test(`${language.code} change keeps PNG artwork available after scrolling`, async ({ page }, testInfo) => {
++for (const language of [{ code: 'ru', dir: 'ltr' }, { code: 'ar', dir: 'rtl' }]) test(`${language.code} change keeps WebP artwork available after scrolling`, async ({ page }, testInfo) => {
+   await page.goto('/en');
+   await page.route(`**/${language.code}`, async route => { await new Promise(resolve => setTimeout(resolve, 600)); await route.continue(); });
+   await page.locator('#locale-toggle').click();
+diff --git a/tools/slice-background-png.py b/tools/slice-background-png.py
+index fa82863..69fedba 100644
+--- a/tools/slice-background-png.py
++++ b/tools/slice-background-png.py
+@@ -1,10 +1,12 @@
+-"""Crop active artwork from the original PNGs without changing RGBA or ICC."""
++"""Crop reserve PNG artwork from the original files without changing RGBA or ICC."""
+
+ from pathlib import Path
++import hashlib
++import json
+ from PIL import Image
+
+ ROOT = Path(__file__).resolve().parents[1]
+-ART = ROOT / "public/art"
++ART = ROOT / "public/art/original-png"
+ REFERENCE = ROOT / "design/references"
+
+ main = [(f"{index:02}", index * 2800, (index + 1) * 2800) for index in range(9)]
+@@ -14,9 +16,11 @@ faq = [(27147, 172, 7), (27326, 171, 8), (27505, 171, 7),
+ documents = [("electrical", 120, 23305), ("emc", 510, 23305),
+              ("uae", 120, 23550), ("rohs", 510, 23550),
+              ("telecom", 120, 23795)]
++records = []
+
+
+-def save_exact(source: Image.Image, name: str, box: tuple[int, int, int, int]) -> None:
++def save_exact(source: Image.Image, source_name: str, name: str,
++               box: tuple[int, int, int, int]) -> None:
+     crop = source.crop(box)
+     path = ART / f"{name}.png"
+     crop.save(path, format="PNG", compress_level=9,
+@@ -26,19 +30,34 @@ def save_exact(source: Image.Image, name: str, box: tuple[int, int, int, int]) -
+         assert saved.mode == crop.mode, name
+         assert saved.tobytes() == crop.tobytes(), name
+         assert saved.info.get("icc_profile") == source.info["icc_profile"], name
++    with Image.open(ROOT / "public/art" / f"{name}.webp") as active:
++        assert active.size == crop.size, name
++    records.append({"file": path.name, "source": source_name, "box": box,
++                    "size": list(crop.size), "bytes": path.stat().st_size,
++                    "sha256": hashlib.sha256(path.read_bytes()).hexdigest()})
+
+
++ART.mkdir(parents=True, exist_ok=True)
++
+ with Image.open(REFERENCE / "background.png") as source:
+     assert source.size == (941, 32127) and source.mode == "RGBA"
+     for name, top, bottom in main:
+         # Two untouched source rows overlap the previous tile during CSS scaling.
+-        save_exact(source, name, (0, top - (2 if top else 0), 941, bottom))
++        save_exact(source, "background.png", name, (0, top - (2 if top else 0), 941, bottom))
+     for index, (top, height, gap) in enumerate(faq, 1):
+-        save_exact(source, f"faq-row-{index}", (0, top - 4, 941, top + height + gap + 4))
++        save_exact(source, "background.png", f"faq-row-{index}", (0, top - 4, 941, top + height + gap + 4))
+
+ with Image.open(REFERENCE / "background_text.png") as source:
+     assert source.size == (941, 32127) and source.mode == "RGBA"
+     for name, left, top in documents:
+-        save_exact(source, f"doc-{name}", (left, top, left + 95, top + 140))
+-
++        save_exact(source, "background_text.png", f"doc-{name}", (left, top, left + 95, top + 140))
++
++assert len(records) == 22
++manifest = {
++    "purpose": "Unused exact-source PNG alternatives for future format selection",
++    "source_sha256": {name: hashlib.sha256((REFERENCE / name).read_bytes()).hexdigest()
++                      for name in ("background.png", "background_text.png")},
++    "files": records,
++}
++(ART / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+ print("Verified 22 PNG crops: exact RGBA pixels and source ICC profile.")
+"""Rebuild color-managed WebP art from the current Photoshop PNG exports.
+
+The RGB comparison is against the same Adobe RGB -> sRGB conversion used for
+encoding, never against unconverted Adobe RGB channel numbers.
+"""
+
+from io import BytesIO
+from pathlib import Path
+import base64
+import hashlib
+import json
+import os
+import shutil
+import subprocess
+import tempfile
+
+import numpy as np
+from PIL import Image, ImageCms
+
+ROOT = Path(__file__).resolve().parents[1]
+ART = ROOT / "public/art"
+REF = ROOT / "design/references"
+MAIN = [(f"{i:02}", i * 2800, (i + 1) * 2800) for i in range(9)]
+MAIN += [("09-10", 25200, 30800), ("11", 30800, 32127)]
+FAQ = [(27147, 172, 7), (27326, 171, 8), (27505, 171, 7),
+       (27683, 171, 7), (27861, 170, 6), (28037, 170, 0)]
+DOCS = [("electrical", 120, 23305), ("emc", 510, 23305),
+        ("uae", 120, 23550), ("rohs", 510, 23550),
+        ("telecom", 120, 23795)]
+SRGB = ImageCms.createProfile("sRGB")
+SRGB_BYTES = ImageCms.ImageCmsProfile(SRGB).tobytes()
+REPORT = []
+PREVIEWS = {}
+
+
+def rgb_to_lab(rgb: np.ndarray) -> np.ndarray:
+    """Approximate CIE Lab (D65) for a small sampled sRGB array."""
+    value = rgb.astype(np.float32) / 255
+    linear = np.where(value <= .04045, value / 12.92, ((value + .055) / 1.055) ** 2.4)
+    xyz = linear @ np.array([[.4124564, .3575761, .1804375],
+                              [.2126729, .7151522, .0721750],
+                              [.0193339, .1191920, .9503041]], dtype=np.float32).T
+    xyz /= np.array([.95047, 1.0, 1.08883], dtype=np.float32)
+    f = np.where(xyz > .008856, np.cbrt(xyz), 7.787 * xyz + 16 / 116)
+    return np.stack((116 * f[..., 1] - 16,
+                     500 * (f[..., 0] - f[..., 1]),
+                     200 * (f[..., 1] - f[..., 2])), axis=-1)
+
+
+def color_metrics(expected: np.ndarray, actual: np.ndarray) -> dict:
+    """Measure visible color, including local and high-percentile errors."""
+    diff = actual[:, :, :3] - expected[:, :, :3]
+    visible = expected[:, :, 3] > 0
+    absolute = np.abs(diff)
+    red = ((expected[:, :, 0] > expected[:, :, 1] * 1.05)
+           & (expected[:, :, 0] > expected[:, :, 2] * 1.1)
+           & (expected[:, :, 0] > 80) & (expected[:, :, 3] == 255))
+    red_mean = diff[red].mean(axis=0).round(3).tolist() if red.any() else None
+    local_max_mae = 0.0
+    local_max_red_shift = 0.0
+    for top in range(0, expected.shape[0], 64):
+        for left in range(0, expected.shape[1], 64):
+            block_visible = visible[top:top + 64, left:left + 64]
+            if block_visible.sum() >= 64:
+                local_max_mae = max(local_max_mae, float(absolute[top:top + 64, left:left + 64][block_visible].mean(axis=0).max()))
+            block_red = red[top:top + 64, left:left + 64]
+            if block_red.sum() >= 32:
+                local_max_red_shift = max(local_max_red_shift,
+                                          float(np.abs(diff[top:top + 64, left:left + 64][block_red].mean(axis=0)).max()))
+    sample = np.s_[::4, ::4]
+    sample_visible = visible[sample]
+    lab_error = np.linalg.norm(rgb_to_lab(expected[sample][:, :, :3])
+                               - rgb_to_lab(actual[sample][:, :, :3]), axis=-1)[sample_visible]
+    return {"rgb_mae": absolute[visible].mean(axis=0).round(3).tolist(),
+            "rgb_p99_abs": np.percentile(absolute[visible], 99, axis=0).tolist(),
+            "red_mean_signed": red_mean,
+            "local_max_mae": round(local_max_mae, 3),
+            "local_max_red_shift": round(local_max_red_shift, 3),
+            "sampled_delta_e76_p99": round(float(np.percentile(lab_error, 99)), 3),
+            "visible_pixels": int(visible.sum())}
+
+
+def encode(source: Image.Image, name: str, box: tuple[int, int, int, int], temp: Path) -> None:
+    crop = source.crop(box)
+    source_icc = ImageCms.ImageCmsProfile(BytesIO(source.info["icc_profile"]))
+    assert "Adobe RGB (1998)" in ImageCms.getProfileName(source_icc)
+    rgb = ImageCms.profileToProfile(crop.convert("RGB"), source_icc, SRGB,
+                                    renderingIntent=1, outputMode="RGB",
+                                    flags=ImageCms.Flags.BLACKPOINTCOMPENSATION)
+    rgb.putalpha(crop.getchannel("A"))
+    # Preserve the source alpha. Align invisible edge RGB with its neighbor;
+    # cwebp may discard these values, but must never turn transparency opaque.
+    if box[0] == 0 and crop.width == 941:
+        pixels = np.array(rgb)
+        edge = (pixels[:, -1, 3] == 0) & (pixels[:, -2, 3] == 255)
+        pixels[edge, -1, :3] = pixels[edge, -2, :3]
+        rgb = Image.fromarray(pixels, "RGBA")
+    png = temp / f"{name}.png"
+    rgb.save(png, icc_profile=SRGB_BYTES)
+    if os.environ.get("ART_REFERENCE_PNG_DIR"):
+        reference_dir = Path(os.environ["ART_REFERENCE_PNG_DIR"])
+        reference_dir.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(png, reference_dir / png.name)
+    output = ART / f"{name}.webp"
+    candidate = temp / f"{name}.webp"
+    subprocess.run(["cwebp", "-quiet", "-q", "95", "-m", "6",
+                    "-alpha_q", "100", "-metadata", "icc", str(png),
+                    "-o", str(candidate)], check=True)
+    decoded = Image.open(candidate)
+    assert decoded.size == rgb.size
+    assert decoded.info.get("icc_profile") == SRGB_BYTES
+    actual = np.asarray(decoded.convert("RGBA"), dtype=np.int16)
+    expected = np.asarray(rgb, dtype=np.int16)
+    assert np.array_equal(expected[:, :, 3], np.asarray(crop.getchannel("A"))), name
+    alpha_mismatch = int(np.count_nonzero(actual[:, :, 3] != expected[:, :, 3]))
+    assert alpha_mismatch == 0, (name, alpha_mismatch)
+    metrics = color_metrics(expected, actual)
+    lossy_metrics = metrics.copy()
+    lossy_bytes = candidate.stat().st_size
+    sharp_candidate = temp / f"{name}-sharp.webp"
+    subprocess.run(["cwebp", "-quiet", "-q", "95", "-m", "6", "-alpha_q", "100",
+                    "-sharp_yuv", "-metadata", "icc", str(png),
+                    "-o", str(sharp_candidate)], check=True)
+    sharp_decoded = Image.open(sharp_candidate)
+    assert sharp_decoded.info.get("icc_profile") == SRGB_BYTES
+    sharp_actual = np.asarray(sharp_decoded.convert("RGBA"), dtype=np.int16)
+    assert np.array_equal(sharp_actual[:, :, 3], expected[:, :, 3]), name
+    sharp_metrics = color_metrics(expected, sharp_actual)
+    sharp_bytes = sharp_candidate.stat().st_size
+    perceptual_gain = (lossy_metrics["sampled_delta_e76_p99"]
+                       - sharp_metrics["sampled_delta_e76_p99"])
+    red_gain = (lossy_metrics["local_max_red_shift"]
+                - sharp_metrics["local_max_red_shift"])
+    use_sharp = (sharp_bytes <= lossy_bytes * 1.20
+                 and max(sharp_metrics["rgb_p99_abs"]) <= max(lossy_metrics["rgb_p99_abs"])
+                 and sharp_metrics["local_max_red_shift"] <= lossy_metrics["local_max_red_shift"] + 1
+                 and (perceptual_gain >= .25 or red_gain >= 5))
+    chosen = sharp_candidate if use_sharp else candidate
+    if use_sharp:
+        metrics = sharp_metrics
+        actual = sharp_actual
+    mode = "lossy-q95"
+    if use_sharp:
+        mode = "lossy-q95-sharp-yuv"
+    if (name.startswith("doc-") or max(metrics["rgb_mae"]) >= 3
+            or max(metrics["rgb_p99_abs"]) > 15
+            or (metrics["red_mean_signed"] is not None
+                and max(map(abs, metrics["red_mean_signed"])) >= 2)):
+        chosen = temp / f"{name}-lossless.webp"
+        subprocess.run(["cwebp", "-quiet", "-lossless", "-q", "85", "-m", "6",
+                        "-exact", "-metadata", "icc", str(png), "-o", str(chosen)], check=True)
+        decoded = Image.open(chosen)
+        assert decoded.info.get("icc_profile") == SRGB_BYTES
+        actual = np.asarray(decoded.convert("RGBA"), dtype=np.int16)
+        assert np.array_equal(actual, expected), name
+        metrics = color_metrics(expected, actual)
+        mode = "lossless"
+    record = {"file": output.name, "box": box, "srgb_png_bytes": png.stat().st_size,
+              "webp_bytes": chosen.stat().st_size,
+              "mode": mode,
+              "lossy_candidate_bytes": lossy_bytes,
+              "lossy_candidate_metrics": lossy_metrics,
+              "sharp_yuv_candidate_bytes": sharp_bytes,
+              "sharp_yuv_candidate_metrics": sharp_metrics,
+              **metrics,
+              "alpha_mismatch": alpha_mismatch}
+    assert (max(metrics["rgb_mae"]) < 3 and max(metrics["rgb_p99_abs"]) <= 15
+            and (metrics["red_mean_signed"] is None
+                 or max(map(abs, metrics["red_mean_signed"])) < 2)), record
+    chosen.replace(output)
+    if not name.startswith("doc-") and name != "00":
+        preview_png = temp / f"{name}-preview.png"
+        preview_webp = temp / f"{name}-preview.webp"
+        rgb.resize((118, max(1, round(rgb.height * 118 / rgb.width))),
+                   Image.Resampling.LANCZOS).save(preview_png, icc_profile=SRGB_BYTES)
+        subprocess.run(["cwebp", "-quiet", "-q", "75", "-m", "6", "-metadata", "icc",
+                        str(preview_png), "-o", str(preview_webp)], check=True)
+        assert Image.open(preview_webp).info.get("icc_profile") == SRGB_BYTES
+        record["preview_bytes"] = preview_webp.stat().st_size
+        PREVIEWS[name] = "data:image/webp;base64," + base64.b64encode(preview_webp.read_bytes()).decode("ascii")
+    REPORT.append(record)
+
+
+def main() -> None:
+    ART.mkdir(exist_ok=True)
+    with tempfile.TemporaryDirectory() as directory:
+        temp = Path(directory)
+        for filename, jobs in [
+            ("background.png", [(name, (0, top - (2 if top else 0), 941, bottom))
+                                for name, top, bottom in MAIN]
+             + [(f"faq-row-{i}", (0, top - 4, 941, top + height + gap + 4))
+                for i, (top, height, gap) in enumerate(FAQ, 1)]),
+            ("background_text.png", [(f"doc-{name}", (x, y, x + 95, y + 140))
+                                     for name, x, y in DOCS]),
+        ]:
+            path = REF / filename
+            with Image.open(path) as source:
+                assert source.size == (941, 32127) and source.mode == "RGBA"
+                for name, box in jobs:
+                    encode(source, name, box, temp)
+    summary = {"method": "Adobe RGB (1998) -> sRGB via LittleCMS relative colorimetric intent with black point compensation; cwebp 1.6.0 q95 m6 alpha_q100 metadata icc; compare default and sharp_yuv candidates, select sharp when sampled Delta E76 p99 improves >=0.25 or local red shift drops >=5 with <=20% byte growth, no RGB p99 worsening and <=1 local red regression; documents lossless; lossless exact fallback when visible RGB MAE >=3, visible p99 >15, or global red shift >=2",
+               "source_sha256": hashlib.sha256((REF / "background.png").read_bytes()).hexdigest(),
+               "source_text_sha256": hashlib.sha256((REF / "background_text.png").read_bytes()).hexdigest(),
+               "files": REPORT}
+    report = ROOT / "docs/evidence/art-webp/color-metrics.json"
+    report.parent.mkdir(parents=True, exist_ok=True)
+    report.write_text(json.dumps(summary, indent=2) + "\n")
+    (ROOT / "lib/art-previews.json").write_text(json.dumps(PREVIEWS, indent=2) + "\n")
+    print(f"Verified {len(REPORT)} color-managed WebP crops; report: {report}")
+
+
+if __name__ == "__main__":
+    main()
+components/Story.tsx:      <Image className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized />
+components/Story.tsx:          <Image src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
+components/Story.tsx:          {part === 'middle' && <Image className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
+components/Story.tsx:          src={`/art/${file}.webp`}
+components/Story.tsx:        src={`/art/feature-divider-${icon.name}.png`}
+components/Story.tsx:        src={`/art/technology-connector-${icon.name}.png`}
+components/Story.tsx:        src="/art/expression-waves.png"
+components/Story.tsx:          <Image src="/art/09-10.webp" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['09-10'] as `data:image/${string}`} />
+components/Story.tsx:          <Image src="/art/11.webp" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['11'] as `data:image/${string}`} />
+components/Story.tsx:      <Image className="group-diamond" src="/art/rams-group-diamond.png" width={120} height={150} alt="" unoptimized style={sourceStyle(410, 28885, 120)} />
+tests/e2e/feature-icons.spec.ts:      await expect(icon).toHaveAttribute('src', `/art/icon-kit/${String(index + 9).padStart(2, '0')}.png`);
+tests/e2e/art-loading.spec.ts:  await page.route('**/art/*.webp', async route => { await imageGate; await route.continue(); });
+tests/e2e/expression-waves.spec.ts:    await expect(wave).toHaveAttribute('src', '/art/expression-waves.png');
+tools/generate-expression-waves.mjs:  .png().toFile('public/art/expression-waves.png');
+tools/extract-technology-icons.mjs:    .png().toFile(`public/art/technology-connector-${group.name}.png`);
+tools/extract-feature-icons.mjs:    .png().toFile(`public/art/feature-divider-${layer.name}.png`);
+tools/slice-background-png.py:ART = ROOT / "public/art/original-png"
+tools/check-art-browser.mjs:  await page.route('**/art/*.png', async route => {
+tools/measure-art-webp.mjs:  heroResource: performance.getEntriesByType('resource').find(item => item.name.endsWith('/art/00.webp'))?.toJSON(),
+docs/evidence/light-axis/native-review.log:?? public/art/expression-waves.png
+docs/evidence/light-axis/native-review.log:- The new product site is implemented in `app/`, `components/`, and `lib/` with Next.js 16, React 19, and strict TypeScript. The eleven locale routes are statically prerendered. `Story` is a Server Component; small menu/dialog event boundaries are Client Components, with story content passed as server-rendered children. The full reference PNGs are never served directly: `public/art/` supplies eleven exact-source PNG tiles plus smaller PNG supporting images. The FAQ/account region is one combined `09-10.png` tile. CHG-0047 keeps the first tile preloaded/high priority and later tiles lazy; old WebPs are archived under `public/art/unused-webp/`. RGBA/ICC exactness and Pro/Pro Max assembled visuals passed independent audit. CHG-0048 remains open: 3,194,801-byte first PNG decoded in 13.659 s at 4 Mbps/100 ms and fast distant scroll waited 33.88 s, so the overall performance/integration gate failed. The :3020 preview serves the new PNG build.
+docs/evidence/light-axis/native-review.log:+        src="/art/expression-waves.png"
+docs/evidence/light-axis/native-review.log:    await expect(wave).toHaveAttribute('src', '/art/expression-waves.png');
+docs/evidence/light-axis/native-review.log:  .png().toFile('public/art/expression-waves.png');
+docs/evidence/light-axis/native-review.log:/bin/zsh -lc "sed -n '1,100p' components/MenuShell.tsx; rg -n 'expression|key-choiceBody|14665|locale-toggle' components/Story.tsx app/globals.css | head -45; cat package.json | head -55; git diff -- docs/elements-mapping.md | head -120; ls -lh public/art/expression-waves.png" in /Users/asmirnou/Projects/g/ramsider
+docs/evidence/light-axis/native-review.log:components/Story.tsx:269:        src="/art/expression-waves.png"
+docs/evidence/light-axis/native-review.log: **Application rule:** `lib/icon-map.json` is the machine-readable copy of I01–I12; `components/Story.tsx` renders the eleven used kit icons by these IDs from `/art/icon-kit/NN.png`. It renders connector-only and divider-only source layers separately, so an old extracted icon cannot remain underneath a kit icon. The kit source files are preserved at their supplied paths; public copies must match their SHA-256 hashes. All icon images are decorative (`alt=""`, `aria-hidden`) beside live localized labels and do not intercept pointer input.
+docs/evidence/light-axis/native-review.log:-rw-r--r--@ 1 asmirnou  staff    93K Oct  3 14:43 public/art/expression-waves.png
+docs/evidence/light-axis/native-review.log:      <Image className="doc-thumb" src={`/art/doc-${doc.key}.png`} width={95} height={140} alt="" unoptimized />
+docs/evidence/light-axis/native-review.log:Extract the RGB pixels of these masked regions from the composite over the clean image, with transparent pixels elsewhere. Do not redraw the waves or serve the composite as a background. Place the derived `public/art/expression-waves.png` at source x=120, y=14665, width=700 (source CSS scale 402/941 on Pro); keep it noninteractive and hidden from assistive technology. The existing live `expressions` and `choose` text boxes center on source x=470.5. B08 retains its mapped reference center at x=465.5 (about 2 CSS px left of the text axis on Pro), with localized pill widths provided by `lib/button-localized-widths.json`; this small reference offset should not be “corrected” to an arbitrary new position. Verify on real Pro/Pro Max WebKit screenshots against the source crop and check all 11 locales for centered text/button, overflow, visible waves, and clickable B08.
+docs/evidence/nav-menu/native-review-final.log:?? public/art/expression-waves.png
+docs/evidence/nav-menu/native-review-final.log:+        src="/art/expression-waves.png"
+docs/evidence/nav-menu/native-review-final.log:    await expect(wave).toHaveAttribute('src', '/art/expression-waves.png');
+docs/evidence/nav-menu/native-review-final.log:  .png().toFile('public/art/expression-waves.png');
+docs/evidence/nav-menu/native-review-final.log:components/Story.tsx:269:        src="/art/expression-waves.png"
+docs/evidence/nav-menu/native-review-final.log: **Application rule:** `lib/icon-map.json` is the machine-readable copy of I01–I12; `components/Story.tsx` renders the eleven used kit icons by these IDs from `/art/icon-kit/NN.png`. It renders connector-only and divider-only source layers separately, so an old extracted icon cannot remain underneath a kit icon. The kit source files are preserved at their supplied paths; public copies must match their SHA-256 hashes. All icon images are decorative (`alt=""`, `aria-hidden`) beside live localized labels and do not intercept pointer input.
+docs/evidence/nav-menu/native-review-final.log:components/Story.tsx:307:      <Image className="group-diamond" src="/art/rams-group-diamond.png" width={120} height={150} alt="" unoptimized style={sourceStyle(410, 28885, 120)} />
+docs/evidence/png-reserve/native-review.log: D public/art/00.png
+docs/evidence/png-reserve/native-review.log: D public/art/01.png
+docs/evidence/png-reserve/native-review.log: D public/art/02.png
+docs/evidence/png-reserve/native-review.log: D public/art/03.png
+docs/evidence/png-reserve/native-review.log: D public/art/04.png
+docs/evidence/png-reserve/native-review.log: D public/art/05.png
+docs/evidence/png-reserve/native-review.log: D public/art/06.png
+docs/evidence/png-reserve/native-review.log: D public/art/07.png
+docs/evidence/png-reserve/native-review.log: D public/art/08.png
+docs/evidence/png-reserve/native-review.log: D public/art/09-10.png
+docs/evidence/png-reserve/native-review.log: D public/art/11.png
+docs/evidence/png-reserve/native-review.log: D public/art/doc-electrical.png
+docs/evidence/png-reserve/native-review.log: D public/art/doc-emc.png
+docs/evidence/png-reserve/native-review.log: D public/art/doc-rohs.png
+docs/evidence/png-reserve/native-review.log: D public/art/doc-telecom.png
+docs/evidence/png-reserve/native-review.log: D public/art/doc-uae.png
+docs/evidence/png-reserve/native-review.log: D public/art/faq-row-1.png
+docs/evidence/png-reserve/native-review.log: D public/art/faq-row-2.png
+docs/evidence/png-reserve/native-review.log: D public/art/faq-row-3.png
+docs/evidence/png-reserve/native-review.log: D public/art/faq-row-4.png
+docs/evidence/png-reserve/native-review.log: D public/art/faq-row-5.png
+docs/evidence/png-reserve/native-review.log: D public/art/faq-row-6.png
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/00.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/01.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/02.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/03.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/04.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/05.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/06.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/07.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/08.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/09-10.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/09.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/10.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/11.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/README.txt
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/doc-electrical.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/doc-emc.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/doc-rohs.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/doc-telecom.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/doc-uae.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/faq-row-1.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/faq-row-2.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/faq-row-3.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/faq-row-4.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/faq-row-5.webp
+docs/evidence/png-reserve/native-review.log: D public/art/unused-webp/faq-row-6.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/00.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/01.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/02.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/03.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/04.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/05.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/06.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/07.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/08.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/09-10.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/11.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/doc-electrical.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/doc-emc.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/doc-rohs.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/doc-telecom.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/doc-uae.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/faq-row-1.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/faq-row-2.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/faq-row-3.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/faq-row-4.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/faq-row-5.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/faq-row-6.webp
+docs/evidence/png-reserve/native-review.log:?? public/art/original-png/
+docs/evidence/png-reserve/native-review.log: public/art/00.png                          | Bin 3194801 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/01.png                          | Bin 3514840 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/02.png                          | Bin 3665828 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/03.png                          | Bin 4798956 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/04.png                          | Bin 4962948 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/05.png                          | Bin 4048822 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/06.png                          | Bin 4197021 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/07.png                          | Bin 4290447 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/08.png                          | Bin 4035149 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/09-10.png                       | Bin 6957268 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/11.png                          | Bin 1632336 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/doc-electrical.png              | Bin 14736 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/doc-emc.png                     | Bin 9846 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/doc-rohs.png                    | Bin 9768 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/doc-telecom.png                 | Bin 6399 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/doc-uae.png                     | Bin 9249 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/faq-row-1.png                   | Bin 192502 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/faq-row-2.png                   | Bin 182769 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/faq-row-3.png                   | Bin 185885 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/faq-row-4.png                   | Bin 195347 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/faq-row-5.png                   | Bin 198963 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/faq-row-6.png                   | Bin 184937 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/00.webp             | Bin 86118 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/01.webp             | Bin 127612 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/02.webp             | Bin 144212 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/03.webp             | Bin 304794 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/04.webp             | Bin 354854 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/05.webp             | Bin 211296 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/06.webp             | Bin 201726 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/07.webp             | Bin 254174 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/08.webp             | Bin 218120 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/09-10.webp          | Bin 406042 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/09.webp             | Bin 162438 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/10.webp             | Bin 93928 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/11.webp             | Bin 52396 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/README.txt          |   1 -
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/doc-electrical.webp | Bin 2420 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/doc-emc.webp        | Bin 1902 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/doc-rohs.webp       | Bin 2210 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/doc-telecom.webp    | Bin 1534 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/doc-uae.webp        | Bin 2366 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/faq-row-1.webp      | Bin 26984 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/faq-row-2.webp      | Bin 20148 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/faq-row-3.webp      | Bin 22612 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/faq-row-4.webp      | Bin 29100 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/faq-row-5.webp      | Bin 31868 -> 0 bytes
+docs/evidence/png-reserve/native-review.log: public/art/unused-webp/faq-row-6.webp      | Bin 25740 -> 0 bytes
+docs/evidence/png-reserve/native-review.log:-      <Image className="doc-thumb" src={`/art/doc-${doc.key}.png`} width={95} height={140} alt="" unoptimized />
+docs/evidence/png-reserve/native-review.log:+      <Image className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized />
+docs/evidence/png-reserve/native-review.log:-          <Image src={`/art/faq-row-${index + 1}.png`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" />
+docs/evidence/png-reserve/native-review.log:-          {part === 'middle' && <Image className="faq-minus-cover" src={`/art/faq-row-${index + 1}.png`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" />}
+docs/evidence/png-reserve/native-review.log:+          <Image src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
+docs/evidence/png-reserve/native-review.log:+          {part === 'middle' && <Image className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
+docs/evidence/png-reserve/native-review.log:-          src={`/art/${file}.png`}
+docs/evidence/png-reserve/native-review.log:+          src={`/art/${file}.webp`}
+docs/evidence/png-reserve/native-review.log:-          <Image src="/art/09-10.png" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="low" />
+docs/evidence/png-reserve/native-review.log:-          <Image src="/art/11.png" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="low" />
+docs/evidence/png-reserve/native-review.log:+          <Image src="/art/09-10.webp" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['09-10'] as `data:image/${string}`} />
+docs/evidence/png-reserve/native-review.log:+          <Image src="/art/11.webp" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['11'] as `data:image/${string}`} />
+docs/evidence/png-reserve/native-review.log:-  await page.route('**/art/*.png', async route => { await imageGate; await route.continue(); });
+docs/evidence/png-reserve/native-review.log:+  await page.route('**/art/*.webp', async route => { await imageGate; await route.continue(); });
+docs/evidence/png-reserve/native-review.log:+ART = ROOT / "public/art/original-png"
+docs/evidence/png-reserve/native-review.log:The future-use `public/art/original-png/` directory contains 22 source-exact PNG crops (46,308,888 bytes) with unchanged RGBA pixels and Adobe RGB ICC from the current references. `python3 tools/slice-background-png.py` regenerates and checks them; its `manifest.json` records crop boxes and hashes. They are not referenced by the current page. Because the folder is under `public/`, a deployment may carry those bytes even though the browser does not download them. A future network-based format selector needs its own browser color, cache, performance, and layout checks before activation.
+docs/evidence/png-reserve/native-review.log:components/Story.tsx:      <Image className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized />
+docs/evidence/png-reserve/native-review.log:components/Story.tsx:          <Image src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
+docs/evidence/png-reserve/native-review.log:components/Story.tsx:          {part === 'middle' && <Image className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
+docs/evidence/png-reserve/native-review.log:components/Story.tsx:          src={`/art/${file}.webp`}
+docs/evidence/png-reserve/native-review.log:components/Story.tsx:        src={`/art/feature-divider-${icon.name}.png`}
+docs/evidence/png-reserve/native-review.log:components/Story.tsx:        src={`/art/technology-connector-${icon.name}.png`}
+docs/evidence/png-reserve/native-review.log:components/Story.tsx:        src="/art/expression-waves.png"
+docs/evidence/png-reserve/native-review.log:components/Story.tsx:          <Image src="/art/09-10.webp" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['09-10'] as `data:image/${string}`} />
+docs/evidence/png-reserve/native-review.log:components/Story.tsx:          <Image src="/art/11.webp" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['11'] as `data:image/${string}`} />
+docs/evidence/png-reserve/native-review.log:components/Story.tsx:      <Image className="group-diamond" src="/art/rams-group-diamond.png" width={120} height={150} alt="" unoptimized style={sourceStyle(410, 28885, 120)} />
+docs/evidence/png-reserve/native-review.log:/bin/zsh -lc "sed -n '1,260p' tools/convert-art-webp.py; du -sh public/art/original-png design/references/background_old.png lib/art-previews.json; python3 - <<'PY'
+docs/evidence/png-reserve/native-review.log: 49M	public/art/original-png
+docs/evidence/png-reserve/native-review.log:   231	          src={`/art/${file}.webp`}
+docs/evidence/png-reserve/native-review.log:/bin/zsh -lc "nl -ba tools/slice-background-png.py | sed -n '8,70p'; find public/art/original-png -maxdepth 1 -type f | wc -l; ls public/art/original-png | tail; git diff -- CHANGELOG.md | tail -65" in /Users/asmirnou/Projects/g/ramsider
+docs/evidence/png-reserve/native-review.log:     9	ART = ROOT / "public/art/original-png"
+docs/evidence/png-reserve/native-review.log: - **Было → должно быть:** Страница использует сегменты WebP. Нужны те же границы 941px artwork, но каждый активный сегмент — PNG, нарезанный непосредственно из чистого исходного PNG без изменения RGBA пикселей и ICC. Старые WebP сохранить в `public/art/unused-webp/`; текст, контролы и положение секций сохранить.
+docs/evidence/png-reserve/native-review.log: - **Карта применения:** 22 активных PNG: `00`–`08` из clean source y=0..25200 с шагом 2800; `09-10` y=25200..30800; `11` y=30800..32127; шесть FAQ-строк — прямые crop clean source по координатам `tools/extract-faq-art.mjs`; пять document thumbnails — прямые crop `background_text.png` 95×140 в (120,23305), (510,23305), (120,23550), (510,23550), (120,23795), поскольку эти документы отсутствуют в clean source. Оба исходника имеют одинаковый Adobe RGB ICC. Все 24 старых WebP, включая неактивные `09`/`10`, перемещаются в `public/art/unused-webp/` с пометкой «не используются». Приёмка: размеры/границы, точное равенство RGBA и байтов ICC, реальный WebKit Pro/Pro Max, отсутствие швов, доступность и замер передачи/скролла. Действия и доказательства дополняются по мере выполнения.
+docs/evidence/png-reserve/native-review.log: - **Применено:** `tools/slice-background-png.py` нарезает исходные PNG по этой карте и сразу открывает каждый результат, проверяя размеры, RGBA byte equality и ICC byte equality. 24 старых WebP сохранены в `public/art/unused-webp/` с `README.txt`; 22 активных PNG находятся в `public/art/`. `components/Story.tsx` использует только PNG, включая FAQ и документы. Старые inline WebP previews (`lib/art-previews.json`) и WebP FAQ-генератор (`tools/extract-faq-art.mjs`) удалены; тест загрузки обновлён на PNG. Изменены `app/globals.css`, `tests/e2e/art-loading.spec.ts`, релевантные спецификации/память/урок/eval.
+docs/evidence/png-reserve/native-review.log: - **Проверки 2026-10-01:** Скрипт сверил все 22 PNG по RGBA и ICC; независимый аудитор повторил PIL-сравнение и дал scope/implementation/visual PASS, но review/performance/final integration gate FAIL. WebKit 402×874 и 440×956/DPR3: исходник, hero/стыки и собранные длинные кадры `screenshots/actual/png-color-2026-10-01/{pro,max}-assembled.png` просмотрены; визуальный subcheck собранной страницы PASS, линии нет. Браузерный PNG против color-managed AdobeRGB→sRGB имеет средние абсолютные ошибки ~[0.08,0.13,0.02] RGB. `npm run typecheck`, `npm run lint`, `npm run build`, `git diff --check` PASS; PNG loading 16/16 PASS; полный suite 77 PASS/18 SKIP/1 FAIL (Firefox test `decode()` до готового lazy image), после исправления один повторный Firefox 1/1 PASS. Native `codex review --uncommitted` дал P1 first-screen transfer и P2 cold fast-scroll blank; они открыты в CHG-0048. Активные PNG 46,600,036 байт (44.4 MiB) против старых ~2.9 MiB WebP; первая PNG 3,194,801 байт. 4 Мбит/с/100 мс: hero decode 13.659 с, дальний PNG 33.88 с после lazy-переключения. Показатель LCP, снятый после прокрутки, не является first-screen LCP и не заявляется. Измерения INP/Lighthouse не проводились. Превью :3020 перезапущено после final build; `/art/00.png` возвращает HTTP 200 `image/png` и 3,194,801 байт.
+docs/evidence/png-reserve/native-review.log:+- **Было → должно быть:** Активные 22 PNG сохраняют Adobe RGB (1998), но передают десятки MB; `public/art/unused-webp/` содержит старые lossy VP8 без ICC. Требуются фрагменты той же геометрии с управляемым цветом, проверенным декодированным отклонением и быстрой загрузкой на мобильном.
+docs/evidence/png-reserve/native-review.log:+- **Источник → карта → применение:** Текущий изменённый пользователем `background.png` (941×32127, Adobe RGB ICC) для 11 основных и 6 FAQ-фрагментов; `background_text.png` с тем же ICC для 5 document thumbs. Координаты и overlap берутся из `tools/slice-background-png.py` без изменения. Новый воспроизводимый конвертер и отчёт измерений → `public/art/*.webp` → `components/Story.tsx` и проверка браузером.
+docs/evidence/png-reserve/native-review.log:+- **Изменённые пути:** `tools/convert-art-webp.py`, `public/art/{00..08,09-10,11,faq-row-1..6,doc-*.webp}`, `components/Story.tsx`, `tests/e2e/art-loading.spec.ts`, `docs/evidence/art-webp/color-metrics.json`, `CHANGELOG.md`; удалён `public/art/unused-webp/` со старым 24 WebP и README после поиска зависимостей. Активные PNG временно оставлены для сравнения WebKit с предыдущей поставкой; после него будут удалены как неиспользуемые production assets.
+docs/evidence/png-reserve/native-review.log:+- **Решение / применение:** `tools/slice-background-png.py` теперь сохраняет резерв в `public/art/original-png/`, а не в рабочий `public/art/`; он сверяет каждый PNG с исходным crop по RGBA/ICC, с соответствующим активным WebP по размерам и записывает `manifest.json` с source SHA, координатами, размерами, byte count и output SHA. Созданы 22 PNG и `README.md`. Рабочий `components/Story.tsx` не менялся. Добавленный объём public/deployment: 46,308,888 PNG bytes плюс малая документация; отсутствие ссылки в runtime подтверждено статическим поиском, production network-check прошёл.
+docs/evidence/png-reserve/native-review.log:+- **Финальная проверка 2026-10-04:** [Production WebKit request log](docs/evidence/png-reserve/requests.json) на iPhone 17 Pro 402×874 и Pro Max 440×956 после загрузки hero и перехода к y=6500: 0 запросов `/art/original-png/`, рабочие `/art/*.webp` запрашиваются. `npm run build` (14 статических маршрутов), `npm run typecheck` (в native review), `npm run lint`, `git diff --check` PASS; native `codex review --uncommitted` завершился без actionable findings. Дополнительные 46,308,888 байт увеличивают public/deployment размер, но не сетевую загрузку текущей страницы. Динамический выбор формата ещё не реализован и не тестировался.
+docs/evidence/png-reserve/native-review.log:cat public/art/original-png/README.md; rg -n 'background_old|original-png' --glob '"'!CHANGELOG.md'"' --glob '"'!*.json'"' | head -30" in /Users/asmirnou/Projects/g/ramsider
+docs/evidence/png-reserve/native-review.log:MEMORY.md:9:- CHG-0057 adds a future-use reserve of 22 exact-source Adobe RGB PNG crops in `public/art/original-png/` (46,308,888 bytes). `tools/slice-background-png.py` regenerates them and `manifest.json` records source/output hashes and crop boxes. The live page still requests WebP only; Pro/Pro Max production WebKit request logs show zero reserve PNG requests. Format switching has not been implemented.
+docs/evidence/png-reserve/native-review.log:MEMORY.md:10:- CHG-0056 replaces the temporary 22 active PNG crops with WebP derived from the **current user-modified** Adobe RGB reference through an explicit LittleCMS Adobe RGB→sRGB conversion. Every full WebP carries sRGB ICC and exact source alpha; q95 is used where measured color shift stays within thresholds, with four document thumbnails lossless. The old `public/art/unused-webp/` archive and superseded active PNG crops were removed; `design/references/background.png` and the user's untracked `background_old.png` were preserved. `tools/convert-art-webp.py` regenerates the files and [color metrics](docs/evidence/art-webp/color-metrics.json); the method and alternatives are in [art color pipeline](docs/art-color-pipeline.md).
+docs/evidence/png-reserve/native-review.log:docs/art-color-pipeline.md:21:The future-use `public/art/original-png/` directory contains 22 source-exact PNG crops (46,308,888 bytes) with unchanged RGBA pixels and Adobe RGB ICC from the current references. `python3 tools/slice-background-png.py` regenerates and checks them; its `manifest.json` records crop boxes and hashes. They are not referenced by the current page. Because the folder is under `public/`, a deployment may carry those bytes even though the browser does not download them. A future network-based format selector needs its own browser color, cache, performance, and layout checks before activation.
+docs/evidence/png-reserve/native-review.log:docs/evidence/png-reserve/native-review.log:104:?? public/art/original-png/
+docs/evidence/png-reserve/native-review.log:docs/evidence/png-reserve/native-review.log:318:+ART = ROOT / "public/art/original-png"
+docs/evidence/png-reserve/native-review.log:docs/evidence/png-reserve/native-review.log:412:The future-use `public/art/original-png/` directory contains 22 source-exact PNG crops (46,308,888 bytes) with unchanged RGBA pixels and Adobe RGB ICC from the current references. `python3 tools/slice-background-png.py` regenerates and checks them; its `manifest.json` records crop boxes and hashes. They are not referenced by the current page. Because the folder is under `public/`, a deployment may carry those bytes even though the browser does not download them. A future network-based format selector needs its own browser color, cache, performance, and layout checks before activation.
+docs/evidence/png-reserve/native-review.log:docs/evidence/png-reserve/native-review.log:463:/bin/zsh -lc "sed -n '1,260p' tools/convert-art-webp.py; du -sh public/art/original-png design/references/background_old.png lib/art-previews.json; python3 - <<'PY'
+docs/evidence/png-reserve/native-review.log:docs/evidence/png-reserve/native-review.log:607: 49M	public/art/original-png
+docs/evidence/png-reserve/native-review.log:docs/evidence/png-reserve/native-review.log:679:/bin/zsh -lc "nl -ba tools/slice-background-png.py | sed -n '8,70p'; find public/art/original-png -maxdepth 1 -type f | wc -l; ls public/art/original-png | tail; git diff -- CHANGELOG.md | tail -65" in /Users/asmirnou/Projects/g/ramsider
+docs/evidence/png-reserve/native-review.log:docs/evidence/png-reserve/native-review.log:682:     9	ART = ROOT / "public/art/original-png"
+docs/evidence/png-reserve/native-review.log:docs/evidence/png-reserve/native-review.log:809:+- **Решение / применение:** `tools/slice-background-png.py` теперь сохраняет резерв в `public/art/original-png/`, а не в рабочий `public/art/`; он сверяет каждый PNG с исходным crop по RGBA/ICC, с соответствующим активным WebP по размерам и записывает `manifest.json` с source SHA, координатами, размерами, byte count и output SHA. Созданы 22 PNG и `README.md`. Рабочий `components/Story.tsx` не менялся. Добавленный объём public/deployment: 46,308,888 PNG bytes плюс малая документация; отсутствие ссылки в runtime подтверждено статическим поиском, production network-check прошёл.
+docs/evidence/png-reserve/native-review.log:docs/evidence/png-reserve/native-review.log:811:+- **Финальная проверка 2026-10-04:** [Production WebKit request log](docs/evidence/png-reserve/requests.json) на iPhone 17 Pro 402×874 и Pro Max 440×956 после загрузки hero и перехода к y=6500: 0 запросов `/art/original-png/`, рабочие `/art/*.webp` запрашиваются. `npm run build` (14 статических маршрутов), `npm run typecheck` (в native review), `npm run lint`, `git diff --check` PASS; native `codex review --uncommitted` завершился без actionable findings. Дополнительные 46,308,888 байт увеличивают public/deployment размер, но не сетевую загрузку текущей страницы. Динамический выбор формата ещё не реализован и не тестировался.
+docs/evidence/png-reserve/native-review.log:docs/evidence/png-reserve/native-review.log:822:cat public/art/original-png/README.md; rg -n 'background_old|original-png' --glob '"'!CHANGELOG.md'"' --glob '"'!*.json'"' | head -30" in /Users/asmirnou/Projects/g/ramsider
+docs/evidence/png-reserve/native-review.log:tools/slice-background-png.py:9:ART = ROOT / "public/art/original-png"
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/00.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/01.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/02.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/03.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/04.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/05.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/06.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/07.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/08.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/09-10.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/11.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/doc-electrical.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/doc-emc.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/doc-rohs.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/doc-telecom.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/doc-uae.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/faq-row-1.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/faq-row-2.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/faq-row-3.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/faq-row-4.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/faq-row-5.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/faq-row-6.png
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/00.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/01.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/02.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/03.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/04.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/05.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/06.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/07.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/08.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/09-10.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/09.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/10.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/11.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/README.txt
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/doc-electrical.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/doc-emc.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/doc-rohs.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/doc-telecom.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/doc-uae.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/faq-row-1.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/faq-row-2.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/faq-row-3.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/faq-row-4.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/faq-row-5.webp
+docs/evidence/art-webp/native-review-chg0058.log: D public/art/unused-webp/faq-row-6.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/00.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/01.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/02.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/03.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/04.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/05.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/06.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/07.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/08.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/09-10.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/11.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/doc-electrical.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/doc-emc.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/doc-rohs.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/doc-telecom.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/doc-uae.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/faq-row-1.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/faq-row-2.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/faq-row-3.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/faq-row-4.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/faq-row-5.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/faq-row-6.webp
+docs/evidence/art-webp/native-review-chg0058.log:?? public/art/original-png/
+docs/evidence/art-webp/native-review-chg0058.log: public/art/00.png                          | Bin 3194801 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/01.png                          | Bin 3514840 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/02.png                          | Bin 3665828 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/03.png                          | Bin 4798956 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/04.png                          | Bin 4962948 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/05.png                          | Bin 4048822 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/06.png                          | Bin 4197021 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/07.png                          | Bin 4290447 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/08.png                          | Bin 4035149 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/09-10.png                       | Bin 6957268 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/11.png                          | Bin 1632336 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/doc-electrical.png              | Bin 14736 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/doc-emc.png                     | Bin 9846 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/doc-rohs.png                    | Bin 9768 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/doc-telecom.png                 | Bin 6399 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/doc-uae.png                     | Bin 9249 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/faq-row-1.png                   | Bin 192502 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/faq-row-2.png                   | Bin 182769 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/faq-row-3.png                   | Bin 185885 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/faq-row-4.png                   | Bin 195347 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/faq-row-5.png                   | Bin 198963 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/faq-row-6.png                   | Bin 184937 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/00.webp             | Bin 86118 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/01.webp             | Bin 127612 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/02.webp             | Bin 144212 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/03.webp             | Bin 304794 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/04.webp             | Bin 354854 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/05.webp             | Bin 211296 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/06.webp             | Bin 201726 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/07.webp             | Bin 254174 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/08.webp             | Bin 218120 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/09-10.webp          | Bin 406042 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/09.webp             | Bin 162438 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/10.webp             | Bin 93928 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/11.webp             | Bin 52396 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/README.txt          |   1 -
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/doc-electrical.webp | Bin 2420 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/doc-emc.webp        | Bin 1902 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/doc-rohs.webp       | Bin 2210 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/doc-telecom.webp    | Bin 1534 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/doc-uae.webp        | Bin 2366 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/faq-row-1.webp      | Bin 26984 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/faq-row-2.webp      | Bin 20148 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/faq-row-3.webp      | Bin 22612 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/faq-row-4.webp      | Bin 29100 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/faq-row-5.webp      | Bin 31868 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log: public/art/unused-webp/faq-row-6.webp      | Bin 25740 -> 0 bytes
+docs/evidence/art-webp/native-review-chg0058.log:/bin/zsh -lc "git diff -- app/globals.css components/Story.tsx tests/e2e/art-loading.spec.ts tools/slice-background-png.py; cat tools/convert-art-webp.py; rg 'art/.*png|art/.*webp' --glob '"'!*.md'"' --glob '"'!*.json'"'" in /Users/asmirnou/Projects/g/ramsider
+
+2026-10-03T22:57:03.544182Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a103fc-0069-7d00-a70d-ce3c2e60553d turn_id=01a103fc-010b-7881-86c5-5626aefac9b3 item_id="exec-7c311398-6d5f-424c-9dc6-2db3a998e121"
+exec
+/bin/zsh -lc "sed -n '115,240p' tools/convert-art-webp.py; cat lib/art-previews.json | cut -c1-180 | head -3; du -sh public/art/original-png docs/evidence design/references/background_old.png tools/__pycache__; cat .gitignore" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+    alpha_mismatch = int(np.count_nonzero(actual[:, :, 3] != expected[:, :, 3]))
+    assert alpha_mismatch == 0, (name, alpha_mismatch)
+    metrics = color_metrics(expected, actual)
+    lossy_metrics = metrics.copy()
+    lossy_bytes = candidate.stat().st_size
+    sharp_candidate = temp / f"{name}-sharp.webp"
+    subprocess.run(["cwebp", "-quiet", "-q", "95", "-m", "6", "-alpha_q", "100",
+                    "-sharp_yuv", "-metadata", "icc", str(png),
+                    "-o", str(sharp_candidate)], check=True)
+    sharp_decoded = Image.open(sharp_candidate)
+    assert sharp_decoded.info.get("icc_profile") == SRGB_BYTES
+    sharp_actual = np.asarray(sharp_decoded.convert("RGBA"), dtype=np.int16)
+    assert np.array_equal(sharp_actual[:, :, 3], expected[:, :, 3]), name
+    sharp_metrics = color_metrics(expected, sharp_actual)
+    sharp_bytes = sharp_candidate.stat().st_size
+    perceptual_gain = (lossy_metrics["sampled_delta_e76_p99"]
+                       - sharp_metrics["sampled_delta_e76_p99"])
+    red_gain = (lossy_metrics["local_max_red_shift"]
+                - sharp_metrics["local_max_red_shift"])
+    use_sharp = (sharp_bytes <= lossy_bytes * 1.20
+                 and max(sharp_metrics["rgb_p99_abs"]) <= max(lossy_metrics["rgb_p99_abs"])
+                 and sharp_metrics["local_max_red_shift"] <= lossy_metrics["local_max_red_shift"] + 1
+                 and (perceptual_gain >= .25 or red_gain >= 5))
+    chosen = sharp_candidate if use_sharp else candidate
+    if use_sharp:
+        metrics = sharp_metrics
+        actual = sharp_actual
+    mode = "lossy-q95"
+    if use_sharp:
+        mode = "lossy-q95-sharp-yuv"
+    if (name.startswith("doc-") or max(metrics["rgb_mae"]) >= 3
+            or max(metrics["rgb_p99_abs"]) > 15
+            or (metrics["red_mean_signed"] is not None
+                and max(map(abs, metrics["red_mean_signed"])) >= 2)):
+        chosen = temp / f"{name}-lossless.webp"
+        subprocess.run(["cwebp", "-quiet", "-lossless", "-q", "85", "-m", "6",
+                        "-exact", "-metadata", "icc", str(png), "-o", str(chosen)], check=True)
+        decoded = Image.open(chosen)
+        assert decoded.info.get("icc_profile") == SRGB_BYTES
+        actual = np.asarray(decoded.convert("RGBA"), dtype=np.int16)
+        assert np.array_equal(actual, expected), name
+        metrics = color_metrics(expected, actual)
+        mode = "lossless"
+    record = {"file": output.name, "box": box, "srgb_png_bytes": png.stat().st_size,
+              "webp_bytes": chosen.stat().st_size,
+              "mode": mode,
+              "lossy_candidate_bytes": lossy_bytes,
+              "lossy_candidate_metrics": lossy_metrics,
+              "sharp_yuv_candidate_bytes": sharp_bytes,
+              "sharp_yuv_candidate_metrics": sharp_metrics,
+              **metrics,
+              "alpha_mismatch": alpha_mismatch}
+    assert (max(metrics["rgb_mae"]) < 3 and max(metrics["rgb_p99_abs"]) <= 15
+            and (metrics["red_mean_signed"] is None
+                 or max(map(abs, metrics["red_mean_signed"])) < 2)), record
+    chosen.replace(output)
+    if not name.startswith("doc-") and name != "00":
+        preview_png = temp / f"{name}-preview.png"
+        preview_webp = temp / f"{name}-preview.webp"
+        rgb.resize((118, max(1, round(rgb.height * 118 / rgb.width))),
+                   Image.Resampling.LANCZOS).save(preview_png, icc_profile=SRGB_BYTES)
+        subprocess.run(["cwebp", "-quiet", "-q", "75", "-m", "6", "-metadata", "icc",
+                        str(preview_png), "-o", str(preview_webp)], check=True)
+        assert Image.open(preview_webp).info.get("icc_profile") == SRGB_BYTES
+        record["preview_bytes"] = preview_webp.stat().st_size
+        PREVIEWS[name] = "data:image/webp;base64," + base64.b64encode(preview_webp.read_bytes()).decode("ascii")
+    REPORT.append(record)
+
+
+def main() -> None:
+    ART.mkdir(exist_ok=True)
+    with tempfile.TemporaryDirectory() as directory:
+        temp = Path(directory)
+        for filename, jobs in [
+            ("background.png", [(name, (0, top - (2 if top else 0), 941, bottom))
+                                for name, top, bottom in MAIN]
+             + [(f"faq-row-{i}", (0, top - 4, 941, top + height + gap + 4))
+                for i, (top, height, gap) in enumerate(FAQ, 1)]),
+            ("background_text.png", [(f"doc-{name}", (x, y, x + 95, y + 140))
+                                     for name, x, y in DOCS]),
+        ]:
+            path = REF / filename
+            with Image.open(path) as source:
+                assert source.size == (941, 32127) and source.mode == "RGBA"
+                for name, box in jobs:
+                    encode(source, name, box, temp)
+    summary = {"method": "Adobe RGB (1998) -> sRGB via LittleCMS relative colorimetric intent with black point compensation; cwebp 1.6.0 q95 m6 alpha_q100 metadata icc; compare default and sharp_yuv candidates, select sharp when sampled Delta E76 p99 improves >=0.25 or local red shift drops >=5 with <=20% byte growth, no RGB p99 worsening and <=1 local red regression; documents lossless; lossless exact fallback when visible RGB MAE >=3, visible p99 >15, or global red shift >=2",
+               "source_sha256": hashlib.sha256((REF / "background.png").read_bytes()).hexdigest(),
+               "source_text_sha256": hashlib.sha256((REF / "background_text.png").read_bytes()).hexdigest(),
+               "files": REPORT}
+    report = ROOT / "docs/evidence/art-webp/color-metrics.json"
+    report.parent.mkdir(parents=True, exist_ok=True)
+    report.write_text(json.dumps(summary, indent=2) + "\n")
+    (ROOT / "lib/art-previews.json").write_text(json.dumps(PREVIEWS, indent=2) + "\n")
+    print(f"Verified {len(REPORT)} color-managed WebP crops; report: {report}")
+
+
+if __name__ == "__main__":
+    main()
+{
+  "01": "data:image/webp;base64,UklGRuATAABXRUJQVlA4WAoAAAAwAAAAdQAAXgEASUNDUEwCAAAAAAJMbGNtcwRAAABtbnRyUkdCIFhZWiAH6gAKAAMAFgAyAChhY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYA
+  "02": "data:image/webp;base64,UklGRuoUAABXRUJQVlA4WAoAAAAwAAAAdQAAXgEASUNDUEwCAAAAAAJMbGNtcwRAAABtbnRyUkdCIFhZWiAH6gAKAAMAFgAyAChhY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYA
+ 49M	public/art/original-png
+104M	docs/evidence
+ 43M	design/references/background_old.png
+ 20K	tools/__pycache__
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+.ssh
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+# large design sources (local only)
+/design/source/
+
+# visual verification output
+/playwright-report/
+/test-results/
+/screenshots/actual/
+/screenshots/diff/
+
+*.psb
+/deliverables/
+2026-10-03T22:57:09.043253Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a103fc-0069-7d00-a70d-ce3c2e60553d turn_id=01a103fc-010b-7881-86c5-5626aefac9b3 item_id="exec-901c1612-c570-4761-8bbd-f365df06fe2e"
+codex
+I found no actionable regression in the current staged, unstaged, or untracked changes.
+I found no actionable regression in the current staged, unstaged, or untracked changes.

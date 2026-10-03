@@ -1,0 +1,1082 @@
+2026-10-03T23:11:44.720320Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-03T23:11:44.720397Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.159.2
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: low
+reasoning summaries: none
+session id: 01a10409-aa22-7fe1-ab77-0cd8434aea8b
+--------
+user
+current changes
+2026-10-03T23:11:45.427693Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-03T23:11:45.427720Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+exec
+/bin/zsh -lc 'git status --short; git diff --stat; git diff --cached --stat; find . -name AGENTS.md -o -name AGENTS.override.md | head -30; cat AGENTS.md 2>/dev/null | head -30' in /Users/asmirnou/Projects/g/ramsider
+2026-10-03T23:11:53.380932Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a10409-aa22-7fe1-ab77-0cd8434aea8b turn_id=01a10409-aac9-71a1-b5cf-db0fcbbc5a50 item_id="exec-37e508e3-7b6e-4143-9a9b-c447a461b44b"
+ succeeded in 1841ms:
+ M AGENTS.md
+ M CHANGELOG.md
+ M LESSONS.md
+ M MEMORY.md
+ M PERFORMANCE.md
+ M app/globals.css
+ M components/Story.tsx
+ M design/references/background.png
+ M docs/agent-evals.md
+ D public/art/00.png
+ D public/art/01.png
+ D public/art/02.png
+ D public/art/03.png
+ D public/art/04.png
+ D public/art/05.png
+ D public/art/06.png
+ D public/art/07.png
+ D public/art/08.png
+ D public/art/09-10.png
+ D public/art/11.png
+ D public/art/doc-electrical.png
+ D public/art/doc-emc.png
+ D public/art/doc-rohs.png
+ D public/art/doc-telecom.png
+ D public/art/doc-uae.png
+ D public/art/faq-row-1.png
+ D public/art/faq-row-2.png
+ D public/art/faq-row-3.png
+ D public/art/faq-row-4.png
+ D public/art/faq-row-5.png
+ D public/art/faq-row-6.png
+ D public/art/unused-webp/00.webp
+ D public/art/unused-webp/01.webp
+ D public/art/unused-webp/02.webp
+ D public/art/unused-webp/03.webp
+ D public/art/unused-webp/04.webp
+ D public/art/unused-webp/05.webp
+ D public/art/unused-webp/06.webp
+ D public/art/unused-webp/07.webp
+ D public/art/unused-webp/08.webp
+ D public/art/unused-webp/09-10.webp
+ D public/art/unused-webp/09.webp
+ D public/art/unused-webp/10.webp
+ D public/art/unused-webp/11.webp
+ D public/art/unused-webp/README.txt
+ D public/art/unused-webp/doc-electrical.webp
+ D public/art/unused-webp/doc-emc.webp
+ D public/art/unused-webp/doc-rohs.webp
+ D public/art/unused-webp/doc-telecom.webp
+ D public/art/unused-webp/doc-uae.webp
+ D public/art/unused-webp/faq-row-1.webp
+ D public/art/unused-webp/faq-row-2.webp
+ D public/art/unused-webp/faq-row-3.webp
+ D public/art/unused-webp/faq-row-4.webp
+ D public/art/unused-webp/faq-row-5.webp
+ D public/art/unused-webp/faq-row-6.webp
+ M tests/e2e/art-loading.spec.ts
+ M tools/slice-background-png.py
+?? .agents/skills/artwork-color-pipeline/
+?? design/derived/
+?? design/references/background_old.png
+?? docs/art-color-pipeline.md
+?? docs/evidence/art-webp/
+?? docs/evidence/png-reserve/
+?? lib/art-previews.json
+?? public/art/00.webp
+?? public/art/01.webp
+?? public/art/02.webp
+?? public/art/03.webp
+?? public/art/04.webp
+?? public/art/05.webp
+?? public/art/06.webp
+?? public/art/07.webp
+?? public/art/08.webp
+?? public/art/09-10.webp
+?? public/art/11.webp
+?? public/art/doc-electrical.webp
+?? public/art/doc-emc.webp
+?? public/art/doc-rohs.webp
+?? public/art/doc-telecom.webp
+?? public/art/doc-uae.webp
+?? public/art/faq-row-1.webp
+?? public/art/faq-row-2.webp
+?? public/art/faq-row-3.webp
+?? public/art/faq-row-4.webp
+?? public/art/faq-row-5.webp
+?? public/art/faq-row-6.webp
+?? tools/__pycache__/
+?? tools/check-art-assembly.mjs
+?? tools/check-art-browser.mjs
+?? tools/check-png-reserve-browser.mjs
+?? tools/convert-art-webp.py
+?? tools/measure-art-webp.mjs
+ AGENTS.md                                  |   1 +
+ CHANGELOG.md                               |  69 +++++++++++++++++++++++++++--
+ LESSONS.md                                 |  16 ++++---
+ MEMORY.md                                  |  13 ++++--
+ PERFORMANCE.md                             |   2 +-
+ app/globals.css                            |   2 +-
+ components/Story.tsx                       |  14 +++---
+ design/references/background.png           | Bin 45550654 -> 45501546 bytes
+ docs/agent-evals.md                        |   3 +-
+ public/art/00.png                          | Bin 3194801 -> 0 bytes
+ public/art/01.png                          | Bin 3514840 -> 0 bytes
+ public/art/02.png                          | Bin 3665828 -> 0 bytes
+ public/art/03.png                          | Bin 4798956 -> 0 bytes
+ public/art/04.png                          | Bin 4962948 -> 0 bytes
+ public/art/05.png                          | Bin 4048822 -> 0 bytes
+ public/art/06.png                          | Bin 4197021 -> 0 bytes
+ public/art/07.png                          | Bin 4290447 -> 0 bytes
+ public/art/08.png                          | Bin 4035149 -> 0 bytes
+ public/art/09-10.png                       | Bin 6957268 -> 0 bytes
+ public/art/11.png                          | Bin 1632336 -> 0 bytes
+ public/art/doc-electrical.png              | Bin 14736 -> 0 bytes
+ public/art/doc-emc.png                     | Bin 9846 -> 0 bytes
+ public/art/doc-rohs.png                    | Bin 9768 -> 0 bytes
+ public/art/doc-telecom.png                 | Bin 6399 -> 0 bytes
+ public/art/doc-uae.png                     | Bin 9249 -> 0 bytes
+ public/art/faq-row-1.png                   | Bin 192502 -> 0 bytes
+ public/art/faq-row-2.png                   | Bin 182769 -> 0 bytes
+ public/art/faq-row-3.png                   | Bin 185885 -> 0 bytes
+ public/art/faq-row-4.png                   | Bin 195347 -> 0 bytes
+ public/art/faq-row-5.png                   | Bin 198963 -> 0 bytes
+ public/art/faq-row-6.png                   | Bin 184937 -> 0 bytes
+ public/art/unused-webp/00.webp             | Bin 86118 -> 0 bytes
+ public/art/unused-webp/01.webp             | Bin 127612 -> 0 bytes
+ public/art/unused-webp/02.webp             | Bin 144212 -> 0 bytes
+ public/art/unused-webp/03.webp             | Bin 304794 -> 0 bytes
+ public/art/unused-webp/04.webp             | Bin 354854 -> 0 bytes
+ public/art/unused-webp/05.webp             | Bin 211296 -> 0 bytes
+ public/art/unused-webp/06.webp             | Bin 201726 -> 0 bytes
+ public/art/unused-webp/07.webp             | Bin 254174 -> 0 bytes
+ public/art/unused-webp/08.webp             | Bin 218120 -> 0 bytes
+ public/art/unused-webp/09-10.webp          | Bin 406042 -> 0 bytes
+ public/art/unused-webp/09.webp             | Bin 162438 -> 0 bytes
+ public/art/unused-webp/10.webp             | Bin 93928 -> 0 bytes
+ public/art/unused-webp/11.webp             | Bin 52396 -> 0 bytes
+ public/art/unused-webp/README.txt          |   1 -
+ public/art/unused-webp/doc-electrical.webp | Bin 2420 -> 0 bytes
+ public/art/unused-webp/doc-emc.webp        | Bin 1902 -> 0 bytes
+ public/art/unused-webp/doc-rohs.webp       | Bin 2210 -> 0 bytes
+ public/art/unused-webp/doc-telecom.webp    | Bin 1534 -> 0 bytes
+ public/art/unused-webp/doc-uae.webp        | Bin 2366 -> 0 bytes
+ public/art/unused-webp/faq-row-1.webp      | Bin 26984 -> 0 bytes
+ public/art/unused-webp/faq-row-2.webp      | Bin 20148 -> 0 bytes
+ public/art/unused-webp/faq-row-3.webp      | Bin 22612 -> 0 bytes
+ public/art/unused-webp/faq-row-4.webp      | Bin 29100 -> 0 bytes
+ public/art/unused-webp/faq-row-5.webp      | Bin 31868 -> 0 bytes
+ public/art/unused-webp/faq-row-6.webp      | Bin 25740 -> 0 bytes
+ tests/e2e/art-loading.spec.ts              |  23 ++++++++--
+ tools/slice-background-png.py              |  34 +++++++++++---
+ 58 files changed, 146 insertions(+), 32 deletions(-)
+./.agents/skills/vercel-react-best-practices/AGENTS.md
+./.agents/skills/vercel-composition-patterns/AGENTS.md
+./AGENTS.md
+# Ramsider UNO — project rules
+
+Build the new product site from `design/references/`. **Design and implement for iPhone 17 Pro first, then verify iPhone 17 Pro Max; adapt responsively to every other screen size.** The real mobile page must match the supplied reference while loading quickly and working accessibly. One user request should produce one complete delivery: perform as many internal inspect → implement → verify → fix cycles as needed, then code review, performance work, and final re-verification. Visual slices are internal work units; finish and integrate the whole requested page or feature before delivery. Do not hand the user a first draft to find ordinary defects. “Done” means every applicable gate has passed with evidence, not that code compiles or that zero bugs have been assumed.
+
+These are the mandatory rules. [docs/discipline.md](docs/discipline.md) defines stage gates and failure routing; [CONTEXT_INDEX.md](CONTEXT_INDEX.md) routes to other details. For substantive project work, read the short [MEMORY.md](MEMORY.md) for current state, then only the topic files relevant to the task. `PROMPT.txt` and `SUMMARY.txt` are source records for unresolved questions; current user instructions and current assets take precedence over their examples or suggestions.
+
+## Mandatory change and defect log
+
+[CHANGELOG.md](CHANGELOG.md) is the authoritative record of **every logical project change and every discovered defect**, including code, assets, content, mappings, tests, documentation, configuration, user corrections and agent-discovered regressions. The agent maintains it **without a user reminder or a separate permission request**: create/update the entry at discovery, record the solution and changed files when applied, then append verification and approval before delivery. Search relevant IDs when resuming work; do not wait until the final answer to reconstruct the history.
+
+Use the journal's required fields and lifecycle. Record what was wrong/missing/different, expected result, reference/request, cause, solution, intermediate mapping/specification and how it was applied, changed paths, checks and evidence. Every claimed fix needs a dated **technical approval**, naming the verifier and its evidence (and independent auditor when applicable). `APPLIED_UNVERIFIED` is not `VERIFIED`; blocked/skipped checks cannot supply approval. Explicit user approval is a separate field: never invent it or require it for routine authorized fixes. Reopen a failed fix under the same ID and preserve the previous verdict and failure history. Track remaining defects as open entries, even when outside the current task.
+
+For every defect, explain the agent's observable mistaken decision/action, the missed check, responsibility with evidence, and a concrete behavior change. Distinguish genuinely changed/missing inputs from agent failures; do not blame the user merely because an input was absent. Unknown causes stay explicit. Link repeatable causes to LESSONS and an Agent Eval case with its actual run status; a fixed UI does not prove improved agent behavior. Before similar work or a fresh rebuild, retrieve those lessons and turn prevention into acceptance checks. Repository memory improves instructions/context, not model weights.
+
+Small edits may use a short entry, but cannot omit logging or proportionate verification. Group related edits under one logical ID; do not log every tool call. A delivery is incomplete if its journal records or required technical approval are missing. MEMORY describes current state; LESSONS explains reusable prevention; neither replaces CHANGELOG.
+
+## Work in stages
+
+1. **Understand before coding.** Check repository state, [MEMORY.md](MEMORY.md), relevant lessons, and the requested scope. Inspect `design/references/background.png` first, then `background_text.png`, then relevant fonts, button artwork, and source layers. Crop the 941 × 32,127 reference into legible sections. Map content, controls, art layers, section boundaries, and the source-to-CSS viewport scale; set observable acceptance checks and identify unverified product facts. Use [DESIGN.md](DESIGN.md) and [PRODUCT.md](PRODUCT.md). **Exit:** the target slice, assets, behavior, and comparison method are understood; unresolved inputs are explicit.
+2. **Implement one visual slice.** Build for the Pro baseline first, using the clean background as artwork and semantic HTML/CSS for text and controls. Keep text translatable and controls usable; no inert CTA or invented checkout. Reproduce reference copy in the local build while tracking unverified factual claims for publication. Use Next.js + React + strict TypeScript with the framework's own build toolchain; choose each route's rendering mode and Server/Client boundaries from its data and interaction needs. Do not revive the deleted app. Use [ARCHITECTURE.md](ARCHITECTURE.md). **Exit:** the slice renders and its required behavior works; continue through all slices in the requested scope.
+3. **Verify the actual pixels.** Open the running page in a real browser at the iPhone 17 Pro viewport, then verify Pro Max. Confirm the page's actual CSS layout width matches each test profile (the viewport meta tag must be correct). Wait for fonts/images and capture screenshots. Compare the Pro image to the calibrated reference crop; inspect Pro Max as a responsive target unless it has its own reference. The verifier must see screenshots, not only DOM/CSS measurements. Fix material differences and capture again. Use a tolerant pixel diff as a second signal when aligned. Use [docs/visual-qa.md](docs/visual-qa.md). **Exit:** no material mismatch remains in the supported target composition; otherwise keep iterating or report a concrete external blocker without saying “done.”
+4. **Check behavior and adaptation.** Test relevant clicks, hover, scroll, navigation, forms, menus, animation states, keyboard access, Arabic RTL, mobile safe areas, and representative tablet/desktop widths. Check overflow, clipping, crops, wraps, spacing, and tile seams. Use [docs/mobile.md](docs/mobile.md). **Exit:** required states work at the sizes they support.
+5. **Review and optimize.** For code changes, run Codex's native `/review` on the actual diff before delivery (CLI equivalent when needed), examine every actionable finding, fix it, and rerun affected checks. Run available type, lint, test, and production-build checks. Review component boundaries, duplication, accessibility, and unused code. Measure first render, LCP/INP/CLS where measurable, network bytes, JavaScript, layout shifts, and scroll smoothness in a production build. Reassess static, request-time server, and client rendering against measured latency, freshness, and client cost; change strategy where it improves the result. Fix meaningful problems, then repeat affected visual/browser checks. Use [QUALITY.md](QUALITY.md) and [PERFORMANCE.md](PERFORMANCE.md). **Exit:** no known material code, visual, accessibility, or speed regression remains; report if `/review` was unavailable rather than counting a manual pass as its result.
+6. **Learn and report evidence.** Complete the affected [CHANGELOG.md](CHANGELOG.md) entries with actual checks, technical approval and remaining open IDs. Refresh [MEMORY.md](MEMORY.md) when verified state, decisions, or blockers changed; record repeatable errors in [LESSONS.md](LESSONS.md). Use [docs/definition-of-done.md](docs/definition-of-done.md). State tested viewports, screenshot comparisons, interactions, build checks, performance measurements, remaining differences, and checks that could not run. Never claim pixel fidelity, WCAG compliance, a 95+ Lighthouse score, or completion without the corresponding evidence.
+
+**Do not mark a failed gate passed or delegate ordinary QA to the user.** Route the failure back to the stage that can fix it, repeat that stage, and rerun downstream checks the fix could affect. A blocked external dependency must not stop independent work. For UI work, the implement → browser screenshot → compare → fix → recheck loop is mandatory after each completed visual slice and after later appearance changes; repeat it on the assembled page. Work autonomously through all feasible checks; resolve routine choices from the repository and references, and seek only irreducible external facts or access while continuing independent work. For a small non-UI task, apply only relevant stages.
+
+For substantive project work, start one independent, non-editing **discipline auditor** alongside scope inspection. Reuse it at each applicable stage gate: scope before implementation; each completed UI slice's rendering and visual evidence; behavior/adaptation; code review and performance; and final integration, memory, and delivery evidence. Give it acceptance checks, changed files, browser images, command results, and any other agents' findings as relevant. Wait for its evidence-based pass/fail/blocked finding before closing a gate. Fix failures and re-audit affected gates; the main agent owns implementation and required checks. Use the project [auditor profile](.codex/agents/discipline_auditor.toml) when available and [supervision protocol](docs/supervision.md); if the profile cannot be selected, give a subagent the same non-editing assignment. Do not spawn it for a trivial edit. The auditor supplements real QA and native `/review`; it cannot certify missing evidence.
+
+## Standing constraints
+
+exec
+/bin/zsh -lc 'git diff -- app/globals.css components/Story.tsx tests/e2e/art-loading.spec.ts tools/slice-background-png.py; cat tools/convert-art-webp.py; cat tools/check-art-assembly.mjs; cat tools/check-art-browser.mjs; cat tools/check-png-reserve-browser.mjs; cat tools/measure-art-webp.mjs' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 3ms:
+diff --git a/app/globals.css b/app/globals.css
+index b60c314..863fec6 100644
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -16,7 +16,7 @@ a{color:inherit}
+ :focus-visible{outline:3px solid #815013;outline-offset:3px}
+ .canvas{position:relative;container-type:inline-size;display:grid;grid-template-rows:auto auto auto;width:100%;max-width:941px;margin-inline:auto;overflow:clip;isolation:isolate;background:#d8bb9f}
+ .art{position:absolute;inset:0 0 auto;height:calc(27147/941*100cqw);overflow:hidden;z-index:0;pointer-events:none}
+-.art img,.tail-art img{display:block;width:100%;height:auto}
++.art img,.tail-art img{display:block;width:100%;height:auto;background-size:100% 100%;background-repeat:no-repeat}
+ .art img:not(:first-child),.tail-art-track img{margin-top:calc(-2/941*100cqw)}
+ .story-prefix-space{grid-row:1;height:calc(27147/941*100cqw)}
+ .story-tail{grid-row:3;position:relative;height:calc(3920/941*100cqw);--source-offset:calc(28207/941*100cqw)}
+diff --git a/components/Story.tsx b/components/Story.tsx
+index 12e261e..ba96214 100644
+--- a/components/Story.tsx
++++ b/components/Story.tsx
+@@ -11,6 +11,7 @@ import { ActionArrow } from './ActionArrow';
+ import buttonMap from '@/lib/button-map.json';
+ import iconMap from '@/lib/icon-map.json';
+ import localizedButtonWidths from '@/lib/button-localized-widths.json';
++import artPreviews from '@/lib/art-previews.json';
+
+ // Keep the complete FAQ/account artwork in one tile: no image edge through a card.
+ const artTiles = Array.from({ length: 12 }, (_, i) => ({
+@@ -104,7 +105,7 @@ const docs: { key: Key; detail: string; x: number; y: number }[] = [
+ function DocumentCards({ locale }: { locale: Locale }) {
+   return <>
+     {docs.map((doc) => <div className={`doc-card doc-card--${doc.key} source-panel`} key={doc.key} style={sourceStyle(doc.x, doc.y, 356)}>
+-      <Image className="doc-thumb" src={`/art/doc-${doc.key}.png`} width={95} height={140} alt="" unoptimized />
++      <Image className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized />
+       <strong>{textLines(t(locale, doc.key))}</strong>
+       <small>{textLines(doc.detail)}</small>
+       <button id={`document-${doc.key}`} type="button" aria-haspopup="dialog" popoverTarget={`doc-detail-${doc.key}`} aria-label={`${t(locale, 'docView')}: ${t(locale, doc.key).replaceAll('\n', ' ')}`}><span className="doc-action-label">{t(locale, 'docView')}</span><ActionArrow /></button>
+@@ -138,8 +139,8 @@ function Faq({ locale }: { locale: Locale }) {
+     } as React.CSSProperties}>
+       <div className="faq-row-art" aria-hidden="true">
+         {['top', 'middle', 'bottom'].map(part => <div className={`faq-art-${part}`} key={part}>
+-          <Image src={`/art/faq-row-${index + 1}.png`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" />
+-          {part === 'middle' && <Image className="faq-minus-cover" src={`/art/faq-row-${index + 1}.png`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" />}
++          <Image src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
++          {part === 'middle' && <Image className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
+         </div>)}
+       </div>
+       <details>
+@@ -227,7 +228,7 @@ export function Story({ locale }: { locale: Locale }) {
+       <div className="art" aria-hidden="true">
+         {artTiles.filter(({ file }) => file !== '11').map(({ file, height }, i) => <Image
+           key={i}
+-          src={`/art/${file}.png`}
++          src={`/art/${file}.webp`}
+           width={941}
+           height={height}
+           alt=""
+@@ -235,6 +236,7 @@ export function Story({ locale }: { locale: Locale }) {
+           preload={i === 0}
+           loading={i === 0 ? 'eager' : 'lazy'}
+           fetchPriority={i === 0 ? 'high' : 'low'}
++          placeholder={i === 0 ? 'empty' : artPreviews[file as keyof typeof artPreviews] as `data:image/${string}`}
+         />)}
+       </div>
+       <Menus locale={locale} />
+@@ -298,8 +300,8 @@ export function Story({ locale }: { locale: Locale }) {
+       <Faq locale={locale} />
+       <section className="story-tail" aria-label={t(locale, 'account')}>
+         <div className="tail-art" aria-hidden="true"><div className="tail-art-track">
+-          <Image src="/art/09-10.png" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="low" />
+-          <Image src="/art/11.png" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="low" />
++          <Image src="/art/09-10.webp" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['09-10'] as `data:image/${string}`} />
++          <Image src="/art/11.webp" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['11'] as `data:image/${string}`} />
+         </div></div>
+         {storyNodes.filter(node => node.y >= 28207).map((node, index) => <OverlayNode node={node} locale={locale} key={`${node.key}-${index}`} />)}
+       <button id="account-personal" type="button" className="account-hit" style={sourceStyle(45, 28230, 850)} popoverTarget="unavailable-account" aria-label={t(locale, 'account')} />
+diff --git a/tests/e2e/art-loading.spec.ts b/tests/e2e/art-loading.spec.ts
+index 197b2fd..9f48c32 100644
+--- a/tests/e2e/art-loading.spec.ts
++++ b/tests/e2e/art-loading.spec.ts
+@@ -13,10 +13,10 @@ async function luminanceRange(png: Buffer, box: { left: number; top: number; wid
+   return max - min;
+ }
+
+-test('source PNG tiles load after a fast distant scroll without WebP previews', async ({ page }, testInfo) => {
++test('color-managed WebP tiles load after a fast distant scroll', async ({ page }, testInfo) => {
+   let releaseImages!: () => void;
+   const imageGate = new Promise<void>(resolve => { releaseImages = resolve; });
+-  await page.route('**/art/*.png', async route => { await imageGate; await route.continue(); });
++  await page.route('**/art/*.webp', async route => { await imageGate; await route.continue(); });
+   try {
+     await page.goto('/en', { waitUntil: 'domcontentloaded' });
+     const first = await page.locator('.art img').first().evaluate(image => ({
+@@ -31,7 +31,19 @@ test('source PNG tiles load after a fast distant scroll without WebP previews',
+       .filter(image => { const box = image.getBoundingClientRect(); return box.top < innerHeight && box.bottom > 0; })
+       .map(image => ({ complete: image.complete, preview: getComputedStyle(image).backgroundImage })));
+     expect(distant.length).toBeGreaterThan(0);
+-    expect(distant.some(image => !image.complete && image.preview === 'none')).toBe(true);
++    expect(distant.some(image => !image.complete && image.preview.includes('data:image/webp;base64,'))).toBe(true);
++    const preview = await page.evaluate(async () => {
++      const visible = [...document.querySelectorAll<HTMLImageElement>('.art img')]
++        .find(image => { const r = image.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; });
++      const background = getComputedStyle(visible!).backgroundImage;
++      const url = background.slice(5, -2);
++      const image = new Image();
++      image.src = url;
++      await image.decode();
++      return { width: image.naturalWidth, height: image.naturalHeight };
++    });
++    expect(preview.width).toBe(118);
++    expect(preview.height).toBeGreaterThan(100);
+   } finally {
+     releaseImages();
+   }
+@@ -46,12 +58,15 @@ test('source PNG tiles load after a fast distant scroll without WebP previews',
+     .filter(image => { const box = image.getBoundingClientRect(); return box.top < innerHeight && box.bottom > 0; })
+     .map(image => image.decode())));
+   await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
++  await expect.poll(() => page.locator('.art img').evaluateAll(images => images
++    .filter(image => { const r = image.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; })
++    .every(image => getComputedStyle(image).backgroundImage === 'none'))).toBe(true);
+   const final = await page.screenshot({ scale: 'css', path: testInfo.outputPath('fast-scroll-loaded.png') });
+   const width = testInfo.project.use.viewport!.width;
+   expect(await luminanceRange(final, { left: 0, top: 210, width: Math.round(width * .42), height: 420 })).toBeGreaterThan(25);
+ });
+
+-for (const language of [{ code: 'ru', dir: 'ltr' }, { code: 'ar', dir: 'rtl' }]) test(`${language.code} change keeps PNG artwork available after scrolling`, async ({ page }, testInfo) => {
++for (const language of [{ code: 'ru', dir: 'ltr' }, { code: 'ar', dir: 'rtl' }]) test(`${language.code} change keeps WebP artwork available after scrolling`, async ({ page }, testInfo) => {
+   await page.goto('/en');
+   await page.route(`**/${language.code}`, async route => { await new Promise(resolve => setTimeout(resolve, 600)); await route.continue(); });
+   await page.locator('#locale-toggle').click();
+diff --git a/tools/slice-background-png.py b/tools/slice-background-png.py
+index fa82863..887458a 100644
+--- a/tools/slice-background-png.py
++++ b/tools/slice-background-png.py
+@@ -1,10 +1,12 @@
+-"""Crop active artwork from the original PNGs without changing RGBA or ICC."""
++"""Crop reserve PNG artwork from the original files without changing RGBA or ICC."""
+
+ from pathlib import Path
++import hashlib
++import json
+ from PIL import Image
+
+ ROOT = Path(__file__).resolve().parents[1]
+-ART = ROOT / "public/art"
++ART = ROOT / "design/derived/original-png"
+ REFERENCE = ROOT / "design/references"
+
+ main = [(f"{index:02}", index * 2800, (index + 1) * 2800) for index in range(9)]
+@@ -14,9 +16,11 @@ faq = [(27147, 172, 7), (27326, 171, 8), (27505, 171, 7),
+ documents = [("electrical", 120, 23305), ("emc", 510, 23305),
+              ("uae", 120, 23550), ("rohs", 510, 23550),
+              ("telecom", 120, 23795)]
++records = []
+
+
+-def save_exact(source: Image.Image, name: str, box: tuple[int, int, int, int]) -> None:
++def save_exact(source: Image.Image, source_name: str, name: str,
++               box: tuple[int, int, int, int]) -> None:
+     crop = source.crop(box)
+     path = ART / f"{name}.png"
+     crop.save(path, format="PNG", compress_level=9,
+@@ -26,19 +30,37 @@ def save_exact(source: Image.Image, name: str, box: tuple[int, int, int, int]) -
+         assert saved.mode == crop.mode, name
+         assert saved.tobytes() == crop.tobytes(), name
+         assert saved.info.get("icc_profile") == source.info["icc_profile"], name
++    active_path = ROOT / "public/art" / f"{name}.webp"
++    if active_path.exists():
++        with Image.open(active_path) as active:
++            assert active.size == crop.size, name
++    records.append({"file": path.name, "source": source_name, "box": box,
++                    "size": list(crop.size), "bytes": path.stat().st_size,
++                    "active_webp_present": active_path.exists(),
++                    "sha256": hashlib.sha256(path.read_bytes()).hexdigest()})
+
+
++ART.mkdir(parents=True, exist_ok=True)
++
+ with Image.open(REFERENCE / "background.png") as source:
+     assert source.size == (941, 32127) and source.mode == "RGBA"
+     for name, top, bottom in main:
+         # Two untouched source rows overlap the previous tile during CSS scaling.
+-        save_exact(source, name, (0, top - (2 if top else 0), 941, bottom))
++        save_exact(source, "background.png", name, (0, top - (2 if top else 0), 941, bottom))
+     for index, (top, height, gap) in enumerate(faq, 1):
+-        save_exact(source, f"faq-row-{index}", (0, top - 4, 941, top + height + gap + 4))
++        save_exact(source, "background.png", f"faq-row-{index}", (0, top - 4, 941, top + height + gap + 4))
+
+ with Image.open(REFERENCE / "background_text.png") as source:
+     assert source.size == (941, 32127) and source.mode == "RGBA"
+     for name, left, top in documents:
+-        save_exact(source, f"doc-{name}", (left, top, left + 95, top + 140))
++        save_exact(source, "background_text.png", f"doc-{name}", (left, top, left + 95, top + 140))
+
++assert len(records) == 22
++manifest = {
++    "purpose": "Unused exact-source PNG alternatives for future format selection",
++    "source_sha256": {name: hashlib.sha256((REFERENCE / name).read_bytes()).hexdigest()
++                      for name in ("background.png", "background_text.png")},
++    "files": records,
++}
++(ART / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+ print("Verified 22 PNG crops: exact RGBA pixels and source ICC profile.")
+"""Rebuild color-managed WebP art from the current Photoshop PNG exports.
+
+The RGB comparison is against the same Adobe RGB -> sRGB conversion used for
+encoding, never against unconverted Adobe RGB channel numbers.
+"""
+
+from io import BytesIO
+from pathlib import Path
+import base64
+import hashlib
+import json
+import os
+import shutil
+import subprocess
+import tempfile
+
+import numpy as np
+from PIL import Image, ImageCms
+
+ROOT = Path(__file__).resolve().parents[1]
+ART = ROOT / "public/art"
+REF = ROOT / "design/references"
+MAIN = [(f"{i:02}", i * 2800, (i + 1) * 2800) for i in range(9)]
+MAIN += [("09-10", 25200, 30800), ("11", 30800, 32127)]
+FAQ = [(27147, 172, 7), (27326, 171, 8), (27505, 171, 7),
+       (27683, 171, 7), (27861, 170, 6), (28037, 170, 0)]
+DOCS = [("electrical", 120, 23305), ("emc", 510, 23305),
+        ("uae", 120, 23550), ("rohs", 510, 23550),
+        ("telecom", 120, 23795)]
+SRGB = ImageCms.createProfile("sRGB")
+SRGB_BYTES = ImageCms.ImageCmsProfile(SRGB).tobytes()
+REPORT = []
+PREVIEWS = {}
+
+
+def rgb_to_lab(rgb: np.ndarray) -> np.ndarray:
+    """Approximate CIE Lab (D65) for a small sampled sRGB array."""
+    value = rgb.astype(np.float32) / 255
+    linear = np.where(value <= .04045, value / 12.92, ((value + .055) / 1.055) ** 2.4)
+    xyz = linear @ np.array([[.4124564, .3575761, .1804375],
+                              [.2126729, .7151522, .0721750],
+                              [.0193339, .1191920, .9503041]], dtype=np.float32).T
+    xyz /= np.array([.95047, 1.0, 1.08883], dtype=np.float32)
+    f = np.where(xyz > .008856, np.cbrt(xyz), 7.787 * xyz + 16 / 116)
+    return np.stack((116 * f[..., 1] - 16,
+                     500 * (f[..., 0] - f[..., 1]),
+                     200 * (f[..., 1] - f[..., 2])), axis=-1)
+
+
+def color_metrics(expected: np.ndarray, actual: np.ndarray) -> dict:
+    """Measure visible color, including local and high-percentile errors."""
+    diff = actual[:, :, :3] - expected[:, :, :3]
+    visible = expected[:, :, 3] > 0
+    absolute = np.abs(diff)
+    red = ((expected[:, :, 0] > expected[:, :, 1] * 1.05)
+           & (expected[:, :, 0] > expected[:, :, 2] * 1.1)
+           & (expected[:, :, 0] > 80) & (expected[:, :, 3] == 255))
+    red_mean = diff[red].mean(axis=0).round(3).tolist() if red.any() else None
+    local_max_mae = 0.0
+    local_max_red_shift = 0.0
+    for top in range(0, expected.shape[0], 64):
+        for left in range(0, expected.shape[1], 64):
+            block_visible = visible[top:top + 64, left:left + 64]
+            if block_visible.sum() >= 64:
+                local_max_mae = max(local_max_mae, float(absolute[top:top + 64, left:left + 64][block_visible].mean(axis=0).max()))
+            block_red = red[top:top + 64, left:left + 64]
+            if block_red.sum() >= 32:
+                local_max_red_shift = max(local_max_red_shift,
+                                          float(np.abs(diff[top:top + 64, left:left + 64][block_red].mean(axis=0)).max()))
+    sample = np.s_[::4, ::4]
+    sample_visible = visible[sample]
+    lab_error = np.linalg.norm(rgb_to_lab(expected[sample][:, :, :3])
+                               - rgb_to_lab(actual[sample][:, :, :3]), axis=-1)[sample_visible]
+    return {"rgb_mae": absolute[visible].mean(axis=0).round(3).tolist(),
+            "rgb_p99_abs": np.percentile(absolute[visible], 99, axis=0).tolist(),
+            "red_mean_signed": red_mean,
+            "local_max_mae": round(local_max_mae, 3),
+            "local_max_red_shift": round(local_max_red_shift, 3),
+            "sampled_delta_e76_p99": round(float(np.percentile(lab_error, 99)), 3),
+            "visible_pixels": int(visible.sum())}
+
+
+def encode(source: Image.Image, name: str, box: tuple[int, int, int, int], temp: Path) -> None:
+    crop = source.crop(box)
+    source_icc = ImageCms.ImageCmsProfile(BytesIO(source.info["icc_profile"]))
+    assert "Adobe RGB (1998)" in ImageCms.getProfileName(source_icc)
+    rgb = ImageCms.profileToProfile(crop.convert("RGB"), source_icc, SRGB,
+                                    renderingIntent=1, outputMode="RGB",
+                                    flags=ImageCms.Flags.BLACKPOINTCOMPENSATION)
+    rgb.putalpha(crop.getchannel("A"))
+    # Preserve the source alpha. Align invisible edge RGB with its neighbor;
+    # cwebp may discard these values, but must never turn transparency opaque.
+    if box[0] == 0 and crop.width == 941:
+        pixels = np.array(rgb)
+        edge = (pixels[:, -1, 3] == 0) & (pixels[:, -2, 3] == 255)
+        pixels[edge, -1, :3] = pixels[edge, -2, :3]
+        rgb = Image.fromarray(pixels, "RGBA")
+    png = temp / f"{name}.png"
+    rgb.save(png, icc_profile=SRGB_BYTES)
+    if os.environ.get("ART_REFERENCE_PNG_DIR"):
+        reference_dir = Path(os.environ["ART_REFERENCE_PNG_DIR"])
+        reference_dir.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(png, reference_dir / png.name)
+    output = ART / f"{name}.webp"
+    candidate = temp / f"{name}.webp"
+    subprocess.run(["cwebp", "-quiet", "-q", "95", "-m", "6",
+                    "-alpha_q", "100", "-metadata", "icc", str(png),
+                    "-o", str(candidate)], check=True)
+    decoded = Image.open(candidate)
+    assert decoded.size == rgb.size
+    assert decoded.info.get("icc_profile") == SRGB_BYTES
+    actual = np.asarray(decoded.convert("RGBA"), dtype=np.int16)
+    expected = np.asarray(rgb, dtype=np.int16)
+    assert np.array_equal(expected[:, :, 3], np.asarray(crop.getchannel("A"))), name
+    alpha_mismatch = int(np.count_nonzero(actual[:, :, 3] != expected[:, :, 3]))
+    assert alpha_mismatch == 0, (name, alpha_mismatch)
+    metrics = color_metrics(expected, actual)
+    lossy_metrics = metrics.copy()
+    lossy_bytes = candidate.stat().st_size
+    sharp_candidate = temp / f"{name}-sharp.webp"
+    subprocess.run(["cwebp", "-quiet", "-q", "95", "-m", "6", "-alpha_q", "100",
+                    "-sharp_yuv", "-metadata", "icc", str(png),
+                    "-o", str(sharp_candidate)], check=True)
+    sharp_decoded = Image.open(sharp_candidate)
+    assert sharp_decoded.info.get("icc_profile") == SRGB_BYTES
+    sharp_actual = np.asarray(sharp_decoded.convert("RGBA"), dtype=np.int16)
+    assert np.array_equal(sharp_actual[:, :, 3], expected[:, :, 3]), name
+    sharp_metrics = color_metrics(expected, sharp_actual)
+    sharp_bytes = sharp_candidate.stat().st_size
+    perceptual_gain = (lossy_metrics["sampled_delta_e76_p99"]
+                       - sharp_metrics["sampled_delta_e76_p99"])
+    red_gain = (lossy_metrics["local_max_red_shift"]
+                - sharp_metrics["local_max_red_shift"])
+    use_sharp = (sharp_bytes <= lossy_bytes * 1.20
+                 and max(sharp_metrics["rgb_p99_abs"]) <= max(lossy_metrics["rgb_p99_abs"])
+                 and sharp_metrics["local_max_red_shift"] <= lossy_metrics["local_max_red_shift"] + 1
+                 and (perceptual_gain >= .25 or red_gain >= 5))
+    chosen = sharp_candidate if use_sharp else candidate
+    if use_sharp:
+        metrics = sharp_metrics
+        actual = sharp_actual
+    mode = "lossy-q95"
+    if use_sharp:
+        mode = "lossy-q95-sharp-yuv"
+    if (name.startswith("doc-") or max(metrics["rgb_mae"]) >= 3
+            or max(metrics["rgb_p99_abs"]) > 15
+            or (metrics["red_mean_signed"] is not None
+                and max(map(abs, metrics["red_mean_signed"])) >= 2)):
+        chosen = temp / f"{name}-lossless.webp"
+        subprocess.run(["cwebp", "-quiet", "-lossless", "-q", "85", "-m", "6",
+                        "-exact", "-metadata", "icc", str(png), "-o", str(chosen)], check=True)
+        decoded = Image.open(chosen)
+        assert decoded.info.get("icc_profile") == SRGB_BYTES
+        actual = np.asarray(decoded.convert("RGBA"), dtype=np.int16)
+        assert np.array_equal(actual, expected), name
+        metrics = color_metrics(expected, actual)
+        mode = "lossless"
+    record = {"file": output.name, "box": box, "srgb_png_bytes": png.stat().st_size,
+              "webp_bytes": chosen.stat().st_size,
+              "mode": mode,
+              "lossy_candidate_bytes": lossy_bytes,
+              "lossy_candidate_metrics": lossy_metrics,
+              "sharp_yuv_candidate_bytes": sharp_bytes,
+              "sharp_yuv_candidate_metrics": sharp_metrics,
+              **metrics,
+              "alpha_mismatch": alpha_mismatch}
+    assert (max(metrics["rgb_mae"]) < 3 and max(metrics["rgb_p99_abs"]) <= 15
+            and (metrics["red_mean_signed"] is None
+                 or max(map(abs, metrics["red_mean_signed"])) < 2)), record
+    chosen.replace(output)
+    if not name.startswith("doc-") and name != "00":
+        preview_png = temp / f"{name}-preview.png"
+        preview_webp = temp / f"{name}-preview.webp"
+        rgb.resize((118, max(1, round(rgb.height * 118 / rgb.width))),
+                   Image.Resampling.LANCZOS).save(preview_png, icc_profile=SRGB_BYTES)
+        subprocess.run(["cwebp", "-quiet", "-q", "75", "-m", "6", "-metadata", "icc",
+                        str(preview_png), "-o", str(preview_webp)], check=True)
+        assert Image.open(preview_webp).info.get("icc_profile") == SRGB_BYTES
+        record["preview_bytes"] = preview_webp.stat().st_size
+        PREVIEWS[name] = "data:image/webp;base64," + base64.b64encode(preview_webp.read_bytes()).decode("ascii")
+    REPORT.append(record)
+
+
+def main() -> None:
+    ART.mkdir(exist_ok=True)
+    with tempfile.TemporaryDirectory() as directory:
+        temp = Path(directory)
+        for filename, jobs in [
+            ("background.png", [(name, (0, top - (2 if top else 0), 941, bottom))
+                                for name, top, bottom in MAIN]
+             + [(f"faq-row-{i}", (0, top - 4, 941, top + height + gap + 4))
+                for i, (top, height, gap) in enumerate(FAQ, 1)]),
+            ("background_text.png", [(f"doc-{name}", (x, y, x + 95, y + 140))
+                                     for name, x, y in DOCS]),
+        ]:
+            path = REF / filename
+            with Image.open(path) as source:
+                assert source.size == (941, 32127) and source.mode == "RGBA"
+                for name, box in jobs:
+                    encode(source, name, box, temp)
+    summary = {"method": "Adobe RGB (1998) -> sRGB via LittleCMS relative colorimetric intent with black point compensation; cwebp 1.6.0 q95 m6 alpha_q100 metadata icc; compare default and sharp_yuv candidates, select sharp when sampled Delta E76 p99 improves >=0.25 or local red shift drops >=5 with <=20% byte growth, no RGB p99 worsening and <=1 local red regression; documents lossless; lossless exact fallback when visible RGB MAE >=3, visible p99 >15, or global red shift >=2",
+               "source_sha256": hashlib.sha256((REF / "background.png").read_bytes()).hexdigest(),
+               "source_text_sha256": hashlib.sha256((REF / "background_text.png").read_bytes()).hexdigest(),
+               "files": REPORT}
+    report = ROOT / "docs/evidence/art-webp/color-metrics.json"
+    report.parent.mkdir(parents=True, exist_ok=True)
+    report.write_text(json.dumps(summary, indent=2) + "\n")
+    (ROOT / "lib/art-previews.json").write_text(json.dumps(PREVIEWS, indent=2) + "\n")
+    print(f"Verified {len(REPORT)} color-managed WebP crops; report: {report}")
+
+
+if __name__ == "__main__":
+    main()
+import { webkit } from '@playwright/test';
+import sharp from 'sharp';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+
+const evidence = path.resolve('docs/evidence/art-webp/browser');
+const actual = path.resolve('screenshots/actual/art-webp');
+await fs.mkdir(evidence, { recursive: true });
+await fs.mkdir(actual, { recursive: true });
+const browser = await webkit.launch();
+const joins = [2800, 5600, 8400, 11200, 14000, 16800, 19600, 22400, 25200, 30800];
+const report = [];
+for (const { name, width, height } of [{ name: 'pro', width: 402, height: 874 },
+  { name: 'max', width: 440, height: 956 }]) {
+  const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 3,
+    isMobile: true, hasTouch: true, reducedMotion: 'reduce' });
+  const page = await context.newPage();
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('http://127.0.0.1:3021/en', { waitUntil: 'domcontentloaded' });
+  await page.evaluate(() => document.fonts.ready);
+  const viewport = await page.evaluate(() => ({ width: innerWidth, dpr: devicePixelRatio,
+    meta: document.querySelector('meta[name="viewport"]')?.content }));
+  if (viewport.width !== width || viewport.dpr !== 3 || !viewport.meta?.includes('width=device-width')) {
+    throw new Error(`${name} viewport mismatch: ${JSON.stringify(viewport)}`);
+  }
+  const crops = [];
+  for (const y of joins) {
+    const top = Math.max(0, Math.round(y * width / 941 - height / 2));
+    await page.evaluate(value => scrollTo({ top: value, behavior: 'instant' }), top);
+    await page.waitForFunction(() => [...document.querySelectorAll('.art img,.tail-art img')]
+      .filter(image => { const r = image.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; })
+      .every(image => image.complete && image.naturalWidth > 0));
+    const state = await page.evaluate(async () => {
+      const visible = [...document.querySelectorAll('.art img,.tail-art img')]
+        .filter(image => { const r = image.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; });
+      await Promise.allSettled(visible.map(image => image.decode()));
+      await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+      return { scrollY, visible: visible.map(image => pathName(image.src)),
+        overflow: document.documentElement.scrollWidth - innerWidth };
+      function pathName(url) { return new URL(url).pathname; }
+    });
+    if (state.overflow > 0) throw new Error(`${name} overflow at ${y}: ${state.overflow}`);
+    const screenshot = await page.screenshot({ scale: 'css' });
+    const crop = await sharp(screenshot).extract({ left: 0, top: Math.floor(height / 2) - 65,
+      width, height: 130 }).png().toBuffer();
+    crops.push({ input: crop, left: 0, top: crops.length * 130 });
+    report.push({ name, sourceJoinY: y, ...state });
+  }
+  await sharp({ create: { width, height: joins.length * 130, channels: 3, background: '#ffffff' } })
+    .composite(crops).png().toFile(path.join(evidence, `${name}-join-contact.png`));
+  // Every principal tile has been brought into view and decoded before this assembled capture.
+  await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
+  await page.screenshot({ path: path.join(actual, `${name}-assembled.png`), scale: 'css', fullPage: true });
+  if (errors.length) throw new Error(`${name} page errors: ${errors.join('; ')}`);
+  await context.close();
+}
+await browser.close();
+await fs.writeFile(path.join(evidence, 'assembly.json'), JSON.stringify(report, null, 2) + '\n');
+console.log(`Checked ${report.length} WebKit join states and saved two assembled pages`);
+import { webkit } from '@playwright/test';
+import sharp from 'sharp';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import os from 'node:os';
+import { spawnSync } from 'node:child_process';
+
+const root = path.resolve('docs/evidence/art-webp/browser');
+await fs.mkdir(root, { recursive: true });
+const referenceDir = await fs.mkdtemp(path.join(os.tmpdir(), 'ramsider-art-reference-'));
+const generated = spawnSync('python3', ['tools/convert-art-webp.py'], {
+  env: { ...process.env, ART_REFERENCE_PNG_DIR: referenceDir }, encoding: 'utf8' });
+if (generated.status !== 0) throw new Error(generated.stderr || generated.stdout);
+const browser = await webkit.launch();
+const results = [];
+async function settleVisible(page) {
+  await page.waitForFunction(() => [...document.querySelectorAll('.art img,.tail-art img,.faq-stack img,.doc-card img')]
+    .filter(image => { const r = image.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; })
+    .every(image => image.complete && image.naturalWidth > 0), { timeout: 30000 });
+  await page.evaluate(async () => {
+    const visible = [...document.querySelectorAll('.art img,.tail-art img,.faq-stack img,.doc-card img')]
+      .filter(image => { const r = image.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; });
+    await Promise.allSettled(visible.map(image => image.decode()));
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+  });
+}
+for (const { name, width, height } of [
+  { name: 'pro', width: 402, height: 874 },
+  { name: 'max', width: 440, height: 956 },
+]) {
+  const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 3,
+    isMobile: true, hasTouch: true, reducedMotion: 'reduce' });
+  const page = await context.newPage();
+  await page.route('**/art/*.png', async route => {
+    const filename = path.basename(new URL(route.request().url()).pathname);
+    const reference = path.join(referenceDir, filename);
+    try {
+      await route.fulfill({ body: await fs.readFile(reference), contentType: 'image/png' });
+    } catch (error) {
+      if (error.code === 'ENOENT') await route.continue();
+      else throw error;
+    }
+  });
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('http://127.0.0.1:3021/en', { waitUntil: 'domcontentloaded' });
+  await page.evaluate(() => document.fonts.ready);
+  const dimensions = await page.evaluate(() => ({ innerWidth, dpr: devicePixelRatio,
+    viewportMeta: document.querySelector('meta[name=viewport]')?.content }));
+  if (dimensions.innerWidth !== width || dimensions.dpr !== 3 || !dimensions.viewportMeta?.includes('width=device-width')) {
+    throw new Error(`Wrong viewport ${JSON.stringify(dimensions)}`);
+  }
+  for (const [label, y] of [['hero', 0], ['first-join', Math.round(2800 * width / 941) - 400],
+    ['middle', Math.round(14000 * width / 941) - 350],
+    ['documents', Math.round(23300 * width / 941) - 350],
+    ['faq', Math.round(27500 * width / 941) - 350],
+    ['footer', Math.round(30700 * width / 941) - 350]]) {
+    await page.evaluate(value => scrollTo({ top: value, behavior: 'instant' }), y);
+    await settleVisible(page);
+    const webp = await page.screenshot({ path: path.join(root, `${name}-${label}-webp.png`), scale: 'css' });
+    await page.evaluate(async () => {
+      const images = [...document.querySelectorAll('img[src$=".webp"]')];
+      for (const image of images) image.src = image.src.replace(/\.webp$/, '.png');
+    });
+    await settleVisible(page);
+    const png = await page.screenshot({ path: path.join(root, `${name}-${label}-png.png`), scale: 'css' });
+    const a = await sharp(webp).removeAlpha().raw().toBuffer();
+    const b = await sharp(png).removeAlpha().raw().toBuffer();
+    let sum = [0, 0, 0], max = [0, 0, 0];
+    for (let i = 0; i < a.length; i++) {
+      const channel = i % 3;
+      const difference = Math.abs(a[i] - b[i]);
+      sum[channel] += difference;
+      max[channel] = Math.max(max[channel], difference);
+    }
+    const pixels = width * height;
+    results.push({ name, label, scrollY: await page.evaluate(() => scrollY),
+      meanAbsRgb: sum.map(value => +(value / pixels).toFixed(3)), maxAbsRgb: max });
+    await page.evaluate(async () => {
+      const images = [...document.querySelectorAll('img[src$=".png"]')]
+        .filter(image => /\/art\/(?:\d|faq-row|doc-)/.test(image.src));
+      for (const image of images) image.src = image.src.replace(/\.png$/, '.webp');
+    });
+    await settleVisible(page);
+  }
+  await context.close();
+  if (errors.length) throw new Error(`${name} page errors: ${errors.join('; ')}`);
+}
+await browser.close();
+await fs.rm(referenceDir, { recursive: true, force: true });
+await fs.writeFile(path.join(root, 'comparison.json'), JSON.stringify(results, null, 2));
+console.log(JSON.stringify(results, null, 2));
+// Confirm reserve PNGs remain unused by a production page on both phone profiles.
+import { webkit } from '@playwright/test';
+import fs from 'node:fs';
+
+const base = process.env.BASE_URL ?? 'http://127.0.0.1:3023';
+const browser = await webkit.launch();
+const results = [];
+try {
+  for (const [name, width, height] of [['pro', 402, 874], ['max', 440, 956]]) {
+    const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
+    try {
+      const page = await context.newPage();
+      const urls = [];
+      page.on('request', request => urls.push(request.url()));
+      await page.goto(`${base}/en`, { waitUntil: 'domcontentloaded' });
+      await page.locator('.art img').first().evaluate(image => image.decode());
+      await page.evaluate(() => scrollTo({ top: 6500, behavior: 'instant' }));
+      await page.waitForTimeout(1200);
+      const art = urls.filter(url => url.includes('/art/'));
+      const reserve = art.filter(url => url.includes('/original-png/'));
+      const webp = art.filter(url => url.endsWith('.webp'));
+      if (reserve.length || !webp.length) throw new Error(`${name}: reserve=${reserve.length} WebP=${webp.length}`);
+      results.push({ profile: name, viewport: [width, height], artRequests: art.length,
+        webpRequests: webp.length, reservePngRequests: reserve.length,
+        sampleWebp: webp.slice(0, 3).map(url => new URL(url).pathname) });
+    } finally {
+      await context.close();
+    }
+  }
+} finally {
+  await browser.close();
+}
+fs.mkdirSync('docs/evidence/png-reserve', { recursive: true });
+fs.writeFileSync('docs/evidence/png-reserve/requests.json', JSON.stringify(results, null, 2) + '\n');
+console.log(results);
+import { chromium } from '@playwright/test';
+import fs from 'node:fs/promises';
+
+const browser = await chromium.launch();
+const context = await browser.newContext({ viewport: { width: 402, height: 874 },
+  deviceScaleFactor: 3, isMobile: true, hasTouch: true });
+const page = await context.newPage();
+const cdp = await context.newCDPSession(page);
+await cdp.send('Network.enable');
+await cdp.send('Network.setCacheDisabled', { cacheDisabled: true });
+await cdp.send('Network.emulateNetworkConditions', { offline: false, latency: 100,
+  downloadThroughput: 500000, uploadThroughput: 500000 });
+await page.addInitScript(() => {
+  window.__artMetrics = { lcp: null, cls: 0 };
+  new PerformanceObserver(list => {
+    for (const entry of list.getEntries()) window.__artMetrics.lcp = entry.startTime;
+  }).observe({ type: 'largest-contentful-paint', buffered: true });
+  new PerformanceObserver(list => {
+    for (const entry of list.getEntries()) if (!entry.hadRecentInput) window.__artMetrics.cls += entry.value;
+  }).observe({ type: 'layout-shift', buffered: true });
+});
+const begin = performance.now();
+await page.goto('http://127.0.0.1:3021/en', { waitUntil: 'domcontentloaded' });
+await page.locator('.art img').first().evaluate(image => image.decode());
+const heroDecodedMs = performance.now() - begin;
+await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+const heroPaintedMs = performance.now() - begin;
+const first = await page.evaluate(() => ({
+  fcp: performance.getEntriesByName('first-contentful-paint')[0]?.startTime,
+  lcp: window.__artMetrics.lcp, cls: window.__artMetrics.cls,
+  heroResource: performance.getEntriesByType('resource').find(item => item.name.endsWith('/art/00.webp'))?.toJSON(),
+  jsBytes: performance.getEntriesByType('resource').filter(item => item.initiatorType === 'script')
+    .reduce((sum, item) => sum + item.transferSize, 0),
+  firstViewportBytes: performance.getEntriesByType('resource').reduce((sum, item) => sum + item.transferSize, 0)
+    + performance.getEntriesByType('navigation')[0].transferSize,
+}));
+const scrollBegin = performance.now();
+await page.evaluate(() => scrollTo({ top: 6500, behavior: 'instant' }));
+await page.evaluate(async () => {
+  const visible = [...document.querySelectorAll('.art img')]
+    .find(image => { const r = image.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; });
+  const url = getComputedStyle(visible).backgroundImage.slice(5, -2);
+  const preview = new Image();
+  preview.src = url;
+  await preview.decode();
+  await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+});
+const previewPaintedMs = performance.now() - scrollBegin;
+await page.evaluate(async () => {
+  const visible = [...document.querySelectorAll('.art img,.tail-art img')]
+    .filter(image => { const r = image.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; });
+  await Promise.all(visible.map(image => image.decode()));
+  await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+});
+const distantPaintedMs = performance.now() - scrollBegin;
+const frames = await page.evaluate(() => new Promise(resolve => {
+  const intervals = [];
+  let previous = 0;
+  const step = time => {
+    if (previous) intervals.push(time - previous);
+    previous = time;
+    scrollBy({ top: 50, behavior: 'instant' });
+    if (intervals.length < 90) requestAnimationFrame(step);
+    else resolve(intervals);
+  };
+  requestAnimationFrame(step);
+}));
+const sorted = frames.toSorted((a, b) => a - b);
+const report = { profile: 'Chromium 402x874 DPR3, cold cache, synthetic 4 Mbps / 100 ms RTT',
+  heroDecodedMs: +heroDecodedMs.toFixed(1), heroPaintedMs: +heroPaintedMs.toFixed(1),
+  previewPaintedMs: +previewPaintedMs.toFixed(1),
+  distantPaintedMs: +distantPaintedMs.toFixed(1),
+  fcpMs: first.fcp, lcpMs: first.lcp, cls: first.cls,
+  heroTransferBytes: first.heroResource?.transferSize, jsTransferBytes: first.jsBytes,
+  firstViewportTransferBytes: first.firstViewportBytes,
+  scrollFrameP95Ms: +sorted[Math.floor(sorted.length * .95)].toFixed(1),
+  scrollFramesOver33Ms: frames.filter(value => value > 33).length };
+await fs.writeFile('docs/evidence/art-webp/performance.json', JSON.stringify(report, null, 2) + '\n');
+console.log(JSON.stringify(report, null, 2));
+await browser.close();
+
+2026-10-03T23:11:57.660658Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a10409-aa22-7fe1-ab77-0cd8434aea8b turn_id=01a10409-aac9-71a1-b5cf-db0fcbbc5a50 item_id="exec-54fe4971-6adb-4967-b7ac-6734adb01d32"
+exec
+/bin/zsh -lc "rg -n 'art/.*\\.png|unused-webp|original-png|art-previews|faq-row' --glob '"'!*.json'"' --glob '"'!*.md'"' --glob '"'!*.lock'"' . | head -100; du -h lib/art-previews.json public/art/*.webp | tail -25; cat package.json | head -70; git diff -- AGENTS.md PERFORMANCE.md | head -80; find components app tools tests -name AGENTS.md -o -name AGENTS.override.md" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 91ms:
+./components/Story.tsx:14:import artPreviews from '@/lib/art-previews.json';
+./components/Story.tsx:135:      '--faq-row-height': `${question.height / 941 * 100}cqw`,
+./components/Story.tsx:140:      <div className="faq-row-art" aria-hidden="true">
+./components/Story.tsx:142:          <Image src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
+./components/Story.tsx:143:          {part === 'middle' && <Image className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
+./components/Story.tsx:246:        src={`/art/feature-divider-${icon.name}.png`}
+./components/Story.tsx:259:        src={`/art/technology-connector-${icon.name}.png`}
+./components/Story.tsx:271:        src="/art/expression-waves.png"
+./components/Story.tsx:309:      <Image className="group-diamond" src="/art/rams-group-diamond.png" width={120} height={150} alt="" unoptimized style={sourceStyle(410, 28885, 120)} />
+./app/globals.css:107:.faq-row-art{position:absolute;inset:0;z-index:-2;pointer-events:none}
+./app/globals.css:108:.faq-row-art>div{position:absolute;left:0;right:0;overflow:hidden}
+./app/globals.css:109:.faq-row-art img{position:absolute;left:0;display:block;width:100%;height:auto}
+./app/globals.css:120:.faq-stack summary{position:relative;list-style:none;display:flex;align-items:center;gap:1em;width:calc(829/941*100%);margin-left:calc(61/941*100%);margin-right:calc(51/941*100%);height:var(--faq-row-height);min-height:44px;padding:0 calc(80/941*100cqw) 0 calc(50/941*100cqw);font-size:calc(34/941*100cqw);line-height:1.2;cursor:pointer;border-radius:calc(24/941*100cqw)}
+./tools/check-png-reserve-browser.mjs:20:      const reserve = art.filter(url => url.includes('/original-png/'));
+./tests/e2e/site.spec.ts:17:    await Promise.all([...document.querySelectorAll<HTMLImageElement>('.art img, .tail-art img, .faq-row-art img')].map(async image => {
+./tools/convert-art-webp.py:191:             + [(f"faq-row-{i}", (0, top - 4, 941, top + height + gap + 4))
+./tools/convert-art-webp.py:208:    (ROOT / "lib/art-previews.json").write_text(json.dumps(PREVIEWS, indent=2) + "\n")
+./tests/e2e/expression-waves.spec.ts:14:    await expect(wave).toHaveAttribute('src', '/art/expression-waves.png');
+./tests/e2e/feature-icons.spec.ts:16:      await expect(icon).toHaveAttribute('src', `/art/icon-kit/${String(index + 9).padStart(2, '0')}.png`);
+./tools/extract-technology-icons.mjs:38:    .png().toFile(`public/art/technology-connector-${group.name}.png`);
+./tools/check-art-browser.mjs:34:  await page.route('**/art/*.png', async route => {
+./tools/check-art-browser.mjs:81:        .filter(image => /\/art\/(?:\d|faq-row|doc-)/.test(image.src));
+./tools/slice-background-png.py:9:ART = ROOT / "design/derived/original-png"
+./tools/slice-background-png.py:51:        save_exact(source, "background.png", f"faq-row-{index}", (0, top - 4, 941, top + height + gap + 4))
+./tools/extract-feature-icons.mjs:34:    .png().toFile(`public/art/feature-divider-${layer.name}.png`);
+./docs/evidence/art-webp/native-review-chg0058-final.log:30: D public/art/00.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:31: D public/art/01.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:32: D public/art/02.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:33: D public/art/03.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:34: D public/art/04.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:35: D public/art/05.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:36: D public/art/06.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:37: D public/art/07.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:38: D public/art/08.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:39: D public/art/09-10.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:40: D public/art/11.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:41: D public/art/doc-electrical.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:42: D public/art/doc-emc.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:43: D public/art/doc-rohs.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:44: D public/art/doc-telecom.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:45: D public/art/doc-uae.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:46: D public/art/faq-row-1.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:47: D public/art/faq-row-2.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:48: D public/art/faq-row-3.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:49: D public/art/faq-row-4.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:50: D public/art/faq-row-5.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:51: D public/art/faq-row-6.png
+./docs/evidence/art-webp/native-review-chg0058-final.log:52: D public/art/unused-webp/00.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:53: D public/art/unused-webp/01.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:54: D public/art/unused-webp/02.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:55: D public/art/unused-webp/03.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:56: D public/art/unused-webp/04.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:57: D public/art/unused-webp/05.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:58: D public/art/unused-webp/06.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:59: D public/art/unused-webp/07.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:60: D public/art/unused-webp/08.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:61: D public/art/unused-webp/09-10.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:62: D public/art/unused-webp/09.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:63: D public/art/unused-webp/10.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:64: D public/art/unused-webp/11.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:65: D public/art/unused-webp/README.txt
+./docs/evidence/art-webp/native-review-chg0058-final.log:66: D public/art/unused-webp/doc-electrical.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:67: D public/art/unused-webp/doc-emc.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:68: D public/art/unused-webp/doc-rohs.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:69: D public/art/unused-webp/doc-telecom.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:70: D public/art/unused-webp/doc-uae.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:71: D public/art/unused-webp/faq-row-1.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:72: D public/art/unused-webp/faq-row-2.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:73: D public/art/unused-webp/faq-row-3.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:74: D public/art/unused-webp/faq-row-4.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:75: D public/art/unused-webp/faq-row-5.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:76: D public/art/unused-webp/faq-row-6.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:84:?? lib/art-previews.json
+./docs/evidence/art-webp/native-review-chg0058-final.log:101:?? public/art/faq-row-1.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:102:?? public/art/faq-row-2.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:103:?? public/art/faq-row-3.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:104:?? public/art/faq-row-4.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:105:?? public/art/faq-row-5.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:106:?? public/art/faq-row-6.webp
+./docs/evidence/art-webp/native-review-chg0058-final.log:107:?? public/art/original-png/
+./docs/evidence/art-webp/native-review-chg0058-final.log:122: public/art/00.png                          | Bin 3194801 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:123: public/art/01.png                          | Bin 3514840 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:124: public/art/02.png                          | Bin 3665828 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:125: public/art/03.png                          | Bin 4798956 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:126: public/art/04.png                          | Bin 4962948 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:127: public/art/05.png                          | Bin 4048822 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:128: public/art/06.png                          | Bin 4197021 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:129: public/art/07.png                          | Bin 4290447 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:130: public/art/08.png                          | Bin 4035149 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:131: public/art/09-10.png                       | Bin 6957268 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:132: public/art/11.png                          | Bin 1632336 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:133: public/art/doc-electrical.png              | Bin 14736 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:134: public/art/doc-emc.png                     | Bin 9846 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:135: public/art/doc-rohs.png                    | Bin 9768 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:136: public/art/doc-telecom.png                 | Bin 6399 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:137: public/art/doc-uae.png                     | Bin 9249 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:138: public/art/faq-row-1.png                   | Bin 192502 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:139: public/art/faq-row-2.png                   | Bin 182769 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:140: public/art/faq-row-3.png                   | Bin 185885 -> 0 bytes
+./docs/evidence/art-webp/native-review-chg0058-final.log:141: public/art/faq-row-4.png                   | Bin 195347 -> 0 bytes
+ 80K	lib/art-previews.json
+304K	public/art/00.webp
+444K	public/art/01.webp
+468K	public/art/02.webp
+868K	public/art/03.webp
+924K	public/art/04.webp
+584K	public/art/05.webp
+596K	public/art/06.webp
+680K	public/art/07.webp
+588K	public/art/08.webp
+800K	public/art/09-10.webp
+228K	public/art/11.webp
+ 12K	public/art/doc-electrical.webp
+8.0K	public/art/doc-emc.webp
+8.0K	public/art/doc-rohs.webp
+4.0K	public/art/doc-telecom.webp
+8.0K	public/art/doc-uae.webp
+ 12K	public/art/faq-row-1.webp
+8.0K	public/art/faq-row-2.webp
+ 12K	public/art/faq-row-3.webp
+ 16K	public/art/faq-row-4.webp
+ 12K	public/art/faq-row-5.webp
+ 12K	public/art/faq-row-6.webp
+{
+  "name": "ramsider",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test:visual": "playwright test",
+    "test:visual:ui": "playwright test --ui",
+    "visual:diff": "node tools/visual-diff.mjs"
+  },
+  "devDependencies": {
+    "@playwright/cli": "^0.1.22",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.11",
+    "pixelmatch": "^7.2.0",
+    "pngjs": "^7.0.0",
+    "sharp": "^0.35.5",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "next": "^16.2.11",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  }
+}
+diff --git a/AGENTS.md b/AGENTS.md
+index fade941..fff7197 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -35,6 +35,7 @@ For substantive project work, start one independent, non-editing **discipline au
+ - Accessibility: semantic content, keyboard and screen reader support, labels, visible focus, usable touch targets, WCAG AA contrast, and reduced-motion support. Verify affected behavior.
+ - Product truth: the render is the visual/content target, not proof of prices, certifications, health claims, stock, or backend behavior. Preserve its visible narrative in the local rebuild; track unverified facts and confirm them before publication or functioning commerce. See [PRODUCT.md](PRODUCT.md).
+ - Performance: the first viewport must become useful quickly. The two reference PNGs are each about 44 MB; never serve either as one production background. Derive responsive, compressed sections/tiles from the clean artwork, load the visible segment eagerly and later segments near the viewport, and avoid seams or blank gaps. Never lazy-load the LCP asset. Aim for 95+ mobile Lighthouse only with measured evidence.
++- Artwork color: **always load [artwork-color-pipeline](.agents/skills/artwork-color-pipeline/SKILL.md)** before adding or replacing Photoshop/raster references, cropping or resizing them for the site, converting PNG/PSD exports to WebP/AVIF, or changing how those raster assets are delivered. Apply its source-profile, decoded-color, alpha, browser and speed checks before delivery. Ordinary text, CSS-only, and vector-only edits do not trigger it.
+ - Tooling: prefer native Codex capabilities when they provide the required evidence; use additional skills/tools for project-specific workflow or capabilities the native route lacks. Read the project [implementer skill](.agents/skills/pixel-perfect-ui-implementer/SKILL.md) when building UI and the [testing skill](.agents/skills/pixel-perfect-ui-testing/SKILL.md) when verifying it. Use the Codex browser for quick exploratory inspection when available; use the configured Playwright WebKit/DPR 3 profiles for required mobile screenshots and repeatable checks. `/review` is a native Codex command, not an installable skill. Load each skill when its stage needs it, not both up front. Broad design-generation skills must not replace the approved render. The requested Codex model and modes are session settings: check availability before claiming they are active. See [TOOLS.md](TOOLS.md) for other skills and limitations.
+ - Self-improvement: after **every user correction and meaningful self-detected failure**, find the root cause, fix and recheck it, then decide whether the prevention generalizes. If repeatable, update [LESSONS.md](LESSONS.md) with **problem → cause → prevention** and consult the relevant lesson before similar work; do not promote one-off feedback into a global rule. Keep [MEMORY.md](MEMORY.md) current with verified project state and decisions, without duplicating the task transcript. Preserve user edits and design sources.
+
+diff --git a/PERFORMANCE.md b/PERFORMANCE.md
+index c14acce..212858f 100644
+--- a/PERFORMANCE.md
++++ b/PERFORMANCE.md
+@@ -12,7 +12,7 @@ Make the first visible artwork ready immediately; load later sections before the
+
+ 1. Prioritize the first viewport: background/hero, primary typography, CTA, and first controls. Do not lazy-load the LCP image. Preload only assets proven critical; excessive preloading competes with the hero.
+ 2. Prefer prerendered HTML for stable public content, Server Components for server-only work, and small Client Components for actual interaction. Use request-time SSR when content truly depends on the request or cannot meet its freshness needs through prerendering/revalidation, and that benefit outweighs added server latency. Use client-only rendering only when browser state makes server HTML unhelpful. Stream slow request-time sections with Suspense only when it improves the visible result; do not make static content wait behind a dynamic boundary.
+-3. Use correctly dimensioned responsive images (`next/image` where appropriate) and test quality, transfer, and decode cost. CHG-0047 requires exact-source PNG slices with original pixels and ICC: preload the first tile and lazy-load later tiles. This carries a documented cold-scroll blank-band risk until large PNGs decode; do not claim this gate passed without a real network/scroll measurement. Lazy-load unrelated later images, video, optional components, and third-party scripts. Provide still-image fallbacks for deferred video.
++3. Use correctly dimensioned responsive images (`next/image` where appropriate) and test quality, transfer, and decode cost. CHG-0056 supersedes the temporary CHG-0047 PNG delivery; CHG-0058 adds measured default/sharp-YUV selection and all-lossless document thumbnails with color-managed WebP slices and tiny previews; preload the first tile and lazy-load later full tiles. Check decoded color, ICC, alpha, cold distant-scroll preview paint and final image paint before claiming the image gate. Lazy-load unrelated later images, video, optional components, and third-party scripts. Provide still-image fallbacks for deferred video.
+ 4. Use `next/font` or optimized self-hosted fonts. Ship only the used families, weights, and subsets; reserve metrics to avoid text reflow. Prevent image, font, and animation layout shifts.
+ 5. Keep the client bundle and hydration small. Prefer CSS/native browser behavior; avoid render-blocking dependencies, oversized state, expensive effects, and unnecessary React renders. Dynamic imports, `React.lazy`, transitions, deferred values, and View Transitions are conditional tools, not a feature checklist; use one only when supported and measured to help.
+ 6. Animate transform and opacity rather than layout properties. Keep scroll and input responsive while background work occurs. Use caching, CDN/static delivery, production minification/compression, and framework caching where appropriate; verify freshness and cache isolation for dynamic or user-specific data.
+
+2026-10-03T23:12:02.208190Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a10409-aa22-7fe1-ab77-0cd8434aea8b turn_id=01a10409-aac9-71a1-b5cf-db0fcbbc5a50 item_id="exec-be860f36-44d2-46cd-989f-017d59e5fb6d"
+codex
+I found no actionable regression in the staged, unstaged, or untracked changes reviewed.
+I found no actionable regression in the staged, unstaged, or untracked changes reviewed.

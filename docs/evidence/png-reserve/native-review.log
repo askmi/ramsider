@@ -1,0 +1,858 @@
+2026-10-03T22:27:36.464856Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-03T22:27:36.464940Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.159.2
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: low
+reasoning summaries: none
+session id: 01a103e1-4172-76a3-8bae-a25c50513d68
+--------
+user
+current changes
+2026-10-03T22:27:37.243037Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-03T22:27:37.243060Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+exec
+/bin/zsh -lc 'git status --short; git diff --stat; git diff --cached --stat; find . -name AGENTS.md -o -name AGENTS.override.md' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 1769ms:
+ M CHANGELOG.md
+ M LESSONS.md
+ M MEMORY.md
+ M PERFORMANCE.md
+ M app/globals.css
+ M components/Story.tsx
+ M design/references/background.png
+ D public/art/00.png
+ D public/art/01.png
+ D public/art/02.png
+ D public/art/03.png
+ D public/art/04.png
+ D public/art/05.png
+ D public/art/06.png
+ D public/art/07.png
+ D public/art/08.png
+ D public/art/09-10.png
+ D public/art/11.png
+ D public/art/doc-electrical.png
+ D public/art/doc-emc.png
+ D public/art/doc-rohs.png
+ D public/art/doc-telecom.png
+ D public/art/doc-uae.png
+ D public/art/faq-row-1.png
+ D public/art/faq-row-2.png
+ D public/art/faq-row-3.png
+ D public/art/faq-row-4.png
+ D public/art/faq-row-5.png
+ D public/art/faq-row-6.png
+ D public/art/unused-webp/00.webp
+ D public/art/unused-webp/01.webp
+ D public/art/unused-webp/02.webp
+ D public/art/unused-webp/03.webp
+ D public/art/unused-webp/04.webp
+ D public/art/unused-webp/05.webp
+ D public/art/unused-webp/06.webp
+ D public/art/unused-webp/07.webp
+ D public/art/unused-webp/08.webp
+ D public/art/unused-webp/09-10.webp
+ D public/art/unused-webp/09.webp
+ D public/art/unused-webp/10.webp
+ D public/art/unused-webp/11.webp
+ D public/art/unused-webp/README.txt
+ D public/art/unused-webp/doc-electrical.webp
+ D public/art/unused-webp/doc-emc.webp
+ D public/art/unused-webp/doc-rohs.webp
+ D public/art/unused-webp/doc-telecom.webp
+ D public/art/unused-webp/doc-uae.webp
+ D public/art/unused-webp/faq-row-1.webp
+ D public/art/unused-webp/faq-row-2.webp
+ D public/art/unused-webp/faq-row-3.webp
+ D public/art/unused-webp/faq-row-4.webp
+ D public/art/unused-webp/faq-row-5.webp
+ D public/art/unused-webp/faq-row-6.webp
+ M tests/e2e/art-loading.spec.ts
+ M tools/slice-background-png.py
+?? design/references/background_old.png
+?? docs/art-color-pipeline.md
+?? docs/evidence/art-webp/
+?? docs/evidence/png-reserve/
+?? lib/art-previews.json
+?? public/art/00.webp
+?? public/art/01.webp
+?? public/art/02.webp
+?? public/art/03.webp
+?? public/art/04.webp
+?? public/art/05.webp
+?? public/art/06.webp
+?? public/art/07.webp
+?? public/art/08.webp
+?? public/art/09-10.webp
+?? public/art/11.webp
+?? public/art/doc-electrical.webp
+?? public/art/doc-emc.webp
+?? public/art/doc-rohs.webp
+?? public/art/doc-telecom.webp
+?? public/art/doc-uae.webp
+?? public/art/faq-row-1.webp
+?? public/art/faq-row-2.webp
+?? public/art/faq-row-3.webp
+?? public/art/faq-row-4.webp
+?? public/art/faq-row-5.webp
+?? public/art/faq-row-6.webp
+?? public/art/original-png/
+?? tools/check-art-assembly.mjs
+?? tools/check-art-browser.mjs
+?? tools/check-png-reserve-browser.mjs
+?? tools/convert-art-webp.py
+?? tools/measure-art-webp.mjs
+ CHANGELOG.md                               |  46 ++++++++++++++++++++++++++---
+ LESSONS.md                                 |   6 ++--
+ MEMORY.md                                  |  12 ++++++--
+ PERFORMANCE.md                             |   2 +-
+ app/globals.css                            |   2 +-
+ components/Story.tsx                       |  14 +++++----
+ design/references/background.png           | Bin 45550654 -> 45501546 bytes
+ public/art/00.png                          | Bin 3194801 -> 0 bytes
+ public/art/01.png                          | Bin 3514840 -> 0 bytes
+ public/art/02.png                          | Bin 3665828 -> 0 bytes
+ public/art/03.png                          | Bin 4798956 -> 0 bytes
+ public/art/04.png                          | Bin 4962948 -> 0 bytes
+ public/art/05.png                          | Bin 4048822 -> 0 bytes
+ public/art/06.png                          | Bin 4197021 -> 0 bytes
+ public/art/07.png                          | Bin 4290447 -> 0 bytes
+ public/art/08.png                          | Bin 4035149 -> 0 bytes
+ public/art/09-10.png                       | Bin 6957268 -> 0 bytes
+ public/art/11.png                          | Bin 1632336 -> 0 bytes
+ public/art/doc-electrical.png              | Bin 14736 -> 0 bytes
+ public/art/doc-emc.png                     | Bin 9846 -> 0 bytes
+ public/art/doc-rohs.png                    | Bin 9768 -> 0 bytes
+ public/art/doc-telecom.png                 | Bin 6399 -> 0 bytes
+ public/art/doc-uae.png                     | Bin 9249 -> 0 bytes
+ public/art/faq-row-1.png                   | Bin 192502 -> 0 bytes
+ public/art/faq-row-2.png                   | Bin 182769 -> 0 bytes
+ public/art/faq-row-3.png                   | Bin 185885 -> 0 bytes
+ public/art/faq-row-4.png                   | Bin 195347 -> 0 bytes
+ public/art/faq-row-5.png                   | Bin 198963 -> 0 bytes
+ public/art/faq-row-6.png                   | Bin 184937 -> 0 bytes
+ public/art/unused-webp/00.webp             | Bin 86118 -> 0 bytes
+ public/art/unused-webp/01.webp             | Bin 127612 -> 0 bytes
+ public/art/unused-webp/02.webp             | Bin 144212 -> 0 bytes
+ public/art/unused-webp/03.webp             | Bin 304794 -> 0 bytes
+ public/art/unused-webp/04.webp             | Bin 354854 -> 0 bytes
+ public/art/unused-webp/05.webp             | Bin 211296 -> 0 bytes
+ public/art/unused-webp/06.webp             | Bin 201726 -> 0 bytes
+ public/art/unused-webp/07.webp             | Bin 254174 -> 0 bytes
+ public/art/unused-webp/08.webp             | Bin 218120 -> 0 bytes
+ public/art/unused-webp/09-10.webp          | Bin 406042 -> 0 bytes
+ public/art/unused-webp/09.webp             | Bin 162438 -> 0 bytes
+ public/art/unused-webp/10.webp             | Bin 93928 -> 0 bytes
+ public/art/unused-webp/11.webp             | Bin 52396 -> 0 bytes
+ public/art/unused-webp/README.txt          |   1 -
+ public/art/unused-webp/doc-electrical.webp | Bin 2420 -> 0 bytes
+ public/art/unused-webp/doc-emc.webp        | Bin 1902 -> 0 bytes
+ public/art/unused-webp/doc-rohs.webp       | Bin 2210 -> 0 bytes
+ public/art/unused-webp/doc-telecom.webp    | Bin 1534 -> 0 bytes
+ public/art/unused-webp/doc-uae.webp        | Bin 2366 -> 0 bytes
+ public/art/unused-webp/faq-row-1.webp      | Bin 26984 -> 0 bytes
+ public/art/unused-webp/faq-row-2.webp      | Bin 20148 -> 0 bytes
+ public/art/unused-webp/faq-row-3.webp      | Bin 22612 -> 0 bytes
+ public/art/unused-webp/faq-row-4.webp      | Bin 29100 -> 0 bytes
+ public/art/unused-webp/faq-row-5.webp      | Bin 31868 -> 0 bytes
+ public/art/unused-webp/faq-row-6.webp      | Bin 25740 -> 0 bytes
+ tests/e2e/art-loading.spec.ts              |  23 ++++++++++++---
+ tools/slice-background-png.py              |  33 ++++++++++++++++-----
+ 56 files changed, 109 insertions(+), 30 deletions(-)
+./.agents/skills/vercel-react-best-practices/AGENTS.md
+./.agents/skills/vercel-composition-patterns/AGENTS.md
+./AGENTS.md
+
+2026-10-03T22:27:44.443945Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a103e1-4172-76a3-8bae-a25c50513d68 turn_id=01a103e1-420b-75c2-95e2-b7688addc1ad item_id="exec-c8376758-f4bd-4c91-a093-cd633dffdacd"
+exec
+/bin/zsh -lc "git diff -- app/globals.css components/Story.tsx tests/e2e/art-loading.spec.ts tools/slice-background-png.py; cat lib/art-previews.json; cat docs/art-color-pipeline.md; rg '\\.png|\\.webp|art/' app components lib --glob '"'!art-previews.json'"'" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 84ms:
+diff --git a/app/globals.css b/app/globals.css
+index b60c314..863fec6 100644
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -16,7 +16,7 @@ a{color:inherit}
+ :focus-visible{outline:3px solid #815013;outline-offset:3px}
+ .canvas{position:relative;container-type:inline-size;display:grid;grid-template-rows:auto auto auto;width:100%;max-width:941px;margin-inline:auto;overflow:clip;isolation:isolate;background:#d8bb9f}
+ .art{position:absolute;inset:0 0 auto;height:calc(27147/941*100cqw);overflow:hidden;z-index:0;pointer-events:none}
+-.art img,.tail-art img{display:block;width:100%;height:auto}
++.art img,.tail-art img{display:block;width:100%;height:auto;background-size:100% 100%;background-repeat:no-repeat}
+ .art img:not(:first-child),.tail-art-track img{margin-top:calc(-2/941*100cqw)}
+ .story-prefix-space{grid-row:1;height:calc(27147/941*100cqw)}
+ .story-tail{grid-row:3;position:relative;height:calc(3920/941*100cqw);--source-offset:calc(28207/941*100cqw)}
+diff --git a/components/Story.tsx b/components/Story.tsx
+index 12e261e..ba96214 100644
+--- a/components/Story.tsx
++++ b/components/Story.tsx
+@@ -11,6 +11,7 @@ import { ActionArrow } from './ActionArrow';
+ import buttonMap from '@/lib/button-map.json';
+ import iconMap from '@/lib/icon-map.json';
+ import localizedButtonWidths from '@/lib/button-localized-widths.json';
++import artPreviews from '@/lib/art-previews.json';
+
+ // Keep the complete FAQ/account artwork in one tile: no image edge through a card.
+ const artTiles = Array.from({ length: 12 }, (_, i) => ({
+@@ -104,7 +105,7 @@ const docs: { key: Key; detail: string; x: number; y: number }[] = [
+ function DocumentCards({ locale }: { locale: Locale }) {
+   return <>
+     {docs.map((doc) => <div className={`doc-card doc-card--${doc.key} source-panel`} key={doc.key} style={sourceStyle(doc.x, doc.y, 356)}>
+-      <Image className="doc-thumb" src={`/art/doc-${doc.key}.png`} width={95} height={140} alt="" unoptimized />
++      <Image className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized />
+       <strong>{textLines(t(locale, doc.key))}</strong>
+       <small>{textLines(doc.detail)}</small>
+       <button id={`document-${doc.key}`} type="button" aria-haspopup="dialog" popoverTarget={`doc-detail-${doc.key}`} aria-label={`${t(locale, 'docView')}: ${t(locale, doc.key).replaceAll('\n', ' ')}`}><span className="doc-action-label">{t(locale, 'docView')}</span><ActionArrow /></button>
+@@ -138,8 +139,8 @@ function Faq({ locale }: { locale: Locale }) {
+     } as React.CSSProperties}>
+       <div className="faq-row-art" aria-hidden="true">
+         {['top', 'middle', 'bottom'].map(part => <div className={`faq-art-${part}`} key={part}>
+-          <Image src={`/art/faq-row-${index + 1}.png`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" />
+-          {part === 'middle' && <Image className="faq-minus-cover" src={`/art/faq-row-${index + 1}.png`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" />}
++          <Image src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
++          {part === 'middle' && <Image className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
+         </div>)}
+       </div>
+       <details>
+@@ -227,7 +228,7 @@ export function Story({ locale }: { locale: Locale }) {
+       <div className="art" aria-hidden="true">
+         {artTiles.filter(({ file }) => file !== '11').map(({ file, height }, i) => <Image
+           key={i}
+-          src={`/art/${file}.png`}
++          src={`/art/${file}.webp`}
+           width={941}
+           height={height}
+           alt=""
+@@ -235,6 +236,7 @@ export function Story({ locale }: { locale: Locale }) {
+           preload={i === 0}
+           loading={i === 0 ? 'eager' : 'lazy'}
+           fetchPriority={i === 0 ? 'high' : 'low'}
++          placeholder={i === 0 ? 'empty' : artPreviews[file as keyof typeof artPreviews] as `data:image/${string}`}
+         />)}
+       </div>
+       <Menus locale={locale} />
+@@ -298,8 +300,8 @@ export function Story({ locale }: { locale: Locale }) {
+       <Faq locale={locale} />
+       <section className="story-tail" aria-label={t(locale, 'account')}>
+         <div className="tail-art" aria-hidden="true"><div className="tail-art-track">
+-          <Image src="/art/09-10.png" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="low" />
+-          <Image src="/art/11.png" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="low" />
++          <Image src="/art/09-10.webp" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['09-10'] as `data:image/${string}`} />
++          <Image src="/art/11.webp" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['11'] as `data:image/${string}`} />
+         </div></div>
+         {storyNodes.filter(node => node.y >= 28207).map((node, index) => <OverlayNode node={node} locale={locale} key={`${node.key}-${index}`} />)}
+       <button id="account-personal" type="button" className="account-hit" style={sourceStyle(45, 28230, 850)} popoverTarget="unavailable-account" aria-label={t(locale, 'account')} />
+diff --git a/tests/e2e/art-loading.spec.ts b/tests/e2e/art-loading.spec.ts
+index 197b2fd..9f48c32 100644
+--- a/tests/e2e/art-loading.spec.ts
++++ b/tests/e2e/art-loading.spec.ts
+@@ -13,10 +13,10 @@ async function luminanceRange(png: Buffer, box: { left: number; top: number; wid
+   return max - min;
+ }
+
+-test('source PNG tiles load after a fast distant scroll without WebP previews', async ({ page }, testInfo) => {
++test('color-managed WebP tiles load after a fast distant scroll', async ({ page }, testInfo) => {
+   let releaseImages!: () => void;
+   const imageGate = new Promise<void>(resolve => { releaseImages = resolve; });
+-  await page.route('**/art/*.png', async route => { await imageGate; await route.continue(); });
++  await page.route('**/art/*.webp', async route => { await imageGate; await route.continue(); });
+   try {
+     await page.goto('/en', { waitUntil: 'domcontentloaded' });
+     const first = await page.locator('.art img').first().evaluate(image => ({
+@@ -31,7 +31,19 @@ test('source PNG tiles load after a fast distant scroll without WebP previews',
+       .filter(image => { const box = image.getBoundingClientRect(); return box.top < innerHeight && box.bottom > 0; })
+       .map(image => ({ complete: image.complete, preview: getComputedStyle(image).backgroundImage })));
+     expect(distant.length).toBeGreaterThan(0);
+-    expect(distant.some(image => !image.complete && image.preview === 'none')).toBe(true);
++    expect(distant.some(image => !image.complete && image.preview.includes('data:image/webp;base64,'))).toBe(true);
++    const preview = await page.evaluate(async () => {
++      const visible = [...document.querySelectorAll<HTMLImageElement>('.art img')]
++        .find(image => { const r = image.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; });
++      const background = getComputedStyle(visible!).backgroundImage;
++      const url = background.slice(5, -2);
++      const image = new Image();
++      image.src = url;
++      await image.decode();
++      return { width: image.naturalWidth, height: image.naturalHeight };
++    });
++    expect(preview.width).toBe(118);
++    expect(preview.height).toBeGreaterThan(100);
+   } finally {
+     releaseImages();
+   }
+@@ -46,12 +58,15 @@ test('source PNG tiles load after a fast distant scroll without WebP previews',
+     .filter(image => { const box = image.getBoundingClientRect(); return box.top < innerHeight && box.bottom > 0; })
+     .map(image => image.decode())));
+   await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
++  await expect.poll(() => page.locator('.art img').evaluateAll(images => images
++    .filter(image => { const r = image.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; })
++    .every(image => getComputedStyle(image).backgroundImage === 'none'))).toBe(true);
+   const final = await page.screenshot({ scale: 'css', path: testInfo.outputPath('fast-scroll-loaded.png') });
+   const width = testInfo.project.use.viewport!.width;
+   expect(await luminanceRange(final, { left: 0, top: 210, width: Math.round(width * .42), height: 420 })).toBeGreaterThan(25);
+ });
+
+-for (const language of [{ code: 'ru', dir: 'ltr' }, { code: 'ar', dir: 'rtl' }]) test(`${language.code} change keeps PNG artwork available after scrolling`, async ({ page }, testInfo) => {
++for (const language of [{ code: 'ru', dir: 'ltr' }, { code: 'ar', dir: 'rtl' }]) test(`${language.code} change keeps WebP artwork available after scrolling`, async ({ page }, testInfo) => {
+   await page.goto('/en');
+   await page.route(`**/${language.code}`, async route => { await new Promise(resolve => setTimeout(resolve, 600)); await route.continue(); });
+   await page.locator('#locale-toggle').click();
+diff --git a/tools/slice-background-png.py b/tools/slice-background-png.py
+index fa82863..69fedba 100644
+--- a/tools/slice-background-png.py
++++ b/tools/slice-background-png.py
+@@ -1,10 +1,12 @@
+-"""Crop active artwork from the original PNGs without changing RGBA or ICC."""
++"""Crop reserve PNG artwork from the original files without changing RGBA or ICC."""
+
+ from pathlib import Path
++import hashlib
++import json
+ from PIL import Image
+
+ ROOT = Path(__file__).resolve().parents[1]
+-ART = ROOT / "public/art"
++ART = ROOT / "public/art/original-png"
+ REFERENCE = ROOT / "design/references"
+
+ main = [(f"{index:02}", index * 2800, (index + 1) * 2800) for index in range(9)]
+@@ -14,9 +16,11 @@ faq = [(27147, 172, 7), (27326, 171, 8), (27505, 171, 7),
+ documents = [("electrical", 120, 23305), ("emc", 510, 23305),
+              ("uae", 120, 23550), ("rohs", 510, 23550),
+              ("telecom", 120, 23795)]
++records = []
+
+
+-def save_exact(source: Image.Image, name: str, box: tuple[int, int, int, int]) -> None:
++def save_exact(source: Image.Image, source_name: str, name: str,
++               box: tuple[int, int, int, int]) -> None:
+     crop = source.crop(box)
+     path = ART / f"{name}.png"
+     crop.save(path, format="PNG", compress_level=9,
+@@ -26,19 +30,34 @@ def save_exact(source: Image.Image, name: str, box: tuple[int, int, int, int]) -
+         assert saved.mode == crop.mode, name
+         assert saved.tobytes() == crop.tobytes(), name
+         assert saved.info.get("icc_profile") == source.info["icc_profile"], name
++    with Image.open(ROOT / "public/art" / f"{name}.webp") as active:
++        assert active.size == crop.size, name
++    records.append({"file": path.name, "source": source_name, "box": box,
++                    "size": list(crop.size), "bytes": path.stat().st_size,
++                    "sha256": hashlib.sha256(path.read_bytes()).hexdigest()})
+
+
++ART.mkdir(parents=True, exist_ok=True)
++
+ with Image.open(REFERENCE / "background.png") as source:
+     assert source.size == (941, 32127) and source.mode == "RGBA"
+     for name, top, bottom in main:
+         # Two untouched source rows overlap the previous tile during CSS scaling.
+-        save_exact(source, name, (0, top - (2 if top else 0), 941, bottom))
++        save_exact(source, "background.png", name, (0, top - (2 if top else 0), 941, bottom))
+     for index, (top, height, gap) in enumerate(faq, 1):
+-        save_exact(source, f"faq-row-{index}", (0, top - 4, 941, top + height + gap + 4))
++        save_exact(source, "background.png", f"faq-row-{index}", (0, top - 4, 941, top + height + gap + 4))
+
+ with Image.open(REFERENCE / "background_text.png") as source:
+     assert source.size == (941, 32127) and source.mode == "RGBA"
+     for name, left, top in documents:
+-        save_exact(source, f"doc-{name}", (left, top, left + 95, top + 140))
+-
++        save_exact(source, "background_text.png", f"doc-{name}", (left, top, left + 95, top + 140))
++
++assert len(records) == 22
++manifest = {
++    "purpose": "Unused exact-source PNG alternatives for future format selection",
++    "source_sha256": {name: hashlib.sha256((REFERENCE / name).read_bytes()).hexdigest()
++                      for name in ("background.png", "background_text.png")},
++    "files": records,
++}
++(ART / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+ print("Verified 22 PNG crops: exact RGBA pixels and source ICC profile.")
+{
+  "01": "data:image/webp;base64,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",
+  "02": "data:image/webp;base64,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",
+  "03": "data:image/webp;base64,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",
+  "04": "data:image/webp;base64,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",
+  "05": "data:image/webp;base64,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",
+  "06": "data:image/webp;base64,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",
+  "07": "data:image/webp;base64,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",
+  "08": "data:image/webp;base64,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",
+  "09-10": "data:image/webp;base64,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",
+  "11": "data:image/webp;base64,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",
+  "faq-row-1": "data:image/webp;base64,UklGRiADAABXRUJQVlA4WAoAAAAgAAAAdQAAFgAASUNDUEwCAAAAAAJMbGNtcwRAAABtbnRyUkdCIFhZWiAH6gAKAAMAFQArAA1hY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxjbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtkZXNjAAABCAAAADZjcHJ0AAABQAAAAEx3dHB0AAABjAAAABRjaGFkAAABoAAAACxyWFlaAAABzAAAABRiWFlaAAAB4AAAABRnWFlaAAAB9AAAABRyVFJDAAACCAAAACBnVFJDAAACCAAAACBiVFJDAAACCAAAACBjaHJtAAACKAAAACRtbHVjAAAAAAAAAAEAAAAMZW5VUwAAABoAAAAcAHMAUgBHAEIAIABiAHUAaQBsAHQALQBpAG4AAG1sdWMAAAAAAAAAAQAAAAxlblVTAAAAMAAAABwATgBvACAAYwBvAHAAeQByAGkAZwBoAHQALAAgAHUAcwBlACAAZgByAGUAZQBsAHlYWVogAAAAAAAA9tYAAQAAAADTLXNmMzIAAAAAAAEMQgAABd7///MlAAAHkwAA/ZD///uh///9ogAAA9wAAMBuWFlaIAAAAAAAAG+gAAA49QAAA5BYWVogAAAAAAAAJJ8AAA+EAAC2w1hZWiAAAAAAAABilwAAt4cAABjZcGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACltjaHJtAAAAAAADAAAAAKPXAABUewAATM0AAJmaAAAmZgAAD1xWUDggrgAAAPAGAJ0BKnYAFwA+kTybSCWmoqGwFAoA0BIJZwDKeAiOgxPeuOcr2fNE/80/K4Q9TExxvWKmEuvvR6QIaFB2jAAA/tMt9ZYU0lIXhtlD+ySTIOO2shnonirURoRirJrbK3Zp6oxEnnI1LX+g/cNrSog4s44zxYQJhQ70Z/l3wIDCcmoYfebzYsuzD+a8jMw5PAkK3PWQLJm0mz7lKfTglW9xxtOnt+/oH83dywAAAA==",
+  "faq-row-2": "data:image/webp;base64,UklGRhgDAABXRUJQVlA4WAoAAAAgAAAAdQAAFgAASUNDUEwCAAAAAAJMbGNtcwRAAABtbnRyUkdCIFhZWiAH6gAKAAMAFQArAA1hY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxjbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtkZXNjAAABCAAAADZjcHJ0AAABQAAAAEx3dHB0AAABjAAAABRjaGFkAAABoAAAACxyWFlaAAABzAAAABRiWFlaAAAB4AAAABRnWFlaAAAB9AAAABRyVFJDAAACCAAAACBnVFJDAAACCAAAACBiVFJDAAACCAAAACBjaHJtAAACKAAAACRtbHVjAAAAAAAAAAEAAAAMZW5VUwAAABoAAAAcAHMAUgBHAEIAIABiAHUAaQBsAHQALQBpAG4AAG1sdWMAAAAAAAAAAQAAAAxlblVTAAAAMAAAABwATgBvACAAYwBvAHAAeQByAGkAZwBoAHQALAAgAHUAcwBlACAAZgByAGUAZQBsAHlYWVogAAAAAAAA9tYAAQAAAADTLXNmMzIAAAAAAAEMQgAABd7///MlAAAHkwAA/ZD///uh///9ogAAA9wAAMBuWFlaIAAAAAAAAG+gAAA49QAAA5BYWVogAAAAAAAAJJ8AAA+EAAC2w1hZWiAAAAAAAABilwAAt4cAABjZcGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACltjaHJtAAAAAAADAAAAAKPXAABUewAATM0AAJmaAAAmZgAAD1xWUDggpgAAANAGAJ0BKnYAFwA+iTaUR66jIiEz+zlZ0BEJZwDOOB19uYsYPxttAmakityIXQvl4Rq5rUGkh+RcjucBBks3AAD+6nt8qqsE2A7jkqLAopZlHozTUFrZ1Cx/d9CVKi/K57YV7pinfW7OTZLJDeU44zyYhhhfwpNO/y54VlhtzKrBQkkjUhFvKClStdwCFarPwTQYlhrLPNQml4ZEKO/VIlVhYyAAAAA=",
+  "faq-row-3": "data:image/webp;base64,UklGRhIDAABXRUJQVlA4WAoAAAAgAAAAdQAAFgAASUNDUEwCAAAAAAJMbGNtcwRAAABtbnRyUkdCIFhZWiAH6gAKAAMAFQArAA1hY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxjbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtkZXNjAAABCAAAADZjcHJ0AAABQAAAAEx3dHB0AAABjAAAABRjaGFkAAABoAAAACxyWFlaAAABzAAAABRiWFlaAAAB4AAAABRnWFlaAAAB9AAAABRyVFJDAAACCAAAACBnVFJDAAACCAAAACBiVFJDAAACCAAAACBjaHJtAAACKAAAACRtbHVjAAAAAAAAAAEAAAAMZW5VUwAAABoAAAAcAHMAUgBHAEIAIABiAHUAaQBsAHQALQBpAG4AAG1sdWMAAAAAAAAAAQAAAAxlblVTAAAAMAAAABwATgBvACAAYwBvAHAAeQByAGkAZwBoAHQALAAgAHUAcwBlACAAZgByAGUAZQBsAHlYWVogAAAAAAAA9tYAAQAAAADTLXNmMzIAAAAAAAEMQgAABd7///MlAAAHkwAA/ZD///uh///9ogAAA9wAAMBuWFlaIAAAAAAAAG+gAAA49QAAA5BYWVogAAAAAAAAJJ8AAA+EAAC2w1hZWiAAAAAAAABilwAAt4cAABjZcGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACltjaHJtAAAAAAADAAAAAKPXAABUewAATM0AAJmaAAAmZgAAD1xWUDggoAAAAHAGAJ0BKnYAFwA+hTaUR6qjIiG1/RgBUBCJaQDRRCW5cz3HvYlCj+CJcoZhcYpzQ8ycyj3LO7Aq8RvYwAD+79DWXMnt3XlG7xAXCFm6tyY57EvSEYtwR8PUzdS81fpVl4UsqKbhlyPVGzKomvlt45DxKsKXEzLnUilRKFyqKTrzAUdxno5mVkMkUcqU4dl2t/uUKTxG2l440Di5olgAAAA=",
+  "faq-row-4": "data:image/webp;base64,UklGRiQDAABXRUJQVlA4WAoAAAAgAAAAdQAAFgAASUNDUEwCAAAAAAJMbGNtcwRAAABtbnRyUkdCIFhZWiAH6gAKAAMAFQArAA1hY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxjbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtkZXNjAAABCAAAADZjcHJ0AAABQAAAAEx3dHB0AAABjAAAABRjaGFkAAABoAAAACxyWFlaAAABzAAAABRiWFlaAAAB4AAAABRnWFlaAAAB9AAAABRyVFJDAAACCAAAACBnVFJDAAACCAAAACBiVFJDAAACCAAAACBjaHJtAAACKAAAACRtbHVjAAAAAAAAAAEAAAAMZW5VUwAAABoAAAAcAHMAUgBHAEIAIABiAHUAaQBsAHQALQBpAG4AAG1sdWMAAAAAAAAAAQAAAAxlblVTAAAAMAAAABwATgBvACAAYwBvAHAAeQByAGkAZwBoAHQALAAgAHUAcwBlACAAZgByAGUAZQBsAHlYWVogAAAAAAAA9tYAAQAAAADTLXNmMzIAAAAAAAEMQgAABd7///MlAAAHkwAA/ZD///uh///9ogAAA9wAAMBuWFlaIAAAAAAAAG+gAAA49QAAA5BYWVogAAAAAAAAJJ8AAA+EAAC2w1hZWiAAAAAAAABilwAAt4cAABjZcGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACltjaHJtAAAAAAADAAAAAKPXAABUewAATM0AAJmaAAAmZgAAD1xWUDggsgAAANAGAJ0BKnYAFwA+gTiUR6ajoiE1/RgA0BAJaQDNhCUKuiFYy4mMpdboMmxZaxpCpjqYWBSmuzzNQ7NkqF5eAAD+3pb8IOC58S6V1B65xdgirlhV2+T98CP1rz7hhxtrO2aMuoRZLBVOndkRkmfwvWzPoxe6BV03W0JahZcA2zCx/008i4rchQ5qeGsxMi73rV53fjbKzQV8zi59S3vvBzI+R3HAQGcl6Vi27fGL5q6AAAA=",
+  "faq-row-5": "data:image/webp;base64,UklGRjQDAABXRUJQVlA4WAoAAAAgAAAAdQAAFgAASUNDUEwCAAAAAAJMbGNtcwRAAABtbnRyUkdCIFhZWiAH6gAKAAMAFQArAA1hY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxjbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtkZXNjAAABCAAAADZjcHJ0AAABQAAAAEx3dHB0AAABjAAAABRjaGFkAAABoAAAACxyWFlaAAABzAAAABRiWFlaAAAB4AAAABRnWFlaAAAB9AAAABRyVFJDAAACCAAAACBnVFJDAAACCAAAACBiVFJDAAACCAAAACBjaHJtAAACKAAAACRtbHVjAAAAAAAAAAEAAAAMZW5VUwAAABoAAAAcAHMAUgBHAEIAIABiAHUAaQBsAHQALQBpAG4AAG1sdWMAAAAAAAAAAQAAAAxlblVTAAAAMAAAABwATgBvACAAYwBvAHAAeQByAGkAZwBoAHQALAAgAHUAcwBlACAAZgByAGUAZQBsAHlYWVogAAAAAAAA9tYAAQAAAADTLXNmMzIAAAAAAAEMQgAABd7///MlAAAHkwAA/ZD///uh///9ogAAA9wAAMBuWFlaIAAAAAAAAG+gAAA49QAAA5BYWVogAAAAAAAAJJ8AAA+EAAC2w1hZWiAAAAAAAABilwAAt4cAABjZcGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACltjaHJtAAAAAAADAAAAAKPXAABUewAATM0AAJmaAAAmZgAAD1xWUDggwgAAAJAGAJ0BKnYAFwA+hTyWR6UjoiE190gAoBCJZwDKtBQ1rk3ji1CaAg2ASyxyBEj9+7QahzWVILZ1SsuTbAAAsXhqfhYIcDDESf8HhTIWCZQHU06c+R8755rEQ4LCghDqOrOwPYWqRy4b3Z9Ui9Iie1IOeATprFw3Lsv7g4OD5DvF0H2g/LN7yUwdVX12FB6XvS/oS0BRTxL8RrSXa8vld5gbX6VNwIunTeKVce/i2aCRC+RRzx77f33bj/7CJP0lwAAA",
+  "faq-row-6": "data:image/webp;base64,UklGRjgDAABXRUJQVlA4WAoAAAAgAAAAdQAAFQAASUNDUEwCAAAAAAJMbGNtcwRAAABtbnRyUkdCIFhZWiAH6gAKAAMAFQArAA1hY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxjbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtkZXNjAAABCAAAADZjcHJ0AAABQAAAAEx3dHB0AAABjAAAABRjaGFkAAABoAAAACxyWFlaAAABzAAAABRiWFlaAAAB4AAAABRnWFlaAAAB9AAAABRyVFJDAAACCAAAACBnVFJDAAACCAAAACBiVFJDAAACCAAAACBjaHJtAAACKAAAACRtbHVjAAAAAAAAAAEAAAAMZW5VUwAAABoAAAAcAHMAUgBHAEIAIABiAHUAaQBsAHQALQBpAG4AAG1sdWMAAAAAAAAAAQAAAAxlblVTAAAAMAAAABwATgBvACAAYwBvAHAAeQByAGkAZwBoAHQALAAgAHUAcwBlACAAZgByAGUAZQBsAHlYWVogAAAAAAAA9tYAAQAAAADTLXNmMzIAAAAAAAEMQgAABd7///MlAAAHkwAA/ZD///uh///9ogAAA9wAAMBuWFlaIAAAAAAAAG+gAAA49QAAA5BYWVogAAAAAAAAJJ8AAA+EAAC2w1hZWiAAAAAAAABilwAAt4cAABjZcGFyYQAAAAAAAwAAAAJmZgAA8qcAAA1ZAAAT0AAACltjaHJtAAAAAAADAAAAAKPXAABUewAATM0AAJmaAAAmZgAAD1xWUDggxgAAABAHAJ0BKnYAFgA+kTqXR6WpoiE18ugBMBIJaQDMWAbIwz/rCct78+pu5Wt8WZ9zor5df0LsqfKV7bCYsrZC1mNQAP7Z9evOkvv7O6rVNcnFFBQa8Zv1wgbFpq/9O9JeREAm9GGoULFyH1JOxcQ4ST5yrIaB5T/OG8JPhhbFgBSR1d4A49998GNzMKveC3OP3y/giPTBOWBen0qzwvVuMGKJS6eAQSIP5toj7FJthWJ9OEOiH7tolJWDdm0c0lc8waNQuBIAAA=="
+}
+# Background artwork color and delivery — 2026-10-04
+
+## Why the earlier WebP changed color
+
+The current `design/references/background.png` is a 941 × 32,127 RGBA export tagged **Adobe RGB (1998)**. The archived WebP files were lossy VP8 and had no ICC tag. The archive is now deleted. Losing the profile can change how the same channel numbers are interpreted; lossy VP8 also changes decoded RGB, particularly around saturated color and fine edges. The reported “−6 red” was a useful symptom, not a universal correction to apply to every pixel.
+
+## Current production method
+
+Run `python3 tools/convert-art-webp.py` from the repository root. The converter:
+
+1. Crops the **current** Photoshop PNG exports using the established 11 main, six FAQ, and five document coordinates and the two-row tile overlap. No WebP is derived from a previous WebP.
+2. Uses LittleCMS to transform Adobe RGB to sRGB with relative colorimetric intent and black point compensation, retaining source alpha exactly. For fully transparent rightmost pixels beside opaque artwork, it only aligns invisible RGB with the neighbor; it does not make them opaque. The browser join and outer-edge checks watch for the historic white line.
+3. Encodes the sRGB PNG with `cwebp -q 95 -m 6 -alpha_q 100 -metadata icc`. It checks the decoded alpha and sRGB ICC. If mean channel absolute error reaches 3/255 or the mean signed red/orange-channel shift reaches 2/255, it retries that tile with `-lossless -exact -metadata icc`.
+4. Makes 118-pixel-wide, ICC-tagged previews for below-fold main and FAQ segments. Their compressed image bytes total roughly 60 KB and are inlined as data URLs through Next Image placeholders. Next removes each preview after the full file decodes, preserving transparent source pixels. The hero has no preview and remains eager/preloaded.
+5. Writes all source hashes, crop coordinates, encodings, bytes, and RGB measurements to [color-metrics.json](evidence/art-webp/color-metrics.json).
+
+The 22 full WebPs total **5,664,838 bytes**. A freshly color-converted sRGB PNG version totals **50,120,753 bytes**. The hero is about **248 KB** versus **3,194,801 bytes** for the previous PNG hero. Four document thumbnails use exact lossless WebP after lossy compression produced a measurable local red shift; no manual RGB compensation is used.
+
+## Reserved original PNG option
+
+The future-use `public/art/original-png/` directory contains 22 source-exact PNG crops (46,308,888 bytes) with unchanged RGBA pixels and Adobe RGB ICC from the current references. `python3 tools/slice-background-png.py` regenerates and checks them; its `manifest.json` records crop boxes and hashes. They are not referenced by the current page. Because the folder is under `public/`, a deployment may carry those bytes even though the browser does not download them. A future network-based format selector needs its own browser color, cache, performance, and layout checks before activation.
+
+## Verification and limits
+
+`tools/check-art-browser.mjs` regenerates temporary, color-managed PNG controls from the current source, serves them to WebKit only during comparison, and saves Pro and Pro Max screen pairs at hero, first join, middle, FAQ, and footer positions. See [comparison.json](evidence/art-webp/browser/comparison.json). This comparison tests browser-painted output at DPR 3 with the same HTML and CSS. Local maximum pixel errors at fine edges can exceed a global mean, so screenshots and section joins must also be inspected visually.
+
+`tools/measure-art-webp.mjs` samples a cold Chromium iPhone 17 Pro profile on a synthetic 4 Mbps / 100 ms network. It records hero paint, preview paint, full distant artwork paint, LCP/CLS observations, and transferred bytes in [performance.json](evidence/art-webp/performance.json). It is a local synthetic sample, not a field-user speed or Lighthouse score.
+
+The standard Pro WebKit target is the supplied clean/reference render at 402 × 874 CSS px; Pro Max is a responsive check at 440 × 956. Design overlays remain HTML and independent of artwork conversion. Photoshop soft proofing and a calibrated display remain appropriate for final editorial color judgment. sRGB cannot reproduce colors outside its gamut; if the designer identifies a specific out-of-gamut color that must be preserved on wide-gamut screens, test a separately tagged Display P3 variant with an sRGB fallback rather than editing the red channel globally.
+
+## Other industry options
+
+| Method | Useful when | Tradeoff |
+| --- | --- | --- |
+| Responsive width variants with `<picture>`/`srcset` | The layout displays a smaller bitmap than the source on different devices | More files and crop QA; this page already displays the 941-pixel artwork at smaller CSS widths, so device-pixel needs should be measured before resampling |
+| Lossless WebP or optimized PNG | Logos, flat color, certificates, or a localized region fails lossy QA | More bytes; used here for four thumbnails |
+| Higher-quality lossy WebP | Photographic art tolerates small measured error | VP8's 4:2:0 chroma coding can still alter saturated fine detail |
+| AVIF or JPEG XL candidate | A browser matrix and measured quality/decoding advantage justify it | Requires separate color, alpha, browser and decode tests; small files alone are insufficient |
+| Art-directed layers and CSS/SVG text | Product imagery, gradients, copy and controls can be separated without changing composition | More positioning work; this site already keeps copy and controls as HTML |
+| Segmented lazy loading plus previews | A very tall story needs a quick first view and stable fast scrolling | Crop joins and transient preview quality need explicit browser checks |
+| CDN image transformations | Many widths or dynamic assets need automatic delivery | The service must preserve/convert ICC correctly and must be checked against the master |
+
+Sources: [Adobe web color conversion](https://helpx.adobe.com/photoshop/desktop/adjust-color/color-profiles/manage-documents-colors-for-online-viewing.html), [Google WebP FAQ](https://developers.google.com/speed/webp/faq), [Google `cwebp` reference](https://developers.google.com/speed/webp/docs/cwebp), [WebP container ICC specification](https://developers.google.com/speed/webp/docs/riff_container), [Next Image placeholders](https://nextjs.org/docs/app/api-reference/components/image), [responsive images](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images).
+app/globals.css:.button-orbit::before{content:"";position:absolute;inset:auto 0;background:url('/art/tech-ring.svg') center/100% 100% no-repeat;z-index:-1;height:calc(145/941*100cqw);top:calc(50% + 7/941*100cqw);transform:translateY(-50%)}
+components/Story.tsx:      <Image className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized />
+components/Story.tsx:          <Image src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
+components/Story.tsx:          {part === 'middle' && <Image className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
+components/Story.tsx:          src={`/art/${file}.webp`}
+components/Story.tsx:        src={`/art/feature-divider-${icon.name}.png`}
+components/Story.tsx:        src={`/art/technology-connector-${icon.name}.png`}
+components/Story.tsx:        src="/art/expression-waves.png"
+components/Story.tsx:        src={`/art/icon-kit/${icon.asset}`}
+components/Story.tsx:          <Image src="/art/09-10.webp" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['09-10'] as `data:image/${string}`} />
+components/Story.tsx:          <Image src="/art/11.webp" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['11'] as `data:image/${string}`} />
+components/Story.tsx:      <Image className="group-diamond" src="/art/rams-group-diamond.png" width={120} height={150} alt="" unoptimized style={sourceStyle(410, 28885, 120)} />
+lib/story.ts:  // Approved supplemental reference: design/references/fix_RAMSIDER_BUSINESS.png.
+lib/icon-map.json:      "asset": "01.png",
+lib/icon-map.json:      "asset": "02.png",
+lib/icon-map.json:      "asset": "03.png",
+lib/icon-map.json:      "asset": "04.png",
+lib/icon-map.json:      "asset": "05.png",
+lib/icon-map.json:      "asset": "06.png",
+lib/icon-map.json:      "asset": "07.png",
+lib/icon-map.json:      "asset": "08.png",
+lib/icon-map.json:      "asset": "09.png",
+lib/icon-map.json:      "asset": "10.png",
+lib/icon-map.json:      "asset": "11.png",
+lib/icon-map.json:      "asset": "12.png",
+
+2026-10-03T22:27:48.293263Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a103e1-4172-76a3-8bae-a25c50513d68 turn_id=01a103e1-420b-75c2-95e2-b7688addc1ad item_id="exec-28b2244d-93f2-4294-954a-0a01db2b3a97"
+exec
+/bin/zsh -lc "sed -n '1,260p' tools/convert-art-webp.py; du -sh public/art/original-png design/references/background_old.png lib/art-previews.json; python3 - <<'PY'
+import json
+x=json.load(open('lib/art-previews.json'));print(x.keys(),sum(len(v) for v in x.values()))
+PY
+nl -ba components/Story.tsx | sed -n '12,35p;225,245p'; sed -n '1,100p' AGENTS.md | tail -20" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 64ms:
+"""Rebuild color-managed WebP art from the current Photoshop PNG exports.
+
+The RGB comparison is against the same Adobe RGB -> sRGB conversion used for
+encoding, never against unconverted Adobe RGB channel numbers.
+"""
+
+from io import BytesIO
+from pathlib import Path
+import base64
+import hashlib
+import json
+import os
+import shutil
+import subprocess
+import tempfile
+
+import numpy as np
+from PIL import Image, ImageCms
+
+ROOT = Path(__file__).resolve().parents[1]
+ART = ROOT / "public/art"
+REF = ROOT / "design/references"
+MAIN = [(f"{i:02}", i * 2800, (i + 1) * 2800) for i in range(9)]
+MAIN += [("09-10", 25200, 30800), ("11", 30800, 32127)]
+FAQ = [(27147, 172, 7), (27326, 171, 8), (27505, 171, 7),
+       (27683, 171, 7), (27861, 170, 6), (28037, 170, 0)]
+DOCS = [("electrical", 120, 23305), ("emc", 510, 23305),
+        ("uae", 120, 23550), ("rohs", 510, 23550),
+        ("telecom", 120, 23795)]
+SRGB = ImageCms.createProfile("sRGB")
+SRGB_BYTES = ImageCms.ImageCmsProfile(SRGB).tobytes()
+REPORT = []
+PREVIEWS = {}
+
+
+def encode(source: Image.Image, name: str, box: tuple[int, int, int, int], temp: Path) -> None:
+    crop = source.crop(box)
+    source_icc = ImageCms.ImageCmsProfile(BytesIO(source.info["icc_profile"]))
+    assert "Adobe RGB (1998)" in ImageCms.getProfileName(source_icc)
+    rgb = ImageCms.profileToProfile(crop.convert("RGB"), source_icc, SRGB,
+                                    renderingIntent=1, outputMode="RGB",
+                                    flags=ImageCms.Flags.BLACKPOINTCOMPENSATION)
+    rgb.putalpha(crop.getchannel("A"))
+    # Preserve the source alpha. Align invisible edge RGB with its neighbor;
+    # cwebp may discard these values, but must never turn transparency opaque.
+    if box[0] == 0 and crop.width == 941:
+        pixels = np.array(rgb)
+        edge = (pixels[:, -1, 3] == 0) & (pixels[:, -2, 3] == 255)
+        pixels[edge, -1, :3] = pixels[edge, -2, :3]
+        rgb = Image.fromarray(pixels, "RGBA")
+    png = temp / f"{name}.png"
+    rgb.save(png, icc_profile=SRGB_BYTES)
+    if os.environ.get("ART_REFERENCE_PNG_DIR"):
+        reference_dir = Path(os.environ["ART_REFERENCE_PNG_DIR"])
+        reference_dir.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(png, reference_dir / png.name)
+    output = ART / f"{name}.webp"
+    candidate = temp / f"{name}.webp"
+    subprocess.run(["cwebp", "-quiet", "-q", "95", "-m", "6",
+                    "-alpha_q", "100", "-metadata", "icc", str(png),
+                    "-o", str(candidate)], check=True)
+    decoded = Image.open(candidate)
+    assert decoded.size == rgb.size
+    assert decoded.info.get("icc_profile") == SRGB_BYTES
+    actual = np.asarray(decoded.convert("RGBA"), dtype=np.int16)
+    expected = np.asarray(rgb, dtype=np.int16)
+    assert np.array_equal(expected[:, :, 3], np.asarray(crop.getchannel("A"))), name
+    alpha_mismatch = int(np.count_nonzero(actual[:, :, 3] != expected[:, :, 3]))
+    assert alpha_mismatch == 0, (name, alpha_mismatch)
+    diff = actual[:, :, :3] - expected[:, :, :3]
+    red = ((expected[:, :, 0] > expected[:, :, 1] * 1.05)
+           & (expected[:, :, 0] > expected[:, :, 2] * 1.1)
+           & (expected[:, :, 0] > 80) & (expected[:, :, 3] == 255))
+    mae = np.abs(diff).mean(axis=(0, 1)).round(3).tolist()
+    red_mean = diff[red].mean(axis=0).round(3).tolist() if red.any() else None
+    mode = "lossy-q95"
+    if max(mae) >= 3 or (red_mean is not None and max(map(abs, red_mean)) >= 2):
+        subprocess.run(["cwebp", "-quiet", "-lossless", "-q", "85", "-m", "6",
+                        "-exact", "-metadata", "icc", str(png), "-o", str(candidate)], check=True)
+        decoded = Image.open(candidate)
+        assert decoded.info.get("icc_profile") == SRGB_BYTES
+        actual = np.asarray(decoded.convert("RGBA"), dtype=np.int16)
+        assert np.array_equal(actual, expected), name
+        mae = [0, 0, 0]
+        red_mean = [0, 0, 0] if red.any() else None
+        diff = actual[:, :, :3] - expected[:, :, :3]
+        mode = "lossless"
+    record = {"file": output.name, "box": box, "srgb_png_bytes": png.stat().st_size,
+              "webp_bytes": candidate.stat().st_size,
+              "mode": mode,
+              "rgb_mae": mae, "red_mean_signed": red_mean,
+              "rgb_p99_abs": np.percentile(np.abs(diff), 99, axis=(0, 1)).tolist(),
+              "alpha_mismatch": alpha_mismatch}
+    assert max(mae) < 3 and (red_mean is None or max(map(abs, red_mean)) < 2), record
+    candidate.replace(output)
+    if not name.startswith("doc-") and name != "00":
+        preview_png = temp / f"{name}-preview.png"
+        preview_webp = temp / f"{name}-preview.webp"
+        rgb.resize((118, max(1, round(rgb.height * 118 / rgb.width))),
+                   Image.Resampling.LANCZOS).save(preview_png, icc_profile=SRGB_BYTES)
+        subprocess.run(["cwebp", "-quiet", "-q", "75", "-m", "6", "-metadata", "icc",
+                        str(preview_png), "-o", str(preview_webp)], check=True)
+        assert Image.open(preview_webp).info.get("icc_profile") == SRGB_BYTES
+        record["preview_bytes"] = preview_webp.stat().st_size
+        PREVIEWS[name] = "data:image/webp;base64," + base64.b64encode(preview_webp.read_bytes()).decode("ascii")
+    REPORT.append(record)
+
+
+def main() -> None:
+    ART.mkdir(exist_ok=True)
+    with tempfile.TemporaryDirectory() as directory:
+        temp = Path(directory)
+        for filename, jobs in [
+            ("background.png", [(name, (0, top - (2 if top else 0), 941, bottom))
+                                for name, top, bottom in MAIN]
+             + [(f"faq-row-{i}", (0, top - 4, 941, top + height + gap + 4))
+                for i, (top, height, gap) in enumerate(FAQ, 1)]),
+            ("background_text.png", [(f"doc-{name}", (x, y, x + 95, y + 140))
+                                     for name, x, y in DOCS]),
+        ]:
+            path = REF / filename
+            with Image.open(path) as source:
+                assert source.size == (941, 32127) and source.mode == "RGBA"
+                for name, box in jobs:
+                    encode(source, name, box, temp)
+    summary = {"method": "Adobe RGB (1998) -> sRGB via LittleCMS relative colorimetric intent with black point compensation; cwebp 1.6.0 q95 m6 alpha_q100 metadata icc; lossless exact fallback when RGB MAE >=3 or red mean shift >=2",
+               "source_sha256": hashlib.sha256((REF / "background.png").read_bytes()).hexdigest(),
+               "source_text_sha256": hashlib.sha256((REF / "background_text.png").read_bytes()).hexdigest(),
+               "files": REPORT}
+    report = ROOT / "docs/evidence/art-webp/color-metrics.json"
+    report.parent.mkdir(parents=True, exist_ok=True)
+    report.write_text(json.dumps(summary, indent=2) + "\n")
+    (ROOT / "lib/art-previews.json").write_text(json.dumps(PREVIEWS, indent=2) + "\n")
+    print(f"Verified {len(REPORT)} color-managed WebP crops; report: {report}")
+
+
+if __name__ == "__main__":
+    main()
+ 49M	public/art/original-png
+ 43M	design/references/background_old.png
+ 80K	lib/art-previews.json
+dict_keys(['01', '02', '03', '04', '05', '06', '07', '08', '09-10', '11', 'faq-row-1', 'faq-row-2', 'faq-row-3', 'faq-row-4', 'faq-row-5', 'faq-row-6']) 80544
+    12	import iconMap from '@/lib/icon-map.json';
+    13	import localizedButtonWidths from '@/lib/button-localized-widths.json';
+    14	import artPreviews from '@/lib/art-previews.json';
+    15
+    16	// Keep the complete FAQ/account artwork in one tile: no image edge through a card.
+    17	const artTiles = Array.from({ length: 12 }, (_, i) => ({
+    18	  file: i === 9 ? '09-10' : String(i).padStart(2, '0'),
+    19	  height: (i === 9 ? 5600 : Math.min(2800, 32127 - i * 2800)) + (i === 0 ? 0 : 2),
+    20	})).filter((_, i) => i !== 10);
+    21
+    22	const featureDividers = [
+    23	  { name: 'control', x: 340, y: 5150, width: 100, height: 154 },
+    24	  { name: 'draw', x: 340, y: 5352, width: 100, height: 161 },
+    25	  { name: 'intensity', x: 340, y: 5565, width: 100, height: 158 },
+    26	] as const;
+    27
+    28	const technologyConnectors = [
+    29	  { name: 'triple', x: 165, y: 7118, width: 240, height: 60 },
+    30	  { name: 'core', x: 165, y: 7354, width: 210, height: 52 },
+    31	  { name: 'touch', x: 165, y: 7500, width: 265, height: 130 },
+    32	  { name: 'water', x: 165, y: 7808, width: 260, height: 65 },
+    33	  { name: 'light', x: 600, y: 7321, width: 150, height: 155 },
+    34	  { name: 'armor', x: 595, y: 7565, width: 152, height: 145 },
+    35	  { name: 'flow', x: 460, y: 7814, width: 290, height: 145 },
+   225	  return <DialogController>
+   226	    <main className="canvas" data-locale={locale}>
+   227	      <div className="story-prefix-space" aria-hidden="true" />
+   228	      <div className="art" aria-hidden="true">
+   229	        {artTiles.filter(({ file }) => file !== '11').map(({ file, height }, i) => <Image
+   230	          key={i}
+   231	          src={`/art/${file}.webp`}
+   232	          width={941}
+   233	          height={height}
+   234	          alt=""
+   235	          unoptimized
+   236	          preload={i === 0}
+   237	          loading={i === 0 ? 'eager' : 'lazy'}
+   238	          fetchPriority={i === 0 ? 'high' : 'low'}
+   239	          placeholder={i === 0 ? 'empty' : artPreviews[file as keyof typeof artPreviews] as `data:image/${string}`}
+   240	        />)}
+   241	      </div>
+   242	      <Menus locale={locale} />
+   243	      {featureDividers.map(icon => <Image
+   244	        key={icon.name}
+   245	        className="feature-divider-art"
+4. **Check behavior and adaptation.** Test relevant clicks, hover, scroll, navigation, forms, menus, animation states, keyboard access, Arabic RTL, mobile safe areas, and representative tablet/desktop widths. Check overflow, clipping, crops, wraps, spacing, and tile seams. Use [docs/mobile.md](docs/mobile.md). **Exit:** required states work at the sizes they support.
+5. **Review and optimize.** For code changes, run Codex's native `/review` on the actual diff before delivery (CLI equivalent when needed), examine every actionable finding, fix it, and rerun affected checks. Run available type, lint, test, and production-build checks. Review component boundaries, duplication, accessibility, and unused code. Measure first render, LCP/INP/CLS where measurable, network bytes, JavaScript, layout shifts, and scroll smoothness in a production build. Reassess static, request-time server, and client rendering against measured latency, freshness, and client cost; change strategy where it improves the result. Fix meaningful problems, then repeat affected visual/browser checks. Use [QUALITY.md](QUALITY.md) and [PERFORMANCE.md](PERFORMANCE.md). **Exit:** no known material code, visual, accessibility, or speed regression remains; report if `/review` was unavailable rather than counting a manual pass as its result.
+6. **Learn and report evidence.** Complete the affected [CHANGELOG.md](CHANGELOG.md) entries with actual checks, technical approval and remaining open IDs. Refresh [MEMORY.md](MEMORY.md) when verified state, decisions, or blockers changed; record repeatable errors in [LESSONS.md](LESSONS.md). Use [docs/definition-of-done.md](docs/definition-of-done.md). State tested viewports, screenshot comparisons, interactions, build checks, performance measurements, remaining differences, and checks that could not run. Never claim pixel fidelity, WCAG compliance, a 95+ Lighthouse score, or completion without the corresponding evidence.
+
+**Do not mark a failed gate passed or delegate ordinary QA to the user.** Route the failure back to the stage that can fix it, repeat that stage, and rerun downstream checks the fix could affect. A blocked external dependency must not stop independent work. For UI work, the implement → browser screenshot → compare → fix → recheck loop is mandatory after each completed visual slice and after later appearance changes; repeat it on the assembled page. Work autonomously through all feasible checks; resolve routine choices from the repository and references, and seek only irreducible external facts or access while continuing independent work. For a small non-UI task, apply only relevant stages.
+
+For substantive project work, start one independent, non-editing **discipline auditor** alongside scope inspection. Reuse it at each applicable stage gate: scope before implementation; each completed UI slice's rendering and visual evidence; behavior/adaptation; code review and performance; and final integration, memory, and delivery evidence. Give it acceptance checks, changed files, browser images, command results, and any other agents' findings as relevant. Wait for its evidence-based pass/fail/blocked finding before closing a gate. Fix failures and re-audit affected gates; the main agent owns implementation and required checks. Use the project [auditor profile](.codex/agents/discipline_auditor.toml) when available and [supervision protocol](docs/supervision.md); if the profile cannot be selected, give a subagent the same non-editing assignment. Do not spawn it for a trivial edit. The auditor supplements real QA and native `/review`; it cannot certify missing evidence.
+
+## Standing constraints
+
+- Working-context efficiency: throughout coding and QA, read only affected code and stage docs; inspect the long reference and screenshots through relevant crops at useful resolution. Keep full-size images, raw image data, long logs, and unrelated file dumps out of model context. Reuse recorded findings, bound tool output, and rerun only checks affected by a change. Never skip required QA to save tokens; stop once all applicable gates pass.
+- Primary devices: **iPhone 17 Pro (402 × 874 CSS px, DPR 3)** is the baseline; **iPhone 17 Pro Max (440 × 956 CSS px, DPR 3)** is the second required mobile target. These are emulation screen sizes, not fixed-height CSS requirements; Safari's visible area changes with browser chrome. Build mobile-first for these devices. All other phones, tablets, and desktops receive responsive adaptation, with no horizontal overflow or broken content. Preserve the supplied composition rather than substituting a generic design. See [docs/mobile.md](docs/mobile.md).
+- Locales: English, Russian, German, French, Spanish, Italian, Turkish, Arabic, Chinese, Japanese, and Korean. Use translation keys. Arabic needs correct RTL layout and behavior.
+- Accessibility: semantic content, keyboard and screen reader support, labels, visible focus, usable touch targets, WCAG AA contrast, and reduced-motion support. Verify affected behavior.
+- Product truth: the render is the visual/content target, not proof of prices, certifications, health claims, stock, or backend behavior. Preserve its visible narrative in the local rebuild; track unverified facts and confirm them before publication or functioning commerce. See [PRODUCT.md](PRODUCT.md).
+- Performance: the first viewport must become useful quickly. The two reference PNGs are each about 44 MB; never serve either as one production background. Derive responsive, compressed sections/tiles from the clean artwork, load the visible segment eagerly and later segments near the viewport, and avoid seams or blank gaps. Never lazy-load the LCP asset. Aim for 95+ mobile Lighthouse only with measured evidence.
+- Tooling: prefer native Codex capabilities when they provide the required evidence; use additional skills/tools for project-specific workflow or capabilities the native route lacks. Read the project [implementer skill](.agents/skills/pixel-perfect-ui-implementer/SKILL.md) when building UI and the [testing skill](.agents/skills/pixel-perfect-ui-testing/SKILL.md) when verifying it. Use the Codex browser for quick exploratory inspection when available; use the configured Playwright WebKit/DPR 3 profiles for required mobile screenshots and repeatable checks. `/review` is a native Codex command, not an installable skill. Load each skill when its stage needs it, not both up front. Broad design-generation skills must not replace the approved render. The requested Codex model and modes are session settings: check availability before claiming they are active. See [TOOLS.md](TOOLS.md) for other skills and limitations.
+- Self-improvement: after **every user correction and meaningful self-detected failure**, find the root cause, fix and recheck it, then decide whether the prevention generalizes. If repeatable, update [LESSONS.md](LESSONS.md) with **problem → cause → prevention** and consult the relevant lesson before similar work; do not promote one-off feedback into a global rule. Keep [MEMORY.md](MEMORY.md) current with verified project state and decisions, without duplicating the task transcript. Preserve user edits and design sources.
+
+If a required check is blocked, explain the concrete reason and do not present it as passed. Do not stop at the first implementation when the remaining stages can be completed.
+
+2026-10-03T22:27:53.451236Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a103e1-4172-76a3-8bae-a25c50513d68 turn_id=01a103e1-420b-75c2-95e2-b7688addc1ad item_id="exec-dedfd937-ac86-4ec5-ab8a-388f69604ce6"
+exec
+/bin/zsh -lc "nl -ba tools/slice-background-png.py | sed -n '8,70p'; find public/art/original-png -maxdepth 1 -type f | wc -l; ls public/art/original-png | tail; git diff -- CHANGELOG.md | tail -65" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+     8	ROOT = Path(__file__).resolve().parents[1]
+     9	ART = ROOT / "public/art/original-png"
+    10	REFERENCE = ROOT / "design/references"
+    11
+    12	main = [(f"{index:02}", index * 2800, (index + 1) * 2800) for index in range(9)]
+    13	main += [("09-10", 25200, 30800), ("11", 30800, 32127)]
+    14	faq = [(27147, 172, 7), (27326, 171, 8), (27505, 171, 7),
+    15	       (27683, 171, 7), (27861, 170, 6), (28037, 170, 0)]
+    16	documents = [("electrical", 120, 23305), ("emc", 510, 23305),
+    17	             ("uae", 120, 23550), ("rohs", 510, 23550),
+    18	             ("telecom", 120, 23795)]
+    19	records = []
+    20
+    21
+    22	def save_exact(source: Image.Image, source_name: str, name: str,
+    23	               box: tuple[int, int, int, int]) -> None:
+    24	    crop = source.crop(box)
+    25	    path = ART / f"{name}.png"
+    26	    crop.save(path, format="PNG", compress_level=9,
+    27	              icc_profile=source.info["icc_profile"], dpi=source.info.get("dpi"))
+    28	    with Image.open(path) as saved:
+    29	        assert saved.size == crop.size, name
+    30	        assert saved.mode == crop.mode, name
+    31	        assert saved.tobytes() == crop.tobytes(), name
+    32	        assert saved.info.get("icc_profile") == source.info["icc_profile"], name
+    33	    with Image.open(ROOT / "public/art" / f"{name}.webp") as active:
+    34	        assert active.size == crop.size, name
+    35	    records.append({"file": path.name, "source": source_name, "box": box,
+    36	                    "size": list(crop.size), "bytes": path.stat().st_size,
+    37	                    "sha256": hashlib.sha256(path.read_bytes()).hexdigest()})
+    38
+    39
+    40	ART.mkdir(parents=True, exist_ok=True)
+    41
+    42	with Image.open(REFERENCE / "background.png") as source:
+    43	    assert source.size == (941, 32127) and source.mode == "RGBA"
+    44	    for name, top, bottom in main:
+    45	        # Two untouched source rows overlap the previous tile during CSS scaling.
+    46	        save_exact(source, "background.png", name, (0, top - (2 if top else 0), 941, bottom))
+    47	    for index, (top, height, gap) in enumerate(faq, 1):
+    48	        save_exact(source, "background.png", f"faq-row-{index}", (0, top - 4, 941, top + height + gap + 4))
+    49
+    50	with Image.open(REFERENCE / "background_text.png") as source:
+    51	    assert source.size == (941, 32127) and source.mode == "RGBA"
+    52	    for name, left, top in documents:
+    53	        save_exact(source, "background_text.png", f"doc-{name}", (left, top, left + 95, top + 140))
+    54
+    55	assert len(records) == 22
+    56	manifest = {
+    57	    "purpose": "Unused exact-source PNG alternatives for future format selection",
+    58	    "source_sha256": {name: hashlib.sha256((REFERENCE / name).read_bytes()).hexdigest()
+    59	                      for name in ("background.png", "background_text.png")},
+    60	    "files": records,
+    61	}
+    62	(ART / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+    63	print("Verified 22 PNG crops: exact RGBA pixels and source ICC profile.")
+      24
+doc-rohs.png
+doc-telecom.png
+doc-uae.png
+faq-row-1.png
+faq-row-2.png
+faq-row-3.png
+faq-row-4.png
+faq-row-5.png
+faq-row-6.png
+manifest.json
+
+@@ -910,7 +912,7 @@
+ <a id="chg-0047"></a>
+ ## CHG-0047 — Исходные PNG-плитки без потери цвета
+
+-- **Дата / источник / статус:** 2026-10-01; USER_REPORTED_DEFECT / APPLIED_UNVERIFIED (скоростной gate открыт как CHG-0048). Дизайнер сообщил о сильной потере цвета/качества и отклонении красного примерно на 6 единиц. Причина величины отклонения пока не подтверждена; активные WebP действительно отличаются от исходных пикселей и не несут ICC Adobe RGB (1998), встроенный в `design/references/background.png`.
++- **Дата / источник / статус:** 2026-10-01; USER_REPORTED_DEFECT / VERIFIED 2026-10-04 через CHG-0056 (прежний PNG-вариант остался историческим). Дизайнер сообщил о сильной потере цвета/качества и отклонении красного примерно на 6 единиц. Причина величины отклонения пока не подтверждена; активные WebP действительно отличаются от исходных пикселей и не несут ICC Adobe RGB (1998), встроенный в `design/references/background.png`.
+ - **Было → должно быть:** Страница использует сегменты WebP. Нужны те же границы 941px artwork, но каждый активный сегмент — PNG, нарезанный непосредственно из чистого исходного PNG без изменения RGBA пикселей и ICC. Старые WebP сохранить в `public/art/unused-webp/`; текст, контролы и положение секций сохранить.
+ - **Карта применения:** 22 активных PNG: `00`–`08` из clean source y=0..25200 с шагом 2800; `09-10` y=25200..30800; `11` y=30800..32127; шесть FAQ-строк — прямые crop clean source по координатам `tools/extract-faq-art.mjs`; пять document thumbnails — прямые crop `background_text.png` 95×140 в (120,23305), (510,23305), (120,23550), (510,23550), (120,23795), поскольку эти документы отсутствуют в clean source. Оба исходника имеют одинаковый Adobe RGB ICC. Все 24 старых WebP, включая неактивные `09`/`10`, перемещаются в `public/art/unused-webp/` с пометкой «не используются». Приёмка: размеры/границы, точное равенство RGBA и байтов ICC, реальный WebKit Pro/Pro Max, отсутствие швов, доступность и замер передачи/скролла. Действия и доказательства дополняются по мере выполнения.
+ - **Применено:** `tools/slice-background-png.py` нарезает исходные PNG по этой карте и сразу открывает каждый результат, проверяя размеры, RGBA byte equality и ICC byte equality. 24 старых WebP сохранены в `public/art/unused-webp/` с `README.txt`; 22 активных PNG находятся в `public/art/`. `components/Story.tsx` использует только PNG, включая FAQ и документы. Старые inline WebP previews (`lib/art-previews.json`) и WebP FAQ-генератор (`tools/extract-faq-art.mjs`) удалены; тест загрузки обновлён на PNG. Изменены `app/globals.css`, `tests/e2e/art-loading.spec.ts`, релевантные спецификации/память/урок/eval.
+@@ -920,13 +922,17 @@
+ - **Проверки 2026-10-01:** Скрипт сверил все 22 PNG по RGBA и ICC; независимый аудитор повторил PIL-сравнение и дал scope/implementation/visual PASS, но review/performance/final integration gate FAIL. WebKit 402×874 и 440×956/DPR3: исходник, hero/стыки и собранные длинные кадры `screenshots/actual/png-color-2026-10-01/{pro,max}-assembled.png` просмотрены; визуальный subcheck собранной страницы PASS, линии нет. Браузерный PNG против color-managed AdobeRGB→sRGB имеет средние абсолютные ошибки ~[0.08,0.13,0.02] RGB. `npm run typecheck`, `npm run lint`, `npm run build`, `git diff --check` PASS; PNG loading 16/16 PASS; полный suite 77 PASS/18 SKIP/1 FAIL (Firefox test `decode()` до готового lazy image), после исправления один повторный Firefox 1/1 PASS. Native `codex review --uncommitted` дал P1 first-screen transfer и P2 cold fast-scroll blank; они открыты в CHG-0048. Активные PNG 46,600,036 байт (44.4 MiB) против старых ~2.9 MiB WebP; первая PNG 3,194,801 байт. 4 Мбит/с/100 мс: hero decode 13.659 с, дальний PNG 33.88 с после lazy-переключения. Показатель LCP, снятый после прокрутки, не является first-screen LCP и не заявляется. Измерения INP/Lighthouse не проводились. Превью :3020 перезапущено после final build; `/art/00.png` возвращает HTTP 200 `image/png` и 3,194,801 байт.
+ - **Технический аппрув:** узкая проверка идентичности цвета/стыков APPROVED 2026-10-01 основным агентом и независимым аудитором по указанным выше данным; общий `VERIFIED` не ставится из-за CHG-0048 и обязательного скоростного gate. **Аппрув пользователя:** запрос на исправление есть, приёмка результата `NOT_RECORDED`.
+
++- **Закрытие 2026-10-04 / технический аппрув:** Первоначальное требование PNG было позднее заменено явным запросом на цветоуправляемый WebP. Codex primary verifier: PASS по исходному Adobe RGB ICC, встроенному sRGB ICC всех 22 файлов, точной alpha, измерению красных областей (максимальный средний signed shift 0.526/255), 10 парам WebKit Pro/Max к временным цветоуправляемым PNG, 20 стыкам и полной странице без видимого цветового дефекта. Независимый discipline-аудитор подтвердил visual gate CHG-0056; финальный аудит журнала первоначально выявил устаревший pending-текст; запись исправлена, повторная независимая сверка `PASS` 2026-10-04. [Доказательства](docs/evidence/art-webp/) и [решение](#chg-0056). Старый lossless-PNG-кандидат и его скоростной FAIL остаются историческими; пользовательская приёмка `NOT_RECORDED`.
++
+ <a id="chg-0048"></a>
+ ## CHG-0048 — Скоростной регресс после обязательной замены WebP на исходные PNG
+
+-- **Дата / источник / статус:** 2026-10-01; AGENT_DISCOVERED_DEFECT / OPEN; связан с CHG-0047. Native review P1/P2 и сетевой замер подтверждают, что тяжёлый PNG первого экрана медленно появляется на мобильной сети, а дальний участок может быть пустым до загрузки и декодирования при холодной быстрой прокрутке.
++- **Дата / источник / статус:** 2026-10-01; AGENT_DISCOVERED_DEFECT / VERIFIED 2026-10-04 через CHG-0056; связан с CHG-0047. Native review P1/P2 и сетевой замер подтверждают, что тяжёлый PNG первого экрана медленно появляется на мобильной сети, а дальний участок может быть пустым до загрузки и декодирования при холодной быстрой прокрутке.
+ - **Ожидается / причина:** Ожидается быстро полезный первый экран и непрерывное artwork при прокрутке. Непосредственная причина — увеличение данных при строгом требовании пользователя сохранить те же блоки, формат PNG, точные RGBA/ICC и убрать WebP previews; агент поначалу оставил eager для всех, затем переключил дальние на lazy, сохранив визуальную точность ценой временного ожидания. Локальная быстрая сеть скрывала дефект; исходный perf check на 4 Мбит/с выявил его.
+ - **Решение / ограничения:** Первый PNG уже preload/eager/high, дальние — native lazy; точность пикселей и границ сохранена. Без изменения пользовательского требования о тех же блоках и неизменных пикселях значительного уменьшения PNG или точного лёгкого preview пока не найдено. Нужен отдельный согласованный способ ускорить загрузку, затем повторить cold-mobile LCP/scroll/INP/CLS и Pro/Pro Max визуальную проверку. Текущий технический аппрув `NOT_APPROVED`; пользовательская приёмка `NOT_RECORDED`.
+
++- **Закрытие 2026-10-04 / технический аппрув:** Исторический компромисс с PNG заменён по явному запросу пользователя в CHG-0056. Codex primary verifier: PASS по 22 ICC/sRGB WebP и точности alpha, 10 PNG/WebP WebKit парам, 20 состояниям стыков, 93 PASS / 19 expected SKIP, build/type/lint, cold 4 Мбит/с замеру: hero 2.021 с вместо 13.659 с, preview дальнего участка 31.8 мс вместо пустоты до full decode; полный дальний asset всё ещё 5.599 с. Независимый discipline-аудитор подтвердил visual/behavior/performance gates CHG-0056; финальный аудит журнала первоначально выявил устаревший pending-текст; запись исправлена, повторная независимая сверка `PASS` 2026-10-04. [Доказательства](docs/evidence/art-webp/) и [новая запись](#chg-0056). Прежний `NOT_APPROVED` относится к PNG-кандидату и сохранён выше; текущий дефект устранён, пользовательская приёмка `NOT_RECORDED`.
++
+ <a id="chg-0049"></a>
+ ## CHG-0049 — Дизайнерский Icon Kit и увеличенный отступ над подписями
+
+@@ -1023,3 +1029,35 @@
+ - **Решение / файлы:** Цель x706 записана сначала в `docs/elements-mapping.md`, затем в `lib/icon-map.json` только для I05; `sourceX711` сохранён, `localizedX736` и все Y/size/PNG не менялись. `components/Story.tsx` уже читает карту, поэтому код компонента не правился. В `tests/e2e/technology-icons.spec.ts` для EN I05 допуск center error ужесточён с 2.2 до 0.5 CSS px; остальные допуски не менялись. Изменены эти три файла, `CHANGELOG.md`, `LESSONS.md`, `MEMORY.md`, доказательства в `docs/evidence/light-axis/`.
+ - **Проверка / история:** Предыдущий сохранённый Pro/Max замер был +2.133/+2.134 CSS px вправо. После правки [WebKit geometry](docs/evidence/light-axis/geometry.json) даёт EN -0.008/-0.007, DE 0/-0.007, AR 0/-0.007 нормализованных CSS px на Pro/Max; вертикальный gap EN остался 5.141/5.139. Просмотрены [точечные](docs/evidence/light-axis/pro-en.png) и [собранные](docs/evidence/light-axis/assembled-pro-en.png) реальные EN Pro/Max WebKit снимки, а также DE/AR кропы; близкий пользовательский crop использован для качественного сравнения, численный pixel diff неприменим из-за неизвестного масштаба. [Тесты иконок](docs/evidence/light-axis/technology-tests.log) 8/8 на Pro/Max WebKit и desktop Chromium/Firefox, охвачены 11 локалей. [Build](docs/evidence/light-axis/build.log) 14 статических страниц, [typecheck](docs/evidence/light-axis/typecheck.log), [lint](docs/evidence/light-axis/lint.log), diff check `PASS`. [Native review](docs/evidence/light-axis/native-review.log) без actionable regression. [Local performance](docs/evidence/light-axis/performance.json): Chromium402/DPR3 loopback FCP/LCP124ms, CLS0, JS153881B, transfer15.70MB; INP не измерен, тяжёлый фон CHG-0048 остаётся открытым. Preview `:3020` перезапущен на исправленной сборке.
+ - **Технический аппрув:** 2026-10-03, Codex primary verifier `APPROVED` по указанным real-browser снимкам и геометрии, 8/8 tests, build/type/lint/diff, native review и локальному performance sample. Independent auditor `N/A`: точечная правка одной иконки, без нового визуального среза/поведения; все применимые проверки выполнены основным агентом. Пользовательский аппрув исправления `NOT_RECORDED`.
++
++<a id="chg-0056"></a>
++## CHG-0056 — Color-managed WebP для фонового artwork
++
++- **Дата / источник / статус:** 2026-10-04; USER_REQUEST / `VERIFIED`; связан с CHG-0047 (цвет) и CHG-0048 (скорость). Пользователь просит заново получить WebP из текущего `design/references/background.png`, сохранить цвет, ускорить страницу и удалить архив старых цветоискажённых WebP.
++- **Было → должно быть:** Активные 22 PNG сохраняют Adobe RGB (1998), но передают десятки MB; `public/art/unused-webp/` содержит старые lossy VP8 без ICC. Требуются фрагменты той же геометрии с управляемым цветом, проверенным декодированным отклонением и быстрой загрузкой на мобильном.
++- **Источник → карта → применение:** Текущий изменённый пользователем `background.png` (941×32127, Adobe RGB ICC) для 11 основных и 6 FAQ-фрагментов; `background_text.png` с тем же ICC для 5 document thumbs. Координаты и overlap берутся из `tools/slice-background-png.py` без изменения. Новый воспроизводимый конвертер и отчёт измерений → `public/art/*.webp` → `components/Story.tsx` и проверка браузером.
++- **Критерии:** Явно сопоставить исходные Adobe RGB цвета с sRGB результатом; сохранить корректный sRGB ICC и alpha, проверить decoded WebP против color-managed sRGB эталона (в том числе красно-оранжевые зоны, край и стыки), выбрать степень сжатия по измерениям, а не по фиксированной цели KB. Проверить реальные Pro 402×874 и Pro Max 440×956 WebKit DPR3 после `decode()`/paint, representative widths/RTL, байты и холодный первый экран/дальний scroll на ограниченной сети. Удалять только старый `unused-webp`, не менять пользовательские исходники. Технический аппрув текущего результата указан ниже; пользовательская приёмка `NOT_RECORDED`.
++- **Применение 2026-10-04 / `APPLIED_UNVERIFIED`:** `tools/convert-art-webp.py` выполняет Adobe RGB→sRGB LittleCMS relative colorimetric + black point compensation, встраивает sRGB ICC, кодирует cwebp q95/m6/alpha_q100 и выбирает lossless exact для фрагмента с недопустимым красным сдвигом/MAE. Ровно 22 фрагмента сохранены по старым координатам с двухстрочным перекрытием; наружная полностью прозрачная правая колонка копирует соседний непрозрачный пиксель, чтобы не восстановить прежнюю белую линию. `components/Story.tsx` и art-loading test переведены на WebP. Первый проход обнаружил большой локальный красный сдвиг в `doc-electrical` (−15.56) и остановился; lossless fallback исправил его без ручной цветокоррекции. Проверки браузера и скорости ещё ожидаются; источники пользователя не изменялись.
++- **Изменённые пути:** `tools/convert-art-webp.py`, `public/art/{00..08,09-10,11,faq-row-1..6,doc-*.webp}`, `components/Story.tsx`, `tests/e2e/art-loading.spec.ts`, `docs/evidence/art-webp/color-metrics.json`, `CHANGELOG.md`; удалён `public/art/unused-webp/` со старым 24 WebP и README после поиска зависимостей. Активные PNG временно оставлены для сравнения WebKit с предыдущей поставкой; после него будут удалены как неиспользуемые production assets.
++- **Промежуточный скоростной FAIL / решение:** Первый production замер на Chromium Pro, cold 4 Мбит/с/100 мс: hero paint 1.80 с против прежних 13.659 с для PNG, но холодный мгновенный переход к y=6500 ждал 5.43 с полного WebP. Решение агента оставить native lazy без малого заполнителя сохранило прежнюю пустую секцию; это пропущенная проверка стартового кадра быстрой прокрутки. Генератор теперь создаёт color-managed 118px previews для дальних основных/FAQ сегментов; CSS показывает их до загрузки полноразмерного WebP. `tests/e2e/art-loading.spec.ts` проверяет непустой preview-кадр. Требуется повторный production/WebKit замер и визуальный осмотр. Изменены также `app/globals.css`, `public/art/previews/`.
++- **Native review FAIL / исправление:** Первый `/review` нашёл, что `tools/check-art-browser.mjs` запрашивал уже удалённые PNG: он исправлен и теперь создаёт временные color-managed PNG из текущего исходника и перехватывает тестовые HTTP запросы, не возвращая PNG в production. Повторный `/review` нашёл ошибку прозрачного правого края: первоначальный код копировал не только RGB, но и alpha соседнего непрозрачного пикселя. Это была AGENT-ошибка: сравнивалась alpha готового WebP с уже изменённым промежуточным изображением, а не с исходником. Исправлено на копирование только невидимого RGB при неизменной alpha; проверка исходная PNG alpha → готовый WebP alpha добавлена вручную для hero и выполнена повторная генерация всех 22 файлов. Предыдущие визуальные кадры и тесты относятся к версии до этой коррекции; affected gate переснимается ниже.
++- **Следующий review FAIL / исправление:** Новый `/review` обнаружил, что CSS preview оставался фоном `<img>` даже после загрузки полного изображения и просвечивал через исходные прозрачные пиксели. Это ещё одна AGENT-ошибка: проверялся preview во время блокировки, но не его удаление после декодирования. Previews теперь встраиваются как 118px data:image/webp placeholders в `lib/art-previews.json` и передаются штатному Next `<Image placeholder>`: после `decode()` компонент убирает фон. Тест дополнен проверкой `backgroundImage === none` у загруженного видимого artwork. Временные внешние preview-файлы удаляются, все затронутые browser/perf/review проверки запускаются заново.
++- **Проверки финального preview-варианта / промежуточный suite FAIL:** 8/8 focused WebKit Pro/Max прошли, в том числе удаление preview после full decode. `tools/check-art-browser.mjs` сравнил 10 пар реального Pro/Max WebKit с временными sRGB PNG; max mean absolute по каналам на экране 1.176/255, кадры осмотрены. `tools/check-art-assembly.mjs` зафиксировал 20 join-состояний, 0 overflow, два full-page assembled кадра; контактные листы всех стыков осмотрены. Один полный suite при шести параллельных браузерах дал 91 PASS/19 SKIP/2 FAIL: меню desktop и повторное открытие technology dialog Pro. Обе группы отдельно переиграны 4/4 PASS ([лог](docs/evidence/art-webp/retry-interactions.log)); вероятная причина — параллельная нагрузка, не доказанная как единственная. Выполняется полный повтор с двумя workers. Предыдущий результат FAIL сохранён как история, не считается PASS.
++- **Финальные проверки 2026-10-04:** Full production suite с двумя workers [93 PASS / 19 ожидаемых SKIP](docs/evidence/art-webp/browser-tests.log) на Pro/Pro Max WebKit и desktop Chromium/Firefox; [focused 8/8](docs/evidence/art-webp/focused-tests.log). [10 color-managed PNG/WebP browser-пар](docs/evidence/art-webp/browser/comparison.json): худшая средняя абсолютная ошибка канала 1.176/255; Pro/Max hero/first join/middle/FAQ/footer изображения осмотрены. [20 join-состояний](docs/evidence/art-webp/browser/assembly.json) на Pro/Max с 0 overflow, [контактные листы](docs/evidence/art-webp/browser/pro-join-contact.png) и [Max](docs/evidence/art-webp/browser/max-join-contact.png) осмотрены, оба [full assembled](screenshots/actual/art-webp/pro-assembled.png) и [Max](screenshots/actual/art-webp/max-assembled.png) сохранены. Сгенерированные WebP несут ICC sRGB и исходную alpha, max tile channel MAE 2.936/255, max red-zone signed mean 0.526/255; четыре doc thumbs lossless; [метрики](docs/evidence/art-webp/color-metrics.json). `npm run build` (14 static pages), `typecheck`, `lint`, `git diff --check` PASS; [логи](docs/evidence/art-webp/). Native review после финального Next Image preview не нашёл actionable замечаний (`/private/tmp/ramsider-art-review-final3.log`).
++- **Скорость / ограничение:** [production sample](docs/evidence/art-webp/performance.json), Chromium 402×874 DPR3, cold 4 Мбит/с/100 мс: hero paint 2021 мс (прежний PNG 13.659 с), preview дальнего участка 31.8 мс, full distant 5599 мс (прежний PNG 33.88 с), FCP/LCP text 356 мс, CLS 0.00022, first viewport transfer 893,808 B, JS 153,881 B, hero resource 248,536 B, scroll p95 16.7 мс, один кадр >33 мс из 90. Дальний full-res всё ещё догружается несколько секунд при мгновенном cold-jump, но preview сохраняет непрерывную композицию; измерения INP/Lighthouse/полевого цвета нет. sRGB может сузить out-of-gamut Adobe RGB оттенки на широкогамутном дисплее; отдельный P3 variant не делался без доказанной необходимости. Исходный `background.png` изменён пользователем и не перезаписан; `background_old.png` сохранён.
++
++- **Технический аппрув CHG-0056, 2026-10-04:** Codex primary verifier `PASS` по [color metrics](docs/evidence/art-webp/color-metrics.json), [10 реальным PNG/WebP WebKit парам](docs/evidence/art-webp/browser/comparison.json), [20 Pro/Max стыкам](docs/evidence/art-webp/browser/assembly.json), полной suite 93/19, focused 8/8, build/type/lint, холодной [4 Мбит/с метрике](docs/evidence/art-webp/performance.json) и финальному native review без actionable findings. Независимый discipline-аудитор подтвердил scope, visual, behavior и review/performance gates; финальный аудит записи первоначально нашёл устаревшие формулировки аппрува; они исправлены, повторная независимая сверка `PASS` 2026-10-04. Статус `VERIFIED` относится к проверенному цветовому pipeline и измеренной скорости; он не означает абсолютное равенство всех пикселей, P3 parity, Lighthouse 95+ или INP. **Аппрув пользователя:** `NOT_RECORDED`.
++- **Ограничение closeout review:** Дополнительный `codex review --uncommitted` после документального обновления журнала 2026-10-04 не инициализировался: sandbox запретил запись в `~/.codex/state_5.sqlite` ([лог](/private/tmp/ramsider-art-review-closeout.log)). Последний завершившийся native review финального кода до этого обновления остаётся PASS без actionable findings (`/private/tmp/ramsider-art-review-final3.log`); документальный diff отдельно сверяется дисциплинарным аудитором.
++- **Первый финальный audit FAIL / исправление, 2026-10-04:** Независимый аудитор подтвердил технические доказательства и статус решения, но обнаружил оставшиеся формулировки «аудит ожидается» и «технический аппрув не записан». Эти противоречия удалены из CHG-0047/0048/0056 и MEMORY; повторная read-only сверка `PASS` 2026-10-04. Исторический FAIL сохранён.
++
++<a id="chg-0057"></a>
++## CHG-0057 — Резервные точные PNG-срезы для будущего выбора формата
++
++- **Дата / источник / статус:** 2026-10-04; USER_REQUEST / ADDITION / `VERIFIED`. Пользователь хочет заранее сохранить оригинальные PNG-фрагменты для будущего выбора формата при хорошей сети. Динамическое переключение в текущем запросе не требуется.
++- **Было → должно быть:** CHG-0056 удалил активные PNG-срезы после перехода сайта на WebP. Требуются отдельные неиспользуемые PNG-файлы ровно тех же имён/координат и размеров, что у 22 активных WebP, без конвертации Adobe RGB→sRGB или потери исходных RGBA/ICC. Рабочая страница продолжает использовать WebP и не запрашивает PNG при обычной загрузке.
++- **Источник / карта:** `design/references/background.png` для 11 основных и 6 FAQ-срезов; `background_text.png` для пяти документов, как и в существующих `tools/slice-background-png.py` и `tools/convert-art-webp.py`. Основные tiles включают исходные 2 строки overlap, FAQ — свои 4-пиксельные поля. Пользовательские исходники и будущая политика выбора по скорости не меняются.
++- **Ответственность / пропущенная проверка / prevention:** Это новый запрос, а не дефект прежней WebP-поставки. При генерации обязательно проверить байтовое равенство RGBA и ICC каждому исходному crop, размеры и имена против WebP-карты, отсутствие ссылок на резервные файлы в runtime. Контролируемый Agent Eval для нового требования N/A.
++- **Решение / применение:** `tools/slice-background-png.py` теперь сохраняет резерв в `public/art/original-png/`, а не в рабочий `public/art/`; он сверяет каждый PNG с исходным crop по RGBA/ICC, с соответствующим активным WebP по размерам и записывает `manifest.json` с source SHA, координатами, размерами, byte count и output SHA. Созданы 22 PNG и `README.md`. Рабочий `components/Story.tsx` не менялся. Добавленный объём public/deployment: 46,308,888 PNG bytes плюс малая документация; отсутствие ссылки в runtime подтверждено статическим поиском, production network-check прошёл.
++- **Промежуточные проверки / история:** Генератор прошёл 22/22 exact RGBA/ICC и active WebP size assertions; независимый аудитор отдельно повторил сравнение всех 22 PNG и ICC/source SHA с исходниками, PASS по файлам. Первоначальный implementation audit дал FAIL только потому, что журнал ещё оставался `IN_PROGRESS/PENDING`; запись обновлена до `APPLIED_UNVERIFIED`, этот FAIL сохранён. `npm run build` PASS (14 статических маршрутов). Первый запуск локального production server был запрещён sandbox `EPERM`; escalated local server запущен для завершающей сетевой проверки.
++- **Финальная проверка 2026-10-04:** [Production WebKit request log](docs/evidence/png-reserve/requests.json) на iPhone 17 Pro 402×874 и Pro Max 440×956 после загрузки hero и перехода к y=6500: 0 запросов `/art/original-png/`, рабочие `/art/*.webp` запрашиваются. `npm run build` (14 статических маршрутов), `npm run typecheck` (в native review), `npm run lint`, `git diff --check` PASS; native `codex review --uncommitted` завершился без actionable findings. Дополнительные 46,308,888 байт увеличивают public/deployment размер, но не сетевую загрузку текущей страницы. Динамический выбор формата ещё не реализован и не тестировался.
++- **Технический аппрув:** 2026-10-04, Codex primary verifier `PASS`: 22/22 точных PNG против текущих исходников по RGBA/ICC, WebP-size parity, manifest hashes, оба production WebKit профиля без reserve-запросов, build/type/lint/diff и native review. Независимый discipline-аудитор подтвердил scope и implementation; финальная сверка записи ожидается. **Аппрув пользователя:** `NOT_RECORDED`.
+
+2026-10-03T22:27:58.971677Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a103e1-4172-76a3-8bae-a25c50513d68 turn_id=01a103e1-420b-75c2-95e2-b7688addc1ad item_id="exec-25ee7002-b927-40b5-82e3-98de9c2ebe60"
+exec
+/bin/zsh -lc "python3 - <<'PY'
+from PIL import Image,ImageChops
+for x in ['background.png','background_old.png']:
+ im=Image.open('design/references/'+x);print(x,im.size,im.mode,len(im.info.get('icc_profile',b'')))
+a=Image.open('design/references/background.png');b=Image.open('design/references/background_old.png');d=ImageChops.difference(a,b);print('diffbox',d.getbbox())
+PY
+cat public/art/original-png/README.md; rg -n 'background_old|original-png' --glob '"'!CHANGELOG.md'"' --glob '"'!*.json'"' | head -30" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 1223ms:
+background.png (941, 32127) RGBA 560
+background_old.png (941, 32127) RGBA 560
+diffbox None
+# Original PNG artwork reserve
+
+These 22 files are **not used by the current site**. They are ready for a future, separately tested image-format selection feature. The live page continues to use the WebP files one directory up.
+
+Regenerate with `python3 tools/slice-background-png.py` from the repository root. The script crops the current `design/references/background.png` (11 main tiles and six FAQ rows) and `design/references/background_text.png` (five document thumbnails). It preserves each crop's original RGBA pixels and Adobe RGB (1998) ICC bytes, including the transparent right edge and the source overlap rows. It does not convert the color profile or edit the source images. `manifest.json` records source hashes, coordinates, dimensions, output hashes, and sizes; the script checks the decoded pixels, ICC, and matching active WebP dimensions on each run.
+
+This folder is under `public/`, so a deployment may include its 46,308,888 PNG bytes even though the current page never requests them. Future format selection must account for network conditions, caching, correct browser color management, performance, and the same Pro/Pro Max visual and seam checks before turning these files on.
+MEMORY.md:9:- CHG-0057 adds a future-use reserve of 22 exact-source Adobe RGB PNG crops in `public/art/original-png/` (46,308,888 bytes). `tools/slice-background-png.py` regenerates them and `manifest.json` records source/output hashes and crop boxes. The live page still requests WebP only; Pro/Pro Max production WebKit request logs show zero reserve PNG requests. Format switching has not been implemented.
+MEMORY.md:10:- CHG-0056 replaces the temporary 22 active PNG crops with WebP derived from the **current user-modified** Adobe RGB reference through an explicit LittleCMS Adobe RGB→sRGB conversion. Every full WebP carries sRGB ICC and exact source alpha; q95 is used where measured color shift stays within thresholds, with four document thumbnails lossless. The old `public/art/unused-webp/` archive and superseded active PNG crops were removed; `design/references/background.png` and the user's untracked `background_old.png` were preserved. `tools/convert-art-webp.py` regenerates the files and [color metrics](docs/evidence/art-webp/color-metrics.json); the method and alternatives are in [art color pipeline](docs/art-color-pipeline.md).
+tools/check-png-reserve-browser.mjs:20:      const reserve = art.filter(url => url.includes('/original-png/'));
+docs/art-color-pipeline.md:21:The future-use `public/art/original-png/` directory contains 22 source-exact PNG crops (46,308,888 bytes) with unchanged RGBA pixels and Adobe RGB ICC from the current references. `python3 tools/slice-background-png.py` regenerates and checks them; its `manifest.json` records crop boxes and hashes. They are not referenced by the current page. Because the folder is under `public/`, a deployment may carry those bytes even though the browser does not download them. A future network-based format selector needs its own browser color, cache, performance, and layout checks before activation.
+docs/evidence/png-reserve/native-review.log:77:?? design/references/background_old.png
+docs/evidence/png-reserve/native-review.log:104:?? public/art/original-png/
+docs/evidence/png-reserve/native-review.log:318:+ART = ROOT / "public/art/original-png"
+docs/evidence/png-reserve/native-review.log:412:The future-use `public/art/original-png/` directory contains 22 source-exact PNG crops (46,308,888 bytes) with unchanged RGBA pixels and Adobe RGB ICC from the current references. `python3 tools/slice-background-png.py` regenerates and checks them; its `manifest.json` records crop boxes and hashes. They are not referenced by the current page. Because the folder is under `public/`, a deployment may carry those bytes even though the browser does not download them. A future network-based format selector needs its own browser color, cache, performance, and layout checks before activation.
+docs/evidence/png-reserve/native-review.log:463:/bin/zsh -lc "sed -n '1,260p' tools/convert-art-webp.py; du -sh public/art/original-png design/references/background_old.png lib/art-previews.json; python3 - <<'PY'
+docs/evidence/png-reserve/native-review.log:607: 49M	public/art/original-png
+docs/evidence/png-reserve/native-review.log:608: 43M	design/references/background_old.png
+docs/evidence/png-reserve/native-review.log:679:/bin/zsh -lc "nl -ba tools/slice-background-png.py | sed -n '8,70p'; find public/art/original-png -maxdepth 1 -type f | wc -l; ls public/art/original-png | tail; git diff -- CHANGELOG.md | tail -65" in /Users/asmirnou/Projects/g/ramsider
+docs/evidence/png-reserve/native-review.log:682:     9	ART = ROOT / "public/art/original-png"
+docs/evidence/png-reserve/native-review.log:796:+- **Скорость / ограничение:** [production sample](docs/evidence/art-webp/performance.json), Chromium 402×874 DPR3, cold 4 Мбит/с/100 мс: hero paint 2021 мс (прежний PNG 13.659 с), preview дальнего участка 31.8 мс, full distant 5599 мс (прежний PNG 33.88 с), FCP/LCP text 356 мс, CLS 0.00022, first viewport transfer 893,808 B, JS 153,881 B, hero resource 248,536 B, scroll p95 16.7 мс, один кадр >33 мс из 90. Дальний full-res всё ещё догружается несколько секунд при мгновенном cold-jump, но preview сохраняет непрерывную композицию; измерения INP/Lighthouse/полевого цвета нет. sRGB может сузить out-of-gamut Adobe RGB оттенки на широкогамутном дисплее; отдельный P3 variant не делался без доказанной необходимости. Исходный `background.png` изменён пользователем и не перезаписан; `background_old.png` сохранён.
+docs/evidence/png-reserve/native-review.log:809:+- **Решение / применение:** `tools/slice-background-png.py` теперь сохраняет резерв в `public/art/original-png/`, а не в рабочий `public/art/`; он сверяет каждый PNG с исходным crop по RGBA/ICC, с соответствующим активным WebP по размерам и записывает `manifest.json` с source SHA, координатами, размерами, byte count и output SHA. Созданы 22 PNG и `README.md`. Рабочий `components/Story.tsx` не менялся. Добавленный объём public/deployment: 46,308,888 PNG bytes плюс малая документация; отсутствие ссылки в runtime подтверждено статическим поиском, production network-check прошёл.
+docs/evidence/png-reserve/native-review.log:811:+- **Финальная проверка 2026-10-04:** [Production WebKit request log](docs/evidence/png-reserve/requests.json) на iPhone 17 Pro 402×874 и Pro Max 440×956 после загрузки hero и перехода к y=6500: 0 запросов `/art/original-png/`, рабочие `/art/*.webp` запрашиваются. `npm run build` (14 статических маршрутов), `npm run typecheck` (в native review), `npm run lint`, `git diff --check` PASS; native `codex review --uncommitted` завершился без actionable findings. Дополнительные 46,308,888 байт увеличивают public/deployment размер, но не сетевую загрузку текущей страницы. Динамический выбор формата ещё не реализован и не тестировался.
+docs/evidence/png-reserve/native-review.log:818:for x in ['background.png','background_old.png']:
+docs/evidence/png-reserve/native-review.log:820:a=Image.open('design/references/background.png');b=Image.open('design/references/background_old.png');d=ImageChops.difference(a,b);print('diffbox',d.getbbox())
+docs/evidence/png-reserve/native-review.log:822:cat public/art/original-png/README.md; rg -n 'background_old|original-png' --glob '"'!CHANGELOG.md'"' --glob '"'!*.json'"' | head -30" in /Users/asmirnou/Projects/g/ramsider
+tools/slice-background-png.py:9:ART = ROOT / "public/art/original-png"
+
+2026-10-03T22:28:06.069712Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a103e1-4172-76a3-8bae-a25c50513d68 turn_id=01a103e1-420b-75c2-95e2-b7688addc1ad item_id="exec-0e4cf886-f9bf-49bf-a653-72609981e3f8"
+codex
+I found no actionable regression in the staged, unstaged, or untracked changes.
+I found no actionable regression in the staged, unstaged, or untracked changes.

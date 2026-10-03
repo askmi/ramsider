@@ -16,7 +16,7 @@ a{color:inherit}
 :focus-visible{outline:3px solid #815013;outline-offset:3px}
 .canvas{position:relative;container-type:inline-size;display:grid;grid-template-rows:auto auto auto;width:100%;max-width:941px;margin-inline:auto;overflow:clip;isolation:isolate;background:#d8bb9f}
 .art{position:absolute;inset:0 0 auto;height:calc(27147/941*100cqw);overflow:hidden;z-index:0;pointer-events:none}
-.art img,.tail-art img{display:block;width:100%;height:auto}
+.art img,.tail-art img{display:block;width:100%;height:auto;background-size:100% 100%;background-repeat:no-repeat}
 .art img:not(:first-child),.tail-art-track img{margin-top:calc(-2/941*100cqw)}
 .story-prefix-space{grid-row:1;height:calc(27147/941*100cqw)}
 .story-tail{grid-row:3;position:relative;height:calc(3920/941*100cqw);--source-offset:calc(28207/941*100cqw)}

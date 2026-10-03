@@ -1,6 +1,6 @@
 # Seven technology annotations — source map (CHG-0045)
 
-> Historical evidence for CHG-0045. Current UI uses designer PNGs I01–I05 and I07–I08 from [Elements Mapping](elements-mapping.md#designer-icon-mapping--chg-0049), lifted 28 source px under CHG-0049. The extraction script now outputs connector-only layers; the old `technology-*.png` combined assets were removed. Keep the original bounds here as provenance, not as current implementation instructions.
+> Historical evidence for CHG-0045. Current UI uses designer PNGs I01–I05 and I07–I08 from [Elements Mapping](elements-mapping.md#designer-icon-mapping--chg-0049), with individual vertical offsets under the reopened CHG-0049. The extraction script now outputs connector-only layers; the old `technology-*.png` combined assets were removed. Keep the original bounds here as provenance, not as current implementation instructions.
 
 `design/references/background.png` contains the clean device; `background_text.png` contains the approved gold marks, connector paths, end dots, and words. `tools/extract-technology-icons.mjs` compares the two 941px-wide layers and keeps only changed pixels inside separate icon and connector masks. It excludes the words, which remain localized HTML. Each transparent PNG retains the fine source strokes and line glow without a rectangular background.
 

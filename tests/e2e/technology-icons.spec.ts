@@ -13,6 +13,8 @@ const mapped = [
 test('technology kit icons decode, map one-to-one and clear their labels', async ({ page }) => {
   for (const locale of ['en', 'ar']) {
     await page.goto(`/${locale}`);
+    const canvasBox = await page.locator('.canvas').boundingBox();
+    if (!canvasBox) throw new Error('Missing story canvas');
     await expect(page.locator('img.designer-icon-technology')).toHaveCount(7);
     await expect(page.locator('#icon-i06')).toHaveCount(0);
     await expect(page.locator('img.technology-source-art')).toHaveCount(0);
@@ -32,7 +34,9 @@ test('technology kit icons decode, map one-to-one and clear their labels', async
       const iconBox = await icon.boundingBox();
       const labelBox = await label.boundingBox();
       if (!iconBox || !labelBox) throw new Error(`Missing technology geometry: ${id}`);
-      expect(labelBox.y - (iconBox.y + iconBox.height)).toBeGreaterThanOrEqual(7);
+      const gap = (labelBox.y - (iconBox.y + iconBox.height)) * 402 / canvasBox.width;
+      expect(gap).toBeGreaterThanOrEqual(6);
+      expect(gap).toBeLessThanOrEqual(11);
     }
   }
 });

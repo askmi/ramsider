@@ -1,7 +1,6 @@
 {
   "source": "design/assets/ICON_Kit",
   "sourceWidth": 941,
-  "customerLiftSourcePx": 28,
   "icons": [
     {
       "id": "I01",
@@ -10,10 +9,11 @@
       "group": "technology",
       "x": 172,
       "sourceY": 7123,
-      "y": 7095,
+      "y": 7102,
       "width": 21,
       "height": 24,
-      "render": true
+      "render": true,
+      "liftSourcePx": 21
     },
     {
       "id": "I02",
@@ -22,10 +22,11 @@
       "group": "technology",
       "x": 169,
       "sourceY": 7359,
-      "y": 7331,
+      "y": 7334,
       "width": 24,
       "height": 24,
-      "render": true
+      "render": true,
+      "liftSourcePx": 25
     },
     {
       "id": "I03",
@@ -34,10 +35,11 @@
       "group": "technology",
       "x": 168,
       "sourceY": 7575,
-      "y": 7547,
+      "y": 7556,
       "width": 22,
       "height": 30,
-      "render": true
+      "render": true,
+      "liftSourcePx": 19
     },
     {
       "id": "I04",
@@ -46,10 +48,11 @@
       "group": "technology",
       "x": 170,
       "sourceY": 7813,
-      "y": 7785,
+      "y": 7796,
       "width": 19,
       "height": 27,
-      "render": true
+      "render": true,
+      "liftSourcePx": 17
     },
     {
       "id": "I05",
@@ -58,10 +61,11 @@
       "group": "technology",
       "x": 711,
       "sourceY": 7326,
-      "y": 7298,
+      "y": 7311,
       "width": 28,
       "height": 27,
-      "render": true
+      "render": true,
+      "liftSourcePx": 15
     },
     {
       "id": "I06",
@@ -70,11 +74,12 @@
       "group": "technology",
       "x": 711,
       "sourceY": 7326,
-      "y": 7298,
+      "y": 7311,
       "width": 28,
       "height": 27,
       "render": false,
-      "duplicateOf": "I05"
+      "duplicateOf": "I05",
+      "liftSourcePx": 15
     },
     {
       "id": "I07",
@@ -83,10 +88,11 @@
       "group": "technology",
       "x": 714,
       "sourceY": 7570,
-      "y": 7542,
+      "y": 7550,
       "width": 19,
       "height": 24,
-      "render": true
+      "render": true,
+      "liftSourcePx": 20
     },
     {
       "id": "I08",
@@ -95,10 +101,11 @@
       "group": "technology",
       "x": 708,
       "sourceY": 7819,
-      "y": 7791,
+      "y": 7795,
       "width": 28,
       "height": 27,
-      "render": true
+      "render": true,
+      "liftSourcePx": 24
     },
     {
       "id": "I09",
@@ -107,10 +114,11 @@
       "group": "feature",
       "x": 367,
       "sourceY": 5155,
-      "y": 5127,
+      "y": 5155,
       "width": 46,
       "height": 54,
-      "render": true
+      "render": true,
+      "liftSourcePx": 0
     },
     {
       "id": "I10",
@@ -119,10 +127,11 @@
       "group": "feature",
       "x": 361,
       "sourceY": 5358,
-      "y": 5330,
+      "y": 5358,
       "width": 65,
       "height": 64,
-      "render": true
+      "render": true,
+      "liftSourcePx": 0
     },
     {
       "id": "I11",
@@ -131,10 +140,11 @@
       "group": "feature",
       "x": 365,
       "sourceY": 5571,
-      "y": 5543,
+      "y": 5571,
       "width": 50,
       "height": 49,
-      "render": true
+      "render": true,
+      "liftSourcePx": 0
     },
     {
       "id": "I12",
@@ -143,10 +153,11 @@
       "group": "feature",
       "x": 361,
       "sourceY": 5778,
-      "y": 5750,
+      "y": 5778,
       "width": 58,
       "height": 58,
-      "render": true
+      "render": true,
+      "liftSourcePx": 0
     }
   ]
 }

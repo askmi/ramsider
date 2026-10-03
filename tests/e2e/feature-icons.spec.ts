@@ -6,6 +6,8 @@ const featureKeys = ['control', 'draw', 'intensity', 'consistent'];
 test('designer feature icons render once above their localized labels', async ({ page }) => {
   for (const locale of ['en', 'ar']) {
     await page.goto(`/${locale}`);
+    const canvasBox = await page.locator('.canvas').boundingBox();
+    if (!canvasBox) throw new Error('Missing story canvas');
     const icons = page.locator('img.designer-icon-feature');
     await expect(icons).toHaveCount(4);
     for (let index = 0; index < featureIds.length; index++) {
@@ -24,7 +26,9 @@ test('designer feature icons render once above their localized labels', async ({
       const iconBox = await icon.boundingBox();
       const labelBox = await label.boundingBox();
       if (!iconBox || !labelBox) throw new Error(`Missing feature geometry: ${featureIds[index]}`);
-      expect(labelBox.y - (iconBox.y + iconBox.height)).toBeGreaterThanOrEqual(7);
+      const gap = (labelBox.y - (iconBox.y + iconBox.height)) * 402 / canvasBox.width;
+      expect(gap).toBeGreaterThanOrEqual(0);
+      expect(gap).toBeLessThanOrEqual(5);
     }
     await expect(page.locator('img.feature-source-art')).toHaveCount(0);
     await expect(page.locator('img.feature-divider-art')).toHaveCount(3);

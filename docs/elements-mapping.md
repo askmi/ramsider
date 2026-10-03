@@ -6,22 +6,22 @@ This is the **English reference-to-implementation map**, prepared from `design/r
 
 The twelve supplied PNG files contain **eleven distinct shapes**. `05.png` and `06.png` are byte-identical; the render has one Light & Sound bulb, so `I06` is an inventoried duplicate, not a second page icon. The icon pixels in `background_text.png` occupy exactly the native `ICON_Kit` dimensions at the original coordinates below. Direct alpha compositing each PNG over `background.png` at that coordinate reproduces its composite region with a mean residual below 1 RGB unit per channel (rounding/colour conversion). Use the designer PNG bytes directly, without redrawing, recolouring, stretching, or substituting a glyph.
 
-The customer separately reported that the page icons sit too close to their labels. The **implementation target** is to lift every kit icon by **28 source px** (`≈12 CSS px` on Pro) while keeping its X position and native dimensions. The first browser pass at 16 source px left only a 3 CSS px gap at Smart Core, so the target was raised to 28. This distance is the agent's concrete interpretation of the requested upward adjustment, not a separately approved measurement. The `background_text.png` icon Y remains documented as provenance; `target Y` records the proposed corrected position. The live translated label positions, three feature dividers, seven connector paths and terminal dots retain their own original coordinates. This distinction is necessary because the kit contains icons only, without lines or labels. Browser screenshots must check the visible icon-to-label gap on Pro and Pro Max and revisit this target if the customer gives a more specific distance.
+The customer rejected the former **uniform 28-source-px lift**: the seven technology icons sat too far above their labels, while the four feature icons did not need to move at all. The current target restores I09–I12 to their exact original source Y. It lowers each technology icon by a different amount from the rejected position: I01 +7, I02 +3, I03 +9, I04 +11, I05 +13, I07 +8, I08 +4 source px. Light & Sound, Touch & App, and Water Sensor receive the largest downward adjustments. These are provisional measured placement choices to verify in real Pro/Pro Max screenshots; customer acceptance is not yet recorded. All X coordinates, native dimensions, live translated labels, three feature dividers, seven connector paths and terminal dots stay fixed. The source Y remains provenance; target Y is the current UI specification. The kit contains only icons, so connectors and dividers stay separate.
 
 | Component ID / role | Designer reference | Original source icon x / y | Native w × h | Target x / y after lift | Page label / planned DOM ID |
 | --- | --- | ---: | ---: | ---: | --- |
-| **I01** Triple Heat | [01.png](../design/assets/ICON_Kit/01.png) | 172 / 7123 | 21 × 24 | 172 / 7095 | `triple` / `icon-i01` |
-| **I02** Smart Core | [02.png](../design/assets/ICON_Kit/02.png) | 169 / 7359 | 24 × 24 | 169 / 7331 | `core` / `icon-i02` |
-| **I03** Touch & App | [03.png](../design/assets/ICON_Kit/03.png) | 168 / 7575 | 22 × 30 | 168 / 7547 | `touch` / `icon-i03` |
-| **I04** Water Sensor | [04.png](../design/assets/ICON_Kit/04.png) | 170 / 7813 | 19 × 27 | 170 / 7785 | `water` / `icon-i04` |
-| **I05** Light & Sound | [05.png](../design/assets/ICON_Kit/05.png) | 711 / 7326 | 28 × 27 | 711 / 7298 | `light` / `icon-i05` |
+| **I01** Triple Heat | [01.png](../design/assets/ICON_Kit/01.png) | 172 / 7123 | 21 × 24 | 172 / 7102 | `triple` / `icon-i01` |
+| **I02** Smart Core | [02.png](../design/assets/ICON_Kit/02.png) | 169 / 7359 | 24 × 24 | 169 / 7334 | `core` / `icon-i02` |
+| **I03** Touch & App | [03.png](../design/assets/ICON_Kit/03.png) | 168 / 7575 | 22 × 30 | 168 / 7556 | `touch` / `icon-i03` |
+| **I04** Water Sensor | [04.png](../design/assets/ICON_Kit/04.png) | 170 / 7813 | 19 × 27 | 170 / 7796 | `water` / `icon-i04` |
+| **I05** Light & Sound | [05.png](../design/assets/ICON_Kit/05.png) | 711 / 7326 | 28 × 27 | 711 / 7311 | `light` / `icon-i05` |
 | **I06** duplicate bulb | [06.png](../design/assets/ICON_Kit/06.png) | same as I05 | 28 × 27 | **unused**, identical to I05 | no second bulb / no DOM ID |
-| **I07** Poly Armor | [07.png](../design/assets/ICON_Kit/07.png) | 714 / 7570 | 19 × 24 | 714 / 7542 | `armor` / `icon-i07` |
-| **I08** Flow Guard | [08.png](../design/assets/ICON_Kit/08.png) | 708 / 7819 | 28 × 27 | 708 / 7791 | `flow` / `icon-i08` |
-| **I09** Effortless Control | [09.png](../design/assets/ICON_Kit/09.png) | 367 / 5155 | 46 × 54 | 367 / 5127 | `control` / `icon-i09` |
-| **I10** Smooth Draw | [10.png](../design/assets/ICON_Kit/10.png) | 361 / 5358 | 65 × 64 | 361 / 5330 | `draw` / `icon-i10` |
-| **I11** Desired Intensity | [11.png](../design/assets/ICON_Kit/11.png) | 365 / 5571 | 50 × 49 | 365 / 5543 | `intensity` / `icon-i11` |
-| **I12** Consistent Session | [12.png](../design/assets/ICON_Kit/12.png) | 361 / 5778 | 58 × 58 | 361 / 5750 | `consistent` / `icon-i12` |
+| **I07** Poly Armor | [07.png](../design/assets/ICON_Kit/07.png) | 714 / 7570 | 19 × 24 | 714 / 7550 | `armor` / `icon-i07` |
+| **I08** Flow Guard | [08.png](../design/assets/ICON_Kit/08.png) | 708 / 7819 | 28 × 27 | 708 / 7795 | `flow` / `icon-i08` |
+| **I09** Effortless Control | [09.png](../design/assets/ICON_Kit/09.png) | 367 / 5155 | 46 × 54 | 367 / 5155 | `control` / `icon-i09` |
+| **I10** Smooth Draw | [10.png](../design/assets/ICON_Kit/10.png) | 361 / 5358 | 65 × 64 | 361 / 5358 | `draw` / `icon-i10` |
+| **I11** Desired Intensity | [11.png](../design/assets/ICON_Kit/11.png) | 365 / 5571 | 50 × 49 | 365 / 5571 | `intensity` / `icon-i11` |
+| **I12** Consistent Session | [12.png](../design/assets/ICON_Kit/12.png) | 361 / 5778 | 58 × 58 | 361 / 5778 | `consistent` / `icon-i12` |
 
 **Application rule:** `lib/icon-map.json` is the machine-readable copy of I01–I12; `components/Story.tsx` renders the eleven used kit icons by these IDs from `/art/icon-kit/NN.png`. It renders connector-only and divider-only source layers separately, so an old extracted icon cannot remain underneath a kit icon. The kit source files are preserved at their supplied paths; public copies must match their SHA-256 hashes. All icon images are decorative (`alt=""`, `aria-hidden`) beside live localized labels and do not intercept pointer input.
 

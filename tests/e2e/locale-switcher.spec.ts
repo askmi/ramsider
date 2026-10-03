@@ -110,13 +110,13 @@ test('language control stays in the header and works after returning to top', as
 
   await page.evaluate(() => scrollTo({ top: 6500, behavior: 'instant' }));
   await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(6400);
-  await page.evaluate(async () => {
-    const image = [...document.querySelectorAll<HTMLImageElement>('.art img')].find(item => {
+  await expect.poll(() => page.evaluate(() => {
+    const visibleImages = [...document.querySelectorAll<HTMLImageElement>('.art img')].filter(item => {
       const box = item.getBoundingClientRect();
       return box.bottom > 0 && box.top < innerHeight;
     });
-    if (image) await image.decode();
-  });
+    return visibleImages.length > 0 && visibleImages.every(image => image.complete && image.naturalWidth > 0);
+  })).toBe(true);
   const scrolledBox = (await trigger.boundingBox())!;
   expect(scrolledBox.y).toBeLessThan(-40);
   expect(Math.abs(scrolledBox.x - triggerBox.x)).toBeLessThan(1);

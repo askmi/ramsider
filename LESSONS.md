@@ -58,9 +58,9 @@ This is the repository's **error-prevention memory**, separate from current proj
 
 ## Wait for lazy artwork before full-page screenshots
 
-- **Problem:** A Firefox browser check tried to decode the last artwork tile before it had a `currentSrc`.
-- **Cause:** Full-page capture and `decode()` do not guarantee that every lazy image below the fold has entered the loading threshold.
-- **Prevention:** Scroll through the page, wait for any image without `currentSrc` to load, then decode all tiles before the screenshot or image assertion. Keep the first tile eager for LCP.
+- **Problem:** Firefox browser checks tried to decode an artwork tile before its lazy request was stable; a later isolated test twice rejected `decode()` with `Invalid image request` during a scroll transition.
+- **Cause:** Full-page capture and an immediate `decode()` do not guarantee that every lazy image below the fold has entered the loading threshold or retained the same in-flight request.
+- **Prevention:** Scroll through the page and poll **every visible tile** for `complete && naturalWidth > 0` before the screenshot or image assertion; waiting for only the first visible tile can leave a blank neighboring tile. When decoding all tiles, wait for each source to load and handle a canceled transient request by checking the image's final loaded state. Keep the first tile eager for LCP.
 
 ## Test fast travel and cold reload before approving long artwork delivery
 
@@ -202,9 +202,9 @@ This is the repository's **error-prevention memory**, separate from current proj
 
 ## Remap icons when a designer supplies canonical assets
 
-- **Problem:** The previous feature and technology icons were source extractions, but a later designer `ICON_Kit` superseded their shapes, and the first 16-source-px upward adjustment still left Smart Core only 3 CSS px above its label (CHG-0049).
-- **Cause:** The original combined images bundled icon pixels with dividers or connector routes. Replacing only their filenames would leave duplicate marks; a uniform spacing guess also missed the tightest icon-to-label pair. The new kit and customer spacing correction arrived after that implementation, so their absence then is a changed input, not evidence of user fault.
-- **Prevention:** Inventory every new asset and duplicate, build a stable ID → designer file → DOM map before UI edits, verify public hashes, and isolate decorative connectors/dividers from icon shapes. On real Pro and Pro Max screenshots, measure the **minimum gap across every icon**, not a representative example; reject a candidate that still looks crowded. Record intentional movement separately from exact source-shape fidelity. [EVAL-MAP](docs/agent-evals.md#eval-map) remains `NOT_RUN` as an agent evaluation.
+- **Problem:** The previous feature and technology icons were source extractions, but a later designer `ICON_Kit` superseded their shapes. A first 16-source-px lift left Smart Core too close to its label; the subsequent uniform 28-source-px lift was rejected as too high and unnecessarily moved four feature icons that were already well placed (CHG-0049).
+- **Cause:** The original combined images bundled icon pixels with dividers or connector routes. Replacing only filenames would leave duplicate marks. The agent then used one offset and a minimum-gap check as a substitute for checking each icon's visual balance and preserving accepted positions. The new kit itself was a changed input; the uniform offset was an agent error.
+- **Prevention:** Inventory every new asset and duplicate, build a stable ID → designer file → DOM map before UI edits, verify public hashes, and isolate decorative connectors/dividers from icon shapes. Preserve elements the customer says are correct. Set per-icon target coordinates in the map before implementation; compare every pair on real Pro/Pro Max screenshots, including RTL, then use gap bounds as a supporting check. Record intentional movement separately from exact source-shape fidelity. [EVAL-MAP](docs/agent-evals.md#eval-map) remains `NOT_RUN` as an agent evaluation.
 
 ## Verify color profiles and decoded artwork before approving a format change
 

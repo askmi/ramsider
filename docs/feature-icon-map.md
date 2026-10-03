@@ -1,6 +1,6 @@
 # Four feature icons — source mapping (CHG-0044)
 
-> Historical evidence for CHG-0044. Current UI uses the designer PNGs I09–I12 from [Elements Mapping](elements-mapping.md#designer-icon-mapping--chg-0049), lifted 28 source px under CHG-0049. The extraction script now outputs only three divider layers; the `feature-*.png` combined assets below were removed. Keep the original bounds here as provenance, not as current implementation instructions.
+> Historical evidence for CHG-0044. Current UI uses the designer PNGs I09–I12 from [Elements Mapping](elements-mapping.md#designer-icon-mapping--chg-0049) at their original source Y, following the customer's CHG-0049 correction. The extraction script now outputs only three divider layers; the `feature-*.png` combined assets below were removed. Keep the original bounds here as provenance, not as current implementation instructions.
 
 The source is `design/references/background_text.png` at 941 × 32,127. Its clean pair, `background.png`, contains no icons or dividers in this section. `tools/extract-feature-icons.mjs` keeps only pixels that differ in the icon and divider bands; it excludes the words. The resulting transparent PNGs retain the source's exact gold strokes and anti-aliasing without a rectangular background patch. `components/Story.tsx` places each image by source coordinates and keeps the translated labels as HTML.
 

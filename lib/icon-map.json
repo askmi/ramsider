@@ -8,12 +8,13 @@
       "asset": "01.png",
       "group": "technology",
       "x": 172,
+      "localizedX": 174.5,
       "sourceY": 7123,
-      "y": 7102,
+      "y": 7106,
       "width": 21,
       "height": 24,
       "render": true,
-      "liftSourcePx": 21
+      "liftSourcePx": 17
     },
     {
       "id": "I02",
@@ -21,6 +22,7 @@
       "asset": "02.png",
       "group": "technology",
       "x": 169,
+      "localizedX": 173,
       "sourceY": 7359,
       "y": 7334,
       "width": 24,
@@ -34,12 +36,13 @@
       "asset": "03.png",
       "group": "technology",
       "x": 168,
+      "localizedX": 174,
       "sourceY": 7575,
-      "y": 7556,
+      "y": 7561,
       "width": 22,
       "height": 30,
       "render": true,
-      "liftSourcePx": 19
+      "liftSourcePx": 14
     },
     {
       "id": "I04",
@@ -47,25 +50,28 @@
       "asset": "04.png",
       "group": "technology",
       "x": 170,
+      "localizedX": 175.5,
       "sourceY": 7813,
-      "y": 7796,
+      "y": 7802,
       "width": 19,
       "height": 27,
       "render": true,
-      "liftSourcePx": 17
+      "liftSourcePx": 11
     },
     {
       "id": "I05",
       "key": "light",
       "asset": "05.png",
       "group": "technology",
-      "x": 711,
+      "sourceX": 711,
+      "x": 706,
+      "localizedX": 736,
       "sourceY": 7326,
-      "y": 7311,
+      "y": 7317,
       "width": 28,
       "height": 27,
       "render": true,
-      "liftSourcePx": 15
+      "liftSourcePx": 9
     },
     {
       "id": "I06",
@@ -73,13 +79,14 @@
       "asset": "06.png",
       "group": "technology",
       "x": 711,
+      "localizedX": 736,
       "sourceY": 7326,
-      "y": 7311,
+      "y": 7317,
       "width": 28,
       "height": 27,
       "render": false,
       "duplicateOf": "I05",
-      "liftSourcePx": 15
+      "liftSourcePx": 9
     },
     {
       "id": "I07",
@@ -87,12 +94,13 @@
       "asset": "07.png",
       "group": "technology",
       "x": 714,
+      "localizedX": 740.5,
       "sourceY": 7570,
-      "y": 7550,
+      "y": 7554,
       "width": 19,
       "height": 24,
       "render": true,
-      "liftSourcePx": 20
+      "liftSourcePx": 16
     },
     {
       "id": "I08",
@@ -100,12 +108,13 @@
       "asset": "08.png",
       "group": "technology",
       "x": 708,
+      "localizedX": 736,
       "sourceY": 7819,
-      "y": 7795,
+      "y": 7799,
       "width": 28,
       "height": 27,
       "render": true,
-      "liftSourcePx": 24
+      "liftSourcePx": 20
     },
     {
       "id": "I09",

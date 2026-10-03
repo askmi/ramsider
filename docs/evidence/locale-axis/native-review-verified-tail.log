@@ -1,0 +1,16 @@
+    43	console.log(`Extracted ${changed} ornament pixels from the source composite.`);
+
+2026-10-03T12:16:43.877828Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a101b1-9b02-7a41-845a-e3f34a8b5b74 turn_id=01a101b1-9bc5-7a50-986f-c5abc8f27a57 item_id="exec-94190f8c-0cee-4acf-aa31-f9db6b4c8c8f"
+codex
+The generated ornament contains a visible hard crop edge, so the expression artwork does not yet match the supplied composition.
+
+Review comment:
+
+- [P2] Preserve the right wave’s full outline — /Users/asmirnou/Projects/g/ramsider/tools/generate-expression-waves.mjs:17-17
+  In the expression section, the `rightArc` mask starts its lower segment at `x >= 635`, cutting through the visible ornament rather than following its edge. The generated `expression-waves.png` consequently has a straight, opaque edge on the lower-right wave that will show over the clean background on both mobile targets. Extend or refine the mask around the source artwork before regenerating the asset. The project’s [pixel-verification rule](AGENTS.md#work-in-stages) calls for resolving material differences against the reference crop.
+The generated ornament contains a visible hard crop edge, so the expression artwork does not yet match the supplied composition.
+
+Review comment:
+
+- [P2] Preserve the right wave’s full outline — /Users/asmirnou/Projects/g/ramsider/tools/generate-expression-waves.mjs:17-17
+  In the expression section, the `rightArc` mask starts its lower segment at `x >= 635`, cutting through the visible ornament rather than following its edge. The generated `expression-waves.png` consequently has a straight, opaque edge on the lower-right wave that will show over the clean background on both mobile targets. Extend or refine the mask around the source artwork before regenerating the asset. The project’s [pixel-verification rule](AGENTS.md#work-in-stages) calls for resolving material differences against the reference crop.

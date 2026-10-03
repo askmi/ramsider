@@ -1,0 +1,36 @@
+
+Running 24 tests using 2 workers
+
+(node:76867) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:76866) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:7:1 › language control stays in the header and works after returning to top (2.4s)
+  ✓   1 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:7:1 › language control stays in the header and works after returning to top (2.5s)
+  ✓   3 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:137:1 › Arabic layout and narrow viewport keep the selector operable (1.1s)
+  ✓   4 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:137:1 › Arabic layout and narrow viewport keep the selector operable (1.1s)
+  -   5 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:168:1 › header controls retain a common line at intermediate widths
+  -   6 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:168:1 › header controls retain a common line at intermediate widths
+  -   8 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:187:1 › every locale has its matching flag and selected language
+  -   9 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:204:1 › every language row accepts center and near-edge touches without choosing a neighbor
+  -  10 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:221:1 › keyboard focus, Escape, and Arabic alignment remain usable
+  -  11 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:268:1 › opening the list does not prefetch all routes and modified clicks keep the source tab
+  -  12 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:295:1 › small phone, tablet, and desktop keep the panel in view
+(node:76975) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:187:1 › every locale has its matching flag and selected language (2.5s)
+  ✓  13 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:7:1 › language control stays in the header and works after returning to top (2.7s)
+  ✓  15 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:137:1 › Arabic layout and narrow viewport keep the selector operable (960ms)
+  ✓  16 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:168:1 › header controls retain a common line at intermediate widths (853ms)
+  -  17 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:187:1 › every locale has its matching flag and selected language
+  -  18 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:204:1 › every language row accepts center and near-edge touches without choosing a neighbor
+  -  19 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:221:1 › keyboard focus, Escape, and Arabic alignment remain usable
+  ✓  20 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:268:1 › opening the list does not prefetch all routes and modified clicks keep the source tab (1.8s)
+  ✓  14 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:204:1 › every language row accepts center and near-edge touches without choosing a neighbor (6.4s)
+  ✓  22 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:221:1 › keyboard focus, Escape, and Arabic alignment remain usable (1.3s)
+  -  23 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:268:1 › opening the list does not prefetch all routes and modified clicks keep the source tab
+  ✓  21 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:295:1 › small phone, tablet, and desktop keep the panel in view (1.9s)
+  -  24 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:295:1 › small phone, tablet, and desktop keep the panel in view
+
+  12 skipped
+  12 passed (16.1s)

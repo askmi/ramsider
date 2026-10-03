@@ -1,0 +1,9 @@
+
+Running 2 tests using 1 worker
+
+(node:27656) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [iphone-17-pro-webkit] › tests/e2e/navigation-menu.spec.ts:3:1 › navigation glass matches locale glass and dismisses on outside input and page scroll (4.7s)
+  ✓  2 [iphone-17-pro-webkit] › tests/e2e/navigation-menu.spec.ts:68:1 › navigation links remain inside the panel in every locale (2.7s)
+
+  2 passed (8.7s)

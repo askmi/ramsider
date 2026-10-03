@@ -264,6 +264,18 @@ export function Story({ locale }: { locale: Locale }) {
         loading="eager"
         fetchPriority="low"
       />)}
+      <Image
+        className="expression-waves-art"
+        src="/art/expression-waves.png"
+        width={700}
+        height={400}
+        style={sourceStyle(120, 14665, 700)}
+        alt=""
+        aria-hidden="true"
+        unoptimized
+        loading="lazy"
+        fetchPriority="low"
+      />
       {iconMap.icons.filter(icon => icon.render).map(icon => <Image
         key={icon.id}
         id={`icon-${icon.id.toLowerCase()}`}
@@ -272,7 +284,7 @@ export function Story({ locale }: { locale: Locale }) {
         src={`/art/icon-kit/${icon.asset}`}
         width={icon.width}
         height={icon.height}
-        style={sourceStyle(icon.x, icon.y, icon.width)}
+        style={sourceStyle(locale !== 'en' && 'localizedX' in icon && typeof icon.localizedX === 'number' ? icon.localizedX : icon.x, icon.y, icon.width)}
         alt=""
         aria-hidden="true"
         unoptimized

@@ -1,6 +1,10 @@
 # CHG-0049 browser evidence
 
-## Customer correction, 2026-10-03
+## Second customer height correction, 2026-10-03 — accepted vertical distance
+
+The new customer close crop showed excess icon-to-text spacing after the first individual adjustment. `fine-adjust-technology-pro-en.png`, `fine-adjust-technology-pro-max-en.png`, and `fine-adjust-technology-pro-ar.png` are current real WebKit DPR3 section screenshots from the production build. `fine-adjust-geometry.json` records all 11 locales on Pro 402×874 and Pro Max 440×956: valid viewport meta and DPR3, no horizontal overflow, all seven visible marks decoded, and positive icon/label box gaps (Pro 4.72–7.72 CSS px; Pro Max 5.16–8.42 CSS px). `fine-adjust-assembly.json` records a top-to-footer 17-stop scroll on each mobile profile: visible art decoded at every stop, no failed artwork requests and no horizontal overflow. Six selected marks were lowered another 4–6 source px; Smart Core was held at its prior Y because its previous measured gap was the smallest. The user specified six although the reference shows seven; the excluded mark was initially a provisional choice. The customer later explicitly accepted the current icon-to-text distance. The four feature icons, seven routes, labels, icon pixels and source artwork did not change. Focused icon tests 8/8, typecheck, lint and production build pass; native review found no actionable regression. The later all-locale horizontal correction and final integrated verification are recorded in `docs/evidence/icon-centering/geometry.json` and CHG-0049; customer acceptance of horizontal centering has not been recorded. The screenshots below are historical candidates rejected for icon height.
+
+## First customer correction, 2026-10-03 — superseded
 
 The customer rejected the uniform 28-source-px lift documented below. The **current** positions are in `docs/elements-mapping.md`: feature icons I09–I12 return to their original source Y, while seven visible technology icons I01–I05, I07–I08 use individual lifts of 21, 25, 19, 17, 15, 20 and 24 source px respectively. The three largest downward corrections from the rejected version are Light & Sound, Water Sensor and Touch & App. Icon PNG bytes, X, native sizes, connectors, dividers and labels are unchanged.
 

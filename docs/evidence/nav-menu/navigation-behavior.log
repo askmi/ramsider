@@ -1,0 +1,22 @@
+
+Running 8 tests using 4 workers
+
+(node:13037) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:13038) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:13040) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:13039) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [desktop-chromium] › tests/e2e/navigation-menu.spec.ts:3:1 › navigation glass matches locale glass and dismisses on outside input and page scroll (3.5s)
+  ✓  1 [iphone-17-pro-max-webkit] › tests/e2e/navigation-menu.spec.ts:3:1 › navigation glass matches locale glass and dismisses on outside input and page scroll (4.1s)
+  ✓  2 [iphone-17-pro-webkit] › tests/e2e/navigation-menu.spec.ts:3:1 › navigation glass matches locale glass and dismisses on outside input and page scroll (4.2s)
+  ✓  5 [desktop-chromium] › tests/e2e/navigation-menu.spec.ts:67:1 › navigation links remain inside the panel in every locale (2.5s)
+  ✓  7 [iphone-17-pro-webkit] › tests/e2e/navigation-menu.spec.ts:67:1 › navigation links remain inside the panel in every locale (3.8s)
+  ✓  6 [iphone-17-pro-max-webkit] › tests/e2e/navigation-menu.spec.ts:67:1 › navigation links remain inside the panel in every locale (4.1s)
+  ✓  3 [desktop-firefox] › tests/e2e/navigation-menu.spec.ts:3:1 › navigation glass matches locale glass and dismisses on outside input and page scroll (8.8s)
+  -  8 [desktop-firefox] › tests/e2e/navigation-menu.spec.ts:67:1 › navigation links remain inside the panel in every locale
+
+  1 skipped
+  7 passed (11.7s)

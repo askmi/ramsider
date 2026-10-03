@@ -1,0 +1,53 @@
+[
+  {
+    "locale": "en",
+    "width": 402,
+    "height": 874,
+    "beforeJump": 0,
+    "waveRequestsAfterJump": 1,
+    "scrollY": 6164,
+    "decoded": true
+  },
+  {
+    "locale": "en",
+    "width": 440,
+    "height": 956,
+    "beforeJump": 0,
+    "waveRequestsAfterJump": 1,
+    "scrollY": 6747,
+    "decoded": true
+  },
+  {
+    "locale": "de",
+    "width": 402,
+    "height": 874,
+    "beforeJump": 0,
+    "waveRequestsAfterJump": 1,
+    "scrollY": 6164,
+    "decoded": true
+  },
+  {
+    "locale": "ar",
+    "width": 402,
+    "height": 874,
+    "beforeJump": 0,
+    "waveRequestsAfterJump": 1,
+    "scrollY": 6164,
+    "decoded": true
+  },
+  {
+    "desktopEngine": "chromium-mobile",
+    "topWaveRequests": 0,
+    "perf": {
+      "nav": [
+        {
+          "ttfb": 8.700000047683716,
+          "domContentLoaded": 65.89999997615814
+        }
+      ],
+      "resources": 54,
+      "firstPaint": 88,
+      "firstContentfulPaint": 88
+    }
+  }
+]

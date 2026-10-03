@@ -1,0 +1,20 @@
+{
+  "profile": "local Chromium mobile 402×874 DPR3 loopback, no throttling",
+  "first": {
+    "lcp": 140,
+    "cls": 0,
+    "ttfb": 18.899999976158142,
+    "fcp": 140,
+    "transferBytes": 15698306,
+    "jsTransferBytes": 160257,
+    "waveRequests": 0
+  },
+  "after": {
+    "cls": 0,
+    "waveRequests": 1,
+    "waveTransferBytes": 95443,
+    "scrollY": 6164,
+    "scrollWidth": 402
+  },
+  "inp": "not measured (no representative field session)"
+}

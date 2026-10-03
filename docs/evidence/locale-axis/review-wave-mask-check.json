@@ -1,0 +1,18 @@
+{
+  "sourceRegion": {
+    "left": 550,
+    "top": 15021,
+    "width": 100,
+    "height": 40
+  },
+  "outsideMask": {
+    "pixels": 3400,
+    "maxChannelDelta": 8,
+    "countAbove20": 0
+  },
+  "insideMask": {
+    "pixels": 600,
+    "maxChannelDelta": 28,
+    "countAbove20": 7
+  }
+}

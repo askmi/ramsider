@@ -1,0 +1,21 @@
+
+Running 8 tests using 4 workers
+
+(node:33481) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:33478) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:33479) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:33480) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop-chromium] › tests/e2e/technology-icons.spec.ts:13:1 › technology kit icons decode, map one-to-one and clear their labels (2.2s)
+  ✓  1 [iphone-17-pro-webkit] › tests/e2e/technology-icons.spec.ts:13:1 › technology kit icons decode, map one-to-one and clear their labels (2.8s)
+  ✓  3 [iphone-17-pro-max-webkit] › tests/e2e/technology-icons.spec.ts:13:1 › technology kit icons decode, map one-to-one and clear their labels (3.0s)
+  ✓  5 [desktop-chromium] › tests/e2e/technology-icons.spec.ts:44:1 › technology icons stay centered on translated labels without changing vertical gaps (4.2s)
+  ✓  7 [iphone-17-pro-max-webkit] › tests/e2e/technology-icons.spec.ts:44:1 › technology icons stay centered on translated labels without changing vertical gaps (4.3s)
+  ✓  6 [iphone-17-pro-webkit] › tests/e2e/technology-icons.spec.ts:44:1 › technology icons stay centered on translated labels without changing vertical gaps (4.6s)
+  ✓  4 [desktop-firefox] › tests/e2e/technology-icons.spec.ts:13:1 › technology kit icons decode, map one-to-one and clear their labels (5.8s)
+  ✓  8 [desktop-firefox] › tests/e2e/technology-icons.spec.ts:44:1 › technology icons stay centered on translated labels without changing vertical gaps (2.3s)
+
+  8 passed (11.8s)

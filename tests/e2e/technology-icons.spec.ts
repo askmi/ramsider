@@ -35,8 +35,28 @@ test('technology kit icons decode, map one-to-one and clear their labels', async
       const labelBox = await label.boundingBox();
       if (!iconBox || !labelBox) throw new Error(`Missing technology geometry: ${id}`);
       const gap = (labelBox.y - (iconBox.y + iconBox.height)) * 402 / canvasBox.width;
-      expect(gap).toBeGreaterThanOrEqual(6);
+      expect(gap).toBeGreaterThanOrEqual(4);
       expect(gap).toBeLessThanOrEqual(11);
+    }
+  }
+});
+
+test('technology icons stay centered on translated labels without changing vertical gaps', async ({ page }) => {
+  for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
+    await page.goto(`/${locale}`);
+    await page.evaluate(() => document.fonts.ready);
+    const canvasBox = await page.locator('.canvas').boundingBox();
+    if (!canvasBox) throw new Error('Missing story canvas');
+    for (const [id, key] of mapped) {
+      const iconBox = await page.locator(`#icon-${id.toLowerCase()}`).boundingBox();
+      const labelBox = await page.locator(`.overlay.key-${key}`).boundingBox();
+      if (!iconBox || !labelBox) throw new Error(`Missing technology geometry: ${locale}/${id}`);
+      const sourceScale = 402 / canvasBox.width;
+      const centerError = Math.abs(iconBox.x + iconBox.width / 2 - labelBox.x - labelBox.width / 2) * sourceScale;
+      const verticalGap = (labelBox.y - iconBox.y - iconBox.height) * sourceScale;
+      expect(centerError, `${locale}/${id} center`).toBeLessThanOrEqual(locale === 'en' && id !== 'I05' ? 2.2 : 0.5);
+      expect(verticalGap, `${locale}/${id} vertical gap`).toBeGreaterThanOrEqual(4);
+      expect(verticalGap, `${locale}/${id} vertical gap`).toBeLessThanOrEqual(11);
     }
   }
 });

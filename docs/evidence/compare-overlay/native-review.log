@@ -1,0 +1,611 @@
+2026-10-05T12:34:13.180483Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-05T12:34:13.180565Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.159.2
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: low
+reasoning summaries: none
+session id: 01a10c0e-b613-7971-bb8d-401c2a3176cd
+--------
+user
+current changes
+2026-10-05T12:34:14.469107Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-05T12:34:14.469161Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-05T12:34:18.136767Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+exec
+/bin/zsh -lc 'git status --short; git diff --stat; git diff --cached --stat; find . -name AGENTS.md -o -name AGENTS.override.md | head' in /Users/asmirnou/Projects/g/ramsider
+2026-10-05T12:34:27.176378Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a10c0e-b613-7971-bb8d-401c2a3176cd turn_id=01a10c0e-b6d7-7472-8a79-97c3f0da32d0 item_id="exec-235d5f7f-2ca4-43f0-94d9-af727cc3ab27"
+ succeeded in 1246ms:
+ M CHANGELOG.md
+ M MEMORY.md
+ M components/Story.tsx
+ M docs/expression-waves-map.md
+ M public/art/expression-waves.png
+ M tests/e2e/expression-waves.spec.ts
+ M tools/generate-expression-waves.mjs
+?? design/references/01_Compare_Overlay.png
+?? docs/evidence/compare-overlay/
+ CHANGELOG.md                        |   9 +++++++
+ MEMORY.md                           |   4 ++-
+ components/Story.tsx                |   6 ++---
+ docs/expression-waves-map.md        |   8 +++++-
+ public/art/expression-waves.png     | Bin 95143 -> 100829 bytes
+ tests/e2e/expression-waves.spec.ts  |   2 +-
+ tools/generate-expression-waves.mjs |  48 ++++++++----------------------------
+ 7 files changed, 33 insertions(+), 44 deletions(-)
+./.agents/skills/vercel-react-best-practices/AGENTS.md
+./.agents/skills/vercel-composition-patterns/AGENTS.md
+./AGENTS.md
+
+exec
+/bin/zsh -lc 'git diff -- components/Story.tsx tools/generate-expression-waves.mjs tests/e2e/expression-waves.spec.ts docs/expression-waves-map.md; cat package.json | head -65; ls -l docs/evidence/compare-overlay/' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 22ms:
+diff --git a/components/Story.tsx b/components/Story.tsx
+index ba96214..3da0a03 100644
+--- a/components/Story.tsx
++++ b/components/Story.tsx
+@@ -269,9 +269,9 @@ export function Story({ locale }: { locale: Locale }) {
+       <Image
+         className="expression-waves-art"
+         src="/art/expression-waves.png"
+-        width={700}
+-        height={400}
+-        style={sourceStyle(120, 14665, 700)}
++        width={701}
++        height={401}
++        style={sourceStyle(120, 14665, 701)}
+         alt=""
+         aria-hidden="true"
+         unoptimized
+diff --git a/docs/expression-waves-map.md b/docs/expression-waves-map.md
+index c6a3cc2..ca4ed42 100644
+--- a/docs/expression-waves-map.md
++++ b/docs/expression-waves-map.md
+@@ -1,4 +1,10 @@
+-# Expression waves — source-to-UI map (CHG-0052)
++# Expression waves — source-to-UI map (CHG-0052, superseded by CHG-0059)
++
++## Current designer asset — 2026-10-05
++
++`design/references/01_Compare_Overlay.png` is the supplied 701×401 RGBA overlay. It replaces the masked extraction below. The production `public/art/expression-waves.png` is a byte-for-byte copy, placed at source x=120, y=14665 at its native 701-source-pixel width. The PNG has no embedded ICC profile; its color intent is unconfirmed, so no profile assignment or RGB conversion is applied. The overlay stays below live localized text and the B08 control, with lazy loading. `tools/generate-expression-waves.mjs` now validates the source geometry and copies these exact bytes; it does not regenerate the earlier mask.
++
++## Previous reconstruction — historical
+
+ Source inspection order: `design/references/background.png`, then `background_text.png`, both at 941 × 32,127. The clean background omits the luminous ornament. The composite includes it, but also bakes in English heading, subtitle, button and UNO wordmark. The page must keep those words and the button as live localized HTML.
+
+diff --git a/tests/e2e/expression-waves.spec.ts b/tests/e2e/expression-waves.spec.ts
+index 3ebd954..d33c115 100644
+--- a/tests/e2e/expression-waves.spec.ts
++++ b/tests/e2e/expression-waves.spec.ts
+@@ -16,7 +16,7 @@ test('expression waves frame centered localized copy and keep comparison usable'
+     expect(await wave.evaluate(async element => {
+       const image = element as HTMLImageElement;
+       await image.decode();
+-      return image.naturalWidth === 700 && image.naturalHeight === 400;
++      return image.naturalWidth === 701 && image.naturalHeight === 401;
+     })).toBe(true);
+     const waveBox = await wave.boundingBox();
+     if (!waveBox) throw new Error(`Missing wave geometry: ${locale}`);
+diff --git a/tools/generate-expression-waves.mjs b/tools/generate-expression-waves.mjs
+index 4e5df93..835ef91 100644
+--- a/tools/generate-expression-waves.mjs
++++ b/tools/generate-expression-waves.mjs
+@@ -1,43 +1,15 @@
++import { copyFile, readFile } from 'node:fs/promises';
+ import sharp from 'sharp';
+
+-// The composite contains the ornament and baked English copy. Keep only the
+-// isolated arcs and glints so all live localized HTML remains unobstructed.
+-const box = { left: 120, top: 14665, width: 700, height: 400 };
+-const source = 'design/references/';
+-const [composite, clean] = await Promise.all(['background_text', 'background'].map(name =>
+-  sharp(`${source}${name}.png`).extract(box).removeAlpha().raw().toBuffer(),
+-));
++const source = 'design/references/01_Compare_Overlay.png';
++const output = 'public/art/expression-waves.png';
++const sourceBytes = await readFile(source);
++const metadata = await sharp(sourceBytes).metadata();
+
+-function inside(x, y) {
+-  const leftArc = (y >= 14665 && y <= 14718 && x >= 130 && x <= 365)
+-    || (y >= 14705 && y <= 14890 && x >= 125 && x <= 225);
+-  const rightArc = (y >= 14815 && y < 14840 && x >= 730 && x <= 810)
+-    || (y >= 14840 && y <= 15020 && x >= 700 && x <= 810)
+-    || (y >= 14975 && y <= 15020 && x >= 680 && x <= 810)
+-    || (y > 15020 && y <= 15060 && x >= 635 && x <= 810);
+-  const glint = (y >= 14700 && y <= 14718 && x >= 390 && x <= 565)
+-    || (y >= 14846 && y <= 14868 && x >= 380 && x <= 565)
+-    || (y >= 14904 && y <= 14930 && x >= 380 && x <= 565)
+-    || (y >= 15035 && y <= 15060 && x >= 390 && x <= 565);
+-  return leftArc || rightArc || glint;
++if (metadata.format !== 'png' || metadata.width !== 701 || metadata.height !== 401 || !metadata.hasAlpha) {
++  throw new Error(`${source} must be a 701×401 transparent PNG; inspect a changed designer export before updating its placement.`);
+ }
+
+-const rgba = Buffer.alloc(box.width * box.height * 4);
+-let changed = 0;
+-for (let y = 0; y < box.height; y++) {
+-  for (let x = 0; x < box.width; x++) {
+-    if (!inside(x + box.left, y + box.top)) continue;
+-    const rgb = (y * box.width + x) * 3;
+-    const delta = Math.max(...[0, 1, 2].map(channel => Math.abs(composite[rgb + channel] - clean[rgb + channel])));
+-    if (delta <= 1) continue;
+-    const out = (y * box.width + x) * 4;
+-    rgba[out] = composite[rgb];
+-    rgba[out + 1] = composite[rgb + 1];
+-    rgba[out + 2] = composite[rgb + 2];
+-    rgba[out + 3] = 255;
+-    changed++;
+-  }
+-}
+-await sharp(rgba, { raw: { width: box.width, height: box.height, channels: 4 } })
+-  .png().toFile('public/art/expression-waves.png');
+-console.log(`Extracted ${changed} ornament pixels from the source composite.`);
++// Keep the designer's RGBA pixels and metadata byte-for-byte. No raster re-export.
++await copyFile(source, output);
++console.log(`Copied the designer overlay unchanged to ${output}.`);
+{
+  "name": "ramsider",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test:visual": "playwright test",
+    "test:visual:ui": "playwright test --ui",
+    "visual:diff": "node tools/visual-diff.mjs"
+  },
+  "devDependencies": {
+    "@playwright/cli": "^0.1.22",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.11",
+    "pixelmatch": "^7.2.0",
+    "pngjs": "^7.0.0",
+    "sharp": "^0.35.5",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "next": "^16.2.11",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  }
+}
+total 28176
+-rw-r--r--@ 1 asmirnou  staff      494 Oct  5 16:17 asset.json
+-rw-r--r--@ 1 asmirnou  staff     1373 Oct  5 16:15 browser.json
+-rw-r--r--@ 1 asmirnou  staff      775 Oct  5 16:33 build.log
+-rw-r--r--@ 1 asmirnou  staff     1612 Oct  5 16:28 checks.md
+-rw-r--r--@ 1 asmirnou  staff       20 Oct  5 16:33 lint.log
+-rw-r--r--@ 1 asmirnou  staff  5244222 Oct  5 16:15 max.png
+-rw-r--r--@ 1 asmirnou  staff     2553 Oct  5 16:34 native-review.log
+-rw-r--r--@ 1 asmirnou  staff  4579280 Oct  5 16:15 pro-ar.png
+-rw-r--r--@ 1 asmirnou  staff  4569840 Oct  5 16:15 pro.png
+-rw-r--r--@ 1 asmirnou  staff       29 Oct  5 16:33 typecheck.log
+
+2026-10-05T12:34:32.676930Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a10c0e-b613-7971-bb8d-401c2a3176cd turn_id=01a10c0e-b6d7-7472-8a79-97c3f0da32d0 item_id="exec-a9e9a5ef-61e9-49b0-a27f-4e50469ffab6"
+exec
+/bin/zsh -lc "git diff -- CHANGELOG.md MEMORY.md; cat docs/evidence/compare-overlay/native-review.log; cat docs/evidence/compare-overlay/checks.md; nl -ba components/Story.tsx | sed -n '250,290p'; rg -n 'expression-waves|sourceStyle\\(' components styles app | head -35" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 72ms:
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index e18f9a8..3ee392d 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -1088,3 +1088,12 @@
+ - **Финальные проверки 2026-10-04:** Skill `quick_validate.py` PASS через временный адаптер к проектному `js-yaml`: PyYAML отсутствует, загрузка из PyPI недоступна; валидатор проверил YAML и структуру. [Color report](docs/evidence/art-webp/color-metrics.json): 22 embedded sRGB ICC, alpha от источника, visible RGB p99 max 10/255 на lossy main, все пять docs exact lossless; source-exact Adobe RGB reserve 22/22 SHA/ICC сохранён в `design/derived/original-png/`. [12 Pro/Max WebKit PNG/WebP пар](docs/evidence/art-webp/browser/comparison.json), включая исправленный документальный блок: max channel meanAbs 0.93/255, документы Pro [0.497,0.383,0.579], Max [0.537,0.414,0.618]; прямые [локальные красные source/browser crops](docs/evidence/art-webp/local-red/) для 00, 09-10, FAQ3 осмотрены без материального видимого расхождения. [20 стыков](docs/evidence/art-webp/browser/assembly.json), 0 overflow, Pro/Max contact и assembled кадры осмотрены. [Full browser suite](docs/evidence/art-webp/browser-tests-chg0058.log): 93 PASS/19 ожидаемых SKIP на Pro/Max WebKit, desktop Chromium/Firefox. [Build](docs/evidence/art-webp/build-chg0058.log) 14 static routes, [typecheck](docs/evidence/art-webp/typecheck-chg0058.log), [lint](docs/evidence/art-webp/lint-chg0058.log), diff check PASS. [Cold 4 Мбит/с sample](docs/evidence/art-webp/performance.json): hero paint 1983ms (прежде 2021ms), preview дальнего блока 35ms, full 6286ms (прежде 5599ms), FCP/LCP текста 336ms, CLS 0.000222, scroll p95 16.7ms/0 frames >33ms; это отдельные синтетические прогоны, не гарантия реальных пользователей. Дополнительные 613,198 B активных WebP — осознанная цена меньшей цветовой ошибки; запасные PNG вне public не увеличивают payload/deployment. Field INP/Lighthouse/P3/Photoshop ACE parity не измерены.
+ - **Native review история:** Первый [review](docs/evidence/art-webp/native-review-chg0058-final.log) нашёл P2 о 46.3MB резерве в `public/`; CHG-0057 reopened и резерв перемещён в `design/derived/`. Следующий [review](docs/evidence/art-webp/native-review-chg0058-final2.log) нашёл P2 зависимости PNG-генератора от существования активного WebP; сверка стала условной, оба сценария повторены. [Финальный native review](docs/evidence/art-webp/native-review-chg0058-final3.log) exit 0 без actionable findings. Два FAIL сохранены; независимый дисциплинарный аудитор подтвердил implementation, local-red visual, Pro/Max documents, behavior и performance/review gates; финальная независимая сверка журнала `PASS` 2026-10-04.
+ - **Технический аппрув:** 2026-10-04, Codex primary verifier `PASS` по цвету, ICC/alpha, браузерным кадрам, стыкам, регрессионным тестам, холодной скорости, проверке skill и финальному review выше. Независимый auditor прошёл применимые stage gates; closeout journal audit `PASS` 2026-10-04. **Аппрув пользователя:** `NOT_RECORDED`.
++<a id="chg-0059"></a>
++## CHG-0059 — Дизайнерский overlay блока сравнения
++
++- **Дата / источник / статус:** 2026-10-05; USER_REQUEST / ASSET_REPLACEMENT; `VERIFIED`. Пользователь передал `design/references/01_Compare_Overlay.png` для замены восстановленного `public/art/expression-waves.png`.
++- **Разница → ожидание:** Текущий 700×400 слой был извлечён агентом из композитного референса через маски. Нужно показывать оригинальный 701×401 прозрачный рендер дизайнера с сохранением пикселей и прозрачности; живой локализованный текст и кнопка должны оставаться рабочими.
++- **Причина / ответственность / проверка:** Появился новый входной файл от дизайнера; прежний слой соответствовал доступным на тот момент референсам. Проверить профиль, alpha, размеры, точную копию байтов, Pro/Max браузерные кадры и действие B08. Отсутствующий ICC не выдавать за подтверждённый sRGB.
++- **Решение / файлы:** `tools/generate-expression-waves.mjs` теперь проверяет геометрию 701×401/alpha и копирует исходник без перекодирования в `public/art/expression-waves.png`; `components/Story.tsx` использует его точный размер и исходное положение x120/y14665; `tests/e2e/expression-waves.spec.ts` проверяет новые размеры. `docs/expression-waves-map.md` отличает новый дизайнерский master от исторической генерации масками. Добавлены исходник и [evidence](docs/evidence/compare-overlay/). Файл не имеет ICC; цветовое пространство не назначалось.
++- **Проверка:** [asset.json](docs/evidence/compare-overlay/asset.json): исходник и output побайтово равны (SHA-256 `d7e15075…d95b8b8c`), 100,829 B, RGBA, 45,860 частично прозрачных пикселей сохранены. [WebKit кадры и геометрия](docs/evidence/compare-overlay/browser.json) на Pro/Max и Arabic осмотрены: текст и B08 поверх декора, overflow нет; 11 локалей и нажатие Arabic B08 прошли на Pro и Pro Max. Первый параллельный Pro Max прогон дал transient DOM detach при навигации; одиночный повтор прошёл. Начальный экран: 0 запросов overlay, после прокрутки: 1, `loading=lazy`. Typecheck/lint/build PASS (14 static routes); production `:3020` перезапущен, page/asset HTTP 200 и production WebKit Pro browser test PASS. Native `codex review --uncommitted` exit 0 без actionable findings. [Команды и ограничения](docs/evidence/compare-overlay/checks.md). Исходный дизайнерский PNG уже содержит слабые формы `UNO` и прямоугольные полупрозрачные заливки; они сохранены как часть точного исходника.
++- **Технический аппрув:** 2026-10-05, Codex primary verifier `PASS` по exact SHA/alpha, Pro/Max/Arabic изображениям, 11 локалям/кнопке, lazy-поведению, production build/browser и native review выше; независимый discipline auditor `PASS` для визуального и поведенческого гейта, финальная сверка журнала ожидается. **Аппрув пользователя:** `NOT_RECORDED`.
+diff --git a/MEMORY.md b/MEMORY.md
+index 1b20c8f..3d45fc6 100644
+--- a/MEMORY.md
++++ b/MEMORY.md
+@@ -4,7 +4,9 @@ Durable handoff for work in this repository, across chats and context compaction
+
+ The mandatory [CHANGELOG.md](CHANGELOG.md) now records logical changes and defects with stable IDs, solution/mapping traceability, checks and dated technical approval. Agents update it autonomously at discovery, application and verification; user approval remains separate. It backfills this session’s font/button, Business and FAQ work and retains open residuals. CHG-0023 adds explicit responsibility, missed checks and behavior/eval links: agent implementation/verification failures are distinguished from new inputs (Business). Before similar work or a fresh rebuild, retrieve these causes and prevention checks. Agent Eval has a documented current-code protocol; the browser suite now defines 16 cases (four cover wheel input), but no controlled agent-run baseline has been executed and no model-weight training is claimed.
+
+-## Latest artwork state — 2026-10-04
++## Latest artwork state — 2026-10-05
++
++- 2026-10-05 CHG-0059 replaces the reconstructed comparison ornament with the designer's exact 701×401 transparent `design/references/01_Compare_Overlay.png`; the live copy remains `public/art/expression-waves.png` and the generator now copies the master byte-for-byte. The source has no ICC tag, so its intended color space is unconfirmed. Pro/Max and Arabic WebKit compositions, all 11 locale controls, and lazy loading were checked; see [map](docs/expression-waves-map.md), [journal](CHANGELOG.md#chg-0059), and [evidence](docs/evidence/compare-overlay/).
+
+ - CHG-0058 adds the project [artwork-color-pipeline skill](.agents/skills/artwork-color-pipeline/SKILL.md), explicitly triggered from AGENTS.md for new/replaced Photoshop/raster references and format/delivery changes. The converter now compares default and sharp-YUV WebP using visible/local/p99/ΔE76 measurements; `doc-emc` is lossless after its 29/255 p99 red/blue error was caught. Quality/browser/performance evidence is recorded under `docs/evidence/art-webp/`; no P3 or Photoshop ACE exact-parity claim.
+ - CHG-0057 adds a future-use reserve of 22 exact-source Adobe RGB PNG crops in `design/derived/original-png/` (46,308,888 bytes). `tools/slice-background-png.py` regenerates them and `manifest.json` records source/output hashes and crop boxes. The reserve is outside `public/`, so it adds no deployment assets; the live page still requests WebP only. Pro/Pro Max production WebKit request logs show zero reserve PNG requests. Format switching has not been implemented.
+2026-10-05T12:34:13.180483Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-05T12:34:13.180565Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.159.2
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: low
+reasoning summaries: none
+session id: 01a10c0e-b613-7971-bb8d-401c2a3176cd
+--------
+user
+current changes
+2026-10-05T12:34:14.469107Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-05T12:34:14.469161Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-05T12:34:18.136767Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+exec
+/bin/zsh -lc 'git status --short; git diff --stat; git diff --cached --stat; find . -name AGENTS.md -o -name AGENTS.override.md | head' in /Users/asmirnou/Projects/g/ramsider
+2026-10-05T12:34:27.176378Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a10c0e-b613-7971-bb8d-401c2a3176cd turn_id=01a10c0e-b6d7-7472-8a79-97c3f0da32d0 item_id="exec-235d5f7f-2ca4-43f0-94d9-af727cc3ab27"
+ succeeded in 1246ms:
+ M CHANGELOG.md
+ M MEMORY.md
+ M components/Story.tsx
+ M docs/expression-waves-map.md
+ M public/art/expression-waves.png
+ M tests/e2e/expression-waves.spec.ts
+ M tools/generate-expression-waves.mjs
+?? design/references/01_Compare_Overlay.png
+?? docs/evidence/compare-overlay/
+ CHANGELOG.md                        |   9 +++++++
+ MEMORY.md                           |   4 ++-
+ components/Story.tsx                |   6 ++---
+ docs/expression-waves-map.md        |   8 +++++-
+ public/art/expression-waves.png     | Bin 95143 -> 100829 bytes
+ tests/e2e/expression-waves.spec.ts  |   2 +-
+ tools/generate-expression-waves.mjs |  48 ++++++++----------------------------
+ 7 files changed, 33 insertions(+), 44 deletions(-)
+./.agents/skills/vercel-react-best-practices/AGENTS.md
+./.agents/skills/vercel-composition-patterns/AGENTS.md
+./AGENTS.md
+
+exec
+/bin/zsh -lc 'git diff -- components/Story.tsx tools/generate-expression-waves.mjs tests/e2e/expression-waves.spec.ts docs/expression-waves-map.md; cat package.json | head -65; ls -l docs/evidence/compare-overlay/' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 22ms:
+diff --git a/components/Story.tsx b/components/Story.tsx
+index ba96214..3da0a03 100644
+--- a/components/Story.tsx
++++ b/components/Story.tsx
+@@ -269,9 +269,9 @@ export function Story({ locale }: { locale: Locale }) {
+       <Image
+         className="expression-waves-art"
+         src="/art/expression-waves.png"
+-        width={700}
+-        height={400}
+-        style={sourceStyle(120, 14665, 700)}
++        width={701}
++        height={401}
++        style={sourceStyle(120, 14665, 701)}
+         alt=""
+         aria-hidden="true"
+         unoptimized
+diff --git a/docs/expression-waves-map.md b/docs/expression-waves-map.md
+index c6a3cc2..ca4ed42 100644
+--- a/docs/expression-waves-map.md
++++ b/docs/expression-waves-map.md
+@@ -1,4 +1,10 @@
+-# Expression waves — source-to-UI map (CHG-0052)
++# Expression waves — source-to-UI map (CHG-0052, superseded by CHG-0059)
++
++## Current designer asset — 2026-10-05
++
++`design/references/01_Compare_Overlay.png` is the supplied 701×401 RGBA overlay. It replaces the masked extraction below. The production `public/art/expression-waves.png` is a byte-for-byte copy, placed at source x=120, y=14665 at its native 701-source-pixel width. The PNG has no embedded ICC profile; its color intent is unconfirmed, so no profile assignment or RGB conversion is applied. The overlay stays below live localized text and the B08 control, with lazy loading. `tools/generate-expression-waves.mjs` now validates the source geometry and copies these exact bytes; it does not regenerate the earlier mask.
++
++## Previous reconstruction — historical
+
+ Source inspection order: `design/references/background.png`, then `background_text.png`, both at 941 × 32,127. The clean background omits the luminous ornament. The composite includes it, but also bakes in English heading, subtitle, button and UNO wordmark. The page must keep those words and the button as live localized HTML.
+
+diff --git a/tests/e2e/expression-waves.spec.ts b/tests/e2e/expression-waves.spec.ts
+index 3ebd954..d33c115 100644
+--- a/tests/e2e/expression-waves.spec.ts
++++ b/tests/e2e/expression-waves.spec.ts
+@@ -16,7 +16,7 @@ test('expression waves frame centered localized copy and keep comparison usable'
+     expect(await wave.evaluate(async element => {
+       const image = element as HTMLImageElement;
+       await image.decode();
+-      return image.naturalWidth === 700 && image.naturalHeight === 400;
++      return image.naturalWidth === 701 && image.naturalHeight === 401;
+     })).toBe(true);
+     const waveBox = await wave.boundingBox();
+     if (!waveBox) throw new Error(`Missing wave geometry: ${locale}`);
+diff --git a/tools/generate-expression-waves.mjs b/tools/generate-expression-waves.mjs
+index 4e5df93..835ef91 100644
+--- a/tools/generate-expression-waves.mjs
++++ b/tools/generate-expression-waves.mjs
+@@ -1,43 +1,15 @@
++import { copyFile, readFile } from 'node:fs/promises';
+ import sharp from 'sharp';
+
+-// The composite contains the ornament and baked English copy. Keep only the
+-// isolated arcs and glints so all live localized HTML remains unobstructed.
+-const box = { left: 120, top: 14665, width: 700, height: 400 };
+-const source = 'design/references/';
+-const [composite, clean] = await Promise.all(['background_text', 'background'].map(name =>
+-  sharp(`${source}${name}.png`).extract(box).removeAlpha().raw().toBuffer(),
+-));
++const source = 'design/references/01_Compare_Overlay.png';
++const output = 'public/art/expression-waves.png';
++const sourceBytes = await readFile(source);
++const metadata = await sharp(sourceBytes).metadata();
+
+-function inside(x, y) {
+-  const leftArc = (y >= 14665 && y <= 14718 && x >= 130 && x <= 365)
+-    || (y >= 14705 && y <= 14890 && x >= 125 && x <= 225);
+-  const rightArc = (y >= 14815 && y < 14840 && x >= 730 && x <= 810)
+-    || (y >= 14840 && y <= 15020 && x >= 700 && x <= 810)
+-    || (y >= 14975 && y <= 15020 && x >= 680 && x <= 810)
+-    || (y > 15020 && y <= 15060 && x >= 635 && x <= 810);
+-  const glint = (y >= 14700 && y <= 14718 && x >= 390 && x <= 565)
+-    || (y >= 14846 && y <= 14868 && x >= 380 && x <= 565)
+-    || (y >= 14904 && y <= 14930 && x >= 380 && x <= 565)
+-    || (y >= 15035 && y <= 15060 && x >= 390 && x <= 565);
+-  return leftArc || rightArc || glint;
++if (metadata.format !== 'png' || metadata.width !== 701 || metadata.height !== 401 || !metadata.hasAlpha) {
++  throw new Error(`${source} must be a 701×401 transparent PNG; inspect a changed designer export before updating its placement.`);
+ }
+
+-const rgba = Buffer.alloc(box.width * box.height * 4);
+-let changed = 0;
+-for (let y = 0; y < box.height; y++) {
+-  for (let x = 0; x < box.width; x++) {
+-    if (!inside(x + box.left, y + box.top)) continue;
+-    const rgb = (y * box.width + x) * 3;
+-    const delta = Math.max(...[0, 1, 2].map(channel => Math.abs(composite[rgb + channel] - clean[rgb + channel])));
+-    if (delta <= 1) continue;
+-    const out = (y * box.width + x) * 4;
+-    rgba[out] = composite[rgb];
+-    rgba[out + 1] = composite[rgb + 1];
+-    rgba[out + 2] = composite[rgb + 2];
+-    rgba[out + 3] = 255;
+-    changed++;
+-  }
+-}
+-await sharp(rgba, { raw: { width: box.width, height: box.height, channels: 4 } })
+-  .png().toFile('public/art/expression-waves.png');
+-console.log(`Extracted ${changed} ornament pixels from the source composite.`);
++// Keep the designer's RGBA pixels and metadata byte-for-byte. No raster re-export.
++await copyFile(source, output);
++console.log(`Copied the designer overlay unchanged to ${output}.`);
+{
+  "name": "ramsider",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test:visual": "playwright test",
+    "test:visual:ui": "playwright test --ui",
+    "visual:diff": "node tools/visual-diff.mjs"
+  },
+  "devDependencies": {
+    "@playwright/cli": "^0.1.22",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.11",
+    "pixelmatch": "^7.2.0",
+    "pngjs": "^7.0.0",
+    "sharp": "^0.35.5",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "next": "^16.2.11",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  }
+}
+total 28176
+-rw-r--r--@ 1 asmirnou  staff      494 Oct  5 16:17 asset.json
+-rw-r--r--@ 1 asmirnou  staff     1373 Oct  5 16:15 browser.json
+-rw-r--r--@ 1 asmirnou  staff      775 Oct  5 16:33 build.log
+-rw-r--r--@ 1 asmirnou  staff     1612 Oct  5 16:28 checks.md
+-rw-r--r--@ 1 asmirnou  staff       20 Oct  5 16:33 lint.log
+-rw-r--r--@ 1 asmirnou  staff  5244222 Oct  5 16:15 max.png
+-rw-r--r--@ 1 asmirnou  staff     2553 Oct  5 16:34 native-review.log
+-rw-r--r--@ 1 asmirnou  staff  4579280 Oct  5 16:15 pro-ar.png
+-rw-r--r--@ 1 asmirnou  staff  4569840 Oct  5 16:15 pro.png
+-rw-r--r--@ 1 asmirnou  staff       29 Oct  5 16:33 typecheck.log
+
+2026-10-05T12:34:32.676930Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a10c0e-b613-7971-bb8d-401c2a3176cd turn_id=01a10c0e-b6d7-7472-8a79-97c3f0da32d0 item_id="exec-a9e9a5ef-61e9-49b0-a27f-4e50469ffab6"
+# Designer comparison overlay checks — 2026-10-05
+
+- `node tools/generate-expression-waves.mjs`: copied the 701×401 RGBA designer PNG unchanged. `asset.json` records identical source/output SHA-256, size, alpha distribution, and absent ICC.
+- WebKit DPR 3 captures on iPhone 17 Pro (402×874), Pro Max (440×956), and Pro Arabic are `pro.png`, `max.png`, and `pro-ar.png`; `browser.json` records natural dimensions, CSS geometry, and no horizontal overflow. The images were inspected with the live headings and B08 above the translucent art. The 11-locale B08 test passed on Pro and Pro Max. An initial parallel Pro Max run hit a navigation-time DOM detach; its single-profile rerun passed.
+- On Pro WebKit the first viewport requested the overlay zero times; scrolling to it requested it once. The image retains `loading="lazy"` and weighs 100,829 bytes.
+- `npm run typecheck`, `npm run lint`, and `npm run build` passed; the build generated 14 static routes. `BASE_URL=http://127.0.0.1:3020 npx playwright test tests/e2e/expression-waves.spec.ts --project=iphone-17-pro-webkit` passed on the restarted production site. The page and asset returned HTTP 200; the asset response was 100,829 bytes.
+- Native `codex review --uncommitted` exited 0 and reported no actionable defect in the changed code or asset placement. The unrelated user backup and Python cache were excluded from its Git status input without changing repository files.
+
+The supplied PNG is untagged, so exact Photoshop color intent and wide-gamut behavior were not verified. Its bytes were preserved without profile assignment or conversion.
+   250	        alt=""
+   251	        aria-hidden="true"
+   252	        unoptimized
+   253	        loading="eager"
+   254	        fetchPriority="low"
+   255	      />)}
+   256	      {technologyConnectors.map(icon => <Image
+   257	        key={icon.name}
+   258	        className="technology-connector-art"
+   259	        src={`/art/technology-connector-${icon.name}.png`}
+   260	        width={icon.width}
+   261	        height={icon.height}
+   262	        style={sourceStyle(icon.x, icon.y, icon.width)}
+   263	        alt=""
+   264	        aria-hidden="true"
+   265	        unoptimized
+   266	        loading="eager"
+   267	        fetchPriority="low"
+   268	      />)}
+   269	      <Image
+   270	        className="expression-waves-art"
+   271	        src="/art/expression-waves.png"
+   272	        width={701}
+   273	        height={401}
+   274	        style={sourceStyle(120, 14665, 701)}
+   275	        alt=""
+   276	        aria-hidden="true"
+   277	        unoptimized
+   278	        loading="lazy"
+   279	        fetchPriority="low"
+   280	      />
+   281	      {iconMap.icons.filter(icon => icon.render).map(icon => <Image
+   282	        key={icon.id}
+   283	        id={`icon-${icon.id.toLowerCase()}`}
+   284	        data-icon-id={icon.id}
+   285	        className={`designer-icon designer-icon-${icon.group}`}
+   286	        src={`/art/icon-kit/${icon.asset}`}
+   287	        width={icon.width}
+   288	        height={icon.height}
+   289	        style={sourceStyle(locale !== 'en' && 'localizedX' in icon && typeof icon.localizedX === 'number' ? icon.localizedX : icon.x, icon.y, icon.width)}
+   290	        alt=""
+rg: styles: No such file or directory (os error 2)
+components/Story.tsx:38:function sourceStyle(x: number, y: number, w: number, size?: number): React.CSSProperties {
+components/Story.tsx:56:    style: sourceStyle(node.x, node.y, node.w, node.size),
+components/Story.tsx:72:        ...sourceStyle(localizedGeometry?.x ?? appearance.x, appearance.y, localizedGeometry?.w ?? appearance.w, appearance.size),
+components/Story.tsx:107:    {docs.map((doc) => <div className={`doc-card doc-card--${doc.key} source-panel`} key={doc.key} style={sourceStyle(doc.x, doc.y, 356)}>
+components/Story.tsx:113:    <div className="doc-card doc-card--all source-panel" style={sourceStyle(485, 23775, 356)}>
+components/Story.tsx:249:        style={sourceStyle(icon.x, icon.y, icon.width)}
+components/Story.tsx:262:        style={sourceStyle(icon.x, icon.y, icon.width)}
+components/Story.tsx:270:        className="expression-waves-art"
+components/Story.tsx:271:        src="/art/expression-waves.png"
+components/Story.tsx:274:        style={sourceStyle(120, 14665, 701)}
+components/Story.tsx:289:        style={sourceStyle(locale !== 'en' && 'localizedX' in icon && typeof icon.localizedX === 'number' ? icon.localizedX : icon.x, icon.y, icon.width)}
+components/Story.tsx:297:      <button id="film-play" type="button" className="film-play" style={sourceStyle(390, 11439, 160)} popoverTarget="unavailable-film" aria-label={t(locale, 'film')}><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M12 7L34 20L12 33Z" fill="currentColor" /></svg></button>
+components/Story.tsx:298:      <div className="order-panels" aria-hidden="true">{[20140, 20370, 20650].map((y, i) => <div key={y} className="source-panel" data-step={`0${i + 1}`} style={sourceStyle(95, y, 750)} />)}</div>
+components/Story.tsx:307:      <button id="account-personal" type="button" className="account-hit" style={sourceStyle(45, 28230, 850)} popoverTarget="unavailable-account" aria-label={t(locale, 'account')} />
+components/Story.tsx:308:      <button id="account-venue" type="button" className="account-hit" style={sourceStyle(45, 28350, 850)} popoverTarget="unavailable-account" aria-label={`${t(locale, 'businessAccount')}: ${t(locale, 'venueAccount')}`} />
+components/Story.tsx:309:      <Image className="group-diamond" src="/art/rams-group-diamond.png" width={120} height={150} alt="" unoptimized style={sourceStyle(410, 28885, 120)} />
+components/Story.tsx:316:        <p className="project-number" style={sourceStyle(75, number, 340, 16)}>{t(locale, 'projectLabel')} {String(i + 1).padStart(2, '0')}</p>
+components/Story.tsx:317:        {i === 0 && <span className="project-active" style={sourceStyle(75, 29545, 105, 14)}>{t(locale, 'active')}</span>}
+components/Story.tsx:318:        <button id={`project-${['ramsider', 'ramsmobile', 'ramswear', 'ramsfood'][i]}`} type="button" className="project-hit" style={sourceStyle(40, hit, 850)} popoverTarget={`project-detail-${i + 1}`} aria-label={t(locale, (['project1', 'project2', 'project3', 'project4'] as const)[i])}>
+app/globals.css:32:.expression-waves-art{position:absolute;z-index:2;height:auto;pointer-events:none}
+
+2026-10-05T12:34:38.513318Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a10c0e-b613-7971-bb8d-401c2a3176cd turn_id=01a10c0e-b6d7-7472-8a79-97c3f0da32d0 item_id="exec-ad025089-a366-4642-a173-6b9e7c54c6f9"
+exec
+/bin/zsh -lc "node --input-type=module - <<'EOF'
+import sharp from 'sharp';let {data,info}=await sharp('design/references/01_Compare_Overlay.png').ensureAlpha().raw().toBuffer({resolveWithObject:true});for(let p of [[350,100],[350,150],[350,300],[10,100],[350,220]]){let i=(p[1]*info.width+p[0])*4;console.log(p,[...data.subarray(i,i+4)])}
+EOF
+sed -n '25,50p' components/Story.tsx; sed -n '1,50p' app/globals.css; cat docs/evidence/compare-overlay/asset.json" in /Users/asmirnou/Projects/g/ramsider
+2026-10-05T12:34:49.738999Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a10c0e-b613-7971-bb8d-401c2a3176cd turn_id=01a10c0e-b6d7-7472-8a79-97c3f0da32d0 item_id="exec-a1903d59-9048-487f-994d-061997b956e8"
+ succeeded in 416ms:
+[ 350, 100 ] [ 255, 255, 255, 0 ]
+[ 350, 150 ] [ 255, 255, 255, 0 ]
+[ 350, 300 ] [ 255, 255, 255, 0 ]
+[ 10, 100 ] [ 0, 0, 0, 0 ]
+[ 350, 220 ] [ 255, 255, 255, 0 ]
+  { name: 'intensity', x: 340, y: 5565, width: 100, height: 158 },
+] as const;
+
+const technologyConnectors = [
+  { name: 'triple', x: 165, y: 7118, width: 240, height: 60 },
+  { name: 'core', x: 165, y: 7354, width: 210, height: 52 },
+  { name: 'touch', x: 165, y: 7500, width: 265, height: 130 },
+  { name: 'water', x: 165, y: 7808, width: 260, height: 65 },
+  { name: 'light', x: 600, y: 7321, width: 150, height: 155 },
+  { name: 'armor', x: 595, y: 7565, width: 152, height: 145 },
+  { name: 'flow', x: 460, y: 7814, width: 290, height: 145 },
+] as const;
+
+function sourceStyle(x: number, y: number, w: number, size?: number): React.CSSProperties {
+  return {
+    left: `${(x / 941) * 100}%`,
+    top: `calc(${(y / 941) * 100}cqw - var(--source-offset, 0px))`,
+    width: `${(w / 941) * 100}%`,
+    ...(size ? { fontSize: `${(size / 941) * 100}cqw` } : {}),
+  };
+}
+
+function textLines(value: string) {
+  return value.split('\n').map((line, index) => <span key={index}>{line}{index < value.split('\n').length - 1 && <br />}</span>);
+}
+
+@font-face{font-family:OpenSans;src:url('/fonts/opensans-light.ttf') format('truetype');font-style:normal;font-weight:300;font-display:swap}
+@font-face{font-family:OpenSans;src:url('/fonts/opensans-regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:OpenSansButton;src:url('/fonts/opensans-button.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:BankGothic;src:url('/fonts/bankgothic.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:NotoButtonArabic;src:url('/fonts/button-fallback/noto-arabic-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:NotoButtonSC;src:url('/fonts/button-fallback/noto-zh-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:NotoButtonJP;src:url('/fonts/button-fallback/noto-ja-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:NotoButtonKR;src:url('/fonts/button-fallback/noto-ko-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+:root{color-scheme:light;font-family:OpenSans,Arial,sans-serif;color:#292018;background:#d3b79f}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-width:280px}
+button,a{font:inherit}
+button{cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:3px solid #815013;outline-offset:3px}
+.canvas{position:relative;container-type:inline-size;display:grid;grid-template-rows:auto auto auto;width:100%;max-width:941px;margin-inline:auto;overflow:clip;isolation:isolate;background:#d8bb9f}
+.art{position:absolute;inset:0 0 auto;height:calc(27147/941*100cqw);overflow:hidden;z-index:0;pointer-events:none}
+.art img,.tail-art img{display:block;width:100%;height:auto;background-size:100% 100%;background-repeat:no-repeat}
+.art img:not(:first-child),.tail-art-track img{margin-top:calc(-2/941*100cqw)}
+.story-prefix-space{grid-row:1;height:calc(27147/941*100cqw)}
+.story-tail{grid-row:3;position:relative;height:calc(3920/941*100cqw);--source-offset:calc(28207/941*100cqw)}
+.tail-art{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.tail-art-track{position:absolute;inset:calc(-3007/941*100cqw) 0 auto}
+.overlay{position:absolute;z-index:3;margin:0;line-height:1.16;font-weight:400;white-space:normal;color:#261d18;text-align:start}
+.overlay span{white-space:nowrap}
+.overlay.title{font-weight:400;letter-spacing:0;line-height:1.2}
+.overlay.body{font-weight:300;color:#5d5149;line-height:1.22}
+.overlay.key-choiceBody{color:#41342d}
+.overlay.label{font-weight:400;letter-spacing:.08em;line-height:1.25}
+.feature-divider-art,.technology-connector-art,.designer-icon{position:absolute;z-index:3;height:auto;pointer-events:none}
+.expression-waves-art{position:absolute;z-index:2;height:auto;pointer-events:none}
+html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water){left:calc(70/941*100cqw)!important;width:calc(230/941*100cqw)!important;font-size:calc(29/941*100cqw)!important}
+html:not(:lang(en)) :is(.key-light,.key-armor,.key-flow){left:calc(645/941*100cqw)!important;width:calc(210/941*100cqw)!important;font-size:calc(29/941*100cqw)!important}
+html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.key-armor,.key-flow) span{white-space:normal}
+.overlay.small{font-weight:400;letter-spacing:.12em;color:#8b6b4f}
+.overlay.brand{font-family:BankGothic,OpenSans,sans-serif;letter-spacing:.18em}
+.overlay.align-center{text-align:center}
+.overlay.align-right{text-align:right}
+/* Mapped surfaces use reference-calibrated source SVG geometry; hit areas stay 44px. */
+.story-button{display:flex;align-items:center;justify-content:center;position:absolute;min-height:44px;padding:0;border:0;background:transparent;text-decoration:none;font-weight:400;line-height:1.15;isolation:isolate}
+.button-pill{font-family:OpenSansButton,OpenSans,Arial,sans-serif;height:var(--surface-height);min-height:0;white-space:nowrap;color:#39332b}
+.button-pill::after{content:"";position:absolute;inset:50% 0 auto;transform:translateY(-50%);height:max(44px,100%);z-index:-1}
+.button-surface{position:absolute;inset:0;background-size:100% 100%;background-repeat:no-repeat;z-index:-1;pointer-events:none}
+.button-pill .button-label{padding:0 1em}
+.button-pill.has-arrow .button-label{width:100%;padding-inline:calc(25/941*100cqw) calc(55/941*100cqw);text-align:start}
+.theme-Black_Glass{color:#f3ebd7}
+.story-button:hover .button-surface{filter:brightness(1.04)}
+.story-button:focus-visible{outline:2px solid #815013;outline-offset:4px;border-radius:999px}
+.button-orbit{color:#fff0cf;font-family:OpenSans,Arial,sans-serif;height:calc(120/941*100cqw)}
+{
+  "source": "design/references/01_Compare_Overlay.png",
+  "output": "public/art/expression-waves.png",
+  "sourceSha256": "d7e150754ed76ce2bf48c188dd60bfc9c96f3beb9c76963808b49e16d95b8b8c",
+  "outputSha256": "d7e150754ed76ce2bf48c188dd60bfc9c96f3beb9c76963808b49e16d95b8b8c",
+  "sourceBytes": 100829,
+  "outputBytes": 100829,
+  "dimensions": [
+    701,
+    401
+  ],
+  "mode": "RGBA",
+  "iccBytes": 0,
+  "alphaPixels": {
+    "transparent": 234931,
+    "partial": 45860,
+    "opaque": 310
+  }
+}
+
+codex
+I found no actionable regression in the changed code or asset integration.
+I found no actionable regression in the changed code or asset integration.

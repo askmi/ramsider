@@ -1,4 +1,10 @@
-# Expression waves — source-to-UI map (CHG-0052)
+# Expression waves — source-to-UI map (CHG-0052, superseded by CHG-0059)
+
+## Current designer asset — 2026-10-05
+
+`design/references/01_Compare_Overlay.png` is the supplied 701×401 RGBA overlay. It replaces the masked extraction below. The production `public/art/expression-waves.png` is a byte-for-byte copy, placed at source x=120, y=14665 at its native 701-source-pixel width. The PNG has no embedded ICC profile; its color intent is unconfirmed, so no profile assignment or RGB conversion is applied. The overlay stays below live localized text and the B08 control, with lazy loading. `tools/generate-expression-waves.mjs` now validates the source geometry and copies these exact bytes; it does not regenerate the earlier mask.
+
+## Previous reconstruction — historical
 
 Source inspection order: `design/references/background.png`, then `background_text.png`, both at 941 × 32,127. The clean background omits the luminous ornament. The composite includes it, but also bakes in English heading, subtitle, button and UNO wordmark. The page must keep those words and the button as live localized HTML.
 

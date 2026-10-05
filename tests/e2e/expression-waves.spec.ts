@@ -16,7 +16,7 @@ test('expression waves frame centered localized copy and keep comparison usable'
     expect(await wave.evaluate(async element => {
       const image = element as HTMLImageElement;
       await image.decode();
-      return image.naturalWidth === 700 && image.naturalHeight === 400;
+      return image.naturalWidth === 701 && image.naturalHeight === 401;
     })).toBe(true);
     const waveBox = await wave.boundingBox();
     if (!waveBox) throw new Error(`Missing wave geometry: ${locale}`);

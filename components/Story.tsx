@@ -269,9 +269,9 @@ export function Story({ locale }: { locale: Locale }) {
       <Image
         className="expression-waves-art"
         src="/art/expression-waves.png"
-        width={700}
-        height={400}
-        style={sourceStyle(120, 14665, 700)}
+        width={701}
+        height={401}
+        style={sourceStyle(120, 14665, 701)}
         alt=""
         aria-hidden="true"
         unoptimized

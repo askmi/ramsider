@@ -255,7 +255,7 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
   await page.locator('#technology-repeat').click();
   await page.keyboard.press('ArrowRight');
   await page.keyboard.press('ArrowRight');
-  await expect(page.locator('#technology-viewer .technology-viewer__stage img')).toHaveAttribute('src', /04\.webp/);
+  await expect(page.locator('#technology-viewer .technology-viewer__stage img')).toHaveAttribute('src', /04\.png/);
   await page.locator('#technology-viewer .technology-viewer__close').click();
   await expect(page.locator('dialog:modal')).toHaveCount(0);
   await page.goto('/ar');

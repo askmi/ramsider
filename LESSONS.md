@@ -265,3 +265,9 @@ This is the repository's **error-prevention memory**, separate from current proj
 - **Problem:** CHG-0061 passed local WebKit screenshot review, but the screenshots lived only in ignored `screenshots/actual/`, so the requested Git push would omit proof of the visible result.
 - **Cause:** The agent verified browser pixels in its workspace but did not verify that the cited evidence files were tracked before delivery.
 - **Prevention:** Before a commit or push, use `git ls-files` or staged-tree inspection for the small set of screenshots needed to support visual claims. Copy exact final captures into a tracked evidence path and link them from the report; keep bulky exploratory captures ignored. [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) remains `NOT_RUN`.
+
+## Respect an original-only artwork stage
+
+- **Problem:** CHG-0061 served q95 WebP photographs and a tiny WebP first-frame preview while the user expected original PNGs and postponed optimization. The user reported blur and rejected the converted photo delivery.
+- **Cause:** The agent prioritized the default performance pipeline over the requested implementation stage; checking codec quality was treated as permission to transform the master. Subsequent frame-only changes retained that delivery choice without stating it.
+- **Prevention:** When original-only or no-conversion delivery is required, copy the supplied files byte-for-byte, keep dimensions/profiles intact, disable framework transformations, and verify source/public/HTTP hashes and actual decoded browser images. Remove conflicting derivatives and small previews from that feature. Measure original payload honestly; defer encoding optimization until authorized. [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) controlled agent run NOT_RUN.

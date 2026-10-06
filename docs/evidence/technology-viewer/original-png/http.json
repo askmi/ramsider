@@ -1,0 +1,45 @@
+{
+  "allPass": true,
+  "checks": [
+    {
+      "id": "02",
+      "pass": true,
+      "status": 200,
+      "mime": "image/png",
+      "bytes": 4729424,
+      "httpSha256": "7de489d087b69b0c5026a52a29d4d3d3be6640bf548ab25e5bba85a1b42842de",
+      "sourceSha256": "7de489d087b69b0c5026a52a29d4d3d3be6640bf548ab25e5bba85a1b42842de",
+      "removedWebpStatus": 404
+    },
+    {
+      "id": "03",
+      "pass": true,
+      "status": 200,
+      "mime": "image/png",
+      "bytes": 4729424,
+      "httpSha256": "723e086254c2440179c346ad6d4d8ef028605216a3c52661115f8dc872a94569",
+      "sourceSha256": "723e086254c2440179c346ad6d4d8ef028605216a3c52661115f8dc872a94569",
+      "removedWebpStatus": 404
+    },
+    {
+      "id": "04",
+      "pass": true,
+      "status": 200,
+      "mime": "image/png",
+      "bytes": 4729424,
+      "httpSha256": "5f63d934a6fe6c2b57d52e579c0469d867e821c834fd498f7059ca2533c03511",
+      "sourceSha256": "5f63d934a6fe6c2b57d52e579c0469d867e821c834fd498f7059ca2533c03511",
+      "removedWebpStatus": 404
+    },
+    {
+      "id": "05",
+      "pass": true,
+      "status": 200,
+      "mime": "image/png",
+      "bytes": 4729424,
+      "httpSha256": "d8a0745627c1f3eb085df16ca4860530e276a22a90684f0c02d9c77faf547716",
+      "sourceSha256": "d8a0745627c1f3eb085df16ca4860530e276a22a90684f0c02d9c77faf547716",
+      "removedWebpStatus": 404
+    }
+  ]
+}

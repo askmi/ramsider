@@ -1,5 +1,7 @@
 # Technology viewer — independent layers, 2026-10-07
 
+The contour/control evidence remains valid. Photo delivery/performance below is historical; the [original-only PNG correction](../original-png/checks.md) supersedes its WebP photographs.
+
 CHG-0061 was reopened after the customer rejected the composite template. This revision changes only the viewer and its supporting assets/tests/docs. The landing and HeatCore photographs are unchanged.
 
 - **Source and delivery:** [assets.json](assets.json) records frame01 source SHA, Adobe RGB profile, explicit LittleCMS relative colorimetric/BPC conversion to embedded sRGB, exact transparent opening x29:912/y31:1600, and zero decoded contour RGBA error. Lossless WebP is 20,516 B vs 39,090 B PNG. The right/down arrows and active/inactive dots are independent exact RGB source crops, with only exact-black pixels transparent. No composite text is delivered in artwork.

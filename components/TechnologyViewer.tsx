@@ -4,13 +4,12 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import type { PointerEvent } from 'react';
 import type { Locale } from '@/lib/i18n';
-import previews from '@/lib/technology-previews.json';
 
 const slides = [
-  { id: '02', src: '/art/technology/02.webp' },
-  { id: '03', src: '/art/technology/03.webp' },
-  { id: '04', src: '/art/technology/04.webp' },
-  { id: '05', src: '/art/technology/05.webp' },
+  { id: '02', src: '/art/technology/02.png' },
+  { id: '03', src: '/art/technology/03.png' },
+  { id: '04', src: '/art/technology/04.png' },
+  { id: '05', src: '/art/technology/05.png' },
 ] as const;
 
 type ViewerCopy = { horizontal: string; vertical: string; details: string; close: string; image: string; nextImage: string; nextGroup: string; unavailable: string; names: readonly [string, string, string, string] };
@@ -135,7 +134,7 @@ export function TechnologyViewer({ locale }: { locale: Locale }) {
     }}
   >
     <div className="technology-viewer__canvas">
-      <div className="technology-viewer__stage" style={{ backgroundImage: isOpen ? `url('${previews[slides[index].id]}')` : undefined }} onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}>
+      <div className="technology-viewer__stage" onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}>
         {isOpen && <Image key={slides[index].src} src={slides[index].src} alt={`HeatCore — ${labels.names[index]}`} fill sizes="100vw" unoptimized priority={index === 0} draggable={false} />}
       </div>
       {isOpen && <>

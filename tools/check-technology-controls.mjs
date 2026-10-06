@@ -45,10 +45,10 @@ for (const [width, height] of [[320, 700], [375, 812], [768, 1024], [1440, 900]]
         return { x, y, width, height };
       }));
       await viewer.locator('.technology-viewer__next-image').click({ timeout: 5000 });
-      await page.waitForFunction(() => document.querySelector('.technology-viewer__stage img')?.getAttribute('src')?.includes('03.webp'), null, { timeout: 5000 });
+      await page.waitForFunction(() => document.querySelector('.technology-viewer__stage img')?.getAttribute('src')?.includes('03.png'), null, { timeout: 5000 });
       const topActive = await dots.nth(1).getAttribute('aria-current');
       await dots.nth(3).click({ timeout: 5000 });
-      await page.waitForFunction(() => document.querySelector('.technology-viewer__stage img')?.getAttribute('src')?.includes('05.webp'), null, { timeout: 5000 });
+      await page.waitForFunction(() => document.querySelector('.technology-viewer__stage img')?.getAttribute('src')?.includes('05.png'), null, { timeout: 5000 });
       const dotActive = await dots.nth(3).getAttribute('aria-current');
       await viewer.locator('.technology-viewer__next-group').click({ timeout: 5000 });
       const notice = await viewer.getByRole('status').textContent();

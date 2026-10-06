@@ -1,0 +1,27 @@
+{
+  "profile": "local unthrottled Chromium 402x874 DPR3 production",
+  "lcpMs": 96,
+  "cls": 0,
+  "initialTransferBytes": 2474080,
+  "initialJsTransferBytes": 162381,
+  "technologyRequestsBeforeOpen": 0,
+  "openToReadyMs": 175,
+  "technologyResourcesAfterOpen": [
+    {
+      "name": "02.webp",
+      "transferBytes": 180866
+    },
+    {
+      "name": "frame-template.png",
+      "transferBytes": 240123
+    },
+    {
+      "name": "dot-active.png",
+      "transferBytes": 1704
+    },
+    {
+      "name": "dot-inactive.png",
+      "transferBytes": 1541
+    }
+  ]
+}

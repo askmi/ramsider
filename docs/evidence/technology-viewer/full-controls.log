@@ -1,0 +1,166 @@
+
+Running 132 tests using 4 workers
+
+(node:85452) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:85449) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:85450) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:85451) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓    4 [iphone-17-pro-webkit] › tests/e2e/art-loading.spec.ts:16:1 › color-managed WebP tiles load after a fast distant scroll (2.0s)
+  ✓    2 [iphone-17-pro-webkit] › tests/e2e/feature-icons.spec.ts:6:1 › designer feature icons render once above their localized labels (2.2s)
+  ✓    3 [iphone-17-pro-webkit] › tests/e2e/document-cards.spec.ts:4:3 › document cards open independently in ru (2.4s)
+  ✓    7 [iphone-17-pro-webkit] › tests/e2e/document-cards.spec.ts:4:3 › document cards open independently in ar (1.6s)
+  ✓    5 [iphone-17-pro-webkit] › tests/e2e/art-loading.spec.ts:69:82 › ru change keeps WebP artwork available after scrolling (2.1s)
+  ✓    6 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:7:1 › language control stays in the header and works after returning to top (1.9s)
+  ✓    1 [iphone-17-pro-webkit] › tests/e2e/expression-waves.spec.ts:5:1 › expression waves frame centered localized copy and keep comparison usable (5.2s)
+  ✓   10 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:137:1 › Arabic layout and narrow viewport keep the selector operable (1.1s)
+  -   12 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:168:1 › header controls retain a common line at intermediate widths
+  ✓    9 [iphone-17-pro-webkit] › tests/e2e/art-loading.spec.ts:69:82 › ar change keeps WebP artwork available after scrolling (1.8s)
+  ✓    8 [iphone-17-pro-webkit] › tests/e2e/navigation-menu.spec.ts:3:1 › navigation glass matches locale glass and dismisses on outside input and page scroll (2.3s)
+  ✓   11 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions (3.0s)
+  ✓   13 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:187:1 › every locale has its matching flag and selected language (2.9s)
+  ✓   16 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:81:1 › back-to-top appears on scroll, stays in the viewport, and restores top and focus (756ms)
+  ✓   15 [iphone-17-pro-webkit] › tests/e2e/navigation-menu.spec.ts:68:1 › navigation links remain inside the panel in every locale (2.8s)
+  ✓   14 [iphone-17-pro-webkit] › tests/e2e/art-loading.spec.ts:100:1 › a stalled image cannot hold language navigation indefinitely (3.9s)
+  ✓   19 [iphone-17-pro-webkit] › tests/e2e/technology-icons.spec.ts:13:1 › technology kit icons decode, map one-to-one and clear their labels (1.3s)
+  ✓   18 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:109:1 › localized story buttons keep one-line labels inside proportionate surfaces (1.9s)
+  ✓   20 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:3:1 › technology viewer opens from both story controls and pages through clean images (3.1s)
+  ✓   21 [iphone-17-pro-webkit] › tests/e2e/technology-icons.spec.ts:44:1 › technology icons stay centered on translated labels without changing vertical gaps (3.1s)
+  ✓   22 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:146:36 › ru technology text groups are centered inside both fixed oval surfaces (2.7s)
+(node:85618) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   23 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:75:1 › technology viewer supports touch pointers, Escape and Arabic framing (2.0s)
+  ✓   25 [iphone-17-pro-max-webkit] › tests/e2e/art-loading.spec.ts:16:1 › color-managed WebP tiles load after a fast distant scroll (1.2s)
+  ✓   24 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:146:36 › en technology text groups are centered inside both fixed oval surfaces (2.4s)
+  ✓   17 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:204:1 › every language row accepts center and near-edge touches without choosing a neighbor (7.5s)
+  ✓   26 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:116:1 › previous artwork stays visible while the next slide loads (1.7s)
+  ✓   29 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:221:1 › keyboard focus, Escape, and Arabic alignment remain usable (1.2s)
+  -   31 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:268:1 › opening the list does not prefetch all routes and modified clicks keep the source tab
+  ✓   27 [iphone-17-pro-max-webkit] › tests/e2e/art-loading.spec.ts:69:82 › ru change keeps WebP artwork available after scrolling (1.7s)
+  ✓   30 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:134:1 › failed slide load does not skip the next image (942ms)
+  -   32 [iphone-17-pro-webkit] › tests/e2e/locale-switcher.spec.ts:295:1 › small phone, tablet, and desktop keep the panel in view
+(node:85653) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   34 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:159:1 › swipe completes when the pointer leaves the artwork (748ms)
+  ✓   28 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:221:1 › mapped exploration dialogs contain focus and restore their triggers (2.3s)
+(node:85695) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   33 [iphone-17-pro-max-webkit] › tests/e2e/art-loading.spec.ts:69:82 › ar change keeps WebP artwork available after scrolling (1.8s)
+  ✓   35 [iphone-17-pro-max-webkit] › tests/e2e/document-cards.spec.ts:4:3 › document cards open independently in ru (1.4s)
+  ✓   39 [iphone-17-pro-max-webkit] › tests/e2e/document-cards.spec.ts:4:3 › document cards open independently in ar (1.2s)
+  ✓   36 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:270:1 › FAQ icons are independent and answers expand the page without an inner scroller (3.0s)
+  ✓   40 [iphone-17-pro-max-webkit] › tests/e2e/feature-icons.spec.ts:6:1 › designer feature icons render once above their localized labels (1.2s)
+  ✓   37 [iphone-17-pro-max-webkit] › tests/e2e/expression-waves.spec.ts:5:1 › expression waves frame centered localized copy and keep comparison usable (3.7s)
+  ✓   38 [iphone-17-pro-max-webkit] › tests/e2e/art-loading.spec.ts:100:1 › a stalled image cannot hold language navigation indefinitely (4.0s)
+  ✓   42 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:7:1 › language control stays in the header and works after returning to top (2.0s)
+  ✓   41 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:333:3 › FAQ pointer-wheel input › FAQ always scrolls the document in closed and multi-open states (4.3s)
+  ✓   43 [iphone-17-pro-max-webkit] › tests/e2e/navigation-menu.spec.ts:3:1 › navigation glass matches locale glass and dismisses on outside input and page scroll (2.7s)
+  ✓   45 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:137:1 › Arabic layout and narrow viewport keep the selector operable (1.4s)
+  -   47 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:168:1 › header controls retain a common line at intermediate widths
+(node:85795) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  -   48 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:187:1 › every locale has its matching flag and selected language
+  -   50 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:204:1 › every language row accepts center and near-edge touches without choosing a neighbor
+  -   51 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:221:1 › keyboard focus, Escape, and Arabic alignment remain usable
+  ✓   44 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions (3.6s)
+  -   52 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:268:1 › opening the list does not prefetch all routes and modified clicks keep the source tab
+  -   54 [iphone-17-pro-max-webkit] › tests/e2e/locale-switcher.spec.ts:295:1 › small phone, tablet, and desktop keep the panel in view
+  ✓   53 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:81:1 › back-to-top appears on scroll, stays in the viewport, and restores top and focus (876ms)
+  ✓   49 [iphone-17-pro-max-webkit] › tests/e2e/technology-icons.spec.ts:13:1 › technology kit icons decode, map one-to-one and clear their labels (1.7s)
+  ✓   46 [iphone-17-pro-max-webkit] › tests/e2e/navigation-menu.spec.ts:68:1 › navigation links remain inside the panel in every locale (3.4s)
+(node:85825) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   56 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:109:1 › localized story buttons keep one-line labels inside proportionate surfaces (2.3s)
+  ✓   55 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:3:1 › technology viewer opens from both story controls and pages through clean images (3.6s)
+  ✓   57 [iphone-17-pro-max-webkit] › tests/e2e/technology-icons.spec.ts:44:1 › technology icons stay centered on translated labels without changing vertical gaps (3.5s)
+  ✓   58 [desktop-chromium] › tests/e2e/art-loading.spec.ts:16:1 › color-managed WebP tiles load after a fast distant scroll (1.5s)
+(node:85861) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   59 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:146:36 › ru technology text groups are centered inside both fixed oval surfaces (2.9s)
+  ✓   60 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:75:1 › technology viewer supports touch pointers, Escape and Arabic framing (2.1s)
+  ✓   61 [desktop-chromium] › tests/e2e/art-loading.spec.ts:69:82 › ru change keeps WebP artwork available after scrolling (1.8s)
+  ✓   62 [desktop-chromium] › tests/e2e/document-cards.spec.ts:4:3 › document cards open independently in ru (1.6s)
+  ✓   64 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:116:1 › previous artwork stays visible while the next slide loads (1.6s)
+  ✓   66 [desktop-chromium] › tests/e2e/document-cards.spec.ts:4:3 › document cards open independently in ar (732ms)
+  ✓   65 [desktop-chromium] › tests/e2e/art-loading.spec.ts:69:82 › ar change keeps WebP artwork available after scrolling (1.6s)
+  ✓   63 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:146:36 › en technology text groups are centered inside both fixed oval surfaces (2.8s)
+  ✓   67 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:134:1 › failed slide load does not skip the next image (1.1s)
+  ✓   71 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:159:1 › swipe completes when the pointer leaves the artwork (888ms)
+(node:85880) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   72 [desktop-chromium] › tests/e2e/feature-icons.spec.ts:6:1 › designer feature icons render once above their localized labels (678ms)
+  ✓   68 [desktop-chromium] › tests/e2e/expression-waves.spec.ts:5:1 › expression waves frame centered localized copy and keep comparison usable (3.7s)
+  ✓   70 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:221:1 › mapped exploration dialogs contain focus and restore their triggers (2.9s)
+  ✓   69 [desktop-chromium] › tests/e2e/art-loading.spec.ts:100:1 › a stalled image cannot hold language navigation indefinitely (3.5s)
+  ✓   73 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:7:1 › language control stays in the header and works after returning to top (1.1s)
+  ✓   74 [desktop-chromium] › tests/e2e/navigation-menu.spec.ts:3:1 › navigation glass matches locale glass and dismisses on outside input and page scroll (1.3s)
+  ✓   77 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:137:1 › Arabic layout and narrow viewport keep the selector operable (570ms)
+  ✓   79 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:168:1 › header controls retain a common line at intermediate widths (1.0s)
+  -   80 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:187:1 › every locale has its matching flag and selected language
+  -   81 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:204:1 › every language row accepts center and near-edge touches without choosing a neighbor
+  -   82 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:221:1 › keyboard focus, Escape, and Arabic alignment remain usable
+  ✓   78 [desktop-chromium] › tests/e2e/navigation-menu.spec.ts:68:1 › navigation links remain inside the panel in every locale (1.9s)
+  ✓   75 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:270:1 › FAQ icons are independent and answers expand the page without an inner scroller (3.3s)
+  ✓   84 [desktop-chromium] › tests/e2e/technology-icons.spec.ts:13:1 › technology kit icons decode, map one-to-one and clear their labels (481ms)
+  ✓   83 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:268:1 › opening the list does not prefetch all routes and modified clicks keep the source tab (1.6s)
+  ✓   86 [desktop-chromium] › tests/e2e/technology-icons.spec.ts:44:1 › technology icons stay centered on translated labels without changing vertical gaps (1.9s)
+  ✓   85 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:333:3 › FAQ pointer-wheel input › FAQ always scrolls the document in closed and multi-open states (3.7s)
+  ✓   87 [desktop-chromium] › tests/e2e/locale-switcher.spec.ts:295:1 › small phone, tablet, and desktop keep the panel in view (2.7s)
+(node:85942) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:85943) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   88 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:3:1 › technology viewer opens from both story controls and pages through clean images (2.3s)
+  ✓   91 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:75:1 › technology viewer supports touch pointers, Escape and Arabic framing (1.3s)
+  ✓   76 [desktop-chromium] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions (9.6s)
+  ✓   93 [desktop-chromium] › tests/e2e/site.spec.ts:81:1 › back-to-top appears on scroll, stays in the viewport, and restores top and focus (421ms)
+  ✓   92 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:116:1 › previous artwork stays visible while the next slide loads (1.2s)
+  ✓   94 [desktop-chromium] › tests/e2e/site.spec.ts:109:1 › localized story buttons keep one-line labels inside proportionate surfaces (1.1s)
+  ✓   95 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:134:1 › failed slide load does not skip the next image (857ms)
+  ✓   97 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:159:1 › swipe completes when the pointer leaves the artwork (531ms)
+  ✓   96 [desktop-chromium] › tests/e2e/site.spec.ts:146:36 › ru technology text groups are centered inside both fixed oval surfaces (672ms)
+(node:86000) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   89 [desktop-firefox] › tests/e2e/document-cards.spec.ts:4:3 › document cards open independently in ru (3.5s)
+  ✓   98 [desktop-chromium] › tests/e2e/site.spec.ts:146:36 › en technology text groups are centered inside both fixed oval surfaces (688ms)
+  ✓   90 [desktop-firefox] › tests/e2e/art-loading.spec.ts:16:1 › color-managed WebP tiles load after a fast distant scroll (3.5s)
+  ✓   99 [desktop-firefox] › tests/e2e/document-cards.spec.ts:4:3 › document cards open independently in ar (1.8s)
+  ✓  102 [desktop-firefox] › tests/e2e/art-loading.spec.ts:69:82 › ru change keeps WebP artwork available after scrolling (3.1s)
+  ✓  103 [desktop-firefox] › tests/e2e/feature-icons.spec.ts:6:1 › designer feature icons render once above their localized labels (2.4s)
+  ✓  101 [desktop-chromium] › tests/e2e/site.spec.ts:221:1 › mapped exploration dialogs contain focus and restore their triggers (3.9s)
+  ✓  104 [desktop-firefox] › tests/e2e/art-loading.spec.ts:69:82 › ar change keeps WebP artwork available after scrolling (3.0s)
+  ✓  105 [desktop-chromium] › tests/e2e/site.spec.ts:270:1 › FAQ icons are independent and answers expand the page without an inner scroller (2.5s)
+  ✓  100 [desktop-firefox] › tests/e2e/expression-waves.spec.ts:5:1 › expression waves frame centered localized copy and keep comparison usable (6.7s)
+  ✓  106 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:7:1 › language control stays in the header and works after returning to top (4.5s)
+  ✓  110 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:137:1 › Arabic layout and narrow viewport keep the selector operable (948ms)
+  -  111 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:168:1 › header controls retain a common line at intermediate widths
+  -  112 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:187:1 › every locale has its matching flag and selected language
+  -  113 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:204:1 › every language row accepts center and near-edge touches without choosing a neighbor
+  -  114 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:221:1 › keyboard focus, Escape, and Arabic alignment remain usable
+  ✓  107 [desktop-firefox] › tests/e2e/art-loading.spec.ts:100:1 › a stalled image cannot hold language navigation indefinitely (4.4s)
+  -  115 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:268:1 › opening the list does not prefetch all routes and modified clicks keep the source tab
+  ✓  109 [desktop-firefox] › tests/e2e/navigation-menu.spec.ts:3:1 › navigation glass matches locale glass and dismisses on outside input and page scroll (3.8s)
+  -  117 [desktop-firefox] › tests/e2e/locale-switcher.spec.ts:295:1 › small phone, tablet, and desktop keep the panel in view
+  -  118 [desktop-firefox] › tests/e2e/navigation-menu.spec.ts:68:1 › navigation links remain inside the panel in every locale
+  ✓  119 [desktop-firefox] › tests/e2e/technology-icons.spec.ts:13:1 › technology kit icons decode, map one-to-one and clear their labels (1.4s)
+  ✓  108 [desktop-chromium] › tests/e2e/site.spec.ts:333:3 › FAQ pointer-wheel input › FAQ always scrolls the document in closed and multi-open states (8.2s)
+  ✓  121 [desktop-firefox] › tests/e2e/technology-icons.spec.ts:44:1 › technology icons stay centered on translated labels without changing vertical gaps (2.6s)
+  ✓  116 [desktop-firefox] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions (5.5s)
+  ✓  120 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:3:1 › technology viewer opens from both story controls and pages through clean images (5.2s)
+  ✓  122 [desktop-firefox] › tests/e2e/site.spec.ts:81:1 › back-to-top appears on scroll, stays in the viewport, and restores top and focus (883ms)
+  ✓  124 [desktop-firefox] › tests/e2e/site.spec.ts:109:1 › localized story buttons keep one-line labels inside proportionate surfaces (1.4s)
+  ✓  123 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:75:1 › technology viewer supports touch pointers, Escape and Arabic framing (2.0s)
+  ✓  125 [desktop-firefox] › tests/e2e/site.spec.ts:146:36 › ru technology text groups are centered inside both fixed oval surfaces (1.0s)
+  ✓  126 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:116:1 › previous artwork stays visible while the next slide loads (1.6s)
+  ✓  127 [desktop-firefox] › tests/e2e/site.spec.ts:146:36 › en technology text groups are centered inside both fixed oval surfaces (989ms)
+  ✓  128 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:134:1 › failed slide load does not skip the next image (1.0s)
+  ✓  130 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:159:1 › swipe completes when the pointer leaves the artwork (891ms)
+  ✓  129 [desktop-firefox] › tests/e2e/site.spec.ts:221:1 › mapped exploration dialogs contain focus and restore their triggers (2.5s)
+  ✓  131 [desktop-firefox] › tests/e2e/site.spec.ts:270:1 › FAQ icons are independent and answers expand the page without an inner scroller (2.3s)
+  ✓  132 [desktop-firefox] › tests/e2e/site.spec.ts:333:3 › FAQ pointer-wheel input › FAQ always scrolls the document in closed and multi-open states (7.6s)
+
+  19 skipped
+  113 passed (1.4m)

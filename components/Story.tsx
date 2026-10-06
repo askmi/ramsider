@@ -8,6 +8,7 @@ import { storyNodes, type StoryNode } from '@/lib/story';
 import { locales, t, type Key, type Locale } from '@/lib/i18n';
 import { MenuShell } from './MenuShell';
 import { ActionArrow } from './ActionArrow';
+import { TechnologyViewer } from './TechnologyViewer';
 import buttonMap from '@/lib/button-map.json';
 import iconMap from '@/lib/icon-map.json';
 import localizedButtonWidths from '@/lib/button-localized-widths.json';
@@ -79,7 +80,7 @@ function OverlayNode({ node, locale }: { node: StoryNode; locale: Locale }) {
       {appearance.kind === 'outline' && <ActionArrow />}
     </>;
     if (node.target) return <Link {...buttonProps} href={node.target}>{content}</Link>;
-    return <button {...buttonProps} type="button" aria-haspopup="dialog" popoverTarget={`unavailable-${node.unavailable ?? 'commerce'}`}>{content}</button>;
+    return <button {...buttonProps} type="button" aria-haspopup="dialog" {...(node.unavailable === 'technology' ? { 'data-technology-open': true } : { popoverTarget: `unavailable-${node.unavailable ?? 'commerce'}` })}>{content}</button>;
   }
   if (node.key === 'hero') return <h1 {...props}>{textLines(text)}</h1>;
   if (['proLine', 'goldLine', 'mini'].includes(node.key)) {
@@ -192,10 +193,6 @@ function Popovers({ locale }: { locale: Locale }) {
   return <>{blocked.map(([id, key]) => <Panel key={id} id={`unavailable-${id}`} title={t(locale, 'unavailableTitle')} locale={locale}>
     <p>{t(locale, key)}</p>
   </Panel>)}
-    <Panel id="unavailable-technology" title={t(locale, 'technologies')} locale={locale}>
-      <p>{t(locale, 'complexityBody')}</p>
-      <ul className="technology-links">{(['triple', 'core', 'touch', 'water', 'light', 'armor', 'flow'] as const).map(key => <li key={key}><a href={`#${key === 'triple' ? 'tech-features' : `tech-${key}`}`}>{t(locale, key).replaceAll('\n', ' ')}</a></li>)}</ul>
-    </Panel>
     <Panel id="unavailable-compare" title={t(locale, 'compare')} locale={locale}>
       <table className="model-comparison"><thead><tr>{(['proLine', 'goldLine'] as const).map(key => <th key={key} scope="col">{t(locale, key).replace('│', ' ')}</th>)}</tr></thead>
         <tbody>{modelDetails.pro.map((_, i) => <tr key={i}>{(['pro', 'gold'] as const).map(model => {
@@ -223,6 +220,7 @@ function Popovers({ locale }: { locale: Locale }) {
 
 export function Story({ locale }: { locale: Locale }) {
   return <DialogController>
+    <TechnologyViewer locale={locale} />
     <main className="canvas" data-locale={locale}>
       <div className="story-prefix-space" aria-hidden="true" />
       <div className="art" aria-hidden="true">

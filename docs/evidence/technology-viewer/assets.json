@@ -1,0 +1,81 @@
+{
+  "encoder": "cwebp -q 95 -m 6 -sharp_yuv; source untagged RGB, no profile assigned",
+  "items": [
+    {
+      "id": "02",
+      "source": "design/references/tech_01/HeatCore_02_THREE_HEATERS_941x1672.png",
+      "sourceSha256": "7de489d087b69b0c5026a52a29d4d3d3be6640bf548ab25e5bba85a1b42842de",
+      "sourceBytes": 4729424,
+      "sourceMode": "RGB",
+      "sourceSize": [
+        941,
+        1672
+      ],
+      "sourceIccBytes": 0,
+      "output": "public/art/technology/02.webp",
+      "outputBytes": 180566,
+      "outputIccBytes": 0,
+      "losslessCandidateBytes": 1216406,
+      "meanAbsRgb": 1.0369349431447423,
+      "p99AbsChannel": 5.0,
+      "worst256BlockMeanAbsRgb": 1.9928538004557292
+    },
+    {
+      "id": "03",
+      "source": "design/references/tech_01/HeatCore_03_ACTIVE_AIR_SAILS_941x1672.png",
+      "sourceSha256": "723e086254c2440179c346ad6d4d8ef028605216a3c52661115f8dc872a94569",
+      "sourceBytes": 4729424,
+      "sourceMode": "RGB",
+      "sourceSize": [
+        941,
+        1672
+      ],
+      "sourceIccBytes": 0,
+      "output": "public/art/technology/03.webp",
+      "outputBytes": 215254,
+      "outputIccBytes": 0,
+      "losslessCandidateBytes": 1317104,
+      "meanAbsRgb": 1.0782547918922996,
+      "p99AbsChannel": 4.0,
+      "worst256BlockMeanAbsRgb": 1.4888153076171875
+    },
+    {
+      "id": "04",
+      "source": "design/references/tech_01/HeatCore_04_PROGRAMMABLE_HEAT_PROFILES_941x1672.png",
+      "sourceSha256": "5f63d934a6fe6c2b57d52e579c0469d867e821c834fd498f7059ca2533c03511",
+      "sourceBytes": 4729424,
+      "sourceMode": "RGB",
+      "sourceSize": [
+        941,
+        1672
+      ],
+      "sourceIccBytes": 0,
+      "output": "public/art/technology/04.webp",
+      "outputBytes": 161536,
+      "outputIccBytes": 0,
+      "losslessCandidateBytes": 1213970,
+      "meanAbsRgb": 1.0456072978795168,
+      "p99AbsChannel": 4.0,
+      "worst256BlockMeanAbsRgb": 1.4187469482421875
+    },
+    {
+      "id": "05",
+      "source": "design/references/tech_01/HeatCore_05_GOLD_AND_TITANIUM_NITRIDE_941x1672.png",
+      "sourceSha256": "d8a0745627c1f3eb085df16ca4860530e276a22a90684f0c02d9c77faf547716",
+      "sourceBytes": 4729424,
+      "sourceMode": "RGB",
+      "sourceSize": [
+        941,
+        1672
+      ],
+      "sourceIccBytes": 0,
+      "output": "public/art/technology/05.webp",
+      "outputBytes": 250042,
+      "outputIccBytes": 0,
+      "losslessCandidateBytes": 1358296,
+      "meanAbsRgb": 1.1275548425696644,
+      "p99AbsChannel": 5.0,
+      "worst256BlockMeanAbsRgb": 1.72283935546875
+    }
+  ]
+}

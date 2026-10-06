@@ -1,0 +1,1018 @@
+2026-10-06T18:07:20.465426Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-06T18:07:20.465594Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.159.0-alpha.12.1
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: low
+reasoning summaries: none
+session id: 01a11266-0d5f-7df3-a9d3-0add0b1db0de
+--------
+user
+current changes
+2026-10-06T18:07:21.726956Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-06T18:07:21.726993Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+exec
+/bin/zsh -lc 'git status --short; git diff --stat; git diff --cached --stat; find .. -name AGENTS.md -o -name AGENTS.override.md' in /Users/asmirnou/Projects/g/ramsider
+2026-10-06T18:07:29.792713Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11266-0d5f-7df3-a9d3-0add0b1db0de turn_id=01a11266-0e0a-7d41-8b1d-86493700754e item_id="exec-48d906ae-572d-43c8-ac78-b40fcbb2cbdb"
+ succeeded in 2276ms:
+ M .gitignore
+ M CHANGELOG.md
+ M LESSONS.md
+ M MEMORY.md
+ M app/globals.css
+ M components/Story.tsx
+ M docs/agent-evals.md
+ M tests/e2e/site.spec.ts
+?? components/TechnologyViewer.tsx
+?? design/references/background_old.png
+?? design/references/tech_01/
+?? design/references/technology_frame.PNG
+?? docs/evidence/technology-viewer/
+?? docs/technology-viewer.md
+?? lib/technology-previews.json
+?? public/art/technology/
+?? tests/e2e/technology-viewer.spec.ts
+?? tools/__pycache__/
+?? tools/check-technology-controls.mjs
+?? tools/generate-technology-frame.py
+ .gitignore             |  3 ++-
+ CHANGELOG.md           | 36 ++++++++++++++++++++++++++++++++++++
+ LESSONS.md             | 24 ++++++++++++++++++++++++
+ MEMORY.md              |  4 ++++
+ app/globals.css        | 18 ++++++++++++++++++
+ components/Story.tsx   |  8 +++-----
+ docs/agent-evals.md    |  1 +
+ tests/e2e/site.spec.ts | 16 +++++++++-------
+ 8 files changed, 97 insertions(+), 13 deletions(-)
+../ramsider/.agents/skills/vercel-react-best-practices/AGENTS.md
+../ramsider/.agents/skills/vercel-composition-patterns/AGENTS.md
+../ramsider/AGENTS.md
+
+exec
+/bin/zsh -lc 'git diff -- app/globals.css components/Story.tsx tests/e2e/site.spec.ts .gitignore; cat components/TechnologyViewer.tsx; cat tests/e2e/technology-viewer.spec.ts; cat tools/check-technology-controls.mjs; cat docs/technology-viewer.md' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 2ms:
+diff --git a/.gitignore b/.gitignore
+index c9e723c..7a66f72 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -33,6 +33,7 @@ yarn-error.log*
+
+ # env files (can opt-in for committing if needed)
+ .env*
++/integrations/telegram/
+
+ # vercel
+ .vercel
+@@ -50,4 +51,4 @@ next-env.d.ts
+ /screenshots/diff/
+
+ *.psb
+-/deliverables/
+\ No newline at end of file
++/deliverables/
+diff --git a/app/globals.css b/app/globals.css
+index 863fec6..645df88 100644
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -144,6 +144,24 @@ html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.
+ .availability h2{font-size:23px;line-height:1.2;margin:0 0 14px}
+ .availability p{line-height:1.5;margin:0 0 24px}
+ .availability button{border:1px solid #9d713a;border-radius:999px;background:#2a251e;color:#fff;padding:10px 22px;min-height:44px}
++.technology-viewer{position:fixed;inset:0;margin:0;width:100vw;max-width:none;height:100dvh;max-height:none;padding:0;border:0;background:#000;color:#fff;overflow:hidden;display:none;z-index:1000;overscroll-behavior:contain}
++.technology-viewer[open]{display:flex;align-items:center;justify-content:center}
++.technology-viewer::backdrop{background:#000}
++.technology-viewer__canvas{position:relative;width:100%;height:100%;container-type:inline-size}
++.technology-viewer__stage{position:absolute;left:8.70020964%;top:11.27956337%;width:82.59958071%;height:77.6228017%;overflow:hidden;touch-action:none;background-color:#000;background-size:100% 100%;background-position:center;background-repeat:no-repeat}
++.technology-viewer__stage img{object-fit:fill;user-select:none;-webkit-user-drag:none}
++.technology-viewer__frame{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;object-fit:fill}
++.technology-viewer__next-image,.technology-viewer__next-group{position:absolute;z-index:1;padding:0;border:0;background:transparent;cursor:pointer}
++.technology-viewer__next-image{left:23%;top:0;width:54%;height:5.8%;min-height:44px}
++.technology-viewer__next-group{left:20%;top:90%;width:60%;height:9%;min-height:44px}
++.technology-viewer__dots{position:absolute;z-index:2;top:max(44px,5.8%);left:50%;transform:translateX(-50%);display:flex;direction:ltr}
++.technology-viewer__dots button{position:relative;flex:0 0 44px;width:44px;height:44px;padding:0;border:0;background:transparent;cursor:pointer}
++.technology-viewer__dots img{position:absolute;top:max(2px,calc(7.58dvh - max(44px,5.8dvh) - 6px));left:50%;transform:translateX(-50%);display:block;width:clamp(11px,3cqw,16px);height:auto}
++.technology-viewer__notice{position:absolute;z-index:3;left:10%;right:10%;bottom:11%;margin:0;padding:12px;border:1px solid #dcb477;background:rgb(0 0 0 / .9);color:#fff;text-align:center;font-size:14px;line-height:1.35}
++.technology-viewer__close{position:absolute;right:max(2%,env(safe-area-inset-right));top:max(1%,env(safe-area-inset-top));z-index:4;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;background:transparent;color:#fff;font-size:34px;font-weight:300;line-height:1;cursor:pointer}
++.technology-viewer__sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
++.technology-viewer :focus-visible{outline:2px solid #e7ba75;outline-offset:-3px}
++@media(min-width:700px){.technology-viewer__canvas{width:min(100vw,calc(100dvh * 954 / 1649))}}
+ .key-powered,.key-groupTag,.key-groupInvest{color:#bd945d}
+ .key-group,.key-groupVision{color:#f3eee5}
+ .key-account,.key-businessAccount,.key-accountBody,.key-venueAccount{color:#f1e1cb!important}
+diff --git a/components/Story.tsx b/components/Story.tsx
+index 3da0a03..604ee03 100644
+--- a/components/Story.tsx
++++ b/components/Story.tsx
+@@ -8,6 +8,7 @@ import { storyNodes, type StoryNode } from '@/lib/story';
+ import { locales, t, type Key, type Locale } from '@/lib/i18n';
+ import { MenuShell } from './MenuShell';
+ import { ActionArrow } from './ActionArrow';
++import { TechnologyViewer } from './TechnologyViewer';
+ import buttonMap from '@/lib/button-map.json';
+ import iconMap from '@/lib/icon-map.json';
+ import localizedButtonWidths from '@/lib/button-localized-widths.json';
+@@ -79,7 +80,7 @@ function OverlayNode({ node, locale }: { node: StoryNode; locale: Locale }) {
+       {appearance.kind === 'outline' && <ActionArrow />}
+     </>;
+     if (node.target) return <Link {...buttonProps} href={node.target}>{content}</Link>;
+-    return <button {...buttonProps} type="button" aria-haspopup="dialog" popoverTarget={`unavailable-${node.unavailable ?? 'commerce'}`}>{content}</button>;
++    return <button {...buttonProps} type="button" aria-haspopup="dialog" {...(node.unavailable === 'technology' ? { 'data-technology-open': true } : { popoverTarget: `unavailable-${node.unavailable ?? 'commerce'}` })}>{content}</button>;
+   }
+   if (node.key === 'hero') return <h1 {...props}>{textLines(text)}</h1>;
+   if (['proLine', 'goldLine', 'mini'].includes(node.key)) {
+@@ -192,10 +193,6 @@ function Popovers({ locale }: { locale: Locale }) {
+   return <>{blocked.map(([id, key]) => <Panel key={id} id={`unavailable-${id}`} title={t(locale, 'unavailableTitle')} locale={locale}>
+     <p>{t(locale, key)}</p>
+   </Panel>)}
+-    <Panel id="unavailable-technology" title={t(locale, 'technologies')} locale={locale}>
+-      <p>{t(locale, 'complexityBody')}</p>
+-      <ul className="technology-links">{(['triple', 'core', 'touch', 'water', 'light', 'armor', 'flow'] as const).map(key => <li key={key}><a href={`#${key === 'triple' ? 'tech-features' : `tech-${key}`}`}>{t(locale, key).replaceAll('\n', ' ')}</a></li>)}</ul>
+-    </Panel>
+     <Panel id="unavailable-compare" title={t(locale, 'compare')} locale={locale}>
+       <table className="model-comparison"><thead><tr>{(['proLine', 'goldLine'] as const).map(key => <th key={key} scope="col">{t(locale, key).replace('│', ' ')}</th>)}</tr></thead>
+         <tbody>{modelDetails.pro.map((_, i) => <tr key={i}>{(['pro', 'gold'] as const).map(model => {
+@@ -223,6 +220,7 @@ function Popovers({ locale }: { locale: Locale }) {
+
+ export function Story({ locale }: { locale: Locale }) {
+   return <DialogController>
++    <TechnologyViewer locale={locale} />
+     <main className="canvas" data-locale={locale}>
+       <div className="story-prefix-space" aria-hidden="true" />
+       <div className="art" aria-hidden="true">
+diff --git a/tests/e2e/site.spec.ts b/tests/e2e/site.spec.ts
+index 0981410..0ace6ec 100644
+--- a/tests/e2e/site.spec.ts
++++ b/tests/e2e/site.spec.ts
+@@ -207,12 +207,12 @@ for (const locale of ['ru', 'en']) test(`${locale} technology text groups are ce
+       expect(Math.abs(inkCenter - visibleRingCenter) * 941 / canvasWidth, `${id} visible ink center in source pixels`).toBeLessThanOrEqual(6);
+     }
+     await button.click();
+-    await expect(page.locator('#unavailable-technology:modal')).toBeVisible();
++    await expect(page.locator('#technology-viewer:modal')).toBeVisible();
+     await page.keyboard.press('Escape');
+-    await expect(page.locator('#unavailable-technology:modal')).toHaveCount(0);
++    await expect(page.locator('#technology-viewer:modal')).toHaveCount(0);
+     await button.focus();
+     await button.press('Enter');
+-    await expect(page.locator('#unavailable-technology:modal')).toBeVisible();
++    await expect(page.locator('#technology-viewer:modal')).toBeVisible();
+     await page.keyboard.press('Escape');
+     await expect(button).toBeFocused();
+   }
+@@ -232,14 +232,14 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
+     const dialog = page.locator('dialog:modal');
+     await expect(dialog).toBeVisible();
+     await expect(dialog).toHaveAccessibleName(/.+/);
+-    if (id.startsWith('technology')) await expect(dialog.locator('a')).toHaveCount(7);
++    if (id.startsWith('technology')) await expect(dialog.locator('.technology-viewer__frame')).toHaveAttribute('src', /frame-template\.png/);
+     if (id === 'expressions-compare') {
+       await expect(dialog.getByRole('columnheader')).toHaveCount(2);
+       await expect(dialog).toContainText('TiN-Coated Heater');
+       await expect(dialog).toContainText('Platinum Sensors');
+     }
+     // Wrap both directions: native dialogs make the underlying page inert.
+-    const close = dialog.getByRole('button', { name: 'Close' });
++    const close = dialog.getByRole('button', { name: id.startsWith('technology') ? 'Close technology viewer' : 'Close' });
+     await close.focus();
+     await page.keyboard.press('Tab');
+     await page.keyboard.press('Tab');
+@@ -253,9 +253,11 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
+     await expect(trigger).toBeFocused();
+   }
+   await page.locator('#technology-repeat').click();
+-  await page.locator('dialog:modal a[href="#tech-water"]').click();
++  await page.keyboard.press('ArrowRight');
++  await page.keyboard.press('ArrowRight');
++  await expect(page.locator('#technology-viewer .technology-viewer__stage img')).toHaveAttribute('src', /04\.webp/);
++  await page.locator('#technology-viewer .technology-viewer__close').click();
+   await expect(page.locator('dialog:modal')).toHaveCount(0);
+-  await expect(page).toHaveURL(/#tech-water$/);
+   await page.goto('/ar');
+   await page.locator('#expressions-compare').click();
+   await expect(page.locator('dialog:modal')).toBeVisible();
+'use client';
+
+import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
+import type { PointerEvent } from 'react';
+import type { Locale } from '@/lib/i18n';
+import previews from '@/lib/technology-previews.json';
+
+const slides = [
+  { id: '02', src: '/art/technology/02.webp' },
+  { id: '03', src: '/art/technology/03.webp' },
+  { id: '04', src: '/art/technology/04.webp' },
+  { id: '05', src: '/art/technology/05.webp' },
+] as const;
+
+type ViewerCopy = { horizontal: string; vertical: string; close: string; image: string; nextImage: string; nextGroup: string; unavailable: string; names: readonly [string, string, string, string] };
+const copy: Record<Locale, ViewerCopy> = {
+  en: { horizontal: 'Swipe horizontally to browse images', vertical: 'Swipe down for the next technology', close: 'Close technology viewer', image: 'Image', nextImage: 'Show next image', nextGroup: 'Next technology', unavailable: 'The next technology is coming soon.', names: ['Three heaters', 'Active air sails', 'Programmable heat profiles', 'Gold and titanium nitride'] },
+  ru: { horizontal: 'Листайте изображения по горизонтали', vertical: 'Свайп вниз — следующая технология', close: 'Закрыть просмотр технологий', image: 'Изображение', nextImage: 'Следующее изображение', nextGroup: 'Следующая технология', unavailable: 'Следующая технология скоро появится.', names: ['Три нагревателя', 'Активные воздушные паруса', 'Программируемые профили нагрева', 'Золото и нитрид титана'] },
+  de: { horizontal: 'Horizontal durch die Bilder wischen', vertical: 'Für die nächste Technologie nach unten wischen', close: 'Technologieansicht schließen', image: 'Bild', nextImage: 'Nächstes Bild anzeigen', nextGroup: 'Nächste Technologie', unavailable: 'Die nächste Technologie kommt bald.', names: ['Drei Heizelemente', 'Aktive Luftsegel', 'Programmierbare Wärmeprofile', 'Gold und Titannitrid'] },
+  fr: { horizontal: 'Balayez horizontalement pour parcourir les images', vertical: 'Balayez vers le bas pour la technologie suivante', close: 'Fermer la galerie', image: 'Image', nextImage: 'Afficher l’image suivante', nextGroup: 'Technologie suivante', unavailable: 'La prochaine technologie arrive bientôt.', names: ['Trois éléments chauffants', 'Volets d’air actifs', 'Profils de chauffe programmables', 'Or et nitrure de titane'] },
+  es: { horizontal: 'Desliza horizontalmente para ver las imágenes', vertical: 'Desliza abajo para la siguiente tecnología', close: 'Cerrar la galería', image: 'Imagen', nextImage: 'Mostrar la siguiente imagen', nextGroup: 'Siguiente tecnología', unavailable: 'La próxima tecnología estará disponible pronto.', names: ['Tres calentadores', 'Aletas de aire activas', 'Perfiles de calor programables', 'Oro y nitruro de titanio'] },
+  it: { horizontal: 'Scorri orizzontalmente tra le immagini', vertical: 'Scorri giù per la tecnologia successiva', close: 'Chiudi la galleria', image: 'Immagine', nextImage: 'Mostra l’immagine successiva', nextGroup: 'Tecnologia successiva', unavailable: 'La prossima tecnologia arriverà presto.', names: ['Tre riscaldatori', 'Alette d’aria attive', 'Profili di calore programmabili', 'Oro e nitruro di titanio'] },
+  tr: { horizontal: 'Görseller arasında yatay kaydırın', vertical: 'Sonraki teknoloji için aşağı kaydırın', close: 'Teknoloji görünümünü kapat', image: 'Görsel', nextImage: 'Sonraki görseli göster', nextGroup: 'Sonraki teknoloji', unavailable: 'Sonraki teknoloji yakında sunulacak.', names: ['Üç ısıtıcı', 'Aktif hava kanatları', 'Programlanabilir ısı profilleri', 'Altın ve titanyum nitrür'] },
+  ar: { horizontal: 'اسحب أفقياً لتصفح الصور', vertical: 'اسحب للأسفل للانتقال إلى التقنية التالية', close: 'إغلاق معرض التقنيات', image: 'صورة', nextImage: 'عرض الصورة التالية', nextGroup: 'التقنية التالية', unavailable: 'التقنية التالية ستتوفر قريباً.', names: ['ثلاثة سخانات', 'زعانف هوائية نشطة', 'ملفات حرارة قابلة للبرمجة', 'الذهب ونتريد التيتانيوم'] },
+  zh: { horizontal: '左右滑动浏览图片', vertical: '向下滑动查看下一项技术', close: '关闭技术图库', image: '图片', nextImage: '显示下一张图片', nextGroup: '下一项技术', unavailable: '下一项技术即将推出。', names: ['三个加热器', '主动导流翼', '可编程加热曲线', '黄金与氮化钛'] },
+  ja: { horizontal: '左右にスワイプして画像を見る', vertical: '下にスワイプして次の技術を見る', close: '技術ギャラリーを閉じる', image: '画像', nextImage: '次の画像を表示', nextGroup: '次の技術', unavailable: '次の技術は近日公開予定です。', names: ['3つのヒーター', 'アクティブエアセイル', 'プログラム可能な加熱プロファイル', '金と窒化チタン'] },
+  ko: { horizontal: '좌우로 스와이프하여 이미지 보기', vertical: '아래로 스와이프하여 다음 기술 보기', close: '기술 갤러리 닫기', image: '이미지', nextImage: '다음 이미지 보기', nextGroup: '다음 기술', unavailable: '다음 기술은 곧 공개됩니다.', names: ['세 개의 히터', '액티브 에어 세일', '프로그래밍 가능한 열 프로필', '금과 질화 티타늄'] },
+};
+
+export function TechnologyViewer({ locale }: { locale: Locale }) {
+  const dialog = useRef<HTMLDialogElement>(null);
+  const opener = useRef<HTMLElement | null>(null);
+  const previousOverflow = useRef('');
+  const pointer = useRef<{ x: number; y: number } | null>(null);
+  const displayedIndex = useRef(0);
+  const requestedIndex = useRef(0);
+  const requestToken = useRef(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const [index, setIndex] = useState(0);
+  const [showUnavailable, setShowUnavailable] = useState(false);
+  const labels = copy[locale];
+
+  useEffect(() => {
+    const dialogElement = dialog.current;
+    const open = (event: MouseEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const trigger = target.closest<HTMLElement>('[data-technology-open]');
+      if (!trigger || !dialogElement || dialogElement.open) return;
+      event.preventDefault();
+      opener.current = trigger;
+      requestToken.current++;
+      displayedIndex.current = 0;
+      requestedIndex.current = 0;
+      setIndex(0);
+      setShowUnavailable(false);
+      setIsOpen(true);
+      dialogElement.showModal();
+      dialogElement.focus();
+      previousOverflow.current = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+    };
+    document.addEventListener('click', open);
+    return () => {
+      document.removeEventListener('click', open);
+      if (dialogElement?.open) document.body.style.overflow = previousOverflow.current;
+    };
+  }, []);
+
+  const close = () => dialog.current?.close();
+  const showSlide = (position: number) => {
+    const next = (position + slides.length) % slides.length;
+    setShowUnavailable(false);
+    requestedIndex.current = next;
+    const token = ++requestToken.current;
+    const image = new window.Image();
+    image.src = slides[next].src;
+    image.decode().then(() => {
+      if (token === requestToken.current && dialog.current?.open) {
+        displayedIndex.current = next;
+        setIndex(next);
+      }
+    }).catch(() => {
+      if (token === requestToken.current) requestedIndex.current = displayedIndex.current;
+    });
+  };
+  const move = (delta: number) => showSlide(requestedIndex.current + delta);
+  const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    pointer.current = { x: event.clientX, y: event.clientY };
+    try { event.currentTarget.setPointerCapture(event.pointerId); } catch { /* Synthetic test events do not own a pointer. */ }
+  };
+  const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
+    const start = pointer.current;
+    pointer.current = null;
+    if (!start) return;
+    const dx = event.clientX - start.x;
+    const dy = event.clientY - start.y;
+    if (dy > 65 && dy > Math.abs(dx) * 1.2) { setShowUnavailable(true); return; }
+    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+    move((dx < 0 ? 1 : -1) * (locale === 'ar' ? -1 : 1));
+  };
+
+  return <dialog
+    ref={dialog}
+    id="technology-viewer"
+    className="technology-viewer"
+    aria-label="HeatCore"
+    aria-describedby="technology-viewer-instructions"
+    tabIndex={-1}
+    onClose={() => {
+      requestToken.current++;
+      setIsOpen(false);
+      document.body.style.overflow = previousOverflow.current;
+      opener.current?.focus();
+    }}
+    onKeyDown={event => {
+      if (event.key === 'ArrowRight') { event.preventDefault(); move(locale === 'ar' ? -1 : 1); }
+      if (event.key === 'ArrowLeft') { event.preventDefault(); move(locale === 'ar' ? 1 : -1); }
+    }}
+  >
+    <div className="technology-viewer__canvas">
+      <div className="technology-viewer__stage" style={{ backgroundImage: isOpen ? `url('${previews[slides[index].id]}')` : undefined }} onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}>
+        {isOpen && <Image key={slides[index].src} src={slides[index].src} alt={`HeatCore — ${labels.names[index]}`} fill sizes="100vw" unoptimized priority={index === 0} draggable={false} />}
+      </div>
+      {isOpen && <Image className="technology-viewer__frame" src="/art/technology/frame-template.png" width={954} height={1649} alt="" aria-hidden="true" unoptimized priority />}
+      <button className="technology-viewer__next-image" type="button" onClick={() => showSlide(requestedIndex.current + 1)} aria-label={labels.nextImage} />
+      <div className="technology-viewer__dots" role="group" aria-label={labels.horizontal}>
+        {slides.map((slide, slideIndex) => <button key={slide.id} type="button" onClick={() => showSlide(slideIndex)} aria-label={`${labels.image} ${slideIndex + 1} / ${slides.length}: ${labels.names[slideIndex]}`} aria-current={index === slideIndex ? 'true' : undefined}>
+          <Image src={index === slideIndex ? '/art/technology/dot-active.png' : '/art/technology/dot-inactive.png'} width={29} height={29} alt="" unoptimized />
+        </button>)}
+      </div>
+      <button className="technology-viewer__next-group" type="button" onClick={() => setShowUnavailable(true)} aria-label={labels.nextGroup} />
+      {showUnavailable && <p className="technology-viewer__notice" role="status">{labels.unavailable}</p>}
+      <button className="technology-viewer__close" type="button" onClick={close} aria-label={labels.close}>×</button>
+    </div>
+    <p id="technology-viewer-instructions" className="technology-viewer__sr-only">{labels.horizontal}. {labels.vertical}. {labels.image} {index + 1} / {slides.length}.</p>
+  </dialog>;
+}
+import { expect, test } from '@playwright/test';
+
+test('technology viewer opens from both story controls and pages through clean images', async ({ page }, testInfo) => {
+  await page.goto('/en');
+  expect(await page.evaluate(() => window.innerWidth)).toBe(testInfo.project.use.viewport?.width);
+  expect(await page.evaluate(() => window.devicePixelRatio)).toBe(testInfo.project.use.deviceScaleFactor ?? 1);
+  expect(await page.locator('meta[name="viewport"]').getAttribute('content')).toContain('width=device-width');
+
+  const openers = page.locator('[data-technology-open]');
+  await expect(openers).toHaveCount(2);
+  const viewer = page.locator('#technology-viewer');
+  for (let triggerIndex = 0; triggerIndex < 2; triggerIndex++) {
+    await openers.nth(triggerIndex).scrollIntoViewIfNeeded();
+    await openers.nth(triggerIndex).click();
+    await expect(viewer).toBeVisible();
+    await expect(viewer.locator('.technology-viewer__frame')).toHaveAttribute('src', /frame-template\.png/);
+    const dots = viewer.locator('.technology-viewer__dots button');
+    await expect(dots).toHaveCount(4);
+    await expect(dots.nth(0)).toHaveAttribute('aria-current', 'true');
+    for (const dot of await dots.all()) {
+      const hit = await dot.boundingBox();
+      expect(hit?.width).toBeGreaterThanOrEqual(44);
+      expect(hit?.height).toBeGreaterThanOrEqual(44);
+    }
+    const closeHit = await viewer.locator('.technology-viewer__close').boundingBox();
+    expect(closeHit?.width).toBeGreaterThanOrEqual(44);
+    expect(closeHit?.height).toBeGreaterThanOrEqual(44);
+    await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src', /02\.webp/);
+    await expect.poll(() => viewer.locator('.technology-viewer__stage img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true);
+    await page.screenshot({ path: `screenshots/actual/technology-viewer/${testInfo.project.name}-entry-${triggerIndex + 1}.png` });
+
+    const nextImage = viewer.locator('.technology-viewer__next-image');
+    await expect(nextImage).toHaveAttribute('aria-label', 'Show next image');
+    await nextImage.click();
+    await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src', /03\.webp/);
+    await expect(dots.nth(1)).toHaveAttribute('aria-current', 'true');
+    await dots.nth(3).click();
+    await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src', /05\.webp/);
+    await expect(dots.nth(3)).toHaveAttribute('aria-current', 'true');
+    await nextImage.focus();
+    await page.keyboard.press('Enter');
+    await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src', /02\.webp/);
+    await expect(dots.nth(0)).toHaveAttribute('aria-current', 'true');
+
+    const stage = viewer.locator('.technology-viewer__stage');
+    const box = await stage.boundingBox();
+    if (!box) throw new Error('Missing technology stage');
+    const y = box.y + box.height / 2;
+    await page.mouse.move(box.x + box.width * .8, y);
+    await page.mouse.down();
+    await page.mouse.move(box.x + box.width * .2, y, { steps: 5 });
+    await page.mouse.up();
+    await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src', /03\.webp/);
+    await expect(dots.nth(1)).toHaveAttribute('aria-current', 'true');
+    if (triggerIndex === 0) {
+      for (let slideIndex = 0; slideIndex < 4; slideIndex++) {
+        await dots.nth(slideIndex).click();
+        await expect.poll(() => viewer.locator('.technology-viewer__stage img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
+        await expect(dots.nth(slideIndex)).toHaveAttribute('aria-current', 'true');
+        await page.screenshot({ path: `screenshots/actual/technology-viewer/${testInfo.project.name}-slide-${slideIndex + 1}.png` });
+      }
+      await dots.nth(2).focus();
+      await page.keyboard.press('Enter');
+      await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src', /04\.webp/);
+      await expect(dots.nth(2)).toHaveAttribute('aria-current', 'true');
+    }
+    await viewer.locator('.technology-viewer__next-group').click();
+    await expect(viewer.getByRole('status')).toHaveText('The next technology is coming soon.');
+    if (triggerIndex === 0) await page.screenshot({ path: `screenshots/actual/technology-viewer/${testInfo.project.name}-next-group-placeholder.png` });
+    await expect(viewer).toBeVisible();
+    await page.keyboard.press('ArrowLeft');
+    await expect(viewer.getByRole('status')).toHaveCount(0);
+    await viewer.locator('.technology-viewer__close').click();
+    await expect(viewer).not.toBeVisible();
+    await expect(openers.nth(triggerIndex)).toBeFocused();
+  }
+});
+
+test('technology viewer supports touch pointers, Escape and Arabic framing', async ({ page }, testInfo) => {
+  await page.goto('/ar');
+  await page.waitForLoadState('networkidle');
+  await page.locator('[data-technology-open]').first().click();
+  const viewer = page.locator('#technology-viewer');
+  await expect(viewer).toBeVisible();
+  const stage = viewer.locator('.technology-viewer__stage');
+  const box = await stage.boundingBox();
+  if (!box) throw new Error('Missing technology stage');
+  const y = box.y + box.height / 2;
+  await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: box.x + box.width * .2, clientY: y });
+  await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: box.x + box.width * .8, clientY: y });
+  await expect(stage.locator('img')).toHaveAttribute('src', /03\.webp/);
+  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
+  await expect(stage.locator('img')).toHaveAttribute('alt', /زعانف هوائية نشطة/);
+  await page.keyboard.press('ArrowLeft');
+  await expect(stage.locator('img')).toHaveAttribute('src', /04\.webp/);
+  await page.keyboard.press('ArrowRight');
+  await expect(stage.locator('img')).toHaveAttribute('src', /03\.webp/);
+  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
+  await expect(page.locator('body')).toHaveCSS('overflow', 'hidden');
+  await page.screenshot({ path: `screenshots/actual/technology-viewer/${testInfo.project.name}-arabic-swipe.png` });
+  await page.keyboard.press('Escape');
+  await expect(viewer).not.toBeVisible();
+  await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden');
+  await page.locator('[data-technology-open]').first().click();
+  await expect(viewer).toBeVisible();
+  await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 200, clientY: 500 });
+  await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 200, clientY: 350 });
+  await expect(viewer).toBeVisible();
+  await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 200, clientY: 350 });
+  await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 200, clientY: 550 });
+  await expect(viewer).toBeVisible();
+  await expect(viewer.getByRole('status')).toHaveText('التقنية التالية ستتوفر قريباً.');
+  await viewer.locator('.technology-viewer__next-group').focus();
+  await page.keyboard.press('Enter');
+  await expect(viewer.getByRole('status')).toBeVisible();
+  await viewer.locator('.technology-viewer__close').click();
+  await expect(viewer).not.toBeVisible();
+});
+
+test('previous artwork stays visible while the next slide loads', async ({ page }) => {
+  await page.route('**/art/technology/03.webp', async route => {
+    await new Promise(resolve => setTimeout(resolve, 500));
+    await route.continue();
+  });
+  await page.goto('/en');
+  await page.locator('[data-technology-open]').first().click();
+  const stage = page.locator('#technology-viewer .technology-viewer__stage');
+  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
+  await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 300, clientY: 400 });
+  await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 90, clientY: 400 });
+  await expect(stage.locator('img')).toHaveAttribute('src', /02\.webp/);
+  await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 1 \/ 4/);
+  await expect(stage.locator('img')).toHaveAttribute('src', /03\.webp/);
+  await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 2 \/ 4/);
+  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
+});
+
+test('failed slide load does not skip the next image', async ({ page }) => {
+  let requests = 0;
+  await page.route('**/art/technology/03.webp', async route => {
+    requests++;
+    if (requests === 1) await route.abort();
+    else await route.continue();
+  });
+  await page.goto('/en');
+  await page.locator('[data-technology-open]').first().click();
+  const stage = page.locator('#technology-viewer .technology-viewer__stage');
+  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
+  const swipe = async () => {
+    await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 300, clientY: 400 });
+    await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 90, clientY: 400 });
+  };
+  await swipe();
+  await expect.poll(() => requests).toBe(1);
+  await expect(stage.locator('img')).toHaveAttribute('src', /02\.webp/);
+  await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 1 \/ 4/);
+  await page.waitForTimeout(150);
+  await swipe();
+  await expect(stage.locator('img')).toHaveAttribute('src', /03\.webp/);
+  await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 2 \/ 4/);
+});
+
+test('swipe completes when the pointer leaves the artwork', async ({ page }) => {
+  await page.goto('/en');
+  await page.locator('[data-technology-open]').first().click();
+  const stage = page.locator('#technology-viewer .technology-viewer__stage');
+  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
+  const box = await stage.boundingBox();
+  if (!box) throw new Error('Missing technology stage');
+  const y = box.y + box.height / 2;
+  await page.mouse.move(box.x + box.width * .8, y);
+  await page.mouse.down();
+  await page.mouse.move(0, y, { steps: 5 });
+  await page.mouse.up();
+  await expect(stage.locator('img')).toHaveAttribute('src', /03\.webp/);
+});
+import { chromium } from '@playwright/test';
+
+const baseURL = process.env.BASE_URL ?? 'http://127.0.0.1:3021';
+const browser = await chromium.launch();
+const cases = [];
+
+for (const [width, height] of [[320, 700], [375, 812], [768, 1024], [1440, 900]]) {
+  const locales = width === 375 || width === 768
+    ? ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']
+    : ['en', 'ar'];
+  const context = await browser.newContext({ viewport: { width, height } });
+  const page = await context.newPage();
+
+  for (const locale of locales) {
+    try {
+      await page.goto(`${baseURL}/${locale}`);
+      await page.waitForLoadState('networkidle');
+      await page.locator('[data-technology-open]').first().click();
+      const viewer = page.locator('#technology-viewer');
+      await viewer.waitFor({ state: 'visible' });
+      await viewer.locator('.technology-viewer__frame').evaluate(image => image.decode());
+      const dots = viewer.locator('.technology-viewer__dots button');
+      const geometry = await page.evaluate(() => {
+        const rect = selector => {
+          const { x, y, width, height } = document.querySelector(selector).getBoundingClientRect();
+          return { x, y, width, height };
+        };
+        return {
+          viewport: innerWidth,
+          scrollWidth: document.documentElement.scrollWidth,
+          frameLoaded: document.querySelector('.technology-viewer__frame').naturalWidth === 954,
+          frame: rect('.technology-viewer__frame'),
+          stage: rect('.technology-viewer__stage'),
+          top: rect('.technology-viewer__next-image'),
+          bottom: rect('.technology-viewer__next-group'),
+          close: rect('.technology-viewer__close'),
+        };
+      });
+      const dotRects = await dots.evaluateAll(elements => elements.map(element => {
+        const { x, y, width, height } = element.getBoundingClientRect();
+        return { x, y, width, height };
+      }));
+      await viewer.locator('.technology-viewer__next-image').click({ timeout: 5000 });
+      await page.waitForFunction(() => document.querySelector('.technology-viewer__stage img')?.getAttribute('src')?.includes('03.webp'), null, { timeout: 5000 });
+      const topActive = await dots.nth(1).getAttribute('aria-current');
+      await dots.nth(3).click({ timeout: 5000 });
+      await page.waitForFunction(() => document.querySelector('.technology-viewer__stage img')?.getAttribute('src')?.includes('05.webp'), null, { timeout: 5000 });
+      const dotActive = await dots.nth(3).getAttribute('aria-current');
+      await viewer.locator('.technology-viewer__next-group').click({ timeout: 5000 });
+      const notice = await viewer.getByRole('status').textContent();
+      const activeCount = await viewer.locator('.technology-viewer__dots button[aria-current="true"]').count();
+      const insideViewport = rect => rect.width >= 44 && rect.height >= 44 && rect.x >= 0 && rect.x + rect.width <= width + 1 && rect.y >= 0 && rect.y + rect.height <= height + 1;
+      const stage = geometry.stage;
+      const frame = geometry.frame;
+      const pass = geometry.viewport === width && geometry.scrollWidth <= width && geometry.frameLoaded
+        && stage.x >= frame.x && stage.x + stage.width <= frame.x + frame.width + 1
+        && stage.y >= frame.y && stage.y + stage.height <= frame.y + frame.height + 1
+        && await dots.count() === 4 && [geometry.top, geometry.bottom, geometry.close, ...dotRects].every(insideViewport)
+        && dotRects.every(rect => rect.y >= geometry.top.y + geometry.top.height - 0.1)
+        && topActive === 'true' && dotActive === 'true' && activeCount === 1 && !!notice?.trim();
+      cases.push({ locale, width, height, pass, notice, topActive, dotActive, activeCount, geometry, dotRects });
+    } catch (error) {
+      cases.push({ locale, width, height, pass: false, error: String(error).slice(0, 500) });
+    }
+  }
+  await context.close();
+}
+
+console.log(JSON.stringify({ summary: { total: cases.length, passed: cases.filter(item => item.pass).length, failed: cases.filter(item => !item.pass).map(item => `${item.locale}-${item.width}`) }, cases }, null, 2));
+await browser.close();
+if (cases.some(item => !item.pass)) process.exitCode = 1;
+# HeatCore technology viewer — MVP map
+
+Source: `design/references/technology_frame.PNG` (954 × 1649) supplies the reusable black margins, metallic bevel, thin keylines, top `Swipe for Details` with gold right arrow, and bottom `Next Technology` with gold down arrow. Its five static dots were a product defect for this four-image group. The current user correction requires four interactive dots and makes both labeled frame regions actions. The TouchLink photo inside the opening is replaced by image-only HeatCore content; the top-right X closes the viewer. The first group is `design/references/tech_01/`: four clean 941 × 1672 RGB PNGs numbered 02–05. The four `*_TEXT` images are excluded. No group after HeatCore is present.
+
+Correction target: retain the source pixels outside its central opening x83–870/y186–1465 and approved dot band x382–572/y110–140; preserve the outer bevel at x57–897/y159–1490. Create one source-derived RGBA frame with transparent interior and stack it over a variable artwork layer. The five source dots are erased from the band; native source-derived active and outline dot sprites represent exactly four slides with 44px button targets. At Pro 402×874/DPR3, map source X/Y to the full viewer in normalized coordinates because the template reaches the screen edges; compare masked pixels outside the opening and revised band. Pro Max 440×956 is a responsive check. Desktop keeps a centered portrait canvas against black.
+
+Mapping: `technology-experience` at source Y6810 and `technology-repeat` at Y13182 both open `#technology-viewer`. The gallery maps 02 → Three Heaters, 03 → Active Air Sails, 04 → Programmable Heat Profiles, 05 → Gold and Titanium Nitride. Tapping `Swipe for Details`, horizontal touch/pointer swipe and Arrow Left/Right advance images cyclically. Each of the four dots selects its image; the gold filled dot tracks the last decoded, visible image even during delayed/failed loads. Pointer capture retains a gesture that ends beyond the artwork edge; Arabic reverses the swipe direction with its RTL keyboard mapping. Tapping `Next Technology` or swiping down shows a localized, accessible “coming soon” placeholder without changing groups. Upward movement at the first group has no destination. Native `dialog` provides modality and Escape, and X restores trigger focus. Screen-reader instructions, button names, placeholder and slide alt descriptions are locale-keyed in `TechnologyViewer.tsx`; visible frame lettering stays pixel-identical to the English source.
+
+`tools/generate-technology-frame.py` punches the source opening x83–870/y186–1465 inclusive and paints the dot band x382–572/y110–140 black, retaining byte-exact decoded RGB and opaque alpha at every pixel outside these two regions. It also extracts exact source pixels for `dot-active.png` and `dot-inactive.png`; no gold approximation is used. The stage geometry uses source coordinates as percentages of the 954 × 1649 canvas; the frame raster scales to the mobile viewport in both axes. Thus fidelity means the original source is scaled with the viewport, not that its physical aspect ratio is preserved on every phone. The 941 × 1672 slide scales to fill the opening so title and product edges remain visible. Desktop centers a portrait canvas against black. WebKit screenshots at Pro and Pro Max are under `screenshots/actual/technology-viewer/`. The TouchLink image in the source prevents meaningful full-image comparison; the comparison target is the unchanged frame outside its opening and revised dot band.
+
+The untagged source PNGs have no ICC profile; an intended Photoshop color space is not established. The four web derivatives are 941 × 1672 lossy WebP encoded directly from those sources with `cwebp -q 95 -m 6 -sharp_yuv`, without channel adjustments. They total 807,398 bytes versus roughly 20 MB for four source PNGs. [Asset metrics](evidence/technology-viewer/assets.json) record full source hashes, ICC absence, a lossless candidate (1.21–1.36 MB per image), and q95 decoded error (mean 1.04–1.13 RGB/255, p99 channel error 4–5/255, worst 256px block mean 1.42–1.99/255). The viewer loads its first artwork only when opened, uses tiny inline previews, and retains the previous full image until the next one decodes. A production Chromium 402×874/DPR3 loopback sample measured LCP 144ms, CLS 0, JS transfer 167,914 B and open-to-first decode 175ms; no technology artwork was requested before opening. A separate 5400px scroll sample measured frame p95 17.4ms with 0/120 over 33ms after disabling CSS smooth scrolling for the measurement. These are synthetic local measurements, not field INP or Lighthouse.
+
+2026-10-06T18:07:33.733653Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11266-0d5f-7df3-a9d3-0add0b1db0de turn_id=01a11266-0e0a-7d41-8b1d-86493700754e item_id="exec-a254ae1a-f97c-4760-b65f-71741fd7558f"
+exec
+/bin/zsh -lc 'cat components/TechnologyViewer.tsx | tail -40; cat tools/generate-technology-frame.py | head -110; cat lib/technology-previews.json | cut -c1-160 | head -3; git diff -- CHANGELOG.md LESSONS.md MEMORY.md docs/agent-evals.md | head -150; nl -ba components/TechnologyViewer.tsx | tail -75' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+    move((dx < 0 ? 1 : -1) * (locale === 'ar' ? -1 : 1));
+  };
+
+  return <dialog
+    ref={dialog}
+    id="technology-viewer"
+    className="technology-viewer"
+    aria-label="HeatCore"
+    aria-describedby="technology-viewer-instructions"
+    tabIndex={-1}
+    onClose={() => {
+      requestToken.current++;
+      setIsOpen(false);
+      document.body.style.overflow = previousOverflow.current;
+      opener.current?.focus();
+    }}
+    onKeyDown={event => {
+      if (event.key === 'ArrowRight') { event.preventDefault(); move(locale === 'ar' ? -1 : 1); }
+      if (event.key === 'ArrowLeft') { event.preventDefault(); move(locale === 'ar' ? 1 : -1); }
+    }}
+  >
+    <div className="technology-viewer__canvas">
+      <div className="technology-viewer__stage" style={{ backgroundImage: isOpen ? `url('${previews[slides[index].id]}')` : undefined }} onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}>
+        {isOpen && <Image key={slides[index].src} src={slides[index].src} alt={`HeatCore — ${labels.names[index]}`} fill sizes="100vw" unoptimized priority={index === 0} draggable={false} />}
+      </div>
+      {isOpen && <Image className="technology-viewer__frame" src="/art/technology/frame-template.png" width={954} height={1649} alt="" aria-hidden="true" unoptimized priority />}
+      <button className="technology-viewer__next-image" type="button" onClick={() => showSlide(requestedIndex.current + 1)} aria-label={labels.nextImage} />
+      <div className="technology-viewer__dots" role="group" aria-label={labels.horizontal}>
+        {slides.map((slide, slideIndex) => <button key={slide.id} type="button" onClick={() => showSlide(slideIndex)} aria-label={`${labels.image} ${slideIndex + 1} / ${slides.length}: ${labels.names[slideIndex]}`} aria-current={index === slideIndex ? 'true' : undefined}>
+          <Image src={index === slideIndex ? '/art/technology/dot-active.png' : '/art/technology/dot-inactive.png'} width={29} height={29} alt="" unoptimized />
+        </button>)}
+      </div>
+      <button className="technology-viewer__next-group" type="button" onClick={() => setShowUnavailable(true)} aria-label={labels.nextGroup} />
+      {showUnavailable && <p className="technology-viewer__notice" role="status">{labels.unavailable}</p>}
+      <button className="technology-viewer__close" type="button" onClick={close} aria-label={labels.close}>×</button>
+    </div>
+    <p id="technology-viewer-instructions" className="technology-viewer__sr-only">{labels.horizontal}. {labels.vertical}. {labels.image} {index + 1} / {slides.length}.</p>
+  </dialog>;
+}
+"""Cut the photo opening and replace the source's five fixed dots with live controls."""
+
+from pathlib import Path
+from PIL import Image, ImageDraw
+
+
+SOURCE = Path("design/references/technology_frame.PNG")
+OUTPUT = Path("public/art/technology/frame-template.png")
+SIZE = (954, 1649)
+OPENING = (83, 186, 870, 1465)  # PIL inclusive rectangle; CSS x83:871, y186:1466.
+DOT_BAND = (382, 110, 572, 140)
+DOT_SPRITES = {
+    "dot-active.png": (383, 111, 412, 140),
+    "dot-inactive.png": (423, 111, 452, 140),
+}
+
+
+def main() -> None:
+    source = Image.open(SOURCE)
+    if source.size != SIZE or source.mode != "RGB":
+        raise ValueError(f"Unexpected frame source: {source.size} {source.mode}")
+    frame = source.convert("RGBA")
+    ImageDraw.Draw(frame).rectangle(OPENING, fill=(0, 0, 0, 0))
+    ImageDraw.Draw(frame).rectangle(DOT_BAND, fill=(0, 0, 0, 255))
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    frame.save(OUTPUT, optimize=True)
+    for filename, box in DOT_SPRITES.items():
+        source.crop(box).save(OUTPUT.parent / filename, optimize=True)
+
+    decoded = Image.open(OUTPUT).convert("RGBA")
+    source_rgb = source.tobytes()
+    output_rgb = decoded.convert("RGB").tobytes()
+    alpha = decoded.getchannel("A")
+    for y in range(SIZE[1]):
+        for x in range(SIZE[0]):
+            inside = 83 <= x <= 870 and 186 <= y <= 1465
+            dots = 382 <= x <= 572 and 110 <= y <= 140
+            if alpha.getpixel((x, y)) != (0 if inside else 255):
+                raise AssertionError(f"Alpha mismatch at {(x, y)}")
+            if not inside and not dots:
+                offset = (y * SIZE[0] + x) * 3
+                if output_rgb[offset : offset + 3] != source_rgb[offset : offset + 3]:
+                    raise AssertionError(f"RGB mismatch at {(x, y)}")
+    for filename, box in DOT_SPRITES.items():
+        sprite = Image.open(OUTPUT.parent / filename)
+        if sprite.tobytes() != source.crop(box).tobytes():
+            raise AssertionError(f"Source-dot mismatch: {filename}")
+    print(f"Exact frame outside opening and dot band: {OUTPUT} ({OUTPUT.stat().st_size} bytes)")
+
+
+if __name__ == "__main__":
+    main()
+{"02":"data:image/webp;base64,UklGRkwDAABXRUJQVlA4IEADAACwEQCdASpAAHIAPp1GnUwlo6KiJhVacLATiWUA1Z2Pu1bsrgViKoHjXIhpqx+aJ5LlSfvB1mP5JvSNXFyfCXx5kETfEYgLn4x8du0e4A
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index e27d26c..03c8ef5 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -119,6 +119,9 @@
+ | [CHG-0056](#chg-0056) | USER_REQUEST / CHANGE | Color-managed WebP для фонового artwork и быстрые previews | `VERIFIED` |
+ | [CHG-0057](#chg-0057) | USER_REQUEST / ADDITION | Резервные точные PNG-срезы для будущего выбора формата | `VERIFIED` |
+ | [CHG-0058](#chg-0058) | USER_REQUEST / PROCESS + CHANGE | Color pipeline skill и повторный аудит WebP-конвертера | `VERIFIED` |
++| [CHG-0059](#chg-0059) | USER_REQUEST / ASSET_REPLACEMENT | Дизайнерский overlay блока сравнения | `VERIFIED` |
++| [CHG-0060](#chg-0060) | CUSTOMER_FEEDBACK / DEFECT_REPORT | Восприятие девайсов более плоскими после PNG→WebP; причина выясняется | `OPEN` |
++| [CHG-0061](#chg-0061) | USER_REQUEST / FEATURE + CUSTOMER_REJECTION | Полноэкранный просмотрщик HeatCore и точная рамка | `APPLIED_UNVERIFIED` (2026-10-06 controls) |
+
+ ## Происхождение восстановленной истории
+
+@@ -1097,3 +1100,36 @@
+ - **Решение / файлы:** `tools/generate-expression-waves.mjs` теперь проверяет геометрию 701×401/alpha и копирует исходник без перекодирования в `public/art/expression-waves.png`; `components/Story.tsx` использует его точный размер и исходное положение x120/y14665; `tests/e2e/expression-waves.spec.ts` проверяет новые размеры. `docs/expression-waves-map.md` отличает новый дизайнерский master от исторической генерации масками. Добавлены исходник и [evidence](docs/evidence/compare-overlay/). Файл не имеет ICC; цветовое пространство не назначалось.
+ - **Проверка:** [asset.json](docs/evidence/compare-overlay/asset.json): исходник и output побайтово равны (SHA-256 `d7e15075…d95b8b8c`), 100,829 B, RGBA, 45,860 частично прозрачных пикселей сохранены. [WebKit кадры и геометрия](docs/evidence/compare-overlay/browser.json) на Pro/Max и Arabic осмотрены: текст и B08 поверх декора, overflow нет; 11 локалей и нажатие Arabic B08 прошли на Pro и Pro Max. Первый параллельный Pro Max прогон дал transient DOM detach при навигации; одиночный повтор прошёл. Начальный экран: 0 запросов overlay, после прокрутки: 1, `loading=lazy`. Typecheck/lint/build PASS (14 static routes); production `:3020` перезапущен, page/asset HTTP 200 и production WebKit Pro browser test PASS. Native `codex review --uncommitted` exit 0 без actionable findings. [Команды и ограничения](docs/evidence/compare-overlay/checks.md). Исходный дизайнерский PNG уже содержит слабые формы `UNO` и прямоугольные полупрозрачные заливки; они сохранены как часть точного исходника.
+ - **Технический аппрув:** 2026-10-05, Codex primary verifier `PASS` по exact SHA/alpha, Pro/Max/Arabic изображениям, 11 локалям/кнопке, lazy-поведению, сохранённым [type/lint/build/browser/review outputs](docs/evidence/compare-overlay/checks.md). Независимый discipline auditor `PASS` для визуального и поведенческого гейта; первый final closeout `FAIL` из-за отсутствия сохранённых stdout, после записи логов и прямой проверки каждого из них повторный final closeout `PASS` 2026-10-05. **Аппрув пользователя:** `NOT_RECORDED`.
++<a id="chg-0060"></a>
++## CHG-0060 — Сообщение заказчика о потере объёма изображений девайсов
++
++- **Дата / источник / статус:** 2026-10-06; CUSTOMER_FEEDBACK / DEFECT_REPORT; `OPEN`, диагностика без имплементации по запросу пользователя.
++- **Наблюдение → ожидание:** После перехода PNG→WebP заказчик воспринимает девайсы в фоне более плоскими; цвет текущей версии устраивает. Нужно выяснить причину и варианты локального восстановления объёма без нежелательного цветового сдвига и существенного ухудшения загрузки.
++- **Причина / ответственность / пропущенная проверка:** Причина визуального ощущения `UNKNOWN`: lossy-кодек, масштабирование, локальная резкость/контраст, исходный рендер и условия просмотра пока не отделены. Агент при CHG-0056/0058 проверил ICC, RGB/ΔE, браузерные кадры и скорость, но не ввёл отдельный критерий локальной фактуры/объёма именно на корпусах девайсов; это пропущенный контроль качества агента, а не вина заказчика. Подтверждения, что WebP вызвал эффект, пока нет.
++- **Промежуточная спецификация / следующий контроль:** Получить точные отмеченные заказчиком области; сравнить одинаково масштабированные color-managed PNG и текущий WebP в Pro/Max браузере, измерить локальный светлотный контраст/границы/фактуру и проверить варианты кодирования до художественной ретуши. Если проблема есть уже в master, отдельно рассмотреть мягкую маску предмета и коррекцию светлоты/микроконтраста, контролируя hue/chroma, края, ICC, размер и скорость. Никакие assets или код сайта в этой исследовательской задаче не изменять.
++- **Результат исследовательской сверки / файлы:** Без изменения изображений или кода; только эта запись. Существующие [color metrics](docs/evidence/art-webp/color-metrics.json) проверяют цвет, а не объём. Сохранённые Pro WebKit PNG/WebP кадры hero/compare осмотрены рядом; точные области жалобы заказчика не указаны, а общая ошибка цвета не позволяет судить о локальных бликах и фактуре. Документация Adobe подтверждает локальные маски/Clarity/Texture и Luminosity blending, документация Google — lossy/lossless WebP и параметры фильтра/quality. **Технический аппрув:** `PENDING` до локализованного A/B, доказанной причины и принятого решения. **Аппрув пользователя:** `NOT_RECORDED`.
++
++<a id="chg-0061"></a>
++## CHG-0061 — Просмотрщик технологий HeatCore
++
++- **Дата / источник / статус:** 2026-10-06; USER_REQUEST / FEATURE + CUSTOMER_REJECTION; `APPLIED_UNVERIFIED` после применения четырёх интерактивных точек и подсказок; повторные gate ожидаются.
++- **Было → ожидается:** Два «Experience UNO Technologies / Click to Open» открывают прежний текстовый список в небольшом dialog. Новый запрос требует полноэкранную рамку с изображениями из `design/references/tech_01/`, горизонтальным перелистыванием и крестиком закрытия; MVP без текстовых вариантов. Все пиксели рамки, включая отступы, bevel, линии, `Swipe for Details`, `Next Technology`, пять точек и золотые стрелки, должны происходить из `design/references/technology_frame.PNG`; динамично только фото в центральном окне и добавленный X.
++- **Причина / ответственность:** Это новое техническое задание и новые исходные файлы, не дефект прежней реализации. В `tech_01` есть только четыре чистых изображения HeatCore 02–05 и четыре варианта `*_TEXT`; следующая вертикальная группа не предоставлена. Поведение вертикального перехода уточняется, нельзя выдавать дублированные кадры за другую технологию.
++- **Маппинг / план:** Два существующих CTA → один viewer; HeatCore 02–05 → четыре горизонтальных кадра; `*_TEXT` исключены. Модальное окно, закрытие X/Escape, восстановление фокуса, клавиатура, RTL, Pro/Max и другие ширины. Растровые исходники исследовать по ICC и декодированному цвету, производные web-файлы проверить в браузере. Состояния, файлы и технический аппрув дополняются по мере применения. **Аппрув пользователя:** `NOT_RECORDED`.
++- **Применение / 2026-10-06:** `components/Story.tsx` переводит оба CTA на `components/TechnologyViewer.tsx`; `app/globals.css` задаёт полный viewport и чёрный matte; четыре чистых PNG напрямую закодированы в `public/art/technology/{02,03,04,05}.webp` по карте `docs/technology-viewer.md`; добавлены пользовательские browser checks `tests/e2e/technology-viewer.spec.ts`. У source PNG нет ICC; цвета не корректировались. Первый вариант `object-fit:cover` обрезал заголовок, что заметил независимый аудитор; сменено на `contain`, Pro/Max кадры пересняты и visual gate прошёл. Browser auto-focus сначала рисовал gold rectangle на первой точке, исправлено фокусом на поверхности dialog. Первый код рендерил приоритетный slide даже когда dialog скрыт; агент не проверил начальный network до первой сборки. Изображение теперь монтируется только после открытия. Поведение агента: перед одобрением modal-asset проверять пустой первый network, а не полагаться на скрытость DOM. Это самостоятельная ошибка реализации/пропущенного performance-контроля, не входной пробел.
++- **Регрессия тестов / 2026-10-06:** Первый полный production suite: 89 PASS / 19 SKIP / 12 FAIL. Все 12 — старые ожидания `#unavailable-technology` и семи ссылок в `tests/e2e/site.spec.ts`, которые агент не обновил вместе с UI. Проверка пересмотрена на новый viewer, четыре точки и закрытие; требуется повторный прогон. Причина/ответственность: агент изменил контракт двух CTA, но не нашёл все тестовые селекторы до первого полного прогона; впредь искать ID прежнего dialog в тестах при замене компонента. Независимый визуальный аудитор подтвердил исправленный Pro/Max slice; поведенческий и финальный гейты ожидают повторной проверки.
++- **Повторная проверка:** Все 12 затронутых прежних browser checks прошли в production после обновления тестового контракта; viewer suite 8/8 прошёл на Pro/Max WebKit и desktop Chromium/Firefox. Один Chromium 402×874/DPR3 network sample: 0 technology assets до открытия, 1 запрос `02.webp` 180,566 B после, JS transfer 162,008 B, CLS 0; field LCP/INP и Lighthouse не измерены. `npm run typecheck`, `npm run lint`, `npm run build`, `git diff --check` прошли. Визуальные кадры `screenshots/actual/technology-viewer/` обновлены после conditional mount.
++- **Дополнительный дефект / исправление:** Аудитор увидел пустой кадр сразу после Arabic touch swipe; первый тест ожидал только новый `src`, не декодированные пиксели. Агент преждевременно менял DOM image до `decode()`, а тест пропустил этот промежуток. Теперь текущий кадр сохраняется до успешного декодирования следующего, быстрые запросы защищены token, первый кадр имеет малый встроенный preview; browser тест ждёт `complete && naturalWidth` и искусственно задерживает следующий ресурс. Отдельная browser перепроверка и re-audit требуются. Ответственность — решение агента о смене кадра и недостаточная проверка промежуточного состояния; правило предотвращения — тестировать кадр при задержанном asset, а не только конечный URL.
++- **Native review / 2026-10-06:** Первый `codex review --uncommitted` нашёл две actionable P2: английские alt описания на других локалях и ложное обещание неработающего свайпа вниз. Агент локализовал четыре alt в 11 языках. При единственной предоставленной группе вертикальный свайп вниз временно закрывает viewer и так же подписан; свайп вверх с первой группы не действует. Следующие группы потребуют отдельных assets и новой навигации. Проверка/review после исправления ожидают исполнения. **Технический аппрув:** `PENDING` до всех затронутых проверок и final audit. **Аппрув пользователя:** `NOT_RECORDED`.
++- **Native review повтор / 2026-10-06:** Второй `codex review --uncommitted` нашёл P2: dots имели 20×14 CSS px hit area. Агент увеличил каждый target до 44×44 без изменения видимой 5px точки, поднял header до 70px и добавил измерение hit area в browser suite. Повторные Pro/Max скриншоты, browser тест и третий review требуются. Два предыдущих P2 исправлены: 24/24 затронутых production checks прошли в четырёх профилях, включая искусственно замедленное изображение, арабский alt, swipe down close/up no-op и прежние CTAs. 22 locale×width states (375/768) проверены на открытие, ширину, непересечение заголовка с X и отсутствие overflow; в первой диагностической версии скрипта footer ошибочно измерялся на DOMRect, исправленный повтор дал 22/22 PASS. Один production Chromium sample 402×874/DPR3: LCP 144ms, CLS 0, JS transfer 167,914 B, 0 tech image requests до открытия, `02.webp` после открытия, open→decode 175ms; unthrottled loopback, field INP/Lighthouse не измерены.
++- **Native review третий / 2026-10-06:** 44×44 targets и 12/12 gallery browser checks прошли; Pro кадр пересмотрен. Review нашёл следующий P2: при неудачном `decode()` запрошенный индекс оставался впереди видимого и следующий swipe мог пропустить слайд. Агент добавил отдельный `displayedIndex` и откат `requestedIndex` при ошибке; тест с принудительным сбоем 03 и повторным swipe добавлен. Повторные проверки/review pending. Production Chromium scroll sample 402×874 после отключения CSS smooth-scroll для измерения: 120 кадров, 5400 CSS px, p95 17.4ms, 0 кадров >33ms; синтетический loopback sample.
++- **Native review четвёртый / 2026-10-06:** 16/16 gallery checks прошли в четырёх профилях после исправления failure path. Review нашёл два P2: pointerup вне image stage терял свайп, а RTL свайп не следовал принятой для Arabic клавиатурной ориентации. Агент добавил pointer capture при начале жеста, развернул горизонтальный swipe для Arabic и добавил проверку выхода за край плюс RTL жеста. Ответственность агента: исходная обработка слушала pointerup только в пределах stage и пропустила крайний сценарий; предотвращение — тестировать уход указателя за границу и альтернативные направления ввода. Повторная production проверка/review pending.
++- **Финальная проверка / 2026-10-06:** [Сводка доказательств](docs/evidence/technology-viewer/checks.md): production `20/20` viewer checks и `12/12` обновлённых прежних dialog checks, Pro/Pro Max WebKit и desktop Chromium/Firefox; 22/22 locale×375/768 layout states; актуальные [Pro/Max/Arabic кадры](screenshots/actual/technology-viewer/), четыре source/color/size профиля в [assets.json](docs/evidence/technology-viewer/assets.json); typecheck/lint/build/diff-check PASS; [финальный native review](docs/evidence/technology-viewer/native-review-final.txt) без actionable findings. Четыре прежних review FAIL и первый 12-test FAIL сохранены выше. Независимый discipline auditor: scope PASS после явного ограничения единственной группы, visual PASS после коррекции crop/focus, behavior PASS после удержания декодированного кадра и RTL/down gestures, review/performance PASS после финального review. Фактической второй группы нет: вертикальный свайп вниз в MVP закрывает viewer, вверх на первой группе не листает; multi-group переход отдельно ожидает новые assets/спецификацию. Локальный performance sample не доказывает field INP/Lighthouse или точное Photoshop ICC соответствие.
++- **Технический аппрув:** 2026-10-06, Codex primary verifier `PASS` для поставленного одно-группового MVP на основании сборки, type/lint, 32 затронутых production browser tests, 22 locale-width cases, WebKit скриншотов, color/performance sample и чистого native review выше; независимый discipline auditor подтвердил scope, visual, behavior, review/performance и final integration/journal/memory closeout `PASS` 2026-10-06. **Аппрув пользователя:** `NOT_RECORDED`.
++- **Повторное открытие / 2026-10-06, отклонение пользователя:** Заказчик отверг CSS-рамку: отступы от экрана, встроенный металлический bevel, контрастные полосы/тонкие линии, верхняя подпись `Swipe for Details`, нижняя `Next Technology` и золотые стрелки должны точно совпадать с `design/references/technology_frame.PNG`; только X добавляется справа сверху. Прежний технический аппрув по визуальной рамке **отменён**, хотя старые результаты функциональных тестов остаются историческими. Ответственность агента: при доступном точном растровом шаблоне он заменил его приблизительной CSS-композицией и самописными/локализованными надписями, а визуальная проверка ошибочно сочла геометрическое сходство достаточным. Пропущенный контроль: masked pixel comparison неизменяемой внешней области кадра с исходником. Причина — решение агента, не отсутствие материалов и не запрос клиента. Исправление: построить reusable прозрачный шаблон непосредственно из исходных пикселей, оставить фото сменным только внутри окна, добавить один крестик; сверить внешние пиксели, Pro/Max WebKit кадры, поведение и скорость. Подробная геометрия и changed paths дополняются по мере применения. **Статус:** `OPEN`; новый технический аппрув ожидает повторных гейтов.
++- **Применение коррекции / 2026-10-06:** `tools/generate-technology-frame.py` вырезает из RGB-оригинала прозрачное окно x83–870/y186–1465, проверяет альфу и ноль RGB-отличий на всех внешних пикселях, создаёт 247177-байтный `public/art/technology/frame-template.png`. `components/TechnologyViewer.tsx` и `app/globals.css` помещают его поверх сменного фото, геометрия окна задаётся координатами источника в процентах 954×1649; единственный новый видимый контрол — X 44×44. Исходные пять точек неинтерактивны: в наличии четыре чистых изображения. `tests/e2e/technology-viewer.spec.ts` и `tests/e2e/site.spec.ts` проверяют жесты и клавиатуру без выдуманных точечных переходов; карта обновлена в `docs/technology-viewer.md`, prevention/eval — в `LESSONS.md` и `docs/agent-evals.md`. Независимый discipline auditor: scope PASS, visual PASS; исходный/шаблонный размер 954×1649, 0 внешних RGB-различий, WebKit Pro/Max masked MAE 0.715/0.589 из-за ресэмплинга, визуально исходные margins/bevel/keylines/gold/text сохранены. 52/52 целевых production browser checks, typecheck/lint/build/diff-check PASS, native review без actionable findings; локальная performance выборка: LCP 124ms, CLS 0, JS 161516 B, 0 technology requests до открытия, после — 180866 B для 02.webp и 247477 B для рамки (transferSize). Первый общий browser прогон на старом процессе 3021 ошибочно смешал сборки после `next build`; сервер перезапущен, целевые проверки пройдены, полный повтор выполняется. [Доказательства](docs/evidence/technology-viewer/checks.md). **Технический аппрув:** PENDING до полного повторного browser suite и финального audit. **Аппрув пользователя:** NOT_RECORDED.
++- **Финальная техническая проверка коррекции / 2026-10-06:** После перезапуска стабильного production сервера полный browser suite — **113 PASS / 19 ожидаемых SKIP / 0 FAIL** на Pro/Max WebKit и desktop Chromium/Firefox; прицельный suite — 52/52 PASS. Свежая [матрица адаптации](docs/evidence/technology-viewer/adaptation-correction.json) — 22/22 состояний (11 локалей × 375/768px) без overflow, с загруженной рамкой, внутренним окном в её границах и X ≥44px внутри viewport. `npm run typecheck`, `npm run lint`, `npm run build` (14 static routes), `git diff --check` PASS. Финальный [native review](docs/evidence/technology-viewer/native-review-correction.txt) exit 0: no actionable regression. [Сводка](docs/evidence/technology-viewer/checks.md) и [performance sample](docs/evidence/technology-viewer/performance-correction.json) фиксируют область доказательств и ограничения. Независимый discipline auditor подтвердил scope, visual, behavior/adaptation, review/performance и final closeout `PASS` 2026-10-06; его промежуточный FAIL из-за отсутствия свежей матрицы и незавершённого на тот момент native review исправлен, история сохранена. **Технический аппрув:** 2026-10-06, Codex primary verifier и независимый discipline auditor `APPROVED` по исходным пикселям, Pro/Max WebKit screenshots/masked diff, 52 targeted и 113 full browser checks, 22 adaptation states, type/lint/build, clean final native review и measured network/LCP/CLS. **Аппрув пользователя:** `NOT_RECORDED`.
++- **Повторное открытие / 2026-10-06, продуктовая коррекция пользователя:** Заказчик указал, что `Swipe for Details` не переключает фотографию, пять кружков не соответствуют четырём фотографиям и не показывают активную; `Next Technology` не реагирует, хотя следующей группы пока нет. Требуется кликабельный верхний переход, ровно четыре интерактивные точки с активным состоянием и честная заглушка следующей группы снизу. В конце заказчик явно попросил commit и push. Прежняя техническая проверка рамки остаётся историческим доказательством только для визуального состояния, но не принимает новый продуктовый контракт. **Ответственность AGENT:** агент ошибочно сделал исходные пять точек неподвижной частью «неизменной рамки» и оставил подписи лишь декоративными, хотя они выглядят как действия; самостоятельная оценка с точки зрения пользователя и проверка кликов по видимым подсказкам были пропущены. Новый контроль: каждый видимый affordance в галерее проверяется tap/keyboard и состоянием, число индикаторов сверяется с данными. Карта `docs/technology-viewer.md` подлежит изменению. **Статус:** `REOPENED`; технический аппрув нового поведения `PENDING`; приёмка пользователя `NOT_RECORDED`.
++- **Применение нового контракта / 2026-10-06:** `tools/generate-technology-frame.py` оставляет исходные RGB/alpha вне фотоокна x83:871/y186:1466 и разрешённой зоны точек x382:573/y110:141, затирает пять исходных кружков и извлекает два 29×29 спрайта исходного золота/контура (`public/art/technology/dot-*.png`). `components/TechnologyViewer.tsx` и `app/globals.css`: прозрачная область над верхней подписью листает циклически; ровно четыре кнопки-точки 44px выбирают кадр, `aria-current` следует за декодированным отображаемым индексом; нижняя область и свайп вниз показывают локализованную `role=status` заглушку, не обещая отсутствующий контент. X/Escape сохраняют закрытие. Обновлены `tests/e2e/technology-viewer.spec.ts`, карта, LESSONS и EVAL-VIEWER (`NOT_RUN`). Pro/Max WebKit первая итерация 9/10: арабский тест запросил stage до открытия dialog на dev-сервере; тест синхронизирован с видимостью и загрузкой, повтор 10/10 PASS. Скриншоты четырёх кадров и заглушки сняты, visual аудит ожидается. **Статус:** `APPLIED_UNVERIFIED`; production/full suite/review/performance/commit/push впереди.
++- **Найденный дефект адаптации / 2026-10-06:** При свежей матрице 320×700 верхний прозрачный контрол перехватывался одной из 44px кнопок-точек: агент назначил заголовку top=1.6% и точкам y=7.58% от низкого viewport, не проверив реальное перекрытие hit boxes на коротком экране. Ответственность `AGENT`, пропущенная проверка — `elementFromPoint`/реальный tap по верхнему действию на 320px. Верхний hitbox поднят к y=0, чтобы его центр и основная зона надписи оставались доступны; целевые 320/375/402/768 клики и повторная матрица должны подтвердить решение. Первую неполную матрицу не считать passed.
++- **Native review / 2026-10-06, дополнительный FAIL:** После 26/26 матрицы `codex review --uncommitted` обоснованно нашёл, что при 320×700 44px верхний hitbox y0–44 и 44px dot hitboxes y31–75 всё ещё пересекались, хотя центр верхнего клика работал. Причина: предыдущая правка устранила только center-point симптом, а агент не проверил пересечение **полных** touch target прямоугольников; ответственность `AGENT`. Dot hitbox теперь начинается ровно после нижней границы верхнего hitbox (`top:max(44px,5.8%)`), а видимый source-спрайт позиционируется внутри него на прежней координате. `tools/check-technology-controls.mjs` теперь проверяет также непересечение прямоугольников. Старый review — FAIL, требуется повторный Pro/Max visual, 320 click, матрица и финальный review.
+diff --git a/LESSONS.md b/LESSONS.md
+index bdb7867..afb8448 100644
+--- a/LESSONS.md
++++ b/LESSONS.md
+@@ -235,3 +235,27 @@ This is the repository's **error-prevention memory**, separate from current proj
+ - **Problem:** The comparison block had live localized words and a usable button but omitted the luminous oval arcs and glints visible in the approved composite (CHG-0052).
+ - **Cause:** The agent used the clean background for art and extracted semantic copy from `background_text.png`, then checked the text/button without separately mapping decorative pixels present only in the composite.
+ - **Prevention:** For each visual slice, compare the clean background and text composite at native resolution; inventory graphics that are neither background nor words. Map masked source extents before extraction, keep baked text/control surfaces out of derived assets, and inspect aligned Pro browser crops plus translated/RTL compositions. Defer below-fold art and verify it decodes on approach. [EVAL-LAYER](docs/agent-evals.md#eval-layer) is `NOT_RUN`.
++
++## Replace dialog contracts in tests and defer hidden artwork
++
++- **Problem:** CHG-0061 replaced a technology list with an image viewer, but the first full suite retained 12 failures expecting the old dialog and seven links. The first implementation also placed a priority image in the hidden dialog, risking an unnecessary first-view request.
++- **Cause:** The agent mapped the two source buttons and new behavior but did not search all old dialog selectors before integration; it initially assumed a hidden dialog would keep its image off the network.
++- **Prevention:** When replacing a dialog or CTA destination, search tests and docs for its old ID and assertions, then run affected checks before the full suite. Check initial-page requests for optional modal images before accepting a priority flag; mount them only while open. [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) controlled agent run `NOT_RUN`.
++
++## Verify gallery frames while media is delayed
++
++- **Problem:** CHG-0061 briefly painted a black stage after a swipe because the DOM source changed before the next image decoded; an Arabic browser screenshot exposed it even though the test had seen the expected `src`.
++- **Cause:** The agent treated the image URL transition as equivalent to visible painted media and captured immediately after the URL assertion.
++- **Prevention:** Keep the previous decoded frame until the next resource decodes, provide a small first-frame preview, and test the intermediate state with an intentionally delayed image request. Await `complete && naturalWidth` before visual capture. [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) remains `NOT_RUN`.
++
++## Use the supplied frame pixels for reusable artwork templates
++
++- **Problem:** The first CHG-0061 viewer used a black CSS matte, generic text, dots and arrows, missing the exact inset, metallic bevel, thin lines and gold treatment of `technology_frame.PNG`; the customer rejected it after the agent and auditor approved an approximate visual match.
++- **Cause:** The agent interpreted the image as a loose composition guide even though the requested frame itself was available, then compared the overall layout without an outer-pixel mask.
++- **Prevention:** For a supplied reusable frame, make the immutable frame from the source pixels with a transparent content opening, insert variable content underneath, and compare the masked immutable region against the original at the calibrated viewport. Treat wording, arrow color, border bands and margins as source pixels unless the customer explicitly changes them. Reopen prior approval when customer rejects visible fidelity. [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) is `NOT_RUN`.
++
++## Treat visible gallery prompts as controls
++
++- **Problem:** CHG-0061 kept five static reference dots for four images and left `Swipe for Details` and `Next Technology` inert, despite their visible arrow and action wording. The customer had to report that tapping them did nothing.
++- **Cause:** The agent optimized for unmodified frame pixels without reconciling the reference's five-dot state with the actual four-item data model or testing every visible affordance from a customer viewpoint.
++- **Prevention:** Map each visible instruction, arrow and pagination mark to an action or an explicit unavailable state before approving UI. The number and active state of indicators must derive from actual data; test tap and keyboard activation, loading and failure transitions, and placeholder honesty. At narrow/short screens, compare whole touch-target rectangles for unintended overlap, not only their center-click outcomes. Preserve source artwork outside only the clearly authorized dynamic regions. [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) controlled agent run remains `NOT_RUN`.
+diff --git a/MEMORY.md b/MEMORY.md
+index 3d45fc6..16d9825 100644
+--- a/MEMORY.md
++++ b/MEMORY.md
+@@ -4,6 +4,10 @@ Durable handoff for work in this repository, across chats and context compaction
+
+ The mandatory [CHANGELOG.md](CHANGELOG.md) now records logical changes and defects with stable IDs, solution/mapping traceability, checks and dated technical approval. Agents update it autonomously at discovery, application and verification; user approval remains separate. It backfills this session’s font/button, Business and FAQ work and retains open residuals. CHG-0023 adds explicit responsibility, missed checks and behavior/eval links: agent implementation/verification failures are distinguished from new inputs (Business). Before similar work or a fresh rebuild, retrieve these causes and prevention checks. Agent Eval has a documented current-code protocol; the browser suite now defines 16 cases (four cover wheel input), but no controlled agent-run baseline has been executed and no model-weight training is claimed.
+
++## Technology viewer — 2026-10-06
++
++- CHG-0061 adds an image-only full-viewport HeatCore viewer opened from both existing technology CTAs. The four clean `tech_01` PNGs (02–05) are delivered as 807,398 B of WebP; the `*_TEXT` variants are excluded. After the customer rejected the CSS approximation, a transparent template from `technology_frame.PNG` preserves the silver/charcoal bevel, keylines, margins, English labels and gold arrows. A later customer correction reopened CHG-0061 again: the original five static dots and inert prompts were an unusable product control. The current implementation erases only the original dot band, places four interactive source-styled dots with gold active state tied to the displayed slide, lets the top label/arrow advance photos cyclically, and makes the bottom label/arrow plus down swipe show an honest localized next-group placeholder. X/Escape close. The frame generator verifies zero decoded source RGB differences outside the photo opening and approved dot band. Pro/Max WebKit and the first full production suite passed; a 320px hitbox collision was found and fixed, then 26/26 locale/width control cases passed. Final focused run, review/performance/audit, commit and push are still in progress under [CHG-0061](CHANGELOG.md#chg-0061). See [map](docs/technology-viewer.md) and [evidence](docs/evidence/technology-viewer/checks.md). True multi-group vertical browsing awaits new assets and mapping.
++
+ ## Latest artwork state — 2026-10-05
+
+ - 2026-10-05 CHG-0059 replaces the reconstructed comparison ornament with the designer's exact 701×401 transparent `design/references/01_Compare_Overlay.png`; the live copy remains `public/art/expression-waves.png` and the generator now copies the master byte-for-byte. The source has no ICC tag, so its intended color space is unconfirmed. Pro/Max and Arabic WebKit compositions, all 11 locale controls, and lazy loading were checked; see [map](docs/expression-waves-map.md), [journal](CHANGELOG.md#chg-0059), and [evidence](docs/evidence/compare-overlay/).
+diff --git a/docs/agent-evals.md b/docs/agent-evals.md
+index d02a6e1..76bd5ba 100644
+--- a/docs/agent-evals.md
++++ b/docs/agent-evals.md
+@@ -56,6 +56,7 @@ All cases below are **NOT_RUN**. The table defines fixture recipes and grading t
+
+ | ID / source | Fixture and prompt | Required evidence / rejection condition |
+ | --- | --- | --- |
++| <a id="eval-viewer"></a>EVAL-VIEWER / CHG-0061 | In an isolated copy, replace a small technology dialog opened from two CTAs with an image gallery from supplied raster assets; retain old tests that assert the old dialog ID and links. Provide an exact raster frame reference with inner bevel, gold arrows and five dots while only four clean slides exist. Inject a delayed and then a failed slide request, plus an edge-exiting touch swipe and Arabic RTL input. | Agent maps every visible arrow/instruction as an action, both triggers and old test selectors before editing; derives a transparent reusable frame from source pixels, removes the fifth fixed dot and uses four interactive source-styled indicators whose active state follows the decoded visible image; top text/arrow advances, bottom text/arrow and down gesture show an honest localized next-group placeholder. Verify zero decoded outer-pixel differences outside the approved opening/dot band and masked Pro/Max browser screenshots, exclude text variants, keep optional media out of initial network, keep decoded art visible during transitions/retry, capture edge gestures, localize screen-reader instructions, provide nonoverlapping 44px top/dot targets even at 320×700, update old assertions and run focused then full tests. Fail on an approximate frame, inert visible affordance, wrong indicator count/active state, stale dialog assertions, eager hidden artwork request, blank transient frame, skipped slide after failure, missing second CTA, or false claim that next-group media exists. Controlled agent run: `NOT_RUN`. |
+ | <a id="eval-map"></a>EVAL-MAP / CHG-0001–0003,0015,0049 | In an isolated copy, replace one supplied button/font role or feature icon with an approximation; in a held-out variant, supply canonical designer icon PNGs after a prior extracted-icon implementation, reject a uniform height change, then supply a close reference crop and ask to lower six of seven marks slightly while leaving accepted icons untouched. Add translated labels whose center axes move while icon X remains fixed. | Agent inventories assets and duplicates, maps source → ID → code **before editing**, uses supplied bytes rather than redrawing, separates old icon pixels from connector/divider layers, and views calibrated Pro/ProMax screenshots. Resolve or explicitly state the six-of-seven selection; preserve accepted icons and set individual target positions. Compare painted icon-to-text distances against the close crop, using DOM gaps only as an overlap signal, across Pro/ProMax and RTL; assert per-icon horizontal center alignment in all locales without changing accepted Y/gaps. Fail on guessed shapes, duplicate layers, overlarge spacing, translation-specific axis drift, changing accepted icons, or accepting generic resemblance. Controlled agent run: `NOT_RUN`. |
+ | <a id="eval-layer"></a>EVAL-LAYER / CHG-0052 | In an isolated page, keep the clean artwork, live localized title and compare button, but omit the oval light arcs that exist only in the supplied text composite. Ask to match the render across locales. | Agent inspects clean then composite at native resolution, maps decorative-only source pixels before code, extracts arcs/glints without baked English copy or button surface, retains semantic CTA, compares real Pro/Pro Max and RTL screenshots, tests all locale centers/overflow, and avoids eager transfer of a far-below-fold layer. Fail on a guessed CSS oval, ghost text, inert control, missing browser screenshot, or fabricated user approval. Controlled run: `NOT_RUN`. |
+ | <a id="eval-faq"></a>EVAL-FAQ / CHG-0011,0012,0014,0024,0026,0027 | Introduce a duplicate FAQ surface, a tile boundary through a card, or scroll containment that traps wheel input in the fixture; ask to correct the section. Hold out a different row/join. | Explains existing baked artwork, fixes one owner per layer, verifies all six gaps, icons, last-card/account boundary and expanded states. Require real wheel propagation over closed items and at expanded boundaries as separate gestures; programmatic scrolling cannot substitute. Require independent 0/1/2/all-open states (closed −, open ×), close-one preservation, no inner FAQ scroll range, and matching document/suffix artwork/text/target growth. Inspect expanded gutter continuity and RTL at both mobile sizes. Hold out a rounded corner and central inter-row gap: opening one row must not substitute the background of untouched rows. Inspect enlarged negative-space crops, not only card bodies or outside gutters. Fail on declaring duplicate contours a tint difference, hiding a scrollbar instead of removing the inner viewport, or approving after build alone. |
+    65	    return () => {
+    66	      document.removeEventListener('click', open);
+    67	      if (dialogElement?.open) document.body.style.overflow = previousOverflow.current;
+    68	    };
+    69	  }, []);
+    70
+    71	  const close = () => dialog.current?.close();
+    72	  const showSlide = (position: number) => {
+    73	    const next = (position + slides.length) % slides.length;
+    74	    setShowUnavailable(false);
+    75	    requestedIndex.current = next;
+    76	    const token = ++requestToken.current;
+    77	    const image = new window.Image();
+    78	    image.src = slides[next].src;
+    79	    image.decode().then(() => {
+    80	      if (token === requestToken.current && dialog.current?.open) {
+    81	        displayedIndex.current = next;
+    82	        setIndex(next);
+    83	      }
+    84	    }).catch(() => {
+    85	      if (token === requestToken.current) requestedIndex.current = displayedIndex.current;
+    86	    });
+    87	  };
+    88	  const move = (delta: number) => showSlide(requestedIndex.current + delta);
+    89	  const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    90	    pointer.current = { x: event.clientX, y: event.clientY };
+    91	    try { event.currentTarget.setPointerCapture(event.pointerId); } catch { /* Synthetic test events do not own a pointer. */ }
+    92	  };
+    93	  const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
+    94	    const start = pointer.current;
+    95	    pointer.current = null;
+    96	    if (!start) return;
+    97	    const dx = event.clientX - start.x;
+    98	    const dy = event.clientY - start.y;
+    99	    if (dy > 65 && dy > Math.abs(dx) * 1.2) { setShowUnavailable(true); return; }
+   100	    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+   101	    move((dx < 0 ? 1 : -1) * (locale === 'ar' ? -1 : 1));
+   102	  };
+   103
+   104	  return <dialog
+   105	    ref={dialog}
+   106	    id="technology-viewer"
+   107	    className="technology-viewer"
+   108	    aria-label="HeatCore"
+   109	    aria-describedby="technology-viewer-instructions"
+   110	    tabIndex={-1}
+   111	    onClose={() => {
+   112	      requestToken.current++;
+   113	      setIsOpen(false);
+   114	      document.body.style.overflow = previousOverflow.current;
+   115	      opener.current?.focus();
+   116	    }}
+   117	    onKeyDown={event => {
+   118	      if (event.key === 'ArrowRight') { event.preventDefault(); move(locale === 'ar' ? -1 : 1); }
+   119	      if (event.key === 'ArrowLeft') { event.preventDefault(); move(locale === 'ar' ? 1 : -1); }
+   120	    }}
+   121	  >
+   122	    <div className="technology-viewer__canvas">
+   123	      <div className="technology-viewer__stage" style={{ backgroundImage: isOpen ? `url('${previews[slides[index].id]}')` : undefined }} onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}>
+   124	        {isOpen && <Image key={slides[index].src} src={slides[index].src} alt={`HeatCore — ${labels.names[index]}`} fill sizes="100vw" unoptimized priority={index === 0} draggable={false} />}
+   125	      </div>
+   126	      {isOpen && <Image className="technology-viewer__frame" src="/art/technology/frame-template.png" width={954} height={1649} alt="" aria-hidden="true" unoptimized priority />}
+   127	      <button className="technology-viewer__next-image" type="button" onClick={() => showSlide(requestedIndex.current + 1)} aria-label={labels.nextImage} />
+   128	      <div className="technology-viewer__dots" role="group" aria-label={labels.horizontal}>
+   129	        {slides.map((slide, slideIndex) => <button key={slide.id} type="button" onClick={() => showSlide(slideIndex)} aria-label={`${labels.image} ${slideIndex + 1} / ${slides.length}: ${labels.names[slideIndex]}`} aria-current={index === slideIndex ? 'true' : undefined}>
+   130	          <Image src={index === slideIndex ? '/art/technology/dot-active.png' : '/art/technology/dot-inactive.png'} width={29} height={29} alt="" unoptimized />
+   131	        </button>)}
+   132	      </div>
+   133	      <button className="technology-viewer__next-group" type="button" onClick={() => setShowUnavailable(true)} aria-label={labels.nextGroup} />
+   134	      {showUnavailable && <p className="technology-viewer__notice" role="status">{labels.unavailable}</p>}
+   135	      <button className="technology-viewer__close" type="button" onClick={close} aria-label={labels.close}>×</button>
+   136	    </div>
+   137	    <p id="technology-viewer-instructions" className="technology-viewer__sr-only">{labels.horizontal}. {labels.vertical}. {labels.image} {index + 1} / {slides.length}.</p>
+   138	  </dialog>;
+   139	}
+
+2026-10-06T18:07:38.048180Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11266-0d5f-7df3-a9d3-0add0b1db0de turn_id=01a11266-0e0a-7d41-8b1d-86493700754e item_id="exec-6905d0dc-9ee4-4111-9bd6-7ff0bf46c4f2"
+exec
+/bin/zsh -lc "du -sh design/references/background_old.png design/references/tech_01 public/art/technology tools/__pycache__ docs/evidence/technology-viewer; cat docs/discipline.md | head -35; cat package.json | head -60; sed -n '1,80p' components/DialogController.tsx 2>/dev/null" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+ 43M	design/references/background_old.png
+ 41M	design/references/tech_01
+1.0M	public/art/technology
+ 20K	tools/__pycache__
+484K	docs/evidence/technology-viewer
+# Development discipline: one request, complete result
+
+The user's “one iteration” means one request to Codex should trigger a complete internal development cycle. It does **not** mean one code edit or one screenshot. Codex owns the repeated diagnosis and repair until all applicable gates pass. Do not transfer routine QA back to the user. A pass is evidence-based: there may be unknown bugs, but no known material mismatch, broken interaction, failing check, or unexamined requirement can be called done.
+
+Work on a visual slice small enough to compare with the reference, then integrate **every slice in the requested scope** into the full scroll page. A passed slice is an internal milestone, not a handoff. At the start of each slice, make a compact coverage record from the render: content/art, controls and destinations, viewport/locale states, and relevant speed risks. Give each applicable check a result of pass, fail, or blocked with evidence; do not equate “not yet tested” with pass. For every stage, keep the target, observation, defect, fix, and recheck clear. A failed gate routes work back to the responsible stage and reopens downstream checks affected by the change.
+
+Decide routine implementation details from the render, assets, code, and product brief without pausing for intermediate user approval. Reproduce visible reference copy in the local build for fidelity, with unverified factual claims tracked for publication. When a required media file, destination, credential, confirmed price/claim, or commerce behavior is genuinely absent, finish independent sections and checks, isolate the missing dependency, and ask only for the external input needed to finish that behavior or publish it. Do not invent it, silently omit a visible control, or mark that control complete. Keep a blocked gate distinct from a failed implementation that Codex can fix itself.
+
+## Log changes as they happen
+
+Follow the required schema and lifecycle in [CHANGELOG.md](../CHANGELOG.md). At scope inspection, search existing IDs; create a record for a new defect/change before implementation, with actual versus expected and source. At implementation, record the cause, mapping/specification → code chain and affected files; use `APPLIED_UNVERIFIED` until checks finish. Record each material failure and reopening immediately under the same ID. At verification, append actual commands/screenshots/results, date, verifier and the applicable auditor verdict. Only evidence-backed technical approval permits `VERIFIED`. Explicit user approval is recorded independently and is never inferred from silence. At delivery, reconcile the current status/index and link remaining open defects. Do this autonomously for small fixes as well as large tasks; use a compact record when appropriate.
+
+Root-cause analysis must identify the agent decision/action, technical mechanism, missed control, evidence-backed responsibility and the behavior to change. Use the CHANGELOG classifications; missing or additional input is not automatically user fault. Unknown historical details stay unknown. Before similar work or rebuilding, load relevant causes/lessons and convert prevention into checks. Link repeatable errors to [Agent Eval](agent-evals.md); update case results only after actual runs, independently of fix approval.
+
+Keep previous events intact when a conclusion changes. Backfilled records must identify their source and that checks are historical; missing evidence must remain explicit. Detailed reports can hold large evidence tables, but the journal must state the defect, solution and approval itself, not merely link to an unexplained report.
+
+| Stage | Required action | Evidence and exit gate | On failure |
+| --- | --- | --- | --- |
+| 1. Understand | Check Git state, [MEMORY.md](../MEMORY.md), relevant [LESSONS.md](../LESSONS.md) sections, actual files, instructions, and available tools; read the relevant indexed docs. Inspect `background.png`, then `background_text.png`, then relevant fonts/buttons/PSB layers. Crop the render. Map sections, content, art, controls, behavior, source-to-CSS scale, and unverified product facts. | A section/component map, visual comparison method, interaction destinations, and observable acceptance target exist before coding. | Inspect more; ask only for information that cannot be derived from the repo. |
+| 2. Implement | Build one iPhone 17 Pro-first visual slice with real HTML text/controls and preserved artwork. Use sound React/Next structure; verify Pro Max in stages 3–4 before other sizes. | The slice renders and its required interaction is wired. | Fix implementation before comparison. |
+| 3. Verify visual | Open the real page on iPhone 17 Pro; wait for stable fonts/images; capture the browser image; compare against the calibrated reference crop; use tolerant pixel diff as a second signal. Check Pro Max composition against its own reference only if one exists. | No material design mismatch at a matching reference viewport and screenshot evidence exists. | Identify the largest difference, fix it, capture and compare again. Repeat until passed. |
+| 4. Verify behavior/responsiveness | Check Pro Max, then other phones/tablets/desktops. Exercise clicks, hover, scroll, sticky elements, menus, forms, carousels, CTA, animation states, keyboard, RTL, and relevant widths. | Required states work; no material overflow, clipping, bad crop, seam, or layout jump. | Fix and repeat the affected behavior and visual checks. |
+| 5. Review and optimize | For code changes, invoke native Codex `/review` on the actual diff (CLI equivalent if needed), resolve actionable findings, and inspect architecture, responsibilities, duplication, typing, accessibility, dependencies, and unused code; run relevant static/tests/build checks. Measure the production build: first view, media/JS bytes, LCP/INP/CLS where measurable, network, layout shifts, and long-scroll smoothness. Refactor and improve meaningful problems. | Review findings are resolved or explicitly justified; required checks pass, and the mobile first view remains quick without sacrificing fidelity. An unavailable `/review` is reported, not recorded as passed. | Fix code or delivery; rerun affected static, performance, visual, and behavior checks. |
+| 6. Learn and report | Analyze every user correction and meaningful self-detected failure; update `LESSONS.md` for reusable prevention and `MEMORY.md` for changed verified state, decisions, or blockers. Complete affected change-log records with technical approval, user-approval state and any open/reopened items. Collect final evidence and limitations. | Persistent project context is current; final response accurately states what passed, what was measured, and what could not be checked. | Do not say done while an applicable gate remains unverified. |
+
+Do not treat the stages as a waterfall. After any visual fix, rerun the affected screenshot comparison. After refactoring, revisit affected interactions and visuals. After an image/font/loading optimization, revisit both performance **and** visual fidelity. A section is not finished until its local loop passes; the page is not finished until integration checks pass across the long scroll. Include a final assembled-page screenshot/scroll pass after all local slice passes, so small per-section alignment errors cannot accumulate unnoticed.
+
+For substantive project work, send the [non-editing discipline auditor](supervision.md) the relevant artifacts at each applicable gate, including the final evidence summary. Its independent finding is another checkpoint, not a substitute for executing the gate. If it finds an unrun feasible check, run it before moving on; if it finds a defect, repair and re-audit the affected gate. The auditor also reviews outputs from any other agents at the relevant checkpoint. Keep its handoff concise so independent review does not duplicate the full implementation context.
+
+Keep the test matrix proportionate without skipping requirements: compare each affected English slice to the render on Pro, inspect Pro Max and representative other widths, automatically check translation-key coverage and overflow for **all 11 locales**, and inspect Arabic RTL plus any locale that changes wrapping or behavior. Expand screenshots and interactions where a change or failure warrants it; a full Cartesian set of every locale × width × state is not the default. When the app exists, add repeatable Playwright checks for viewport correctness, the main controls, RTL, overflow, console errors, and screenshot capture. A test command that discovers zero tests is setup, not a passed QA gate.
+
+While coding, use targeted searches, bounded file ranges, and diffs instead of rereading whole files or pasting unrelated source. Keep command output bounded and inspect the failing lines of logs; retain full artifacts on disk when needed. Reuse verified observations and rerun checks that a change could affect, without repeating an unchanged passing matrix. This saves working-context tokens during the full implementation cycle, not just at session start; it never waives a gate.
+
+Keep tool use focused: use native Codex capabilities where they meet the gate, then project-specific skills/tools where they add required evidence. The Codex browser supports quick exploration; configured Playwright WebKit profiles supply repeatable iPhone screenshots and tests. Native `/review` is the code-review gate, not another installed skill; its findings do not replace screenshot, behavior, accessibility, or speed checks. A visual-verification pass checks actual screenshots independently of the code's apparent intent; an interaction pass checks real state transitions. These are responsibilities the main agent can perform sequentially. Tool installation, script availability, and successful checks are distinct states.
+
+{
+  "name": "ramsider",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test:visual": "playwright test",
+    "test:visual:ui": "playwright test --ui",
+    "visual:diff": "node tools/visual-diff.mjs"
+  },
+  "devDependencies": {
+    "@playwright/cli": "^0.1.22",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.11",
+    "pixelmatch": "^7.2.0",
+    "pngjs": "^7.0.0",
+    "sharp": "^0.35.5",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "next": "^16.2.11",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  }
+}
+'use client';
+
+import type { ReactNode } from 'react';
+
+/** Server-rendered content, with native modal focus containment and Escape. */
+export function DialogController({ children }: { children: ReactNode }) {
+  return <div className="dialog-controller" onClick={event => {
+    const target = event.target as Element;
+    const trigger = target.closest<HTMLButtonElement>('button[popovertarget]');
+    if (trigger) {
+      const panel = document.getElementById(trigger.getAttribute('popovertarget') ?? '');
+      if (panel instanceof HTMLDialogElement) {
+        event.preventDefault();
+        if (trigger.getAttribute('popovertargetaction') === 'hide') panel.close();
+        else panel.showModal();
+      }
+    } else if (target.closest('a[href^="#"]')) {
+      target.closest('dialog')?.close();
+    }
+  }}>{children}</div>;
+}
+
+2026-10-06T18:07:42.907376Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11266-0d5f-7df3-a9d3-0add0b1db0de turn_id=01a11266-0e0a-7d41-8b1d-86493700754e item_id="exec-c364e369-0cd9-4335-baa2-3818aa7d8795"
+exec
+/bin/zsh -lc 'wc -c lib/technology-previews.json public/art/technology/*; nl -ba .gitignore | tail -12; git status --short public/art/technology design/references/background_old.png' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+    5578 lib/technology-previews.json
+  180566 public/art/technology/02.webp
+  215254 public/art/technology/03.webp
+  161536 public/art/technology/04.webp
+  250042 public/art/technology/05.webp
+    1404 public/art/technology/dot-active.png
+    1241 public/art/technology/dot-inactive.png
+  239823 public/art/technology/frame-template.png
+ 1055444 total
+    43	next-env.d.ts
+    44	# large design sources (local only)
+    45	/design/source/
+    46
+    47	# visual verification output
+    48	/playwright-report/
+    49	/test-results/
+    50	/screenshots/actual/
+    51	/screenshots/diff/
+    52
+    53	*.psb
+    54	/deliverables/
+?? design/references/background_old.png
+?? public/art/technology/
+
+2026-10-06T18:07:48.474889Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11266-0d5f-7df3-a9d3-0add0b1db0de turn_id=01a11266-0e0a-7d41-8b1d-86493700754e item_id="exec-6670435f-e82c-4500-bea9-b86b11db6bc2"
+codex
+I found no blocking defect in the viewer changes. The untracked background backup is a non-blocking repository-size issue.
+
+Review comment:
+
+- [P2] Exclude the unrelated 43 MB background backup — /Users/asmirnou/Projects/g/ramsider/design/references/background_old.png:1-1
+  If the untracked files are included in this change, `design/references/background_old.png` adds a 43 MB backup that the new viewer does not use. Remove it from the change or keep it outside the repository to avoid unnecessary repository growth.
+I found no blocking defect in the viewer changes. The untracked background backup is a non-blocking repository-size issue.
+
+Review comment:
+
+- [P2] Exclude the unrelated 43 MB background backup — /Users/asmirnou/Projects/g/ramsider/design/references/background_old.png:1-1
+  If the untracked files are included in this change, `design/references/background_old.png` adds a 43 MB backup that the new viewer does not use. Remove it from the change or keep it outside the repository to avoid unnecessary repository growth.

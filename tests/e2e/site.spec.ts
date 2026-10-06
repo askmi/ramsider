@@ -207,12 +207,12 @@ for (const locale of ['ru', 'en']) test(`${locale} technology text groups are ce
       expect(Math.abs(inkCenter - visibleRingCenter) * 941 / canvasWidth, `${id} visible ink center in source pixels`).toBeLessThanOrEqual(6);
     }
     await button.click();
-    await expect(page.locator('#unavailable-technology:modal')).toBeVisible();
+    await expect(page.locator('#technology-viewer:modal')).toBeVisible();
     await page.keyboard.press('Escape');
-    await expect(page.locator('#unavailable-technology:modal')).toHaveCount(0);
+    await expect(page.locator('#technology-viewer:modal')).toHaveCount(0);
     await button.focus();
     await button.press('Enter');
-    await expect(page.locator('#unavailable-technology:modal')).toBeVisible();
+    await expect(page.locator('#technology-viewer:modal')).toBeVisible();
     await page.keyboard.press('Escape');
     await expect(button).toBeFocused();
   }
@@ -232,14 +232,14 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
     const dialog = page.locator('dialog:modal');
     await expect(dialog).toBeVisible();
     await expect(dialog).toHaveAccessibleName(/.+/);
-    if (id.startsWith('technology')) await expect(dialog.locator('a')).toHaveCount(7);
+    if (id.startsWith('technology')) await expect(dialog.locator('.technology-viewer__frame')).toHaveAttribute('src', /frame-template\.png/);
     if (id === 'expressions-compare') {
       await expect(dialog.getByRole('columnheader')).toHaveCount(2);
       await expect(dialog).toContainText('TiN-Coated Heater');
       await expect(dialog).toContainText('Platinum Sensors');
     }
     // Wrap both directions: native dialogs make the underlying page inert.
-    const close = dialog.getByRole('button', { name: 'Close' });
+    const close = dialog.getByRole('button', { name: id.startsWith('technology') ? 'Close technology viewer' : 'Close' });
     await close.focus();
     await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');
@@ -253,9 +253,11 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
     await expect(trigger).toBeFocused();
   }
   await page.locator('#technology-repeat').click();
-  await page.locator('dialog:modal a[href="#tech-water"]').click();
+  await page.keyboard.press('ArrowRight');
+  await page.keyboard.press('ArrowRight');
+  await expect(page.locator('#technology-viewer .technology-viewer__stage img')).toHaveAttribute('src', /04\.webp/);
+  await page.locator('#technology-viewer .technology-viewer__close').click();
   await expect(page.locator('dialog:modal')).toHaveCount(0);
-  await expect(page).toHaveURL(/#tech-water$/);
   await page.goto('/ar');
   await page.locator('#expressions-compare').click();
   await expect(page.locator('dialog:modal')).toBeVisible();

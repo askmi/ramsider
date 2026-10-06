@@ -235,3 +235,33 @@ This is the repository's **error-prevention memory**, separate from current proj
 - **Problem:** The comparison block had live localized words and a usable button but omitted the luminous oval arcs and glints visible in the approved composite (CHG-0052).
 - **Cause:** The agent used the clean background for art and extracted semantic copy from `background_text.png`, then checked the text/button without separately mapping decorative pixels present only in the composite.
 - **Prevention:** For each visual slice, compare the clean background and text composite at native resolution; inventory graphics that are neither background nor words. Map masked source extents before extraction, keep baked text/control surfaces out of derived assets, and inspect aligned Pro browser crops plus translated/RTL compositions. Defer below-fold art and verify it decodes on approach. [EVAL-LAYER](docs/agent-evals.md#eval-layer) is `NOT_RUN`.
+
+## Replace dialog contracts in tests and defer hidden artwork
+
+- **Problem:** CHG-0061 replaced a technology list with an image viewer, but the first full suite retained 12 failures expecting the old dialog and seven links. The first implementation also placed a priority image in the hidden dialog, risking an unnecessary first-view request.
+- **Cause:** The agent mapped the two source buttons and new behavior but did not search all old dialog selectors before integration; it initially assumed a hidden dialog would keep its image off the network.
+- **Prevention:** When replacing a dialog or CTA destination, search tests and docs for its old ID and assertions, then run affected checks before the full suite. Check initial-page requests for optional modal images before accepting a priority flag; mount them only while open. [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) controlled agent run `NOT_RUN`.
+
+## Verify gallery frames while media is delayed
+
+- **Problem:** CHG-0061 briefly painted a black stage after a swipe because the DOM source changed before the next image decoded; an Arabic browser screenshot exposed it even though the test had seen the expected `src`.
+- **Cause:** The agent treated the image URL transition as equivalent to visible painted media and captured immediately after the URL assertion.
+- **Prevention:** Keep the previous decoded frame until the next resource decodes, provide a small first-frame preview, and test the intermediate state with an intentionally delayed image request. Await `complete && naturalWidth` before visual capture. [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) remains `NOT_RUN`.
+
+## Use the supplied frame pixels for reusable artwork templates
+
+- **Problem:** The first CHG-0061 viewer used a black CSS matte, generic text, dots and arrows, missing the exact inset, metallic bevel, thin lines and gold treatment of `technology_frame.PNG`; the customer rejected it after the agent and auditor approved an approximate visual match.
+- **Cause:** The agent interpreted the image as a loose composition guide even though the requested frame itself was available, then compared the overall layout without an outer-pixel mask.
+- **Prevention:** For a supplied reusable frame, make the immutable frame from the source pixels with a transparent content opening, insert variable content underneath, and compare the masked immutable region against the original at the calibrated viewport. Treat wording, arrow color, border bands and margins as source pixels unless the customer explicitly changes them. Reopen prior approval when customer rejects visible fidelity. [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) is `NOT_RUN`.
+
+## Treat visible gallery prompts as controls
+
+- **Problem:** CHG-0061 kept five static reference dots for four images and left `Swipe for Details` and `Next Technology` inert, despite their visible arrow and action wording. The customer had to report that tapping them did nothing.
+- **Cause:** The agent optimized for unmodified frame pixels without reconciling the reference's five-dot state with the actual four-item data model or testing every visible affordance from a customer viewpoint.
+- **Prevention:** Map each visible instruction, arrow and pagination mark to an action or an explicit unavailable state before approving UI. The number and active state of indicators must derive from actual data; test tap and keyboard activation, loading and failure transitions, and placeholder honesty. At narrow/short screens, compare whole touch-target rectangles for unintended overlap, not only their center-click outcomes. Preserve source artwork outside only the clearly authorized dynamic regions. [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) controlled agent run remains `NOT_RUN`.
+
+## Keep key visual evidence in the delivered tree
+
+- **Problem:** CHG-0061 passed local WebKit screenshot review, but the screenshots lived only in ignored `screenshots/actual/`, so the requested Git push would omit proof of the visible result.
+- **Cause:** The agent verified browser pixels in its workspace but did not verify that the cited evidence files were tracked before delivery.
+- **Prevention:** Before a commit or push, use `git ls-files` or staged-tree inspection for the small set of screenshots needed to support visual claims. Copy exact final captures into a tracked evidence path and link them from the report; keep bulky exploratory captures ignored. [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) remains `NOT_RUN`.

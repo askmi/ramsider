@@ -1,0 +1,631 @@
+2026-10-06T17:36:35.783604Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-06T17:36:35.783665Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.159.0-alpha.12.1
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: low
+reasoning summaries: none
+session id: 01a11249-e26e-7cc3-9226-f98b29df4922
+--------
+user
+current changes
+exec
+/bin/zsh -lc 'pwd; git status --short; find .. -name AGENTS.md -o -name AGENTS.override.md | head -40; git diff --stat; git diff --cached --stat' in /Users/asmirnou/Projects/g/ramsider
+2026-10-06T17:36:44.591897Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11249-e26e-7cc3-9226-f98b29df4922 turn_id=01a11249-e844-7980-a52f-a8e83571bc39 item_id="exec-5c38e3f4-6cc2-404f-b7e7-75960aabcadd"
+ succeeded in 2302ms:
+/Users/asmirnou/Projects/g/ramsider
+ M .gitignore
+ M CHANGELOG.md
+ M LESSONS.md
+ M MEMORY.md
+ M app/globals.css
+ M components/Story.tsx
+ M docs/agent-evals.md
+ M tests/e2e/site.spec.ts
+?? components/TechnologyViewer.tsx
+?? design/references/background_old.png
+?? design/references/tech_01/
+?? design/references/technology_frame.PNG
+?? docs/evidence/technology-viewer/
+?? docs/technology-viewer.md
+?? lib/technology-previews.json
+?? public/art/technology/
+?? tests/e2e/technology-viewer.spec.ts
+?? tools/__pycache__/
+?? tools/generate-technology-frame.py
+../ramsider/.agents/skills/vercel-react-best-practices/AGENTS.md
+../ramsider/.agents/skills/vercel-composition-patterns/AGENTS.md
+../ramsider/AGENTS.md
+ .gitignore             |  3 ++-
+ CHANGELOG.md           | 31 +++++++++++++++++++++++++++++++
+ LESSONS.md             | 18 ++++++++++++++++++
+ MEMORY.md              |  4 ++++
+ app/globals.css        | 11 +++++++++++
+ components/Story.tsx   |  8 +++-----
+ docs/agent-evals.md    |  1 +
+ tests/e2e/site.spec.ts | 16 +++++++++-------
+ 8 files changed, 79 insertions(+), 13 deletions(-)
+
+exec
+/bin/zsh -lc 'cat AGENTS.md >/dev/null; git diff -- app/globals.css components/Story.tsx tests/e2e/site.spec.ts .gitignore; cat components/TechnologyViewer.tsx; cat tests/e2e/technology-viewer.spec.ts; cat docs/technology-viewer.md' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+diff --git a/.gitignore b/.gitignore
+index c9e723c..7a66f72 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -33,6 +33,7 @@ yarn-error.log*
+
+ # env files (can opt-in for committing if needed)
+ .env*
++/integrations/telegram/
+
+ # vercel
+ .vercel
+@@ -50,4 +51,4 @@ next-env.d.ts
+ /screenshots/diff/
+
+ *.psb
+-/deliverables/
+\ No newline at end of file
++/deliverables/
+diff --git a/app/globals.css b/app/globals.css
+index 863fec6..fa28f2c 100644
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -144,6 +144,17 @@ html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.
+ .availability h2{font-size:23px;line-height:1.2;margin:0 0 14px}
+ .availability p{line-height:1.5;margin:0 0 24px}
+ .availability button{border:1px solid #9d713a;border-radius:999px;background:#2a251e;color:#fff;padding:10px 22px;min-height:44px}
++.technology-viewer{position:fixed;inset:0;margin:0;width:100vw;max-width:none;height:100dvh;max-height:none;padding:0;border:0;background:#000;color:#fff;overflow:hidden;display:none;z-index:1000;overscroll-behavior:contain}
++.technology-viewer[open]{display:flex;align-items:center;justify-content:center}
++.technology-viewer::backdrop{background:#000}
++.technology-viewer__canvas{position:relative;width:100%;height:100%}
++.technology-viewer__stage{position:absolute;left:8.70020964%;top:11.27956337%;width:82.59958071%;height:77.6228017%;overflow:hidden;touch-action:none;background-color:#000;background-size:100% 100%;background-position:center;background-repeat:no-repeat}
++.technology-viewer__stage img{object-fit:fill;user-select:none;-webkit-user-drag:none}
++.technology-viewer__frame{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;object-fit:fill}
++.technology-viewer__close{position:absolute;right:max(2%,env(safe-area-inset-right));top:max(1%,env(safe-area-inset-top));z-index:1;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;background:transparent;color:#fff;font-size:34px;font-weight:300;line-height:1}
++.technology-viewer__sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
++.technology-viewer :focus-visible{outline:2px solid #e7ba75;outline-offset:-3px}
++@media(min-width:700px){.technology-viewer__canvas{width:min(100vw,calc(100dvh * 954 / 1649))}}
+ .key-powered,.key-groupTag,.key-groupInvest{color:#bd945d}
+ .key-group,.key-groupVision{color:#f3eee5}
+ .key-account,.key-businessAccount,.key-accountBody,.key-venueAccount{color:#f1e1cb!important}
+diff --git a/components/Story.tsx b/components/Story.tsx
+index 3da0a03..604ee03 100644
+--- a/components/Story.tsx
++++ b/components/Story.tsx
+@@ -8,6 +8,7 @@ import { storyNodes, type StoryNode } from '@/lib/story';
+ import { locales, t, type Key, type Locale } from '@/lib/i18n';
+ import { MenuShell } from './MenuShell';
+ import { ActionArrow } from './ActionArrow';
++import { TechnologyViewer } from './TechnologyViewer';
+ import buttonMap from '@/lib/button-map.json';
+ import iconMap from '@/lib/icon-map.json';
+ import localizedButtonWidths from '@/lib/button-localized-widths.json';
+@@ -79,7 +80,7 @@ function OverlayNode({ node, locale }: { node: StoryNode; locale: Locale }) {
+       {appearance.kind === 'outline' && <ActionArrow />}
+     </>;
+     if (node.target) return <Link {...buttonProps} href={node.target}>{content}</Link>;
+-    return <button {...buttonProps} type="button" aria-haspopup="dialog" popoverTarget={`unavailable-${node.unavailable ?? 'commerce'}`}>{content}</button>;
++    return <button {...buttonProps} type="button" aria-haspopup="dialog" {...(node.unavailable === 'technology' ? { 'data-technology-open': true } : { popoverTarget: `unavailable-${node.unavailable ?? 'commerce'}` })}>{content}</button>;
+   }
+   if (node.key === 'hero') return <h1 {...props}>{textLines(text)}</h1>;
+   if (['proLine', 'goldLine', 'mini'].includes(node.key)) {
+@@ -192,10 +193,6 @@ function Popovers({ locale }: { locale: Locale }) {
+   return <>{blocked.map(([id, key]) => <Panel key={id} id={`unavailable-${id}`} title={t(locale, 'unavailableTitle')} locale={locale}>
+     <p>{t(locale, key)}</p>
+   </Panel>)}
+-    <Panel id="unavailable-technology" title={t(locale, 'technologies')} locale={locale}>
+-      <p>{t(locale, 'complexityBody')}</p>
+-      <ul className="technology-links">{(['triple', 'core', 'touch', 'water', 'light', 'armor', 'flow'] as const).map(key => <li key={key}><a href={`#${key === 'triple' ? 'tech-features' : `tech-${key}`}`}>{t(locale, key).replaceAll('\n', ' ')}</a></li>)}</ul>
+-    </Panel>
+     <Panel id="unavailable-compare" title={t(locale, 'compare')} locale={locale}>
+       <table className="model-comparison"><thead><tr>{(['proLine', 'goldLine'] as const).map(key => <th key={key} scope="col">{t(locale, key).replace('│', ' ')}</th>)}</tr></thead>
+         <tbody>{modelDetails.pro.map((_, i) => <tr key={i}>{(['pro', 'gold'] as const).map(model => {
+@@ -223,6 +220,7 @@ function Popovers({ locale }: { locale: Locale }) {
+
+ export function Story({ locale }: { locale: Locale }) {
+   return <DialogController>
++    <TechnologyViewer locale={locale} />
+     <main className="canvas" data-locale={locale}>
+       <div className="story-prefix-space" aria-hidden="true" />
+       <div className="art" aria-hidden="true">
+diff --git a/tests/e2e/site.spec.ts b/tests/e2e/site.spec.ts
+index 0981410..0ace6ec 100644
+--- a/tests/e2e/site.spec.ts
++++ b/tests/e2e/site.spec.ts
+@@ -207,12 +207,12 @@ for (const locale of ['ru', 'en']) test(`${locale} technology text groups are ce
+       expect(Math.abs(inkCenter - visibleRingCenter) * 941 / canvasWidth, `${id} visible ink center in source pixels`).toBeLessThanOrEqual(6);
+     }
+     await button.click();
+-    await expect(page.locator('#unavailable-technology:modal')).toBeVisible();
++    await expect(page.locator('#technology-viewer:modal')).toBeVisible();
+     await page.keyboard.press('Escape');
+-    await expect(page.locator('#unavailable-technology:modal')).toHaveCount(0);
++    await expect(page.locator('#technology-viewer:modal')).toHaveCount(0);
+     await button.focus();
+     await button.press('Enter');
+-    await expect(page.locator('#unavailable-technology:modal')).toBeVisible();
++    await expect(page.locator('#technology-viewer:modal')).toBeVisible();
+     await page.keyboard.press('Escape');
+     await expect(button).toBeFocused();
+   }
+@@ -232,14 +232,14 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
+     const dialog = page.locator('dialog:modal');
+     await expect(dialog).toBeVisible();
+     await expect(dialog).toHaveAccessibleName(/.+/);
+-    if (id.startsWith('technology')) await expect(dialog.locator('a')).toHaveCount(7);
++    if (id.startsWith('technology')) await expect(dialog.locator('.technology-viewer__frame')).toHaveAttribute('src', /frame-template\.png/);
+     if (id === 'expressions-compare') {
+       await expect(dialog.getByRole('columnheader')).toHaveCount(2);
+       await expect(dialog).toContainText('TiN-Coated Heater');
+       await expect(dialog).toContainText('Platinum Sensors');
+     }
+     // Wrap both directions: native dialogs make the underlying page inert.
+-    const close = dialog.getByRole('button', { name: 'Close' });
++    const close = dialog.getByRole('button', { name: id.startsWith('technology') ? 'Close technology viewer' : 'Close' });
+     await close.focus();
+     await page.keyboard.press('Tab');
+     await page.keyboard.press('Tab');
+@@ -253,9 +253,11 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
+     await expect(trigger).toBeFocused();
+   }
+   await page.locator('#technology-repeat').click();
+-  await page.locator('dialog:modal a[href="#tech-water"]').click();
++  await page.keyboard.press('ArrowRight');
++  await page.keyboard.press('ArrowRight');
++  await expect(page.locator('#technology-viewer .technology-viewer__stage img')).toHaveAttribute('src', /04\.webp/);
++  await page.locator('#technology-viewer .technology-viewer__close').click();
+   await expect(page.locator('dialog:modal')).toHaveCount(0);
+-  await expect(page).toHaveURL(/#tech-water$/);
+   await page.goto('/ar');
+   await page.locator('#expressions-compare').click();
+   await expect(page.locator('dialog:modal')).toBeVisible();
+'use client';
+
+import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
+import type { PointerEvent } from 'react';
+import type { Locale } from '@/lib/i18n';
+import previews from '@/lib/technology-previews.json';
+
+const slides = [
+  { id: '02', src: '/art/technology/02.webp' },
+  { id: '03', src: '/art/technology/03.webp' },
+  { id: '04', src: '/art/technology/04.webp' },
+  { id: '05', src: '/art/technology/05.webp' },
+] as const;
+
+type ViewerCopy = { horizontal: string; vertical: string; close: string; image: string; names: readonly [string, string, string, string] };
+const copy: Record<Locale, ViewerCopy> = {
+  en: { horizontal: 'Swipe it horizontally', vertical: 'Swipe down to close', close: 'Close technology viewer', image: 'Image', names: ['Three heaters', 'Active air sails', 'Programmable heat profiles', 'Gold and titanium nitride'] },
+  ru: { horizontal: 'Листайте по горизонтали', vertical: 'Свайп вниз — закрыть', close: 'Закрыть просмотр технологий', image: 'Изображение', names: ['Три нагревателя', 'Активные воздушные паруса', 'Программируемые профили нагрева', 'Золото и нитрид титана'] },
+  de: { horizontal: 'Horizontal wischen', vertical: 'Zum Schließen nach unten wischen', close: 'Technologieansicht schließen', image: 'Bild', names: ['Drei Heizelemente', 'Aktive Luftsegel', 'Programmierbare Wärmeprofile', 'Gold und Titannitrid'] },
+  fr: { horizontal: 'Balayez horizontalement', vertical: 'Balayez vers le bas pour fermer', close: 'Fermer la galerie', image: 'Image', names: ['Trois éléments chauffants', 'Volets d’air actifs', 'Profils de chauffe programmables', 'Or et nitrure de titane'] },
+  es: { horizontal: 'Desliza horizontalmente', vertical: 'Desliza abajo para cerrar', close: 'Cerrar la galería', image: 'Imagen', names: ['Tres calentadores', 'Aletas de aire activas', 'Perfiles de calor programables', 'Oro y nitruro de titanio'] },
+  it: { horizontal: 'Scorri in orizzontale', vertical: 'Scorri giù per chiudere', close: 'Chiudi la galleria', image: 'Immagine', names: ['Tre riscaldatori', 'Alette d’aria attive', 'Profili di calore programmabili', 'Oro e nitruro di titanio'] },
+  tr: { horizontal: 'Yatay kaydırın', vertical: 'Kapatmak için aşağı kaydırın', close: 'Teknoloji görünümünü kapat', image: 'Görsel', names: ['Üç ısıtıcı', 'Aktif hava kanatları', 'Programlanabilir ısı profilleri', 'Altın ve titanyum nitrür'] },
+  ar: { horizontal: 'اسحب أفقياً', vertical: 'اسحب للأسفل للإغلاق', close: 'إغلاق معرض التقنيات', image: 'صورة', names: ['ثلاثة سخانات', 'زعانف هوائية نشطة', 'ملفات حرارة قابلة للبرمجة', 'الذهب ونتريد التيتانيوم'] },
+  zh: { horizontal: '左右滑动', vertical: '向下滑动关闭', close: '关闭技术图库', image: '图片', names: ['三个加热器', '主动导流翼', '可编程加热曲线', '黄金与氮化钛'] },
+  ja: { horizontal: '左右にスワイプ', vertical: '下にスワイプして閉じる', close: '技術ギャラリーを閉じる', image: '画像', names: ['3つのヒーター', 'アクティブエアセイル', 'プログラム可能な加熱プロファイル', '金と窒化チタン'] },
+  ko: { horizontal: '좌우로 스와이프', vertical: '아래로 스와이프하여 닫기', close: '기술 갤러리 닫기', image: '이미지', names: ['세 개의 히터', '액티브 에어 세일', '프로그래밍 가능한 열 프로필', '금과 질화 티타늄'] },
+};
+
+export function TechnologyViewer({ locale }: { locale: Locale }) {
+  const dialog = useRef<HTMLDialogElement>(null);
+  const opener = useRef<HTMLElement | null>(null);
+  const previousOverflow = useRef('');
+  const pointer = useRef<{ x: number; y: number } | null>(null);
+  const displayedIndex = useRef(0);
+  const requestedIndex = useRef(0);
+  const requestToken = useRef(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const [index, setIndex] = useState(0);
+  const labels = copy[locale];
+
+  useEffect(() => {
+    const dialogElement = dialog.current;
+    const open = (event: MouseEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const trigger = target.closest<HTMLElement>('[data-technology-open]');
+      if (!trigger || !dialogElement || dialogElement.open) return;
+      event.preventDefault();
+      opener.current = trigger;
+      requestToken.current++;
+      displayedIndex.current = 0;
+      requestedIndex.current = 0;
+      setIndex(0);
+      setIsOpen(true);
+      dialogElement.showModal();
+      dialogElement.focus();
+      previousOverflow.current = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+    };
+    document.addEventListener('click', open);
+    return () => {
+      document.removeEventListener('click', open);
+      if (dialogElement?.open) document.body.style.overflow = previousOverflow.current;
+    };
+  }, []);
+
+  const close = () => dialog.current?.close();
+  const showSlide = (position: number) => {
+    const next = Math.min(slides.length - 1, Math.max(0, position));
+    requestedIndex.current = next;
+    const token = ++requestToken.current;
+    const image = new window.Image();
+    image.src = slides[next].src;
+    image.decode().then(() => {
+      if (token === requestToken.current && dialog.current?.open) {
+        displayedIndex.current = next;
+        setIndex(next);
+      }
+    }).catch(() => {
+      if (token === requestToken.current) requestedIndex.current = displayedIndex.current;
+    });
+  };
+  const move = (delta: number) => showSlide(requestedIndex.current + delta);
+  const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    pointer.current = { x: event.clientX, y: event.clientY };
+    try { event.currentTarget.setPointerCapture(event.pointerId); } catch { /* Synthetic test events do not own a pointer. */ }
+  };
+  const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
+    const start = pointer.current;
+    pointer.current = null;
+    if (!start) return;
+    const dx = event.clientX - start.x;
+    const dy = event.clientY - start.y;
+    if (dy > 65 && dy > Math.abs(dx) * 1.2) { close(); return; }
+    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+    move((dx < 0 ? 1 : -1) * (locale === 'ar' ? -1 : 1));
+  };
+
+  return <dialog
+    ref={dialog}
+    id="technology-viewer"
+    className="technology-viewer"
+    aria-label="HeatCore"
+    aria-describedby="technology-viewer-instructions"
+    tabIndex={-1}
+    onClose={() => {
+      requestToken.current++;
+      setIsOpen(false);
+      document.body.style.overflow = previousOverflow.current;
+      opener.current?.focus();
+    }}
+    onKeyDown={event => {
+      if (event.key === 'ArrowRight') { event.preventDefault(); move(locale === 'ar' ? -1 : 1); }
+      if (event.key === 'ArrowLeft') { event.preventDefault(); move(locale === 'ar' ? 1 : -1); }
+    }}
+  >
+    <div className="technology-viewer__canvas">
+      <div className="technology-viewer__stage" style={{ backgroundImage: isOpen ? `url('${previews[slides[index].id]}')` : undefined }} onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}>
+        {isOpen && <Image key={slides[index].src} src={slides[index].src} alt={`HeatCore — ${labels.names[index]}`} fill sizes="100vw" unoptimized priority={index === 0} draggable={false} />}
+      </div>
+      {isOpen && <Image className="technology-viewer__frame" src="/art/technology/frame-template.png" width={954} height={1649} alt="" aria-hidden="true" unoptimized priority />}
+      <button className="technology-viewer__close" type="button" onClick={close} aria-label={labels.close}>×</button>
+    </div>
+    <p id="technology-viewer-instructions" className="technology-viewer__sr-only">{labels.horizontal}. {labels.vertical}. {labels.image} {index + 1} / {slides.length}.</p>
+  </dialog>;
+}
+import { expect, test } from '@playwright/test';
+
+test('technology viewer opens from both story controls and pages through clean images', async ({ page }, testInfo) => {
+  await page.goto('/en');
+  expect(await page.evaluate(() => window.innerWidth)).toBe(testInfo.project.use.viewport?.width);
+  expect(await page.evaluate(() => window.devicePixelRatio)).toBe(testInfo.project.use.deviceScaleFactor ?? 1);
+  expect(await page.locator('meta[name="viewport"]').getAttribute('content')).toContain('width=device-width');
+
+  const openers = page.locator('[data-technology-open]');
+  await expect(openers).toHaveCount(2);
+  const viewer = page.locator('#technology-viewer');
+  for (let triggerIndex = 0; triggerIndex < 2; triggerIndex++) {
+    await openers.nth(triggerIndex).scrollIntoViewIfNeeded();
+    await openers.nth(triggerIndex).click();
+    await expect(viewer).toBeVisible();
+    await expect(viewer.locator('.technology-viewer__frame')).toHaveAttribute('src', /frame-template\.png/);
+    const closeHit = await viewer.locator('.technology-viewer__close').boundingBox();
+    expect(closeHit?.width).toBeGreaterThanOrEqual(44);
+    expect(closeHit?.height).toBeGreaterThanOrEqual(44);
+    await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src', /02\.webp/);
+    await expect.poll(() => viewer.locator('.technology-viewer__stage img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true);
+    await page.screenshot({ path: `screenshots/actual/technology-viewer/${testInfo.project.name}-entry-${triggerIndex + 1}.png` });
+
+    const stage = viewer.locator('.technology-viewer__stage');
+    const box = await stage.boundingBox();
+    if (!box) throw new Error('Missing technology stage');
+    const y = box.y + box.height / 2;
+    await page.mouse.move(box.x + box.width * .8, y);
+    await page.mouse.down();
+    await page.mouse.move(box.x + box.width * .2, y, { steps: 5 });
+    await page.mouse.up();
+    await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src', /03\.webp/);
+    if (triggerIndex === 0) {
+      await page.keyboard.press('ArrowLeft');
+      for (let slideIndex = 0; slideIndex < 4; slideIndex++) {
+        if (slideIndex > 0) await page.keyboard.press('ArrowRight');
+        await expect.poll(() => viewer.locator('.technology-viewer__stage img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
+        await page.screenshot({ path: `screenshots/actual/technology-viewer/${testInfo.project.name}-slide-${slideIndex + 1}.png` });
+      }
+    }
+    await page.keyboard.press('ArrowRight');
+    await page.keyboard.press('ArrowRight');
+    await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src', /05\.webp/);
+    await page.keyboard.press('ArrowLeft');
+    await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src', /04\.webp/);
+    await viewer.locator('.technology-viewer__close').click();
+    await expect(viewer).not.toBeVisible();
+    await expect(openers.nth(triggerIndex)).toBeFocused();
+  }
+});
+
+test('technology viewer supports touch pointers, Escape and Arabic framing', async ({ page }, testInfo) => {
+  await page.goto('/ar');
+  await page.locator('[data-technology-open]').first().click();
+  const viewer = page.locator('#technology-viewer');
+  const stage = viewer.locator('.technology-viewer__stage');
+  const box = await stage.boundingBox();
+  if (!box) throw new Error('Missing technology stage');
+  const y = box.y + box.height / 2;
+  await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: box.x + box.width * .2, clientY: y });
+  await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: box.x + box.width * .8, clientY: y });
+  await expect(stage.locator('img')).toHaveAttribute('src', /03\.webp/);
+  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
+  await expect(stage.locator('img')).toHaveAttribute('alt', /زعانف هوائية نشطة/);
+  await page.keyboard.press('ArrowLeft');
+  await expect(stage.locator('img')).toHaveAttribute('src', /04\.webp/);
+  await page.keyboard.press('ArrowRight');
+  await expect(stage.locator('img')).toHaveAttribute('src', /03\.webp/);
+  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
+  await expect(page.locator('body')).toHaveCSS('overflow', 'hidden');
+  await page.screenshot({ path: `screenshots/actual/technology-viewer/${testInfo.project.name}-arabic-swipe.png` });
+  await page.keyboard.press('Escape');
+  await expect(viewer).not.toBeVisible();
+  await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden');
+  await page.locator('[data-technology-open]').first().click();
+  await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 200, clientY: 500 });
+  await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 200, clientY: 350 });
+  await expect(viewer).toBeVisible();
+  await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 200, clientY: 350 });
+  await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 200, clientY: 550 });
+  await expect(viewer).not.toBeVisible();
+});
+
+test('previous artwork stays visible while the next slide loads', async ({ page }) => {
+  await page.route('**/art/technology/03.webp', async route => {
+    await new Promise(resolve => setTimeout(resolve, 500));
+    await route.continue();
+  });
+  await page.goto('/en');
+  await page.locator('[data-technology-open]').first().click();
+  const stage = page.locator('#technology-viewer .technology-viewer__stage');
+  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
+  await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 300, clientY: 400 });
+  await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 90, clientY: 400 });
+  await expect(stage.locator('img')).toHaveAttribute('src', /02\.webp/);
+  await expect(stage.locator('img')).toHaveAttribute('src', /03\.webp/);
+  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
+});
+
+test('failed slide load does not skip the next image', async ({ page }) => {
+  let requests = 0;
+  await page.route('**/art/technology/03.webp', async route => {
+    requests++;
+    if (requests === 1) await route.abort();
+    else await route.continue();
+  });
+  await page.goto('/en');
+  await page.locator('[data-technology-open]').first().click();
+  const stage = page.locator('#technology-viewer .technology-viewer__stage');
+  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
+  const swipe = async () => {
+    await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 300, clientY: 400 });
+    await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 90, clientY: 400 });
+  };
+  await swipe();
+  await expect.poll(() => requests).toBe(1);
+  await expect(stage.locator('img')).toHaveAttribute('src', /02\.webp/);
+  await page.waitForTimeout(150);
+  await swipe();
+  await expect(stage.locator('img')).toHaveAttribute('src', /03\.webp/);
+});
+
+test('swipe completes when the pointer leaves the artwork', async ({ page }) => {
+  await page.goto('/en');
+  await page.locator('[data-technology-open]').first().click();
+  const stage = page.locator('#technology-viewer .technology-viewer__stage');
+  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
+  const box = await stage.boundingBox();
+  if (!box) throw new Error('Missing technology stage');
+  const y = box.y + box.height / 2;
+  await page.mouse.move(box.x + box.width * .8, y);
+  await page.mouse.down();
+  await page.mouse.move(0, y, { steps: 5 });
+  await page.mouse.up();
+  await expect(stage.locator('img')).toHaveAttribute('src', /03\.webp/);
+});
+# HeatCore technology viewer — MVP map
+
+Source: `design/references/technology_frame.PNG` (954 × 1649) is the exact reusable frame template, including black margins, metallic bevel, thin keylines, top `Swipe for Details` with gold right arrow, five dots, and bottom `Next Technology` with gold down arrow. The latest user correction supersedes the earlier interpretation that its copy/design were illustrative. The TouchLink photo inside the opening is replaced by the image-only HeatCore content, and only a top-right close X is added. The first group is `design/references/tech_01/`: four clean 941 × 1672 RGB PNGs numbered 02–05. The four `*_TEXT` images are excluded. No group after HeatCore is present.
+
+Correction target: retain the source pixels outside its central opening, approximately x83–871/y185–1467; preserve the outer bevel at x57–897/y159–1490. Create one source-derived RGBA frame with transparent interior and stack it over a variable artwork layer. At Pro 402×874/DPR3, map source X/Y to the full viewer in normalized coordinates because the template is required to reach the screen edges; use the same map to compare masked outer pixels. Pro Max 440×956 is a responsive check. Desktop keeps a centered portrait canvas against black. The fifth dot stays as the source's nonactionable fifth marker because only four clean slides exist; do not invent a fifth image.
+
+Mapping: `technology-experience` at source Y6810 and `technology-repeat` at Y13182 both open `#technology-viewer`. The gallery maps 02 → Three Heaters, 03 → Active Air Sails, 04 → Programmable Heat Profiles, 05 → Gold and Titanium Nitride. Horizontal touch/pointer swipe and Arrow Left/Right select images. The five dots belong to the immutable source artwork and are decorative: only four image-only slides were supplied. Pointer capture retains a gesture that ends beyond the artwork edge; Arabic reverses the swipe direction with its RTL keyboard mapping. Native `dialog` provides modality and Escape, and close restores trigger focus. With only one supplied group, the MVP's downward swipe closes the viewer; upward group movement is disabled. This is an explicit interim gesture, not a claim that another technology group exists. Screen-reader instructions and slide alt descriptions are locale-keyed in `TechnologyViewer.tsx`; visible frame lettering stays pixel-identical to the English source.
+
+`tools/generate-technology-frame.py` punches the source opening x83–870/y186–1465 inclusive, retaining byte-exact decoded RGB and opaque alpha at every pixel outside it. The resulting 247,177-byte RGBA PNG is `public/art/technology/frame-template.png`. The stage geometry uses those source coordinates as percentages of the 954 × 1649 canvas; the frame raster scales to the mobile viewport in both axes. Thus fidelity means the original source is scaled with the viewport, not that its physical aspect ratio is preserved on every phone. The 941 × 1672 slide scales to fill the opening so the title and product edges remain visible. Desktop centers a portrait canvas against black. WebKit screenshots at Pro and Pro Max show the source frame around each slide under `screenshots/actual/technology-viewer/`. Only the top-right X is new. The TouchLink image in the source prevents meaningful full-image comparison; the comparison target is the frame outside its opening.
+
+The untagged source PNGs have no ICC profile; an intended Photoshop color space is not established. The four web derivatives are 941 × 1672 lossy WebP encoded directly from those sources with `cwebp -q 95 -m 6 -sharp_yuv`, without channel adjustments. They total 807,398 bytes versus roughly 20 MB for four source PNGs. [Asset metrics](evidence/technology-viewer/assets.json) record full source hashes, ICC absence, a lossless candidate (1.21–1.36 MB per image), and q95 decoded error (mean 1.04–1.13 RGB/255, p99 channel error 4–5/255, worst 256px block mean 1.42–1.99/255). The viewer loads its first artwork only when opened, uses tiny inline previews, and retains the previous full image until the next one decodes. A production Chromium 402×874/DPR3 loopback sample measured LCP 144ms, CLS 0, JS transfer 167,914 B and open-to-first decode 175ms; no technology artwork was requested before opening. A separate 5400px scroll sample measured frame p95 17.4ms with 0/120 over 33ms after disabling CSS smooth scrolling for the measurement. These are synthetic local measurements, not field INP or Lighthouse.
+
+2026-10-06T17:36:48.620976Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11249-e26e-7cc3-9226-f98b29df4922 turn_id=01a11249-e844-7980-a52f-a8e83571bc39 item_id="exec-3cf8cae6-92ea-4a4a-8615-67774231ea15"
+exec
+/bin/zsh -lc "cat tools/generate-technology-frame.py; cat lib/technology-previews.json | head -c 500; echo; du -ah design/references/tech_01 public/art/technology docs/evidence/technology-viewer | sort -h | tail -25; nl -ba components/TechnologyViewer.tsx | sed -n '65,145p'; cat package.json" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 8ms:
+"""Cut a transparent artwork opening from the supplied pixel-exact frame."""
+
+from pathlib import Path
+from PIL import Image, ImageDraw
+
+
+SOURCE = Path("design/references/technology_frame.PNG")
+OUTPUT = Path("public/art/technology/frame-template.png")
+SIZE = (954, 1649)
+OPENING = (83, 186, 870, 1465)  # PIL inclusive rectangle; CSS x83:871, y186:1466.
+
+
+def main() -> None:
+    source = Image.open(SOURCE)
+    if source.size != SIZE or source.mode != "RGB":
+        raise ValueError(f"Unexpected frame source: {source.size} {source.mode}")
+    frame = source.convert("RGBA")
+    ImageDraw.Draw(frame).rectangle(OPENING, fill=(0, 0, 0, 0))
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    frame.save(OUTPUT, optimize=True)
+
+    decoded = Image.open(OUTPUT).convert("RGBA")
+    source_rgb = source.tobytes()
+    output_rgb = decoded.convert("RGB").tobytes()
+    alpha = decoded.getchannel("A")
+    for y in range(SIZE[1]):
+        for x in range(SIZE[0]):
+            inside = 83 <= x <= 870 and 186 <= y <= 1465
+            if alpha.getpixel((x, y)) != (0 if inside else 255):
+                raise AssertionError(f"Alpha mismatch at {(x, y)}")
+            if not inside:
+                offset = (y * SIZE[0] + x) * 3
+                if output_rgb[offset : offset + 3] != source_rgb[offset : offset + 3]:
+                    raise AssertionError(f"RGB mismatch at {(x, y)}")
+    print(f"Exact frame outside opening: {OUTPUT} ({OUTPUT.stat().st_size} bytes)")
+
+
+if __name__ == "__main__":
+    main()
+{"02":"data:image/webp;base64,UklGRkwDAABXRUJQVlA4IEADAACwEQCdASpAAHIAPp1GnUwlo6KiJhVacLATiWUA1Z2Pu1bsrgViKoHjXIhpqx+aJ5LlSfvB1mP5JvSNXFyfCXx5kETfEYgLn4x8du0e4AkkmXrmr5rcMFtuaDlyE1l5l3w+bgim2vqDUH27xqEqSF5XUeMSJ1COjgahfBXSDJxIc19h07sznDXE8NcZJSzjeYWMDOfGzAAA/vwQk8PTH4u/wtv+DKoM2yfd/Z9JXBppii12KnCmwazfwXwmNvGmfZVQNks6mAfn+YSPpn+y4VEEKv8LLCENpKP6nwxSg27TJ2dRGMS6ZAnEBjoTcRIT6E5uq1IF2B01QeKoT3qr3ZAjjl+5BeGLfDyDvsNU4HdE3xYB7hS3vgGqbiAeZSpl4ymDl0iWJwSBpFs3BncJ6TPhYH5D7ltw3zI+GjE67nU674ixs8E/gfzYqJXG/B
+4.0K	docs/evidence/technology-viewer/assets.json
+4.0K	docs/evidence/technology-viewer/checks.md
+4.0K	docs/evidence/technology-viewer/native-review-final.txt
+4.0K	docs/evidence/technology-viewer/performance-correction.json
+ 16K	docs/evidence/technology-viewer/adaptation-correction.json
+ 32K	docs/evidence/technology-viewer/native-review-correction.txt
+ 64K	docs/evidence/technology-viewer
+160K	public/art/technology/04.webp
+180K	public/art/technology/02.webp
+212K	public/art/technology/03.webp
+244K	public/art/technology/frame-template.png
+248K	public/art/technology/05.webp
+1.0M	public/art/technology
+5.1M	design/references/tech_01/HeatCore_02_THREE_HEATERS_941x1672.png
+5.1M	design/references/tech_01/HeatCore_02_THREE_HEATERS_EN_941x1672_TEXT.png
+5.1M	design/references/tech_01/HeatCore_03_ACTIVE_AIR_SAILS_941x1672.png
+5.1M	design/references/tech_01/HeatCore_03_ACTIVE_AIR_SAILS_941x1672_TEXT.png
+5.1M	design/references/tech_01/HeatCore_04_PROGRAMMABLE_HEAT_PROFILES_941x1672.png
+5.1M	design/references/tech_01/HeatCore_04_PROGRAMMABLE_HEAT_PROFILES_EN_941x1672_TEXT.png
+5.1M	design/references/tech_01/HeatCore_05_GOLD_AND_TITANIUM_NITRIDE_941x1672.png
+5.1M	design/references/tech_01/HeatCore_05_GOLD_AND_TITANIUM_NITRIDE_CLEAN_941x1672_TEXT.png
+ 41M	design/references/tech_01
+    65	      if (dialogElement?.open) document.body.style.overflow = previousOverflow.current;
+    66	    };
+    67	  }, []);
+    68
+    69	  const close = () => dialog.current?.close();
+    70	  const showSlide = (position: number) => {
+    71	    const next = Math.min(slides.length - 1, Math.max(0, position));
+    72	    requestedIndex.current = next;
+    73	    const token = ++requestToken.current;
+    74	    const image = new window.Image();
+    75	    image.src = slides[next].src;
+    76	    image.decode().then(() => {
+    77	      if (token === requestToken.current && dialog.current?.open) {
+    78	        displayedIndex.current = next;
+    79	        setIndex(next);
+    80	      }
+    81	    }).catch(() => {
+    82	      if (token === requestToken.current) requestedIndex.current = displayedIndex.current;
+    83	    });
+    84	  };
+    85	  const move = (delta: number) => showSlide(requestedIndex.current + delta);
+    86	  const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    87	    pointer.current = { x: event.clientX, y: event.clientY };
+    88	    try { event.currentTarget.setPointerCapture(event.pointerId); } catch { /* Synthetic test events do not own a pointer. */ }
+    89	  };
+    90	  const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
+    91	    const start = pointer.current;
+    92	    pointer.current = null;
+    93	    if (!start) return;
+    94	    const dx = event.clientX - start.x;
+    95	    const dy = event.clientY - start.y;
+    96	    if (dy > 65 && dy > Math.abs(dx) * 1.2) { close(); return; }
+    97	    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+    98	    move((dx < 0 ? 1 : -1) * (locale === 'ar' ? -1 : 1));
+    99	  };
+   100
+   101	  return <dialog
+   102	    ref={dialog}
+   103	    id="technology-viewer"
+   104	    className="technology-viewer"
+   105	    aria-label="HeatCore"
+   106	    aria-describedby="technology-viewer-instructions"
+   107	    tabIndex={-1}
+   108	    onClose={() => {
+   109	      requestToken.current++;
+   110	      setIsOpen(false);
+   111	      document.body.style.overflow = previousOverflow.current;
+   112	      opener.current?.focus();
+   113	    }}
+   114	    onKeyDown={event => {
+   115	      if (event.key === 'ArrowRight') { event.preventDefault(); move(locale === 'ar' ? -1 : 1); }
+   116	      if (event.key === 'ArrowLeft') { event.preventDefault(); move(locale === 'ar' ? 1 : -1); }
+   117	    }}
+   118	  >
+   119	    <div className="technology-viewer__canvas">
+   120	      <div className="technology-viewer__stage" style={{ backgroundImage: isOpen ? `url('${previews[slides[index].id]}')` : undefined }} onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}>
+   121	        {isOpen && <Image key={slides[index].src} src={slides[index].src} alt={`HeatCore — ${labels.names[index]}`} fill sizes="100vw" unoptimized priority={index === 0} draggable={false} />}
+   122	      </div>
+   123	      {isOpen && <Image className="technology-viewer__frame" src="/art/technology/frame-template.png" width={954} height={1649} alt="" aria-hidden="true" unoptimized priority />}
+   124	      <button className="technology-viewer__close" type="button" onClick={close} aria-label={labels.close}>×</button>
+   125	    </div>
+   126	    <p id="technology-viewer-instructions" className="technology-viewer__sr-only">{labels.horizontal}. {labels.vertical}. {labels.image} {index + 1} / {slides.length}.</p>
+   127	  </dialog>;
+   128	}
+{
+  "name": "ramsider",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test:visual": "playwright test",
+    "test:visual:ui": "playwright test --ui",
+    "visual:diff": "node tools/visual-diff.mjs"
+  },
+  "devDependencies": {
+    "@playwright/cli": "^0.1.22",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.11",
+    "pixelmatch": "^7.2.0",
+    "pngjs": "^7.0.0",
+    "sharp": "^0.35.5",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "next": "^16.2.11",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  }
+}
+
+2026-10-06T17:36:52.494401Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11249-e26e-7cc3-9226-f98b29df4922 turn_id=01a11249-e844-7980-a52f-a8e83571bc39 item_id="exec-01748b2c-bec7-4e6e-93c6-15d0166e6fba"
+codex
+I found no actionable regression in the staged, unstaged, or untracked changes reviewed.
+I found no actionable regression in the staged, unstaged, or untracked changes reviewed.

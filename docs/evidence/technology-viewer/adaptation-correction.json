@@ -1,0 +1,845 @@
+{
+  "summary": {
+    "total": 22,
+    "passed": 22,
+    "failed": []
+  },
+  "results": [
+    {
+      "locale": "en",
+      "width": 375,
+      "pass": true,
+      "viewport": 375,
+      "scrollWidth": 375,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "stage": {
+        "x": 32.625,
+        "y": 98.578125,
+        "width": 309.734375,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "close": {
+        "x": 323.5,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "ru",
+      "width": 375,
+      "pass": true,
+      "viewport": 375,
+      "scrollWidth": 375,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "stage": {
+        "x": 32.625,
+        "y": 98.578125,
+        "width": 309.734375,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "close": {
+        "x": 323.5,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "de",
+      "width": 375,
+      "pass": true,
+      "viewport": 375,
+      "scrollWidth": 375,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "stage": {
+        "x": 32.625,
+        "y": 98.578125,
+        "width": 309.734375,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "close": {
+        "x": 323.5,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "fr",
+      "width": 375,
+      "pass": true,
+      "viewport": 375,
+      "scrollWidth": 375,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "stage": {
+        "x": 32.625,
+        "y": 98.578125,
+        "width": 309.734375,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "close": {
+        "x": 323.5,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "es",
+      "width": 375,
+      "pass": true,
+      "viewport": 375,
+      "scrollWidth": 375,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "stage": {
+        "x": 32.625,
+        "y": 98.578125,
+        "width": 309.734375,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "close": {
+        "x": 323.5,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "it",
+      "width": 375,
+      "pass": true,
+      "viewport": 375,
+      "scrollWidth": 375,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "stage": {
+        "x": 32.625,
+        "y": 98.578125,
+        "width": 309.734375,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "close": {
+        "x": 323.5,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "tr",
+      "width": 375,
+      "pass": true,
+      "viewport": 375,
+      "scrollWidth": 375,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "stage": {
+        "x": 32.625,
+        "y": 98.578125,
+        "width": 309.734375,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "close": {
+        "x": 323.5,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "ar",
+      "width": 375,
+      "pass": true,
+      "viewport": 375,
+      "scrollWidth": 375,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "stage": {
+        "x": 32.625,
+        "y": 98.578125,
+        "width": 309.734375,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "close": {
+        "x": 323.5,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "zh",
+      "width": 375,
+      "pass": true,
+      "viewport": 375,
+      "scrollWidth": 375,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "stage": {
+        "x": 32.625,
+        "y": 98.578125,
+        "width": 309.734375,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "close": {
+        "x": 323.5,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "ja",
+      "width": 375,
+      "pass": true,
+      "viewport": 375,
+      "scrollWidth": 375,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "stage": {
+        "x": 32.625,
+        "y": 98.578125,
+        "width": 309.734375,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "close": {
+        "x": 323.5,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "ko",
+      "width": 375,
+      "pass": true,
+      "viewport": 375,
+      "scrollWidth": 375,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "stage": {
+        "x": 32.625,
+        "y": 98.578125,
+        "width": 309.734375,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "width": 375,
+        "height": 874
+      },
+      "close": {
+        "x": 323.5,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "en",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 874
+      },
+      "canvas": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "stage": {
+        "x": 175.171875,
+        "y": 98.578125,
+        "width": 417.640625,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "close": {
+        "x": 582.703125,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "ru",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 874
+      },
+      "canvas": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "stage": {
+        "x": 175.171875,
+        "y": 98.578125,
+        "width": 417.640625,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "close": {
+        "x": 582.703125,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "de",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 874
+      },
+      "canvas": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "stage": {
+        "x": 175.171875,
+        "y": 98.578125,
+        "width": 417.640625,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "close": {
+        "x": 582.703125,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "fr",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 874
+      },
+      "canvas": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "stage": {
+        "x": 175.171875,
+        "y": 98.578125,
+        "width": 417.640625,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "close": {
+        "x": 582.703125,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "es",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 874
+      },
+      "canvas": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "stage": {
+        "x": 175.171875,
+        "y": 98.578125,
+        "width": 417.640625,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "close": {
+        "x": 582.703125,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "it",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 874
+      },
+      "canvas": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "stage": {
+        "x": 175.171875,
+        "y": 98.578125,
+        "width": 417.640625,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "close": {
+        "x": 582.703125,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "tr",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 874
+      },
+      "canvas": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "stage": {
+        "x": 175.171875,
+        "y": 98.578125,
+        "width": 417.640625,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "close": {
+        "x": 582.703125,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "ar",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 874
+      },
+      "canvas": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "stage": {
+        "x": 175.171875,
+        "y": 98.578125,
+        "width": 417.640625,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "close": {
+        "x": 582.703125,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "zh",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 874
+      },
+      "canvas": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "stage": {
+        "x": 175.171875,
+        "y": 98.578125,
+        "width": 417.640625,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "close": {
+        "x": 582.703125,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "ja",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 874
+      },
+      "canvas": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "stage": {
+        "x": 175.171875,
+        "y": 98.578125,
+        "width": 417.640625,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "close": {
+        "x": 582.703125,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    },
+    {
+      "locale": "ko",
+      "width": 768,
+      "pass": true,
+      "viewport": 768,
+      "scrollWidth": 768,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 874
+      },
+      "canvas": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "stage": {
+        "x": 175.171875,
+        "y": 98.578125,
+        "width": 417.640625,
+        "height": 678.421875
+      },
+      "frame": {
+        "x": 131.1875,
+        "y": 0,
+        "width": 505.625,
+        "height": 874
+      },
+      "close": {
+        "x": 582.703125,
+        "y": 8.734375,
+        "width": 44,
+        "height": 44
+      },
+      "frameLoaded": true
+    }
+  ]
+}

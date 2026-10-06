@@ -36,6 +36,8 @@ for (const [width, height] of [[320, 700], [375, 812], [768, 1024], [1440, 900]]
           close: rect('.technology-viewer__close'),
           topText: rect('.technology-viewer__next-image span'),
           bottomText: rect('.technology-viewer__next-group span'),
+          title: [...document.querySelectorAll('.technology-viewer__title svg text')].map(element => ({text:element.textContent,font:getComputedStyle(element).fontFamily,rect:rect('.technology-viewer__title'),ink:{x:element.getBoundingClientRect().x,y:element.getBoundingClientRect().y,width:element.getBoundingClientRect().width,height:element.getBoundingClientRect().height}})),
+          heading: document.querySelector('.technology-viewer__title')?.textContent,
           font: getComputedStyle(document.querySelector('.technology-viewer__next-image')).fontFamily,
           arrows: [...document.querySelectorAll('.technology-viewer__next-image img,.technology-viewer__next-group img')].map(image => image.getAttribute('src')),
         };
@@ -64,6 +66,7 @@ for (const [width, height] of [[320, 700], [375, 812], [768, 1024], [1440, 900]]
         && await dots.count() === 4 && [geometry.top, geometry.bottom, geometry.close].every(rect => insideViewport(rect)) && dotRects.every(rect => insideViewport(rect, 24))
         && dotRects.every(rect => rect.y >= geometry.top.y + geometry.top.height - 0.1)
         && !overlaps(geometry.top, geometry.close) && contains(geometry.top, geometry.topText) && contains(geometry.bottom, geometry.bottomText)
+        && geometry.title.length === 2 && geometry.title.every(item => item.font.startsWith('OpenSans') && contains(stage,item.ink)) && !!geometry.heading?.trim()
         && geometry.font.startsWith('OpenSans') && geometry.arrows.join(',') === '/art/technology/arrow-right.png,/art/technology/arrow-down.png'
         && topActive === 'true' && dotActive === 'true' && activeCount === 1 && !!notice?.trim();
       cases.push({ locale, width, height, pass, notice, topActive, dotActive, activeCount, geometry, dotRects });

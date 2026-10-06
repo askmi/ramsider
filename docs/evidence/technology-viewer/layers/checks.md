@@ -1,5 +1,7 @@
 # Technology viewer — independent layers, 2026-10-07
 
+
+Current photograph title decomposition supersedes only the baked lettering/photo-byte identity baseline: see [CHG-0062 live-title evidence](../live-title/checks.md). Historical checks below retain their original verdict; current delivery is exact outside declared title masks.
 The contour/control evidence remains valid. Photo delivery/performance below is historical; the [original-only PNG correction](../original-png/checks.md) supersedes its WebP photographs.
 
 CHG-0061 was reopened after the customer rejected the composite template. This revision changes only the viewer and its supporting assets/tests/docs. The landing and HeatCore photographs are unchanged.

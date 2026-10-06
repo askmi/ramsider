@@ -1,0 +1,108 @@
+{
+  "method": "Local imagegen wall reconstruction; sharp source-preserving glyph-mask composite; 03 uses original column interpolation plus bounded reconstructed texture to preserve groove phase; PNG compressionLevel 0; no master resize/color/profile change",
+  "crop": {
+    "left": 16,
+    "top": 80,
+    "width": 528,
+    "height": 256
+  },
+  "glyphMask": "main max RGB <180; subtitle warm brown; two-pixel dilation; local source color correction",
+  "items": [
+    {
+      "id": "02",
+      "source": "design/references/tech_01/HeatCore_02_THREE_HEATERS_941x1672.png",
+      "output": "public/art/technology/02.png",
+      "patch": "design/derived/technology-title/02-wall.png",
+      "sourceSha256": "7de489d087b69b0c5026a52a29d4d3d3be6640bf548ab25e5bba85a1b42842de",
+      "outputSha256": "b58ce30dea0823afe7ebb03fd930cbfb12109010afba89edce5b8efb06bb635b",
+      "patchSha256": "5e51b04402f4ef420f0facf204760301b0447eea52e8f822a2022d0f8279acca",
+      "width": 941,
+      "height": 1672,
+      "channels": 3,
+      "icc": null,
+      "outputBytes": 4729424,
+      "mask": "docs/evidence/technology-viewer/live-title/mask-02.png",
+      "maskedPixels": 22195,
+      "maskBounds": {
+        "left": 53,
+        "top": 125,
+        "right": 490,
+        "bottom": 277
+      },
+      "outsideChangedChannels": 0,
+      "maxOutsideRgbError": 0
+    },
+    {
+      "id": "03",
+      "source": "design/references/tech_01/HeatCore_03_ACTIVE_AIR_SAILS_941x1672.png",
+      "output": "public/art/technology/03.png",
+      "patch": "design/derived/technology-title/03-wall.png",
+      "sourceSha256": "723e086254c2440179c346ad6d4d8ef028605216a3c52661115f8dc872a94569",
+      "outputSha256": "e2e3d03bfbaef8b62da25d86d1c77f30b18412edc15715e1309583845ab62fa6",
+      "patchSha256": "61f47bdc2110626e2ccdefb60398ba2c3fc392c43f7823c6c09f46ee64c549fe",
+      "width": 941,
+      "height": 1672,
+      "channels": 3,
+      "icc": null,
+      "outputBytes": 4729424,
+      "mask": "docs/evidence/technology-viewer/live-title/mask-03.png",
+      "maskedPixels": 22269,
+      "maskBounds": {
+        "left": 53,
+        "top": 125,
+        "right": 490,
+        "bottom": 277
+      },
+      "outsideChangedChannels": 0,
+      "maxOutsideRgbError": 0
+    },
+    {
+      "id": "04",
+      "source": "design/references/tech_01/HeatCore_04_PROGRAMMABLE_HEAT_PROFILES_941x1672.png",
+      "output": "public/art/technology/04.png",
+      "patch": "design/derived/technology-title/04-wall.png",
+      "sourceSha256": "5f63d934a6fe6c2b57d52e579c0469d867e821c834fd498f7059ca2533c03511",
+      "outputSha256": "8af34e3d94e9206cb5c9b5c12826a2c9c178c7f9e3d5976df13f5e44085c1bf0",
+      "patchSha256": "c0519ffcedfce66578692d6eb3faa22d13ce43074d41363332456b69c627529f",
+      "width": 941,
+      "height": 1672,
+      "channels": 3,
+      "icc": null,
+      "outputBytes": 4729424,
+      "mask": "docs/evidence/technology-viewer/live-title/mask-04.png",
+      "maskedPixels": 22268,
+      "maskBounds": {
+        "left": 53,
+        "top": 125,
+        "right": 490,
+        "bottom": 277
+      },
+      "outsideChangedChannels": 0,
+      "maxOutsideRgbError": 0
+    },
+    {
+      "id": "05",
+      "source": "design/references/tech_01/HeatCore_05_GOLD_AND_TITANIUM_NITRIDE_941x1672.png",
+      "output": "public/art/technology/05.png",
+      "patch": "design/derived/technology-title/05-wall.png",
+      "sourceSha256": "d8a0745627c1f3eb085df16ca4860530e276a22a90684f0c02d9c77faf547716",
+      "outputSha256": "edd20a4990deb6f8656b0918dd06f83db323346b2da0a142a0acb7630a97681a",
+      "patchSha256": "966ffeed398f22ba427aee233059019f1ae27858a64dc43db56be4f71f68b462",
+      "width": 941,
+      "height": 1672,
+      "channels": 3,
+      "icc": null,
+      "outputBytes": 4729424,
+      "mask": "docs/evidence/technology-viewer/live-title/mask-05.png",
+      "maskedPixels": 22266,
+      "maskBounds": {
+        "left": 53,
+        "top": 125,
+        "right": 490,
+        "bottom": 277
+      },
+      "outsideChangedChannels": 0,
+      "maxOutsideRgbError": 0
+    }
+  ]
+}

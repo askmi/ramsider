@@ -1,0 +1,3207 @@
+{
+  "summary": {
+    "total": 26,
+    "passed": 26,
+    "failed": []
+  },
+  "cases": [
+    {
+      "locale": "en",
+      "width": 320,
+      "height": 700,
+      "pass": true,
+      "notice": "The next technology is coming soon.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 320,
+        "scrollWidth": 320,
+        "frameLoaded": true,
+        "frame": {
+          "x": 19.109375,
+          "y": 67.484375,
+          "width": 281.75,
+          "height": 565
+        },
+        "stage": {
+          "x": 27.796875,
+          "y": 78.25,
+          "width": 264.390625,
+          "height": 544.53125
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 216,
+          "height": 44
+        },
+        "bottom": {
+          "x": 48,
+          "y": 645.390625,
+          "width": 224,
+          "height": 45.5
+        },
+        "close": {
+          "x": 269.609375,
+          "y": 7,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 89.703125,
+          "y": 25.984375,
+          "width": 125.515625,
+          "height": 18.015625
+        },
+        "bottomText": {
+          "x": 105.59375,
+          "y": 645.390625,
+          "width": 108.8125,
+          "height": 15.671875
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 27.796875,
+              "y": 78.25,
+              "width": 264.390625,
+              "height": 544.53125
+            },
+            "ink": {
+              "x": 40.72138977050781,
+              "y": 107.7677993774414,
+              "width": 125.31159973144531,
+              "height": 49.256553649902344
+            }
+          },
+          {
+            "text": "Technology",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 27.796875,
+              "y": 78.25,
+              "width": 264.390625,
+              "height": 544.53125
+            },
+            "ink": {
+              "x": 42.96913146972656,
+              "y": 154.49769592285156,
+              "width": 45.235809326171875,
+              "height": 13.920333862304688
+            }
+          }
+        ],
+        "heading": "HeatCore TechnologyHeatCoreTechnology",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 112,
+          "y": 44,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 136,
+          "y": 44,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 160,
+          "y": 44,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 184,
+          "y": 44,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "width": 320,
+      "height": 700,
+      "pass": true,
+      "notice": "التقنية التالية ستتوفر قريباً.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 320,
+        "scrollWidth": 320,
+        "frameLoaded": true,
+        "frame": {
+          "x": 19.109375,
+          "y": 67.484375,
+          "width": 281.75,
+          "height": 565
+        },
+        "stage": {
+          "x": 27.796875,
+          "y": 78.25,
+          "width": 264.390625,
+          "height": 544.53125
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 216,
+          "height": 44
+        },
+        "bottom": {
+          "x": 48,
+          "y": 645.390625,
+          "width": 224,
+          "height": 45.5
+        },
+        "close": {
+          "x": 269.609375,
+          "y": 7,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 107.6875,
+          "y": 25.984375,
+          "width": 119.71875,
+          "height": 18.015625
+        },
+        "bottomText": {
+          "x": 133.703125,
+          "y": 645.390625,
+          "width": 52.609375,
+          "height": 15.671875
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 27.796875,
+              "y": 78.25,
+              "width": 264.390625,
+              "height": 544.53125
+            },
+            "ink": {
+              "x": 40.72138977050781,
+              "y": 107.7677993774414,
+              "width": 125.31159973144531,
+              "height": 49.256553649902344
+            }
+          },
+          {
+            "text": "تقنية",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 27.796875,
+              "y": 78.25,
+              "width": 264.390625,
+              "height": 544.53125
+            },
+            "ink": {
+              "x": 42.930885314941406,
+              "y": 154.49769592285156,
+              "width": 11.975421905517578,
+              "height": 13.920333862304688
+            }
+          }
+        ],
+        "heading": "HeatCore تقنيةHeatCoreتقنية",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 112,
+          "y": 44,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 136,
+          "y": 44,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 160,
+          "y": 44,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 184,
+          "y": 44,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "The next technology is coming soon.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 105.140625,
+          "y": 25.96875,
+          "width": 147.03125,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 127.921875,
+          "y": 748.65625,
+          "width": 119.140625,
+          "height": 17.15625
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 47.72381591796875,
+              "y": 124.94515991210938,
+              "width": 146.8473358154297,
+              "height": 57.571075439453125
+            }
+          },
+          {
+            "text": "Technology",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 50.35784912109375,
+              "y": 178.84060668945312,
+              "width": 53.009910583496094,
+              "height": 15.991973876953125
+            }
+          }
+        ],
+        "heading": "HeatCore TechnologyHeatCoreTechnology",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ru",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "Следующая технология скоро появится.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 92.203125,
+          "y": 25.96875,
+          "width": 172.921875,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 99.1875,
+          "y": 748.65625,
+          "width": 176.609375,
+          "height": 17.15625
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 47.72381591796875,
+              "y": 124.94515991210938,
+              "width": 146.8473358154297,
+              "height": 57.571075439453125
+            }
+          },
+          {
+            "text": "Технология",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 50.35784912109375,
+              "y": 178.84060668945312,
+              "width": 57.79754638671875,
+              "height": 15.991973876953125
+            }
+          }
+        ],
+        "heading": "HeatCore ТехнологияHeatCoreТехнология",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "de",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "Die nächste Technologie kommt bald.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 93.703125,
+          "y": 25.96875,
+          "width": 169.921875,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 113.25,
+          "y": 748.65625,
+          "width": 148.484375,
+          "height": 17.15625
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 47.72381591796875,
+              "y": 124.94515991210938,
+              "width": 146.8473358154297,
+              "height": 57.571075439453125
+            }
+          },
+          {
+            "text": "Technologie",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 50.35784912109375,
+              "y": 178.84060668945312,
+              "width": 57.44910430908203,
+              "height": 15.991973876953125
+            }
+          }
+        ],
+        "heading": "HeatCore TechnologieHeatCoreTechnologie",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "fr",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "La prochaine technologie arrive bientôt.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 75.75,
+          "y": 25.96875,
+          "width": 205.828125,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 112.234375,
+          "y": 748.65625,
+          "width": 150.53125,
+          "height": 17.15625
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 47.72381591796875,
+              "y": 124.94515991210938,
+              "width": 146.8473358154297,
+              "height": 57.571075439453125
+            }
+          },
+          {
+            "text": "Technologie",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 50.35784912109375,
+              "y": 178.84060668945312,
+              "width": 57.44910430908203,
+              "height": 15.991973876953125
+            }
+          }
+        ],
+        "heading": "HeatCore TechnologieHeatCoreTechnologie",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "es",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "La próxima tecnología estará disponible pronto.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 72.078125,
+          "y": 25.96875,
+          "width": 213.171875,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 115.609375,
+          "y": 748.65625,
+          "width": 143.78125,
+          "height": 17.15625
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 47.72381591796875,
+              "y": 124.94515991210938,
+              "width": 146.8473358154297,
+              "height": 57.571075439453125
+            }
+          },
+          {
+            "text": "Tecnología",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 50.35784912109375,
+              "y": 178.84060668945312,
+              "width": 51.133628845214844,
+              "height": 15.991973876953125
+            }
+          }
+        ],
+        "heading": "HeatCore TecnologíaHeatCoreTecnología",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "it",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "La prossima tecnologia arriverà presto.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 95.65625,
+          "y": 25.96875,
+          "width": 166.015625,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 109.765625,
+          "y": 748.65625,
+          "width": 155.46875,
+          "height": 17.15625
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 47.72381591796875,
+              "y": 124.94515991210938,
+              "width": 146.8473358154297,
+              "height": 57.571075439453125
+            }
+          },
+          {
+            "text": "Tecnologia",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 50.35784912109375,
+              "y": 178.84060668945312,
+              "width": 51.133628845214844,
+              "height": 15.991973876953125
+            }
+          }
+        ],
+        "heading": "HeatCore TecnologiaHeatCoreTecnologia",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "tr",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "Sonraki teknoloji yakında sunulacak.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 83.6875,
+          "y": 25.96875,
+          "width": 189.9375,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 127.84375,
+          "y": 748.65625,
+          "width": 119.3125,
+          "height": 17.15625
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 47.72381591796875,
+              "y": 124.94515991210938,
+              "width": 146.8473358154297,
+              "height": 57.571075439453125
+            }
+          },
+          {
+            "text": "Teknoloji",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 50.35784912109375,
+              "y": 178.84060668945312,
+              "width": 42.97431182861328,
+              "height": 15.991973876953125
+            }
+          }
+        ],
+        "heading": "HeatCore TeknolojiHeatCoreTeknoloji",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "التقنية التالية ستتوفر قريباً.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 126.21875,
+          "y": 25.96875,
+          "width": 140.234375,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 158.703125,
+          "y": 748.65625,
+          "width": 57.609375,
+          "height": 17.15625
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 47.72381591796875,
+              "y": 124.94515991210938,
+              "width": 146.8473358154297,
+              "height": 57.571075439453125
+            }
+          },
+          {
+            "text": "تقنية",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 50.31301498413086,
+              "y": 178.84060668945312,
+              "width": 14.026004791259766,
+              "height": 15.991973876953125
+            }
+          }
+        ],
+        "heading": "HeatCore تقنيةHeatCoreتقنية",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "下一项技术即将推出。",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 121,
+          "y": 25.96875,
+          "width": 115.3125,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 148.40625,
+          "y": 748.65625,
+          "width": 78.1875,
+          "height": 17.15625
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 47.72381591796875,
+              "y": 124.94515991210938,
+              "width": 146.8473358154297,
+              "height": 57.571075439453125
+            }
+          },
+          {
+            "text": "技术",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 50.35784912109375,
+              "y": 178.84060668945312,
+              "width": 20.616058349609375,
+              "height": 15.991973876953125
+            }
+          }
+        ],
+        "heading": "HeatCore 技术HeatCore技术",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ja",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "次の技術は近日公開予定です。",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 75.875,
+          "y": 25.96875,
+          "width": 205.578125,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 156.828125,
+          "y": 748.65625,
+          "width": 61.328125,
+          "height": 17.15625
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 47.72381591796875,
+              "y": 124.94515991210938,
+              "width": 146.8473358154297,
+              "height": 57.571075439453125
+            }
+          },
+          {
+            "text": "テクノロジー",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 50.35784912109375,
+              "y": 178.84060668945312,
+              "width": 59.98981475830078,
+              "height": 15.991973876953125
+            }
+          }
+        ],
+        "heading": "HeatCore テクノロジーHeatCoreテクノロジー",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ko",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "다음 기술은 곧 공개됩니다.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 92.1875,
+          "y": 25.96875,
+          "width": 172.9375,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 158.984375,
+          "y": 748.65625,
+          "width": 57.03125,
+          "height": 17.15625
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 47.72381591796875,
+              "y": 124.94515991210938,
+              "width": 146.8473358154297,
+              "height": 57.571075439453125
+            }
+          },
+          {
+            "text": "기술",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 32.578125,
+              "y": 90.765625,
+              "width": 309.828125,
+              "height": 631.65625
+            },
+            "ink": {
+              "x": 50.35784912109375,
+              "y": 178.84060668945312,
+              "width": 17.654312133789062,
+              "height": 15.991973876953125
+            }
+          }
+        ],
+        "heading": "HeatCore 기술HeatCore기술",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "The next technology is coming soon.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 266.765625,
+          "y": 30.28125,
+          "width": 202.703125,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 294.609375,
+          "y": 944.125,
+          "width": 178.75,
+          "height": 25.75
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 163.192138671875,
+              "y": 156.72698974609375,
+              "width": 231.98309326171875,
+              "height": 72.59529113769531
+            }
+          },
+          {
+            "text": "Technology",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 167.353271484375,
+              "y": 225.43260192871094,
+              "width": 83.74276733398438,
+              "height": 21.014419555664062
+            }
+          }
+        ],
+        "heading": "HeatCore TechnologyHeatCoreTechnology",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ru",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "Следующая технология скоро появится.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 248.921875,
+          "y": 30.28125,
+          "width": 238.375,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 251.515625,
+          "y": 944.125,
+          "width": 264.953125,
+          "height": 25.75
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 163.192138671875,
+              "y": 156.72698974609375,
+              "width": 231.98309326171875,
+              "height": 72.59529113769531
+            }
+          },
+          {
+            "text": "Технология",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 167.353271484375,
+              "y": 225.43260192871094,
+              "width": 91.3331298828125,
+              "height": 21.014419555664062
+            }
+          }
+        ],
+        "heading": "HeatCore ТехнологияHeatCoreТехнология",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "de",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "Die nächste Technologie kommt bald.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 250.984375,
+          "y": 30.28125,
+          "width": 234.25,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 272.59375,
+          "y": 944.125,
+          "width": 222.78125,
+          "height": 25.75
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 163.192138671875,
+              "y": 156.72698974609375,
+              "width": 231.98309326171875,
+              "height": 72.59529113769531
+            }
+          },
+          {
+            "text": "Technologie",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 167.353271484375,
+              "y": 225.43260192871094,
+              "width": 90.77911376953125,
+              "height": 21.014419555664062
+            }
+          }
+        ],
+        "heading": "HeatCore TechnologieHeatCoreTechnologie",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "fr",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "La prochaine technologie arrive bientôt.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 226.234375,
+          "y": 30.28125,
+          "width": 283.75,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 271.0625,
+          "y": 944.125,
+          "width": 225.84375,
+          "height": 25.75
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 163.192138671875,
+              "y": 156.72698974609375,
+              "width": 231.98309326171875,
+              "height": 72.59529113769531
+            }
+          },
+          {
+            "text": "Technologie",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 167.353271484375,
+              "y": 225.43260192871094,
+              "width": 90.77911376953125,
+              "height": 21.014419555664062
+            }
+          }
+        ],
+        "heading": "HeatCore TechnologieHeatCoreTechnologie",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "es",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "La próxima tecnología estará disponible pronto.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 221.1875,
+          "y": 30.28125,
+          "width": 293.859375,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 276.125,
+          "y": 944.125,
+          "width": 215.71875,
+          "height": 25.75
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 163.192138671875,
+              "y": 156.72698974609375,
+              "width": 231.98309326171875,
+              "height": 72.59529113769531
+            }
+          },
+          {
+            "text": "Tecnología",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 167.353271484375,
+              "y": 225.43260192871094,
+              "width": 80.80661010742188,
+              "height": 21.014419555664062
+            }
+          }
+        ],
+        "heading": "HeatCore TecnologíaHeatCoreTecnología",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "it",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "La prossima tecnologia arriverà presto.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 253.6875,
+          "y": 30.28125,
+          "width": 228.859375,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 267.359375,
+          "y": 944.125,
+          "width": 233.25,
+          "height": 25.75
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 163.192138671875,
+              "y": 156.72698974609375,
+              "width": 231.98309326171875,
+              "height": 72.59529113769531
+            }
+          },
+          {
+            "text": "Tecnologia",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 167.353271484375,
+              "y": 225.43260192871094,
+              "width": 80.80661010742188,
+              "height": 21.014419555664062
+            }
+          }
+        ],
+        "heading": "HeatCore TecnologiaHeatCoreTecnologia",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "tr",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "Sonraki teknoloji yakında sunulacak.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 237.1875,
+          "y": 30.28125,
+          "width": 261.84375,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 294.484375,
+          "y": 944.125,
+          "width": 179,
+          "height": 25.75
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 163.192138671875,
+              "y": 156.72698974609375,
+              "width": 231.98309326171875,
+              "height": 72.59529113769531
+            }
+          },
+          {
+            "text": "Teknoloji",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 167.353271484375,
+              "y": 225.43260192871094,
+              "width": 67.9010009765625,
+              "height": 21.014419555664062
+            }
+          }
+        ],
+        "heading": "HeatCore TeknolojiHeatCoreTeknoloji",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "التقنية التالية ستتوفر قريباً.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 299.375,
+          "y": 30.28125,
+          "width": 193.328125,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 340.78125,
+          "y": 944.125,
+          "width": 86.4375,
+          "height": 25.75
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 163.192138671875,
+              "y": 156.72698974609375,
+              "width": 231.98309326171875,
+              "height": 72.59529113769531
+            }
+          },
+          {
+            "text": "تقنية",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 167.28240966796875,
+              "y": 225.43260192871094,
+              "width": 22.166793823242188,
+              "height": 21.014419555664062
+            }
+          }
+        ],
+        "heading": "HeatCore تقنيةHeatCoreتقنية",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "下一项技术即将推出。",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 289.09375,
+          "y": 30.28125,
+          "width": 158.03125,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 325.734375,
+          "y": 944.125,
+          "width": 116.5,
+          "height": 25.75
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 163.192138671875,
+              "y": 156.72698974609375,
+              "width": 231.98309326171875,
+              "height": 72.59529113769531
+            }
+          },
+          {
+            "text": "技术",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 167.353271484375,
+              "y": 225.43260192871094,
+              "width": 32.573577880859375,
+              "height": 21.014419555664062
+            }
+          }
+        ],
+        "heading": "HeatCore 技术HeatCore技术",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ja",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "次の技術は近日公開予定です。",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 226.40625,
+          "y": 30.28125,
+          "width": 283.40625,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 337.984375,
+          "y": 944.125,
+          "width": 92,
+          "height": 25.75
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 163.192138671875,
+              "y": 156.72698974609375,
+              "width": 231.98309326171875,
+              "height": 72.59529113769531
+            }
+          },
+          {
+            "text": "テクノロジー",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 167.353271484375,
+              "y": 225.43260192871094,
+              "width": 94.803955078125,
+              "height": 21.014419555664062
+            }
+          }
+        ],
+        "heading": "HeatCore テクノロジーHeatCoreテクノロジー",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ko",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "다음 기술은 곧 공개됩니다.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 248.90625,
+          "y": 30.28125,
+          "width": 238.421875,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 341.203125,
+          "y": 944.125,
+          "width": 85.5625,
+          "height": 25.75
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 163.192138671875,
+              "y": 156.72698974609375,
+              "width": 231.98309326171875,
+              "height": 72.59529113769531
+            }
+          },
+          {
+            "text": "기술",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 139.265625,
+              "y": 114.46875,
+              "width": 489.453125,
+              "height": 796.5625
+            },
+            "ink": {
+              "x": 167.353271484375,
+              "y": 225.43260192871094,
+              "width": 27.896926879882812,
+              "height": 21.014419555664062
+            }
+          }
+        ],
+        "heading": "HeatCore 기술HeatCore기술",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "height": 900,
+      "pass": true,
+      "notice": "The next technology is coming soon.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "frameLoaded": true,
+        "frame": {
+          "x": 490.75,
+          "y": 86.765625,
+          "width": 458.453125,
+          "height": 726.4375
+        },
+        "stage": {
+          "x": 504.890625,
+          "y": 100.609375,
+          "width": 430.1875,
+          "height": 700.109375
+        },
+        "top": {
+          "x": 511.65625,
+          "y": 0,
+          "width": 414.265625,
+          "height": 52.1875
+        },
+        "bottom": {
+          "x": 537.75,
+          "y": 829.796875,
+          "width": 364.46875,
+          "height": 58.5
+        },
+        "close": {
+          "x": 925.921875,
+          "y": 9,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 605.15625,
+          "y": 23.078125,
+          "width": 202.703125,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 637.28125,
+          "y": 829.796875,
+          "width": 165.390625,
+          "height": 23.828125
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 504.890625,
+              "y": 100.609375,
+              "width": 430.1875,
+              "height": 700.109375
+            },
+            "ink": {
+              "x": 525.9199829101562,
+              "y": 138.45263671875,
+              "width": 203.89337158203125,
+              "height": 63.043212890625
+            }
+          },
+          {
+            "text": "Technology",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 504.890625,
+              "y": 100.609375,
+              "width": 430.1875,
+              "height": 700.109375
+            },
+            "ink": {
+              "x": 529.5772705078125,
+              "y": 198.08114624023438,
+              "width": 73.60272216796875,
+              "height": 18.1488037109375
+            }
+          }
+        ],
+        "heading": "HeatCore TechnologyHeatCoreTechnology",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 671.984375,
+          "y": 52.1875,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 695.984375,
+          "y": 52.1875,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 719.984375,
+          "y": 52.1875,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 743.984375,
+          "y": 52.1875,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "width": 1440,
+      "height": 900,
+      "pass": true,
+      "notice": "التقنية التالية ستتوفر قريباً.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "frameLoaded": true,
+        "frame": {
+          "x": 490.765625,
+          "y": 86.765625,
+          "width": 458.453125,
+          "height": 726.4375
+        },
+        "stage": {
+          "x": 504.90625,
+          "y": 100.609375,
+          "width": 430.1875,
+          "height": 700.109375
+        },
+        "top": {
+          "x": 511.671875,
+          "y": 0,
+          "width": 414.265625,
+          "height": 52.1875
+        },
+        "bottom": {
+          "x": 537.765625,
+          "y": 829.796875,
+          "width": 364.46875,
+          "height": 58.5
+        },
+        "close": {
+          "x": 925.9375,
+          "y": 9,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 634.421875,
+          "y": 23.078125,
+          "width": 193.328125,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 680.015625,
+          "y": 829.796875,
+          "width": 79.96875,
+          "height": 23.828125
+        },
+        "title": [
+          {
+            "text": "HeatCore",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 504.90625,
+              "y": 100.609375,
+              "width": 430.1875,
+              "height": 700.109375
+            },
+            "ink": {
+              "x": 525.9356079101562,
+              "y": 138.45263671875,
+              "width": 203.89337158203125,
+              "height": 63.043212890625
+            }
+          },
+          {
+            "text": "تقنية",
+            "font": "OpenSans, Arial, sans-serif",
+            "rect": {
+              "x": 504.90625,
+              "y": 100.609375,
+              "width": 430.1875,
+              "height": 700.109375
+            },
+            "ink": {
+              "x": 529.5306396484375,
+              "y": 198.08114624023438,
+              "width": 19.46954345703125,
+              "height": 18.1488037109375
+            }
+          }
+        ],
+        "heading": "HeatCore تقنيةHeatCoreتقنية",
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 672,
+          "y": 52.1875,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 696,
+          "y": 52.1875,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 720,
+          "y": 52.1875,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 744,
+          "y": 52.1875,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    }
+  ]
+}

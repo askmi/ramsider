@@ -1,5 +1,7 @@
 # Original technology photographs — 2026-10-07
 
+
+Current photograph title decomposition supersedes only the baked lettering/photo-byte identity baseline: see [CHG-0062 live-title evidence](../live-title/checks.md). Historical checks below retain their original verdict; current delivery is exact outside declared title masks.
 CHG-0061 reopened after the user rejected converted/blurred photos and explicitly required original PNGs without optimization, conversion or compression. This correction affects only the viewer photographs and preview delivery.
 
 - **Original bytes:** [assets.json](assets.json) records each clean source, 941×1672 RGB/no ICC, 4,729,424 bytes, and equal source/public SHA-256. `tools/copy-technology-originals.py` uses copyfile only, no encoding/resizing/color conversion. Total photo payload 18,917,696 bytes. Four photo WebPs and `lib/technology-previews.json` removed. Accepted metal contour, arrows/dots, CSS layout and landing assets unchanged.

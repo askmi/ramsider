@@ -1,19 +1,39 @@
 import { expect, test } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import sharp from 'sharp';
 
-test('technology photos are byte-identical original PNGs', async ({ request }) => {
+test('technology PNGs preserve every original pixel outside the title mask', async ({ request }) => {
   const originals = [
     ['02', 'HeatCore_02_THREE_HEATERS_941x1672.png'],
     ['03', 'HeatCore_03_ACTIVE_AIR_SAILS_941x1672.png'],
     ['04', 'HeatCore_04_PROGRAMMABLE_HEAT_PROFILES_941x1672.png'],
     ['05', 'HeatCore_05_GOLD_AND_TITANIUM_NITRIDE_941x1672.png'],
   ];
+  const previous = JSON.parse(await readFile('docs/evidence/technology-viewer/original-png/assets.json', 'utf8'));
   for (const [id, filename] of originals) {
     const response = await request.get(`/art/technology/${id}.png`);
     expect(response.ok()).toBe(true);
     expect(response.headers()['content-type']).toContain('image/png');
     const original = await readFile(`design/references/tech_01/${filename}`);
-    expect((await response.body()).equals(original)).toBe(true);
+    expect(createHash('sha256').update(original).digest('hex')).toBe(previous.items.find((item: { id: string }) => item.id === id).sourceSha256);
+    const delivered = await readFile(`public/art/technology/${id}.png`);
+    expect((await response.body()).equals(delivered)).toBe(true);
+    const metadata = await sharp(delivered).metadata();
+    expect([metadata.width, metadata.height, metadata.channels]).toEqual([941, 1672, 3]);
+    expect(metadata.icc).toBeUndefined();
+    const sourcePixels = await sharp(original).raw().toBuffer();
+    const deliveredPixels = await sharp(delivered).raw().toBuffer();
+    const mask = await sharp(`docs/evidence/technology-viewer/live-title/mask-${id}.png`).greyscale().raw().toBuffer();
+    let outsideChanges = 0;
+    let remainingDarkTitlePixels = 0;
+    for (let i = 0; i < mask.length; i++) {
+      if (!mask[i]) {
+        for (let c = 0; c < 3; c++) if (sourcePixels[i * 3 + c] !== deliveredPixels[i * 3 + c]) outsideChanges++;
+      } else if (Math.max(...deliveredPixels.subarray(i * 3, i * 3 + 3)) < 130) remainingDarkTitlePixels++;
+    }
+    expect(outsideChanges).toBe(0);
+    expect(remainingDarkTitlePixels).toBe(0);
     expect((await request.get(`/art/technology/${id}.webp`)).status()).toBe(404);
   }
 });
@@ -31,6 +51,9 @@ test('technology viewer opens from both story controls and pages through clean i
     await openers.nth(triggerIndex).scrollIntoViewIfNeeded();
     await openers.nth(triggerIndex).click();
     await expect(viewer).toBeVisible();
+    await expect(viewer.getByRole('heading', { name: 'HeatCore Technology' })).toHaveCount(1);
+    await expect(viewer.locator('.technology-viewer__title')).toHaveCSS('font-family', /OpenSans/);
+    await expect(viewer).toHaveAttribute('aria-labelledby', 'technology-viewer-title');
     await expect(viewer.locator('.technology-viewer__frame')).toHaveAttribute('src', /frame-template\.webp/);
     const dots = viewer.locator('.technology-viewer__dots button');
     await expect(dots).toHaveCount(4);

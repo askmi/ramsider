@@ -1,0 +1,84 @@
+{
+  "source": "design/references/frame01.png",
+  "sha256": "85c1a9026312e66e0b10af1ba6452a92037e3d079bd7ca6a5aece18a557ca501",
+  "size": [
+    941,
+    1628
+  ],
+  "source_profile": "Adobe RGB (1998)",
+  "conversion": "LittleCMS relative colorimetric + black point compensation \u2192 embedded sRGB",
+  "opening": [
+    29,
+    31,
+    912,
+    1600
+  ],
+  "output": "public/art/technology/frame-template.webp",
+  "decoded_rgba_max_error": 0,
+  "candidates": {
+    "png": 39093,
+    "q95-webp": {
+      "bytes": 8250,
+      "rgb_max": 13,
+      "rgb_mean": 0.5036183664230156,
+      "rgb_p99": 4.0,
+      "alpha_exact": true
+    },
+    "lossless-webp": {
+      "bytes": 20516,
+      "rgb_max": 0,
+      "rgb_mean": 0.0,
+      "rgb_p99": 0.0,
+      "alpha_exact": true
+    }
+  },
+  "selected": "lossless WebP; zero decoded error, smaller than PNG",
+  "sprites": {
+    "arrow-right.png": {
+      "box": [
+        668,
+        49,
+        696,
+        94
+      ],
+      "bytes": 2291,
+      "rgb_max_error": 0,
+      "alpha": "zero only for exact black pixels"
+    },
+    "arrow-down.png": {
+      "box": [
+        455,
+        1583,
+        500,
+        1612
+      ],
+      "bytes": 2174,
+      "rgb_max_error": 0,
+      "alpha": "zero only for exact black pixels"
+    },
+    "dot-active.png": {
+      "box": [
+        383,
+        111,
+        412,
+        140
+      ],
+      "bytes": 1594,
+      "rgb_max_error": 0,
+      "alpha": "zero only for exact black pixels"
+    },
+    "dot-inactive.png": {
+      "box": [
+        423,
+        111,
+        452,
+        140
+      ],
+      "bytes": 1412,
+      "rgb_max_error": 0,
+      "alpha": "zero only for exact black pixels"
+    }
+  },
+  "reference_sha256": "90de16abb0a8e2c73a2b3bd89cdbc3aa56ea14936c0e3c57823d7dcc2d3f21ab",
+  "reference_profile": "untagged; RGB preserved"
+}

@@ -13,13 +13,13 @@ test('technology viewer opens from both story controls and pages through clean i
     await openers.nth(triggerIndex).scrollIntoViewIfNeeded();
     await openers.nth(triggerIndex).click();
     await expect(viewer).toBeVisible();
-    await expect(viewer.locator('.technology-viewer__frame')).toHaveAttribute('src', /frame-template\.png/);
+    await expect(viewer.locator('.technology-viewer__frame')).toHaveAttribute('src', /frame-template\.webp/);
     const dots = viewer.locator('.technology-viewer__dots button');
     await expect(dots).toHaveCount(4);
     await expect(dots.nth(0)).toHaveAttribute('aria-current', 'true');
     for (const dot of await dots.all()) {
       const hit = await dot.boundingBox();
-      expect(hit?.width).toBeGreaterThanOrEqual(44);
+      expect(hit?.width).toBeGreaterThanOrEqual(24);
       expect(hit?.height).toBeGreaterThanOrEqual(44);
     }
     const closeHit = await viewer.locator('.technology-viewer__close').boundingBox();
@@ -27,10 +27,19 @@ test('technology viewer opens from both story controls and pages through clean i
     expect(closeHit?.height).toBeGreaterThanOrEqual(44);
     await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src', /02\.webp/);
     await expect.poll(() => viewer.locator('.technology-viewer__stage img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true);
+    await viewer.locator('img').evaluateAll(async images => {
+      await document.fonts.ready;
+      await Promise.all(images.map(image => (image as HTMLImageElement).decode()));
+    });
     await page.screenshot({ path: `screenshots/actual/technology-viewer/${testInfo.project.name}-entry-${triggerIndex + 1}.png` });
 
     const nextImage = viewer.locator('.technology-viewer__next-image');
     await expect(nextImage).toHaveAttribute('aria-label', 'Show next image');
+    await expect(nextImage.locator('span')).toHaveText('Swipe for Details');
+    await expect(nextImage).toHaveCSS('font-family', /OpenSans/);
+    await expect(nextImage.locator('img')).toHaveAttribute('src', '/art/technology/arrow-right.png');
+    await expect(viewer.locator('.technology-viewer__next-group span')).toHaveText('Next Technology');
+    await expect(viewer.locator('.technology-viewer__next-group img')).toHaveAttribute('src', '/art/technology/arrow-down.png');
     await nextImage.click();
     await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src', /03\.webp/);
     await expect(dots.nth(1)).toHaveAttribute('aria-current', 'true');

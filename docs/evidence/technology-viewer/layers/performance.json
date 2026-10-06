@@ -1,0 +1,51 @@
+{
+  "conditions": "Local unthrottled production Chromium, 402×874 DPR3; single cold navigation and open sample, not field INP/Lighthouse",
+  "initial": {
+    "lcp": 316,
+    "cls": 0,
+    "navigation": {
+      "ttfb": 238,
+      "fcp": 316
+    },
+    "jsBytes": 162692,
+    "technologyRequests": 0
+  },
+  "openReadyMs": 140,
+  "scroll": {
+    "frames": 120,
+    "p95": 17,
+    "over33": 0
+  },
+  "cls": 0,
+  "assets": [
+    {
+      "path": "/art/technology/02.webp",
+      "transferBytes": 180866
+    },
+    {
+      "path": "/art/technology/frame-template.webp",
+      "transferBytes": 20816
+    },
+    {
+      "path": "/art/technology/arrow-down.png",
+      "transferBytes": 2474
+    },
+    {
+      "path": "/art/technology/arrow-right.png",
+      "transferBytes": 2591
+    },
+    {
+      "path": "/art/technology/dot-inactive.png",
+      "transferBytes": 1712
+    },
+    {
+      "path": "/art/technology/dot-active.png",
+      "transferBytes": 1894
+    },
+    {
+      "path": "/art/technology/03.webp",
+      "transferBytes": 215554
+    }
+  ],
+  "errors": []
+}

@@ -1,52 +1,68 @@
-"""Cut the photo opening and replace the source's five fixed dots with live controls."""
-
+"""Export the designer's contour and independent navigation sprites, never copy text."""
+from hashlib import sha256
+from io import BytesIO
+import json
 from pathlib import Path
-from PIL import Image, ImageDraw
+from PIL import Image, ImageCms
+import numpy as np
 
-
-SOURCE = Path("design/references/technology_frame.PNG")
-OUTPUT = Path("public/art/technology/frame-template.png")
-SIZE = (954, 1649)
-OPENING = (83, 186, 870, 1465)  # PIL inclusive rectangle; CSS x83:871, y186:1466.
-DOT_BAND = (382, 110, 572, 140)
-DOT_SPRITES = {
-    "dot-active.png": (383, 111, 412, 140),
-    "dot-inactive.png": (423, 111, 452, 140),
+ROOT = Path('public/art/technology')
+EVIDENCE = Path('docs/evidence/technology-viewer/layers')
+CONTOUR = Path('design/references/frame01.png')
+REFERENCE = Path('design/references/technology_frame.PNG')
+OPENING = (29, 31, 912, 1600)
+SPRITES = {
+    'arrow-right.png': (668, 49, 696, 94),
+    'arrow-down.png': (455, 1583, 500, 1612),
+    'dot-active.png': (383, 111, 412, 140),
+    'dot-inactive.png': (423, 111, 452, 140),
 }
 
+def main():
+    ROOT.mkdir(parents=True, exist_ok=True)
+    EVIDENCE.mkdir(parents=True, exist_ok=True)
+    source = Image.open(CONTOUR)
+    assert source.size == (941, 1628) and source.mode == 'RGB'
+    profile = ImageCms.ImageCmsProfile(BytesIO(source.info['icc_profile']))
+    srgb = ImageCms.createProfile('sRGB')
+    master = ImageCms.profileToProfile(source, profile, srgb, outputMode='RGB', renderingIntent=1, flags=ImageCms.Flags.BLACKPOINTCOMPENSATION)
+    icc = ImageCms.ImageCmsProfile(srgb).tobytes()
+    frame = master.convert('RGBA')
+    frame.paste((0, 0, 0, 0), OPENING)
+    output = ROOT / 'frame-template.webp'
+    frame.save(output, format='WEBP', lossless=True, method=6, exact=True, icc_profile=icc)
+    decoded = Image.open(output).convert('RGBA')
+    assert decoded.tobytes() == frame.tobytes()
+    assert Image.open(output).info['icc_profile'] == icc
+    # Quantify lossless vs q95 delivery rather than assuming PNG is needed.
+    png = BytesIO()
+    frame.save(png, format='PNG', optimize=True, icc_profile=icc)
+    sizes = {'png': len(png.getvalue())}
+    for lossless in [False, True]:
+        candidate = BytesIO()
+        frame.save(candidate, format='WEBP', quality=95, lossless=lossless, method=6, icc_profile=icc, exact=True)
+        test = np.asarray(Image.open(BytesIO(candidate.getvalue())).convert('RGBA')).astype(int)
+        target = np.asarray(frame).astype(int)
+        visible = target[:,:,3] > 0
+        error = np.abs(test[:,:,:3] - target[:,:,:3])[visible]
+        sizes['lossless-webp' if lossless else 'q95-webp'] = {'bytes': len(candidate.getvalue()), 'rgb_max': int(error.max()), 'rgb_mean': float(error.mean()), 'rgb_p99': float(np.percentile(error,99)), 'alpha_exact': bool(np.array_equal(test[:,:,3],target[:,:,3]))}
+    reference = Image.open(REFERENCE)
+    assert reference.size == (954,1649) and reference.mode == 'RGB'
+    sprite_metrics = {}
+    for name, box in SPRITES.items():
+        crop = reference.crop(box)
+        sprite = crop.convert('RGBA')
+        values = np.array(sprite)
+        values[:,:,3] = np.where(np.all(values[:,:,:3] == 0,axis=2),0,255)
+        sprite = Image.fromarray(values)
+        sprite.save(ROOT/name, optimize=True)
+        reloaded = Image.open(ROOT/name).convert('RGBA')
+        assert reloaded.tobytes() == sprite.tobytes()
+        assert np.array_equal(np.array(reloaded)[:,:,:3],np.array(crop))
+        sprite_metrics[name] = {'box':box,'bytes':(ROOT/name).stat().st_size,'rgb_max_error':0,'alpha':'zero only for exact black pixels'}
+    result = {'source':str(CONTOUR),'sha256':sha256(CONTOUR.read_bytes()).hexdigest(),'size':source.size,'source_profile':ImageCms.getProfileName(profile).strip(),'conversion':'LittleCMS relative colorimetric + black point compensation → embedded sRGB','opening':OPENING,'output':str(output),'decoded_rgba_max_error':0,'candidates':sizes,'selected':'lossless WebP; zero decoded error, smaller than PNG','sprites':sprite_metrics,'reference_sha256':sha256(REFERENCE.read_bytes()).hexdigest(),'reference_profile':'untagged; RGB preserved'}
+    (EVIDENCE/'assets.json').write_text(json.dumps(result,indent=2)+'\n')
+    print(json.dumps(result,indent=2))
 
-def main() -> None:
-    source = Image.open(SOURCE)
-    if source.size != SIZE or source.mode != "RGB":
-        raise ValueError(f"Unexpected frame source: {source.size} {source.mode}")
-    frame = source.convert("RGBA")
-    ImageDraw.Draw(frame).rectangle(OPENING, fill=(0, 0, 0, 0))
-    ImageDraw.Draw(frame).rectangle(DOT_BAND, fill=(0, 0, 0, 255))
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    frame.save(OUTPUT, optimize=True)
-    for filename, box in DOT_SPRITES.items():
-        source.crop(box).save(OUTPUT.parent / filename, optimize=True)
-
-    decoded = Image.open(OUTPUT).convert("RGBA")
-    source_rgb = source.tobytes()
-    output_rgb = decoded.convert("RGB").tobytes()
-    alpha = decoded.getchannel("A")
-    for y in range(SIZE[1]):
-        for x in range(SIZE[0]):
-            inside = 83 <= x <= 870 and 186 <= y <= 1465
-            dots = 382 <= x <= 572 and 110 <= y <= 140
-            if alpha.getpixel((x, y)) != (0 if inside else 255):
-                raise AssertionError(f"Alpha mismatch at {(x, y)}")
-            if not inside and not dots:
-                offset = (y * SIZE[0] + x) * 3
-                if output_rgb[offset : offset + 3] != source_rgb[offset : offset + 3]:
-                    raise AssertionError(f"RGB mismatch at {(x, y)}")
-    for filename, box in DOT_SPRITES.items():
-        sprite = Image.open(OUTPUT.parent / filename)
-        if sprite.tobytes() != source.crop(box).tobytes():
-            raise AssertionError(f"Source-dot mismatch: {filename}")
-    print(f"Exact frame outside opening and dot band: {OUTPUT} ({OUTPUT.stat().st_size} bytes)")
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

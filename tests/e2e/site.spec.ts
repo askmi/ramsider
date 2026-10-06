@@ -232,7 +232,7 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
     const dialog = page.locator('dialog:modal');
     await expect(dialog).toBeVisible();
     await expect(dialog).toHaveAccessibleName(/.+/);
-    if (id.startsWith('technology')) await expect(dialog.locator('.technology-viewer__frame')).toHaveAttribute('src', /frame-template\.png/);
+    if (id.startsWith('technology')) await expect(dialog.locator('.technology-viewer__frame')).toHaveAttribute('src', /frame-template\.webp/);
     if (id === 'expressions-compare') {
       await expect(dialog.getByRole('columnheader')).toHaveCount(2);
       await expect(dialog).toContainText('TiN-Coated Heater');

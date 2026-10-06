@@ -66,7 +66,7 @@ This is the repository's **error-prevention memory**, separate from current proj
 
 - **Problem:** Firefox browser checks tried to decode an artwork tile before its lazy request was stable; a later isolated test twice rejected `decode()` with `Invalid image request` during a scroll transition.
 - **Cause:** Full-page capture and an immediate `decode()` do not guarantee that every lazy image below the fold has entered the loading threshold or retained the same in-flight request.
-- **Prevention:** Scroll through the page and poll **every visible tile** for `complete && naturalWidth > 0` before the screenshot or image assertion; waiting for only the first visible tile can leave a blank neighboring tile. When decoding all tiles, wait for each source to load and handle a canceled transient request by checking the image's final loaded state. Keep the first tile eager for LCP.
+- **Prevention:** Scroll through the page and poll **every visible tile** for `complete && naturalWidth > 0` before the screenshot or image assertion; waiting for only the first visible tile can leave a blank neighboring tile. Assert that the actual artwork selector matches a nonempty set before calling every()/Promise.all(); a vacuous match falsely approved a pixelated preview capture during CHG-0061. When decoding all tiles, wait for each source to load and handle a canceled transient request by checking the image's final loaded state. Keep the first tile eager for LCP.
 
 ## Test fast travel and cold reload before approving long artwork delivery
 
@@ -240,7 +240,7 @@ This is the repository's **error-prevention memory**, separate from current proj
 
 - **Problem:** CHG-0061 replaced a technology list with an image viewer, but the first full suite retained 12 failures expecting the old dialog and seven links. The first implementation also placed a priority image in the hidden dialog, risking an unnecessary first-view request.
 - **Cause:** The agent mapped the two source buttons and new behavior but did not search all old dialog selectors before integration; it initially assumed a hidden dialog would keep its image off the network.
-- **Prevention:** When replacing a dialog or CTA destination, search tests and docs for its old ID and assertions, then run affected checks before the full suite. Check initial-page requests for optional modal images before accepting a priority flag; mount them only while open. [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) controlled agent run `NOT_RUN`.
+- **Prevention:** When replacing a dialog, CTA destination, or asset URL, search all tests and runtime consumers for its old ID/path and assertions before editing, then run affected checks before the full suite. CHG-0061 repeated this failure in the 2026-10-07 PNG→WebP correction: updating only the direct viewer spec missed site.spec.ts. Check initial-page requests for optional modal images before accepting a priority flag; mount them only while open. [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) controlled agent run `NOT_RUN`.
 
 ## Verify gallery frames while media is delayed
 
@@ -252,7 +252,7 @@ This is the repository's **error-prevention memory**, separate from current proj
 
 - **Problem:** The first CHG-0061 viewer used a black CSS matte, generic text, dots and arrows, missing the exact inset, metallic bevel, thin lines and gold treatment of `technology_frame.PNG`; the customer rejected it after the agent and auditor approved an approximate visual match.
 - **Cause:** The agent interpreted the image as a loose composition guide even though the requested frame itself was available, then compared the overall layout without an outer-pixel mask.
-- **Prevention:** For a supplied reusable frame, make the immutable frame from the source pixels with a transparent content opening, insert variable content underneath, and compare the masked immutable region against the original at the calibrated viewport. Treat wording, arrow color, border bands and margins as source pixels unless the customer explicitly changes them. Reopen prior approval when customer rejects visible fidelity. [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) is `NOT_RUN`.
+- **Prevention:** For a supplied reusable frame, make the immutable frame from the source pixels with a transparent content opening, insert variable content underneath, and compare the masked immutable region against the original at the calibrated viewport. Separate reusable artwork from live content before extraction: contour pixels stay artwork; instructions and labels use semantic translatable HTML in the mapped page font; arrows/dots are separate source-derived sprites. Do not bake copy into a frame merely because a composite reference includes it. Match visible spacing as well as sprite color; use compact nonoverlapping pagination targets when reference spacing conflicts with an earlier arbitrary target width. Reopen prior approval when customer rejects visible fidelity. [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) is `NOT_RUN`.
 
 ## Treat visible gallery prompts as controls
 

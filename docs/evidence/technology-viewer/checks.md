@@ -1,5 +1,7 @@
 # Technology viewer correction — 2026-10-06
 
+Historical evidence below was superseded by the [2026-10-07 independent-layer revision](layers/checks.md) after customer rejection.
+
 The user rejected the previous approximate CSS frame. Its earlier visual approval is withdrawn. The correction uses `design/references/technology_frame.PNG` as an exact reusable raster template, with only the photo opening and a new top-right X differing. Source geometry and implementation are in [the map](../../technology-viewer.md).
 
 - **Source pixels:** `tools/generate-technology-frame.py` verified 954×1649 RGB source, 954×1649 RGBA output, alpha 0 throughout x83:871/y186:1466 and 255 everywhere else, and zero decoded RGB differences outside the opening. Output `public/art/technology/frame-template.png` is 247,177 bytes. The source has no ICC profile; no channel modification is applied outside the transparent cutout. The varying gold pixels of both arrows remain from the source.

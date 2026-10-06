@@ -1,0 +1,2297 @@
+{
+  "summary": {
+    "total": 26,
+    "passed": 26,
+    "failed": []
+  },
+  "cases": [
+    {
+      "locale": "en",
+      "width": 320,
+      "height": 700,
+      "pass": true,
+      "notice": "The next technology is coming soon.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 320,
+        "scrollWidth": 320,
+        "frameLoaded": true,
+        "frame": {
+          "x": 19.109375,
+          "y": 67.484375,
+          "width": 281.75,
+          "height": 565
+        },
+        "stage": {
+          "x": 27.796875,
+          "y": 78.25,
+          "width": 264.390625,
+          "height": 544.53125
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 216,
+          "height": 44
+        },
+        "bottom": {
+          "x": 48,
+          "y": 645.390625,
+          "width": 224,
+          "height": 45.5
+        },
+        "close": {
+          "x": 269.609375,
+          "y": 7,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 89.703125,
+          "y": 25.984375,
+          "width": 125.515625,
+          "height": 18.015625
+        },
+        "bottomText": {
+          "x": 105.59375,
+          "y": 645.390625,
+          "width": 108.8125,
+          "height": 15.671875
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 112,
+          "y": 44,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 136,
+          "y": 44,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 160,
+          "y": 44,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 184,
+          "y": 44,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "width": 320,
+      "height": 700,
+      "pass": true,
+      "notice": "التقنية التالية ستتوفر قريباً.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 320,
+        "scrollWidth": 320,
+        "frameLoaded": true,
+        "frame": {
+          "x": 19.109375,
+          "y": 67.484375,
+          "width": 281.75,
+          "height": 565
+        },
+        "stage": {
+          "x": 27.796875,
+          "y": 78.25,
+          "width": 264.390625,
+          "height": 544.53125
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 216,
+          "height": 44
+        },
+        "bottom": {
+          "x": 48,
+          "y": 645.390625,
+          "width": 224,
+          "height": 45.5
+        },
+        "close": {
+          "x": 269.609375,
+          "y": 7,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 107.6875,
+          "y": 25.984375,
+          "width": 119.71875,
+          "height": 18.015625
+        },
+        "bottomText": {
+          "x": 133.703125,
+          "y": 645.390625,
+          "width": 52.609375,
+          "height": 15.671875
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 112,
+          "y": 44,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 136,
+          "y": 44,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 160,
+          "y": 44,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 184,
+          "y": 44,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "The next technology is coming soon.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 105.140625,
+          "y": 25.96875,
+          "width": 147.03125,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 127.921875,
+          "y": 748.65625,
+          "width": 119.140625,
+          "height": 17.15625
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ru",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "Следующая технология скоро появится.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 92.203125,
+          "y": 25.96875,
+          "width": 172.921875,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 99.1875,
+          "y": 748.65625,
+          "width": 176.609375,
+          "height": 17.15625
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "de",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "Die nächste Technologie kommt bald.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 93.703125,
+          "y": 25.96875,
+          "width": 169.921875,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 113.25,
+          "y": 748.65625,
+          "width": 148.484375,
+          "height": 17.15625
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "fr",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "La prochaine technologie arrive bientôt.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 75.75,
+          "y": 25.96875,
+          "width": 205.828125,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 112.234375,
+          "y": 748.65625,
+          "width": 150.53125,
+          "height": 17.15625
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "es",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "La próxima tecnología estará disponible pronto.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 72.078125,
+          "y": 25.96875,
+          "width": 213.171875,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 115.609375,
+          "y": 748.65625,
+          "width": 143.78125,
+          "height": 17.15625
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "it",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "La prossima tecnologia arriverà presto.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 95.65625,
+          "y": 25.96875,
+          "width": 166.015625,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 109.765625,
+          "y": 748.65625,
+          "width": 155.46875,
+          "height": 17.15625
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "tr",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "Sonraki teknoloji yakında sunulacak.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 83.6875,
+          "y": 25.96875,
+          "width": 189.9375,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 127.84375,
+          "y": 748.65625,
+          "width": 119.3125,
+          "height": 17.15625
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "التقنية التالية ستتوفر قريباً.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 126.21875,
+          "y": 25.96875,
+          "width": 140.234375,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 158.703125,
+          "y": 748.65625,
+          "width": 57.609375,
+          "height": 17.15625
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "下一项技术即将推出。",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 121,
+          "y": 25.96875,
+          "width": 115.3125,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 148.40625,
+          "y": 748.65625,
+          "width": 78.1875,
+          "height": 17.15625
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ja",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "次の技術は近日公開予定です。",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 75.875,
+          "y": 25.96875,
+          "width": 205.578125,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 156.828125,
+          "y": 748.65625,
+          "width": 61.328125,
+          "height": 17.15625
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ko",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "notice": "다음 기술은 곧 공개됩니다.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 375,
+        "scrollWidth": 375,
+        "frameLoaded": true,
+        "frame": {
+          "x": 22.390625,
+          "y": 78.28125,
+          "width": 330.1875,
+          "height": 655.40625
+        },
+        "stage": {
+          "x": 32.578125,
+          "y": 90.765625,
+          "width": 309.828125,
+          "height": 631.65625
+        },
+        "top": {
+          "x": 52,
+          "y": 0,
+          "width": 271,
+          "height": 47.09375
+        },
+        "bottom": {
+          "x": 56.25,
+          "y": 748.65625,
+          "width": 262.5,
+          "height": 52.765625
+        },
+        "close": {
+          "x": 323.5,
+          "y": 8.109375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 92.1875,
+          "y": 25.96875,
+          "width": 172.9375,
+          "height": 21.125
+        },
+        "bottomText": {
+          "x": 158.984375,
+          "y": 748.65625,
+          "width": 57.03125,
+          "height": 17.15625
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 139.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 163.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 187.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 211.5,
+          "y": 47.09375,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "The next technology is coming soon.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 266.765625,
+          "y": 30.28125,
+          "width": 202.703125,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 294.609375,
+          "y": 944.125,
+          "width": 178.75,
+          "height": 25.75
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ru",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "Следующая технология скоро появится.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 248.921875,
+          "y": 30.28125,
+          "width": 238.375,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 251.515625,
+          "y": 944.125,
+          "width": 264.953125,
+          "height": 25.75
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "de",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "Die nächste Technologie kommt bald.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 250.984375,
+          "y": 30.28125,
+          "width": 234.25,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 272.59375,
+          "y": 944.125,
+          "width": 222.78125,
+          "height": 25.75
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "fr",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "La prochaine technologie arrive bientôt.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 226.234375,
+          "y": 30.28125,
+          "width": 283.75,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 271.0625,
+          "y": 944.125,
+          "width": 225.84375,
+          "height": 25.75
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "es",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "La próxima tecnología estará disponible pronto.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 221.1875,
+          "y": 30.28125,
+          "width": 293.859375,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 276.125,
+          "y": 944.125,
+          "width": 215.71875,
+          "height": 25.75
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "it",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "La prossima tecnologia arriverà presto.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 253.6875,
+          "y": 30.28125,
+          "width": 228.859375,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 267.359375,
+          "y": 944.125,
+          "width": 233.25,
+          "height": 25.75
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "tr",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "Sonraki teknoloji yakında sunulacak.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 237.1875,
+          "y": 30.28125,
+          "width": 261.84375,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 294.484375,
+          "y": 944.125,
+          "width": 179,
+          "height": 25.75
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "التقنية التالية ستتوفر قريباً.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 299.375,
+          "y": 30.28125,
+          "width": 193.328125,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 340.78125,
+          "y": 944.125,
+          "width": 86.4375,
+          "height": 25.75
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "zh",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "下一项技术即将推出。",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 289.09375,
+          "y": 30.28125,
+          "width": 158.03125,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 325.734375,
+          "y": 944.125,
+          "width": 116.5,
+          "height": 25.75
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ja",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "次の技術は近日公開予定です。",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 226.40625,
+          "y": 30.28125,
+          "width": 283.40625,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 337.984375,
+          "y": 944.125,
+          "width": 92,
+          "height": 25.75
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ko",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "notice": "다음 기술은 곧 공개됩니다.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 768,
+        "scrollWidth": 768,
+        "frameLoaded": true,
+        "frame": {
+          "x": 123.1875,
+          "y": 98.734375,
+          "width": 521.609375,
+          "height": 826.515625
+        },
+        "stage": {
+          "x": 139.265625,
+          "y": 114.46875,
+          "width": 489.453125,
+          "height": 796.5625
+        },
+        "top": {
+          "x": 139.796875,
+          "y": 0,
+          "width": 484.5625,
+          "height": 59.390625
+        },
+        "bottom": {
+          "x": 176.65625,
+          "y": 944.125,
+          "width": 414.671875,
+          "height": 66.546875
+        },
+        "close": {
+          "x": 624.359375,
+          "y": 10.234375,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 248.90625,
+          "y": 30.28125,
+          "width": 238.421875,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 341.203125,
+          "y": 944.125,
+          "width": 85.5625,
+          "height": 25.75
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 336,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 360,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 384,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 408,
+          "y": 59.390625,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "height": 900,
+      "pass": true,
+      "notice": "The next technology is coming soon.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "frameLoaded": true,
+        "frame": {
+          "x": 490.75,
+          "y": 86.765625,
+          "width": 458.453125,
+          "height": 726.4375
+        },
+        "stage": {
+          "x": 504.890625,
+          "y": 100.609375,
+          "width": 430.1875,
+          "height": 700.109375
+        },
+        "top": {
+          "x": 511.65625,
+          "y": 0,
+          "width": 414.265625,
+          "height": 52.1875
+        },
+        "bottom": {
+          "x": 537.75,
+          "y": 829.796875,
+          "width": 364.46875,
+          "height": 58.5
+        },
+        "close": {
+          "x": 925.921875,
+          "y": 9,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 605.15625,
+          "y": 23.078125,
+          "width": 202.703125,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 637.28125,
+          "y": 829.796875,
+          "width": 165.390625,
+          "height": 23.828125
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 671.984375,
+          "y": 52.1875,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 695.984375,
+          "y": 52.1875,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 719.984375,
+          "y": 52.1875,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 743.984375,
+          "y": 52.1875,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "width": 1440,
+      "height": 900,
+      "pass": true,
+      "notice": "التقنية التالية ستتوفر قريباً.",
+      "topActive": "true",
+      "dotActive": "true",
+      "activeCount": 1,
+      "geometry": {
+        "viewport": 1440,
+        "scrollWidth": 1440,
+        "frameLoaded": true,
+        "frame": {
+          "x": 490.765625,
+          "y": 86.765625,
+          "width": 458.453125,
+          "height": 726.4375
+        },
+        "stage": {
+          "x": 504.90625,
+          "y": 100.609375,
+          "width": 430.1875,
+          "height": 700.109375
+        },
+        "top": {
+          "x": 511.671875,
+          "y": 0,
+          "width": 414.265625,
+          "height": 52.1875
+        },
+        "bottom": {
+          "x": 537.765625,
+          "y": 829.796875,
+          "width": 364.46875,
+          "height": 58.5
+        },
+        "close": {
+          "x": 925.9375,
+          "y": 9,
+          "width": 44,
+          "height": 44
+        },
+        "topText": {
+          "x": 634.421875,
+          "y": 23.078125,
+          "width": 193.328125,
+          "height": 29.109375
+        },
+        "bottomText": {
+          "x": 680.015625,
+          "y": 829.796875,
+          "width": 79.96875,
+          "height": 23.828125
+        },
+        "font": "OpenSans, Arial, sans-serif",
+        "arrows": [
+          "/art/technology/arrow-right.png",
+          "/art/technology/arrow-down.png"
+        ]
+      },
+      "dotRects": [
+        {
+          "x": 672,
+          "y": 52.1875,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 696,
+          "y": 52.1875,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 720,
+          "y": 52.1875,
+          "width": 24,
+          "height": 44
+        },
+        {
+          "x": 744,
+          "y": 52.1875,
+          "width": 24,
+          "height": 44
+        }
+      ]
+    }
+  ]
+}

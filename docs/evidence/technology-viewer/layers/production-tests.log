@@ -1,0 +1,123 @@
+
+Running 52 tests using 6 workers
+
+(node:71465) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:71460) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:71461) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:71464) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:71462) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:71463) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:3:1 › technology viewer opens from both story controls and pages through clean images (5.3s)
+  ✓   2 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:3:1 › technology viewer opens from both story controls and pages through clean images (5.4s)
+  ✓   1 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:3:1 › technology viewer opens from both story controls and pages through clean images (5.7s)
+  ✓   7 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:88:1 › technology viewer supports touch pointers, Escape and Arabic framing (1.5s)
+  ✓   8 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:88:1 › technology viewer supports touch pointers, Escape and Arabic framing (2.1s)
+  ✓   9 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:88:1 › technology viewer supports touch pointers, Escape and Arabic framing (2.0s)
+  ✓  10 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:129:1 › previous artwork stays visible while the next slide loads (1.6s)
+  ✓  13 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:147:1 › failed slide load does not skip the next image (1.2s)
+  ✓  11 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:129:1 › previous artwork stays visible while the next slide loads (2.4s)
+  ✓  12 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:129:1 › previous artwork stays visible while the next slide loads (2.2s)
+  ✓  14 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:172:1 › swipe completes when the pointer leaves the artwork (622ms)
+(node:71582) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  15 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:147:1 › failed slide load does not skip the next image (1.0s)
+  ✓  16 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:147:1 › failed slide load does not skip the next image (1.1s)
+  ✓  17 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:172:1 › swipe completes when the pointer leaves the artwork (680ms)
+  ✓  18 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:172:1 › swipe completes when the pointer leaves the artwork (742ms)
+(node:71596) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   6 [desktop-chromium] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions (12.3s)
+  ✓  21 [desktop-chromium] › tests/e2e/site.spec.ts:81:1 › back-to-top appears on scroll, stays in the viewport, and restores top and focus (387ms)
+  ✓  22 [desktop-chromium] › tests/e2e/site.spec.ts:109:1 › localized story buttons keep one-line labels inside proportionate surfaces (975ms)
+  ✓  23 [desktop-chromium] › tests/e2e/site.spec.ts:146:36 › ru technology text groups are centered inside both fixed oval surfaces (611ms)
+  ✓  24 [desktop-chromium] › tests/e2e/site.spec.ts:146:36 › en technology text groups are centered inside both fixed oval surfaces (751ms)
+  ✓  25 [desktop-chromium] › tests/e2e/site.spec.ts:221:1 › mapped exploration dialogs contain focus and restore their triggers (3.8s)
+  ✓  19 [desktop-firefox] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions (6.7s)
+  ✓  20 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:3:1 › technology viewer opens from both story controls and pages through clean images (6.9s)
+  ✓  26 [desktop-chromium] › tests/e2e/site.spec.ts:270:1 › FAQ icons are independent and answers expand the page without an inner scroller (2.1s)
+  ✓  27 [desktop-firefox] › tests/e2e/site.spec.ts:81:1 › back-to-top appears on scroll, stays in the viewport, and restores top and focus (1.1s)
+  ✓  28 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:88:1 › technology viewer supports touch pointers, Escape and Arabic framing (2.5s)
+  ✓  30 [desktop-firefox] › tests/e2e/site.spec.ts:109:1 › localized story buttons keep one-line labels inside proportionate surfaces (1.9s)
+  ✓  32 [desktop-firefox] › tests/e2e/site.spec.ts:146:36 › ru technology text groups are centered inside both fixed oval surfaces (1.2s)
+  ✓  31 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:129:1 › previous artwork stays visible while the next slide loads (1.8s)
+  ✓  33 [desktop-firefox] › tests/e2e/site.spec.ts:146:36 › en technology text groups are centered inside both fixed oval surfaces (1.2s)
+  ✓  34 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:147:1 › failed slide load does not skip the next image (1.5s)
+  ✓  36 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:172:1 › swipe completes when the pointer leaves the artwork (904ms)
+  ✓  35 [desktop-firefox] › tests/e2e/site.spec.ts:221:1 › mapped exploration dialogs contain focus and restore their triggers (2.5s)
+  ✓  29 [desktop-chromium] › tests/e2e/site.spec.ts:333:3 › FAQ pointer-wheel input › FAQ always scrolls the document in closed and multi-open states (7.9s)
+  ✓  37 [desktop-firefox] › tests/e2e/site.spec.ts:270:1 › FAQ icons are independent and answers expand the page without an inner scroller (2.4s)
+  ✘   4 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions (30.5s)
+  ✘   5 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions (30.5s)
+(node:71880) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:71879) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  39 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:81:1 › back-to-top appears on scroll, stays in the viewport, and restores top and focus (1.1s)
+  ✓  40 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:81:1 › back-to-top appears on scroll, stays in the viewport, and restores top and focus (1.1s)
+  ✓  41 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:109:1 › localized story buttons keep one-line labels inside proportionate surfaces (2.5s)
+  ✓  42 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:109:1 › localized story buttons keep one-line labels inside proportionate surfaces (2.5s)
+  ✓  43 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:146:36 › ru technology text groups are centered inside both fixed oval surfaces (2.6s)
+  ✓  44 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:146:36 › ru technology text groups are centered inside both fixed oval surfaces (2.8s)
+  ✓  45 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:146:36 › en technology text groups are centered inside both fixed oval surfaces (2.1s)
+  ✓  38 [desktop-firefox] › tests/e2e/site.spec.ts:333:3 › FAQ pointer-wheel input › FAQ always scrolls the document in closed and multi-open states (9.4s)
+  ✓  46 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:146:36 › en technology text groups are centered inside both fixed oval surfaces (2.2s)
+  ✓  47 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:221:1 › mapped exploration dialogs contain focus and restore their triggers (2.3s)
+  ✓  48 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:221:1 › mapped exploration dialogs contain focus and restore their triggers (2.3s)
+  ✓  49 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:270:1 › FAQ icons are independent and answers expand the page without an inner scroller (2.3s)
+  ✓  50 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:270:1 › FAQ icons are independent and answers expand the page without an inner scroller (2.4s)
+  ✓  51 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:333:3 › FAQ pointer-wheel input › FAQ always scrolls the document in closed and multi-open states (2.8s)
+  ✓  52 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:333:3 › FAQ pointer-wheel input › FAQ always scrolls the document in closed and multi-open states (2.8s)
+
+
+  1) [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.evaluate: Test timeout of 30000ms exceeded.
+
+       8 |   await page.goto('/en');
+       9 |   await page.locator('.art img').first().waitFor({ state: 'visible' });
+    > 10 |   await page.evaluate(async () => {
+         |              ^
+      11 |     await document.fonts.ready;
+      12 |     for (let y = 0; y < document.body.scrollHeight; y += innerHeight * 0.8) {
+      13 |       scrollTo(0, y);
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/site.spec.ts:10:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/site-responsive-viewport-artwork-and-primary-actions-iphone-17-pro-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/site-responsive-viewport-artwork-and-primary-actions-iphone-17-pro-webkit/error-context.md
+
+  2) [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.evaluate: Test timeout of 30000ms exceeded.
+
+       8 |   await page.goto('/en');
+       9 |   await page.locator('.art img').first().waitFor({ state: 'visible' });
+    > 10 |   await page.evaluate(async () => {
+         |              ^
+      11 |     await document.fonts.ready;
+      12 |     for (let y = 0; y < document.body.scrollHeight; y += innerHeight * 0.8) {
+      13 |       scrollTo(0, y);
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/site.spec.ts:10:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/site-responsive-viewport-artwork-and-primary-actions-iphone-17-pro-max-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/site-responsive-viewport-artwork-and-primary-actions-iphone-17-pro-max-webkit/error-context.md
+
+  2 failed
+    [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions
+    [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions
+  50 passed (49.1s)

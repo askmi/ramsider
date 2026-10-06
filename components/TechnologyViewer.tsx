@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from 'react';
 import type { PointerEvent } from 'react';
 import type { Locale } from '@/lib/i18n';
 import { TechnologyTitle } from './TechnologyTitle';
+import { TechnologyDescriptions } from './TechnologyDescriptions';
+import type { TechnologyDescriptionCopy } from '@/lib/technology-descriptions';
 
 const slides = [
   { id: '02', src: '/art/technology/02.png' },
@@ -43,7 +45,7 @@ function TechnologyPagination({ index, labels, onSelect }: { index: number; labe
   </div>;
 }
 
-export function TechnologyViewer({ locale }: { locale: Locale }) {
+export function TechnologyViewer({ locale, descriptions }: { locale: Locale; descriptions: TechnologyDescriptionCopy }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLElement | null>(null);
   const previousOverflow = useRef('');
@@ -139,6 +141,7 @@ export function TechnologyViewer({ locale }: { locale: Locale }) {
       <div className="technology-viewer__stage" onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}>
         {isOpen && <Image key={slides[index].src} src={slides[index].src} alt={`HeatCore — ${labels.names[index]}`} fill sizes="100vw" unoptimized priority={index === 0} draggable={false} />}
         {isOpen && <TechnologyTitle descriptor={labels.technology} />}
+        {isOpen && <TechnologyDescriptions slide={slides[index].id} locale={locale} name={labels.names[index]} copy={descriptions} />}
       </div>
       {isOpen && <>
         <Image className="technology-viewer__frame" src="/art/technology/frame-template.webp" width={941} height={1628} alt="" aria-hidden="true" unoptimized priority />

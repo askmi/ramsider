@@ -1,0 +1,165 @@
+{
+  "method": "Identical Pro/Max WebKit DPR3 screenshots; compare against accepted CHG0062, mask only newly authorized description boxes/rules with4sourcepx guard. Paired crop sheets: left source TEXT, right actual Pro mapped to source941\u00d71672; new-font antialias/lettering expected, geometry not redesigned.",
+  "items": [
+    {
+      "profile": "pro",
+      "slide": 1,
+      "outsideDescriptionChangedPixels": 0,
+      "maxOutsideRgbError": 0,
+      "sourceExclusions": [
+        [
+          54,
+          332,
+          878,
+          460
+        ],
+        [
+          54,
+          703,
+          289,
+          1096
+        ],
+        [
+          54,
+          1322,
+          894,
+          1672
+        ]
+      ]
+    },
+    {
+      "profile": "pro",
+      "slide": 2,
+      "outsideDescriptionChangedPixels": 0,
+      "maxOutsideRgbError": 0,
+      "sourceExclusions": [
+        [
+          52,
+          1123,
+          894,
+          1672
+        ]
+      ]
+    },
+    {
+      "profile": "pro",
+      "slide": 3,
+      "outsideDescriptionChangedPixels": 0,
+      "maxOutsideRgbError": 0,
+      "sourceExclusions": [
+        [
+          80,
+          512,
+          278,
+          1001
+        ],
+        [
+          866,
+          849,
+          941,
+          1091
+        ],
+        [
+          52,
+          1238,
+          878,
+          1672
+        ]
+      ]
+    },
+    {
+      "profile": "pro",
+      "slide": 4,
+      "outsideDescriptionChangedPixels": 0,
+      "maxOutsideRgbError": 0,
+      "sourceExclusions": [
+        [
+          52,
+          1233,
+          878,
+          1672
+        ]
+      ]
+    },
+    {
+      "profile": "pro-max",
+      "slide": 1,
+      "outsideDescriptionChangedPixels": 0,
+      "maxOutsideRgbError": 0,
+      "sourceExclusions": [
+        [
+          54,
+          332,
+          878,
+          460
+        ],
+        [
+          54,
+          703,
+          289,
+          1096
+        ],
+        [
+          54,
+          1322,
+          894,
+          1672
+        ]
+      ]
+    },
+    {
+      "profile": "pro-max",
+      "slide": 2,
+      "outsideDescriptionChangedPixels": 0,
+      "maxOutsideRgbError": 0,
+      "sourceExclusions": [
+        [
+          52,
+          1123,
+          894,
+          1672
+        ]
+      ]
+    },
+    {
+      "profile": "pro-max",
+      "slide": 3,
+      "outsideDescriptionChangedPixels": 0,
+      "maxOutsideRgbError": 0,
+      "sourceExclusions": [
+        [
+          80,
+          512,
+          278,
+          1001
+        ],
+        [
+          866,
+          849,
+          941,
+          1091
+        ],
+        [
+          52,
+          1238,
+          878,
+          1672
+        ]
+      ]
+    },
+    {
+      "profile": "pro-max",
+      "slide": 4,
+      "outsideDescriptionChangedPixels": 0,
+      "maxOutsideRgbError": 0,
+      "sourceExclusions": [
+        [
+          52,
+          1233,
+          878,
+          1672
+        ]
+      ]
+    }
+  ]
+}

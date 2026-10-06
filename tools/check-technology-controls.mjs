@@ -52,6 +52,23 @@ for (const [width, height] of [[320, 700], [375, 812], [768, 1024], [1440, 900]]
       await dots.nth(3).click({ timeout: 5000 });
       await page.waitForFunction(() => document.querySelector('.technology-viewer__stage img')?.getAttribute('src')?.includes('05.png'), null, { timeout: 5000 });
       const dotActive = await dots.nth(3).getAttribute('aria-current');
+      const descriptions = [];
+      for (let index = 0; index < 4; index++) {
+        await dots.nth(index).click();
+        await page.waitForFunction(id => document.querySelector('.technology-viewer__descriptions')?.dataset.slide === id, String(index + 2).padStart(2, '0'));
+        await page.evaluate(() => document.fonts.ready);
+        descriptions.push(await viewer.locator('.technology-viewer__descriptions').evaluate(section => ({
+          slide: section.dataset.slide,
+          heading: section.querySelector('h3')?.textContent,
+          blocks: [...section.querySelectorAll('[data-description-block]')].map(block => {
+            const box = block.firstElementChild, copy = box.firstElementChild;
+            const style = getComputedStyle(copy);
+            return {id: block.dataset.descriptionBlock, font: style.fontFamily, size: style.fontSize, direction: getComputedStyle(box).direction,
+              fit: copy.scrollWidth <= box.clientWidth + 1 && copy.scrollHeight <= box.clientHeight + 1};
+          }),
+        })));
+        if ((locale === 'ar' || locale === 'ru') && width === 375) await page.screenshot({path: `docs/evidence/technology-viewer/descriptions/${locale}-375-slide-${index + 1}.png`});
+      }
       await viewer.locator('.technology-viewer__next-group').click({ timeout: 5000 });
       const notice = await viewer.getByRole('status').textContent();
       const activeCount = await viewer.locator('.technology-viewer__dots button[aria-current="true"]').count();
@@ -68,8 +85,9 @@ for (const [width, height] of [[320, 700], [375, 812], [768, 1024], [1440, 900]]
         && !overlaps(geometry.top, geometry.close) && contains(geometry.top, geometry.topText) && contains(geometry.bottom, geometry.bottomText)
         && geometry.title.length === 2 && geometry.title.every(item => item.font.startsWith('OpenSans') && contains(stage,item.ink)) && !!geometry.heading?.trim()
         && geometry.font.startsWith('OpenSans') && geometry.arrows.join(',') === '/art/technology/arrow-right.png,/art/technology/arrow-down.png'
+        && descriptions.length === 4 && descriptions.every(item => item.heading?.trim() && item.blocks.every(block => block.fit && block.font.startsWith('OpenSans') && block.direction === (locale === 'ar' ? 'rtl' : 'ltr')))
         && topActive === 'true' && dotActive === 'true' && activeCount === 1 && !!notice?.trim();
-      cases.push({ locale, width, height, pass, notice, topActive, dotActive, activeCount, geometry, dotRects });
+      cases.push({ locale, width, height, pass, notice, topActive, dotActive, activeCount, geometry, dotRects, descriptions });
     } catch (error) {
       cases.push({ locale, width, height, pass: false, error: String(error).slice(0, 500) });
     }

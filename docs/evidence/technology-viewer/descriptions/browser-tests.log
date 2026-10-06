@@ -1,0 +1,41 @@
+
+Running 28 tests using 4 workers
+
+(node:51905) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51906) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51908) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51907) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:6:1 › technology PNGs preserve every original pixel outside the title mask (648ms)
+  ✓   2 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:6:1 › technology PNGs preserve every original pixel outside the title mask (643ms)
+  ✓   3 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:6:1 › technology PNGs preserve every original pixel outside the title mask (636ms)
+  ✓   4 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:6:1 › technology PNGs preserve every original pixel outside the title mask (630ms)
+  ✓   6 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:43:1 › technology descriptions render all source text in the decoded image coordinates (2.3s)
+  ✓   9 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:74:1 › technology viewer opens from both story controls and pages through clean images (3.5s)
+  ✓   5 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:43:1 › technology descriptions render all source text in the decoded image coordinates (5.8s)
+  ✓   7 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:43:1 › technology descriptions render all source text in the decoded image coordinates (5.8s)
+  ✓  10 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:163:1 › technology viewer supports touch pointers, Escape and Arabic framing (1.7s)
+  ✓  13 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:206:1 › previous artwork stays visible while the next slide loads (1.6s)
+  ✓  14 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:226:1 › failed slide load does not skip the next image (1.0s)
+  ✓  15 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:253:1 › swipe completes when the pointer leaves the artwork (874ms)
+  ✓   8 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:43:1 › technology descriptions render all source text in the decoded image coordinates (9.2s)
+  ✓  11 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:74:1 › technology viewer opens from both story controls and pages through clean images (5.1s)
+  ✓  12 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:74:1 › technology viewer opens from both story controls and pages through clean images (5.2s)
+  ✓  17 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:163:1 › technology viewer supports touch pointers, Escape and Arabic framing (2.6s)
+  ✓  18 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:163:1 › technology viewer supports touch pointers, Escape and Arabic framing (2.6s)
+  ✓  19 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:206:1 › previous artwork stays visible while the next slide loads (2.5s)
+  ✓  20 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:206:1 › previous artwork stays visible while the next slide loads (2.7s)
+  ✓  21 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:226:1 › failed slide load does not skip the next image (1.5s)
+  ✓  22 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:226:1 › failed slide load does not skip the next image (1.5s)
+  ✓  23 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:253:1 › swipe completes when the pointer leaves the artwork (1.0s)
+  ✓  24 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:253:1 › swipe completes when the pointer leaves the artwork (957ms)
+  ✓  16 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:74:1 › technology viewer opens from both story controls and pages through clean images (9.6s)
+  ✓  25 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:163:1 › technology viewer supports touch pointers, Escape and Arabic framing (2.0s)
+  ✓  26 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:206:1 › previous artwork stays visible while the next slide loads (1.7s)
+  ✓  27 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:226:1 › failed slide load does not skip the next image (1.2s)
+  ✓  28 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:253:1 › swipe completes when the pointer leaves the artwork (955ms)
+
+  28 passed (28.9s)

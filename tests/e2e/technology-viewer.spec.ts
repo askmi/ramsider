@@ -11,6 +11,7 @@ test('technology PNGs preserve every original pixel outside the title mask', asy
     ['05', 'HeatCore_05_GOLD_AND_TITANIUM_NITRIDE_941x1672.png'],
   ];
   const previous = JSON.parse(await readFile('docs/evidence/technology-viewer/original-png/assets.json', 'utf8'));
+  const acceptedPhotos = JSON.parse(await readFile('docs/evidence/technology-viewer/live-title/assets.json', 'utf8'));
   for (const [id, filename] of originals) {
     const response = await request.get(`/art/technology/${id}.png`);
     expect(response.ok()).toBe(true);
@@ -18,6 +19,7 @@ test('technology PNGs preserve every original pixel outside the title mask', asy
     const original = await readFile(`design/references/tech_01/${filename}`);
     expect(createHash('sha256').update(original).digest('hex')).toBe(previous.items.find((item: { id: string }) => item.id === id).sourceSha256);
     const delivered = await readFile(`public/art/technology/${id}.png`);
+    expect(createHash('sha256').update(delivered).digest('hex')).toBe(acceptedPhotos.items.find((item: { id: string }) => item.id === id).outputSha256);
     expect((await response.body()).equals(delivered)).toBe(true);
     const metadata = await sharp(delivered).metadata();
     expect([metadata.width, metadata.height, metadata.channels]).toEqual([941, 1672, 3]);
@@ -36,6 +38,37 @@ test('technology PNGs preserve every original pixel outside the title mask', asy
     expect(remainingDarkTitlePixels).toBe(0);
     expect((await request.get(`/art/technology/${id}.webp`)).status()).toBe(404);
   }
+});
+
+test('technology descriptions render all source text in the decoded image coordinates', async ({ page }, testInfo) => {
+  await page.goto('/en');
+  await page.locator('[data-technology-open]').first().click();
+  const viewer = page.locator('#technology-viewer');
+  const headings = ['THREE HEATERS. ONE CONTINUOUS BALANCE.', 'EXCESS HEAT. CONTINUOUSLY RELEASED.', 'POWER, SHAPED OVER TIME.', 'GOLD FOR PURITY. TITANIUM NITRIDE FOR HEAT.'];
+  for (let index = 0; index < 4; index++) {
+    await viewer.locator('.technology-viewer__dots button').nth(index).click();
+    const id = String(index + 2).padStart(2, '0');
+    await expect(viewer.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', id);
+    await expect(viewer.getByRole('heading', { level: 3 })).toHaveText(headings[index]);
+    await viewer.locator('img').evaluateAll(async images => { await document.fonts.ready; await Promise.all(images.map(image => (image as HTMLImageElement).decode())); });
+    const blocks = await viewer.locator('.technology-description__box').evaluateAll(elements => elements.map(element => {
+      const copy = element.firstElementChild as HTMLElement;
+      return { font: getComputedStyle(copy).fontFamily, height: copy.scrollHeight, maxHeight: element.clientHeight, width: copy.scrollWidth, maxWidth: element.clientWidth };
+    }));
+    expect(blocks.length).toBeGreaterThan(2);
+    for (const block of blocks) {
+      expect(block.font).toMatch(/^OpenSans/);
+      expect(block.height).toBeLessThanOrEqual(block.maxHeight + 1);
+      expect(block.width).toBeLessThanOrEqual(block.maxWidth + 1);
+    }
+    await expect(viewer.locator('.technology-description__folio')).toHaveCount(0);
+    await page.screenshot({ path: `screenshots/actual/technology-descriptions/${testInfo.project.name}-slide-${index + 1}.png` });
+  }
+  await viewer.locator('.technology-viewer__dots button').first().click();
+  await expect(viewer.getByRole('heading', { name: '01 UPPER HEAT' })).toBeVisible();
+  await expect(viewer.locator('[data-description-block="upper-temperature"]')).toHaveText('0–280°C');
+  await expect(viewer.locator('[data-description-block="lower-temperature"]')).toHaveText('0–160°C');
+  await expect(viewer.locator('.technology-viewer__stage')).toHaveCSS('touch-action', 'pinch-zoom');
 });
 
 test('technology viewer opens from both story controls and pages through clean images', async ({ page }, testInfo) => {
@@ -140,12 +173,14 @@ test('technology viewer supports touch pointers, Escape and Arabic framing', asy
   await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: box.x + box.width * .2, clientY: y });
   await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: box.x + box.width * .8, clientY: y });
   await expect(stage.locator('img')).toHaveAttribute('src', /03\.png/);
+  await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '03');
   await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
   await expect(stage.locator('img')).toHaveAttribute('alt', /زعانف هوائية نشطة/);
   await page.keyboard.press('ArrowLeft');
   await expect(stage.locator('img')).toHaveAttribute('src', /04\.png/);
   await page.keyboard.press('ArrowRight');
   await expect(stage.locator('img')).toHaveAttribute('src', /03\.png/);
+  await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '03');
   await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
   await expect(page.locator('body')).toHaveCSS('overflow', 'hidden');
   await page.screenshot({ path: `screenshots/actual/technology-viewer/${testInfo.project.name}-arabic-swipe.png` });
@@ -180,8 +215,10 @@ test('previous artwork stays visible while the next slide loads', async ({ page 
   await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 300, clientY: 400 });
   await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 90, clientY: 400 });
   await expect(stage.locator('img')).toHaveAttribute('src', /02\.png/);
+  await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '02');
   await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 1 \/ 4/);
   await expect(stage.locator('img')).toHaveAttribute('src', /03\.png/);
+  await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '03');
   await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 2 \/ 4/);
   await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
 });
@@ -204,10 +241,12 @@ test('failed slide load does not skip the next image', async ({ page }) => {
   await swipe();
   await expect.poll(() => requests).toBe(1);
   await expect(stage.locator('img')).toHaveAttribute('src', /02\.png/);
+  await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '02');
   await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 1 \/ 4/);
   await page.waitForTimeout(150);
   await swipe();
   await expect(stage.locator('img')).toHaveAttribute('src', /03\.png/);
+  await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '03');
   await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 2 \/ 4/);
 });
 
@@ -224,4 +263,5 @@ test('swipe completes when the pointer leaves the artwork', async ({ page }) => 
   await page.mouse.move(0, y, { steps: 5 });
   await page.mouse.up();
   await expect(stage.locator('img')).toHaveAttribute('src', /03\.png/);
+  await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '03');
 });

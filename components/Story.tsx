@@ -9,6 +9,7 @@ import { locales, t, type Key, type Locale } from '@/lib/i18n';
 import { MenuShell } from './MenuShell';
 import { ActionArrow } from './ActionArrow';
 import { TechnologyViewer } from './TechnologyViewer';
+import { technologyDescriptionCopy } from '@/lib/technology-descriptions';
 import buttonMap from '@/lib/button-map.json';
 import iconMap from '@/lib/icon-map.json';
 import localizedButtonWidths from '@/lib/button-localized-widths.json';
@@ -220,7 +221,7 @@ function Popovers({ locale }: { locale: Locale }) {
 
 export function Story({ locale }: { locale: Locale }) {
   return <DialogController>
-    <TechnologyViewer locale={locale} />
+    <TechnologyViewer locale={locale} descriptions={technologyDescriptionCopy[locale]} />
     <main className="canvas" data-locale={locale}>
       <div className="story-prefix-space" aria-hidden="true" />
       <div className="art" aria-hidden="true">

@@ -6,7 +6,9 @@ import type { PointerEvent } from 'react';
 import type { Locale } from '@/lib/i18n';
 import { TechnologyTitle } from './TechnologyTitle';
 import { TechnologyDescriptions } from './TechnologyDescriptions';
+import { CyberMindDescriptions } from './CyberMindDescriptions';
 import type { TechnologyDescriptionCopy } from '@/lib/technology-descriptions';
+import type { CyberMindCopy } from '@/lib/cybermind-descriptions';
 
 import { technologyGroups, technologyGroupCopy } from '@/lib/technology-gallery';
 import type { TechnologySlideId } from '@/lib/technology-descriptions';
@@ -43,7 +45,7 @@ function TechnologyPagination({ index, labels, names, onSelect }: { index: numbe
   </div>;
 }
 
-export function TechnologyViewer({ locale, descriptions }: { locale: Locale; descriptions: TechnologyDescriptionCopy }) {
+export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }: { locale: Locale; descriptions: TechnologyDescriptionCopy; cyberMindDescriptions: CyberMindCopy }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLElement | null>(null);
   const previousOverflow = useRef('');
@@ -214,6 +216,7 @@ export function TechnologyViewer({ locale, descriptions }: { locale: Locale; des
         {isOpen && <Image key={slide.src} src={slide.src} alt={`${group.title} — ${names[selection.slide]}`} fill sizes="100vw" unoptimized priority={selection.slide === 0} draggable={false} />}
         {isOpen && <TechnologyTitle descriptor={labels.technology} brand={group.title} />}
         {isOpen && selection.group === 0 && <TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={names[selection.slide]} copy={descriptions} />}
+        {isOpen && selection.group === 1 && <CyberMindDescriptions slide={slide.id as '01' | '02'} locale={locale} name={names[selection.slide]} copy={cyberMindDescriptions} />}
       </div>
       {isOpen && <>
         <Image className="technology-viewer__frame" src="/art/technology/frame-template.webp" width={941} height={1628} alt="" aria-hidden="true" unoptimized priority />

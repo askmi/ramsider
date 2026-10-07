@@ -478,7 +478,9 @@ test('CyberMind uses two interactive slides, a live title and two-axis navigatio
   await expect(viewer).toHaveAccessibleName('CyberMind Technology');
   await expect(viewer).toBeFocused();
   await expect(viewer.locator('.technology-viewer__dots button')).toHaveCount(2);
-  await expect(viewer.locator('.technology-viewer__descriptions')).toHaveCount(0);
+  await expect(viewer.locator('.technology-viewer__descriptions')).toHaveAttribute('data-cybermind-slide', '01');
+  await expect(viewer.getByRole('heading', { name: /The system does not simply respond/ })).toBeVisible();
+  await expect(viewer.locator('.technology-description__folio')).toHaveCount(0);
   await expect(viewer.locator('.technology-viewer__title')).toHaveCSS('font-family',/OpenSans/);
   await expect(viewer.locator('.technology-viewer__title svg text').last()).toHaveAttribute('stroke','#fff');
   await expect(viewer.locator('.technology-viewer__title svg text').last()).toHaveAttribute('paint-order','stroke fill');
@@ -491,6 +493,8 @@ test('CyberMind uses two interactive slides, a live title and two-axis navigatio
   for(let i=0;i<2;i++){
     await viewer.locator('.technology-viewer__dots button').nth(i).click();
     await expect(stage.locator('img')).toHaveAttribute('src',`/art/technology/cybermind/0${i+1}.png`);
+    await expect(viewer.locator('.technology-viewer__descriptions')).toHaveAttribute('data-cybermind-slide', `0${i+1}`);
+    if (i === 1) await expect(viewer.locator('[data-description-block^="cyber-callout-"]')).toHaveCount(10);
     await expect(viewer.locator('.technology-viewer__dots button').nth(i)).toHaveAttribute('aria-current','true');
     await viewer.locator('img').evaluateAll(async imgs=>{await document.fonts.ready;await Promise.all(imgs.map(img=>(img as HTMLImageElement).decode()));});
     await page.screenshot({path:`screenshots/actual/cybermind/${testInfo.project.name}-slide-${i+1}.png`});
@@ -511,6 +515,32 @@ test('CyberMind uses two interactive slides, a live title and two-axis navigatio
   expect(await page.evaluate(()=>!!document.activeElement?.closest('dialog[open]'))).toBe(true);
   await viewer.locator('.technology-viewer__close').click();
   await expect(page.locator('[data-technology-open]').first()).toBeFocused();
+});
+
+test('CyberMind descriptions fit all locales and omit source folios', async ({ page }) => {
+  for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
+    await page.goto(`/${locale}`);
+    await page.locator('[data-technology-open]').first().click();
+    await page.locator('.technology-viewer__next-group').click();
+    await expect(page.locator('#technology-viewer')).toHaveAttribute('data-group', 'CyberMind');
+    for (let slide = 0; slide < 2; slide++) {
+      await page.locator('.technology-viewer__dots button').nth(slide).click();
+      await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-cybermind-slide', `0${slide + 1}`);
+      await page.evaluate(() => document.fonts.ready);
+      const blocks = await page.locator('.technology-viewer__descriptions .technology-description__box').evaluateAll(elements => elements.map(element => ({
+        scrollWidth: element.firstElementChild?.scrollWidth ?? 0,
+        clientWidth: element.clientWidth,
+        scrollHeight: element.firstElementChild?.scrollHeight ?? 0,
+        clientHeight: element.clientHeight,
+      })));
+      for (const block of blocks) {
+        expect(block.scrollWidth).toBeLessThanOrEqual(block.clientWidth + 1);
+        expect(block.scrollHeight).toBeLessThanOrEqual(block.clientHeight + 1);
+      }
+      await expect(page.locator('.technology-description__folio')).toHaveCount(0);
+      if (locale === 'ar') await expect(page.locator('.technology-viewer__descriptions .technology-description__box').first()).toHaveAttribute('dir', 'rtl');
+    }
+  }
 });
 
 test('pending group and slide changes preserve displayed state and cannot overwrite later navigation', async ({ page }) => {

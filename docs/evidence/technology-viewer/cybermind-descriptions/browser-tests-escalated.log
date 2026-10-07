@@ -1,0 +1,11 @@
+
+Running 2 tests using 2 workers
+
+(node:75178) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:75179) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:469:1 › CyberMind uses two interactive slides, a live title and two-axis navigation (2.1s)
+  ✓  1 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:469:1 › CyberMind uses two interactive slides, a live title and two-axis navigation (2.2s)
+
+  2 passed (3.4s)

@@ -1,0 +1,574 @@
+2026-10-07T15:04:05.499419Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-07T15:04:05.499495Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.159.0-alpha.12.1
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: low
+reasoning summaries: none
+session id: 01a116e4-a458-71e2-b8f8-60cbab435c8d
+--------
+user
+current changes
+2026-10-07T15:04:06.404774Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-07T15:04:06.404811Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+exec
+/bin/zsh -lc 'git status --short; git diff --stat; git diff --cached --stat; find . -name AGENTS.md -o -name AGENTS.override.md' in /Users/asmirnou/Projects/g/ramsider
+2026-10-07T15:04:14.514439Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a116e4-a458-71e2-b8f8-60cbab435c8d turn_id=01a116e4-a539-7b50-92ed-9d3b663302d3 item_id="exec-1859bf6c-4761-421f-bab5-d404c0bee6bb"
+ succeeded in 994ms:
+ M .gitignore
+ M CHANGELOG.md
+ M PRODUCT.md
+ M app/globals.css
+ M components/Story.tsx
+ M components/TechnologyDescriptions.tsx
+ M components/TechnologyViewer.tsx
+ M tests/e2e/technology-viewer.spec.ts
+?? components/CyberMindDescriptions.tsx
+?? design/references/background_old.png
+?? docs/evidence/technology-viewer/cybermind-descriptions/
+?? docs/technology-cybermind-description-map.md
+?? lib/cybermind-descriptions.ts
+?? public/fonts/opensans-bold.ttf
+?? tools/__pycache__/
+ .gitignore                            |  3 ++-
+ CHANGELOG.md                          | 15 +++++++++++++++
+ PRODUCT.md                            |  4 ++++
+ app/globals.css                       |  1 +
+ components/Story.tsx                  |  3 ++-
+ components/TechnologyDescriptions.tsx |  8 ++++----
+ components/TechnologyViewer.tsx       |  5 ++++-
+ tests/e2e/technology-viewer.spec.ts   | 32 +++++++++++++++++++++++++++++++-
+ 8 files changed, 63 insertions(+), 8 deletions(-)
+./.agents/skills/vercel-react-best-practices/AGENTS.md
+./.agents/skills/vercel-composition-patterns/AGENTS.md
+./AGENTS.md
+
+exec
+/bin/zsh -lc 'git diff -- .gitignore PRODUCT.md app/globals.css components/Story.tsx components/TechnologyDescriptions.tsx components/TechnologyViewer.tsx tests/e2e/technology-viewer.spec.ts; cat components/CyberMindDescriptions.tsx lib/cybermind-descriptions.ts docs/technology-cybermind-description-map.md; cat AGENTS.md | head -35; cat MEMORY.md | head -35' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 5ms:
+diff --git a/.gitignore b/.gitignore
+index c9e723c..7a66f72 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -33,6 +33,7 @@ yarn-error.log*
+
+ # env files (can opt-in for committing if needed)
+ .env*
++/integrations/telegram/
+
+ # vercel
+ .vercel
+@@ -50,4 +51,4 @@ next-env.d.ts
+ /screenshots/diff/
+
+ *.psb
+-/deliverables/
+\ No newline at end of file
++/deliverables/
+diff --git a/PRODUCT.md b/PRODUCT.md
+index 7962143..49ed741 100644
+--- a/PRODUCT.md
++++ b/PRODUCT.md
+@@ -37,3 +37,7 @@ The repository now has the rebuilt static application and a visual-testing toolc
+ ## Technology description claims — CHG-0063, 2026-10-07
+
+ The supplied HeatCore TEXT renders assert independently controlled upper/grill/lower heating, upper0–280°C and lower0–160°C, passive aluminium air-sail heat release/overheating protection, linear/interval algorithms and RAMSIDER app/UNO touch-display profile control, full-surface24K gold and titanium-nitride PVD finishes with purity/high-temperature stability claims. These are transcribed design copy for the local visual build, not independently verified specifications. Confirmation of ranges/materials/coating/process/algorithms/app behavior remains required before publication as approved product facts. The phone’s96% is static diagram artwork/annotation, not live battery telemetry. No new service endpoint or interactive app flow is invented. Source/copy map: [technology descriptions](docs/technology-description-map.md).
++
++## CyberMind description claims — CHG-0069, 2026-10-07
++
++The CyberMind text reference asserts 16+ system inputs, water/temperature/system monitoring in real time, onboard coordination of heating/light/sound, RAMSIDER app data exchange, direct core operation without a phone, and supported software updates adding functions/control logic. These statements are transcribed design copy for local visual fidelity; no engineering specification, backend or app behavior verifies them. Confirm before treating them as approved publication facts. Source/copy map: [CyberMind descriptions](docs/technology-cybermind-description-map.md).
+diff --git a/app/globals.css b/app/globals.css
+index d6f5035..981e140 100644
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -1,5 +1,6 @@
+ @font-face{font-family:OpenSans;src:url('/fonts/opensans-light.ttf') format('truetype');font-style:normal;font-weight:300;font-display:swap}
+ @font-face{font-family:OpenSans;src:url('/fonts/opensans-regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
++@font-face{font-family:OpenSans;src:url('/fonts/opensans-bold.ttf') format('truetype');font-style:normal;font-weight:700;font-display:swap}
+ @font-face{font-family:OpenSansButton;src:url('/fonts/opensans-button.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+ @font-face{font-family:BankGothic;src:url('/fonts/bankgothic.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+ @font-face{font-family:NotoButtonArabic;src:url('/fonts/button-fallback/noto-arabic-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+diff --git a/components/Story.tsx b/components/Story.tsx
+index c159447..5ed001e 100644
+--- a/components/Story.tsx
++++ b/components/Story.tsx
+@@ -10,6 +10,7 @@ import { MenuShell } from './MenuShell';
+ import { ActionArrow } from './ActionArrow';
+ import { TechnologyViewer } from './TechnologyViewer';
+ import { technologyDescriptionCopy } from '@/lib/technology-descriptions';
++import { cyberMindCopy } from '@/lib/cybermind-descriptions';
+ import buttonMap from '@/lib/button-map.json';
+ import iconMap from '@/lib/icon-map.json';
+ import localizedButtonWidths from '@/lib/button-localized-widths.json';
+@@ -221,7 +222,7 @@ function Popovers({ locale }: { locale: Locale }) {
+
+ export function Story({ locale }: { locale: Locale }) {
+   return <DialogController>
+-    <TechnologyViewer locale={locale} descriptions={technologyDescriptionCopy[locale]} />
++    <TechnologyViewer locale={locale} descriptions={technologyDescriptionCopy[locale]} cyberMindDescriptions={cyberMindCopy[locale]} />
+     <main className="canvas" data-locale={locale}>
+       <div className="story-prefix-space" aria-hidden="true" />
+       <div className="art" aria-hidden="true">
+diff --git a/components/TechnologyDescriptions.tsx b/components/TechnologyDescriptions.tsx
+index 3eb62b4..b7c0b12 100644
+--- a/components/TechnologyDescriptions.tsx
++++ b/components/TechnologyDescriptions.tsx
+@@ -6,12 +6,12 @@ import type { TechnologyDescriptionCopy, TechnologySlideId } from '@/lib/technol
+
+ type BlockProps = {
+   id: string; x?: number; y: number; width?: number; height: number;
+-  size: number; line?: number; color?: string; tracking?: number;
++  size: number; line?: number; color?: string; tracking?: number; weight?: number;
+   kind?: 'h3' | 'h4' | 'p' | 'span'; text: string; number?: string; locale: Locale;
+ };
+
+ /** HTML stays semantic; the source plane follows the same X/Y fit as the PNG. */
+-function TextBlock({ id, x = 54, y, width = 824, height, size, line = size * 1.2, color = '#000', tracking = 0, kind: Tag = 'p', text, number, locale }: BlockProps) {
++export function TextBlock({ id, x = 54, y, width = 824, height, size, line = size * 1.2, color = '#000', tracking = 0, weight = 400, kind: Tag = 'p', text, number, locale }: BlockProps) {
+   const box = useRef<HTMLDivElement>(null);
+   useLayoutEffect(() => {
+     const fit = () => {
+@@ -31,14 +31,14 @@ function TextBlock({ id, x = 54, y, width = 824, height, size, line = size * 1.2
+   }, [text, locale, size, line, width, height, tracking, number]);
+   return <foreignObject x={x} y={y} width={width} height={height} data-description-block={id}>
+     <div ref={box} className="technology-description__box" lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+-      <Tag className={`technology-description__copy${color === '#975f41' ? ' technology-description__warm' : ''}`} style={{ fontSize: size, lineHeight: `${line}px`, color, letterSpacing: tracking }}>
++      <Tag className={`technology-description__copy${color === '#975f41' ? ' technology-description__warm' : ''}`} style={{ fontSize: size, lineHeight: `${line}px`, color, letterSpacing: tracking, fontWeight: weight }}>
+         {number && <span className="technology-description__number">{number}</span>}{text}
+       </Tag>
+     </div>
+   </foreignObject>;
+ }
+
+-function Divider({ y }: { y: number }) {
++export function Divider({ y }: { y: number }) {
+   return <line x1="56" x2="877" y1={y} y2={y} stroke="#8f8983" strokeWidth="1" aria-hidden="true" />;
+ }
+
+diff --git a/components/TechnologyViewer.tsx b/components/TechnologyViewer.tsx
+index 0ed7c6b..79b7c53 100644
+--- a/components/TechnologyViewer.tsx
++++ b/components/TechnologyViewer.tsx
+@@ -6,7 +6,9 @@ import type { PointerEvent } from 'react';
+ import type { Locale } from '@/lib/i18n';
+ import { TechnologyTitle } from './TechnologyTitle';
+ import { TechnologyDescriptions } from './TechnologyDescriptions';
++import { CyberMindDescriptions } from './CyberMindDescriptions';
+ import type { TechnologyDescriptionCopy } from '@/lib/technology-descriptions';
++import type { CyberMindCopy } from '@/lib/cybermind-descriptions';
+
+ import { technologyGroups, technologyGroupCopy } from '@/lib/technology-gallery';
+ import type { TechnologySlideId } from '@/lib/technology-descriptions';
+@@ -43,7 +45,7 @@ function TechnologyPagination({ index, labels, names, onSelect }: { index: numbe
+   </div>;
+ }
+
+-export function TechnologyViewer({ locale, descriptions }: { locale: Locale; descriptions: TechnologyDescriptionCopy }) {
++export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }: { locale: Locale; descriptions: TechnologyDescriptionCopy; cyberMindDescriptions: CyberMindCopy }) {
+   const dialog = useRef<HTMLDialogElement>(null);
+   const opener = useRef<HTMLElement | null>(null);
+   const previousOverflow = useRef('');
+@@ -214,6 +216,7 @@ export function TechnologyViewer({ locale, descriptions }: { locale: Locale; des
+         {isOpen && <Image key={slide.src} src={slide.src} alt={`${group.title} — ${names[selection.slide]}`} fill sizes="100vw" unoptimized priority={selection.slide === 0} draggable={false} />}
+         {isOpen && <TechnologyTitle descriptor={labels.technology} brand={group.title} />}
+         {isOpen && selection.group === 0 && <TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={names[selection.slide]} copy={descriptions} />}
++        {isOpen && selection.group === 1 && <CyberMindDescriptions slide={slide.id as '01' | '02'} locale={locale} name={names[selection.slide]} copy={cyberMindDescriptions} />}
+       </div>
+       {isOpen && <>
+         <Image className="technology-viewer__frame" src="/art/technology/frame-template.webp" width={941} height={1628} alt="" aria-hidden="true" unoptimized priority />
+diff --git a/tests/e2e/technology-viewer.spec.ts b/tests/e2e/technology-viewer.spec.ts
+index b83e0fd..e658786 100644
+--- a/tests/e2e/technology-viewer.spec.ts
++++ b/tests/e2e/technology-viewer.spec.ts
+@@ -478,7 +478,9 @@ test('CyberMind uses two interactive slides, a live title and two-axis navigatio
+   await expect(viewer).toHaveAccessibleName('CyberMind Technology');
+   await expect(viewer).toBeFocused();
+   await expect(viewer.locator('.technology-viewer__dots button')).toHaveCount(2);
+-  await expect(viewer.locator('.technology-viewer__descriptions')).toHaveCount(0);
++  await expect(viewer.locator('.technology-viewer__descriptions')).toHaveAttribute('data-cybermind-slide', '01');
++  await expect(viewer.getByRole('heading', { name: /The system does not simply respond/ })).toBeVisible();
++  await expect(viewer.locator('.technology-description__folio')).toHaveCount(0);
+   await expect(viewer.locator('.technology-viewer__title')).toHaveCSS('font-family',/OpenSans/);
+   await expect(viewer.locator('.technology-viewer__title svg text').last()).toHaveAttribute('stroke','#fff');
+   await expect(viewer.locator('.technology-viewer__title svg text').last()).toHaveAttribute('paint-order','stroke fill');
+@@ -491,6 +493,8 @@ test('CyberMind uses two interactive slides, a live title and two-axis navigatio
+   for(let i=0;i<2;i++){
+     await viewer.locator('.technology-viewer__dots button').nth(i).click();
+     await expect(stage.locator('img')).toHaveAttribute('src',`/art/technology/cybermind/0${i+1}.png`);
++    await expect(viewer.locator('.technology-viewer__descriptions')).toHaveAttribute('data-cybermind-slide', `0${i+1}`);
++    if (i === 1) await expect(viewer.locator('[data-description-block^="cyber-callout-"]')).toHaveCount(10);
+     await expect(viewer.locator('.technology-viewer__dots button').nth(i)).toHaveAttribute('aria-current','true');
+     await viewer.locator('img').evaluateAll(async imgs=>{await document.fonts.ready;await Promise.all(imgs.map(img=>(img as HTMLImageElement).decode()));});
+     await page.screenshot({path:`screenshots/actual/cybermind/${testInfo.project.name}-slide-${i+1}.png`});
+@@ -513,6 +517,32 @@ test('CyberMind uses two interactive slides, a live title and two-axis navigatio
+   await expect(page.locator('[data-technology-open]').first()).toBeFocused();
+ });
+
++test('CyberMind descriptions fit all locales and omit source folios', async ({ page }) => {
++  for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
++    await page.goto(`/${locale}`);
++    await page.locator('[data-technology-open]').first().click();
++    await page.locator('.technology-viewer__next-group').click();
++    await expect(page.locator('#technology-viewer')).toHaveAttribute('data-group', 'CyberMind');
++    for (let slide = 0; slide < 2; slide++) {
++      await page.locator('.technology-viewer__dots button').nth(slide).click();
++      await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-cybermind-slide', `0${slide + 1}`);
++      await page.evaluate(() => document.fonts.ready);
++      const blocks = await page.locator('.technology-viewer__descriptions .technology-description__box').evaluateAll(elements => elements.map(element => ({
++        scrollWidth: element.firstElementChild?.scrollWidth ?? 0,
++        clientWidth: element.clientWidth,
++        scrollHeight: element.firstElementChild?.scrollHeight ?? 0,
++        clientHeight: element.clientHeight,
++      })));
++      for (const block of blocks) {
++        expect(block.scrollWidth).toBeLessThanOrEqual(block.clientWidth + 1);
++        expect(block.scrollHeight).toBeLessThanOrEqual(block.clientHeight + 1);
++      }
++      await expect(page.locator('.technology-description__folio')).toHaveCount(0);
++      if (locale === 'ar') await expect(page.locator('.technology-viewer__descriptions .technology-description__box').first()).toHaveAttribute('dir', 'rtl');
++    }
++  }
++});
++
+ test('pending group and slide changes preserve displayed state and cannot overwrite later navigation', async ({ page }) => {
+   let release!:()=>void;const gate=new Promise<void>(resolve=>{release=resolve;});
+   await page.route('**/technology/cybermind/02.png',async route=>{await gate;await route.continue();});
+'use client';
+
+import type { Locale } from '@/lib/i18n';
+import type { CyberMindCopy } from '@/lib/cybermind-descriptions';
+import { Divider, TextBlock } from './TechnologyDescriptions';
+
+export function CyberMindDescriptions({ slide, locale, name, copy }: { slide: '01' | '02'; locale: Locale; name: string; copy: CyberMindCopy }) {
+  const common = { locale };
+  const brown = '#975f41';
+  const tops = [416, 586, 741, 887, 1029];
+  return <section className="technology-viewer__descriptions" aria-label={name} data-cybermind-slide={slide}>
+    <svg viewBox="0 0 941 1672" preserveAspectRatio="none" role="presentation">
+      {slide === '01' ? <>
+        <TextBlock {...common} id="cyber-eyebrow" x={64} y={1205} width={760} height={42} size={26} line={34} color={brown} text={copy.eyebrow1} />
+        <TextBlock {...common} id="cyber-headline" x={64} y={1253} width={805} height={178} kind="h3" size={50} line={58} text={copy.headline1} />
+        <Divider y={1457} />
+        <TextBlock {...common} id="cyber-body" x={64} y={1460} width={810} height={158} size={28} line={30} text={copy.body1} />
+      </> : <>
+        {copy.callouts.map((callout, index) => <g key={index}>
+          <TextBlock {...common} id={`cyber-callout-${index + 1}-title`} x={142} y={tops[index]} width={290} height={33} kind="h4" size={21} line={26} weight={700} text={callout.title} />
+          <TextBlock {...common} id={`cyber-callout-${index + 1}-body`} x={142} y={tops[index] + 35} width={287} height={58} size={18} line={25} text={callout.body} />
+        </g>)}
+        <TextBlock {...common} id="cyber-eyebrow" x={56} y={1237} width={820} height={40} size={26} line={34} color={brown} tracking={2} text={copy.eyebrow2} />
+        <TextBlock {...common} id="cyber-headline" x={56} y={1275} width={823} height={122} kind="h3" size={50} line={55} text={copy.headline2} />
+        <Divider y={1417} />
+        <TextBlock {...common} id="cyber-body" x={56} y={1428} width={820} height={185} size={28} line={42} text={copy.body2} />
+      </>}
+    </svg>
+  </section>;
+}
+import type { Locale } from './i18n';
+
+export type CyberMindCopy = {
+  eyebrow1: string; headline1: string; body1: string;
+  callouts: readonly { title: string; body: string }[];
+  eyebrow2: string; headline2: string; body2: string;
+};
+
+const en: CyberMindCopy = {
+  eyebrow1: 'Onboard intelligence',
+  headline1: 'The system does not simply respond.\nIt continuously thinks.',
+  body1: 'CyberMind is the onboard intelligence inside UNO. Sensors\ncollect information from the system, onboard processing\ncoordinates its operation, and software updates keep the\nplatform evolving. Core functions remain available directly\non UNO—with or without a phone.',
+  callouts: [
+    { title: '16+ SYSTEM INPUTS', body: 'Heat · water · temperature\nSystem state' },
+    { title: 'HIGH-SPEED PROCESSING', body: 'Fast onboard coordination\nacross every active system.' },
+    { title: 'HEAT · LIGHT · SOUND', body: 'One core coordinates\nthe complete session.' },
+    { title: 'APP DATA EXCHANGE', body: 'Continuous interaction\nwith the RAMSIDER app.' },
+    { title: 'ONLINE EVOLUTION', body: 'Supported updates can deliver\nnew functions and control logic.' },
+  ],
+  eyebrow2: 'SYSTEM INTELLIGENCE', headline2: 'ONE CORE.\nEVERY SYSTEM CONNECTED.',
+  body2: 'CyberMind receives data from 16+ system inputs, monitoring\nwater presence, temperature and system state in real time.\nIt coordinates heating, light and sound, exchanges data with\nthe RAMSIDER app and evolves through supported updates.',
+};
+
+export const cyberMindCopy: Record<Locale, CyberMindCopy> = {
+  en,
+  ru: { eyebrow1: 'Встроенный интеллект', headline1: 'Система не просто реагирует.\nОна непрерывно анализирует.', body1: 'CyberMind — встроенный интеллект UNO. Датчики собирают данные о системе, встроенный процессор координирует её работу, а обновления ПО развивают платформу. Основные функции доступны прямо на UNO — с телефоном и без него.', callouts: [{title:'16+ СИСТЕМНЫХ ВХОДОВ',body:'Нагрев · вода · температура\nСостояние системы'},{title:'БЫСТРАЯ ОБРАБОТКА',body:'Оперативная координация\nвсех активных систем.'},{title:'НАГРЕВ · СВЕТ · ЗВУК',body:'Одно ядро управляет\nвсем сеансом.'},{title:'ОБМЕН ДАННЫМИ С ПРИЛОЖЕНИЕМ',body:'Постоянная связь\nс приложением RAMSIDER.'},{title:'РАЗВИТИЕ ОНЛАЙН',body:'Обновления могут добавлять\nфункции и логику управления.'}], eyebrow2:'СИСТЕМНЫЙ ИНТЕЛЛЕКТ',headline2:'ОДНО ЯДРО.\nВСЕ СИСТЕМЫ СВЯЗАНЫ.',body2:'CyberMind получает данные от 16+ системных входов и отслеживает наличие воды, температуру и состояние системы в реальном времени. Он координирует нагрев, свет и звук, обменивается данными с приложением RAMSIDER и развивается благодаря поддерживаемым обновлениям.' },
+  de: { eyebrow1:'Intelligenz an Bord',headline1:'Das System reagiert nicht nur.\nEs denkt ständig mit.',body1:'CyberMind ist die integrierte Intelligenz in UNO. Sensoren erfassen Systemdaten, die Verarbeitung an Bord koordiniert den Betrieb und Softwareupdates entwickeln die Plattform weiter. Die Kernfunktionen bleiben direkt am UNO verfügbar – mit oder ohne Smartphone.',callouts:[{title:'16+ SYSTEMEINGÄNGE',body:'Hitze · Wasser · Temperatur\nSystemstatus'},{title:'SCHNELLE VERARBEITUNG',body:'Schnelle Koordination\naller aktiven Systeme.'},{title:'HITZE · LICHT · TON',body:'Ein Kern koordiniert\ndie gesamte Sitzung.'},{title:'DATENAUSTAUSCH MIT APP',body:'Ständige Interaktion\nmit der RAMSIDER App.'},{title:'ONLINE-WEITERENTWICKLUNG',body:'Updates können neue Funktionen\nund Steuerlogik bringen.'}],eyebrow2:'SYSTEMINTELLIGENZ',headline2:'EIN KERN.\nALLE SYSTEME VERBUNDEN.',body2:'CyberMind empfängt Daten von über 16 Systemeingängen und überwacht Wasser, Temperatur und Systemstatus in Echtzeit. Es koordiniert Hitze, Licht und Ton, tauscht Daten mit der RAMSIDER App aus und entwickelt sich durch unterstützte Updates weiter.' },
+  fr: { eyebrow1:'Intelligence embarquée',headline1:'Le système ne se contente pas de réagir.\nIl réfléchit en continu.',body1:'CyberMind est l’intelligence embarquée de UNO. Les capteurs recueillent les données du système, le traitement intégré coordonne son fonctionnement et les mises à jour font évoluer la plateforme. Les fonctions essentielles restent accessibles sur UNO, avec ou sans téléphone.',callouts:[{title:'16+ ENTRÉES SYSTÈME',body:'Chaleur · eau · température\nÉtat du système'},{title:'TRAITEMENT RAPIDE',body:'Coordination rapide\nde tous les systèmes actifs.'},{title:'CHALEUR · LUMIÈRE · SON',body:'Un cœur coordonne\ntoute la session.'},{title:'ÉCHANGE AVEC L’APPLICATION',body:'Interaction continue\navec l’application RAMSIDER.'},{title:'ÉVOLUTION EN LIGNE',body:'Les mises à jour peuvent apporter\nde nouvelles fonctions.'}],eyebrow2:'INTELLIGENCE SYSTÈME',headline2:'UN CŒUR.\nTOUS LES SYSTÈMES CONNECTÉS.',body2:'CyberMind reçoit les données de plus de 16 entrées système et surveille l’eau, la température et l’état du système en temps réel. Il coordonne chaleur, lumière et son, échange avec l’application RAMSIDER et évolue grâce aux mises à jour prises en charge.' },
+  es: { eyebrow1:'Inteligencia integrada',headline1:'El sistema no solo responde.\nPiensa continuamente.',body1:'CyberMind es la inteligencia integrada de UNO. Los sensores recogen datos del sistema, el procesamiento interno coordina su funcionamiento y las actualizaciones de software hacen evolucionar la plataforma. Las funciones principales siguen disponibles en UNO, con o sin teléfono.',callouts:[{title:'16+ ENTRADAS DEL SISTEMA',body:'Calor · agua · temperatura\nEstado del sistema'},{title:'PROCESAMIENTO RÁPIDO',body:'Coordinación rápida\nde todos los sistemas activos.'},{title:'CALOR · LUZ · SONIDO',body:'Un núcleo coordina\ntoda la sesión.'},{title:'INTERCAMBIO CON LA APP',body:'Interacción continua\ncon la app RAMSIDER.'},{title:'EVOLUCIÓN EN LÍNEA',body:'Las actualizaciones pueden añadir\nfunciones y lógica de control.'}],eyebrow2:'INTELIGENCIA DEL SISTEMA',headline2:'UN NÚCLEO.\nTODOS LOS SISTEMAS CONECTADOS.',body2:'CyberMind recibe datos de más de 16 entradas y supervisa el agua, la temperatura y el estado del sistema en tiempo real. Coordina calor, luz y sonido, intercambia datos con la app RAMSIDER y evoluciona mediante actualizaciones compatibles.' },
+  it: { eyebrow1:'Intelligenza integrata',headline1:'Il sistema non si limita a reagire.\nPensa continuamente.',body1:'CyberMind è l’intelligenza integrata di UNO. I sensori raccolgono dati, l’elaborazione interna coordina il funzionamento e gli aggiornamenti software fanno evolvere la piattaforma. Le funzioni principali restano disponibili su UNO, con o senza telefono.',callouts:[{title:'16+ INGRESSI DI SISTEMA',body:'Calore · acqua · temperatura\nStato del sistema'},{title:'ELABORAZIONE RAPIDA',body:'Coordinamento veloce\ndi tutti i sistemi attivi.'},{title:'CALORE · LUCE · SUONO',body:'Un nucleo coordina\nl’intera sessione.'},{title:'SCAMBIO DATI CON L’APP',body:'Interazione continua\ncon l’app RAMSIDER.'},{title:'EVOLUZIONE ONLINE',body:'Gli aggiornamenti possono offrire\nnuove funzioni e controlli.'}],eyebrow2:'INTELLIGENZA DI SISTEMA',headline2:'UN NUCLEO.\nTUTTI I SISTEMI CONNESSI.',body2:'CyberMind riceve dati da oltre 16 ingressi di sistema e monitora acqua, temperatura e stato in tempo reale. Coordina calore, luce e suono, scambia dati con l’app RAMSIDER e si evolve grazie agli aggiornamenti supportati.' },
+  tr: { eyebrow1:'Yerleşik zekâ',headline1:'Sistem yalnızca tepki vermez.\nSürekli düşünür.',body1:'CyberMind, UNO içindeki yerleşik zekâdır. Sensörler sistemden veri toplar, yerleşik işlemci çalışmasını koordine eder ve yazılım güncellemeleri platformu geliştirir. Temel işlevler telefonla veya telefonsuz doğrudan UNO’da kullanılabilir.',callouts:[{title:'16+ SİSTEM GİRİŞİ',body:'Isı · su · sıcaklık\nSistem durumu'},{title:'YÜKSEK HIZLI İŞLEME',body:'Tüm etkin sistemlerde\nhızlı koordinasyon.'},{title:'ISI · IŞIK · SES',body:'Tek çekirdek tüm oturumu\nkoordine eder.'},{title:'UYGULAMA VERİ ALIŞVERİŞİ',body:'RAMSIDER uygulamasıyla\nsürekli etkileşim.'},{title:'ÇEVRİMİÇİ GELİŞİM',body:'Güncellemeler yeni işlevler\nve kontrol mantığı sağlayabilir.'}],eyebrow2:'SİSTEM ZEKÂSI',headline2:'TEK ÇEKİRDEK.\nTÜM SİSTEMLER BAĞLI.',body2:'CyberMind, 16’dan fazla sistem girişinden veri alarak su varlığını, sıcaklığı ve sistem durumunu gerçek zamanlı izler. Isı, ışık ve sesi koordine eder, RAMSIDER uygulamasıyla veri alışverişi yapar ve desteklenen güncellemelerle gelişir.' },
+  ar: { eyebrow1:'ذكاء مدمج',headline1:'لا يكتفي النظام بالاستجابة.\nبل يفكر باستمرار.',body1:'CyberMind هو الذكاء المدمج داخل UNO. تجمع المستشعرات معلومات النظام، وتنسق المعالجة المدمجة عمله، وتساعد تحديثات البرامج على تطوير المنصة. تظل الوظائف الأساسية متاحة مباشرة على UNO، مع الهاتف أو بدونه.',callouts:[{title:'أكثر من 16 مدخلاً للنظام',body:'الحرارة · الماء · درجة الحرارة\nحالة النظام'},{title:'معالجة عالية السرعة',body:'تنسيق سريع بين جميع\nالأنظمة النشطة.'},{title:'الحرارة · الضوء · الصوت',body:'نواة واحدة تنسق\nالجلسة بالكامل.'},{title:'تبادل بيانات التطبيق',body:'تفاعل مستمر مع\nتطبيق RAMSIDER.'},{title:'تطور عبر الإنترنت',body:'قد توفر التحديثات وظائف\nجديدة ومنطق تحكم جديد.'}],eyebrow2:'ذكاء النظام',headline2:'نواة واحدة.\nكل الأنظمة متصلة.',body2:'يتلقى CyberMind بيانات من أكثر من 16 مدخلاً ويراقب وجود الماء ودرجة الحرارة وحالة النظام لحظياً. ينسق الحرارة والضوء والصوت، ويتبادل البيانات مع تطبيق RAMSIDER ويتطور عبر التحديثات المدعومة.' },
+  zh: { eyebrow1:'机载智能',headline1:'系统不只是响应。\n它持续思考。',body1:'CyberMind 是 UNO 内置的智能核心。传感器采集系统信息，机载处理协调运行，软件更新让平台持续发展。核心功能可直接在 UNO 上使用，无论是否连接手机。',callouts:[{title:'16+ 系统输入',body:'热量 · 水 · 温度\n系统状态'},{title:'高速处理',body:'快速协调所有\n运行中的系统。'},{title:'热量 · 灯光 · 声音',body:'一个核心协调\n整个使用过程。'},{title:'应用数据交换',body:'与 RAMSIDER 应用\n持续交互。'},{title:'在线演进',body:'更新可带来新功能\n和控制逻辑。'}],eyebrow2:'系统智能',headline2:'一个核心。\n连接每个系统。',body2:'CyberMind 接收来自 16 个以上系统输入的数据，实时监测水、温度和系统状态。它协调加热、灯光和声音，与 RAMSIDER 应用交换数据，并通过受支持的更新不断发展。' },
+  ja: { eyebrow1:'内蔵インテリジェンス',headline1:'システムは反応するだけではない。\n常に考え続ける。',body1:'CyberMind は UNO に内蔵された知能です。センサーが情報を集め、内蔵処理が動作を調整し、ソフトウェア更新がプラットフォームを進化させます。主な機能はスマートフォンの有無にかかわらず UNO から直接利用できます。',callouts:[{title:'16以上のシステム入力',body:'熱 · 水 · 温度\nシステム状態'},{title:'高速処理',body:'稼働中の全システムを\nすばやく連携。'},{title:'熱 · 光 · 音',body:'一つのコアが\nセッション全体を調整。'},{title:'アプリとのデータ交換',body:'RAMSIDER アプリと\n継続的に連携。'},{title:'オンライン進化',body:'更新によって新機能と\n制御ロジックを追加可能。'}],eyebrow2:'システムインテリジェンス',headline2:'一つのコア。\nすべてのシステムを接続。',body2:'CyberMind は16以上のシステム入力からデータを受け取り、水、温度、状態をリアルタイムで監視します。熱、光、音を調整し、RAMSIDER アプリとデータを交換して、対応する更新を通じて進化します。' },
+  ko: { eyebrow1:'내장 지능',headline1:'시스템은 반응만 하지 않습니다.\n끊임없이 생각합니다.',body1:'CyberMind는 UNO에 내장된 지능입니다. 센서가 시스템 정보를 수집하고, 내부 처리 기능이 작동을 조율하며, 소프트웨어 업데이트가 플랫폼을 발전시킵니다. 핵심 기능은 휴대전화 유무에 관계없이 UNO에서 바로 사용할 수 있습니다.',callouts:[{title:'16개 이상의 시스템 입력',body:'열 · 물 · 온도\n시스템 상태'},{title:'고속 처리',body:'작동 중인 모든 시스템을\n빠르게 조율합니다.'},{title:'열 · 빛 · 소리',body:'하나의 코어가\n전체 세션을 조율합니다.'},{title:'앱 데이터 교환',body:'RAMSIDER 앱과\n지속적으로 상호 작용.'},{title:'온라인 발전',body:'업데이트로 새 기능과\n제어 로직을 제공할 수 있습니다.'}],eyebrow2:'시스템 인텔리전스',headline2:'하나의 코어.\n모든 시스템 연결.',body2:'CyberMind는 16개 이상의 입력에서 데이터를 받아 물, 온도, 시스템 상태를 실시간으로 확인합니다. 열, 빛, 소리를 조율하고 RAMSIDER 앱과 데이터를 교환하며 지원되는 업데이트를 통해 발전합니다.' },
+};
+# CyberMind description map — CHG-0069
+
+Source: `tech_02/CyberMind_WITH_TEXT_941x1672.png` and `CyberMind_02_SYSTEM_CONNECTED_EN_941x1672.png`, native 941×1672. Existing viewer uses the same source plane for PNG/title and scales it to the real viewport; use semantic HTML inside SVG foreignObject, pointer-transparent. Existing title stays separate. Bottom-left source folios are deliberately omitted by current user request; upper indicators remain. Open Sans Regular 400, with new copy translated in all supported locales and RTL text direction for Arabic. Product claims are designer copy, unverified for publication.
+
+| Slide | Unit | Native source target |
+| --- | --- | --- |
+| 01 | eyebrow `Onboard intelligence` | x64 y1215, brown ~26px |
+| 01 | headline `The system does not simply respond. / It continuously thinks.` | x64 y1265, ~50px/58 |
+| 01 | rule | x64:877 y1457 |
+| 01 | body `CyberMind is the onboard intelligence inside UNO. Sensors collect information from the system, onboard processing coordinates its operation, and software updates keep the platform evolving. Core functions remain available directly on UNO—with or without a phone.` | x64 y1469, ~28px/30, five lines |
+| 02 | five callouts | icon art and leader lines stay in PNG; live title/body at x142, tops 420/590/744/892/1034, ~20px title/~18px body |
+| 02 | eyebrow `SYSTEM INTELLIGENCE` | x56 y1246, brown ~26px tracked |
+| 02 | headline `ONE CORE. / EVERY SYSTEM CONNECTED.` | x56 y1287, ~50px/55 |
+| 02 | rule and body | x56:877 y1417; paragraph x56 y1437, ~28px/42 |
+
+Callouts: `16+ SYSTEM INPUTS` / `Heat · water · temperature / System state`; `HIGH-SPEED PROCESSING` / `Fast onboard coordination / across every active system.`; `HEAT · LIGHT · SOUND` / `One core coordinates / the complete session.`; `APP DATA EXCHANGE` / `Continuous interaction / with the RAMSIDER app.`; `ONLINE EVOLUTION` / `Supported updates can deliver / new functions and control logic.`
+
+Slide 02 paragraph: `CyberMind receives data from 16+ system inputs, monitoring water presence, temperature and system state in real time. It coordinates heating, light and sound, exchanges data with the RAMSIDER app and evolves through supported updates.`
+
+Acceptance: compare decoded Pro 402×874 screenshots to aligned reference composition; inspect Pro Max 440×956 and representative locale/widths; verify original PNG HTTP/hash unchanged, callouts without duplicated source lettering, both gallery entries, slide/keyboard/touch/RTL/focus/close; type/lint/build/native review and measured production performance. Source icon/leader artwork remains intact. Reference claims about sensor count, app exchange, software updates and operation remain unverified until product confirmation.
+# Ramsider UNO — project rules
+
+Build the new product site from `design/references/`. **Design and implement for iPhone 17 Pro first, then verify iPhone 17 Pro Max; adapt responsively to every other screen size.** The real mobile page must match the supplied reference while loading quickly and working accessibly. One user request should produce one complete delivery: perform as many internal inspect → implement → verify → fix cycles as needed, then code review, performance work, and final re-verification. Visual slices are internal work units; finish and integrate the whole requested page or feature before delivery. Do not hand the user a first draft to find ordinary defects. “Done” means every applicable gate has passed with evidence, not that code compiles or that zero bugs have been assumed.
+
+These are the mandatory rules. [docs/discipline.md](docs/discipline.md) defines stage gates and failure routing; [CONTEXT_INDEX.md](CONTEXT_INDEX.md) routes to other details. For substantive project work, read the short [MEMORY.md](MEMORY.md) for current state, then only the topic files relevant to the task. `PROMPT.txt` and `SUMMARY.txt` are source records for unresolved questions; current user instructions and current assets take precedence over their examples or suggestions.
+
+## Mandatory change and defect log
+
+[CHANGELOG.md](CHANGELOG.md) is the authoritative record of **every logical project change and every discovered defect**, including code, assets, content, mappings, tests, documentation, configuration, user corrections and agent-discovered regressions. The agent maintains it **without a user reminder or a separate permission request**: create/update the entry at discovery, record the solution and changed files when applied, then append verification and approval before delivery. Search relevant IDs when resuming work; do not wait until the final answer to reconstruct the history.
+
+Use the journal's required fields and lifecycle. Record what was wrong/missing/different, expected result, reference/request, cause, solution, intermediate mapping/specification and how it was applied, changed paths, checks and evidence. Every claimed fix needs a dated **technical approval**, naming the verifier and its evidence (and independent auditor when applicable). `APPLIED_UNVERIFIED` is not `VERIFIED`; blocked/skipped checks cannot supply approval. Explicit user approval is a separate field: never invent it or require it for routine authorized fixes. Reopen a failed fix under the same ID and preserve the previous verdict and failure history. Track remaining defects as open entries, even when outside the current task.
+
+For every defect, explain the agent's observable mistaken decision/action, the missed check, responsibility with evidence, and a concrete behavior change. Distinguish genuinely changed/missing inputs from agent failures; do not blame the user merely because an input was absent. Unknown causes stay explicit. Link repeatable causes to LESSONS and an Agent Eval case with its actual run status; a fixed UI does not prove improved agent behavior. Before similar work or a fresh rebuild, retrieve those lessons and turn prevention into acceptance checks. Repository memory improves instructions/context, not model weights.
+
+Small edits may use a short entry, but cannot omit logging or proportionate verification. Group related edits under one logical ID; do not log every tool call. A delivery is incomplete if its journal records or required technical approval are missing. MEMORY describes current state; LESSONS explains reusable prevention; neither replaces CHANGELOG.
+
+## Work in stages
+
+1. **Understand before coding.** Check repository state, [MEMORY.md](MEMORY.md), relevant lessons, and the requested scope. Inspect `design/references/background.png` first, then `background_text.png`, then relevant fonts, button artwork, and source layers. Crop the 941 × 32,127 reference into legible sections. Map content, controls, art layers, section boundaries, and the source-to-CSS viewport scale; set observable acceptance checks and identify unverified product facts. Use [DESIGN.md](DESIGN.md) and [PRODUCT.md](PRODUCT.md). **Exit:** the target slice, assets, behavior, and comparison method are understood; unresolved inputs are explicit.
+2. **Implement one visual slice.** Build for the Pro baseline first, using the clean background as artwork and semantic HTML/CSS for text and controls. Keep text translatable and controls usable; no inert CTA or invented checkout. Reproduce reference copy in the local build while tracking unverified factual claims for publication. Use Next.js + React + strict TypeScript with the framework's own build toolchain; choose each route's rendering mode and Server/Client boundaries from its data and interaction needs. Do not revive the deleted app. Use [ARCHITECTURE.md](ARCHITECTURE.md). **Exit:** the slice renders and its required behavior works; continue through all slices in the requested scope.
+3. **Verify the actual pixels.** Open the running page in a real browser at the iPhone 17 Pro viewport, then verify Pro Max. Confirm the page's actual CSS layout width matches each test profile (the viewport meta tag must be correct). Wait for fonts/images and capture screenshots. Compare the Pro image to the calibrated reference crop; inspect Pro Max as a responsive target unless it has its own reference. The verifier must see screenshots, not only DOM/CSS measurements. Fix material differences and capture again. Use a tolerant pixel diff as a second signal when aligned. Use [docs/visual-qa.md](docs/visual-qa.md). **Exit:** no material mismatch remains in the supported target composition; otherwise keep iterating or report a concrete external blocker without saying “done.”
+4. **Check behavior and adaptation.** Test relevant clicks, hover, scroll, navigation, forms, menus, animation states, keyboard access, Arabic RTL, mobile safe areas, and representative tablet/desktop widths. Check overflow, clipping, crops, wraps, spacing, and tile seams. Use [docs/mobile.md](docs/mobile.md). **Exit:** required states work at the sizes they support.
+5. **Review and optimize.** For code changes, run Codex's native `/review` on the actual diff before delivery (CLI equivalent when needed), examine every actionable finding, fix it, and rerun affected checks. Run available type, lint, test, and production-build checks. Review component boundaries, duplication, accessibility, and unused code. Measure first render, LCP/INP/CLS where measurable, network bytes, JavaScript, layout shifts, and scroll smoothness in a production build. Reassess static, request-time server, and client rendering against measured latency, freshness, and client cost; change strategy where it improves the result. Fix meaningful problems, then repeat affected visual/browser checks. Use [QUALITY.md](QUALITY.md) and [PERFORMANCE.md](PERFORMANCE.md). **Exit:** no known material code, visual, accessibility, or speed regression remains; report if `/review` was unavailable rather than counting a manual pass as its result.
+6. **Learn and report evidence.** Complete the affected [CHANGELOG.md](CHANGELOG.md) entries with actual checks, technical approval and remaining open IDs. Refresh [MEMORY.md](MEMORY.md) when verified state, decisions, or blockers changed; record repeatable errors in [LESSONS.md](LESSONS.md). Use [docs/definition-of-done.md](docs/definition-of-done.md). State tested viewports, screenshot comparisons, interactions, build checks, performance measurements, remaining differences, and checks that could not run. Never claim pixel fidelity, WCAG compliance, a 95+ Lighthouse score, or completion without the corresponding evidence.
+
+**Do not mark a failed gate passed or delegate ordinary QA to the user.** Route the failure back to the stage that can fix it, repeat that stage, and rerun downstream checks the fix could affect. A blocked external dependency must not stop independent work. For UI work, the implement → browser screenshot → compare → fix → recheck loop is mandatory after each completed visual slice and after later appearance changes; repeat it on the assembled page. Work autonomously through all feasible checks; resolve routine choices from the repository and references, and seek only irreducible external facts or access while continuing independent work. For a small non-UI task, apply only relevant stages.
+
+For substantive project work, start one independent, non-editing **discipline auditor** alongside scope inspection. Reuse it at each applicable stage gate: scope before implementation; each completed UI slice's rendering and visual evidence; behavior/adaptation; code review and performance; and final integration, memory, and delivery evidence. Give it acceptance checks, changed files, browser images, command results, and any other agents' findings as relevant. Wait for its evidence-based pass/fail/blocked finding before closing a gate. Fix failures and re-audit affected gates; the main agent owns implementation and required checks. Use the project [auditor profile](.codex/agents/discipline_auditor.toml) when available and [supervision protocol](docs/supervision.md); if the profile cannot be selected, give a subagent the same non-editing assignment. Do not spawn it for a trivial edit. The auditor supplements real QA and native `/review`; it cannot certify missing evidence.
+
+## Standing constraints
+
+- Working-context efficiency: throughout coding and QA, read only affected code and stage docs; inspect the long reference and screenshots through relevant crops at useful resolution. Keep full-size images, raw image data, long logs, and unrelated file dumps out of model context. Reuse recorded findings, bound tool output, and rerun only checks affected by a change. Never skip required QA to save tokens; stop once all applicable gates pass.
+- Primary devices: **iPhone 17 Pro (402 × 874 CSS px, DPR 3)** is the baseline; **iPhone 17 Pro Max (440 × 956 CSS px, DPR 3)** is the second required mobile target. These are emulation screen sizes, not fixed-height CSS requirements; Safari's visible area changes with browser chrome. Build mobile-first for these devices. All other phones, tablets, and desktops receive responsive adaptation, with no horizontal overflow or broken content. Preserve the supplied composition rather than substituting a generic design. See [docs/mobile.md](docs/mobile.md).
+- Locales: English, Russian, German, French, Spanish, Italian, Turkish, Arabic, Chinese, Japanese, and Korean. Use translation keys. Arabic needs correct RTL layout and behavior.
+- Accessibility: semantic content, keyboard and screen reader support, labels, visible focus, usable touch targets, WCAG AA contrast, and reduced-motion support. Verify affected behavior.
+# Ramsider project memory
+
+Durable handoff for work in this repository, across chats and context compactions. Read this short file at the start of substantive project work; follow [AGENTS.md](AGENTS.md) for rules and [CONTEXT_INDEX.md](CONTEXT_INDEX.md) for topic details. [LESSONS.md](LESSONS.md) stores reusable mistakes separately. This file records **state and decisions**, not a transcript or a second instruction set.
+
+The mandatory [CHANGELOG.md](CHANGELOG.md) now records logical changes and defects with stable IDs, solution/mapping traceability, checks and dated technical approval. Agents update it autonomously at discovery, application and verification; user approval remains separate. It backfills this session’s font/button, Business and FAQ work and retains open residuals. CHG-0023 adds explicit responsibility, missed checks and behavior/eval links: agent implementation/verification failures are distinguished from new inputs (Business). Before similar work or a fresh rebuild, retrieve these causes and prevention checks. Agent Eval has a documented current-code protocol; the browser suite now defines 16 cases (four cover wheel input), but no controlled agent-run baseline has been executed and no model-weight training is claimed.
+
+## Technology viewer — 2026-10-07
+
+- CHG-0068 VERIFIED locally: CyberMind2 clean native941×1672 PNGs reached down/Next from HeatCore4, up/Previous returns remembered selection; live semantic Open Sans Regular400 title, no descriptive copy/folios. Original source RGBA01/RGB02/noICC/compression0; exact channels outside25134/25169glyph-mask pixels and allalpha0changed. Hidden wall is locally reconstructed, original product pixels retained. **Current warming policy supersedes0064: first image of each group post-load (2), remainingfour onopen inparallel; six retained pending/decoded URL-cache resources reused/retried.** Pending-group repeats/reversal and removed-control focus fixed/tested. Pro/Max4Cyberactuals/sourcepairs and4browserRGB0outsideheader, HeatCore8fullRGB0;68viewer+4integration+29locale/viewport states/type/lint/14SSG/native-reviewPASS. Independent scope/visual/behavior/review-performancePASS; primary datedtechnicalapprovalAPPROVED. LocalLCP188/CLS0/JS160697B(+1090)/scrollp9516.8/cached27–33ms; synthetic4MbpsLCP328/CLS0.000222/firstpair37s/all6~75s/~29.95MB originaltransfer. Cold immediate readiness conditional, no field/Lighthouseclaim. Evidence [CyberMind checks](docs/evidence/technology-viewer/cybermind/checks.md), [map](docs/technology-cybermind-map.md); useracceptance not recorded. Independent finalstagedrecordsPASS; runtime44fdf2a pushedfeature/main, exactVercelProduction6911286142success. Public13Pro/Pro/Max sixPNGbodyidentities/profile,2+4requests/cache/controls/backing/restore and12Pro-MaxfullRGB0 actualsPASS; primaryscopedpublicapprovalAPPROVED, independentpublicrelease/stagedmetadataPASS; releaseevidenceclosedfeatureonly/mainkeepsverifiedruntime.0065native and0066landscape remainindependent.
+
+- CHG-0067 portrait-phone contour VERIFIED locally: updated Founder input supersedes the old exterior side inset. Below700CSSpx in portrait the metal reaches x0/right viewport; original cutout x29:912 of941px drives photo left3.08182784%/width93.83634431%. Vertical position, top/bottom controls, tablet/desktop/landscape geometry, original PNG/frame bytes and async warming unchanged. Pro/Max allfour actuals and13Pro390×664/732/844/Arabic inspected; 48 viewer+4 integration, type/lint/build14SSG/native review PASS; controls outsideframe RGB0/8. Independent scope/visual/behavior/review-performance gates PASS. Local FCP/LCP116ms,CLS0,JS159607B,scrollp9516.7ms, cached switches31–34ms. [Evidence](docs/evidence/technology-viewer/full-width/checks.md). Independent final staged audit PASS; runtime bc20c4e pushed feature/main, Vercel Production6909034211 success. Public13Pro/Pro/Max allfour PNG identities/edges/backing/restore and eight Pro/Max full RGB0 comparisons PASS; independent public release gate PASS after direct public captures/exactSHA/status inspection. Initial public check5s cold-readiness timeout retained and corrected with a bounded actual response-body barrier; no runtime change. CHG-0065 hardware uncertainty and CHG-0066 landscape overlap remain open as recorded.
+
+- CHG-0065 document-backing correction applied: root/body black and other .dialog-controller children/descendants hidden only while native technology dialog is open. Original gallery geometry/assets/network unchanged; colors/layout/scroll restore on close. Viewer44+integration4/type/lint/build/native review PASS; Pro/Max8 full RGB0 comparisons;13Pro viewport-height/Arabic/tablet black document-plane checks PASS. Physical iOS Telegram/Safari toolbar unavailable, so customer's native symptom remains APPLIED_UNVERIFIED. CHG-0066 OPEN: inherited short-landscape toolbar/frame overlap, outside this backing correction. Runtime0a00a61 pushed feature/main; production6905392448 success and public13Pro/Pro/Max document-plane/restore/allPNG/eightRGB0 verification PASS. See safari-backing evidence; don't claim all-size/native-browser completion.
+
+
+- CHG-0064 post-load warm-up VERIFIED on2026-10-07: allfour accepted original PNGs start in parallel with low fetch priority after window load/already-complete hydration; retained per-instance Image/decode promises reuse pending/decoded resources, early opening starts/promotes first and selection promotes target, failures evict/retry. Source files/frame/text/layout unchanged. Pro/Max8/8 actuals have0changedchannels vsCHG0063; viewer40/40+strengthenedretry4/4+integration4/4/type/lint/build/native review PASS; independent scope/visual/behavior/review-performance PASS. LocalLCP120/CLS0/JS159607(+209)/scrollp9516.7, warm switching18–34ms. Synthetic4Mbps+100ms LCP340vs336control,CLSsame,p95~16.7;18.9MB photos complete~52.75sec duringcoldlongscroll. No guarantee ready before immediateopen/slowconnection. [Evidence](docs/evidence/technology-viewer/async-warm/checks.md). Previous 0initialtechnologyrequests/on-demand policy is superseded by explicit userrequestall4post-load warming. Independent final staged record audit PASS; final native review no actionable regression. Runtime commit4454538 pushed to feature/main; Vercel production6904565764 success and publicdemo https://ramsider-main.vercel.app/en verified on Pro/Max with all4post-load PNGs/8unchangedactuals/controls, independent publicreleasegate PASS.
+
+- CHG-0063 description layer is VERIFIED with primary dated technical approval; independent final staged record audit PASS on2026-10-07. Open Sans family, viewer Regular400 matches Swipe/Next; secondary landing paragraphs use Light300. All supplied TEXT-reference headings, paragraphs, heater callouts, phone/diagram labels and workflow are semantic translated React content over the unchanged accepted PNGs. Story serializes only current-locale copy; all11locale dictionaries fit the source-space boxes, ArabicRTL. User explicitly excludes bottom-left source folios; no page numbers are rendered, upperfouractive dots remain. Brown captions retain #975f41 with a thin white outline after marble-shadow contrast failure; local contrast/real mobile recapture verified. FinalPro/Max all8 captures and pairedsource crops, no-change browserRGBoutside newtext8/8,28/28viewer+4/4integration+26/26locale-width(104descriptionstates)/type/lint/buildPASS. ProductionlocalLCP100/CLS0/JS159398B/0initialtechrequests/ready150/p9517.8ms; nofieldINP/Lighthouse/hardwarepinchclaim. Independent scope, final visual, behavior/adaptation and code-review/performance gates PASS; final native delivery review no actionable regression; independent final staged record audit PASS on2026-10-07. Evidence [descriptions](docs/evidence/technology-viewer/descriptions/checks.md); PRODUCT tracks unverified designer claims.
+
+- CHG-0062 live-title decomposition is VERIFIED with dated primary technical approval on 2026-10-07; independent final record audit PASS. Four original master PNGs are untouched; delivery remains 941×1672 RGB PNG/no ICC/4,729,424 B each, with only ~22.2K title-mask pixels reconstructed per image and exact decoded RGB outside masks. Every product pixel and original resolution/color/detail remains unchanged; source background hidden under lettering is reconstructed, not provably original. Separate TechnologyTitle semantic React h2 uses landing OpenSans400/source-space SVG text with all11locale descriptor keys and labels the dialog. No frame/landing geometry changes. Reproducible prepare-technology-photos.mjs replaces old byte-copy generator; local patch inputs live in design/derived/technology-title. Pro/Max all8 screenshots and Arabic, outside-header browser diff0,24/24viewer+4/4integration+26/26adaptation/type/lint/build/native review pass; independent scope/visual/behavior/adaptation/review/performance PASS. Native03 groove phase ghost was fixed and prevention recorded in LESSONS. [Current title map/evidence](docs/evidence/technology-viewer/live-title/checks.md).
+
+- CHG-0061 historical baseline was VERIFIED for original-only photo delivery on 2026-10-07. The user rejected q95 WebP and tiny previews: that baseline used byte-identical clean source PNGs02–05 (941×1672 RGB,4,729,424B each), with source/public/HTTP hash equality4/4; old photo WebPs and preview JSON removed. No encoding, file resize, color/profile change or low-resolution fallback. The approved separate metal contour and semantic OpenSans controls/arrows/dots remain as in the earlier layer correction. Previous decoded photo stays until the next original decodes; four compact24×44 indicators, top advance, bottom/down placeholder, X/Escape and RTL retained. Pro/Max all-four screenshots,24/24 viewer and4/4 integration browser tests,26/26 locale-width states, type/lint/build/native review pass. Independent scope, visual, behavior/adaptation and review/performance PASS; primary dated technical approval recorded, independent final staged record audit PASS on 2026-10-07. No landing assets/code changed. Original-photo policy and evidence: [map](docs/technology-viewer.md), [original PNG checks](docs/evidence/technology-viewer/original-png/checks.md), [CHG-0061](CHANGELOG.md#chg-0061). One supplied group only; further groups await inputs.
+
+## Latest artwork state — 2026-10-05
+
+- 2026-10-05 CHG-0059 replaces the reconstructed comparison ornament with the designer's exact 701×401 transparent `design/references/01_Compare_Overlay.png`; the live copy remains `public/art/expression-waves.png` and the generator now copies the master byte-for-byte. The source has no ICC tag, so its intended color space is unconfirmed. Pro/Max and Arabic WebKit compositions, all 11 locale controls, and lazy loading were checked; see [map](docs/expression-waves-map.md), [journal](CHANGELOG.md#chg-0059), and [evidence](docs/evidence/compare-overlay/).
+
+- CHG-0058 adds the project [artwork-color-pipeline skill](.agents/skills/artwork-color-pipeline/SKILL.md), explicitly triggered from AGENTS.md for new/replaced Photoshop/raster references and format/delivery changes. The converter now compares default and sharp-YUV WebP using visible/local/p99/ΔE76 measurements; `doc-emc` is lossless after its 29/255 p99 red/blue error was caught. Quality/browser/performance evidence is recorded under `docs/evidence/art-webp/`; no P3 or Photoshop ACE exact-parity claim.
+- CHG-0057 adds a future-use reserve of 22 exact-source Adobe RGB PNG crops in `design/derived/original-png/` (46,308,888 bytes). `tools/slice-background-png.py` regenerates them and `manifest.json` records source/output hashes and crop boxes. The reserve is outside `public/`, so it adds no deployment assets; the live page still requests WebP only. Pro/Pro Max production WebKit request logs show zero reserve PNG requests. Format switching has not been implemented.
+- CHG-0056 replaces the temporary 22 active PNG crops with WebP derived from the **current user-modified** Adobe RGB reference through an explicit LittleCMS Adobe RGB→sRGB conversion. Every full WebP carries sRGB ICC and exact source alpha; q95 is used where measured color shift stays within thresholds, with all five document thumbnails lossless after CHG-0058. The old `public/art/unused-webp/` archive and superseded active PNG crops were removed; `design/references/background.png` and the user's untracked `background_old.png` were preserved. `tools/convert-art-webp.py` regenerates the files and [color metrics](docs/evidence/art-webp/color-metrics.json); the method and alternatives are in [art color pipeline](docs/art-color-pipeline.md).
+- The 22 full WebPs total 6.278 MB after CHG-0058 measured quality selection (formerly 5.665 MB), plus about 60 KB of below-fold previews inlined through `lib/art-previews.json`, versus 50.12 MB for fresh sRGB PNG equivalents. Next Image removes each preview after the full image decodes so source transparency remains visible. The hero is about 248 KB versus the former 3.19 MB PNG. Pro/Pro Max WebKit screenshot comparisons to temporary color-managed PNGs, full suite 93 PASS/19 expected SKIP, type/lint/build and cold 4 Mbps measurements are recorded in CHG-0056; native review and independent scope/visual/behavior/performance audits passed; CHG-0056 is technically VERIFIED. The first final journal audit found stale approval wording, which was corrected; the independent final re-audit passed on 2026-10-04. The first preview fills a distant cold jump in about 35 ms while full distant artwork takes roughly 6.3 s on that synthetic connection after the quality pass; no Lighthouse/INP claim. This replaces the older current-artwork bullets below where they describe active PNG delivery. CHG-0047/0048 historical failed PNG speed tradeoff remains in the journal.
+
+## Current state — checked 2026-10-01
+
+- The new product site is implemented in `app/`, `components/`, and `lib/` with Next.js 16, React 19, and strict TypeScript. The eleven locale routes are statically prerendered. `Story` is a Server Component; small interactive boundaries are Client Components. The current production artwork is the color-managed WebP pipeline in CHG-0056; the prior PNG delivery, archived WebPs, and CHG-0048 speed problem are historical. The full reference PNGs are never served directly.
+
+2026-10-07T15:04:18.882357Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a116e4-a458-71e2-b8f8-60cbab435c8d turn_id=01a116e4-a539-7b50-92ed-9d3b663302d3 item_id="exec-e9bd7bd7-2130-4db5-b678-890abd40943e"
+exec
+/bin/zsh -lc "sed -n '1,95p' components/TechnologyDescriptions.tsx; rg -n 'technology-viewer__descriptions|technology-description__box|technology-description__copy' app/globals.css; sed -n '1,140p' docs/technology-cybermind-description-map.md; rg -n 'CHG-0069|APPLIED|VERIFIED' CHANGELOG.md | tail -10; nl -ba components/CyberMindDescriptions.tsx | head -45" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 112ms:
+'use client';
+
+import { useLayoutEffect, useRef } from 'react';
+import type { Locale } from '@/lib/i18n';
+import type { TechnologyDescriptionCopy, TechnologySlideId } from '@/lib/technology-descriptions';
+
+type BlockProps = {
+  id: string; x?: number; y: number; width?: number; height: number;
+  size: number; line?: number; color?: string; tracking?: number; weight?: number;
+  kind?: 'h3' | 'h4' | 'p' | 'span'; text: string; number?: string; locale: Locale;
+};
+
+/** HTML stays semantic; the source plane follows the same X/Y fit as the PNG. */
+export function TextBlock({ id, x = 54, y, width = 824, height, size, line = size * 1.2, color = '#000', tracking = 0, weight = 400, kind: Tag = 'p', text, number, locale }: BlockProps) {
+  const box = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const fit = () => {
+      const container = box.current;
+      const textElement = container?.firstElementChild as HTMLElement | null;
+      if (!container || !textElement) return;
+      let scale = 1;
+      do {
+        textElement.style.fontSize = `${size * scale}px`;
+        textElement.style.lineHeight = `${line * scale}px`;
+        if (textElement.scrollHeight <= container.clientHeight + 1 && textElement.scrollWidth <= container.clientWidth + 1) break;
+        scale -= .025;
+      } while (scale >= .6);
+    };
+    fit();
+    void document.fonts.ready.then(fit);
+  }, [text, locale, size, line, width, height, tracking, number]);
+  return <foreignObject x={x} y={y} width={width} height={height} data-description-block={id}>
+    <div ref={box} className="technology-description__box" lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+      <Tag className={`technology-description__copy${color === '#975f41' ? ' technology-description__warm' : ''}`} style={{ fontSize: size, lineHeight: `${line}px`, color, letterSpacing: tracking, fontWeight: weight }}>
+        {number && <span className="technology-description__number">{number}</span>}{text}
+      </Tag>
+    </div>
+  </foreignObject>;
+}
+
+export function Divider({ y }: { y: number }) {
+  return <line x1="56" x2="877" y1={y} y2={y} stroke="#8f8983" strokeWidth="1" aria-hidden="true" />;
+}
+
+export function TechnologyDescriptions({ slide, locale, name, copy }: { slide: TechnologySlideId; locale: Locale; name: string; copy: TechnologyDescriptionCopy }) {
+  const common = { locale };
+  const brown = '#975f41';
+  return <section className="technology-viewer__descriptions" aria-label={name} data-slide={slide}>
+    <svg viewBox="0 0 941 1672" preserveAspectRatio="none" role="presentation">
+      {slide === '02' && <>
+        <TextBlock {...common} id="headline" x={56} y={332} height={128} kind="h3" size={50} line={58} text={copy.three} />
+        <TextBlock {...common} id="upper-label" y={703} width={235} height={32} kind="h4" size={23} line={30} text={copy.upper} number="01" />
+        <TextBlock {...common} id="upper-temperature" x={94} y={735} width={180} height={32} size={22} line={30} color={brown} text="0–280°C" />
+        <TextBlock {...common} id="upper-body" y={767} width={235} height={60} size={21} line={28} text={copy.upperBody} />
+        <TextBlock {...common} id="grill-label" y={832} width={235} height={32} kind="h4" size={23} line={30} text={copy.grillMode} number="02" />
+        <TextBlock {...common} id="grill-body" y={866} width={235} height={86} size={21} line={28} text={copy.grillBody} />
+        <TextBlock {...common} id="lower-label" y={972} width={235} height={32} kind="h4" size={23} line={30} text={copy.lower} number="03" />
+        <TextBlock {...common} id="lower-temperature" x={94} y={1004} width={180} height={32} size={22} line={30} color={brown} text="0–160°C" />
+        <TextBlock {...common} id="lower-body" y={1036} width={235} height={60} size={21} line={28} text={copy.lowerBody} />
+        <TextBlock {...common} id="eyebrow" y={1322} height={42} size={26} line={34} color={brown} text={copy.architecture} />
+        <Divider y={1381} />
+        <TextBlock {...common} id="body" y={1399} height={205} size={28} line={42} text={copy.heatersBody} />
+      </>}
+      {slide === '03' && <>
+        <TextBlock {...common} id="eyebrow" y={1123} height={42} size={26} line={34} tracking={2.6} color={brown} text={copy.sails} />
+        <TextBlock {...common} id="headline" x={52} y={1176} height={128} kind="h3" size={50.5} line={58} text={copy.release} />
+        <Divider y={1324} />
+        <TextBlock {...common} id="body" y={1347} width={840} height={244} size={27.5} line={42} text={copy.sailsBody} />
+      </>}
+      {slide === '04' && <>
+        <TextBlock {...common} id="phone-brand" x={130} y={512} width={101} height={30} size={14} line={24} color="#fff" tracking={2} text="RAMSIDER" />
+        <TextBlock {...common} id="phone-curve" x={130} y={588} width={142} height={32} size={14} line={24} color="#fff" text={copy.heatingCurve} />
+        <TextBlock {...common} id="phone-upper" x={80} y={638} width={119} height={30} size={16} line={24} color="#00e4ed" text={copy.upperShort} />
+        <TextBlock {...common} id="phone-grill" x={80} y={807} width={119} height={30} size={16} line={24} color="#00e4ed" text={copy.grill} />
+        <TextBlock {...common} id="phone-lower" x={80} y={971} width={119} height={30} size={16} line={24} color="#00e4ed" text={copy.lowerShort} />
+        <foreignObject x="250" y="521" width="28" height="25" aria-hidden="true"><div className="technology-description__status">96%</div></foreignObject>
+        <TextBlock {...common} id="diagram-upper" x={866} y={849} width={70} height={30} size={16} line={24} tracking={1.4} text={copy.upperShort} />
+        <TextBlock {...common} id="diagram-grill" x={866} y={948} width={70} height={30} size={16} line={24} tracking={1.4} text={copy.grill} />
+        <TextBlock {...common} id="diagram-lower" x={866} y={1061} width={70} height={30} size={16} line={24} tracking={1.4} text={copy.lowerShort} />
+        <TextBlock {...common} id="eyebrow" y={1238} height={42} size={26} line={34} tracking={2} color={brown} text={copy.profiles} />
+        <TextBlock {...common} id="headline" x={52} y={1284} height={70} kind="h3" size={51} line={58} text={copy.power} />
+        <Divider y={1371} />
+        <TextBlock {...common} id="body" y={1387} height={186} size={29} line={42} text={copy.profilesBody} />
+        <TextBlock {...common} id="workflow-create" y={1581} width={160} height={32} size={17} line={25} tracking={1.5} text={copy.create} />
+        <TextBlock {...common} id="workflow-control" x={260} y={1581} width={190} height={32} size={17} line={25} tracking={1.5} text={copy.control} />
+        <TextBlock {...common} id="workflow-refine" x={504} y={1581} width={255} height={32} size={17} line={25} tracking={1.5} text={copy.refine} />
+        <text x="224" y="1601" fontSize="17" aria-hidden="true">/</text><text x="469" y="1601" fontSize="17" aria-hidden="true">/</text>
+      </>}
+      {slide === '05' && <>
+        <TextBlock {...common} id="eyebrow" y={1233} height={42} size={26} line={34} tracking={2} color={brown} text={copy.surface} />
+        <TextBlock {...common} id="headline" x={52} y={1273} height={118} kind="h3" size={49.5} line={55} text={copy.finishes} />
+        <Divider y={1408} />
+        <TextBlock {...common} id="body" y={1418} height={201} size={28.5} line={37} text={copy.finishesBody} />
+      </>}
+    </svg>
+159:.technology-viewer__descriptions{position:absolute;inset:0;pointer-events:none;font-family:OpenSans,Arial,sans-serif;font-weight:400;color:#000;direction:ltr}
+160:.technology-viewer__descriptions svg{display:block;width:100%;height:100%;font-family:inherit}
+161:.technology-description__box{width:100%;height:100%;font-family:OpenSans,Arial,sans-serif;text-align:start}
+162:.technology-description__copy{margin:0;font-family:inherit;font-weight:400;white-space:pre-line;overflow-wrap:break-word}
+# CyberMind description map — CHG-0069
+
+Source: `tech_02/CyberMind_WITH_TEXT_941x1672.png` and `CyberMind_02_SYSTEM_CONNECTED_EN_941x1672.png`, native 941×1672. Existing viewer uses the same source plane for PNG/title and scales it to the real viewport; use semantic HTML inside SVG foreignObject, pointer-transparent. Existing title stays separate. Bottom-left source folios are deliberately omitted by current user request; upper indicators remain. Open Sans Regular 400, with new copy translated in all supported locales and RTL text direction for Arabic. Product claims are designer copy, unverified for publication.
+
+| Slide | Unit | Native source target |
+| --- | --- | --- |
+| 01 | eyebrow `Onboard intelligence` | x64 y1215, brown ~26px |
+| 01 | headline `The system does not simply respond. / It continuously thinks.` | x64 y1265, ~50px/58 |
+| 01 | rule | x64:877 y1457 |
+| 01 | body `CyberMind is the onboard intelligence inside UNO. Sensors collect information from the system, onboard processing coordinates its operation, and software updates keep the platform evolving. Core functions remain available directly on UNO—with or without a phone.` | x64 y1469, ~28px/30, five lines |
+| 02 | five callouts | icon art and leader lines stay in PNG; live title/body at x142, tops 420/590/744/892/1034, ~20px title/~18px body |
+| 02 | eyebrow `SYSTEM INTELLIGENCE` | x56 y1246, brown ~26px tracked |
+| 02 | headline `ONE CORE. / EVERY SYSTEM CONNECTED.` | x56 y1287, ~50px/55 |
+| 02 | rule and body | x56:877 y1417; paragraph x56 y1437, ~28px/42 |
+
+Callouts: `16+ SYSTEM INPUTS` / `Heat · water · temperature / System state`; `HIGH-SPEED PROCESSING` / `Fast onboard coordination / across every active system.`; `HEAT · LIGHT · SOUND` / `One core coordinates / the complete session.`; `APP DATA EXCHANGE` / `Continuous interaction / with the RAMSIDER app.`; `ONLINE EVOLUTION` / `Supported updates can deliver / new functions and control logic.`
+
+Slide 02 paragraph: `CyberMind receives data from 16+ system inputs, monitoring water presence, temperature and system state in real time. It coordinates heating, light and sound, exchanges data with the RAMSIDER app and evolves through supported updates.`
+
+Acceptance: compare decoded Pro 402×874 screenshots to aligned reference composition; inspect Pro Max 440×956 and representative locale/widths; verify original PNG HTTP/hash unchanged, callouts without duplicated source lettering, both gallery entries, slide/keyboard/touch/RTL/focus/close; type/lint/build/native review and measured production performance. Source icon/leader artwork remains intact. Reference claims about sensor count, app exchange, software updates and operation remain unverified until product confirmation.
+1251:- **Technical approval / 2026-10-07:** Codex primary verifier APPROVED for scoped document isolation, unchanged gallery pixels, restore behavior and production checks above. Independent audit pending. Native Telegram/iOS/Safari toolbar verification BLOCKED: no physical device or installed simctl. CHG-0065 remains APPLIED_UNVERIFIED for the customer's native chrome symptom; do not call hardware fixed or full DoD passed. Explicit user acceptance NOT_RECORDED. EVAL-VIEWER controlled agent run NOT_RUN; lesson updated with document-plane/ancestry checks.
+1259:- **Independent review/performance / 2026-10-07:** discipline_audit Stage5 PASS after final independent type/lint logs,14static-route build, native-review-final and actual local performance inspection. Scoped primary technical approval confirmed; native symptom still APPLIED_UNVERIFIED, landscape0066 OPEN. Log trailing whitespace normalized without changing results. Final staged-record audit pending.
+1263:- **Public verification / 2026-10-07:** Runtime0a00a61c245c2b3360a73c3afb70486005c0efe8 atomically pushed to feature/main. Vercel Production–ramsider6905392448 exactSHA success. Canonical https://ramsider-main.vercel.app/en WebKit DPR3 at390×664,402×874,440×956: isolated document backing RGB0,close restores landing,all4PNG HTTPbodyidentity perprofile,eight Pro/Max decoded RGB0,consoleclean PASS. Primary inspected actual public13Pro capture. Evidence deployment.json/deployment-status.json/public-checks.json/public-*.png/check-public.mjs; original customer image copied unchanged for durable evidence. Scoped public technical approval Codexprimary APPROVED; independent release audit pending. Native recipient toolbar remains APPLIED_UNVERIFIED and0066 OPEN.
+1265:- **Independent public release audit / 2026-10-07:** discipline_audit scoped PASS after exactdeployment/status JSON, actual canonical13Pro/Pro/Max images, all4PNG bodies, eightRGB0 results and12staged documentation/evidence paths with clean cached diff. Productionmain remains tested runtime0a00a61; release metadata committed separately tofeature. Native toolbar confirmation still unavailable, CHG-0065 APPLIED_UNVERIFIED and0066 OPEN retained.
+1281:- **Scope/applied / 2026-10-07:** Independent discipline_audit scopePASS after marked screenshot/current geometry review. Override limited to max699px and portrait orientation, preserving accepted tablet/desktop/landscape geometry. Photo opening follows actual contour's941px plane; no artwork regeneration or file edits. Meaningful browser regression measures mobile boundaries/opening and edge metal pixels; baseline fails on existing24px gap. CSS/test/map changed; APPLIED_UNVERIFIED pending actual screenshot loop.
+1287:- **Technical approval / 2026-10-07:** Scoped status `VERIFIED`; Codex primary verifier `APPROVED` for the new portrait-phone side boundaries, native frame cutout alignment and retained controls/source quality. Independent discipline_audit scope, Stage3 actual visual comparison, Stage4 behavior/adaptation and Stage5 code/review/performance all `PASS` after inspecting the named captures, source/seam references, 48 viewer +4 integration checks, mobile JSON, separate static logs, native review and production measurements. Applicable local gates passed; final staged records and public delivery remain pending below. This approval does not close CHG-0065 physical Telegram/iOS uncertainty or CHG-0066 inherited short-landscape overlap. User acceptance NOT_RECORDED. Changed paths: app/globals.css, tests/e2e/technology-viewer.spec.ts, docs/technology-viewer.md, MEMORY.md, this journal and full-width evidence. No raster files changed. No new reusable agent failure from this updated composition input; existing seam/source lessons applied, controlled EVAL-VIEWER NOT_RUN.
+1313:- **Applied / 2026-10-07:** Added technology-gallery metadata and11locale names/up control, two-dimensional viewer selection/token/cache, down/up/remembered-group navigation, six-original staged warming, reusable live CyberMind title; group2 has no description/folio. Previous gold arrow uses existing down PNG rotated180,44px target; narrow320 next-group target separated via max54px inset. Tight source-preserving original PNG generator and native wall patches applied:01RGBA6305310B/02RGB4729424B,941×1672/noICC; outside glyph changedchannels0/alpha0 for both. Primary viewed native source/clean title crops; no lettering ghost visible, browser visual audit pending. Source masters and accepted HeatCore/frame bytes unchanged. Typecheck initialPASS, production build14staticPASS, fresh3021 server restarted; final tests/static/review pending. StatusAPPLIED_UNVERIFIED. Main sources/crop/mask inventory and generation prompt saved with evidence; source-hidden wall explicitly reconstructed.
+1333:- **Technical approval / 2026-10-07:** Scoped CHG-0068 `VERIFIED`; Codex primary verifier `APPROVED` for two original-quality CyberMind images/liveOpenSans400title, two-axis navigation/focus/race recovery, staged2+4 cache, unchangedHeatCorepixels and actualproduction checks. Independent discipline_audit scope, finalStage3actualvisual, Stage4behavior/adaptation and Stage5native-review/performance all `PASS` after directartifacts/screenshots/results inspection. Changed runtime paths:components/TechnologyViewer.tsx,TechnologyTitle.tsx,app/globals.css,lib/technology-gallery.ts,public/art/technology/cybermind/*.png; tests/e2e/technology-viewer.spec.ts,tools/prepare-cybermind-photos.mjs,source tech_02/nativepatches,source/font/viewer maps,cybermind evidence,journal/MEMORY/LESSONS/evalrecords. Source masters preserved; only masked hidden wall reconstructed; no descriptions. UseracceptanceNOT_RECORDED; physical0065APPLIED_UNVERIFIED/landscape0066OPEN retained. Repeatable pending-state/focus/comparison/contrast prevention recorded; EVAL-VIEWERcontrolledrunNOT_RUN. Finalstagedrecord/publicrelease pending.
+1346:## CHG-0069 — CyberMind descriptive text and source folio removal
+1355:- **Applied / 2026-10-07:** New `lib/cybermind-descriptions.ts` holds all eleven locale copies; `components/CyberMindDescriptions.tsx` places semantic headings, paragraphs and five callouts on the native 941×1672 plane using the existing Open Sans text component. Viewer renders it only for the decoded CyberMind slide; Story passes current-locale copy. All clean PNG/frame bytes untouched; source icon/leader artwork remains in PNG. Excluded bottom-left folios; upper active indicators retained. PRODUCT tracks unverified claims. Typecheck/lint PASS; production build and visual/browser checks pending. Status `APPLIED_UNVERIFIED`.
+     1	'use client';
+     2
+     3	import type { Locale } from '@/lib/i18n';
+     4	import type { CyberMindCopy } from '@/lib/cybermind-descriptions';
+     5	import { Divider, TextBlock } from './TechnologyDescriptions';
+     6
+     7	export function CyberMindDescriptions({ slide, locale, name, copy }: { slide: '01' | '02'; locale: Locale; name: string; copy: CyberMindCopy }) {
+     8	  const common = { locale };
+     9	  const brown = '#975f41';
+    10	  const tops = [416, 586, 741, 887, 1029];
+    11	  return <section className="technology-viewer__descriptions" aria-label={name} data-cybermind-slide={slide}>
+    12	    <svg viewBox="0 0 941 1672" preserveAspectRatio="none" role="presentation">
+    13	      {slide === '01' ? <>
+    14	        <TextBlock {...common} id="cyber-eyebrow" x={64} y={1205} width={760} height={42} size={26} line={34} color={brown} text={copy.eyebrow1} />
+    15	        <TextBlock {...common} id="cyber-headline" x={64} y={1253} width={805} height={178} kind="h3" size={50} line={58} text={copy.headline1} />
+    16	        <Divider y={1457} />
+    17	        <TextBlock {...common} id="cyber-body" x={64} y={1460} width={810} height={158} size={28} line={30} text={copy.body1} />
+    18	      </> : <>
+    19	        {copy.callouts.map((callout, index) => <g key={index}>
+    20	          <TextBlock {...common} id={`cyber-callout-${index + 1}-title`} x={142} y={tops[index]} width={290} height={33} kind="h4" size={21} line={26} weight={700} text={callout.title} />
+    21	          <TextBlock {...common} id={`cyber-callout-${index + 1}-body`} x={142} y={tops[index] + 35} width={287} height={58} size={18} line={25} text={callout.body} />
+    22	        </g>)}
+    23	        <TextBlock {...common} id="cyber-eyebrow" x={56} y={1237} width={820} height={40} size={26} line={34} color={brown} tracking={2} text={copy.eyebrow2} />
+    24	        <TextBlock {...common} id="cyber-headline" x={56} y={1275} width={823} height={122} kind="h3" size={50} line={55} text={copy.headline2} />
+    25	        <Divider y={1417} />
+    26	        <TextBlock {...common} id="cyber-body" x={56} y={1428} width={820} height={185} size={28} line={42} text={copy.body2} />
+    27	      </>}
+    28	    </svg>
+    29	  </section>;
+    30	}
+
+2026-10-07T15:04:22.846482Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a116e4-a458-71e2-b8f8-60cbab435c8d turn_id=01a116e4-a539-7b50-92ed-9d3b663302d3 item_id="exec-59052589-590b-46da-8805-9b9e27151569"
+codex
+The new text layer can retain an incorrectly reduced font size after a subsequent fit pass. The remaining changes did not reveal another definite regression.
+
+Review comment:
+
+- [P2] Reset fitted text size before each fit pass — /Users/asmirnou/Projects/g/ramsider/components/TechnologyDescriptions.tsx:18-28
+  When a CyberMind slide changes between locales or fonts finish loading, `TextBlock` can reuse an element whose font size was reduced by an earlier fit. The fit loop only checks whether the text fits; it never restores the requested size before measuring, so shorter replacement copy can remain unnecessarily small. Reset the element to its requested size before each fit pass, including the `document.fonts.ready` pass.
+The new text layer can retain an incorrectly reduced font size after a subsequent fit pass. The remaining changes did not reveal another definite regression.
+
+Review comment:
+
+- [P2] Reset fitted text size before each fit pass — /Users/asmirnou/Projects/g/ramsider/components/TechnologyDescriptions.tsx:18-28
+  When a CyberMind slide changes between locales or fonts finish loading, `TextBlock` can reuse an element whose font size was reduced by an earlier fit. The fit loop only checks whether the text fits; it never restores the requested size before measuring, so shorter replacement copy can remain unnecessarily small. Reset the element to its requested size before each fit pass, including the `document.fonts.ready` pass.

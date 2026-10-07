@@ -217,3 +217,7 @@ The English PNG is the typography reference. Button labels for Arabic, Chinese, 
 ## Technology viewer descriptions — CHG-0063, 2026-10-07
 
 The main font family is **Open Sans**; this viewer uses **Open Sans Regular**, weight400 (`OS-R` above), CSS family `OpenSans`, shipped as `public/fonts/opensans-regular.ttf`. Swipe for Details, Next Technology, the accepted HeatCore title and all new description text use this same face. `TechnologyDescriptions` maps reference headings/paragraphs/heat callouts/phone diagram labels/workflow to semantic HTML in the941×1672 photo coordinate space. Only the current route's locale copy is passed from Server Component Story to the client viewer. Exact reference copy/coordinates and browser calibration: [description map](technology-description-map.md). B03/B07 now open the full-screen `#technology-viewer`; their historical unavailable-technology action table above predates CHG-0061.
+
+### CyberMind technology title / CHG-0068
+
+TechnologyTitle also renders CyberMind with **OS-R / Open Sans Regular 400**, CSS OpenSans and unchanged public/fonts/opensans-regular.ttf, matching Swipe for Details and Next Technology. Main source-space x46/baseline209/font112/textLength500; descriptor x54/baseline267/font31, English textLength161, #975f41 plus1.5sourcepx white stroke. Descriptive text from tech_02 WITH_TEXT/EN references is deferred. Both clean941×1672 photos retain native pixels outside tight title masks; see [CyberMind mapping](technology-cybermind-map.md).

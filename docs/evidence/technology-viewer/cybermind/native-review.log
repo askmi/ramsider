@@ -1,0 +1,1055 @@
+2026-10-07T12:32:52.995832Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-07T12:32:52.995914Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.159.0-alpha.12.1
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: low
+reasoning summaries: none
+session id: 01a1165a-34df-7c13-acce-dd3173b9a67c
+--------
+user
+current changes
+2026-10-07T12:32:54.415785Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-07T12:32:54.415830Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-07T12:32:57.955526Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+2026-10-07T12:33:04.214470Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+exec
+/bin/zsh -lc 'pwd; git status --short; find .. -name AGENTS.md -o -name AGENTS.override.md | head -50' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 1942ms:
+/Users/asmirnou/Projects/g/ramsider
+ M .gitignore
+ M CHANGELOG.md
+ M app/globals.css
+ M components/TechnologyTitle.tsx
+ M components/TechnologyViewer.tsx
+ M tests/e2e/technology-viewer.spec.ts
+?? design/derived/cybermind-title/
+?? design/references/background_old.png
+?? design/references/tech_02/
+?? docs/evidence/technology-viewer/cybermind/
+?? docs/technology-cybermind-map.md
+?? lib/technology-gallery.ts
+?? public/art/technology/cybermind/
+?? tools/__pycache__/
+?? tools/prepare-cybermind-photos.mjs
+../ramsider/.agents/skills/vercel-react-best-practices/AGENTS.md
+../ramsider/.agents/skills/vercel-composition-patterns/AGENTS.md
+../ramsider/AGENTS.md
+
+2026-10-07T12:33:08.008476Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a1165a-34df-7c13-acce-dd3173b9a67c turn_id=01a1165a-357c-74c3-86a1-cbcda5047f40 item_id="exec-334b8c49-5378-4982-8051-0f86dffd9c11"
+2026-10-07T12:33:14.996306Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+exec
+/bin/zsh -lc 'cat AGENTS.md | head -45; git diff --stat; git diff -- .gitignore app/globals.css components/TechnologyTitle.tsx components/TechnologyViewer.tsx tests/e2e/technology-viewer.spec.ts; cat lib/technology-gallery.ts; cat tools/prepare-cybermind-photos.mjs' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+# Ramsider UNO — project rules
+
+Build the new product site from `design/references/`. **Design and implement for iPhone 17 Pro first, then verify iPhone 17 Pro Max; adapt responsively to every other screen size.** The real mobile page must match the supplied reference while loading quickly and working accessibly. One user request should produce one complete delivery: perform as many internal inspect → implement → verify → fix cycles as needed, then code review, performance work, and final re-verification. Visual slices are internal work units; finish and integrate the whole requested page or feature before delivery. Do not hand the user a first draft to find ordinary defects. “Done” means every applicable gate has passed with evidence, not that code compiles or that zero bugs have been assumed.
+
+These are the mandatory rules. [docs/discipline.md](docs/discipline.md) defines stage gates and failure routing; [CONTEXT_INDEX.md](CONTEXT_INDEX.md) routes to other details. For substantive project work, read the short [MEMORY.md](MEMORY.md) for current state, then only the topic files relevant to the task. `PROMPT.txt` and `SUMMARY.txt` are source records for unresolved questions; current user instructions and current assets take precedence over their examples or suggestions.
+
+## Mandatory change and defect log
+
+[CHANGELOG.md](CHANGELOG.md) is the authoritative record of **every logical project change and every discovered defect**, including code, assets, content, mappings, tests, documentation, configuration, user corrections and agent-discovered regressions. The agent maintains it **without a user reminder or a separate permission request**: create/update the entry at discovery, record the solution and changed files when applied, then append verification and approval before delivery. Search relevant IDs when resuming work; do not wait until the final answer to reconstruct the history.
+
+Use the journal's required fields and lifecycle. Record what was wrong/missing/different, expected result, reference/request, cause, solution, intermediate mapping/specification and how it was applied, changed paths, checks and evidence. Every claimed fix needs a dated **technical approval**, naming the verifier and its evidence (and independent auditor when applicable). `APPLIED_UNVERIFIED` is not `VERIFIED`; blocked/skipped checks cannot supply approval. Explicit user approval is a separate field: never invent it or require it for routine authorized fixes. Reopen a failed fix under the same ID and preserve the previous verdict and failure history. Track remaining defects as open entries, even when outside the current task.
+
+For every defect, explain the agent's observable mistaken decision/action, the missed check, responsibility with evidence, and a concrete behavior change. Distinguish genuinely changed/missing inputs from agent failures; do not blame the user merely because an input was absent. Unknown causes stay explicit. Link repeatable causes to LESSONS and an Agent Eval case with its actual run status; a fixed UI does not prove improved agent behavior. Before similar work or a fresh rebuild, retrieve those lessons and turn prevention into acceptance checks. Repository memory improves instructions/context, not model weights.
+
+Small edits may use a short entry, but cannot omit logging or proportionate verification. Group related edits under one logical ID; do not log every tool call. A delivery is incomplete if its journal records or required technical approval are missing. MEMORY describes current state; LESSONS explains reusable prevention; neither replaces CHANGELOG.
+
+## Work in stages
+
+1. **Understand before coding.** Check repository state, [MEMORY.md](MEMORY.md), relevant lessons, and the requested scope. Inspect `design/references/background.png` first, then `background_text.png`, then relevant fonts, button artwork, and source layers. Crop the 941 × 32,127 reference into legible sections. Map content, controls, art layers, section boundaries, and the source-to-CSS viewport scale; set observable acceptance checks and identify unverified product facts. Use [DESIGN.md](DESIGN.md) and [PRODUCT.md](PRODUCT.md). **Exit:** the target slice, assets, behavior, and comparison method are understood; unresolved inputs are explicit.
+2. **Implement one visual slice.** Build for the Pro baseline first, using the clean background as artwork and semantic HTML/CSS for text and controls. Keep text translatable and controls usable; no inert CTA or invented checkout. Reproduce reference copy in the local build while tracking unverified factual claims for publication. Use Next.js + React + strict TypeScript with the framework's own build toolchain; choose each route's rendering mode and Server/Client boundaries from its data and interaction needs. Do not revive the deleted app. Use [ARCHITECTURE.md](ARCHITECTURE.md). **Exit:** the slice renders and its required behavior works; continue through all slices in the requested scope.
+3. **Verify the actual pixels.** Open the running page in a real browser at the iPhone 17 Pro viewport, then verify Pro Max. Confirm the page's actual CSS layout width matches each test profile (the viewport meta tag must be correct). Wait for fonts/images and capture screenshots. Compare the Pro image to the calibrated reference crop; inspect Pro Max as a responsive target unless it has its own reference. The verifier must see screenshots, not only DOM/CSS measurements. Fix material differences and capture again. Use a tolerant pixel diff as a second signal when aligned. Use [docs/visual-qa.md](docs/visual-qa.md). **Exit:** no material mismatch remains in the supported target composition; otherwise keep iterating or report a concrete external blocker without saying “done.”
+4. **Check behavior and adaptation.** Test relevant clicks, hover, scroll, navigation, forms, menus, animation states, keyboard access, Arabic RTL, mobile safe areas, and representative tablet/desktop widths. Check overflow, clipping, crops, wraps, spacing, and tile seams. Use [docs/mobile.md](docs/mobile.md). **Exit:** required states work at the sizes they support.
+5. **Review and optimize.** For code changes, run Codex's native `/review` on the actual diff before delivery (CLI equivalent when needed), examine every actionable finding, fix it, and rerun affected checks. Run available type, lint, test, and production-build checks. Review component boundaries, duplication, accessibility, and unused code. Measure first render, LCP/INP/CLS where measurable, network bytes, JavaScript, layout shifts, and scroll smoothness in a production build. Reassess static, request-time server, and client rendering against measured latency, freshness, and client cost; change strategy where it improves the result. Fix meaningful problems, then repeat affected visual/browser checks. Use [QUALITY.md](QUALITY.md) and [PERFORMANCE.md](PERFORMANCE.md). **Exit:** no known material code, visual, accessibility, or speed regression remains; report if `/review` was unavailable rather than counting a manual pass as its result.
+6. **Learn and report evidence.** Complete the affected [CHANGELOG.md](CHANGELOG.md) entries with actual checks, technical approval and remaining open IDs. Refresh [MEMORY.md](MEMORY.md) when verified state, decisions, or blockers changed; record repeatable errors in [LESSONS.md](LESSONS.md). Use [docs/definition-of-done.md](docs/definition-of-done.md). State tested viewports, screenshot comparisons, interactions, build checks, performance measurements, remaining differences, and checks that could not run. Never claim pixel fidelity, WCAG compliance, a 95+ Lighthouse score, or completion without the corresponding evidence.
+
+**Do not mark a failed gate passed or delegate ordinary QA to the user.** Route the failure back to the stage that can fix it, repeat that stage, and rerun downstream checks the fix could affect. A blocked external dependency must not stop independent work. For UI work, the implement → browser screenshot → compare → fix → recheck loop is mandatory after each completed visual slice and after later appearance changes; repeat it on the assembled page. Work autonomously through all feasible checks; resolve routine choices from the repository and references, and seek only irreducible external facts or access while continuing independent work. For a small non-UI task, apply only relevant stages.
+
+For substantive project work, start one independent, non-editing **discipline auditor** alongside scope inspection. Reuse it at each applicable stage gate: scope before implementation; each completed UI slice's rendering and visual evidence; behavior/adaptation; code review and performance; and final integration, memory, and delivery evidence. Give it acceptance checks, changed files, browser images, command results, and any other agents' findings as relevant. Wait for its evidence-based pass/fail/blocked finding before closing a gate. Fix failures and re-audit affected gates; the main agent owns implementation and required checks. Use the project [auditor profile](.codex/agents/discipline_auditor.toml) when available and [supervision protocol](docs/supervision.md); if the profile cannot be selected, give a subagent the same non-editing assignment. Do not spawn it for a trivial edit. The auditor supplements real QA and native `/review`; it cannot certify missing evidence.
+
+## Standing constraints
+
+- Working-context efficiency: throughout coding and QA, read only affected code and stage docs; inspect the long reference and screenshots through relevant crops at useful resolution. Keep full-size images, raw image data, long logs, and unrelated file dumps out of model context. Reuse recorded findings, bound tool output, and rerun only checks affected by a change. Never skip required QA to save tokens; stop once all applicable gates pass.
+- Primary devices: **iPhone 17 Pro (402 × 874 CSS px, DPR 3)** is the baseline; **iPhone 17 Pro Max (440 × 956 CSS px, DPR 3)** is the second required mobile target. These are emulation screen sizes, not fixed-height CSS requirements; Safari's visible area changes with browser chrome. Build mobile-first for these devices. All other phones, tablets, and desktops receive responsive adaptation, with no horizontal overflow or broken content. Preserve the supplied composition rather than substituting a generic design. See [docs/mobile.md](docs/mobile.md).
+- Locales: English, Russian, German, French, Spanish, Italian, Turkish, Arabic, Chinese, Japanese, and Korean. Use translation keys. Arabic needs correct RTL layout and behavior.
+- Accessibility: semantic content, keyboard and screen reader support, labels, visible focus, usable touch targets, WCAG AA contrast, and reduced-motion support. Verify affected behavior.
+- Product truth: the render is the visual/content target, not proof of prices, certifications, health claims, stock, or backend behavior. Preserve its visible narrative in the local rebuild; track unverified facts and confirm them before publication or functioning commerce. See [PRODUCT.md](PRODUCT.md).
+- Performance: the first viewport must become useful quickly. The two reference PNGs are each about 44 MB; never serve either as one production background. Derive responsive, compressed sections/tiles from the clean artwork, load the visible segment eagerly and later segments near the viewport, and avoid seams or blank gaps. Never lazy-load the LCP asset. Aim for 95+ mobile Lighthouse only with measured evidence.
+- Artwork color: **always load [artwork-color-pipeline](.agents/skills/artwork-color-pipeline/SKILL.md)** before adding or replacing Photoshop/raster references, cropping or resizing them for the site, converting PNG/PSD exports to WebP/AVIF, or changing how those raster assets are delivered. Apply its source-profile, decoded-color, alpha, browser and speed checks before delivery. Ordinary text, CSS-only, and vector-only edits do not trigger it.
+- Tooling: prefer native Codex capabilities when they provide the required evidence; use additional skills/tools for project-specific workflow or capabilities the native route lacks. Read the project [implementer skill](.agents/skills/pixel-perfect-ui-implementer/SKILL.md) when building UI and the [testing skill](.agents/skills/pixel-perfect-ui-testing/SKILL.md) when verifying it. Use the Codex browser for quick exploratory inspection when available; use the configured Playwright WebKit/DPR 3 profiles for required mobile screenshots and repeatable checks. `/review` is a native Codex command, not an installable skill. Load each skill when its stage needs it, not both up front. Broad design-generation skills must not replace the approved render. The requested Codex model and modes are session settings: check availability before claiming they are active. See [TOOLS.md](TOOLS.md) for other skills and limitations.
+- Self-improvement: after **every user correction and meaningful self-detected failure**, find the root cause, fix and recheck it, then decide whether the prevention generalizes. If repeatable, update [LESSONS.md](LESSONS.md) with **problem → cause → prevention** and consult the relevant lesson before similar work; do not promote one-off feedback into a global rule. Keep [MEMORY.md](MEMORY.md) current with verified project state and decisions, without duplicating the task transcript. Preserve user edits and design sources.
+
+If a required check is blocked, explain the concrete reason and do not present it as passed. Do not stop at the first implementation when the remaining stages can be completed.
+ .gitignore                          |   3 +-
+ CHANGELOG.md                        |  17 ++++
+ app/globals.css                     |   3 +
+ components/TechnologyTitle.tsx      |   6 +-
+ components/TechnologyViewer.tsx     |  98 +++++++++++++---------
+ tests/e2e/technology-viewer.spec.ts | 161 +++++++++++++++++++++++++++++++-----
+ 6 files changed, 226 insertions(+), 62 deletions(-)
+diff --git a/.gitignore b/.gitignore
+index c9e723c..7a66f72 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -33,6 +33,7 @@ yarn-error.log*
+
+ # env files (can opt-in for committing if needed)
+ .env*
++/integrations/telegram/
+
+ # vercel
+ .vercel
+@@ -50,4 +51,4 @@ next-env.d.ts
+ /screenshots/diff/
+
+ *.psb
+-/deliverables/
+\ No newline at end of file
++/deliverables/
+diff --git a/app/globals.css b/app/globals.css
+index 5ff931a..9f2bef6 100644
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -174,6 +174,9 @@ html:has(#technology-viewer[open]),body:has(#technology-viewer[open]){background
+ .technology-viewer__dots img{position:absolute;top:max(2px,calc(7.58dvh - max(44px,5.8dvh) - 6px));left:50%;transform:translateX(-50%);display:block;width:calc(29/954*100cqw);height:auto}
+ .technology-viewer__notice{position:absolute;z-index:3;left:10%;right:10%;bottom:11%;margin:0;padding:12px;border:1px solid #dcb477;background:rgb(0 0 0 / .9);color:#fff;text-align:center;font-size:14px;line-height:1.35}
+ .technology-viewer__close{position:absolute;right:max(2%,env(safe-area-inset-right));top:max(1%,env(safe-area-inset-top));z-index:4;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;background:transparent;color:#fff;font-size:34px;font-weight:300;line-height:1;cursor:pointer}
++.technology-viewer__previous-group{position:absolute;left:max(2%,env(safe-area-inset-left));top:92.2%;z-index:2;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;background:transparent;cursor:pointer}
++.technology-viewer__previous-group img{width:20px;height:auto;transform:rotate(180deg)}
++.technology-viewer[data-group=CyberMind] .technology-viewer__next-group{left:max(15%,54px);right:max(15%,54px);width:auto}
+ .technology-viewer__sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+ .technology-viewer :focus-visible{outline:2px solid #e7ba75;outline-offset:-3px}
+ /* Mobile portrait contour follows the screen edges; the photo follows its cutout. */
+diff --git a/components/TechnologyTitle.tsx b/components/TechnologyTitle.tsx
+index 180f0eb..74ece0c 100644
+--- a/components/TechnologyTitle.tsx
++++ b/components/TechnologyTitle.tsx
+@@ -1,9 +1,9 @@
+ /** Coordinates match the lettering in the 941 × 1672 photograph masters. */
+-export function TechnologyTitle({ descriptor }: { descriptor: string }) {
++export function TechnologyTitle({ descriptor, brand = 'HeatCore' }: { descriptor: string; brand?: 'HeatCore' | 'CyberMind' }) {
+   return <h2 id="technology-viewer-title" className="technology-viewer__title">
+-    <span className="technology-viewer__sr-only">HeatCore {descriptor}</span>
++    <span className="technology-viewer__sr-only">{brand} {descriptor}</span>
+     <svg viewBox="0 0 941 1672" preserveAspectRatio="none" aria-hidden="true">
+-      <text x="46" y="209" fontSize="112" textLength="446" lengthAdjust="spacingAndGlyphs" fill="#000">HeatCore</text>
++      <text x="46" y="209" fontSize="112" textLength={brand === 'HeatCore' ? 446 : 500} lengthAdjust="spacingAndGlyphs" fill="#000">{brand}</text>
+       <text x="54" y="267" fontSize="31" textLength={descriptor === 'Technology' ? 161 : undefined} lengthAdjust="spacingAndGlyphs" fill="#975f41">{descriptor}</text>
+     </svg>
+   </h2>;
+diff --git a/components/TechnologyViewer.tsx b/components/TechnologyViewer.tsx
+index 269bf6a..cb5f014 100644
+--- a/components/TechnologyViewer.tsx
++++ b/components/TechnologyViewer.tsx
+@@ -8,12 +8,10 @@ import { TechnologyTitle } from './TechnologyTitle';
+ import { TechnologyDescriptions } from './TechnologyDescriptions';
+ import type { TechnologyDescriptionCopy } from '@/lib/technology-descriptions';
+
+-const slides = [
+-  { id: '02', src: '/art/technology/02.png' },
+-  { id: '03', src: '/art/technology/03.png' },
+-  { id: '04', src: '/art/technology/04.png' },
+-  { id: '05', src: '/art/technology/05.png' },
+-] as const;
++import { technologyGroups, technologyGroupCopy } from '@/lib/technology-gallery';
++import type { TechnologySlideId } from '@/lib/technology-descriptions';
++
++type Selection = { group: number; slide: number };
+
+ type ViewerCopy = { technology: string; horizontal: string; vertical: string; details: string; close: string; image: string; nextImage: string; nextGroup: string; unavailable: string; names: readonly [string, string, string, string] };
+ const copy: Record<Locale, ViewerCopy> = {
+@@ -37,9 +35,9 @@ function TechnologyNavigation({ direction, label, accessibleLabel, onClick }: {
+   </button>;
+ }
+
+-function TechnologyPagination({ index, labels, onSelect }: { index: number; labels: ViewerCopy; onSelect: (index: number) => void }) {
++function TechnologyPagination({ index, labels, names, onSelect }: { index: number; labels: ViewerCopy; names: readonly string[]; onSelect: (index: number) => void }) {
+   return <div className="technology-viewer__dots" role="group" aria-label={labels.horizontal}>
+-    {slides.map((slide, slideIndex) => <button key={slide.id} type="button" onClick={() => onSelect(slideIndex)} aria-label={`${labels.image} ${slideIndex + 1} / ${slides.length}: ${labels.names[slideIndex]}`} aria-current={index === slideIndex ? 'true' : undefined}>
++    {names.map((name, slideIndex) => <button key={slideIndex} type="button" onClick={() => onSelect(slideIndex)} aria-label={`${labels.image} ${slideIndex + 1} / ${names.length}: ${name}`} aria-current={index === slideIndex ? 'true' : undefined}>
+       <Image src={index === slideIndex ? '/art/technology/dot-active.png' : '/art/technology/dot-inactive.png'} width={29} height={29} alt="" aria-hidden="true" unoptimized />
+     </button>)}
+   </div>;
+@@ -50,29 +48,34 @@ export function TechnologyViewer({ locale, descriptions }: { locale: Locale; des
+   const opener = useRef<HTMLElement | null>(null);
+   const previousOverflow = useRef('');
+   const pointer = useRef<{ x: number; y: number } | null>(null);
+-  const displayedIndex = useRef(0);
+-  const requestedIndex = useRef(0);
++  const displayed = useRef<Selection>({ group: 0, slide: 0 });
++  const requested = useRef<Selection>({ group: 0, slide: 0 });
++  const remembered = useRef([0, 0]);
+   const requestToken = useRef(0);
+   const [isOpen, setIsOpen] = useState(false);
+-  const [index, setIndex] = useState(0);
++  const [selection, setSelection] = useState<Selection>({ group: 0, slide: 0 });
+   const [showUnavailable, setShowUnavailable] = useState(false);
+   const labels = copy[locale];
+-  const images = useRef(new Map<number, { image: HTMLImageElement; ready: Promise<void> }>());
+-  const prepareImage = useCallback((position: number, priority: 'low' | 'high' = 'low') => {
+-    const cached = images.current.get(position);
++  const groupLabels = technologyGroupCopy[locale];
++  const group = technologyGroups[selection.group];
++  const slide = group.slides[selection.slide];
++  const names = selection.group === 0 ? labels.names : groupLabels.names;
++  const images = useRef(new Map<string, { image: HTMLImageElement; ready: Promise<void> }>());
++  const prepareImage = useCallback((src: string, priority: 'low' | 'high' = 'low') => {
++    const cached = images.current.get(src);
+     if (cached) {
+       if (priority === 'high') cached.image.fetchPriority = 'high';
+       return cached.ready;
+     }
+     const image = new window.Image();
+     image.fetchPriority = priority;
+-    image.src = slides[position].src;
++    image.src = src;
+     const ready = image.decode().catch(error => {
+       // A failed warm-up must not prevent a later user action from retrying.
+-      if (images.current.get(position)?.image === image) images.current.delete(position);
++      if (images.current.get(src)?.image === image) images.current.delete(src);
+       throw error;
+     });
+-    images.current.set(position, { image, ready });
++    images.current.set(src, { image, ready });
+     return ready;
+   }, []);
+
+@@ -81,7 +84,7 @@ export function TechnologyViewer({ locale, descriptions }: { locale: Locale; des
+     const warm = () => {
+       // Run after load dispatch; never compete with the initial page resources.
+       timer = setTimeout(() => {
+-        slides.forEach((_, position) => { void prepareImage(position).catch(() => {}); });
++        technologyGroups.forEach(group => { void prepareImage(group.slides[0].src).catch(() => {}); });
+       }, 0);
+     };
+     if (document.readyState === 'complete') warm();
+@@ -102,11 +105,14 @@ export function TechnologyViewer({ locale, descriptions }: { locale: Locale; des
+       event.preventDefault();
+       opener.current = trigger;
+       requestToken.current++;
+-      displayedIndex.current = 0;
+-      requestedIndex.current = 0;
+-      setIndex(0);
++      displayed.current = { group: 0, slide: 0 };
++      requested.current = displayed.current;
++      remembered.current = [0, 0];
++      setSelection(displayed.current);
+       setShowUnavailable(false);
+-      slides.forEach((_, position) => { void prepareImage(position, position === 0 ? 'high' : 'low').catch(() => {}); });
++      technologyGroups.forEach((group, groupIndex) => group.slides.forEach((slide, slideIndex) => {
++        void prepareImage(slide.src, groupIndex === 0 && slideIndex === 0 ? 'high' : 'low').catch(() => {});
++      }));
+       setIsOpen(true);
+       dialogElement.showModal();
+       dialogElement.focus();
+@@ -121,21 +127,31 @@ export function TechnologyViewer({ locale, descriptions }: { locale: Locale; des
+   }, [prepareImage]);
+
+   const close = () => dialog.current?.close();
+-  const showSlide = (position: number) => {
+-    const next = (position + slides.length) % slides.length;
++  const select = (next: Selection) => {
+     setShowUnavailable(false);
+-    requestedIndex.current = next;
++    requested.current = next;
+     const token = ++requestToken.current;
+-    prepareImage(next, 'high').then(() => {
++    prepareImage(technologyGroups[next.group].slides[next.slide].src, 'high').then(() => {
+       if (token === requestToken.current && dialog.current?.open) {
+-        displayedIndex.current = next;
+-        setIndex(next);
++        displayed.current = next;
++        remembered.current[next.group] = next.slide;
++        setSelection(next);
+       }
+     }).catch(() => {
+-      if (token === requestToken.current) requestedIndex.current = displayedIndex.current;
++      if (token === requestToken.current) requested.current = displayed.current;
+     });
+   };
+-  const move = (delta: number) => showSlide(requestedIndex.current + delta);
++  const showSlide = (position: number, groupIndex = displayed.current.group) => {
++    const length = technologyGroups[groupIndex].slides.length;
++    select({ group: groupIndex, slide: (position + length) % length });
++  };
++  const move = (delta: number) => showSlide(requested.current.slide + delta, requested.current.group);
++  const moveGroup = (delta: number) => {
++    const nextGroup = requested.current.group + delta;
++    if (nextGroup < 0) return;
++    if (nextGroup >= technologyGroups.length) { setShowUnavailable(true); return; }
++    select({ group: nextGroup, slide: remembered.current[nextGroup] });
++  };
+   const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+     pointer.current = { x: event.clientX, y: event.clientY };
+     try { event.currentTarget.setPointerCapture(event.pointerId); } catch { /* Synthetic test events do not own a pointer. */ }
+@@ -146,7 +162,7 @@ export function TechnologyViewer({ locale, descriptions }: { locale: Locale; des
+     if (!start) return;
+     const dx = event.clientX - start.x;
+     const dy = event.clientY - start.y;
+-    if (dy > 65 && dy > Math.abs(dx) * 1.2) { setShowUnavailable(true); return; }
++    if (Math.abs(dy) > 65 && Math.abs(dy) > Math.abs(dx) * 1.2) { moveGroup(dy > 0 ? 1 : -1); return; }
+     if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+     move((dx < 0 ? 1 : -1) * (locale === 'ar' ? -1 : 1));
+   };
+@@ -157,6 +173,7 @@ export function TechnologyViewer({ locale, descriptions }: { locale: Locale; des
+     className="technology-viewer"
+     aria-labelledby={isOpen ? 'technology-viewer-title' : undefined}
+     aria-label={isOpen ? undefined : 'HeatCore'}
++    data-group={group.title}
+     aria-describedby="technology-viewer-instructions"
+     tabIndex={-1}
+     onClose={() => {
+@@ -166,25 +183,30 @@ export function TechnologyViewer({ locale, descriptions }: { locale: Locale; des
+       opener.current?.focus();
+     }}
+     onKeyDown={event => {
++      if (event.key === 'ArrowDown') { event.preventDefault(); moveGroup(1); }
++      if (event.key === 'ArrowUp') { event.preventDefault(); moveGroup(-1); }
+       if (event.key === 'ArrowRight') { event.preventDefault(); move(locale === 'ar' ? -1 : 1); }
+       if (event.key === 'ArrowLeft') { event.preventDefault(); move(locale === 'ar' ? 1 : -1); }
+     }}
+   >
+     <div className="technology-viewer__canvas">
+       <div className="technology-viewer__stage" onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}>
+-        {isOpen && <Image key={slides[index].src} src={slides[index].src} alt={`HeatCore — ${labels.names[index]}`} fill sizes="100vw" unoptimized priority={index === 0} draggable={false} />}
+-        {isOpen && <TechnologyTitle descriptor={labels.technology} />}
+-        {isOpen && <TechnologyDescriptions slide={slides[index].id} locale={locale} name={labels.names[index]} copy={descriptions} />}
++        {isOpen && <Image key={slide.src} src={slide.src} alt={`${group.title} — ${names[selection.slide]}`} fill sizes="100vw" unoptimized priority={selection.slide === 0} draggable={false} />}
++        {isOpen && <TechnologyTitle descriptor={labels.technology} brand={group.title} />}
++        {isOpen && selection.group === 0 && <TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={names[selection.slide]} copy={descriptions} />}
+       </div>
+       {isOpen && <>
+         <Image className="technology-viewer__frame" src="/art/technology/frame-template.webp" width={941} height={1628} alt="" aria-hidden="true" unoptimized priority />
+-        <TechnologyNavigation direction="right" label={labels.details} accessibleLabel={labels.nextImage} onClick={() => showSlide(requestedIndex.current + 1)} />
+-        <TechnologyPagination index={index} labels={labels} onSelect={showSlide} />
+-        <TechnologyNavigation direction="down" label={labels.nextGroup} accessibleLabel={labels.nextGroup} onClick={() => setShowUnavailable(true)} />
++        <TechnologyNavigation direction="right" label={labels.details} accessibleLabel={labels.nextImage} onClick={() => move(1)} />
++        <TechnologyPagination index={selection.slide} labels={labels} names={names} onSelect={position => showSlide(position)} />
++        <TechnologyNavigation direction="down" label={labels.nextGroup} accessibleLabel={labels.nextGroup} onClick={() => moveGroup(1)} />
++        {selection.group > 0 && <button className="technology-viewer__previous-group" type="button" onClick={() => moveGroup(-1)} aria-label={groupLabels.previous} title={groupLabels.previous}>
++          <Image src="/art/technology/arrow-down.png" width={45} height={29} alt="" aria-hidden="true" unoptimized />
++        </button>}
+       </>}
+       {showUnavailable && <p className="technology-viewer__notice" role="status">{labels.unavailable}</p>}
+       <button className="technology-viewer__close" type="button" onClick={close} aria-label={labels.close}>×</button>
+     </div>
+-    <p id="technology-viewer-instructions" className="technology-viewer__sr-only">{labels.horizontal}. {labels.vertical}. {labels.image} {index + 1} / {slides.length}.</p>
++    <p id="technology-viewer-instructions" className="technology-viewer__sr-only">{labels.horizontal}. {labels.vertical}. {selection.group > 0 && `${groupLabels.up}. `}{labels.image} {selection.slide + 1} / {group.slides.length}.</p>
+   </dialog>;
+ }
+diff --git a/tests/e2e/technology-viewer.spec.ts b/tests/e2e/technology-viewer.spec.ts
+index 6e729b0..74bcb79 100644
+--- a/tests/e2e/technology-viewer.spec.ts
++++ b/tests/e2e/technology-viewer.spec.ts
+@@ -149,6 +149,9 @@ test('technology viewer opens from both story controls and pages through clean i
+       await expect(dots.nth(2)).toHaveAttribute('aria-current', 'true');
+     }
+     await viewer.locator('.technology-viewer__next-group').click();
++    await expect(viewer).toHaveAttribute('data-group', 'CyberMind');
++    await expect(dots).toHaveCount(2);
++    await viewer.locator('.technology-viewer__next-group').click();
+     await expect(viewer.getByRole('status')).toHaveText('The next technology is coming soon.');
+     if (triggerIndex === 0) await page.screenshot({ path: `screenshots/actual/technology-viewer/${testInfo.project.name}-next-group-placeholder.png` });
+     await expect(viewer).toBeVisible();
+@@ -195,6 +198,9 @@ test('technology viewer supports touch pointers, Escape and Arabic framing', asy
+   await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 200, clientY: 350 });
+   await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 200, clientY: 550 });
+   await expect(viewer).toBeVisible();
++  await expect(viewer).toHaveAttribute('data-group', 'CyberMind');
++  await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 200, clientY: 350 });
++  await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 200, clientY: 550 });
+   await expect(viewer.getByRole('status')).toHaveText('التقنية التالية ستتوفر قريباً.');
+   await viewer.locator('.technology-viewer__next-group').focus();
+   await page.keyboard.press('Enter');
+@@ -230,37 +236,36 @@ test('failed warm-up and failed selection retry the same image', async ({ page }
+   let requests = 0;
+   await page.route('**/art/technology/03.png', async route => {
+     requests++;
+-    if (requests <= 3) await route.abort();
++    if (requests <= 2) await route.abort();
+     else await route.continue();
+   });
+   await page.goto('/en');
+-  await expect.poll(() => requests).toBe(1);
+-  await page.waitForTimeout(150);
++  expect(requests).toBe(0);
+   await page.locator('[data-technology-open]').first().click();
+-  await expect.poll(() => requests).toBe(2);
++  await expect.poll(() => requests).toBe(1);
+   await page.waitForTimeout(150);
+   const stage = page.locator('#technology-viewer .technology-viewer__stage');
+   await page.locator('.technology-viewer__next-image').click();
+-  await expect.poll(() => requests).toBe(3);
++  await expect.poll(() => requests).toBe(2);
+   await page.waitForTimeout(150);
+   await expect(stage.locator('img')).toHaveAttribute('src', /02\.png/);
+   await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '02');
+   await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 1 \/ 4/);
+   await page.locator('.technology-viewer__next-image').click();
+-  await expect.poll(() => requests).toBe(4);
++  await expect.poll(() => requests).toBe(3);
+   await expect(stage.locator('img')).toHaveAttribute('src', /03\.png/);
+   await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '03');
+   await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 2 \/ 4/);
+ });
+
+-test('all four photos start in parallel only after main page load', async ({ page }) => {
++test('first photo of each group warms after load; remaining photos start together on open', async ({ page }) => {
+   let releaseHero!: () => void;
+   let releasePhotos!: () => void;
+   const heroGate = new Promise<void>(resolve => { releaseHero = resolve; });
+   const photoGate = new Promise<void>(resolve => { releasePhotos = resolve; });
+   const requests: string[] = [];
+   await page.route('**/art/00.webp', async route => { await heroGate; await route.continue(); });
+-  await page.route(/\/art\/technology\/0[2-5]\.png$/, async route => {
++  await page.route(/\/art\/technology\/(?:cybermind\/0[12]|0[2-5])\.png$/, async route => {
+     requests.push(route.request().url());
+     await photoGate;
+     await route.continue();
+@@ -271,29 +276,32 @@ test('all four photos start in parallel only after main page load', async ({ pag
+   expect(requests).toHaveLength(0);
+   releaseHero();
+   await page.waitForLoadState('load');
+-  await expect.poll(() => requests.length).toBe(4);
+-  expect(new Set(requests.map(url => url.split('/').pop())).size).toBe(4);
++  await expect.poll(() => requests.length).toBe(2);
++  expect(requests.map(url => new URL(url).pathname).sort()).toEqual(['/art/technology/02.png', '/art/technology/cybermind/01.png']);
+   await expect(page.locator('#technology-viewer')).not.toBeVisible();
++  await page.locator('[data-technology-open]').first().click();
++  await expect.poll(() => requests.length).toBe(6);
++  expect(new Set(requests).size).toBe(6);
+   releasePhotos();
+ });
+
+-test('early opening starts all four without waiting for main page load', async ({ page }) => {
++test('early opening starts all six without waiting for main page load', async ({ page }) => {
+   let releaseHero!: () => void;
+   const gate = new Promise<void>(resolve => { releaseHero = resolve; });
+   const requests = new Set<string>();
+   await page.route('**/art/00.webp', async route => { await gate; await route.continue(); });
+-  page.on('request', request => { if (/\/technology\/0[2-5]\.png$/.test(request.url())) requests.add(request.url()); });
++  page.on('request', request => { if (/\/technology\/(?:cybermind\/0[12]|0[2-5])\.png$/.test(request.url())) requests.add(request.url()); });
+   await page.goto('/en', { waitUntil: 'domcontentloaded' });
+   await page.waitForTimeout(250);
+   expect(requests.size).toBe(0);
+   await page.locator('[data-technology-open]').first().click();
+-  await expect.poll(() => requests.size).toBe(4);
++  await expect.poll(() => requests.size).toBe(6);
+   expect(await page.evaluate(() => document.readyState)).not.toBe('complete');
+   await expect(page.locator('#technology-viewer')).toBeVisible();
+   releaseHero();
+ });
+
+-test('post-load images are decoded and reused offline for swiping and reopening', async ({ page, context }) => {
++test('first images warm at low priority; all decoded images are reused offline across groups', async ({ page, context }) => {
+   await page.addInitScript(() => {
+     const records: HTMLImageElement[] = [];
+     Object.defineProperty(window, '__technologyWarmImages', { value: records });
+@@ -306,29 +314,39 @@ test('post-load images are decoded and reused offline for swiping and reopening'
+   await page.goto('/en');
+   await expect.poll(() => page.evaluate(() => {
+     const records = (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages;
+-    return records.filter(image => /\/technology\/0[2-5]\.png$/.test(image.src) && image.complete && image.naturalWidth === 941).length;
+-  })).toBe(4);
++    return records.filter(image => /\/technology\/(?:cybermind\/01|02)\.png$/.test(image.src) && image.complete && image.naturalWidth === 941).length;
++  })).toBe(2);
+   const timing = await page.evaluate(async () => {
+     const records = (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages;
+     await Promise.all(records.map(image => image.decode()));
+     const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+-    return { load: navigation.loadEventStart, starts: performance.getEntriesByType('resource').filter(entry => /\/technology\/0[2-5]\.png$/.test(entry.name)).map(entry => entry.startTime), priorities: records.map(image => image.fetchPriority) };
++    return { load: navigation.loadEventStart, starts: performance.getEntriesByType('resource').filter(entry => /\/technology\/(?:cybermind\/01|02)\.png$/.test(entry.name)).map(entry => entry.startTime), priorities: records.map(image => image.fetchPriority) };
+   });
+-  expect(timing.starts).toHaveLength(4);
++  expect(timing.starts).toHaveLength(2);
+   expect(timing.starts.every(start => start >= timing.load)).toBe(true);
+-  expect(timing.priorities).toEqual(['low', 'low', 'low', 'low']);
++  expect(timing.priorities).toEqual(['low', 'low']);
+   await page.locator('[data-technology-open]').first().click();
+   await page.locator('#technology-viewer img').evaluateAll(async images => { await Promise.all(images.map(image => (image as HTMLImageElement).decode())); });
++  await expect.poll(() => page.evaluate(() => (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages.filter(image => image.complete && image.naturalWidth === 941).length)).toBe(6);
++  await page.evaluate(async () => { await Promise.all((window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages.map(image => image.decode())); });
+   await context.setOffline(true);
+   for (let index = 0; index < 4; index++) {
+     await page.locator('.technology-viewer__dots button').nth(index).click();
+     await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', String(index + 2).padStart(2, '0'));
+     await expect.poll(() => page.locator('.technology-viewer__stage img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth)).toBe(941);
+   }
++  await page.locator('.technology-viewer__next-group').click();
++  await expect(page.locator('#technology-viewer')).toHaveAttribute('data-group', 'CyberMind');
++  for (let index = 0; index < 2; index++) {
++    await page.locator('.technology-viewer__dots button').nth(index).click();
++    await expect(page.locator('.technology-viewer__stage img')).toHaveAttribute('src', `/art/technology/cybermind/0${index + 1}.png`);
++  }
++  await page.locator('.technology-viewer__previous-group').click();
++  await expect(page.locator('#technology-viewer')).toHaveAttribute('data-group', 'HeatCore');
+   await page.locator('.technology-viewer__close').click();
+   await page.locator('[data-technology-open]').first().click();
+   await expect.poll(() => page.locator('.technology-viewer__stage img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth)).toBe(941);
+-  expect(await page.evaluate(() => (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages.length)).toBe(4);
++  expect(await page.evaluate(() => (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages.length)).toBe(6);
+   await context.setOffline(false);
+ });
+
+@@ -420,3 +438,106 @@ test('metal contour reaches mobile side edges and the image stays inside its cut
+     expect(Math.max(...data.subarray((y * info.width + x) * 3, (y * info.width + x) * 3 + 3))).toBeGreaterThan(10);
+   }
+ });
++
++test('CyberMind PNGs retain native RGB, alpha and resolution outside title glyphs', async ({ request }) => {
++  const manifest = JSON.parse(await readFile('docs/evidence/technology-viewer/cybermind/assets.json', 'utf8'));
++  for (const item of manifest.items) {
++    const source = await readFile(item.source);
++    const delivered = await readFile(item.output);
++    expect(createHash('sha256').update(source).digest('hex')).toBe(item.sourceSha256);
++    expect(createHash('sha256').update(delivered).digest('hex')).toBe(item.outputSha256);
++    const metadata = await sharp(delivered).metadata();
++    expect([metadata.width, metadata.height, metadata.channels]).toEqual([941,1672,item.channels]);
++    expect(metadata.icc).toBeUndefined();
++    const response = await request.get(`/art/technology/cybermind/${item.id}.png`);
++    expect(response.ok()).toBe(true);
++    expect(response.headers()['content-type']).toContain('image/png');
++    expect((await response.body()).equals(delivered)).toBe(true);
++    const a = await sharp(source).raw().toBuffer(), b = await sharp(delivered).raw().toBuffer();
++    const mask = await sharp(`docs/evidence/technology-viewer/cybermind/mask-${item.id}.png`).greyscale().raw().toBuffer();
++    let outside = 0, alpha = 0, remainingLetters = 0;
++    for (let i=0;i<mask.length;i++) {
++      if (!mask[i]) for (let c=0;c<item.channels;c++) if (a[i*item.channels+c]!==b[i*item.channels+c]) outside++;
++      if (item.channels===4 && a[i*4+3]!==b[i*4+3]) alpha++;
++      if (mask[i] && Math.max(...b.subarray(i*item.channels,i*item.channels+3))<130) remainingLetters++;
++    }
++    expect([outside,alpha,remainingLetters]).toEqual([0,0,0]);
++    expect((await request.get(`/art/technology/cybermind/${item.id}.webp`)).status()).toBe(404);
++  }
++});
++
++test('CyberMind uses two interactive slides, a live title and two-axis navigation', async ({ page }, testInfo) => {
++  await page.goto('/en');
++  await page.locator('[data-technology-open]').first().click();
++  const viewer=page.locator('#technology-viewer'), stage=viewer.locator('.technology-viewer__stage');
++  await viewer.locator('.technology-viewer__dots button').nth(2).click();
++  await expect(stage.locator('img')).toHaveAttribute('src','/art/technology/04.png');
++  await page.keyboard.press('ArrowDown');
++  await expect(viewer).toHaveAttribute('data-group','CyberMind');
++  await expect(viewer).toHaveAccessibleName('CyberMind Technology');
++  await expect(viewer.locator('.technology-viewer__dots button')).toHaveCount(2);
++  await expect(viewer.locator('.technology-viewer__descriptions')).toHaveCount(0);
++  await expect(viewer.locator('.technology-viewer__title')).toHaveCSS('font-family',/OpenSans/);
++  const back=viewer.getByRole('button',{name:'Previous technology',exact:true});
++  const backBox=await back.boundingBox(), nextBox=await viewer.locator('.technology-viewer__next-group').boundingBox();
++  if(!backBox||!nextBox)throw new Error('Missing group navigation');
++  expect(backBox.width).toBeGreaterThanOrEqual(44);expect(backBox.height).toBeGreaterThanOrEqual(44);
++  expect(backBox.x+backBox.width).toBeLessThanOrEqual(nextBox.x);
++  for(let i=0;i<2;i++){
++    await viewer.locator('.technology-viewer__dots button').nth(i).click();
++    await expect(stage.locator('img')).toHaveAttribute('src',`/art/technology/cybermind/0${i+1}.png`);
++    await expect(viewer.locator('.technology-viewer__dots button').nth(i)).toHaveAttribute('aria-current','true');
++    await viewer.locator('img').evaluateAll(async imgs=>{await document.fonts.ready;await Promise.all(imgs.map(img=>(img as HTMLImageElement).decode()));});
++    await page.screenshot({path:`screenshots/actual/cybermind/${testInfo.project.name}-slide-${i+1}.png`});
++  }
++  await viewer.locator('.technology-viewer__next-image').click();
++  await expect(stage.locator('img')).toHaveAttribute('src','/art/technology/cybermind/01.png');
++  await viewer.locator('.technology-viewer__next-group').click();
++  await expect(viewer.getByRole('status')).toHaveText('The next technology is coming soon.');
++  await page.keyboard.press('ArrowUp');
++  await expect(viewer).toHaveAttribute('data-group','HeatCore');
++  await expect(stage.locator('img')).toHaveAttribute('src','/art/technology/04.png');
++  await expect(viewer.getByRole('status')).toHaveCount(0);
++  await stage.dispatchEvent('pointerdown',{pointerType:'touch',clientX:200,clientY:300});
++  await stage.dispatchEvent('pointerup',{pointerType:'touch',clientX:200,clientY:450});
++  await expect(viewer).toHaveAttribute('data-group','CyberMind');
++  await back.click();
++  await expect(viewer).toHaveAttribute('data-group','HeatCore');
++  await viewer.locator('.technology-viewer__close').click();
++  await expect(page.locator('[data-technology-open]').first()).toBeFocused();
++});
++
++test('pending group and slide changes preserve displayed state and cannot overwrite later navigation', async ({ page }) => {
++  let release!:()=>void;const gate=new Promise<void>(resolve=>{release=resolve;});
++  await page.route('**/technology/cybermind/02.png',async route=>{await gate;await route.continue();});
++  await page.goto('/en');await page.locator('[data-technology-open]').first().click();
++  const viewer=page.locator('#technology-viewer'), stage=viewer.locator('.technology-viewer__stage');
++  await viewer.locator('.technology-viewer__next-group').click();
++  await expect(viewer).toHaveAttribute('data-group','CyberMind');
++  await viewer.locator('.technology-viewer__dots button').nth(1).click();
++  await expect(stage.locator('img')).toHaveAttribute('src','/art/technology/cybermind/01.png');
++  await expect(viewer.locator('.technology-viewer__dots button').first()).toHaveAttribute('aria-current','true');
++  await expect(viewer).toHaveAccessibleName('CyberMind Technology');
++  await page.keyboard.press('ArrowUp');
++  await expect(viewer).toHaveAttribute('data-group','HeatCore');
++  release();
++  await viewer.locator('.technology-viewer__next-group').click();
++  await expect(viewer).toHaveAttribute('data-group','CyberMind');
++  await expect(stage.locator('img')).toHaveAttribute('src','/art/technology/cybermind/01.png');
++  await viewer.locator('.technology-viewer__dots button').nth(1).click();
++  await expect(stage.locator('img')).toHaveAttribute('src','/art/technology/cybermind/02.png');
++});
++
++test('failed first CyberMind warm and group selection retry without skipping the group', async ({ page }) => {
++  let requests=0;
++  await page.route('**/technology/cybermind/01.png',async route=>{requests++;if(requests<=3)await route.abort();else await route.continue();});
++  await page.goto('/en');await expect.poll(()=>requests).toBe(1);await page.waitForTimeout(150);
++  await page.locator('[data-technology-open]').first().click();await expect.poll(()=>requests).toBe(2);await page.waitForTimeout(150);
++  const viewer=page.locator('#technology-viewer');
++  await viewer.locator('.technology-viewer__next-group').click();await expect.poll(()=>requests).toBe(3);await page.waitForTimeout(150);
++  await expect(viewer).toHaveAttribute('data-group','HeatCore');
++  await expect(viewer.locator('.technology-viewer__dots button')).toHaveCount(4);
++  await viewer.locator('.technology-viewer__next-group').click();await expect.poll(()=>requests).toBe(4);
++  await expect(viewer).toHaveAttribute('data-group','CyberMind');
++  await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src','/art/technology/cybermind/01.png');
++});
+import type { Locale } from './i18n';
+
+export const technologyGroups = [
+  { title: 'HeatCore', slides: [
+    { id: '02', src: '/art/technology/02.png' },
+    { id: '03', src: '/art/technology/03.png' },
+    { id: '04', src: '/art/technology/04.png' },
+    { id: '05', src: '/art/technology/05.png' },
+  ] },
+  { title: 'CyberMind', slides: [
+    { id: '01', src: '/art/technology/cybermind/01.png' },
+    { id: '02', src: '/art/technology/cybermind/02.png' },
+  ] },
+] as const;
+
+type GroupCopy = { names: readonly [string, string]; previous: string; up: string };
+export const technologyGroupCopy: Record<Locale, GroupCopy> = {
+  en: { names: ['CyberMind core', 'Connected system'], previous: 'Previous technology', up: 'Swipe up for the previous technology' },
+  ru: { names: ['Ядро CyberMind', 'Подключённая система'], previous: 'Предыдущая технология', up: 'Свайп вверх — предыдущая технология' },
+  de: { names: ['CyberMind-Kern', 'Vernetztes System'], previous: 'Vorherige Technologie', up: 'Für die vorherige Technologie nach oben wischen' },
+  fr: { names: ['Cœur CyberMind', 'Système connecté'], previous: 'Technologie précédente', up: 'Balayez vers le haut pour la technologie précédente' },
+  es: { names: ['Núcleo CyberMind', 'Sistema conectado'], previous: 'Tecnología anterior', up: 'Desliza arriba para la tecnología anterior' },
+  it: { names: ['Nucleo CyberMind', 'Sistema connesso'], previous: 'Tecnologia precedente', up: 'Scorri su per la tecnologia precedente' },
+  tr: { names: ['CyberMind çekirdeği', 'Bağlantılı sistem'], previous: 'Önceki teknoloji', up: 'Önceki teknoloji için yukarı kaydırın' },
+  ar: { names: ['نواة CyberMind', 'النظام المتصل'], previous: 'التقنية السابقة', up: 'اسحب للأعلى للانتقال إلى التقنية السابقة' },
+  zh: { names: ['CyberMind 核心', '互联系统'], previous: '上一项技术', up: '向上滑动查看上一项技术' },
+  ja: { names: ['CyberMindコア', '接続されたシステム'], previous: '前の技術', up: '上にスワイプして前の技術を見る' },
+  ko: { names: ['CyberMind 코어', '연결된 시스템'], previous: '이전 기술', up: '위로 스와이프하여 이전 기술 보기' },
+};
+/** Preserve all original channels outside the authorized CyberMind title glyphs. */
+import sharp from 'sharp';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+const out = 'docs/evidence/technology-viewer/cybermind';
+const crop = { left:16,top:80,width:576,height:256 };
+const sources = { '01':'CyberMind_TOP_ONLY_941x1672.png', '02':'CyberMind_02_SYSTEM_CONNECTED_CLEAN_941x1672.png' };
+const sha = bytes => createHash('sha256').update(bytes).digest('hex');
+await mkdir('public/art/technology/cybermind', {recursive:true});
+const items=[];
+for (const [id,file] of Object.entries(sources)) {
+  const source=`design/references/tech_02/${file}`;
+  const patch=`design/derived/cybermind-title/${id}-wall.png`;
+  const output=`public/art/technology/cybermind/${id}.png`;
+  const bytes=await readFile(source), metadata=await sharp(bytes).metadata();
+  const {data:original,info}=await sharp(bytes).raw().toBuffer({resolveWithObject:true});
+  const {width,height,channels}=info;
+  if(width!==941||height!==1672||channels!==(id==='01'?4:3)||metadata.icc) throw new Error(`Unexpected master ${id}`);
+  const mask=Buffer.alloc(width*height), glyphs=[];
+  for(let y=120;y<280;y++) for(let x=45;x<565;x++) {
+    const [r,g,b]=original.subarray((y*width+x)*channels,(y*width+x)*channels+3);
+    if((y<236&&Math.max(r,g,b)<120)||(y>=240&&x<220&&r-g>25&&g-b>8&&g<190)) glyphs.push([x,y]);
+  }
+  for(const[x,y]of glyphs)for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++)mask[(y+dy)*width+x+dx]=255;
+  const wall=await sharp(patch).raw().toBuffer();
+  const clean=Buffer.from(original);let maskedPixels=0;
+  for(let y=122;y<282;y++)for(let x=43;x<567;x++) {
+    if(!mask[y*width+x])continue;
+    maskedPixels++; const correction=[0,0,0];let samples=0;
+    for(let dy=-14;dy<=14;dy+=2)for(let dx=-14;dx<=14;dx+=2){
+      const sx=x+dx,sy=y+dy;if(mask[sy*width+sx])continue;
+      const p=((sy-crop.top)*crop.width+sx-crop.left)*3,s=(sy*width+sx)*channels;
+      for(let c=0;c<3;c++)correction[c]+=original[s+c]-wall[p+c];samples++;
+    }
+    if(!samples)throw new Error(`No local wall samples ${id}/${x}/${y}`);
+    const p=((y-crop.top)*crop.width+x-crop.left)*3,s=(y*width+x)*channels;
+    for(let c=0;c<3;c++)clean[s+c]=Math.max(0,Math.min(255,Math.round(wall[p+c]+correction[c]/samples)));
+  }
+  await sharp(clean,{raw:{width,height,channels}}).png({compressionLevel:0}).toFile(output);
+  await sharp(mask,{raw:{width,height,channels:1}}).png().toFile(`${out}/mask-${id}.png`);
+  await sharp(bytes).extract(crop).png().toFile(`${out}/${id}-source-title.png`);
+  await sharp(output).extract(crop).png().toFile(`${out}/${id}-clean-title.png`);
+  const decoded=await sharp(output).raw().toBuffer();let outsideChangedChannels=0,alphaChangedPixels=0;
+  for(let i=0;i<mask.length;i++){
+    if(!mask[i])for(let c=0;c<channels;c++)if(decoded[i*channels+c]!==original[i*channels+c])outsideChangedChannels++;
+    if(channels===4&&decoded[i*4+3]!==original[i*4+3])alphaChangedPixels++;
+  }
+  const deliveredMetadata=await sharp(output).metadata();
+  if(outsideChangedChannels||alphaChangedPixels||deliveredMetadata.icc||deliveredMetadata.channels!==channels)throw new Error(`Original fidelity changed ${id}`);
+  items.push({id,source,output,patch,sourceSha256:sha(bytes),outputSha256:sha(await readFile(output)),patchSha256:sha(await readFile(patch)),width,height,channels,icc:null,outputBytes:(await readFile(output)).length,maskedPixels,outsideChangedChannels,alphaChangedPixels});
+}
+await writeFile(`${out}/assets.json`,JSON.stringify({method:'Built-in imagegen crop wall patch; tight glyph-only composite with local source color correction; native PNG compressionLevel0, no resizing/profile/channel/alpha change to photographs',crop,items},null,2)+'\n');
+console.log(JSON.stringify(items));
+
+2026-10-07T12:33:17.140366Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a1165a-34df-7c13-acce-dd3173b9a67c turn_id=01a1165a-357c-74c3-86a1-cbcda5047f40 item_id="exec-d3d7f301-ee24-454b-b608-44d34fae0d0d"
+2026-10-07T12:33:24.661149Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+exec
+/bin/zsh -lc "nl -ba components/TechnologyViewer.tsx | sed -n '1,280p'; git diff -- CHANGELOG.md | head -100; du -h public/art/technology/cybermind/*; cat package.json | head -60" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 77ms:
+     1	'use client';
+     2
+     3	import Image from 'next/image';
+     4	import { useCallback, useEffect, useRef, useState } from 'react';
+     5	import type { PointerEvent } from 'react';
+     6	import type { Locale } from '@/lib/i18n';
+     7	import { TechnologyTitle } from './TechnologyTitle';
+     8	import { TechnologyDescriptions } from './TechnologyDescriptions';
+     9	import type { TechnologyDescriptionCopy } from '@/lib/technology-descriptions';
+    10
+    11	import { technologyGroups, technologyGroupCopy } from '@/lib/technology-gallery';
+    12	import type { TechnologySlideId } from '@/lib/technology-descriptions';
+    13
+    14	type Selection = { group: number; slide: number };
+    15
+    16	type ViewerCopy = { technology: string; horizontal: string; vertical: string; details: string; close: string; image: string; nextImage: string; nextGroup: string; unavailable: string; names: readonly [string, string, string, string] };
+    17	const copy: Record<Locale, ViewerCopy> = {
+    18	  en: { technology: 'Technology', details: 'Swipe for Details', horizontal: 'Swipe horizontally to browse images', vertical: 'Swipe down for the next technology', close: 'Close technology viewer', image: 'Image', nextImage: 'Show next image', nextGroup: 'Next Technology', unavailable: 'The next technology is coming soon.', names: ['Three heaters', 'Active air sails', 'Programmable heat profiles', 'Gold and titanium nitride'] },
+    19	  ru: { technology: 'Технология', details: 'Свайп для деталей', horizontal: 'Листайте изображения по горизонтали', vertical: 'Свайп вниз — следующая технология', close: 'Закрыть просмотр технологий', image: 'Изображение', nextImage: 'Следующее изображение', nextGroup: 'Следующая технология', unavailable: 'Следующая технология скоро появится.', names: ['Три нагревателя', 'Активные воздушные паруса', 'Программируемые профили нагрева', 'Золото и нитрид титана'] },
+    20	  de: { technology: 'Technologie', details: 'Für Details wischen', horizontal: 'Horizontal durch die Bilder wischen', vertical: 'Für die nächste Technologie nach unten wischen', close: 'Technologieansicht schließen', image: 'Bild', nextImage: 'Nächstes Bild anzeigen', nextGroup: 'Nächste Technologie', unavailable: 'Die nächste Technologie kommt bald.', names: ['Drei Heizelemente', 'Aktive Luftsegel', 'Programmierbare Wärmeprofile', 'Gold und Titannitrid'] },
+    21	  fr: { technology: 'Technologie', details: 'Balayez pour les détails', horizontal: 'Balayez horizontalement pour parcourir les images', vertical: 'Balayez vers le bas pour la technologie suivante', close: 'Fermer la galerie', image: 'Image', nextImage: 'Afficher l’image suivante', nextGroup: 'Technologie suivante', unavailable: 'La prochaine technologie arrive bientôt.', names: ['Trois éléments chauffants', 'Volets d’air actifs', 'Profils de chauffe programmables', 'Or et nitrure de titane'] },
+    22	  es: { technology: 'Tecnología', details: 'Desliza para ver detalles', horizontal: 'Desliza horizontalmente para ver las imágenes', vertical: 'Desliza abajo para la siguiente tecnología', close: 'Cerrar la galería', image: 'Imagen', nextImage: 'Mostrar la siguiente imagen', nextGroup: 'Siguiente tecnología', unavailable: 'La próxima tecnología estará disponible pronto.', names: ['Tres calentadores', 'Aletas de aire activas', 'Perfiles de calor programables', 'Oro y nitruro de titanio'] },
+    23	  it: { technology: 'Tecnologia', details: 'Scorri per i dettagli', horizontal: 'Scorri orizzontalmente tra le immagini', vertical: 'Scorri giù per la tecnologia successiva', close: 'Chiudi la galleria', image: 'Immagine', nextImage: 'Mostra l’immagine successiva', nextGroup: 'Tecnologia successiva', unavailable: 'La prossima tecnologia arriverà presto.', names: ['Tre riscaldatori', 'Alette d’aria attive', 'Profili di calore programmabili', 'Oro e nitruro di titanio'] },
+    24	  tr: { technology: 'Teknoloji', details: 'Ayrıntılar için kaydırın', horizontal: 'Görseller arasında yatay kaydırın', vertical: 'Sonraki teknoloji için aşağı kaydırın', close: 'Teknoloji görünümünü kapat', image: 'Görsel', nextImage: 'Sonraki görseli göster', nextGroup: 'Sonraki teknoloji', unavailable: 'Sonraki teknoloji yakında sunulacak.', names: ['Üç ısıtıcı', 'Aktif hava kanatları', 'Programlanabilir ısı profilleri', 'Altın ve titanyum nitrür'] },
+    25	  ar: { technology: 'تقنية', details: 'اسحب لعرض التفاصيل', horizontal: 'اسحب أفقياً لتصفح الصور', vertical: 'اسحب للأسفل للانتقال إلى التقنية التالية', close: 'إغلاق معرض التقنيات', image: 'صورة', nextImage: 'عرض الصورة التالية', nextGroup: 'التقنية التالية', unavailable: 'التقنية التالية ستتوفر قريباً.', names: ['ثلاثة سخانات', 'زعانف هوائية نشطة', 'ملفات حرارة قابلة للبرمجة', 'الذهب ونتريد التيتانيوم'] },
+    26	  zh: { technology: '技术', details: '滑动查看详情', horizontal: '左右滑动浏览图片', vertical: '向下滑动查看下一项技术', close: '关闭技术图库', image: '图片', nextImage: '显示下一张图片', nextGroup: '下一项技术', unavailable: '下一项技术即将推出。', names: ['三个加热器', '主动导流翼', '可编程加热曲线', '黄金与氮化钛'] },
+    27	  ja: { technology: 'テクノロジー', details: 'スワイプして詳細を見る', horizontal: '左右にスワイプして画像を見る', vertical: '下にスワイプして次の技術を見る', close: '技術ギャラリーを閉じる', image: '画像', nextImage: '次の画像を表示', nextGroup: '次の技術', unavailable: '次の技術は近日公開予定です。', names: ['3つのヒーター', 'アクティブエアセイル', 'プログラム可能な加熱プロファイル', '金と窒化チタン'] },
+    28	  ko: { technology: '기술', details: '스와이프하여 상세 보기', horizontal: '좌우로 스와이프하여 이미지 보기', vertical: '아래로 스와이프하여 다음 기술 보기', close: '기술 갤러리 닫기', image: '이미지', nextImage: '다음 이미지 보기', nextGroup: '다음 기술', unavailable: '다음 기술은 곧 공개됩니다.', names: ['세 개의 히터', '액티브 에어 세일', '프로그래밍 가능한 열 프로필', '금과 질화 티타늄'] },
+    29	};
+    30
+    31	function TechnologyNavigation({ direction, label, accessibleLabel, onClick }: { direction: 'right' | 'down'; label: string; accessibleLabel: string; onClick: () => void }) {
+    32	  return <button className={`technology-viewer__next-${direction === 'right' ? 'image' : 'group'}`} type="button" onClick={onClick} aria-label={accessibleLabel}>
+    33	    <span>{label}</span>
+    34	    <Image src={`/art/technology/arrow-${direction}.png`} width={direction === 'right' ? 28 : 45} height={direction === 'right' ? 45 : 29} alt="" aria-hidden="true" unoptimized />
+    35	  </button>;
+    36	}
+    37
+    38	function TechnologyPagination({ index, labels, names, onSelect }: { index: number; labels: ViewerCopy; names: readonly string[]; onSelect: (index: number) => void }) {
+    39	  return <div className="technology-viewer__dots" role="group" aria-label={labels.horizontal}>
+    40	    {names.map((name, slideIndex) => <button key={slideIndex} type="button" onClick={() => onSelect(slideIndex)} aria-label={`${labels.image} ${slideIndex + 1} / ${names.length}: ${name}`} aria-current={index === slideIndex ? 'true' : undefined}>
+    41	      <Image src={index === slideIndex ? '/art/technology/dot-active.png' : '/art/technology/dot-inactive.png'} width={29} height={29} alt="" aria-hidden="true" unoptimized />
+    42	    </button>)}
+    43	  </div>;
+    44	}
+    45
+    46	export function TechnologyViewer({ locale, descriptions }: { locale: Locale; descriptions: TechnologyDescriptionCopy }) {
+    47	  const dialog = useRef<HTMLDialogElement>(null);
+    48	  const opener = useRef<HTMLElement | null>(null);
+    49	  const previousOverflow = useRef('');
+    50	  const pointer = useRef<{ x: number; y: number } | null>(null);
+    51	  const displayed = useRef<Selection>({ group: 0, slide: 0 });
+    52	  const requested = useRef<Selection>({ group: 0, slide: 0 });
+    53	  const remembered = useRef([0, 0]);
+    54	  const requestToken = useRef(0);
+    55	  const [isOpen, setIsOpen] = useState(false);
+    56	  const [selection, setSelection] = useState<Selection>({ group: 0, slide: 0 });
+    57	  const [showUnavailable, setShowUnavailable] = useState(false);
+    58	  const labels = copy[locale];
+    59	  const groupLabels = technologyGroupCopy[locale];
+    60	  const group = technologyGroups[selection.group];
+    61	  const slide = group.slides[selection.slide];
+    62	  const names = selection.group === 0 ? labels.names : groupLabels.names;
+    63	  const images = useRef(new Map<string, { image: HTMLImageElement; ready: Promise<void> }>());
+    64	  const prepareImage = useCallback((src: string, priority: 'low' | 'high' = 'low') => {
+    65	    const cached = images.current.get(src);
+    66	    if (cached) {
+    67	      if (priority === 'high') cached.image.fetchPriority = 'high';
+    68	      return cached.ready;
+    69	    }
+    70	    const image = new window.Image();
+    71	    image.fetchPriority = priority;
+    72	    image.src = src;
+    73	    const ready = image.decode().catch(error => {
+    74	      // A failed warm-up must not prevent a later user action from retrying.
+    75	      if (images.current.get(src)?.image === image) images.current.delete(src);
+    76	      throw error;
+    77	    });
+    78	    images.current.set(src, { image, ready });
+    79	    return ready;
+    80	  }, []);
+    81
+    82	  useEffect(() => {
+    83	    let timer: ReturnType<typeof setTimeout> | undefined;
+    84	    const warm = () => {
+    85	      // Run after load dispatch; never compete with the initial page resources.
+    86	      timer = setTimeout(() => {
+    87	        technologyGroups.forEach(group => { void prepareImage(group.slides[0].src).catch(() => {}); });
+    88	      }, 0);
+    89	    };
+    90	    if (document.readyState === 'complete') warm();
+    91	    else window.addEventListener('load', warm, { once: true });
+    92	    return () => {
+    93	      window.removeEventListener('load', warm);
+    94	      clearTimeout(timer);
+    95	    };
+    96	  }, [prepareImage]);
+    97
+    98	  useEffect(() => {
+    99	    const dialogElement = dialog.current;
+   100	    const open = (event: MouseEvent) => {
+   101	      const target = event.target;
+   102	      if (!(target instanceof Element)) return;
+   103	      const trigger = target.closest<HTMLElement>('[data-technology-open]');
+   104	      if (!trigger || !dialogElement || dialogElement.open) return;
+   105	      event.preventDefault();
+   106	      opener.current = trigger;
+   107	      requestToken.current++;
+   108	      displayed.current = { group: 0, slide: 0 };
+   109	      requested.current = displayed.current;
+   110	      remembered.current = [0, 0];
+   111	      setSelection(displayed.current);
+   112	      setShowUnavailable(false);
+   113	      technologyGroups.forEach((group, groupIndex) => group.slides.forEach((slide, slideIndex) => {
+   114	        void prepareImage(slide.src, groupIndex === 0 && slideIndex === 0 ? 'high' : 'low').catch(() => {});
+   115	      }));
+   116	      setIsOpen(true);
+   117	      dialogElement.showModal();
+   118	      dialogElement.focus();
+   119	      previousOverflow.current = document.body.style.overflow;
+   120	      document.body.style.overflow = 'hidden';
+   121	    };
+   122	    document.addEventListener('click', open);
+   123	    return () => {
+   124	      document.removeEventListener('click', open);
+   125	      if (dialogElement?.open) document.body.style.overflow = previousOverflow.current;
+   126	    };
+   127	  }, [prepareImage]);
+   128
+   129	  const close = () => dialog.current?.close();
+   130	  const select = (next: Selection) => {
+   131	    setShowUnavailable(false);
+   132	    requested.current = next;
+   133	    const token = ++requestToken.current;
+   134	    prepareImage(technologyGroups[next.group].slides[next.slide].src, 'high').then(() => {
+   135	      if (token === requestToken.current && dialog.current?.open) {
+   136	        displayed.current = next;
+   137	        remembered.current[next.group] = next.slide;
+   138	        setSelection(next);
+   139	      }
+   140	    }).catch(() => {
+   141	      if (token === requestToken.current) requested.current = displayed.current;
+   142	    });
+   143	  };
+   144	  const showSlide = (position: number, groupIndex = displayed.current.group) => {
+   145	    const length = technologyGroups[groupIndex].slides.length;
+   146	    select({ group: groupIndex, slide: (position + length) % length });
+   147	  };
+   148	  const move = (delta: number) => showSlide(requested.current.slide + delta, requested.current.group);
+   149	  const moveGroup = (delta: number) => {
+   150	    const nextGroup = requested.current.group + delta;
+   151	    if (nextGroup < 0) return;
+   152	    if (nextGroup >= technologyGroups.length) { setShowUnavailable(true); return; }
+   153	    select({ group: nextGroup, slide: remembered.current[nextGroup] });
+   154	  };
+   155	  const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+   156	    pointer.current = { x: event.clientX, y: event.clientY };
+   157	    try { event.currentTarget.setPointerCapture(event.pointerId); } catch { /* Synthetic test events do not own a pointer. */ }
+   158	  };
+   159	  const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
+   160	    const start = pointer.current;
+   161	    pointer.current = null;
+   162	    if (!start) return;
+   163	    const dx = event.clientX - start.x;
+   164	    const dy = event.clientY - start.y;
+   165	    if (Math.abs(dy) > 65 && Math.abs(dy) > Math.abs(dx) * 1.2) { moveGroup(dy > 0 ? 1 : -1); return; }
+   166	    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+   167	    move((dx < 0 ? 1 : -1) * (locale === 'ar' ? -1 : 1));
+   168	  };
+   169
+   170	  return <dialog
+   171	    ref={dialog}
+   172	    id="technology-viewer"
+   173	    className="technology-viewer"
+   174	    aria-labelledby={isOpen ? 'technology-viewer-title' : undefined}
+   175	    aria-label={isOpen ? undefined : 'HeatCore'}
+   176	    data-group={group.title}
+   177	    aria-describedby="technology-viewer-instructions"
+   178	    tabIndex={-1}
+   179	    onClose={() => {
+   180	      requestToken.current++;
+   181	      setIsOpen(false);
+   182	      document.body.style.overflow = previousOverflow.current;
+   183	      opener.current?.focus();
+   184	    }}
+   185	    onKeyDown={event => {
+   186	      if (event.key === 'ArrowDown') { event.preventDefault(); moveGroup(1); }
+   187	      if (event.key === 'ArrowUp') { event.preventDefault(); moveGroup(-1); }
+   188	      if (event.key === 'ArrowRight') { event.preventDefault(); move(locale === 'ar' ? -1 : 1); }
+   189	      if (event.key === 'ArrowLeft') { event.preventDefault(); move(locale === 'ar' ? 1 : -1); }
+   190	    }}
+   191	  >
+   192	    <div className="technology-viewer__canvas">
+   193	      <div className="technology-viewer__stage" onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}>
+   194	        {isOpen && <Image key={slide.src} src={slide.src} alt={`${group.title} — ${names[selection.slide]}`} fill sizes="100vw" unoptimized priority={selection.slide === 0} draggable={false} />}
+   195	        {isOpen && <TechnologyTitle descriptor={labels.technology} brand={group.title} />}
+   196	        {isOpen && selection.group === 0 && <TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={names[selection.slide]} copy={descriptions} />}
+   197	      </div>
+   198	      {isOpen && <>
+   199	        <Image className="technology-viewer__frame" src="/art/technology/frame-template.webp" width={941} height={1628} alt="" aria-hidden="true" unoptimized priority />
+   200	        <TechnologyNavigation direction="right" label={labels.details} accessibleLabel={labels.nextImage} onClick={() => move(1)} />
+   201	        <TechnologyPagination index={selection.slide} labels={labels} names={names} onSelect={position => showSlide(position)} />
+   202	        <TechnologyNavigation direction="down" label={labels.nextGroup} accessibleLabel={labels.nextGroup} onClick={() => moveGroup(1)} />
+   203	        {selection.group > 0 && <button className="technology-viewer__previous-group" type="button" onClick={() => moveGroup(-1)} aria-label={groupLabels.previous} title={groupLabels.previous}>
+   204	          <Image src="/art/technology/arrow-down.png" width={45} height={29} alt="" aria-hidden="true" unoptimized />
+   205	        </button>}
+   206	      </>}
+   207	      {showUnavailable && <p className="technology-viewer__notice" role="status">{labels.unavailable}</p>}
+   208	      <button className="technology-viewer__close" type="button" onClick={close} aria-label={labels.close}>×</button>
+   209	    </div>
+   210	    <p id="technology-viewer-instructions" className="technology-viewer__sr-only">{labels.horizontal}. {labels.vertical}. {selection.group > 0 && `${groupLabels.up}. `}{labels.image} {selection.slide + 1} / {group.slides.length}.</p>
+   211	  </dialog>;
+   212	}
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 89ccd3a..9b2f75d 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -126,6 +126,7 @@
+ | [CHG-0065](#chg-0065) | USER_REPORT / DEFECT | Лендинг виден под верхней панелью iOS браузера при открытом viewer | `APPLIED_UNVERIFIED` |
+ | [CHG-0066](#chg-0066) | AGENT_DISCOVERY / DEFECT | Панель галереи перекрывает рамку в коротком landscape viewport | `OPEN` |
+ | [CHG-0067](#chg-0067) | USER_REQUEST / UI | Металлический контур до краёв экрана телефона без боковых чёрных полей | `VERIFIED` |
++| [CHG-0068](#chg-0068) | USER_REQUEST / UI + ART | CyberMind second technology group, live title and staged original PNG warming | `OPEN` |
+ | [CHG-0062](#chg-0062) | USER_REQUEST / FEATURE | Декомпозиция заголовка HeatCore Technology без потери качества рендера | `VERIFIED` |
+ | [CHG-0061](#chg-0061) | USER_REQUEST / FEATURE + CUSTOMER_REJECTION | Полноэкранный просмотрщик HeatCore и точная рамка | `VERIFIED` (2026-10-07 original PNG) |
+
+@@ -1271,6 +1272,8 @@
+
+ ## CHG-0067 — Full-width mobile technology contour
+
++- **Explicit user acceptance / 2026-10-07:** User reports Founder accepted the work («фаундер принял работу»). This confirms the portrait contour delivery; it does not supply native chrome or landscape verification.
++
+ - **Source / 2026-10-07:** Founder requests metal contour at screen side boundaries, removing black exterior side gutters, with supplied marked iPhone screenshot. Current frameleft5.97484%/width88.05031% leaves about24px eachside at402CSS. Expected mobile portrait frame x0..viewportwidth, photo aligned inside original metal cutout, top/bottom control zones retained.
+ - **Cause / responsibility:** Existing inset intentionally followed earlier technology_frame composition, now superseded by explicit updated requirement. This horizontal design input changed; not a new missing-source defect. Agent owns preserving source frame/photo geometry correctly and checking rendered boundaries. Existing CHG0066 short-landscape toolbar defect and CHG0065 native-toolbar uncertainty remain separate.
+ - **Mapping / acceptance:** frame asset941×1628 has nonzeroalpha at x0 and940 (no hidden external margin); transparent openingx29:912/y31:1600. Set mobile canvas contourleft0,width100%; openingleft29/941=3.08182784%,width883/941=93.83634431%. Vertical frame/stage placement and navigation unchanged. Original PNG/frame/font bytes and warming unchanged; CSS-only change, raster pipeline N/A. PortraitPro402×874 andMax440×956 DPR3,13Pro390×664/732/844; screenshot/frame-boundary/reference-plane comparison, all4slides/swipe/dots/twoCTAs/close/focus/backing/RTL/overflow, retained centered tablet/desktop canvas, type/lint/build/native review/localproduction measurements. Scope auditor pending; statusOPEN, approvalPENDING, useracceptanceNOT_RECORDED.
+@@ -1294,3 +1297,17 @@
+ - **Independent public release / 2026-10-07:** discipline_audit `PASS` after exact runtime SHA/Production6909034211 success, canonical public JSON/log and direct public13Pro/Pro/Max actual inspection. Contour touches both edges, native cutout/photo aligned; all12 received PNG bodies match accepted bytes/hashes, eight Pro/Max public comparisonsRGB0, noerrors and backing/close restore pass. Failed5s check remains historical evidence; rerun was resource-synchronized with no runtime edit. Scoped public release technically approved;0065physical and0066landscape limits remain.
+
+ - **Final delivery metadata audit / 2026-10-07:** Independent discipline_audit `PASS` for15 staged release-documentation/evidence paths and clean cached diff. Dated approval, failure/recheck history, MEMORY, lesson/eval NOT_RUN, exact deployment/public proof and native delivery review agree. Runtime/tests/source assets unchanged, unrelated user files excluded. Documentary closure goes to feature branch only; production/main retains verified runtime bc20c4e.
++
++## CHG-0068 — CyberMind second technology group
++
++- **Source / 2026-10-07:** User supplies tech_02 and requests two clean photographs as next/down group, original quality/no compression, baked upper-left CyberMind/Technology removed and rebuilt as Open Sans React title; description copy excluded at this stage. First photograph ready after main page load, others background-fetch immediately when viewer opens and retained for reuse.
++- **Actual → expected:** One HeatCore group currently shows next-group placeholder and warms allfour after load. Add CyberMind2, four/two indicators driven by displayed group, down/Next switches group, up/previous returns, last-group down keeps honest unavailable notice. First image of each group warms post-load (explicit new staged policy supersedes allfour post-load); remainingfour start together on opening, pending/decoded cache reused, selection promotes target; retain old decoded photo/title/dots until target ready and recover failed requests.
++- **Cause / responsibility:** NOT_APPLICABLE / new authorized group and loading policy, no missing check for new scope. Accepted CHG0067 preserved. Source clean roles: CyberMind_TOP_ONLY_941x1672.png→cybermind01; CyberMind_02_SYSTEM_CONNECTED_CLEAN_941x1672.png→cybermind02. WITH_TEXT and SYSTEM_CONNECTED_EN are transcription references only, excluded from image delivery/body copy.
++- **Source mapping:** Both941×1672, no ICC tag (intended source profile unknown, no guessed profile), firstRGBA/allalpha255 and secondRGB. Inventory hashes/bytes in cybermind/source-inventory.json. Tight glyph-only masks boundx52:548/y125:277,25134/25169pixels; actual wall under removed letters must be locally reconstructed and is not provably original. Full resolution/channel/alpha and exact decoded pixels outside masks required. Native original frame/cutout and group1 PNGs unchanged. Live title sourceplane x46/baseline209/font112, CyberMind≈500sourcepx advance; subtitle x54/baseline267/font31/#975f41. Separate semantic title remains OpenSans400; no new descriptive text.
++- **Implementation map:** localized group metadata + TechnologyViewer two-dimensional requested/displayed state and source-keyed decode cache; reusable TechnologyTitle brand prop; new original-size compressionLevel0 PNGs produced from local imagegen wall patch via tight source-preserving mask; two translated slide names/up instructions and labeled previous control (bottom-left, original down arrow rotated), keyboardUp/Down, retained frame/toppagination/down control. Returning restores previous group selection; reopening starts group1/firstimage.
++- **Acceptance:** Pro402×874/Max440×956 DPR3 actuals/sourcepairedcrops, title seam inspection and decoded RGB/alpha outside mask, four/two interactive dots, bothCTAs/down/up/keyboard/RTL/X/focus/cachedoffline/retry/race and portrait13Pro, tablet/desktop. First2 post-load lowpriority/noearlyrequests; remaining4 start onopen inparallel; early-open exception, no duplicate decoded Image/cache instances, reuse after close/groups. No changes to accepted group1 appearance/control geometry except new functional group action. Separate type/lint/build/native review, production firstview/bytes/scroll/cache and public proof. Existing lessons sourceframe/glyphmask/groovephase/original-only/delayedmedia/publicresourcebarrier consulted; EVAL-VIEWER controlledrun NOT_RUN. Physical0065 and landscape0066 remain independent open limitations.
++- **Status:** OPEN; scope auditor/technical approval PENDING; user acceptance for this new group NOT_RECORDED. Changed paths/evidence recorded as applied; source masters preserved.
++
++- **Scope/generation orchestration / 2026-10-07:** Independent discipline_audit scopePASS after inventory/masks/map and allfour sources. Initial imagegen orchestration was stopped before consuming an output because it would have printed an unfiltered tool result; primary corrected output handling to store full result internally and expose only file paths/keys, then restarted. No source/output asset from that aborted call applied or approved. Subsequent patch generation is only for the already-authorized title holes; public product pixels stay source-exact.
++
++- **Applied / 2026-10-07:** Added technology-gallery metadata and11locale names/up control, two-dimensional viewer selection/token/cache, down/up/remembered-group navigation, six-original staged warming, reusable live CyberMind title; group2 has no description/folio. Previous gold arrow uses existing down PNG rotated180,44px target; narrow320 next-group target separated via max54px inset. Tight source-preserving original PNG generator and native wall patches applied:01RGBA6305310B/02RGB4729424B,941×1672/noICC; outside glyph changedchannels0/alpha0 for both. Primary viewed native source/clean title crops; no lettering ghost visible, browser visual audit pending. Source masters and accepted HeatCore/frame bytes unchanged. Typecheck initialPASS, production build14staticPASS, fresh3021 server restarted; final tests/static/review pending. StatusAPPLIED_UNVERIFIED. Main sources/crop/mask inventory and generation prompt saved with evidence; source-hidden wall explicitly reconstructed.
+6.0M	public/art/technology/cybermind/01.png
+4.5M	public/art/technology/cybermind/02.png
+{
+  "name": "ramsider",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test:visual": "playwright test",
+    "test:visual:ui": "playwright test --ui",
+    "visual:diff": "node tools/visual-diff.mjs"
+  },
+  "devDependencies": {
+    "@playwright/cli": "^0.1.22",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.11",
+    "pixelmatch": "^7.2.0",
+    "pngjs": "^7.0.0",
+    "sharp": "^0.35.5",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "next": "^16.2.11",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  }
+}
+
+2026-10-07T12:33:27.472002Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a1165a-34df-7c13-acce-dd3173b9a67c turn_id=01a1165a-357c-74c3-86a1-cbcda5047f40 item_id="exec-4038b5d6-7d9f-469b-8027-d69783ef9e8b"
+2026-10-07T12:33:34.170816Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+exec
+/bin/zsh -lc "sed -n '158,193p' app/globals.css; git status --short design public docs/evidence tools | tail -35; find tools/__pycache__ -type f -maxdepth 1 -print" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+.technology-viewer__descriptions{position:absolute;inset:0;pointer-events:none;font-family:OpenSans,Arial,sans-serif;font-weight:400;color:#000;direction:ltr}
+.technology-viewer__descriptions svg{display:block;width:100%;height:100%;font-family:inherit}
+.technology-description__box{width:100%;height:100%;font-family:OpenSans,Arial,sans-serif;text-align:start}
+.technology-description__copy{margin:0;font-family:inherit;font-weight:400;white-space:pre-line;overflow-wrap:break-word}
+.technology-description__warm,.technology-description__number{-webkit-text-stroke:1.5px #fff;paint-order:stroke fill}
+.technology-description__number{display:inline-block;width:40px;color:#975f41;direction:ltr}
+.technology-description__status{color:#fff;font:400 10px/20px OpenSans,Arial,sans-serif;direction:ltr}
+.technology-viewer__frame{position:absolute;left:5.97484%;top:9.64221%;width:88.05031%;height:80.71559%;pointer-events:none;object-fit:fill}
+.technology-viewer__next-image,.technology-viewer__next-group{position:absolute;z-index:1;padding:0;border:0;background:transparent;color:#f4f1eb;font-family:OpenSans,Arial,sans-serif;font-weight:400;cursor:pointer}
+.technology-viewer__next-image{left:52px;right:max(52px,calc(44px + 2% + env(safe-area-inset-right)));top:0;height:5.8%;min-height:44px;display:flex;align-items:flex-end;justify-content:center;gap:calc(17/954*100cqw);font-size:clamp(14px,calc(48/954*100cqw),26px);line-height:1.12}
+.technology-viewer__next-image span{max-width:calc(100% - 24px);text-align:center}
+.technology-viewer__next-image img{flex:none;align-self:flex-end;width:calc(28/954*100cqw);height:calc(45/1649*100dvh)}
+.technology-viewer__next-group{left:15%;top:92.2%;width:70%;height:6.5%;min-height:44px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:calc(18/1649*100dvh);font-size:clamp(14px,calc(39/954*100cqw),23px);line-height:1.12}
+.technology-viewer__next-group img{flex:none;width:calc(45/954*100cqw);height:calc(29/1649*100dvh)}
+.technology-viewer__dots{position:absolute;z-index:2;top:max(44px,5.8%);left:50%;transform:translateX(-50%);display:flex;direction:ltr}
+.technology-viewer__dots button{position:relative;flex:0 0 24px;width:24px;height:44px;padding:0;border:0;background:transparent;cursor:pointer}
+.technology-viewer__dots img{position:absolute;top:max(2px,calc(7.58dvh - max(44px,5.8dvh) - 6px));left:50%;transform:translateX(-50%);display:block;width:calc(29/954*100cqw);height:auto}
+.technology-viewer__notice{position:absolute;z-index:3;left:10%;right:10%;bottom:11%;margin:0;padding:12px;border:1px solid #dcb477;background:rgb(0 0 0 / .9);color:#fff;text-align:center;font-size:14px;line-height:1.35}
+.technology-viewer__close{position:absolute;right:max(2%,env(safe-area-inset-right));top:max(1%,env(safe-area-inset-top));z-index:4;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;background:transparent;color:#fff;font-size:34px;font-weight:300;line-height:1;cursor:pointer}
+.technology-viewer__previous-group{position:absolute;left:max(2%,env(safe-area-inset-left));top:92.2%;z-index:2;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;background:transparent;cursor:pointer}
+.technology-viewer__previous-group img{width:20px;height:auto;transform:rotate(180deg)}
+.technology-viewer[data-group=CyberMind] .technology-viewer__next-group{left:max(15%,54px);right:max(15%,54px);width:auto}
+.technology-viewer__sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.technology-viewer :focus-visible{outline:2px solid #e7ba75;outline-offset:-3px}
+/* Mobile portrait contour follows the screen edges; the photo follows its cutout. */
+@media(max-width:699px) and (orientation:portrait){.technology-viewer__frame{left:0;width:100%}.technology-viewer__stage{left:3.08182784%;width:93.83634431%}}
+@media(min-width:700px){.technology-viewer__canvas{width:min(100vw,calc(100dvh * 954 / 1649))}}
+.key-powered,.key-groupTag,.key-groupInvest{color:#bd945d}
+.key-group,.key-groupVision{color:#f3eee5}
+.key-account,.key-businessAccount,.key-accountBody,.key-venueAccount{color:#f1e1cb!important}
+.key-accountBody,.key-venueAccount{letter-spacing:0!important}
+.group-diamond{position:absolute;z-index:4;height:auto}
+.key-project1Body,.key-project2Body,.key-project3Body,.key-project4Body{letter-spacing:.03em;color:#86725e!important}
+.canvas[data-locale="ru"] .key-anew,.canvas[data-locale="es"] .key-anew,.canvas[data-locale="tr"] .key-anew,.canvas[data-locale="ja"] .key-beyond{font-size:calc(48/941*100cqw)!important}
+.canvas:not([data-locale="en"]) .overlay:is(.key-pro,.key-gold){width:calc(455/941*100%)!important;font-size:calc(50/941*100cqw)!important}
+.canvas:not([data-locale="en"]) .overlay:is(.key-pro1,.key-pro1b,.key-pro2,.key-pro2b,.key-pro3,.key-pro3b,.key-pro4,.key-pro4b,.key-pro5,.key-pro5b,.key-gold1,.key-gold1b,.key-gold2,.key-gold2b,.key-gold3,.key-gold3b,.key-gold4,.key-gold4b,.key-gold5,.key-gold5b){width:calc(455/941*100%)!important;font-size:calc(27/941*100cqw)!important;letter-spacing:-.015em}
+?? design/derived/cybermind-title/
+?? design/references/background_old.png
+?? design/references/tech_02/
+?? docs/evidence/technology-viewer/cybermind/
+?? public/art/technology/cybermind/
+?? tools/__pycache__/
+?? tools/prepare-cybermind-photos.mjs
+tools/__pycache__/convert-art-webp.cpython-314.pyc
+
+2026-10-07T12:33:36.395050Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a1165a-34df-7c13-acce-dd3173b9a67c turn_id=01a1165a-357c-74c3-86a1-cbcda5047f40 item_id="exec-bbee0c37-a019-43b7-af2a-720f44dcb1c1"
+2026-10-07T12:33:42.389937Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+exec
+/bin/zsh -lc "nl -ba AGENTS.md | grep -E 'Check behavior and adaptation|no inert CTA|all other phones' | head" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+    20	2. **Implement one visual slice.** Build for the Pro baseline first, using the clean background as artwork and semantic HTML/CSS for text and controls. Keep text translatable and controls usable; no inert CTA or invented checkout. Reproduce reference copy in the local build while tracking unverified factual claims for publication. Use Next.js + React + strict TypeScript with the framework's own build toolchain; choose each route's rendering mode and Server/Client boundaries from its data and interaction needs. Do not revive the deleted app. Use [ARCHITECTURE.md](ARCHITECTURE.md). **Exit:** the slice renders and its required behavior works; continue through all slices in the requested scope.
+    22	4. **Check behavior and adaptation.** Test relevant clicks, hover, scroll, navigation, forms, menus, animation states, keyboard access, Arabic RTL, mobile safe areas, and representative tablet/desktop widths. Check overflow, clipping, crops, wraps, spacing, and tile seams. Use [docs/mobile.md](docs/mobile.md). **Exit:** required states work at the sizes they support.
+
+2026-10-07T12:33:47.804644Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a1165a-34df-7c13-acce-dd3173b9a67c turn_id=01a1165a-357c-74c3-86a1-cbcda5047f40 item_id="exec-a91913b7-258c-47c6-a6e8-bbb8d25f26b5"
+2026-10-07T12:33:53.678513Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+codex
+The pending group-transition state can make the viewer report that no next technology is available while it is still showing HeatCore and loading CyberMind.
+
+Review comment:
+
+- [P2] Keep the next-group action tied to the displayed group — /Users/asmirnou/Projects/g/ramsider/components/TechnologyViewer.tsx:149-153
+  If a user clicks Next Technology twice while the CyberMind image is still decoding, the first click sets `requested.current.group` to CyberMind but the viewer still displays HeatCore. The second click takes this branch and announces that the next technology is unavailable, even though CyberMind has not appeared yet. Ignore repeated group navigation while that transition is pending, or base the unavailable state on the displayed group. This leaves a visible control giving a false result during a normal slow-image interaction, contrary to the usable-controls requirement in [AGENTS.md:20](AGENTS.md#L20).
+The pending group-transition state can make the viewer report that no next technology is available while it is still showing HeatCore and loading CyberMind.
+
+Review comment:
+
+- [P2] Keep the next-group action tied to the displayed group — /Users/asmirnou/Projects/g/ramsider/components/TechnologyViewer.tsx:149-153
+  If a user clicks Next Technology twice while the CyberMind image is still decoding, the first click sets `requested.current.group` to CyberMind but the viewer still displays HeatCore. The second click takes this branch and announces that the next technology is unavailable, even though CyberMind has not appeared yet. Ignore repeated group navigation while that transition is pending, or base the unavailable state on the displayed group. This leaves a visible control giving a false result during a normal slow-image interaction, contrary to the usable-controls requirement in [AGENTS.md:20](AGENTS.md#L20).

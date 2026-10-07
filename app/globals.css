@@ -147,6 +147,9 @@ html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.
 .technology-viewer{position:fixed;inset:0;margin:0;width:100vw;max-width:none;height:100dvh;max-height:none;padding:0;border:0;background:#000;color:#fff;overflow:hidden;display:none;z-index:1000;overscroll-behavior:contain}
 .technology-viewer[open]{display:flex;align-items:center;justify-content:center}
 .technology-viewer::backdrop{background:#000}
+/* Safari can sample document paint outside a modal's visual viewport. */
+html:has(#technology-viewer[open]),body:has(#technology-viewer[open]){background:#000}
+.dialog-controller:has(> #technology-viewer[open]) > :not(#technology-viewer),.dialog-controller:has(> #technology-viewer[open]) > :not(#technology-viewer) *{visibility:hidden}
 .technology-viewer__canvas{position:relative;width:100%;height:100%;container-type:inline-size}
 .technology-viewer__stage{position:absolute;left:8.68840187%;top:11.17917493%;width:82.62319625%;height:77.79038893%;overflow:hidden;touch-action:pinch-zoom;background-color:#000;background-size:100% 100%;background-position:center;background-repeat:no-repeat}
 .technology-viewer__stage img{object-fit:fill;user-select:none;-webkit-user-drag:none}

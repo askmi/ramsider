@@ -347,3 +347,46 @@ test('swipe completes when the pointer leaves the artwork', async ({ page }) => 
   await expect(stage.locator('img')).toHaveAttribute('src', /03\.png/);
   await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '03');
 });
+
+test('technology viewer hides landing paint beneath browser chrome and restores it on close', async ({ page }, testInfo) => {
+  await page.goto('/en');
+  // Expanded FAQ icons explicitly set visibility:visible and must also be hidden.
+  await page.locator('#faq-preorder').click();
+  const opener = page.locator('[data-technology-open]').first();
+  await opener.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(100);
+  const original = await page.evaluate(() => ({ root: getComputedStyle(document.documentElement).backgroundColor, body: getComputedStyle(document.body).backgroundColor, height: document.documentElement.scrollHeight, y: scrollY }));
+  await opener.click();
+  const viewer = page.locator('#technology-viewer');
+  await expect(viewer).toBeVisible();
+  await expect(page.locator('html')).toHaveCSS('background-color', 'rgb(0, 0, 0)');
+  await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(0, 0, 0)');
+  const paint = await page.locator('.dialog-controller > :not(#technology-viewer), .dialog-controller > :not(#technology-viewer) *').evaluateAll(elements => elements.filter(element => {
+    const style = getComputedStyle(element);
+    return style.display !== 'none' && style.visibility === 'visible' && element.getBoundingClientRect().width > 0 && element.getBoundingClientRect().height > 0;
+  }).map(element => element.tagName));
+  expect(paint).toEqual([]);
+  await viewer.locator('img').evaluateAll(async images => { await document.fonts.ready; await Promise.all(images.map(image => (image as HTMLImageElement).decode())); });
+  await page.screenshot({ path: `screenshots/actual/technology-viewer/${testInfo.project.name}-isolated-landing.png` });
+  // Isolate the document plane to simulate the browser sampling outside modal paint.
+  // This is a backing check, not an emulated screenshot of physical Safari chrome.
+  const probe = await page.addStyleTag({ content: '#technology-viewer[open]{visibility:hidden!important} #technology-viewer[open] *{visibility:hidden!important} #technology-viewer[open]::backdrop{background:transparent!important}' });
+  const backing = await page.screenshot();
+  const { data, info } = await sharp(backing).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+  expect(info.channels).toBe(3);
+  expect(data.some(value => value !== 0)).toBe(false);
+  await probe.evaluate(element => (element as HTMLStyleElement).remove());
+  await page.keyboard.press('Escape');
+  await expect(viewer).not.toBeVisible();
+  await expect(page.locator('html')).toHaveCSS('background-color', original.root);
+  await expect(page.locator('body')).toHaveCSS('background-color', original.body);
+  await expect(page.locator('main.canvas')).toBeVisible();
+  await expect(page.locator('.faq-symbol').first()).toHaveCSS('visibility', 'visible');
+  const restored = await page.evaluate(() => ({ height: document.documentElement.scrollHeight, y: scrollY }));
+  expect(restored.height).toBe(original.height);
+  expect(restored.y).toBeCloseTo(original.y, 0);
+  await opener.click();
+  await expect(page.locator('html')).toHaveCSS('background-color', 'rgb(0, 0, 0)');
+  await viewer.locator('.technology-viewer__close').click();
+  await expect(page.locator('html')).toHaveCSS('background-color', original.root);
+});

@@ -1,0 +1,8 @@
+
+Running 1 test using 1 worker
+
+(node:66484) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:6:1 › technology artwork keeps its native proportions as Safari chrome changes the visible height (2.4s)
+
+  1 passed (4.0s)

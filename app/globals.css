@@ -180,8 +180,8 @@ html:has(#technology-viewer[open]),body:has(#technology-viewer[open]){background
 .technology-viewer[data-group=CyberMind] .technology-viewer__next-group{left:max(15%,54px);right:15%;width:auto}
 .technology-viewer__sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .technology-viewer :focus-visible{outline:2px solid #e7ba75;outline-offset:-3px}
-/* Mobile portrait contour follows the screen edges; the photo follows its cutout. */
-@media(max-width:699px) and (orientation:portrait){.technology-viewer__frame{left:0;width:100%}.technology-viewer__stage{left:3.08182784%;width:93.83634431%}}
+/* Keep the full portrait artwork at one scale when browser chrome shortens the viewport. */
+@media(max-width:699px) and (orientation:portrait){.technology-viewer__canvas{width:min(100vw,calc(100dvh * .4667))}.technology-viewer__frame{left:0;width:100%}.technology-viewer__stage{left:3.08182784%;width:93.83634431%}}
 @media(min-width:700px){.technology-viewer__canvas{width:min(100vw,calc(100dvh * 954 / 1649))}}
 .key-powered,.key-groupTag,.key-groupInvest{color:#bd945d}
 .key-group,.key-groupVision{color:#f3eee5}

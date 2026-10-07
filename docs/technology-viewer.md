@@ -40,3 +40,7 @@ After the main page window `load` event (or after hydration if already complete)
 ## iOS browser chrome backing — CHG-0065
 
 The customer suspects Telegram in-app browser on iOS; exact container/build is unknown. The native dialog/backdrop cover the browser content viewport, while Safari may expose underlying document paint beneath transparent toolbars. With #technology-viewer[open], CSS paints html/body black and hides the other direct children of .dialog-controller and their descendants. The rendered viewer is a sibling of main.canvas inside that wrapper, so its native dialog/AX/content stay visible. Visibility preserves layout and scroll; CSS state removal restores landing onX/Escape. No viewportmeta, permanent landingpalette, raster/font, gallerygeometry or asyncdelivery changes. Verifyblackdocumentplane even with dialog/backdroppaint suppressed; emulated mobile screenshots alone cannot prove actualphysicaltoolbarbehavior. KnownWebKit reports https://bugs.webkit.org/show_bug.cgi?id=300965 and https://bugs.webkit.org/show_bug.cgi?id=303167; exactuserOS/build unknown.
+
+## Mobile contour at screen edges — CHG-0067
+
+The founder updated the portrait-phone composition: remove exterior black side gutters. At portrait widths under700CSSpx, frameleft0,width100%; openingleft29/941,width883/941 follows the unmodified contour's exact native cutout. Frame/stage vertical placement, top/bottom controls, original assets and loading stay unchanged. Tablet/desktop and landscape retain prior geometry; the known short-landscape issue remains0066OPEN.

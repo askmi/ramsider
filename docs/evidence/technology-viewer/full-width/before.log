@@ -1,0 +1,36 @@
+
+Running 1 test using 1 worker
+
+(node:33127) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:394:1 › metal contour reaches mobile side edges and the image stays inside its cutout (1.2s)
+
+
+  1) [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:394:1 › metal contour reaches mobile side edges and the image stays inside its cutout
+
+    Error: expect(received).toBeCloseTo(expected, precision)
+
+    Expected: 0
+    Received: 24.015625
+
+    Expected precision:    1
+    Expected difference: < 0.05
+    Received difference:   24.015625
+
+      401 |   const stage = await viewer.locator('.technology-viewer__stage').boundingBox();
+      402 |   if (!canvas || !frame || !stage) throw new Error('Missing gallery geometry');
+    > 403 |   expect(frame.x).toBeCloseTo(canvas.x, 1);
+          |                   ^
+      404 |   expect(frame.width).toBeCloseTo(canvas.width, 1);
+      405 |   if (canvas.width === testInfo.project.use.viewport?.width) {
+      406 |     expect(frame.x).toBe(0);
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/technology-viewer.spec.ts:403:19
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/technology-viewer-metal-co-36d86-age-stays-inside-its-cutout-iphone-17-pro-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/technology-viewer-metal-co-36d86-age-stays-inside-its-cutout-iphone-17-pro-webkit/error-context.md
+
+  1 failed
+    [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:394:1 › metal contour reaches mobile side edges and the image stays inside its cutout

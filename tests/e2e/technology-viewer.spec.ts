@@ -390,3 +390,33 @@ test('technology viewer hides landing paint beneath browser chrome and restores 
   await viewer.locator('.technology-viewer__close').click();
   await expect(page.locator('html')).toHaveCSS('background-color', original.root);
 });
+
+test('metal contour reaches mobile side edges and the image stays inside its cutout', async ({ page }, testInfo) => {
+  await page.goto('/en');
+  await page.locator('[data-technology-open]').first().click();
+  const viewer = page.locator('#technology-viewer');
+  await viewer.locator('img').evaluateAll(async images => { await document.fonts.ready; await Promise.all(images.map(image => (image as HTMLImageElement).decode())); });
+  const canvas = await viewer.locator('.technology-viewer__canvas').boundingBox();
+  const frame = await viewer.locator('.technology-viewer__frame').boundingBox();
+  const stage = await viewer.locator('.technology-viewer__stage').boundingBox();
+  if (!canvas || !frame || !stage) throw new Error('Missing gallery geometry');
+  const viewportWidth = await page.evaluate(() => innerWidth);
+  expect(viewportWidth).toBe(testInfo.project.use.viewport?.width);
+  const fullWidth = viewportWidth < 700;
+  if (fullWidth) {
+    expect(frame.x).toBeCloseTo(canvas.x, 1);
+    expect(frame.width).toBeCloseTo(canvas.width, 1);
+    expect(frame.x).toBe(0);
+    expect(frame.width).toBe(viewportWidth);
+  }
+  expect(stage.x).toBeCloseTo(frame.x + frame.width * 29 / 941, 1);
+  expect(stage.width).toBeCloseTo(frame.width * 883 / 941, 1);
+  const screenshot = await page.screenshot();
+  const { data, info } = await sharp(screenshot).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+  const scale = info.width / viewportWidth;
+  const y = Math.floor((frame.y + frame.height / 2) * scale);
+  // Both edge pixels must contain metal, not the formerly exterior black gutters.
+  for (const x of [Math.round(frame.x * scale), Math.round((frame.x + frame.width) * scale) - 1]) {
+    expect(Math.max(...data.subarray((y * info.width + x) * 3, (y * info.width + x) * 3 + 3))).toBeGreaterThan(10);
+  }
+});

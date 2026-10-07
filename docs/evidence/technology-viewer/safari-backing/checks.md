@@ -20,3 +20,9 @@ Local production Chromium mobile profile: FCP/LCP76ms, CLS0, JS159607B, scrollp9
 ## Native limitation and approval
 
 No physical iPhone / Telegram iOS browser / Safari / installed simctl available. Actual address-toolbar appearance cannot be certified from content emulation. CHG-0065 is APPLIED_UNVERIFIED for the reported native symptom; scoped document correction has primary technical approval. Independent scoped visual PASS; other audit gates recorded in CHANGELOG. User acceptance NOT_RECORDED. Controlled EVAL-VIEWER agent run NOT_RUN.
+
+## Public release — 2026-10-07
+
+Runtime0a00a61c245c2b3360a73c3afb70486005c0efe8 pushed feature/main; exact Vercel Production–ramsider6905392448 success. Public https://ramsider-main.vercel.app/en WebKit DPR3 on390×664,402×874,440×956: black isolated document plane, close restoration, all4PNG HTTPbyteidentity and eight Pro/Max decodedRGB0 PASS; no pageerrors. `public-checks.json`, deployment JSON and three actual public images retain proof. Native recipient browser chrome not available; APPLIED_UNVERIFIED still applies to original physical symptom and0066 remains OPEN.
+
+Independent discipline_audit public release and staged-record gate PASS after direct public-image, exact deployment and PNG/RGB evidence inspection. Scoped software approval only; native toolbar/landscape limitations remain as recorded.

@@ -1258,6 +1258,10 @@
 
 - **Final staged record audit / 2026-10-07:** discipline_audit PASS on45staged paths and clean cached diff, portable actuals, failed/final logs, MEMORY/LESSONS/EVAL NOT_RUN and0065/0066 scoped records. Approved document-backing correction for delivery; no native toolbar or full-landscape certification. Exact production deployment/public backing verification follows commit/push.
 
+- **Public verification / 2026-10-07:** Runtime0a00a61c245c2b3360a73c3afb70486005c0efe8 atomically pushed to feature/main. Vercel Production–ramsider6905392448 exactSHA success. Canonical https://ramsider-main.vercel.app/en WebKit DPR3 at390×664,402×874,440×956: isolated document backing RGB0,close restores landing,all4PNG HTTPbodyidentity perprofile,eight Pro/Max decoded RGB0,consoleclean PASS. Primary inspected actual public13Pro capture. Evidence deployment.json/deployment-status.json/public-checks.json/public-*.png/check-public.mjs; original customer image copied unchanged for durable evidence. Scoped public technical approval Codexprimary APPROVED; independent release audit pending. Native recipient toolbar remains APPLIED_UNVERIFIED and0066 OPEN.
+
+- **Independent public release audit / 2026-10-07:** discipline_audit scoped PASS after exactdeployment/status JSON, actual canonical13Pro/Pro/Max images, all4PNG bodies, eightRGB0 results and12staged documentation/evidence paths with clean cached diff. Productionmain remains tested runtime0a00a61; release metadata committed separately tofeature. Native toolbar confirmation still unavailable, CHG-0065 APPLIED_UNVERIFIED and0066 OPEN retained.
+
 ## CHG-0066 — Existing gallery toolbar overlaps artwork in short landscape viewport
 
 - **Discovery / 2026-10-07:** Primary inspected actual WebKit844×390 DPR3 `safari-backing/13-pro-landscape-slide-1.png`: top instruction wraps and pagination occupies frame area. Existing canvas narrows from height while controls retain minimum44px height and fixed52px side offsets. CHG-0065 changes only document backing, not these geometry rules. Expected readable separated toolbar/artwork at short landscape sizes.

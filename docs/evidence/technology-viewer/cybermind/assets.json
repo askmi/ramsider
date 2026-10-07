@@ -1,0 +1,45 @@
+{
+  "method": "Built-in imagegen crop wall patch; tight glyph-only composite with local source color correction; native PNG compressionLevel0, no resizing/profile/channel/alpha change to photographs",
+  "crop": {
+    "left": 16,
+    "top": 80,
+    "width": 576,
+    "height": 256
+  },
+  "items": [
+    {
+      "id": "01",
+      "source": "design/references/tech_02/CyberMind_TOP_ONLY_941x1672.png",
+      "output": "public/art/technology/cybermind/01.png",
+      "patch": "design/derived/cybermind-title/01-wall.png",
+      "sourceSha256": "a83b94ab02a8af5d535b1181a90b6113d01d41fca77f6c8eb4146f5309f0ca1d",
+      "outputSha256": "7220cf0c4e6fb181661b0e179afbf0de430bf873bdfa4053530e7df6f0e9239a",
+      "patchSha256": "5b3b3eb14913beee71c3cd1228af6b24950e91ed21fb9483f32ea92a35963505",
+      "width": 941,
+      "height": 1672,
+      "channels": 4,
+      "icc": null,
+      "outputBytes": 6305310,
+      "maskedPixels": 25134,
+      "outsideChangedChannels": 0,
+      "alphaChangedPixels": 0
+    },
+    {
+      "id": "02",
+      "source": "design/references/tech_02/CyberMind_02_SYSTEM_CONNECTED_CLEAN_941x1672.png",
+      "output": "public/art/technology/cybermind/02.png",
+      "patch": "design/derived/cybermind-title/02-wall.png",
+      "sourceSha256": "85ec1466632582f13fc465d7268a3abf9eb6b79eb3db9c0fa4f709b065a661ad",
+      "outputSha256": "557c74150a94a9e8251728cdacbdca21f346344fb410d2dbc945c4b82988d1cc",
+      "patchSha256": "df0e843ff8cf5bbe935b65094995ba6ed651460f25974b298383f7c104c54cc1",
+      "width": 941,
+      "height": 1672,
+      "channels": 3,
+      "icc": null,
+      "outputBytes": 4729424,
+      "maskedPixels": 25169,
+      "outsideChangedChannels": 0,
+      "alphaChangedPixels": 0
+    }
+  ]
+}

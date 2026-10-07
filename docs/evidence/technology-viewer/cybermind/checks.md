@@ -41,3 +41,9 @@ First2 low-priority original requests start after load (local245ms after227ms; s
 ## Gate status and limits
 
 Independent scope, final actual visual, behavior/adaptation and review/performance PASS. Primary scoped technical approval APPROVED on2026-10-07; final record/public audit tracked in CHANGELOG CHG-0068. Physical iOS/Telegram browser chrome CHG-0065 remains APPLIED_UNVERIFIED; inherited short-landscape composition CHG-0066 OPEN. User acceptance of CHG-0067 does not approve this new group. Public exact-SHA delivery evidence follows release.
+
+## Public release
+
+Runtime44fdf2ab8751733b6d13fdf9a27c789eff95dbf5 pushed feature/main; deployment.json/statuses prove exact Production–ramsider6911286142 success. Canonical https://ramsider-main.vercel.app/en WebKitDPR3 at13Pro390×664,Pro402×874,Max440×956:18actualPNGresponse bodies all match accepted files,2post-load/4on-open/cache6/reopen/focus/blackbacking/close restore PASS.12Pro/Max fullactualRGB0 versus approved local captures. Primary directly viewed public13Pro/Pro screenshots; native delivery-script review exit0/noactionablefinding. public-checks.json/log andpublic-{13-pro,pro,pro-max}-slide-{1,2}.png retained. Primary scoped public technical approval APPROVED2026-10-07; independent release audit recorded in journal. Productionmain stays tested runtime; release metadata goes separately tofeaturebranch.
+
+Independent discipline_audit public release and15-path stagedmetadata gate **PASS**2026-10-07 after direct13Pro/Pro/Max actual inspection and exactSHA/Production/PNGbody/cache/RGB evidence. Scope complete; physical0065 and landscape0066 remain unchanged limitations.

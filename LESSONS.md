@@ -245,8 +245,8 @@ This is the repository's **error-prevention memory**, separate from current proj
 ## Verify gallery frames while media is delayed
 
 - **Problem:** CHG-0061 briefly painted a black stage after a swipe because the DOM source changed before the next image decoded; an Arabic browser screenshot exposed it even though the test had seen the expected `src`.
-- **Cause:** The agent treated the image URL transition as equivalent to visible painted media and captured immediately after the URL assertion.
-- **Prevention:** Keep the previous decoded frame until the next resource decodes, provide a small first-frame preview, and test the intermediate state with an intentionally delayed image request. Await `complete && naturalWidth` before visual capture. [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) remains `NOT_RUN`.
+- **Cause:** The agent treated the image URL transition as equivalent to visible painted media and captured immediately after the URL assertion. In CHG-0067 the public script also conflated a cached-switch deadline with cold original-image readiness and omitted a resource-completion barrier.
+- **Prevention:** Keep the previous decoded frame until the next resource decodes, provide a small first-frame preview, and test the intermediate state with an intentionally delayed image request. Await `complete && naturalWidth` before visual capture. CHG-0067 public QA also applied a local5s switch deadline before asynchronous original PNGs finished downloading. For cached-switch release checks, first observe the actual image responses/body completion with a bounded network deadline and then await decoded media; keep delayed/failed cold-switch behavior as its own tested state. A readiness timeout is not a visual pass or proof of a runtime defect. [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) remains `NOT_RUN`.
 
 ## Use the supplied frame pixels for reusable artwork templates
 

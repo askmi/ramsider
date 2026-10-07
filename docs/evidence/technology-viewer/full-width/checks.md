@@ -25,3 +25,9 @@ Native Telegram/iPhone chrome unavailable, unrelated0065 symptom remainsAPPLIED_
 ## Dated technical approval
 
 2026-10-07: Codex primary verifier APPROVED for the scoped portrait boundary change. Independent discipline_audit scope, actual visual, behavior/adaptation and code/review/performance gates PASS after direct artifact inspection. Final staged record audit and exact-SHA public verification follow in CHANGELOG. Separate native-browser and short-landscape limitations above remain.
+
+## Public release
+
+Runtime bc20c4efffa492258c79b3be0bd91f4f908883b1, Vercel Production–ramsider6909034211 success; exact remote main/feature SHA confirmed. Canonical demo checked on13Pro390×664,Pro402×874,Max440×956 WebKitDPR3: allfour actual PNG response bodies byte-identical, contour/cutout bounds, black document backing and close restoration PASS, no errors. Eight Pro/Max public full screenshots have0changedRGB channels versus new approved local actuals. Primary directly viewed public13Pro actual. public-checks.json/log and deployment/statuses.json record proof. Public first-attempt5s cold image readiness assertion failed; retained log, no PASS inferred. Bounded real response/body barrier rerun exit0 with no runtime change; existing lesson/eval protocol extended, controlled run NOT_RUN. This checks warm navigation, while the production viewer suite separately covers delayed/failed cold requests. Independent release audit follows in journal.
+
+2026-10-07 independent discipline_audit public release PASS after actual public13Pro/Pro/Max images, PNG hashes/bytes, RGB0 and exact deployment/status inspection. Native final delivery review exit0/no actionable regression.

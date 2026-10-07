@@ -1,0 +1,61 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+ExpectError: expect(locator).toHaveAttribute(expected) failed
+
+Locator:  locator('#technology-viewer').locator('.technology-viewer__descriptions')
+Expected: "03"
+Received: "02"
+Timeout:  5000ms
+
+Call log:
+  - Expect "toHaveAttribute" locator('#technology-viewer').locator('.technology-viewer__descriptions') with timeout 5000ms
+  - waiting for locator('#technology-viewer').locator('.technology-viewer__descriptions')
+    14 × locator resolved to <section data-slide="02" aria-label="Three heaters" class="technology-viewer__descriptions">…</section>
+       - unexpected value "02"
+
+    at captureRawStack (/Users/asmirnou/Projects/g/ramsider/node_modules/playwright-core/lib/coreBundle.js:8588:17)
+    at callMatcherAsStep (/Users/asmirnou/Projects/g/ramsider/node_modules/playwright/lib/matchers/expect.js:13310:57)
+    at Object.toHaveAttribute (/Users/asmirnou/Projects/g/ramsider/node_modules/playwright/lib/matchers/expect.js:13302:23)
+    at /Users/asmirnou/Projects/g/ramsider/docs/evidence/technology-viewer/full-width/check-public.mjs:6:137 {
+  matcherResult: {
+    name: 'toHaveAttribute',
+    expected: '03',
+    message: 'expect(locator).toHaveAttribute(expected) failed\n' +
+      '\n' +
+      "Locator:  locator('#technology-viewer').locator('.technology-viewer__descriptions')\n" +
+      'Expected: "03"\n' +
+      'Received: "02"\n' +
+      'Timeout:  5000ms\n' +
+      '\n' +
+      'Call log:\n' +
+      `  - Expect "toHaveAttribute" locator('#technology-viewer').locator('.technology-viewer__descriptions') with timeout 5000ms\n` +
+      "  - waiting for locator('#technology-viewer').locator('.technology-viewer__descriptions')\n" +
+      '    14 × locator resolved to <section data-slide="02" aria-label="Three heaters" class="technology-viewer__descriptions">…</section>\n' +
+      '       - unexpected value "02"\n',
+    pass: false,
+    actual: '02',
+    log: [
+      `  - Expect "toHaveAttribute" locator('#technology-viewer').locator('.technology-viewer__descriptions') with timeout 5000ms`,
+      "  - waiting for locator('#technology-viewer').locator('.technology-viewer__descriptions')",
+      '    14 × locator resolved to <section data-slide="02" aria-label="Three heaters" class="technology-viewer__descriptions">…</section>',
+      '       - unexpected value "02"'
+    ],
+    timeout: 5000,
+    ariaSnapshot: '- region "Three heaters":\n' +
+      '  - heading "THREE HEATERS. ONE CONTINUOUS BALANCE." [level=3]\n' +
+      '  - heading "01 UPPER HEAT" [level=4]\n' +
+      '  - paragraph: 0–280°C\n' +
+      '  - paragraph: Maintains the primary session temperature.\n' +
+      '  - heading "02 GRILL MODE" [level=4]\n' +
+      '  - paragraph: Adds focused intensity precisely when needed.\n' +
+      '  - heading "03 LOWER HEAT" [level=4]\n' +
+      '  - paragraph: 0–160°C\n' +
+      '  - paragraph: Gradually preheats the blend from below.\n' +
+      '  - paragraph: Precision heating architecture\n' +
+      '  - paragraph: Three independently controlled heaters shape and maintain the selected profile, directing heat precisely where it is needed.'
+  }
+}
+
+Node.js v25.9.0

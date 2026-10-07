@@ -1,0 +1,455 @@
+2026-10-07T17:34:13.627802Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-07T17:34:13.627865Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.159.0-alpha.12.1
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: low
+reasoning summaries: none
+session id: 01a1176e-1855-7233-b16b-352fc2a6d6e2
+--------
+user
+current changes
+2026-10-07T17:34:14.311551Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-07T17:34:14.311576Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+exec
+/bin/zsh -lc 'git status --short; git diff --stat; git diff --cached --stat; find .. -name AGENTS.md -o -name AGENTS.override.md | head -30' in /Users/asmirnou/Projects/g/ramsider
+2026-10-07T17:34:27.067709Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a1176e-1855-7233-b16b-352fc2a6d6e2 turn_id=01a1176e-1901-7c91-bfc8-7f5034d7252e item_id="exec-352660dc-9f99-40c5-8bb4-8ae77c6fb03b"
+ succeeded in 1929ms:
+ M .gitignore
+ M CHANGELOG.md
+ M LESSONS.md
+ M app/globals.css
+ M tests/e2e/technology-viewer.spec.ts
+?? design/references/background_old.png
+?? docs/evidence/technology-viewer/short-viewport/
+?? tools/__pycache__/
+ .gitignore                          |  3 ++-
+ CHANGELOG.md                        | 15 +++++++++++++++
+ LESSONS.md                          |  4 ++++
+ app/globals.css                     |  2 +-
+ tests/e2e/technology-viewer.spec.ts | 32 ++++++++++++++++++++++++++++++++
+ 5 files changed, 54 insertions(+), 2 deletions(-)
+../ramsider/.agents/skills/vercel-react-best-practices/AGENTS.md
+../ramsider/.agents/skills/vercel-composition-patterns/AGENTS.md
+../ramsider/AGENTS.md
+
+exec
+/bin/zsh -lc 'git diff -- .gitignore app/globals.css tests/e2e/technology-viewer.spec.ts CHANGELOG.md LESSONS.md; ls -lah design/references/background_old.png docs/evidence/technology-viewer/short-viewport tools/__pycache__ 2>/dev/null; cat AGENTS.md | head -25' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 1ms:
+diff --git a/.gitignore b/.gitignore
+index c9e723c..7a66f72 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -33,6 +33,7 @@ yarn-error.log*
+
+ # env files (can opt-in for committing if needed)
+ .env*
++/integrations/telegram/
+
+ # vercel
+ .vercel
+@@ -50,4 +51,4 @@ next-env.d.ts
+ /screenshots/diff/
+
+ *.psb
+-/deliverables/
+\ No newline at end of file
++/deliverables/
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 51ef57e..7b7ffbc 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -128,6 +128,7 @@
+ | [CHG-0067](#chg-0067) | USER_REQUEST / UI | Металлический контур до краёв экрана телефона без боковых чёрных полей | `VERIFIED` |
+ | [CHG-0068](#chg-0068) | USER_REQUEST / UI + ART | CyberMind second technology group, live title and staged original PNG warming | `VERIFIED` |
+ | [CHG-0069](#chg-0069) | USER_REQUEST / UI + COPY | CyberMind descriptions in Open Sans, without bottom photo folios | `VERIFIED` |
++| [CHG-0070](#chg-0070) | USER_REPORTED_DEFECT | Галерея сплющена при раскрытой панели iPhone Safari | `APPLIED_UNVERIFIED` |
+ | [CHG-0062](#chg-0062) | USER_REQUEST / FEATURE | Декомпозиция заголовка HeatCore Technology без потери качества рендера | `VERIFIED` |
+ | [CHG-0061](#chg-0061) | USER_REQUEST / FEATURE + CUSTOMER_REJECTION | Полноэкранный просмотрщик HeatCore и точная рамка | `VERIFIED` (2026-10-07 original PNG) |
+
+@@ -1361,3 +1362,17 @@
+ - **Final checks / 2026-10-07:** Rebuilt after Bold/line-break repair: typecheck/lint/build14SSG PASS; mobile viewer36/36 and targeted Pro/Max/desktop6/6 with all11locales ×2 slides PASS. Four final Pro/Max WebKit DPR3 screenshots directly inspected against two TEXT refs; independent scope, final visual and behavior/adaptation gates PASS. Original CyberMind PNG SHA and `git diff` show no asset changes; upper indicators retained, folios absent. Production402×874 sample: FCP/LCP88ms, CLS0, JS161048B, scrollp9516.7ms/0>33, no errors; synthetic4Mbps LCP328ms, first2 ready37.0s/all6 75.4s, no instant-readiness claim. Native review exit0; sole P2 fit-reset finding is false positive because each fit begins scale1 and writes requested font/line sizes before measuring, confirmed by independent code audit. Evidence `docs/evidence/technology-viewer/cybermind-descriptions/checks.md`.
+ - **Technical approval / 2026-10-07:** `VERIFIED` for scoped CyberMind text and excluded bottom folios. Codex primary verifier `APPROVED` based on above actual screenshots, browser suite, build and performance; independent discipline_audit scope/Stage3/Stage4/Stage5 PASS. Explicit user acceptance NOT_RECORDED. Product claims remain unverified in PRODUCT; CHG-0065 physical native UI and CHG-0066 short landscape remain separate open limitations. Final Stage6 record audit pending.
+ - **Staged artifact check / 2026-10-07:** First cached diff-check found trailing spaces emitted by raw Playwright/build logs. Primary had checked source diff before staging generated logs. Normalized whitespace only in evidence logs and repeated staged check; test outcomes unchanged. This proportionate evidence-format defect does not change runtime approval.
++
++<a id="chg-0070"></a>
++## CHG-0070 — Галерея технологий сплющивается при высокой панели iPhone Safari
++
++- **Дата/источник:** 2026-10-07; два скриншота пользователя: iPhone 13 Pro с развернутой Safari-панелью и iPhone 13 с компактной панелью, одинаковая ширина контента.
++- **Тип/статус:** USER_REPORTED_DEFECT / `OPEN`.
++- **Факт → ожидание:** На первом скриншоте вся фотография, контур и текст сжаты по вертикали; при смене высоты видимой области браузера исходные пропорции 941×1672 и рамки 941×1628 должны сохраняться, управление — оставаться доступным.
++- **Причина/ответственность:** Agent CSS: ширина stage/frame зависела от `100vw`, высота — от `100dvh`, `object-fit:fill` и SVG `preserveAspectRatio:none` растягивали обе оси независимо. Мы проверили номинальные 17 Pro/Pro Max и 13 Pro как положение рамки/кеша, но не сравнили отношение сторон фото при разных состояниях browser chrome на одной ширине. Это пропущенная проверка агента; фотографии пользователя лишь выявили дефект, не являются его причиной.
++- **Решение/маппинг:** Реальные скриншоты и исходные размеры → расчет отношения canvas/stage/frame → CSS ограничение ширины всего canvas высотой только при короткой видимой области, сохранив единое масштабирование фото, текста, рамки и кнопок. Не менять PNG; в обычных Pro/Max высотах сохранить прежнюю композицию. Регрессия: 390×664/732/844 и 402×874/440×956 DPR3 плюс обе локали/обе группы, доступность управления, реальные снимки и production проверки.
++- **Поведение/eval:** Для всех полноэкранных композиций с изображением проводить матрицу visual viewport heights при одной ширине и измерять rendered aspect ratio, а не только края/DOM размеры. Обновить LESSONS и EVAL-VIEWER; controlled agent run `NOT_RUN`.
++- **Файлы/проверки/технический аппрув:** ожидаются. Аппрув пользователя: NOT_RECORDED.
++
++- **Воспроизведение / 2026-10-07:** Production WebKit DPR3 до правки: 390×664 stage 365.95×516.52 ratio0.70850 (источник941/1672=0.56280), frame390×535.94 ratio0.72770 (источник941/1628=0.57799). При той же ширине и высоте844 ratios0.55739/0.57249. Исходный скриншот `docs/evidence/technology-viewer/short-viewport/before-390x664.png` визуально воспроизводит сплющенность. Значит механизм — независимое процентное масштабирование от динамической высоты браузера, а не конвертация PNG или особенности конкретной фотографии.
++- **Применение / 2026-10-07:** В portrait/mobile canvas получает ширину `min(100vw,100dvh×0.4667)` и центрируется уже существующим flex-контейнером. При обычной высоте Pro/Max ширина остаётся100vw; при раскрытой панели браузера вся композиция (фото, контур, текст, навигация) уменьшается равномерно и получает чёрные поля по бокам, чтобы поместиться целиком без вертикального растяжения. PNG и component code не менялись. Новый WebKit-тест измеряет ratio stage/frame при390×664/732/844,402×874,440×956 и проверяет переход CyberMind/закрытие; первичный focused PASS, визуальные снимки `after-390x664.png` и `after-cybermind-390x664.png` просмотрены. Status `APPLIED_UNVERIFIED` до полного QA. Одновременный typecheck/build временно выдал ошибку генерации `.next/types/routes.js`; последовательный повтор после успешной сборки PASS, это гонка проверок, не ошибка исходника.
+diff --git a/LESSONS.md b/LESSONS.md
+index f57717d..ad4d52e 100644
+--- a/LESSONS.md
++++ b/LESSONS.md
+@@ -288,3 +288,7 @@ This is the repository's **error-prevention memory**, separate from current proj
+
+ - **Problem → cause → prevention:** First CyberMind callout implementation used the shared Regular400 default for headings that were visibly bold in the supplied TEXT render. The agent mapped positions/copy but did not carry each unit's weight into the acceptance check. Before approval, inspect source and actual crops for weight and line breaks for every mapped unit, not merely its box geometry. The Stage3 auditor caught this, authentic OpenSans Bold and source English breaks fixed it; controlled EVAL-MAP run remains `NOT_RUN`.
+ - **Problem → cause → prevention:** A locale test asserted text immediately after triggering asynchronous group navigation while the previous decoded image still displayed. Wait for the viewer's displayed group/image state before inspecting dependent text. Preserve the failed run and repeat the affected check; controlled EVAL-VIEWER run remains `NOT_RUN`.
++
++## Fullscreen gallery aspect under dynamic browser chrome — CHG-0070
++
++- **Problem → cause → prevention:** At the same iPhone width, expanded Safari/Telegram chrome shortened `100dvh`; the agent's gallery used viewport width and dynamic viewport height independently, then `object-fit:fill` stretched the photograph, frame, and SVG text. Prior 13 Pro verification asserted edge placement, image bytes and controls but omitted rendered aspect ratio at alternate browser chrome heights. For any fullscreen composition with reference artwork, test at least two visual viewport heights at one width, assert rendered artwork/frame aspect ratios against source dimensions, and inspect real screenshots. Use one uniform scale factor or explicitly document intentional crop; never infer fidelity from PNG hashes or edge alignment. [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) controlled agent run remains `NOT_RUN`.
+diff --git a/app/globals.css b/app/globals.css
+index 981e140..7aa5ed6 100644
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -181,7 +181,7 @@ html:has(#technology-viewer[open]),body:has(#technology-viewer[open]){background
+ .technology-viewer__sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+ .technology-viewer :focus-visible{outline:2px solid #e7ba75;outline-offset:-3px}
+ /* Mobile portrait contour follows the screen edges; the photo follows its cutout. */
+-@media(max-width:699px) and (orientation:portrait){.technology-viewer__frame{left:0;width:100%}.technology-viewer__stage{left:3.08182784%;width:93.83634431%}}
++@media(max-width:699px) and (orientation:portrait){.technology-viewer__canvas{width:min(100vw,calc(100dvh * .4667))}.technology-viewer__frame{left:0;width:100%}.technology-viewer__stage{left:3.08182784%;width:93.83634431%}}
+ @media(min-width:700px){.technology-viewer__canvas{width:min(100vw,calc(100dvh * 954 / 1649))}}
+ .key-powered,.key-groupTag,.key-groupInvest{color:#bd945d}
+ .key-group,.key-groupVision{color:#f3eee5}
+diff --git a/tests/e2e/technology-viewer.spec.ts b/tests/e2e/technology-viewer.spec.ts
+index e658786..727cc2d 100644
+--- a/tests/e2e/technology-viewer.spec.ts
++++ b/tests/e2e/technology-viewer.spec.ts
+@@ -3,6 +3,38 @@ import { readFile } from 'node:fs/promises';
+ import { createHash } from 'node:crypto';
+ import sharp from 'sharp';
+
++test('technology artwork keeps its native proportions as Safari chrome changes the visible height', async ({ page }) => {
++  await page.setViewportSize({ width: 390, height: 844 });
++  await page.goto('/en');
++  await page.locator('[data-technology-open]').first().click();
++  const viewer = page.locator('#technology-viewer');
++  for (const [width, height] of [[390, 844], [390, 732], [390, 664], [402, 874], [440, 956]] as const) {
++    await page.setViewportSize({ width, height });
++    const bounds = await viewer.evaluate(element => {
++      const box = (selector: string) => element.querySelector(selector)!.getBoundingClientRect();
++      const canvas = box('.technology-viewer__canvas');
++      const stage = box('.technology-viewer__stage');
++      const frame = box('.technology-viewer__frame');
++      const next = box('.technology-viewer__next-group');
++      return { canvasWidth: canvas.width, stageRatio: stage.width / stage.height, frameRatio: frame.width / frame.height, nextBottom: next.bottom };
++    });
++    expect(Math.abs(bounds.stageRatio - 941 / 1672)).toBeLessThan(.02);
++    expect(Math.abs(bounds.frameRatio - 941 / 1628)).toBeLessThan(.02);
++    expect(bounds.nextBottom).toBeLessThanOrEqual(height + 1);
++    if (height === 664) {
++      expect(bounds.canvasWidth).toBeLessThan(width);
++      await page.screenshot({ path: 'docs/evidence/technology-viewer/short-viewport/after-390x664.png' });
++    }
++  }
++  await page.locator('.technology-viewer__next-group').click();
++  await expect(viewer).toHaveAttribute('data-group', 'CyberMind');
++  await page.setViewportSize({ width: 390, height: 664 });
++  await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src', '/art/technology/cybermind/01.png');
++  await page.screenshot({ path: 'docs/evidence/technology-viewer/short-viewport/after-cybermind-390x664.png' });
++  await viewer.locator('.technology-viewer__close').click();
++  await expect(viewer).not.toBeVisible();
++});
++
+ test('technology PNGs preserve every original pixel outside the title mask', async ({ request }) => {
+   const originals = [
+     ['02', 'HeatCore_02_THREE_HEATERS_941x1672.png'],
+-rw-r--r--@ 1 asmirnou  staff    43M Sep 29 01:55 design/references/background_old.png
+
+docs/evidence/technology-viewer/short-viewport:
+total 10328
+drwxr-xr-x@ 13 asmirnou  staff   416B Oct  7 21:34 .
+drwxr-xr-x@ 31 asmirnou  staff   992B Oct  7 21:20 ..
+-rw-r--r--@  1 asmirnou  staff    90K Oct  7 21:32 after-390x664.png
+-rw-r--r--@  1 asmirnou  staff   2.1M Oct  7 21:32 after-cybermind-390x664.png
+-rw-r--r--@  1 asmirnou  staff   394B Oct  7 21:30 aspect-test.log
+-rw-r--r--@  1 asmirnou  staff   721B Oct  7 21:33 baseline-visual.log
+-rw-r--r--@  1 asmirnou  staff   2.4M Oct  7 21:20 before-390x664.png
+-rw-r--r--@  1 asmirnou  staff   775B Oct  7 21:28 build.log
+-rw-r--r--@  1 asmirnou  staff    20B Oct  7 21:28 lint.log
+-rw-r--r--@  1 asmirnou  staff   2.0K Oct  7 21:34 native-review.log
+-rw-r--r--@  1 asmirnou  staff    29B Oct  7 21:29 typecheck-final.log
+-rw-r--r--@  1 asmirnou  staff   148B Oct  7 21:28 typecheck.log
+-rw-r--r--@  1 asmirnou  staff   6.6K Oct  7 21:33 viewer-suite.log
+
+tools/__pycache__:
+total 40
+drwxr-xr-x@  3 asmirnou  staff    96B Oct  4 02:45 .
+drwxr-xr-x@ 28 asmirnou  staff   896B Oct  7 16:29 ..
+-rw-r--r--@  1 asmirnou  staff    17K Oct  4 02:45 convert-art-webp.cpython-314.pyc
+# Ramsider UNO — project rules
+
+Build the new product site from `design/references/`. **Design and implement for iPhone 17 Pro first, then verify iPhone 17 Pro Max; adapt responsively to every other screen size.** The real mobile page must match the supplied reference while loading quickly and working accessibly. One user request should produce one complete delivery: perform as many internal inspect → implement → verify → fix cycles as needed, then code review, performance work, and final re-verification. Visual slices are internal work units; finish and integrate the whole requested page or feature before delivery. Do not hand the user a first draft to find ordinary defects. “Done” means every applicable gate has passed with evidence, not that code compiles or that zero bugs have been assumed.
+
+These are the mandatory rules. [docs/discipline.md](docs/discipline.md) defines stage gates and failure routing; [CONTEXT_INDEX.md](CONTEXT_INDEX.md) routes to other details. For substantive project work, read the short [MEMORY.md](MEMORY.md) for current state, then only the topic files relevant to the task. `PROMPT.txt` and `SUMMARY.txt` are source records for unresolved questions; current user instructions and current assets take precedence over their examples or suggestions.
+
+## Mandatory change and defect log
+
+[CHANGELOG.md](CHANGELOG.md) is the authoritative record of **every logical project change and every discovered defect**, including code, assets, content, mappings, tests, documentation, configuration, user corrections and agent-discovered regressions. The agent maintains it **without a user reminder or a separate permission request**: create/update the entry at discovery, record the solution and changed files when applied, then append verification and approval before delivery. Search relevant IDs when resuming work; do not wait until the final answer to reconstruct the history.
+
+Use the journal's required fields and lifecycle. Record what was wrong/missing/different, expected result, reference/request, cause, solution, intermediate mapping/specification and how it was applied, changed paths, checks and evidence. Every claimed fix needs a dated **technical approval**, naming the verifier and its evidence (and independent auditor when applicable). `APPLIED_UNVERIFIED` is not `VERIFIED`; blocked/skipped checks cannot supply approval. Explicit user approval is a separate field: never invent it or require it for routine authorized fixes. Reopen a failed fix under the same ID and preserve the previous verdict and failure history. Track remaining defects as open entries, even when outside the current task.
+
+For every defect, explain the agent's observable mistaken decision/action, the missed check, responsibility with evidence, and a concrete behavior change. Distinguish genuinely changed/missing inputs from agent failures; do not blame the user merely because an input was absent. Unknown causes stay explicit. Link repeatable causes to LESSONS and an Agent Eval case with its actual run status; a fixed UI does not prove improved agent behavior. Before similar work or a fresh rebuild, retrieve those lessons and turn prevention into acceptance checks. Repository memory improves instructions/context, not model weights.
+
+Small edits may use a short entry, but cannot omit logging or proportionate verification. Group related edits under one logical ID; do not log every tool call. A delivery is incomplete if its journal records or required technical approval are missing. MEMORY describes current state; LESSONS explains reusable prevention; neither replaces CHANGELOG.
+
+## Work in stages
+
+1. **Understand before coding.** Check repository state, [MEMORY.md](MEMORY.md), relevant lessons, and the requested scope. Inspect `design/references/background.png` first, then `background_text.png`, then relevant fonts, button artwork, and source layers. Crop the 941 × 32,127 reference into legible sections. Map content, controls, art layers, section boundaries, and the source-to-CSS viewport scale; set observable acceptance checks and identify unverified product facts. Use [DESIGN.md](DESIGN.md) and [PRODUCT.md](PRODUCT.md). **Exit:** the target slice, assets, behavior, and comparison method are understood; unresolved inputs are explicit.
+2. **Implement one visual slice.** Build for the Pro baseline first, using the clean background as artwork and semantic HTML/CSS for text and controls. Keep text translatable and controls usable; no inert CTA or invented checkout. Reproduce reference copy in the local build while tracking unverified factual claims for publication. Use Next.js + React + strict TypeScript with the framework's own build toolchain; choose each route's rendering mode and Server/Client boundaries from its data and interaction needs. Do not revive the deleted app. Use [ARCHITECTURE.md](ARCHITECTURE.md). **Exit:** the slice renders and its required behavior works; continue through all slices in the requested scope.
+3. **Verify the actual pixels.** Open the running page in a real browser at the iPhone 17 Pro viewport, then verify Pro Max. Confirm the page's actual CSS layout width matches each test profile (the viewport meta tag must be correct). Wait for fonts/images and capture screenshots. Compare the Pro image to the calibrated reference crop; inspect Pro Max as a responsive target unless it has its own reference. The verifier must see screenshots, not only DOM/CSS measurements. Fix material differences and capture again. Use a tolerant pixel diff as a second signal when aligned. Use [docs/visual-qa.md](docs/visual-qa.md). **Exit:** no material mismatch remains in the supported target composition; otherwise keep iterating or report a concrete external blocker without saying “done.”
+4. **Check behavior and adaptation.** Test relevant clicks, hover, scroll, navigation, forms, menus, animation states, keyboard access, Arabic RTL, mobile safe areas, and representative tablet/desktop widths. Check overflow, clipping, crops, wraps, spacing, and tile seams. Use [docs/mobile.md](docs/mobile.md). **Exit:** required states work at the sizes they support.
+5. **Review and optimize.** For code changes, run Codex's native `/review` on the actual diff before delivery (CLI equivalent when needed), examine every actionable finding, fix it, and rerun affected checks. Run available type, lint, test, and production-build checks. Review component boundaries, duplication, accessibility, and unused code. Measure first render, LCP/INP/CLS where measurable, network bytes, JavaScript, layout shifts, and scroll smoothness in a production build. Reassess static, request-time server, and client rendering against measured latency, freshness, and client cost; change strategy where it improves the result. Fix meaningful problems, then repeat affected visual/browser checks. Use [QUALITY.md](QUALITY.md) and [PERFORMANCE.md](PERFORMANCE.md). **Exit:** no known material code, visual, accessibility, or speed regression remains; report if `/review` was unavailable rather than counting a manual pass as its result.
+6. **Learn and report evidence.** Complete the affected [CHANGELOG.md](CHANGELOG.md) entries with actual checks, technical approval and remaining open IDs. Refresh [MEMORY.md](MEMORY.md) when verified state, decisions, or blockers changed; record repeatable errors in [LESSONS.md](LESSONS.md). Use [docs/definition-of-done.md](docs/definition-of-done.md). State tested viewports, screenshot comparisons, interactions, build checks, performance measurements, remaining differences, and checks that could not run. Never claim pixel fidelity, WCAG compliance, a 95+ Lighthouse score, or completion without the corresponding evidence.
+
+
+2026-10-07T17:34:33.384886Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a1176e-1855-7233-b16b-352fc2a6d6e2 turn_id=01a1176e-1901-7c91-bfc8-7f5034d7252e item_id="exec-86a66032-f128-4f2e-a0bc-28ac990cd04e"
+exec
+/bin/zsh -lc "sed -n '171,185p' app/globals.css; sed -n '1,100p' docs/evidence/technology-viewer/short-viewport/viewer-suite.log; cat docs/evidence/technology-viewer/short-viewport/baseline-visual.log; rg -n 'technology-viewer__canvas|technology-viewer__next-group' app/globals.css | head -20; cat .gitignore | tail -25" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 68ms:
+.technology-viewer__next-group{left:15%;top:92.2%;width:70%;height:6.5%;min-height:44px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:calc(18/1649*100dvh);font-size:clamp(14px,calc(39/954*100cqw),23px);line-height:1.12}
+.technology-viewer__next-group img{flex:none;width:calc(45/954*100cqw);height:calc(29/1649*100dvh)}
+.technology-viewer__dots{position:absolute;z-index:2;top:max(44px,5.8%);left:50%;transform:translateX(-50%);display:flex;direction:ltr}
+.technology-viewer__dots button{position:relative;flex:0 0 24px;width:24px;height:44px;padding:0;border:0;background:transparent;cursor:pointer}
+.technology-viewer__dots img{position:absolute;top:max(2px,calc(7.58dvh - max(44px,5.8dvh) - 6px));left:50%;transform:translateX(-50%);display:block;width:calc(29/954*100cqw);height:auto}
+.technology-viewer__notice{position:absolute;z-index:3;left:10%;right:10%;bottom:11%;margin:0;padding:12px;border:1px solid #dcb477;background:rgb(0 0 0 / .9);color:#fff;text-align:center;font-size:14px;line-height:1.35}
+.technology-viewer__close{position:absolute;right:max(2%,env(safe-area-inset-right));top:max(1%,env(safe-area-inset-top));z-index:4;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;background:transparent;color:#fff;font-size:34px;font-weight:300;line-height:1;cursor:pointer}
+.technology-viewer__previous-group{position:absolute;left:max(2%,env(safe-area-inset-left));top:min(92.2%,calc(99% - 44px - env(safe-area-inset-bottom)));z-index:2;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;background:transparent;cursor:pointer}
+.technology-viewer__previous-group img{width:20px;height:auto;transform:rotate(180deg)}
+.technology-viewer[data-group=CyberMind] .technology-viewer__next-group{left:max(15%,54px);right:15%;width:auto}
+.technology-viewer__sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.technology-viewer :focus-visible{outline:2px solid #e7ba75;outline-offset:-3px}
+/* Mobile portrait contour follows the screen edges; the photo follows its cutout. */
+@media(max-width:699px) and (orientation:portrait){.technology-viewer__canvas{width:min(100vw,calc(100dvh * .4667))}.technology-viewer__frame{left:0;width:100%}.technology-viewer__stage{left:3.08182784%;width:93.83634431%}}
+@media(min-width:700px){.technology-viewer__canvas{width:min(100vw,calc(100dvh * 954 / 1649))}}
+
+Running 38 tests using 2 workers
+
+(node:68622) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:68621) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:6:1 › technology artwork keeps its native proportions as Safari chrome changes the visible height (2.1s)
+  ✓   1 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:6:1 › technology artwork keeps its native proportions as Safari chrome changes the visible height (2.2s)
+  ✓   4 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:38:1 › technology PNGs preserve every original pixel outside the title mask (331ms)
+  ✓   3 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:38:1 › technology PNGs preserve every original pixel outside the title mask (356ms)
+  ✓   6 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:75:1 › technology descriptions render all source text in the decoded image coordinates (1.7s)
+  ✓   5 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:75:1 › technology descriptions render all source text in the decoded image coordinates (1.9s)
+  ✓   7 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:106:1 › technology viewer opens from both story controls and pages through clean images (2.9s)
+  ✓   8 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:106:1 › technology viewer opens from both story controls and pages through clean images (3.0s)
+  ✓   9 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:198:1 › technology viewer supports touch pointers, Escape and Arabic framing (1.6s)
+  ✓  10 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:198:1 › technology viewer supports touch pointers, Escape and Arabic framing (1.6s)
+  ✓  11 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:244:1 › previous artwork stays visible while the next slide loads (698ms)
+  ✓  12 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:244:1 › previous artwork stays visible while the next slide loads (659ms)
+  ✓  13 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:267:1 › failed warm-up and failed selection retry the same image (925ms)
+  ✓  14 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:267:1 › failed warm-up and failed selection retry the same image (1.0s)
+  ✓  15 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:293:1 › first photo of each group warms after load; remaining photos start together on open (703ms)
+  ✓  16 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:293:1 › first photo of each group warms after load; remaining photos start together on open (708ms)
+  ✓  17 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:320:1 › early opening starts all six without waiting for main page load (830ms)
+  ✓  18 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:320:1 › early opening starts all six without waiting for main page load (802ms)
+  ✓  19 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:336:1 › first images warm at low priority; all decoded images are reused offline across groups (1.2s)
+  ✓  20 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:336:1 › first images warm at low priority; all decoded images are reused offline across groups (1.3s)
+  ✓  21 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:385:1 › swipe completes when the pointer leaves the artwork (624ms)
+  ✓  22 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:385:1 › swipe completes when the pointer leaves the artwork (658ms)
+  ✓  23 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:401:1 › technology viewer hides landing paint beneath browser chrome and restores it on close (1.4s)
+  ✓  24 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:401:1 › technology viewer hides landing paint beneath browser chrome and restores it on close (1.4s)
+  ✓  25 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:444:1 › metal contour reaches mobile side edges and the image stays inside its cutout (905ms)
+  ✓  27 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:474:1 › CyberMind PNGs retain native RGB, alpha and resolution outside title glyphs (159ms)
+  ✓  26 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:444:1 › metal contour reaches mobile side edges and the image stays inside its cutout (907ms)
+  ✓  29 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:474:1 › CyberMind PNGs retain native RGB, alpha and resolution outside title glyphs (212ms)
+  ✓  28 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:501:1 › CyberMind uses two interactive slides, a live title and two-axis navigation (1.3s)
+  ✓  30 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:501:1 › CyberMind uses two interactive slides, a live title and two-axis navigation (1.9s)
+  ✓  31 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:552:1 › CyberMind descriptions fit all locales and omit source folios (4.5s)
+  ✓  33 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:578:1 › pending group and slide changes preserve displayed state and cannot overwrite later navigation (728ms)
+  ✓  32 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:552:1 › CyberMind descriptions fit all locales and omit source folios (4.2s)
+  ✓  35 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:578:1 › pending group and slide changes preserve displayed state and cannot overwrite later navigation (746ms)
+  ✓  34 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:599:1 › failed first CyberMind warm and group selection retry without skipping the group (1.2s)
+  ✓  36 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:599:1 › failed first CyberMind warm and group selection retry without skipping the group (1.3s)
+  ✓  37 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:613:1 › pending group navigation cannot announce an unavailable group or hijack visible slide controls (941ms)
+  ✓  38 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:613:1 › pending group navigation cannot announce an unavailable group or hijack visible slide controls (890ms)
+
+  38 passed (27.5s)
+
+Running 2 tests using 2 workers
+
+(node:69458) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:69459) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:75:1 › technology descriptions render all source text in the decoded image coordinates (2.4s)
+  ✓  1 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:75:1 › technology descriptions render all source text in the decoded image coordinates (2.5s)
+
+  2 passed (3.5s)
+154:.technology-viewer__canvas{position:relative;width:100%;height:100%;container-type:inline-size}
+167:.technology-viewer__next-image,.technology-viewer__next-group{position:absolute;z-index:1;padding:0;border:0;background:transparent;color:#f4f1eb;font-family:OpenSans,Arial,sans-serif;font-weight:400;cursor:pointer}
+171:.technology-viewer__next-group{left:15%;top:92.2%;width:70%;height:6.5%;min-height:44px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:calc(18/1649*100dvh);font-size:clamp(14px,calc(39/954*100cqw),23px);line-height:1.12}
+172:.technology-viewer__next-group img{flex:none;width:calc(45/954*100cqw);height:calc(29/1649*100dvh)}
+180:.technology-viewer[data-group=CyberMind] .technology-viewer__next-group{left:max(15%,54px);right:15%;width:auto}
+184:@media(max-width:699px) and (orientation:portrait){.technology-viewer__canvas{width:min(100vw,calc(100dvh * .4667))}.technology-viewer__frame{left:0;width:100%}.technology-viewer__stage{left:3.08182784%;width:93.83634431%}}
+185:@media(min-width:700px){.technology-viewer__canvas{width:min(100vw,calc(100dvh * 954 / 1649))}}
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+/integrations/telegram/
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+# large design sources (local only)
+/design/source/
+
+# visual verification output
+/playwright-report/
+/test-results/
+/screenshots/actual/
+/screenshots/diff/
+
+*.psb
+/deliverables/
+
+2026-10-07T17:34:39.091095Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a1176e-1855-7233-b16b-352fc2a6d6e2 turn_id=01a1176e-1901-7c91-bfc8-7f5034d7252e item_id="exec-036dedec-3eb1-493c-9166-159597f861cd"
+exec
+/bin/zsh -lc "sed -n '149,172p' app/globals.css; nl -ba tests/e2e/technology-viewer.spec.ts | head -42; nl -ba app/globals.css | sed -n '182,186p'" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 7ms:
+.technology-viewer[open]{display:flex;align-items:center;justify-content:center}
+.technology-viewer::backdrop{background:#000}
+/* Safari can sample document paint outside a modal's visual viewport. */
+html:has(#technology-viewer[open]),body:has(#technology-viewer[open]){background:#000}
+.dialog-controller:has(> #technology-viewer[open]) > :not(#technology-viewer),.dialog-controller:has(> #technology-viewer[open]) > :not(#technology-viewer) *{visibility:hidden}
+.technology-viewer__canvas{position:relative;width:100%;height:100%;container-type:inline-size}
+.technology-viewer__stage{position:absolute;left:8.68840187%;top:11.17917493%;width:82.62319625%;height:77.79038893%;overflow:hidden;touch-action:pinch-zoom;background-color:#000;background-size:100% 100%;background-position:center;background-repeat:no-repeat}
+.technology-viewer__stage img{object-fit:fill;user-select:none;-webkit-user-drag:none}
+.technology-viewer__title{position:absolute;inset:0;margin:0;font-family:OpenSans,Arial,sans-serif;font-weight:400;line-height:1;direction:ltr;pointer-events:none}
+.technology-viewer__title svg{display:block;width:100%;height:100%;font-family:inherit;font-weight:inherit}
+.technology-viewer__descriptions{position:absolute;inset:0;pointer-events:none;font-family:OpenSans,Arial,sans-serif;font-weight:400;color:#000;direction:ltr}
+.technology-viewer__descriptions svg{display:block;width:100%;height:100%;font-family:inherit}
+.technology-description__box{width:100%;height:100%;font-family:OpenSans,Arial,sans-serif;text-align:start}
+.technology-description__copy{margin:0;font-family:inherit;font-weight:400;white-space:pre-line;overflow-wrap:break-word}
+.technology-description__warm,.technology-description__number{-webkit-text-stroke:1.5px #fff;paint-order:stroke fill}
+.technology-description__number{display:inline-block;width:40px;color:#975f41;direction:ltr}
+.technology-description__status{color:#fff;font:400 10px/20px OpenSans,Arial,sans-serif;direction:ltr}
+.technology-viewer__frame{position:absolute;left:5.97484%;top:9.64221%;width:88.05031%;height:80.71559%;pointer-events:none;object-fit:fill}
+.technology-viewer__next-image,.technology-viewer__next-group{position:absolute;z-index:1;padding:0;border:0;background:transparent;color:#f4f1eb;font-family:OpenSans,Arial,sans-serif;font-weight:400;cursor:pointer}
+.technology-viewer__next-image{left:52px;right:max(52px,calc(44px + 2% + env(safe-area-inset-right)));top:0;height:5.8%;min-height:44px;display:flex;align-items:flex-end;justify-content:center;gap:calc(17/954*100cqw);font-size:clamp(14px,calc(48/954*100cqw),26px);line-height:1.12}
+.technology-viewer__next-image span{max-width:calc(100% - 24px);text-align:center}
+.technology-viewer__next-image img{flex:none;align-self:flex-end;width:calc(28/954*100cqw);height:calc(45/1649*100dvh)}
+.technology-viewer__next-group{left:15%;top:92.2%;width:70%;height:6.5%;min-height:44px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:calc(18/1649*100dvh);font-size:clamp(14px,calc(39/954*100cqw),23px);line-height:1.12}
+.technology-viewer__next-group img{flex:none;width:calc(45/954*100cqw);height:calc(29/1649*100dvh)}
+     1	import { expect, test } from '@playwright/test';
+     2	import { readFile } from 'node:fs/promises';
+     3	import { createHash } from 'node:crypto';
+     4	import sharp from 'sharp';
+     5
+     6	test('technology artwork keeps its native proportions as Safari chrome changes the visible height', async ({ page }) => {
+     7	  await page.setViewportSize({ width: 390, height: 844 });
+     8	  await page.goto('/en');
+     9	  await page.locator('[data-technology-open]').first().click();
+    10	  const viewer = page.locator('#technology-viewer');
+    11	  for (const [width, height] of [[390, 844], [390, 732], [390, 664], [402, 874], [440, 956]] as const) {
+    12	    await page.setViewportSize({ width, height });
+    13	    const bounds = await viewer.evaluate(element => {
+    14	      const box = (selector: string) => element.querySelector(selector)!.getBoundingClientRect();
+    15	      const canvas = box('.technology-viewer__canvas');
+    16	      const stage = box('.technology-viewer__stage');
+    17	      const frame = box('.technology-viewer__frame');
+    18	      const next = box('.technology-viewer__next-group');
+    19	      return { canvasWidth: canvas.width, stageRatio: stage.width / stage.height, frameRatio: frame.width / frame.height, nextBottom: next.bottom };
+    20	    });
+    21	    expect(Math.abs(bounds.stageRatio - 941 / 1672)).toBeLessThan(.02);
+    22	    expect(Math.abs(bounds.frameRatio - 941 / 1628)).toBeLessThan(.02);
+    23	    expect(bounds.nextBottom).toBeLessThanOrEqual(height + 1);
+    24	    if (height === 664) {
+    25	      expect(bounds.canvasWidth).toBeLessThan(width);
+    26	      await page.screenshot({ path: 'docs/evidence/technology-viewer/short-viewport/after-390x664.png' });
+    27	    }
+    28	  }
+    29	  await page.locator('.technology-viewer__next-group').click();
+    30	  await expect(viewer).toHaveAttribute('data-group', 'CyberMind');
+    31	  await page.setViewportSize({ width: 390, height: 664 });
+    32	  await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src', '/art/technology/cybermind/01.png');
+    33	  await page.screenshot({ path: 'docs/evidence/technology-viewer/short-viewport/after-cybermind-390x664.png' });
+    34	  await viewer.locator('.technology-viewer__close').click();
+    35	  await expect(viewer).not.toBeVisible();
+    36	});
+    37
+    38	test('technology PNGs preserve every original pixel outside the title mask', async ({ request }) => {
+    39	  const originals = [
+    40	    ['02', 'HeatCore_02_THREE_HEATERS_941x1672.png'],
+    41	    ['03', 'HeatCore_03_ACTIVE_AIR_SAILS_941x1672.png'],
+    42	    ['04', 'HeatCore_04_PROGRAMMABLE_HEAT_PROFILES_941x1672.png'],
+   182	.technology-viewer :focus-visible{outline:2px solid #e7ba75;outline-offset:-3px}
+   183	/* Mobile portrait contour follows the screen edges; the photo follows its cutout. */
+   184	@media(max-width:699px) and (orientation:portrait){.technology-viewer__canvas{width:min(100vw,calc(100dvh * .4667))}.technology-viewer__frame{left:0;width:100%}.technology-viewer__stage{left:3.08182784%;width:93.83634431%}}
+   185	@media(min-width:700px){.technology-viewer__canvas{width:min(100vw,calc(100dvh * 954 / 1649))}}
+   186	.key-powered,.key-groupTag,.key-groupInvest{color:#bd945d}
+
+2026-10-07T17:34:51.458335Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a1176e-1855-7233-b16b-352fc2a6d6e2 turn_id=01a1176e-1901-7c91-bfc8-7f5034d7252e item_id="exec-c594082f-50fa-466d-92a5-85c3603db694"
+exec
+/bin/zsh -lc "rg -n 'Wait|wait|image|screenshot' docs/visual-qa.md | head -15; cat docs/evidence/technology-viewer/short-viewport/native-review.log | tail -30" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+3:Read during stage 3 of [discipline.md](discipline.md). The reference is a Photoshop/composited design, **not** a previous browser screenshot. A normal snapshot test against the last website version is insufficient. The verifier must actually inspect the browser screenshot and the target image. DOM positions and CSS rules help diagnose a mismatch but cannot prove visual fidelity.
+8:2. Run the app, navigate to the target page, set the viewport, and assert the actual `window.innerWidth`/DPR match the iPhone 17 Pro or Pro Max profile. Check that the page emits a responsive viewport meta tag. Wait for fonts and images to load. Ensure layout-affecting animation has settled. For static comparison, disable motion in a test-only mode; test animations separately.
+9:3. Capture an actual browser screenshot at the same content extent. Keep reference, actual, and diff artifacts together, for example under `screenshots/reference/`, `screenshots/actual/`, and `screenshots/diff/` once the app exists. Use stable filenames with section, viewport, browser, and revision. Avoid stale captures after code changes.
+10:4. Inspect the two **images** side by side or overlaid. Compare element position, width, height, spacing, alignment, type family/size/weight/line-height/tracking, line breaks, color, border/radius, shadow, crop, background position, and responsive composition.
+12:Keep full references, browser captures, and diffs as local files; do not paste image bytes/base64 or repeatedly load the 32,127 px source or full-page screenshot into model context. View the active reference/actual/diff crops at a resolution that preserves readable type and material details. Use a small overview to locate sections or inspect the assembled page, then open local seam/detail crops where needed. Reuse recorded crop coordinates and unchanged images across iterations; regenerate and inspect affected captures after a visual change. Token savings must not replace visual inspection with numbers alone.
+16:The supplied design is a **941 px-wide bitmap**, while the primary iPhone 17 Pro emulation width is **402 CSS px** (Pro Max: **440 CSS px**). Do not assume that 941 equals the intended CSS width or that its ratio to either viewport is the device-pixel ratio. For each slice, record at least two stable visual anchors (for example product edges, section boundary, title center), the reference crop coordinates, rendered CSS width/crop, screenshot dimensions, and any scale/offset used. Determine whether the section is full-bleed scaled, cropped, or recomposed at that viewport. If it is uniformly scaled, map coordinates with the measured transform; if it is cropped or responsive, compare the matching visible region and describe the composition difference instead of forcing a whole-image diff.
+18:Keep an untouched source crop. A resampled comparison copy may be made after alignment, using a stated scale and method. Do not stretch each image independently or warp it to make the diff look good. The numeric diff is meaningful only once content, size, viewport, browser/font state, scroll offset, and animation state are comparable. At widths with no supplied reference, run responsive/interaction QA without claiming a pixel match.
+22:Use Playwright or a small image-diff script for aligned crops. Save the difference image and a mismatch percentage or similar measure. Apply a configurable tolerance: font antialiasing, subpixels, OS/browser differences, image interpolation, shadows, transforms, and fractional coordinates prevent a reliable 0% target. Passing the numeric threshold is **not** enough; visual inspection must find no material layout/design difference.
+26:The project command is `npm run visual:diff -- reference.png actual.png diff.png [max-difference-percent]`. It rejects images with different dimensions so a crop or viewport mismatch is fixed before interpreting the percentage. The default maximum is 1%; choose a documented tolerance for each aligned comparison rather than treating 1% as universal. The initial Playwright projects and browser CLI commands are recorded in [`TOOLS.md`](../TOOLS.md). A pass from this command alone never closes the visual gate.
+28:For each mismatch, name its cause before editing: wrong asset/crop, font, geometry, wrapping, missing layer, breakpoint, loading state, or animation. Fix the largest material difference, reload, capture a new screenshot, and compare again. Continue until the section passes. Run the same comparison after refactoring or optimizing images/fonts if appearance could change. Check the full assembled page for joins and cumulative drift. For each finished slice retain a small acceptance record: source coordinates, target viewport, state, screenshot paths, observed differences, fix, and final result. This lets the model resume without repeating inspection and makes the final report auditable.
+32:Static screenshots show only one frame. With motion enabled, exercise relevant scroll, hover, click, menu, modal, carousel, gallery, CTA, and form states. Capture initial, intermediate, and final states; for a scroll-triggered effect, inspect shortly after scrolling and again after it settles. Check the final browser state rather than assuming the event handler ran correctly. Use [interaction-qa.md](interaction-qa.md) for the scenario matrix.
+36:The final evidence should identify each tested viewport and reference crop, actual screenshot and diff, the material differences fixed, any remaining differences, interactions performed, and relevant console errors. If no matching reference exists at a width, report a responsive check rather than claiming a pixel match. If capture/comparison cannot run, give the exact blocker and do not call the visual task complete.
+    20	    });
+    21	    expect(Math.abs(bounds.stageRatio - 941 / 1672)).toBeLessThan(.02);
+    22	    expect(Math.abs(bounds.frameRatio - 941 / 1628)).toBeLessThan(.02);
+    23	    expect(bounds.nextBottom).toBeLessThanOrEqual(height + 1);
+    24	    if (height === 664) {
+    25	      expect(bounds.canvasWidth).toBeLessThan(width);
+    26	      await page.screenshot({ path: 'docs/evidence/technology-viewer/short-viewport/after-390x664.png' });
+    27	    }
+    28	  }
+    29	  await page.locator('.technology-viewer__next-group').click();
+    30	  await expect(viewer).toHaveAttribute('data-group', 'CyberMind');
+    31	  await page.setViewportSize({ width: 390, height: 664 });
+    32	  await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src', '/art/technology/cybermind/01.png');
+    33	  await page.screenshot({ path: 'docs/evidence/technology-viewer/short-viewport/after-cybermind-390x664.png' });
+    34	  await viewer.locator('.technology-viewer__close').click();
+    35	  await expect(viewer).not.toBeVisible();
+    36	});
+    37
+    38	test('technology PNGs preserve every original pixel outside the title mask', async ({ request }) => {
+    39	  const originals = [
+    40	    ['02', 'HeatCore_02_THREE_HEATERS_941x1672.png'],
+    41	    ['03', 'HeatCore_03_ACTIVE_AIR_SAILS_941x1672.png'],
+    42	    ['04', 'HeatCore_04_PROGRAMMABLE_HEAT_PROFILES_941x1672.png'],
+   182	.technology-viewer :focus-visible{outline:2px solid #e7ba75;outline-offset:-3px}
+   183	/* Mobile portrait contour follows the screen edges; the photo follows its cutout. */
+   184	@media(max-width:699px) and (orientation:portrait){.technology-viewer__canvas{width:min(100vw,calc(100dvh * .4667))}.technology-viewer__frame{left:0;width:100%}.technology-viewer__stage{left:3.08182784%;width:93.83634431%}}
+   185	@media(min-width:700px){.technology-viewer__canvas{width:min(100vw,calc(100dvh * 954 / 1649))}}
+   186	.key-powered,.key-groupTag,.key-groupInvest{color:#bd945d}
+
+2026-10-07T17:34:51.458335Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a1176e-1855-7233-b16b-352fc2a6d6e2 turn_id=01a1176e-1901-7c91-bfc8-7f5034d7252e item_id="exec-c594082f-50fa-466d-92a5-85c3603db694"
+
+2026-10-07T17:34:57.288037Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a1176e-1855-7233-b16b-352fc2a6d6e2 turn_id=01a1176e-1901-7c91-bfc8-7f5034d7252e item_id="exec-21308993-9530-43ce-be3c-5d4e7072f526"
+codex
+The CSS proportion fix passes its geometry tests, but the added visual verification captures unloaded artwork and therefore does not validate the reported visual defect.
+
+Review comment:
+
+- [P2] Wait for the artwork before capturing the short-viewport screenshot — /Users/asmirnou/Projects/g/ramsider/tests/e2e/technology-viewer.spec.ts:24-26
+  When the gallery opens before its PNGs have decoded, this test captures a black stage even though the geometry assertions pass. The committed `after-390x664.png` shows exactly that state, so the new visual evidence cannot verify whether the photo and contour retain their proportions. Wait for the displayed image and frame to finish loading before capturing and inspecting both screenshots, as required by [docs/visual-qa.md:8-10](docs/visual-qa.md#L8-L10).
+The CSS proportion fix passes its geometry tests, but the added visual verification captures unloaded artwork and therefore does not validate the reported visual defect.
+
+Review comment:
+
+- [P2] Wait for the artwork before capturing the short-viewport screenshot — /Users/asmirnou/Projects/g/ramsider/tests/e2e/technology-viewer.spec.ts:24-26
+  When the gallery opens before its PNGs have decoded, this test captures a black stage even though the geometry assertions pass. The committed `after-390x664.png` shows exactly that state, so the new visual evidence cannot verify whether the photo and contour retain their proportions. Wait for the displayed image and frame to finish loading before capturing and inspecting both screenshots, as required by [docs/visual-qa.md:8-10](docs/visual-qa.md#L8-L10).

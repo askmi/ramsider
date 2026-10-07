@@ -3,6 +3,48 @@ import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import sharp from 'sharp';
 
+test('technology artwork keeps its native proportions as Safari chrome changes the visible height', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/en');
+  await page.locator('[data-technology-open]').first().click();
+  const viewer = page.locator('#technology-viewer');
+  await viewer.locator('.technology-viewer__stage img, .technology-viewer__frame').evaluateAll(async images => {
+    await document.fonts.ready;
+    await Promise.all(images.map(image => (image as HTMLImageElement).decode()));
+  });
+  for (const [width, height] of [[320, 568], [375, 667], [390, 844], [390, 732], [390, 664], [402, 874], [440, 956]] as const) {
+    await page.setViewportSize({ width, height });
+    const bounds = await viewer.evaluate(element => {
+      const box = (selector: string) => element.querySelector(selector)!.getBoundingClientRect();
+      const canvas = box('.technology-viewer__canvas');
+      const stage = box('.technology-viewer__stage');
+      const frame = box('.technology-viewer__frame');
+      const next = box('.technology-viewer__next-group');
+      return { canvasWidth: canvas.width, stageRatio: stage.width / stage.height, frameRatio: frame.width / frame.height, nextBottom: next.bottom };
+    });
+    expect(Math.abs(bounds.stageRatio - 941 / 1672)).toBeLessThan(.02);
+    expect(Math.abs(bounds.frameRatio - 941 / 1628)).toBeLessThan(.02);
+    expect(bounds.nextBottom).toBeLessThanOrEqual(height + 1);
+    if (height === 874 || height === 956) expect(bounds.canvasWidth).toBe(width);
+    if (width === 320) await page.screenshot({ path: 'docs/evidence/technology-viewer/short-viewport/after-320x568.png' });
+    if (height === 664) {
+      expect(bounds.canvasWidth).toBeLessThan(width);
+      await page.screenshot({ path: 'docs/evidence/technology-viewer/short-viewport/after-390x664.png' });
+    }
+  }
+  await page.locator('.technology-viewer__next-group').click();
+  await expect(viewer).toHaveAttribute('data-group', 'CyberMind');
+  await page.setViewportSize({ width: 390, height: 664 });
+  await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src', '/art/technology/cybermind/01.png');
+  await viewer.locator('.technology-viewer__stage img, .technology-viewer__frame').evaluateAll(async images => {
+    await document.fonts.ready;
+    await Promise.all(images.map(image => (image as HTMLImageElement).decode()));
+  });
+  await page.screenshot({ path: 'docs/evidence/technology-viewer/short-viewport/after-cybermind-390x664.png' });
+  await viewer.locator('.technology-viewer__close').click();
+  await expect(viewer).not.toBeVisible();
+});
+
 test('technology PNGs preserve every original pixel outside the title mask', async ({ request }) => {
   const originals = [
     ['02', 'HeatCore_02_THREE_HEATERS_941x1672.png'],

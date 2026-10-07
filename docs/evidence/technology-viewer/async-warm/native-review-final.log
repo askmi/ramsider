@@ -1,0 +1,811 @@
+2026-10-07T07:44:11.738917Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-07T07:44:11.738983Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.159.0-alpha.12.1
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: low
+reasoning summaries: none
+session id: 01a11551-e7a9-78a3-9f4f-bf38a860ff30
+--------
+user
+current changes
+2026-10-07T07:44:13.271033Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-07T07:44:13.271061Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-07T07:44:20.628533Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+exec
+/bin/zsh -lc 'git status --short; git diff --stat; git diff --cached --stat; find .. -name AGENTS.md -o -name AGENTS.override.md' in /Users/asmirnou/Projects/g/ramsider
+2026-10-07T07:44:25.092845Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11551-e7a9-78a3-9f4f-bf38a860ff30 turn_id=01a11551-e89c-7b90-9e22-7a8a3835f9e9 item_id="exec-52fc279b-52ab-4054-8bc6-5383789924be"
+ succeeded in 2458ms:
+ M .gitignore
+M  CHANGELOG.md
+M  MEMORY.md
+M  components/TechnologyViewer.tsx
+A  docs/evidence/technology-viewer/async-warm/browser-tests.log
+A  docs/evidence/technology-viewer/async-warm/build.log
+A  docs/evidence/technology-viewer/async-warm/checks.md
+A  docs/evidence/technology-viewer/async-warm/integration.log
+A  docs/evidence/technology-viewer/async-warm/lint.log
+A  docs/evidence/technology-viewer/async-warm/measure.mjs
+A  docs/evidence/technology-viewer/async-warm/native-review.log
+A  docs/evidence/technology-viewer/async-warm/performance.json
+A  docs/evidence/technology-viewer/async-warm/performance.log
+A  docs/evidence/technology-viewer/async-warm/pro-max-slide-1.png
+A  docs/evidence/technology-viewer/async-warm/pro-max-slide-2.png
+A  docs/evidence/technology-viewer/async-warm/pro-max-slide-3.png
+A  docs/evidence/technology-viewer/async-warm/pro-max-slide-4.png
+A  docs/evidence/technology-viewer/async-warm/pro-slide-1.png
+A  docs/evidence/technology-viewer/async-warm/pro-slide-2.png
+A  docs/evidence/technology-viewer/async-warm/pro-slide-3.png
+A  docs/evidence/technology-viewer/async-warm/pro-slide-4.png
+A  docs/evidence/technology-viewer/async-warm/recovery-tests.log
+A  docs/evidence/technology-viewer/async-warm/typecheck.log
+A  docs/evidence/technology-viewer/async-warm/visual-diff.json
+M  docs/technology-viewer.md
+M  tests/e2e/technology-viewer.spec.ts
+?? design/references/background_old.png
+?? tools/__pycache__/
+ .gitignore | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+ CHANGELOG.md                                       |  17 +
+ MEMORY.md                                          |   2 +
+ components/TechnologyViewer.tsx                    |  43 +-
+ .../technology-viewer/async-warm/browser-tests.log |  53 ++
+ .../technology-viewer/async-warm/build.log         |  30 +
+ .../technology-viewer/async-warm/checks.md         |  29 +
+ .../technology-viewer/async-warm/integration.log   |  17 +
+ .../evidence/technology-viewer/async-warm/lint.log |   3 +
+ .../technology-viewer/async-warm/measure.mjs       |  28 +
+ .../technology-viewer/async-warm/native-review.log | 820 +++++++++++++++++++++
+ .../technology-viewer/async-warm/performance.json  | 117 +++
+ .../technology-viewer/async-warm/performance.log   |   3 +
+ .../async-warm/pro-max-slide-1.png                 | Bin 0 -> 3190696 bytes
+ .../async-warm/pro-max-slide-2.png                 | Bin 0 -> 3353455 bytes
+ .../async-warm/pro-max-slide-3.png                 | Bin 0 -> 3228543 bytes
+ .../async-warm/pro-max-slide-4.png                 | Bin 0 -> 3488332 bytes
+ .../technology-viewer/async-warm/pro-slide-1.png   | Bin 0 -> 2764497 bytes
+ .../technology-viewer/async-warm/pro-slide-2.png   | Bin 0 -> 2904053 bytes
+ .../technology-viewer/async-warm/pro-slide-3.png   | Bin 0 -> 2803667 bytes
+ .../technology-viewer/async-warm/pro-slide-4.png   | Bin 0 -> 3026463 bytes
+ .../async-warm/recovery-tests.log                  |  17 +
+ .../technology-viewer/async-warm/typecheck.log     |   3 +
+ .../technology-viewer/async-warm/visual-diff.json  |  50 ++
+ docs/technology-viewer.md                          |   4 +
+ tests/e2e/technology-viewer.spec.ts                | 106 ++-
+ 25 files changed, 1325 insertions(+), 17 deletions(-)
+../ramsider/.agents/skills/vercel-react-best-practices/AGENTS.md
+../ramsider/.agents/skills/vercel-composition-patterns/AGENTS.md
+../ramsider/AGENTS.md
+
+exec
+/bin/zsh -lc "git diff HEAD -- components/TechnologyViewer.tsx tests/e2e/technology-viewer.spec.ts .gitignore docs/technology-viewer.md; sed -n '1,240p' components/TechnologyViewer.tsx" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+diff --git a/.gitignore b/.gitignore
+index c9e723c..7a66f72 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -33,6 +33,7 @@ yarn-error.log*
+
+ # env files (can opt-in for committing if needed)
+ .env*
++/integrations/telegram/
+
+ # vercel
+ .vercel
+@@ -50,4 +51,4 @@ next-env.d.ts
+ /screenshots/diff/
+
+ *.psb
+-/deliverables/
+\ No newline at end of file
++/deliverables/
+diff --git a/components/TechnologyViewer.tsx b/components/TechnologyViewer.tsx
+index af9fc91..269bf6a 100644
+--- a/components/TechnologyViewer.tsx
++++ b/components/TechnologyViewer.tsx
+@@ -1,7 +1,7 @@
+ 'use client';
+
+ import Image from 'next/image';
+-import { useEffect, useRef, useState } from 'react';
++import { useCallback, useEffect, useRef, useState } from 'react';
+ import type { PointerEvent } from 'react';
+ import type { Locale } from '@/lib/i18n';
+ import { TechnologyTitle } from './TechnologyTitle';
+@@ -57,6 +57,40 @@ export function TechnologyViewer({ locale, descriptions }: { locale: Locale; des
+   const [index, setIndex] = useState(0);
+   const [showUnavailable, setShowUnavailable] = useState(false);
+   const labels = copy[locale];
++  const images = useRef(new Map<number, { image: HTMLImageElement; ready: Promise<void> }>());
++  const prepareImage = useCallback((position: number, priority: 'low' | 'high' = 'low') => {
++    const cached = images.current.get(position);
++    if (cached) {
++      if (priority === 'high') cached.image.fetchPriority = 'high';
++      return cached.ready;
++    }
++    const image = new window.Image();
++    image.fetchPriority = priority;
++    image.src = slides[position].src;
++    const ready = image.decode().catch(error => {
++      // A failed warm-up must not prevent a later user action from retrying.
++      if (images.current.get(position)?.image === image) images.current.delete(position);
++      throw error;
++    });
++    images.current.set(position, { image, ready });
++    return ready;
++  }, []);
++
++  useEffect(() => {
++    let timer: ReturnType<typeof setTimeout> | undefined;
++    const warm = () => {
++      // Run after load dispatch; never compete with the initial page resources.
++      timer = setTimeout(() => {
++        slides.forEach((_, position) => { void prepareImage(position).catch(() => {}); });
++      }, 0);
++    };
++    if (document.readyState === 'complete') warm();
++    else window.addEventListener('load', warm, { once: true });
++    return () => {
++      window.removeEventListener('load', warm);
++      clearTimeout(timer);
++    };
++  }, [prepareImage]);
+
+   useEffect(() => {
+     const dialogElement = dialog.current;
+@@ -72,6 +106,7 @@ export function TechnologyViewer({ locale, descriptions }: { locale: Locale; des
+       requestedIndex.current = 0;
+       setIndex(0);
+       setShowUnavailable(false);
++      slides.forEach((_, position) => { void prepareImage(position, position === 0 ? 'high' : 'low').catch(() => {}); });
+       setIsOpen(true);
+       dialogElement.showModal();
+       dialogElement.focus();
+@@ -83,7 +118,7 @@ export function TechnologyViewer({ locale, descriptions }: { locale: Locale; des
+       document.removeEventListener('click', open);
+       if (dialogElement?.open) document.body.style.overflow = previousOverflow.current;
+     };
+-  }, []);
++  }, [prepareImage]);
+
+   const close = () => dialog.current?.close();
+   const showSlide = (position: number) => {
+@@ -91,9 +126,7 @@ export function TechnologyViewer({ locale, descriptions }: { locale: Locale; des
+     setShowUnavailable(false);
+     requestedIndex.current = next;
+     const token = ++requestToken.current;
+-    const image = new window.Image();
+-    image.src = slides[next].src;
+-    image.decode().then(() => {
++    prepareImage(next, 'high').then(() => {
+       if (token === requestToken.current && dialog.current?.open) {
+         displayedIndex.current = next;
+         setIndex(next);
+diff --git a/docs/technology-viewer.md b/docs/technology-viewer.md
+index cd5ee37..b2d640b 100644
+--- a/docs/technology-viewer.md
++++ b/docs/technology-viewer.md
+@@ -32,3 +32,7 @@ Main live type: SVG x46/y209/font112/textLength446, visible OpenSans ink aligned
+ ## Description layer — CHG-0063
+
+ The supplied *_TEXT.png files provide copy and source positions, not replacement photographs. TechnologyDescriptions uses semantic headings/paragraphs inside source-coordinate foreignObject blocks, Open Sans Regular400 from the landing font family, matching the navigation labels. Story passes only current-locale description copy; all11locale dictionaries stay on the server. Current decoded slide index controls descriptions. Bottom-left reference folios are omitted per the user; only the four upper indicators show pagination. Pinch zoom is permitted for reading; one-finger gallery gestures, frame, live title and all accepted PNG bytes remain unchanged. Brown live text has a thin white outline for native marble-shadow contrast. See [source map](technology-description-map.md) and [evidence](evidence/technology-viewer/descriptions/checks.md).
++
++## Post-load asynchronous warm-up — CHG-0064, 2026-10-07
++
++After the main page window `load` event (or after hydration if already complete), start all four original PNG requests together with low fetch priority. A retained per-viewer Image/decode-promise cache reuses pending and decoded resources. Early opening starts all four immediately and promotes the first; selecting a slide promotes its request. Failed entries are removed so a later selection can retry; the old decoded slide remains visible until its replacement is ready. No change to files, format, color, dimensions, React text, frame or gestures. Total warm-up payload18,917,696B; no network can guarantee completion before an immediate opening or on a stalled connection.
+diff --git a/tests/e2e/technology-viewer.spec.ts b/tests/e2e/technology-viewer.spec.ts
+index e461407..792035a 100644
+--- a/tests/e2e/technology-viewer.spec.ts
++++ b/tests/e2e/technology-viewer.spec.ts
+@@ -204,8 +204,10 @@ test('technology viewer supports touch pointers, Escape and Arabic framing', asy
+ });
+
+ test('previous artwork stays visible while the next slide loads', async ({ page }) => {
++  let release!: () => void;
++  const gate = new Promise<void>(resolve => { release = resolve; });
+   await page.route('**/art/technology/03.png', async route => {
+-    await new Promise(resolve => setTimeout(resolve, 500));
++    await gate;
+     await route.continue();
+   });
+   await page.goto('/en');
+@@ -217,39 +219,119 @@ test('previous artwork stays visible while the next slide loads', async ({ page
+   await expect(stage.locator('img')).toHaveAttribute('src', /02\.png/);
+   await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '02');
+   await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 1 \/ 4/);
++  release();
+   await expect(stage.locator('img')).toHaveAttribute('src', /03\.png/);
+   await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '03');
+   await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 2 \/ 4/);
+   await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
+ });
+
+-test('failed slide load does not skip the next image', async ({ page }) => {
++test('failed warm-up and failed selection retry the same image', async ({ page }) => {
+   let requests = 0;
+   await page.route('**/art/technology/03.png', async route => {
+     requests++;
+-    if (requests === 1) await route.abort();
++    if (requests <= 3) await route.abort();
+     else await route.continue();
+   });
+   await page.goto('/en');
++  await expect.poll(() => requests).toBe(1);
++  await page.waitForTimeout(150);
+   await page.locator('[data-technology-open]').first().click();
++  await expect.poll(() => requests).toBe(2);
++  await page.waitForTimeout(150);
+   const stage = page.locator('#technology-viewer .technology-viewer__stage');
+-  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
+-  const swipe = async () => {
+-    await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 300, clientY: 400 });
+-    await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 90, clientY: 400 });
+-  };
+-  await swipe();
+-  await expect.poll(() => requests).toBe(1);
++  await page.locator('.technology-viewer__next-image').click();
++  await expect.poll(() => requests).toBe(3);
++  await page.waitForTimeout(150);
+   await expect(stage.locator('img')).toHaveAttribute('src', /02\.png/);
+   await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '02');
+   await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 1 \/ 4/);
+-  await page.waitForTimeout(150);
+-  await swipe();
++  await page.locator('.technology-viewer__next-image').click();
++  await expect.poll(() => requests).toBe(4);
+   await expect(stage.locator('img')).toHaveAttribute('src', /03\.png/);
+   await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '03');
+   await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 2 \/ 4/);
+ });
+
++test('all four photos start in parallel only after main page load', async ({ page }) => {
++  let releaseHero!: () => void;
++  let releasePhotos!: () => void;
++  const heroGate = new Promise<void>(resolve => { releaseHero = resolve; });
++  const photoGate = new Promise<void>(resolve => { releasePhotos = resolve; });
++  const requests: string[] = [];
++  await page.route('**/art/00.webp', async route => { await heroGate; await route.continue(); });
++  await page.route(/\/art\/technology\/0[2-5]\.png$/, async route => {
++    requests.push(route.request().url());
++    await photoGate;
++    await route.continue();
++  });
++  await page.goto('/en', { waitUntil: 'domcontentloaded' });
++  await page.waitForTimeout(250);
++  expect(await page.evaluate(() => document.readyState)).not.toBe('complete');
++  expect(requests).toHaveLength(0);
++  releaseHero();
++  await page.waitForLoadState('load');
++  await expect.poll(() => requests.length).toBe(4);
++  expect(new Set(requests.map(url => url.split('/').pop())).size).toBe(4);
++  await expect(page.locator('#technology-viewer')).not.toBeVisible();
++  releasePhotos();
++});
++
++test('early opening starts all four without waiting for main page load', async ({ page }) => {
++  let releaseHero!: () => void;
++  const gate = new Promise<void>(resolve => { releaseHero = resolve; });
++  const requests = new Set<string>();
++  await page.route('**/art/00.webp', async route => { await gate; await route.continue(); });
++  page.on('request', request => { if (/\/technology\/0[2-5]\.png$/.test(request.url())) requests.add(request.url()); });
++  await page.goto('/en', { waitUntil: 'domcontentloaded' });
++  await page.waitForTimeout(250);
++  expect(requests.size).toBe(0);
++  await page.locator('[data-technology-open]').first().click();
++  await expect.poll(() => requests.size).toBe(4);
++  expect(await page.evaluate(() => document.readyState)).not.toBe('complete');
++  await expect(page.locator('#technology-viewer')).toBeVisible();
++  releaseHero();
++});
++
++test('post-load images are decoded and reused offline for swiping and reopening', async ({ page, context }) => {
++  await page.addInitScript(() => {
++    const records: HTMLImageElement[] = [];
++    Object.defineProperty(window, '__technologyWarmImages', { value: records });
++    window.Image = new Proxy(window.Image, { construct(target, args) {
++      const image = Reflect.construct(target, args) as HTMLImageElement;
++      records.push(image);
++      return image;
++    } });
++  });
++  await page.goto('/en');
++  await expect.poll(() => page.evaluate(() => {
++    const records = (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages;
++    return records.filter(image => /\/technology\/0[2-5]\.png$/.test(image.src) && image.complete && image.naturalWidth === 941).length;
++  })).toBe(4);
++  const timing = await page.evaluate(async () => {
++    const records = (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages;
++    await Promise.all(records.map(image => image.decode()));
++    const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
++    return { load: navigation.loadEventStart, starts: performance.getEntriesByType('resource').filter(entry => /\/technology\/0[2-5]\.png$/.test(entry.name)).map(entry => entry.startTime), priorities: records.map(image => image.fetchPriority) };
++  });
++  expect(timing.starts).toHaveLength(4);
++  expect(timing.starts.every(start => start >= timing.load)).toBe(true);
++  expect(timing.priorities).toEqual(['low', 'low', 'low', 'low']);
++  await page.locator('[data-technology-open]').first().click();
++  await page.locator('#technology-viewer img').evaluateAll(async images => { await Promise.all(images.map(image => (image as HTMLImageElement).decode())); });
++  await context.setOffline(true);
++  for (let index = 0; index < 4; index++) {
++    await page.locator('.technology-viewer__dots button').nth(index).click();
++    await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', String(index + 2).padStart(2, '0'));
++    await expect.poll(() => page.locator('.technology-viewer__stage img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth)).toBe(941);
++  }
++  await page.locator('.technology-viewer__close').click();
++  await page.locator('[data-technology-open]').first().click();
++  await expect.poll(() => page.locator('.technology-viewer__stage img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth)).toBe(941);
++  expect(await page.evaluate(() => (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages.length)).toBe(4);
++  await context.setOffline(false);
++});
++
+ test('swipe completes when the pointer leaves the artwork', async ({ page }) => {
+   await page.goto('/en');
+   await page.locator('[data-technology-open]').first().click();
+'use client';
+
+import Image from 'next/image';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import type { PointerEvent } from 'react';
+import type { Locale } from '@/lib/i18n';
+import { TechnologyTitle } from './TechnologyTitle';
+import { TechnologyDescriptions } from './TechnologyDescriptions';
+import type { TechnologyDescriptionCopy } from '@/lib/technology-descriptions';
+
+const slides = [
+  { id: '02', src: '/art/technology/02.png' },
+  { id: '03', src: '/art/technology/03.png' },
+  { id: '04', src: '/art/technology/04.png' },
+  { id: '05', src: '/art/technology/05.png' },
+] as const;
+
+type ViewerCopy = { technology: string; horizontal: string; vertical: string; details: string; close: string; image: string; nextImage: string; nextGroup: string; unavailable: string; names: readonly [string, string, string, string] };
+const copy: Record<Locale, ViewerCopy> = {
+  en: { technology: 'Technology', details: 'Swipe for Details', horizontal: 'Swipe horizontally to browse images', vertical: 'Swipe down for the next technology', close: 'Close technology viewer', image: 'Image', nextImage: 'Show next image', nextGroup: 'Next Technology', unavailable: 'The next technology is coming soon.', names: ['Three heaters', 'Active air sails', 'Programmable heat profiles', 'Gold and titanium nitride'] },
+  ru: { technology: 'Технология', details: 'Свайп для деталей', horizontal: 'Листайте изображения по горизонтали', vertical: 'Свайп вниз — следующая технология', close: 'Закрыть просмотр технологий', image: 'Изображение', nextImage: 'Следующее изображение', nextGroup: 'Следующая технология', unavailable: 'Следующая технология скоро появится.', names: ['Три нагревателя', 'Активные воздушные паруса', 'Программируемые профили нагрева', 'Золото и нитрид титана'] },
+  de: { technology: 'Technologie', details: 'Für Details wischen', horizontal: 'Horizontal durch die Bilder wischen', vertical: 'Für die nächste Technologie nach unten wischen', close: 'Technologieansicht schließen', image: 'Bild', nextImage: 'Nächstes Bild anzeigen', nextGroup: 'Nächste Technologie', unavailable: 'Die nächste Technologie kommt bald.', names: ['Drei Heizelemente', 'Aktive Luftsegel', 'Programmierbare Wärmeprofile', 'Gold und Titannitrid'] },
+  fr: { technology: 'Technologie', details: 'Balayez pour les détails', horizontal: 'Balayez horizontalement pour parcourir les images', vertical: 'Balayez vers le bas pour la technologie suivante', close: 'Fermer la galerie', image: 'Image', nextImage: 'Afficher l’image suivante', nextGroup: 'Technologie suivante', unavailable: 'La prochaine technologie arrive bientôt.', names: ['Trois éléments chauffants', 'Volets d’air actifs', 'Profils de chauffe programmables', 'Or et nitrure de titane'] },
+  es: { technology: 'Tecnología', details: 'Desliza para ver detalles', horizontal: 'Desliza horizontalmente para ver las imágenes', vertical: 'Desliza abajo para la siguiente tecnología', close: 'Cerrar la galería', image: 'Imagen', nextImage: 'Mostrar la siguiente imagen', nextGroup: 'Siguiente tecnología', unavailable: 'La próxima tecnología estará disponible pronto.', names: ['Tres calentadores', 'Aletas de aire activas', 'Perfiles de calor programables', 'Oro y nitruro de titanio'] },
+  it: { technology: 'Tecnologia', details: 'Scorri per i dettagli', horizontal: 'Scorri orizzontalmente tra le immagini', vertical: 'Scorri giù per la tecnologia successiva', close: 'Chiudi la galleria', image: 'Immagine', nextImage: 'Mostra l’immagine successiva', nextGroup: 'Tecnologia successiva', unavailable: 'La prossima tecnologia arriverà presto.', names: ['Tre riscaldatori', 'Alette d’aria attive', 'Profili di calore programmabili', 'Oro e nitruro di titanio'] },
+  tr: { technology: 'Teknoloji', details: 'Ayrıntılar için kaydırın', horizontal: 'Görseller arasında yatay kaydırın', vertical: 'Sonraki teknoloji için aşağı kaydırın', close: 'Teknoloji görünümünü kapat', image: 'Görsel', nextImage: 'Sonraki görseli göster', nextGroup: 'Sonraki teknoloji', unavailable: 'Sonraki teknoloji yakında sunulacak.', names: ['Üç ısıtıcı', 'Aktif hava kanatları', 'Programlanabilir ısı profilleri', 'Altın ve titanyum nitrür'] },
+  ar: { technology: 'تقنية', details: 'اسحب لعرض التفاصيل', horizontal: 'اسحب أفقياً لتصفح الصور', vertical: 'اسحب للأسفل للانتقال إلى التقنية التالية', close: 'إغلاق معرض التقنيات', image: 'صورة', nextImage: 'عرض الصورة التالية', nextGroup: 'التقنية التالية', unavailable: 'التقنية التالية ستتوفر قريباً.', names: ['ثلاثة سخانات', 'زعانف هوائية نشطة', 'ملفات حرارة قابلة للبرمجة', 'الذهب ونتريد التيتانيوم'] },
+  zh: { technology: '技术', details: '滑动查看详情', horizontal: '左右滑动浏览图片', vertical: '向下滑动查看下一项技术', close: '关闭技术图库', image: '图片', nextImage: '显示下一张图片', nextGroup: '下一项技术', unavailable: '下一项技术即将推出。', names: ['三个加热器', '主动导流翼', '可编程加热曲线', '黄金与氮化钛'] },
+  ja: { technology: 'テクノロジー', details: 'スワイプして詳細を見る', horizontal: '左右にスワイプして画像を見る', vertical: '下にスワイプして次の技術を見る', close: '技術ギャラリーを閉じる', image: '画像', nextImage: '次の画像を表示', nextGroup: '次の技術', unavailable: '次の技術は近日公開予定です。', names: ['3つのヒーター', 'アクティブエアセイル', 'プログラム可能な加熱プロファイル', '金と窒化チタン'] },
+  ko: { technology: '기술', details: '스와이프하여 상세 보기', horizontal: '좌우로 스와이프하여 이미지 보기', vertical: '아래로 스와이프하여 다음 기술 보기', close: '기술 갤러리 닫기', image: '이미지', nextImage: '다음 이미지 보기', nextGroup: '다음 기술', unavailable: '다음 기술은 곧 공개됩니다.', names: ['세 개의 히터', '액티브 에어 세일', '프로그래밍 가능한 열 프로필', '금과 질화 티타늄'] },
+};
+
+function TechnologyNavigation({ direction, label, accessibleLabel, onClick }: { direction: 'right' | 'down'; label: string; accessibleLabel: string; onClick: () => void }) {
+  return <button className={`technology-viewer__next-${direction === 'right' ? 'image' : 'group'}`} type="button" onClick={onClick} aria-label={accessibleLabel}>
+    <span>{label}</span>
+    <Image src={`/art/technology/arrow-${direction}.png`} width={direction === 'right' ? 28 : 45} height={direction === 'right' ? 45 : 29} alt="" aria-hidden="true" unoptimized />
+  </button>;
+}
+
+function TechnologyPagination({ index, labels, onSelect }: { index: number; labels: ViewerCopy; onSelect: (index: number) => void }) {
+  return <div className="technology-viewer__dots" role="group" aria-label={labels.horizontal}>
+    {slides.map((slide, slideIndex) => <button key={slide.id} type="button" onClick={() => onSelect(slideIndex)} aria-label={`${labels.image} ${slideIndex + 1} / ${slides.length}: ${labels.names[slideIndex]}`} aria-current={index === slideIndex ? 'true' : undefined}>
+      <Image src={index === slideIndex ? '/art/technology/dot-active.png' : '/art/technology/dot-inactive.png'} width={29} height={29} alt="" aria-hidden="true" unoptimized />
+    </button>)}
+  </div>;
+}
+
+export function TechnologyViewer({ locale, descriptions }: { locale: Locale; descriptions: TechnologyDescriptionCopy }) {
+  const dialog = useRef<HTMLDialogElement>(null);
+  const opener = useRef<HTMLElement | null>(null);
+  const previousOverflow = useRef('');
+  const pointer = useRef<{ x: number; y: number } | null>(null);
+  const displayedIndex = useRef(0);
+  const requestedIndex = useRef(0);
+  const requestToken = useRef(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const [index, setIndex] = useState(0);
+  const [showUnavailable, setShowUnavailable] = useState(false);
+  const labels = copy[locale];
+  const images = useRef(new Map<number, { image: HTMLImageElement; ready: Promise<void> }>());
+  const prepareImage = useCallback((position: number, priority: 'low' | 'high' = 'low') => {
+    const cached = images.current.get(position);
+    if (cached) {
+      if (priority === 'high') cached.image.fetchPriority = 'high';
+      return cached.ready;
+    }
+    const image = new window.Image();
+    image.fetchPriority = priority;
+    image.src = slides[position].src;
+    const ready = image.decode().catch(error => {
+      // A failed warm-up must not prevent a later user action from retrying.
+      if (images.current.get(position)?.image === image) images.current.delete(position);
+      throw error;
+    });
+    images.current.set(position, { image, ready });
+    return ready;
+  }, []);
+
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const warm = () => {
+      // Run after load dispatch; never compete with the initial page resources.
+      timer = setTimeout(() => {
+        slides.forEach((_, position) => { void prepareImage(position).catch(() => {}); });
+      }, 0);
+    };
+    if (document.readyState === 'complete') warm();
+    else window.addEventListener('load', warm, { once: true });
+    return () => {
+      window.removeEventListener('load', warm);
+      clearTimeout(timer);
+    };
+  }, [prepareImage]);
+
+  useEffect(() => {
+    const dialogElement = dialog.current;
+    const open = (event: MouseEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const trigger = target.closest<HTMLElement>('[data-technology-open]');
+      if (!trigger || !dialogElement || dialogElement.open) return;
+      event.preventDefault();
+      opener.current = trigger;
+      requestToken.current++;
+      displayedIndex.current = 0;
+      requestedIndex.current = 0;
+      setIndex(0);
+      setShowUnavailable(false);
+      slides.forEach((_, position) => { void prepareImage(position, position === 0 ? 'high' : 'low').catch(() => {}); });
+      setIsOpen(true);
+      dialogElement.showModal();
+      dialogElement.focus();
+      previousOverflow.current = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+    };
+    document.addEventListener('click', open);
+    return () => {
+      document.removeEventListener('click', open);
+      if (dialogElement?.open) document.body.style.overflow = previousOverflow.current;
+    };
+  }, [prepareImage]);
+
+  const close = () => dialog.current?.close();
+  const showSlide = (position: number) => {
+    const next = (position + slides.length) % slides.length;
+    setShowUnavailable(false);
+    requestedIndex.current = next;
+    const token = ++requestToken.current;
+    prepareImage(next, 'high').then(() => {
+      if (token === requestToken.current && dialog.current?.open) {
+        displayedIndex.current = next;
+        setIndex(next);
+      }
+    }).catch(() => {
+      if (token === requestToken.current) requestedIndex.current = displayedIndex.current;
+    });
+  };
+  const move = (delta: number) => showSlide(requestedIndex.current + delta);
+  const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    pointer.current = { x: event.clientX, y: event.clientY };
+    try { event.currentTarget.setPointerCapture(event.pointerId); } catch { /* Synthetic test events do not own a pointer. */ }
+  };
+  const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
+    const start = pointer.current;
+    pointer.current = null;
+    if (!start) return;
+    const dx = event.clientX - start.x;
+    const dy = event.clientY - start.y;
+    if (dy > 65 && dy > Math.abs(dx) * 1.2) { setShowUnavailable(true); return; }
+    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+    move((dx < 0 ? 1 : -1) * (locale === 'ar' ? -1 : 1));
+  };
+
+  return <dialog
+    ref={dialog}
+    id="technology-viewer"
+    className="technology-viewer"
+    aria-labelledby={isOpen ? 'technology-viewer-title' : undefined}
+    aria-label={isOpen ? undefined : 'HeatCore'}
+    aria-describedby="technology-viewer-instructions"
+    tabIndex={-1}
+    onClose={() => {
+      requestToken.current++;
+      setIsOpen(false);
+      document.body.style.overflow = previousOverflow.current;
+      opener.current?.focus();
+    }}
+    onKeyDown={event => {
+      if (event.key === 'ArrowRight') { event.preventDefault(); move(locale === 'ar' ? -1 : 1); }
+      if (event.key === 'ArrowLeft') { event.preventDefault(); move(locale === 'ar' ? 1 : -1); }
+    }}
+  >
+    <div className="technology-viewer__canvas">
+      <div className="technology-viewer__stage" onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}>
+        {isOpen && <Image key={slides[index].src} src={slides[index].src} alt={`HeatCore — ${labels.names[index]}`} fill sizes="100vw" unoptimized priority={index === 0} draggable={false} />}
+        {isOpen && <TechnologyTitle descriptor={labels.technology} />}
+        {isOpen && <TechnologyDescriptions slide={slides[index].id} locale={locale} name={labels.names[index]} copy={descriptions} />}
+      </div>
+      {isOpen && <>
+        <Image className="technology-viewer__frame" src="/art/technology/frame-template.webp" width={941} height={1628} alt="" aria-hidden="true" unoptimized priority />
+        <TechnologyNavigation direction="right" label={labels.details} accessibleLabel={labels.nextImage} onClick={() => showSlide(requestedIndex.current + 1)} />
+        <TechnologyPagination index={index} labels={labels} onSelect={showSlide} />
+        <TechnologyNavigation direction="down" label={labels.nextGroup} accessibleLabel={labels.nextGroup} onClick={() => setShowUnavailable(true)} />
+      </>}
+      {showUnavailable && <p className="technology-viewer__notice" role="status">{labels.unavailable}</p>}
+      <button className="technology-viewer__close" type="button" onClick={close} aria-label={labels.close}>×</button>
+    </div>
+    <p id="technology-viewer-instructions" className="technology-viewer__sr-only">{labels.horizontal}. {labels.vertical}. {labels.image} {index + 1} / {slides.length}.</p>
+  </dialog>;
+}
+
+2026-10-07T07:44:32.222891Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11551-e7a9-78a3-9f4f-bf38a860ff30 turn_id=01a11551-e89c-7b90-9e22-7a8a3835f9e9 item_id="exec-29f28b2a-ec62-47bb-95a7-7aa31f537b30"
+exec
+/bin/zsh -lc "cat AGENTS.md | head -30; cat docs/evidence/technology-viewer/async-warm/checks.md; cat docs/evidence/technology-viewer/async-warm/performance.json | head -70; git diff HEAD -- CHANGELOG.md MEMORY.md; ls -lh design/references/background_old.png; nl -ba components/TechnologyViewer.tsx | sed -n '55,145p'" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 89ms:
+# Ramsider UNO — project rules
+
+Build the new product site from `design/references/`. **Design and implement for iPhone 17 Pro first, then verify iPhone 17 Pro Max; adapt responsively to every other screen size.** The real mobile page must match the supplied reference while loading quickly and working accessibly. One user request should produce one complete delivery: perform as many internal inspect → implement → verify → fix cycles as needed, then code review, performance work, and final re-verification. Visual slices are internal work units; finish and integrate the whole requested page or feature before delivery. Do not hand the user a first draft to find ordinary defects. “Done” means every applicable gate has passed with evidence, not that code compiles or that zero bugs have been assumed.
+
+These are the mandatory rules. [docs/discipline.md](docs/discipline.md) defines stage gates and failure routing; [CONTEXT_INDEX.md](CONTEXT_INDEX.md) routes to other details. For substantive project work, read the short [MEMORY.md](MEMORY.md) for current state, then only the topic files relevant to the task. `PROMPT.txt` and `SUMMARY.txt` are source records for unresolved questions; current user instructions and current assets take precedence over their examples or suggestions.
+
+## Mandatory change and defect log
+
+[CHANGELOG.md](CHANGELOG.md) is the authoritative record of **every logical project change and every discovered defect**, including code, assets, content, mappings, tests, documentation, configuration, user corrections and agent-discovered regressions. The agent maintains it **without a user reminder or a separate permission request**: create/update the entry at discovery, record the solution and changed files when applied, then append verification and approval before delivery. Search relevant IDs when resuming work; do not wait until the final answer to reconstruct the history.
+
+Use the journal's required fields and lifecycle. Record what was wrong/missing/different, expected result, reference/request, cause, solution, intermediate mapping/specification and how it was applied, changed paths, checks and evidence. Every claimed fix needs a dated **technical approval**, naming the verifier and its evidence (and independent auditor when applicable). `APPLIED_UNVERIFIED` is not `VERIFIED`; blocked/skipped checks cannot supply approval. Explicit user approval is a separate field: never invent it or require it for routine authorized fixes. Reopen a failed fix under the same ID and preserve the previous verdict and failure history. Track remaining defects as open entries, even when outside the current task.
+
+For every defect, explain the agent's observable mistaken decision/action, the missed check, responsibility with evidence, and a concrete behavior change. Distinguish genuinely changed/missing inputs from agent failures; do not blame the user merely because an input was absent. Unknown causes stay explicit. Link repeatable causes to LESSONS and an Agent Eval case with its actual run status; a fixed UI does not prove improved agent behavior. Before similar work or a fresh rebuild, retrieve those lessons and turn prevention into acceptance checks. Repository memory improves instructions/context, not model weights.
+
+Small edits may use a short entry, but cannot omit logging or proportionate verification. Group related edits under one logical ID; do not log every tool call. A delivery is incomplete if its journal records or required technical approval are missing. MEMORY describes current state; LESSONS explains reusable prevention; neither replaces CHANGELOG.
+
+## Work in stages
+
+1. **Understand before coding.** Check repository state, [MEMORY.md](MEMORY.md), relevant lessons, and the requested scope. Inspect `design/references/background.png` first, then `background_text.png`, then relevant fonts, button artwork, and source layers. Crop the 941 × 32,127 reference into legible sections. Map content, controls, art layers, section boundaries, and the source-to-CSS viewport scale; set observable acceptance checks and identify unverified product facts. Use [DESIGN.md](DESIGN.md) and [PRODUCT.md](PRODUCT.md). **Exit:** the target slice, assets, behavior, and comparison method are understood; unresolved inputs are explicit.
+2. **Implement one visual slice.** Build for the Pro baseline first, using the clean background as artwork and semantic HTML/CSS for text and controls. Keep text translatable and controls usable; no inert CTA or invented checkout. Reproduce reference copy in the local build while tracking unverified factual claims for publication. Use Next.js + React + strict TypeScript with the framework's own build toolchain; choose each route's rendering mode and Server/Client boundaries from its data and interaction needs. Do not revive the deleted app. Use [ARCHITECTURE.md](ARCHITECTURE.md). **Exit:** the slice renders and its required behavior works; continue through all slices in the requested scope.
+3. **Verify the actual pixels.** Open the running page in a real browser at the iPhone 17 Pro viewport, then verify Pro Max. Confirm the page's actual CSS layout width matches each test profile (the viewport meta tag must be correct). Wait for fonts/images and capture screenshots. Compare the Pro image to the calibrated reference crop; inspect Pro Max as a responsive target unless it has its own reference. The verifier must see screenshots, not only DOM/CSS measurements. Fix material differences and capture again. Use a tolerant pixel diff as a second signal when aligned. Use [docs/visual-qa.md](docs/visual-qa.md). **Exit:** no material mismatch remains in the supported target composition; otherwise keep iterating or report a concrete external blocker without saying “done.”
+4. **Check behavior and adaptation.** Test relevant clicks, hover, scroll, navigation, forms, menus, animation states, keyboard access, Arabic RTL, mobile safe areas, and representative tablet/desktop widths. Check overflow, clipping, crops, wraps, spacing, and tile seams. Use [docs/mobile.md](docs/mobile.md). **Exit:** required states work at the sizes they support.
+5. **Review and optimize.** For code changes, run Codex's native `/review` on the actual diff before delivery (CLI equivalent when needed), examine every actionable finding, fix it, and rerun affected checks. Run available type, lint, test, and production-build checks. Review component boundaries, duplication, accessibility, and unused code. Measure first render, LCP/INP/CLS where measurable, network bytes, JavaScript, layout shifts, and scroll smoothness in a production build. Reassess static, request-time server, and client rendering against measured latency, freshness, and client cost; change strategy where it improves the result. Fix meaningful problems, then repeat affected visual/browser checks. Use [QUALITY.md](QUALITY.md) and [PERFORMANCE.md](PERFORMANCE.md). **Exit:** no known material code, visual, accessibility, or speed regression remains; report if `/review` was unavailable rather than counting a manual pass as its result.
+6. **Learn and report evidence.** Complete the affected [CHANGELOG.md](CHANGELOG.md) entries with actual checks, technical approval and remaining open IDs. Refresh [MEMORY.md](MEMORY.md) when verified state, decisions, or blockers changed; record repeatable errors in [LESSONS.md](LESSONS.md). Use [docs/definition-of-done.md](docs/definition-of-done.md). State tested viewports, screenshot comparisons, interactions, build checks, performance measurements, remaining differences, and checks that could not run. Never claim pixel fidelity, WCAG compliance, a 95+ Lighthouse score, or completion without the corresponding evidence.
+
+**Do not mark a failed gate passed or delegate ordinary QA to the user.** Route the failure back to the stage that can fix it, repeat that stage, and rerun downstream checks the fix could affect. A blocked external dependency must not stop independent work. For UI work, the implement → browser screenshot → compare → fix → recheck loop is mandatory after each completed visual slice and after later appearance changes; repeat it on the assembled page. Work autonomously through all feasible checks; resolve routine choices from the repository and references, and seek only irreducible external facts or access while continuing independent work. For a small non-UI task, apply only relevant stages.
+
+For substantive project work, start one independent, non-editing **discipline auditor** alongside scope inspection. Reuse it at each applicable stage gate: scope before implementation; each completed UI slice's rendering and visual evidence; behavior/adaptation; code review and performance; and final integration, memory, and delivery evidence. Give it acceptance checks, changed files, browser images, command results, and any other agents' findings as relevant. Wait for its evidence-based pass/fail/blocked finding before closing a gate. Fix failures and re-audit affected gates; the main agent owns implementation and required checks. Use the project [auditor profile](.codex/agents/discipline_auditor.toml) when available and [supervision protocol](docs/supervision.md); if the profile cannot be selected, give a subagent the same non-editing assignment. Do not spawn it for a trivial edit. The auditor supplements real QA and native `/review`; it cannot certify missing evidence.
+
+## Standing constraints
+# Async technology warm-up — CHG-0064, 2026-10-07
+
+## Scope and method
+
+User requests all four accepted original PNGs asynchronously after the main page loads. `TechnologyViewer` starts four low-priority Image/decode promises in one post-window-load task, including hydration after readyState complete. A retained per-instance cache reuses pending/decoded images. Early opening starts the same cache immediately and promotes slide1; selection promotes its target. Failed entries are evicted, enabling retry without skipping a slide. An already visible decoded slide stays until the selected image is ready. No asset encoding, color/profile, dimensions, source, CSS or copy changes.
+
+## Checks
+
+- [Production viewer suite](browser-tests.log):40/40 PASS on Pro402×874/DPR3 and Max440×956/DPR3 WebKit, desktop Chromium/Firefox. Held hero proves zero requests before window load; holding every photo response proves all4 start independently before opening. Early opening before load is checked. Retained decoded resources work offline for all4 selections/reopening; exactly4 preloader Image instances remain. Original accepted delivery SHA/master SHA/HTTP equality and RGB outside authorized title masks pass; PNG941×1672 RGB, noICC, no photoWebP.
+- [Strengthened recovery](recovery-tests.log):4/4 PASS after adding failed user selection, verifying unchanged decoded photo/description/active dot, then retrying the same image. [Integration](integration.log):4/4 PASS for both entry points and keyboard focus containment/restoration.
+- Eight final actuals: [Pro1](pro-slide-1.png),[2](pro-slide-2.png),[3](pro-slide-3.png),[4](pro-slide-4.png); [Max1](pro-max-slide-1.png),[2](pro-max-slide-2.png),[3](pro-max-slide-3.png),[4](pro-max-slide-4.png). [Full browser RGB comparison](visual-diff.json):0 changed channels/max error0 against all8 accepted CHG0063 captures. Primary inspected Pro1/Max4; independent auditor directly viewed all8 and passed Stage3.
+- [Typecheck](typecheck.log),[lint](lint.log),[build](build.log):PASS;14 static routes. [Native review](native-review.log):no actionable code/test defect. Later strengthened recovery tests also pass; no runtime code changed after production build.
+- User's existing local IAB tab3021 was reloaded and gallery opened; live semantic caption/header/4dots/X observed. No visual layout or locale keys change; prior all11locale layout evidence remains applicable, affected Arabic controls retested in current suite.
+
+## Performance and tradeoff
+
+[Reproducible measurement](measure.mjs), run from repo root with Node; [results](performance.json). Chromium402×874 DPR3 production3021. Single samples, no fieldINP/Lighthouse or physical-device guarantee.
+
+| Sample | FCP/LCP | window load | CLS | Scroll p95 | >33ms frames |
+| --- | --- | --- | --- | --- | --- |
+| Local warmed |120ms|153.6ms|0|16.7ms|0|
+|4Mbps +100ms warmed|340ms|3187ms|0.000222|16.7ms|0|
+|4Mbps +100ms warm-up disabled control|336ms|3177.5ms|0.000222|16.8ms|0|
+
+Control intercepts only detached preloader Image assignments to omit their downloads; page code and landing requests remain the same. In the constrained warmed sample, four requests start3192.0–3192.2ms (after load), complete52749–52758ms while cold scrolling also requests landing art. All4 original files total18,917,696B, HTTP transfer18,918,896B. Parallel requests shorten the user-triggered wait after warm-up, but contend for post-load bandwidth and cannot promise readiness before an immediate opening on slow/stalled connections. That payload/quality tradeoff is explicitly user requested. FCP/LCP and scroll samples show no material initial-render or frame-time regression. ReadyMs is sampled after the scrolling task and image/decode wait, not a measured first-decode timestamp; use responseEnd for transfer completion. Cached switching including two painted frames: local18.4–34ms, constrained24.6–34ms. JS159,607B (+209B vsCHG0063); pageerrors0. First-view photos start only after load; prior 0initialtechrequest policy is superseded.
+
+## Approval
+
+Codex primary verifier technical approval APPROVED on2026-10-07. Independent scope, visualStage3, behavior/adaptationStage4 and review/performanceStage5 PASS after reading actual evidence. Final staged record audit/deployment verification follows. User acceptance NOT_RECORDED.
+[
+  {
+    "name": "local-warm",
+    "lcpMs": 120,
+    "cls": 0,
+    "fcpMs": 120,
+    "loadMs": 153.60000014305115,
+    "ttfbMs": 14.299999952316284,
+    "scroll": {
+      "p95Ms": 16.700000000000045,
+      "over33Ms": 0
+    },
+    "warm": {
+      "readyMs": 2163.2999999523163,
+      "requests": [
+        {
+          "url": "02.png",
+          "start": 177.79999995231628,
+          "end": 233.10000014305115,
+          "bytes": 4729724
+        },
+        {
+          "url": "04.png",
+          "start": 177.90000009536743,
+          "end": 224.20000004768372,
+          "bytes": 4729724
+        },
+        {
+          "url": "05.png",
+          "start": 177.90000009536743,
+          "end": 233.20000004768372,
+          "bytes": 4729724
+        },
+        {
+          "url": "03.png",
+          "start": 177.90000009536743,
+          "end": 236.79999995231628,
+          "bytes": 4729724
+        }
+      ],
+      "totalBytes": 18918896,
+      "switchMs": [
+        18.40000009536743,
+        32.39999985694885,
+        33.299999952316284,
+        34
+      ]
+    },
+    "jsBytes": 159607,
+    "errors": []
+  },
+  {
+    "name": "4mbps-warm",
+    "lcpMs": 340,
+    "cls": 0.00022206073455854325,
+    "fcpMs": 340,
+    "loadMs": 3187,
+    "ttfbMs": 6.799999952316284,
+    "scroll": {
+      "p95Ms": 16.700000000000728,
+      "over33Ms": 0
+    },
+    "warm": {
+      "readyMs": 52782.39999985695,
+      "requests": [
+        {
+          "url": "02.png",
+          "start": 3192,
+          "end": 52749.09999990463,
+          "bytes": 4729724
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 0cb2c35..0d15df8 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -122,6 +122,7 @@
+ | [CHG-0059](#chg-0059) | USER_REQUEST / ASSET_REPLACEMENT | Дизайнерский overlay блока сравнения | `VERIFIED` |
+ | [CHG-0060](#chg-0060) | CUSTOMER_FEEDBACK / DEFECT_REPORT | Восприятие девайсов более плоскими после PNG→WebP; причина выясняется | `OPEN` |
+ | [CHG-0063](#chg-0063) | USER_REQUEST / FEATURE | Описания технологий отдельными React-компонентами в Open Sans | `VERIFIED` |
++| [CHG-0064](#chg-0064) | USER_REQUEST / PERFORMANCE | Асинхронная загрузка четырёх original PNG после main page load | `VERIFIED` |
+ | [CHG-0062](#chg-0062) | USER_REQUEST / FEATURE | Декомпозиция заголовка HeatCore Technology без потери качества рендера | `VERIFIED` |
+ | [CHG-0061](#chg-0061) | USER_REQUEST / FEATURE + CUSTOMER_REJECTION | Полноэкранный просмотрщик HeatCore и точная рамка | `VERIFIED` (2026-10-07 original PNG) |
+
+@@ -1207,3 +1208,19 @@
+ - **Native review closure / 2026-10-07:** Native `codex review --uncommitted` на finalcode/tests/docs после датированного technicalapproval — no actionable regression, exit0. Solepre-recordP2journalapproval закрыт actualdatedentry, finaldocs/memory отражаютреальнопройденныеgates, historicalfailedвердикты сохранены. Finalstagedrecordaudit pending; unrelateduser .gitignore/background_old.png/pycacheexcluded.
+
+ - **Final staged record audit / 2026-10-07:** Independent discipline_audit `PASS`:49 scopedstagedpaths и cleancachediffcheck, journal/currentdatedapproval/failurehistory/MEMORY/PRODUCT/LESSONS/EVAL/evidence/nativeclosure inspected. Source/photoPNGs не staged, unrelateduserfiles excluded. Bottom-leftfolios omitted, historicalmentionssuperseded. Все применимые featuregates закрыты actualevidence; commit/pushdeliveryverification follows.
++
++## CHG-0064 — Async warming of technology PNGs
++
++- **Source / 2026-10-07:** User requests all four original photographs asynchronously after the main page finishes loading, ready before opening/swiping. Earlier first-two plan is superseded by the explicit all-four instruction.
++- **Actual → expected:** Current optional viewer downloads images only when opened/selected. Expected post-window-load low-priority parallel warming of slides02–05; reuse pending/decoded images across taps and reopening without altering PNG quality or composition.
++- **Cause / responsibility:** USER_REQUEST / performance enhancement; earlier on-demand policy is superseded. No asset conversion or visual changes. Slow-network early opening cannot guarantee zero delay before files arrive.
++- **Mapping / plan:** components/TechnologyViewer.tsx bounded per-instance image/decode cache → post-load task for all four → open handler starts/reuses all four with first image promoted; showSlide reuses the cache and retains old decoded slide until ready. tests/e2e/technology-viewer.spec.ts covers delayed load, request order, cache reuse, errors/early-open and measured warm timings. Existing English/Arabic controls and Pro/Max actual screenshots checked.
++- **Status:** IN_PROGRESS. **Files:** viewer, focused tests, viewer loading map, evidence, MEMORY and this journal. **Checks / technical approval:** pending scope audit, production tests/screenshots/hash identity, native review/type/lint/build, first-render and warm interaction measurements. **User acceptance:** NOT_RECORDED. Lessons consulted: original-only PNG policy and deferred modal loading; no new defect/eval claim.
++
++- **Scope / applied / 2026-10-07:** Independent discipline_audit scope PASS: all-four post-load start, already-complete hydration, early-open exception, parallel requests/cache reuse/failure recovery, constrained-network contention and visual/hash checks required. Implemented retained Image+decode promises, fetchPriority low after load/high on selection, failure eviction and cleanup of pending load/timer. Viewer loading map updated; no raster/CSS changes. Status APPLIED_UNVERIFIED; production checks pending.
++
++- **Checks / 2026-10-07:** Fresh production3021 build14SSG/type/lint PASS; viewer40/40 + strengthened failure/retry4/4 + integration4/4 across Pro/Max WebKit and Chromium/Firefox. All4 acceptedPNG/master/HTTP/hash/RGB checks PASS. All8 final actuals show0changedRGB channels vs accepted CHG0063; independent visualStage3 PASS after directly viewing8. Lowpriority all4parallel post-load, no requests beforeload/earlyopen exception, decodedoffline swipes/reopen/cache4instances and failureeviction tested. Native review noactionable defect. Local LCP120/CLS0/JS159607(+209)/scrollp9516.7/0>33; synthetic4Mbps+100ms warmed LCP340/load3187/CLS0.000222/p9516.7 versus disabledwarmcontrol336/3177.5/sameCLS/16.8. Original18.9MB transfers complete~52.75sec duringcoldlongscroll; cache switch18–34mslocal/25–34msconstrained. This is a bandwidth tradeoff, not a guarantee allfiles finish before immediateopen. Evidence docs/evidence/technology-viewer/async-warm/checks.md. Native/screenshot proof retained; independent behavior/review/final record verdicts pending. ExistinguserIAB3021 refreshed and observed actualviewer. No new agentdefect/lesson/evalrun; prior optionalmodal loadingpolicy explicitly superseded by user.
++
++- **Technical approval / 2026-10-07:** `VERIFIED`, Codex primary verifier `APPROVED` по source/public/HTTP/RGB identity4/4, actualPro/Max8/8 unchangedpixels,40/40viewer+4/4strengthenedrecovery+4/4integration, type/lint/build/diff/native review и production measurements. Independent discipline_audit scope,Stage3visual,Stage4behavior/adaptation,Stage5review/performance `PASS` after readingactualartifacts. Finalrecord/stagedgate pending. User acceptance NOT_RECORDED. No file/color/quality conversion; originalqualitypolicy preserved. Future readiness depends on network, measured4Mbps completion52.75sec duringcoldscroll disclosed. Explicitall4asyncrequest supersedes earlierfirsttwoplan and old on-demandpolicy. No new reusableagentfailure; EVAL-VIEWERcontrolledrun remainsNOT_RUN.
++
++- **Staged artifact check / 2026-10-07:** First cached diff-check found trailing whitespace/end blank lines in raw build/review/type/lint logs. Primary had checked the source diff before these untracked logs were staged; normalized only whitespace in evidence logs and repeated stagedcheck. No command outcomes changed; this format defect is proportionate within CHG0064, no generalized modelbehavior claim.
+diff --git a/MEMORY.md b/MEMORY.md
+index 97b8652..d5a1906 100644
+--- a/MEMORY.md
++++ b/MEMORY.md
+@@ -6,6 +6,8 @@ The mandatory [CHANGELOG.md](CHANGELOG.md) now records logical changes and defec
+
+ ## Technology viewer — 2026-10-07
+
++- CHG-0064 post-load warm-up VERIFIED on2026-10-07: allfour accepted original PNGs start in parallel with low fetch priority after window load/already-complete hydration; retained per-instance Image/decode promises reuse pending/decoded resources, early opening starts/promotes first and selection promotes target, failures evict/retry. Source files/frame/text/layout unchanged. Pro/Max8/8 actuals have0changedchannels vsCHG0063; viewer40/40+strengthenedretry4/4+integration4/4/type/lint/build/native review PASS; independent scope/visual/behavior/review-performance PASS. LocalLCP120/CLS0/JS159607(+209)/scrollp9516.7, warm switching18–34ms. Synthetic4Mbps+100ms LCP340vs336control,CLSsame,p95~16.7;18.9MB photos complete~52.75sec duringcoldlongscroll. No guarantee ready before immediateopen/slowconnection. [Evidence](docs/evidence/technology-viewer/async-warm/checks.md). Previous 0initialtechnologyrequests/on-demand policy is superseded by explicit userrequestall4post-load warming. Finalstagedaudit/push/publicdemoverification follows.
++
+ - CHG-0063 description layer is VERIFIED with primary dated technical approval; independent final staged record audit PASS on2026-10-07. Open Sans family, viewer Regular400 matches Swipe/Next; secondary landing paragraphs use Light300. All supplied TEXT-reference headings, paragraphs, heater callouts, phone/diagram labels and workflow are semantic translated React content over the unchanged accepted PNGs. Story serializes only current-locale copy; all11locale dictionaries fit the source-space boxes, ArabicRTL. User explicitly excludes bottom-left source folios; no page numbers are rendered, upperfouractive dots remain. Brown captions retain #975f41 with a thin white outline after marble-shadow contrast failure; local contrast/real mobile recapture verified. FinalPro/Max all8 captures and pairedsource crops, no-change browserRGBoutside newtext8/8,28/28viewer+4/4integration+26/26locale-width(104descriptionstates)/type/lint/buildPASS. ProductionlocalLCP100/CLS0/JS159398B/0initialtechrequests/ready150/p9517.8ms; nofieldINP/Lighthouse/hardwarepinchclaim. Independent scope, final visual, behavior/adaptation and code-review/performance gates PASS; final native delivery review no actionable regression; independent final staged record audit PASS on2026-10-07. Evidence [descriptions](docs/evidence/technology-viewer/descriptions/checks.md); PRODUCT tracks unverified designer claims.
+
+ - CHG-0062 live-title decomposition is VERIFIED with dated primary technical approval on 2026-10-07; independent final record audit PASS. Four original master PNGs are untouched; delivery remains 941×1672 RGB PNG/no ICC/4,729,424 B each, with only ~22.2K title-mask pixels reconstructed per image and exact decoded RGB outside masks. Every product pixel and original resolution/color/detail remains unchanged; source background hidden under lettering is reconstructed, not provably original. Separate TechnologyTitle semantic React h2 uses landing OpenSans400/source-space SVG text with all11locale descriptor keys and labels the dialog. No frame/landing geometry changes. Reproducible prepare-technology-photos.mjs replaces old byte-copy generator; local patch inputs live in design/derived/technology-title. Pro/Max all8 screenshots and Arabic, outside-header browser diff0,24/24viewer+4/4integration+26/26adaptation/type/lint/build/native review pass; independent scope/visual/behavior/adaptation/review/performance PASS. Native03 groove phase ghost was fixed and prevention recorded in LESSONS. [Current title map/evidence](docs/evidence/technology-viewer/live-title/checks.md).
+-rw-r--r--@ 1 asmirnou  staff    43M Sep 29 01:55 design/references/background_old.png
+    55	  const requestToken = useRef(0);
+    56	  const [isOpen, setIsOpen] = useState(false);
+    57	  const [index, setIndex] = useState(0);
+    58	  const [showUnavailable, setShowUnavailable] = useState(false);
+    59	  const labels = copy[locale];
+    60	  const images = useRef(new Map<number, { image: HTMLImageElement; ready: Promise<void> }>());
+    61	  const prepareImage = useCallback((position: number, priority: 'low' | 'high' = 'low') => {
+    62	    const cached = images.current.get(position);
+    63	    if (cached) {
+    64	      if (priority === 'high') cached.image.fetchPriority = 'high';
+    65	      return cached.ready;
+    66	    }
+    67	    const image = new window.Image();
+    68	    image.fetchPriority = priority;
+    69	    image.src = slides[position].src;
+    70	    const ready = image.decode().catch(error => {
+    71	      // A failed warm-up must not prevent a later user action from retrying.
+    72	      if (images.current.get(position)?.image === image) images.current.delete(position);
+    73	      throw error;
+    74	    });
+    75	    images.current.set(position, { image, ready });
+    76	    return ready;
+    77	  }, []);
+    78
+    79	  useEffect(() => {
+    80	    let timer: ReturnType<typeof setTimeout> | undefined;
+    81	    const warm = () => {
+    82	      // Run after load dispatch; never compete with the initial page resources.
+    83	      timer = setTimeout(() => {
+    84	        slides.forEach((_, position) => { void prepareImage(position).catch(() => {}); });
+    85	      }, 0);
+    86	    };
+    87	    if (document.readyState === 'complete') warm();
+    88	    else window.addEventListener('load', warm, { once: true });
+    89	    return () => {
+    90	      window.removeEventListener('load', warm);
+    91	      clearTimeout(timer);
+    92	    };
+    93	  }, [prepareImage]);
+    94
+    95	  useEffect(() => {
+    96	    const dialogElement = dialog.current;
+    97	    const open = (event: MouseEvent) => {
+    98	      const target = event.target;
+    99	      if (!(target instanceof Element)) return;
+   100	      const trigger = target.closest<HTMLElement>('[data-technology-open]');
+   101	      if (!trigger || !dialogElement || dialogElement.open) return;
+   102	      event.preventDefault();
+   103	      opener.current = trigger;
+   104	      requestToken.current++;
+   105	      displayedIndex.current = 0;
+   106	      requestedIndex.current = 0;
+   107	      setIndex(0);
+   108	      setShowUnavailable(false);
+   109	      slides.forEach((_, position) => { void prepareImage(position, position === 0 ? 'high' : 'low').catch(() => {}); });
+   110	      setIsOpen(true);
+   111	      dialogElement.showModal();
+   112	      dialogElement.focus();
+   113	      previousOverflow.current = document.body.style.overflow;
+   114	      document.body.style.overflow = 'hidden';
+   115	    };
+   116	    document.addEventListener('click', open);
+   117	    return () => {
+   118	      document.removeEventListener('click', open);
+   119	      if (dialogElement?.open) document.body.style.overflow = previousOverflow.current;
+   120	    };
+   121	  }, [prepareImage]);
+   122
+   123	  const close = () => dialog.current?.close();
+   124	  const showSlide = (position: number) => {
+   125	    const next = (position + slides.length) % slides.length;
+   126	    setShowUnavailable(false);
+   127	    requestedIndex.current = next;
+   128	    const token = ++requestToken.current;
+   129	    prepareImage(next, 'high').then(() => {
+   130	      if (token === requestToken.current && dialog.current?.open) {
+   131	        displayedIndex.current = next;
+   132	        setIndex(next);
+   133	      }
+   134	    }).catch(() => {
+   135	      if (token === requestToken.current) requestedIndex.current = displayedIndex.current;
+   136	    });
+   137	  };
+   138	  const move = (delta: number) => showSlide(requestedIndex.current + delta);
+   139	  const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+   140	    pointer.current = { x: event.clientX, y: event.clientY };
+   141	    try { event.currentTarget.setPointerCapture(event.pointerId); } catch { /* Synthetic test events do not own a pointer. */ }
+   142	  };
+   143	  const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
+   144	    const start = pointer.current;
+   145	    pointer.current = null;
+
+2026-10-07T07:44:54.580036Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11551-e7a9-78a3-9f4f-bf38a860ff30 turn_id=01a11551-e89c-7b90-9e22-7a8a3835f9e9 item_id="exec-f1a028aa-4365-42b1-ac09-e32c2d1ea3c9"
+codex
+I found no actionable regression in the staged or unstaged code changes. The viewer’s post-load warming, cache reuse, and retry behavior are covered by the added tests.
+I found no actionable regression in the staged or unstaged code changes. The viewer’s post-load warming, cache reuse, and retry behavior are covered by the added tests.

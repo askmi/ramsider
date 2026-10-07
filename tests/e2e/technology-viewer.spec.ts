@@ -204,8 +204,10 @@ test('technology viewer supports touch pointers, Escape and Arabic framing', asy
 });
 
 test('previous artwork stays visible while the next slide loads', async ({ page }) => {
+  let release!: () => void;
+  const gate = new Promise<void>(resolve => { release = resolve; });
   await page.route('**/art/technology/03.png', async route => {
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await gate;
     await route.continue();
   });
   await page.goto('/en');
@@ -217,37 +219,117 @@ test('previous artwork stays visible while the next slide loads', async ({ page 
   await expect(stage.locator('img')).toHaveAttribute('src', /02\.png/);
   await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '02');
   await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 1 \/ 4/);
+  release();
   await expect(stage.locator('img')).toHaveAttribute('src', /03\.png/);
   await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '03');
   await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 2 \/ 4/);
   await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
 });
 
-test('failed slide load does not skip the next image', async ({ page }) => {
+test('failed warm-up and failed selection retry the same image', async ({ page }) => {
   let requests = 0;
   await page.route('**/art/technology/03.png', async route => {
     requests++;
-    if (requests === 1) await route.abort();
+    if (requests <= 3) await route.abort();
     else await route.continue();
   });
   await page.goto('/en');
-  await page.locator('[data-technology-open]').first().click();
-  const stage = page.locator('#technology-viewer .technology-viewer__stage');
-  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
-  const swipe = async () => {
-    await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 300, clientY: 400 });
-    await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 90, clientY: 400 });
-  };
-  await swipe();
   await expect.poll(() => requests).toBe(1);
+  await page.waitForTimeout(150);
+  await page.locator('[data-technology-open]').first().click();
+  await expect.poll(() => requests).toBe(2);
+  await page.waitForTimeout(150);
+  const stage = page.locator('#technology-viewer .technology-viewer__stage');
+  await page.locator('.technology-viewer__next-image').click();
+  await expect.poll(() => requests).toBe(3);
+  await page.waitForTimeout(150);
   await expect(stage.locator('img')).toHaveAttribute('src', /02\.png/);
   await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '02');
   await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 1 \/ 4/);
-  await page.waitForTimeout(150);
-  await swipe();
+  await page.locator('.technology-viewer__next-image').click();
+  await expect.poll(() => requests).toBe(4);
   await expect(stage.locator('img')).toHaveAttribute('src', /03\.png/);
   await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '03');
   await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 2 \/ 4/);
+});
+
+test('all four photos start in parallel only after main page load', async ({ page }) => {
+  let releaseHero!: () => void;
+  let releasePhotos!: () => void;
+  const heroGate = new Promise<void>(resolve => { releaseHero = resolve; });
+  const photoGate = new Promise<void>(resolve => { releasePhotos = resolve; });
+  const requests: string[] = [];
+  await page.route('**/art/00.webp', async route => { await heroGate; await route.continue(); });
+  await page.route(/\/art\/technology\/0[2-5]\.png$/, async route => {
+    requests.push(route.request().url());
+    await photoGate;
+    await route.continue();
+  });
+  await page.goto('/en', { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(250);
+  expect(await page.evaluate(() => document.readyState)).not.toBe('complete');
+  expect(requests).toHaveLength(0);
+  releaseHero();
+  await page.waitForLoadState('load');
+  await expect.poll(() => requests.length).toBe(4);
+  expect(new Set(requests.map(url => url.split('/').pop())).size).toBe(4);
+  await expect(page.locator('#technology-viewer')).not.toBeVisible();
+  releasePhotos();
+});
+
+test('early opening starts all four without waiting for main page load', async ({ page }) => {
+  let releaseHero!: () => void;
+  const gate = new Promise<void>(resolve => { releaseHero = resolve; });
+  const requests = new Set<string>();
+  await page.route('**/art/00.webp', async route => { await gate; await route.continue(); });
+  page.on('request', request => { if (/\/technology\/0[2-5]\.png$/.test(request.url())) requests.add(request.url()); });
+  await page.goto('/en', { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(250);
+  expect(requests.size).toBe(0);
+  await page.locator('[data-technology-open]').first().click();
+  await expect.poll(() => requests.size).toBe(4);
+  expect(await page.evaluate(() => document.readyState)).not.toBe('complete');
+  await expect(page.locator('#technology-viewer')).toBeVisible();
+  releaseHero();
+});
+
+test('post-load images are decoded and reused offline for swiping and reopening', async ({ page, context }) => {
+  await page.addInitScript(() => {
+    const records: HTMLImageElement[] = [];
+    Object.defineProperty(window, '__technologyWarmImages', { value: records });
+    window.Image = new Proxy(window.Image, { construct(target, args) {
+      const image = Reflect.construct(target, args) as HTMLImageElement;
+      records.push(image);
+      return image;
+    } });
+  });
+  await page.goto('/en');
+  await expect.poll(() => page.evaluate(() => {
+    const records = (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages;
+    return records.filter(image => /\/technology\/0[2-5]\.png$/.test(image.src) && image.complete && image.naturalWidth === 941).length;
+  })).toBe(4);
+  const timing = await page.evaluate(async () => {
+    const records = (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages;
+    await Promise.all(records.map(image => image.decode()));
+    const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+    return { load: navigation.loadEventStart, starts: performance.getEntriesByType('resource').filter(entry => /\/technology\/0[2-5]\.png$/.test(entry.name)).map(entry => entry.startTime), priorities: records.map(image => image.fetchPriority) };
+  });
+  expect(timing.starts).toHaveLength(4);
+  expect(timing.starts.every(start => start >= timing.load)).toBe(true);
+  expect(timing.priorities).toEqual(['low', 'low', 'low', 'low']);
+  await page.locator('[data-technology-open]').first().click();
+  await page.locator('#technology-viewer img').evaluateAll(async images => { await Promise.all(images.map(image => (image as HTMLImageElement).decode())); });
+  await context.setOffline(true);
+  for (let index = 0; index < 4; index++) {
+    await page.locator('.technology-viewer__dots button').nth(index).click();
+    await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', String(index + 2).padStart(2, '0'));
+    await expect.poll(() => page.locator('.technology-viewer__stage img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth)).toBe(941);
+  }
+  await page.locator('.technology-viewer__close').click();
+  await page.locator('[data-technology-open]').first().click();
+  await expect.poll(() => page.locator('.technology-viewer__stage img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth)).toBe(941);
+  expect(await page.evaluate(() => (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages.length)).toBe(4);
+  await context.setOffline(false);
 });
 
 test('swipe completes when the pointer leaves the artwork', async ({ page }) => {

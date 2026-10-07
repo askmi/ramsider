@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import type { PointerEvent } from 'react';
 import type { Locale } from '@/lib/i18n';
 import { TechnologyTitle } from './TechnologyTitle';
@@ -57,6 +57,40 @@ export function TechnologyViewer({ locale, descriptions }: { locale: Locale; des
   const [index, setIndex] = useState(0);
   const [showUnavailable, setShowUnavailable] = useState(false);
   const labels = copy[locale];
+  const images = useRef(new Map<number, { image: HTMLImageElement; ready: Promise<void> }>());
+  const prepareImage = useCallback((position: number, priority: 'low' | 'high' = 'low') => {
+    const cached = images.current.get(position);
+    if (cached) {
+      if (priority === 'high') cached.image.fetchPriority = 'high';
+      return cached.ready;
+    }
+    const image = new window.Image();
+    image.fetchPriority = priority;
+    image.src = slides[position].src;
+    const ready = image.decode().catch(error => {
+      // A failed warm-up must not prevent a later user action from retrying.
+      if (images.current.get(position)?.image === image) images.current.delete(position);
+      throw error;
+    });
+    images.current.set(position, { image, ready });
+    return ready;
+  }, []);
+
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const warm = () => {
+      // Run after load dispatch; never compete with the initial page resources.
+      timer = setTimeout(() => {
+        slides.forEach((_, position) => { void prepareImage(position).catch(() => {}); });
+      }, 0);
+    };
+    if (document.readyState === 'complete') warm();
+    else window.addEventListener('load', warm, { once: true });
+    return () => {
+      window.removeEventListener('load', warm);
+      clearTimeout(timer);
+    };
+  }, [prepareImage]);
 
   useEffect(() => {
     const dialogElement = dialog.current;
@@ -72,6 +106,7 @@ export function TechnologyViewer({ locale, descriptions }: { locale: Locale; des
       requestedIndex.current = 0;
       setIndex(0);
       setShowUnavailable(false);
+      slides.forEach((_, position) => { void prepareImage(position, position === 0 ? 'high' : 'low').catch(() => {}); });
       setIsOpen(true);
       dialogElement.showModal();
       dialogElement.focus();
@@ -83,7 +118,7 @@ export function TechnologyViewer({ locale, descriptions }: { locale: Locale; des
       document.removeEventListener('click', open);
       if (dialogElement?.open) document.body.style.overflow = previousOverflow.current;
     };
-  }, []);
+  }, [prepareImage]);
 
   const close = () => dialog.current?.close();
   const showSlide = (position: number) => {
@@ -91,9 +126,7 @@ export function TechnologyViewer({ locale, descriptions }: { locale: Locale; des
     setShowUnavailable(false);
     requestedIndex.current = next;
     const token = ++requestToken.current;
-    const image = new window.Image();
-    image.src = slides[next].src;
-    image.decode().then(() => {
+    prepareImage(next, 'high').then(() => {
       if (token === requestToken.current && dialog.current?.open) {
         displayedIndex.current = next;
         setIndex(next);

@@ -1,0 +1,17 @@
+
+Running 4 tests using 2 workers
+
+(node:14486) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:14485) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:229:1 › failed warm-up and failed selection retry the same image (1.8s)
+  ✓  2 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:229:1 › failed warm-up and failed selection retry the same image (1.9s)
+(node:14544) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:14547) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:229:1 › failed warm-up and failed selection retry the same image (1.0s)
+  ✓  4 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:229:1 › failed warm-up and failed selection retry the same image (2.3s)
+
+  4 passed (7.1s)

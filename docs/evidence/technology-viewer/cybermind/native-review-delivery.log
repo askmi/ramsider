@@ -1,0 +1,511 @@
+2026-10-07T13:29:50.116893Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-07T13:29:50.116964Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.159.0-alpha.12.1
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: low
+reasoning summaries: none
+session id: 01a1168e-58f7-74d2-b764-c750f8b3de8b
+--------
+user
+current changes
+2026-10-07T13:29:51.005069Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-07T13:29:51.005095Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+exec
+/bin/zsh -lc 'git status --short; git diff --stat; git diff --cached --stat; find . -name AGENTS.md -o -name AGENTS.override.md | head' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 1298ms:
+ M .gitignore
+?? design/references/background_old.png
+?? docs/evidence/technology-viewer/cybermind/check-public.mjs
+?? docs/evidence/technology-viewer/cybermind/native-review-delivery.log
+?? tools/__pycache__/
+ .gitignore | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+./.agents/skills/vercel-react-best-practices/AGENTS.md
+./.agents/skills/vercel-composition-patterns/AGENTS.md
+./AGENTS.md
+
+2026-10-07T13:30:00.116207Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a1168e-58f7-74d2-b764-c750f8b3de8b turn_id=01a1168e-59ad-7802-bf46-8114bda309c1 item_id="exec-1a97c2d6-6f2b-41fe-92a3-5b49fec79ec4"
+exec
+/bin/zsh -lc 'git diff -- .gitignore; cat docs/evidence/technology-viewer/cybermind/check-public.mjs; cat docs/evidence/technology-viewer/cybermind/native-review-delivery.log; ls -lh design/references/background_old.png tools/__pycache__/* 2>/dev/null; cat AGENTS.md | head -25' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 40ms:
+diff --git a/.gitignore b/.gitignore
+index c9e723c..7a66f72 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -33,6 +33,7 @@ yarn-error.log*
+
+ # env files (can opt-in for committing if needed)
+ .env*
++/integrations/telegram/
+
+ # vercel
+ .vercel
+@@ -50,4 +51,4 @@ next-env.d.ts
+ /screenshots/diff/
+
+ *.psb
+-/deliverables/
+\ No newline at end of file
++/deliverables/
+import { webkit, expect } from '@playwright/test';
+import sharp from 'sharp';
+import { writeFile, readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+const base = 'https://ramsider-main.vercel.app';
+const out = 'docs/evidence/technology-viewer/cybermind';
+const files = ['02','03','04','05','cybermind/01','cybermind/02'];
+const results = [], browser = await webkit.launch();
+const bounded = async (task,label) => {
+  let timer;
+  try { return await Promise.race([task,new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error(`180s resource deadline: ${label}`)),180000);})]); }
+  finally {clearTimeout(timer);}
+};
+try {
+ for(const [name,width,height] of [['13-pro',390,664],['pro',402,874],['pro-max',440,956]]) {
+  console.log(`${name}: start`);
+  const context=await browser.newContext({viewport:{width,height},deviceScaleFactor:3,isMobile:true,hasTouch:true});
+  const page=await context.newPage(),errors=[],requests=[];
+  page.on('pageerror',e=>errors.push(e.message));
+  page.on('request',r=>{if(files.some(id=>r.url()===`${base}/art/technology/${id}.png`)) requests.push(r.url());});
+  await page.addInitScript(()=>{window.__qa={images:[],openAt:null};window.Image=new Proxy(window.Image,{construct(target,args){const i=Reflect.construct(target,args);window.__qa.images.push(i);return i;}});document.addEventListener('click',e=>{if(e.target instanceof Element&&e.target.closest('[data-technology-open]'))window.__qa.openAt=performance.now();},true);});
+  const resources=files.map(id=>page.waitForResponse(r=>r.url()===`${base}/art/technology/${id}.png`,{timeout:180000}));
+  const photo=async index=>{
+   const response=await resources[index];expect(response.ok()).toBe(true);expect(response.headers()['content-type']).toContain('image/png');
+   const bytes=await bounded(response.body(),`${name}/${files[index]}`);
+   expect(bytes.equals(await readFile(`public/art/technology/${files[index]}.png`))).toBe(true);
+   console.log(`${name}: ${files[index]} original ready (${bytes.length}B)`);
+   return{id:files[index],bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')};
+  };
+  await page.goto(`${base}/en`,{waitUntil:'load',timeout:120000});
+  const firstPhotos=await Promise.all([photo(0),photo(4)]);
+  await page.waitForFunction(()=>window.__qa.images.length===2&&window.__qa.images.every(i=>i.complete&&i.naturalWidth===941),{},{timeout:180000});
+  expect(requests.sort()).toEqual([`${base}/art/technology/02.png`,`${base}/art/technology/cybermind/01.png`].sort());
+  const preOpen=await page.evaluate(async()=>{await Promise.all(window.__qa.images.map(i=>i.decode()));return{load:performance.getEntriesByType('navigation')[0].loadEventEnd,images:window.__qa.images.length,resources:performance.getEntriesByType('resource').filter(e=>/\/technology\/(?:cybermind\/01|02)\.png$/.test(e.name)).map(e=>({url:e.name,start:e.startTime,end:e.responseEnd}))};});
+  preOpen.resources.forEach(r=>expect(r.start).toBeGreaterThanOrEqual(preOpen.load));
+  const cta=page.locator('[data-technology-open]').first();await cta.click();
+  const viewer=page.locator('#technology-viewer');await expect(viewer).toBeVisible();await expect(page.locator('html')).toHaveCSS('background-color','rgb(0, 0, 0)');await expect(page.locator('main.canvas')).not.toBeVisible();
+  const rest=await Promise.all([photo(1),photo(2),photo(3),photo(5)]),photos=[firstPhotos[0],...rest.slice(0,3),firstPhotos[1],rest[3]];
+  await page.waitForFunction(()=>window.__qa.images.length===6&&window.__qa.images.every(i=>i.complete&&i.naturalWidth===941),{},{timeout:180000});await page.evaluate(async()=>Promise.all(window.__qa.images.map(i=>i.decode())));
+  const frame=await viewer.locator('.technology-viewer__frame').boundingBox(),stage=await viewer.locator('.technology-viewer__stage').boundingBox();
+  expect(frame.x).toBeCloseTo(0,1);expect(frame.width).toBeCloseTo(width,1);expect(stage.x).toBeCloseTo(width*29/941,1);expect(stage.width).toBeCloseTo(width*883/941,1);
+  const slides=[];
+  for(const [brand,count] of [['HeatCore',4],['CyberMind',2]]) {
+   if(brand==='CyberMind')await viewer.locator('.technology-viewer__next-group').click();
+   await expect(viewer).toHaveAttribute('data-group',brand);await expect(viewer.locator('.technology-viewer__dots button')).toHaveCount(count);
+   for(let i=0;i<count;i++) {
+    const id=brand==='HeatCore'?files[i]:files[4+i];
+    await viewer.locator('.technology-viewer__dots button').nth(i).click();await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src',`/art/technology/${id}.png`,{timeout:30000});
+    await bounded(viewer.locator('img').evaluateAll(async imgs=>{await document.fonts.ready;await Promise.all(imgs.map(i=>i.decode()));}),`${name}/${id} decode`);
+    if(brand==='CyberMind') {await expect(viewer.locator('.technology-viewer__descriptions')).toHaveCount(0);await expect(viewer.locator('.technology-viewer__title')).toHaveCSS('font-family',/OpenSans/);}
+    const actual=await page.screenshot();if(brand==='CyberMind')await writeFile(`${out}/public-${name}-slide-${i+1}.png`,actual);
+    let changedChannels=null;
+    if(name!=='13-pro') {
+     const local=brand==='HeatCore'?`${name}-heatcore-${i+1}.png`:`${name}-slide-${i+1}.png`;
+     const a=await sharp(actual).raw().toBuffer(),b=await sharp(`${out}/${local}`).raw().toBuffer();expect(a.length).toBe(b.length);changedChannels=0;
+     for(let j=0;j<a.length;j++)if(a[j]!==b[j])changedChannels++;expect(changedChannels).toBe(0);
+    }
+    slides.push({...photos[brand==='HeatCore'?i:4+i],brand,changedChannels});
+   }
+  }
+  await viewer.locator('.technology-viewer__previous-group').click();await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src','/art/technology/05.png');
+  const timing=await page.evaluate(()=>({openAt:window.__qa.openAt,instances:window.__qa.images.length,photos:performance.getEntriesByType('resource').filter(e=>/\/technology\/(?:cybermind\/0[12]|0[2-5])\.png$/.test(e.name)).map(e=>({url:e.name,start:e.startTime,end:e.responseEnd}))}));
+  for(const r of timing.photos.filter(r=>!preOpen.resources.some(p=>p.url===r.url)))expect(r.start).toBeGreaterThanOrEqual(timing.openAt);
+  const probe=await page.addStyleTag({content:'#technology-viewer[open],#technology-viewer[open] *{visibility:hidden!important}#technology-viewer[open]::backdrop{background:transparent!important}'});
+  expect((await sharp(await page.screenshot()).removeAlpha().raw().toBuffer()).some(v=>v!==0)).toBe(false);await probe.evaluate(el=>el.remove());
+  await viewer.locator('.technology-viewer__close').click();await expect(page.locator('main.canvas')).toBeVisible();await expect(page.locator('html')).toHaveCSS('background-color','rgb(211, 183, 159)');await expect(cta).toBeFocused();
+  await cta.click();await expect(viewer).toHaveAttribute('data-group','HeatCore');await viewer.locator('.technology-viewer__next-group').click();await expect(viewer).toHaveAttribute('data-group','CyberMind');await viewer.locator('.technology-viewer__close').click();
+  expect(requests).toHaveLength(6);expect(await page.evaluate(()=>window.__qa.images.length)).toBe(6);expect(errors).toEqual([]);
+  results.push({name,width,height,dpr:3,preOpen,timing,frame,stage,slides,blackBacking:true,closeRestore:true,cacheInstances:6,uniquePhotoRequests:6,errors});await context.close();console.log(`${name}: PASS`);
+ }
+ await writeFile(`${out}/public-checks.json`,JSON.stringify({base,sha:process.env.DEPLOYMENT_SHA,nativeChromeVerified:false,results},null,2)+'\n');
+ console.log('All3 profiles/six PNG identities/2+4 warming/cache/12 Pro-Max fullRGB0 comparisons PASS');
+}finally{await browser.close();}
+2026-10-07T13:29:50.116893Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-07T13:29:50.116964Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.159.0-alpha.12.1
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: low
+reasoning summaries: none
+session id: 01a1168e-58f7-74d2-b764-c750f8b3de8b
+--------
+user
+current changes
+2026-10-07T13:29:51.005069Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-07T13:29:51.005095Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+exec
+/bin/zsh -lc 'git status --short; git diff --stat; git diff --cached --stat; find . -name AGENTS.md -o -name AGENTS.override.md | head' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 1298ms:
+ M .gitignore
+?? design/references/background_old.png
+?? docs/evidence/technology-viewer/cybermind/check-public.mjs
+?? docs/evidence/technology-viewer/cybermind/native-review-delivery.log
+?? tools/__pycache__/
+ .gitignore | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+./.agents/skills/vercel-react-best-practices/AGENTS.md
+./.agents/skills/vercel-composition-patterns/AGENTS.md
+./AGENTS.md
+
+2026-10-07T13:30:00.116207Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a1168e-58f7-74d2-b764-c750f8b3de8b turn_id=01a1168e-59ad-7802-bf46-8114bda309c1 item_id="exec-1a97c2d6-6f2b-41fe-92a3-5b49fec79ec4"
+-rw-r--r--@ 1 asmirnou  staff    43M Sep 29 01:55 design/references/background_old.png
+-rw-r--r--@ 1 asmirnou  staff    17K Oct  4 02:45 tools/__pycache__/convert-art-webp.cpython-314.pyc
+# Ramsider UNO — project rules
+
+Build the new product site from `design/references/`. **Design and implement for iPhone 17 Pro first, then verify iPhone 17 Pro Max; adapt responsively to every other screen size.** The real mobile page must match the supplied reference while loading quickly and working accessibly. One user request should produce one complete delivery: perform as many internal inspect → implement → verify → fix cycles as needed, then code review, performance work, and final re-verification. Visual slices are internal work units; finish and integrate the whole requested page or feature before delivery. Do not hand the user a first draft to find ordinary defects. “Done” means every applicable gate has passed with evidence, not that code compiles or that zero bugs have been assumed.
+
+These are the mandatory rules. [docs/discipline.md](docs/discipline.md) defines stage gates and failure routing; [CONTEXT_INDEX.md](CONTEXT_INDEX.md) routes to other details. For substantive project work, read the short [MEMORY.md](MEMORY.md) for current state, then only the topic files relevant to the task. `PROMPT.txt` and `SUMMARY.txt` are source records for unresolved questions; current user instructions and current assets take precedence over their examples or suggestions.
+
+## Mandatory change and defect log
+
+[CHANGELOG.md](CHANGELOG.md) is the authoritative record of **every logical project change and every discovered defect**, including code, assets, content, mappings, tests, documentation, configuration, user corrections and agent-discovered regressions. The agent maintains it **without a user reminder or a separate permission request**: create/update the entry at discovery, record the solution and changed files when applied, then append verification and approval before delivery. Search relevant IDs when resuming work; do not wait until the final answer to reconstruct the history.
+
+Use the journal's required fields and lifecycle. Record what was wrong/missing/different, expected result, reference/request, cause, solution, intermediate mapping/specification and how it was applied, changed paths, checks and evidence. Every claimed fix needs a dated **technical approval**, naming the verifier and its evidence (and independent auditor when applicable). `APPLIED_UNVERIFIED` is not `VERIFIED`; blocked/skipped checks cannot supply approval. Explicit user approval is a separate field: never invent it or require it for routine authorized fixes. Reopen a failed fix under the same ID and preserve the previous verdict and failure history. Track remaining defects as open entries, even when outside the current task.
+
+For every defect, explain the agent's observable mistaken decision/action, the missed check, responsibility with evidence, and a concrete behavior change. Distinguish genuinely changed/missing inputs from agent failures; do not blame the user merely because an input was absent. Unknown causes stay explicit. Link repeatable causes to LESSONS and an Agent Eval case with its actual run status; a fixed UI does not prove improved agent behavior. Before similar work or a fresh rebuild, retrieve those lessons and turn prevention into acceptance checks. Repository memory improves instructions/context, not model weights.
+
+Small edits may use a short entry, but cannot omit logging or proportionate verification. Group related edits under one logical ID; do not log every tool call. A delivery is incomplete if its journal records or required technical approval are missing. MEMORY describes current state; LESSONS explains reusable prevention; neither replaces CHANGELOG.
+
+## Work in stages
+
+1. **Understand before coding.** Check repository state, [MEMORY.md](MEMORY.md), relevant lessons, and the requested scope. Inspect `design/references/background.png` first, then `background_text.png`, then relevant fonts, button artwork, and source layers. Crop the 941 × 32,127 reference into legible sections. Map content, controls, art layers, section boundaries, and the source-to-CSS viewport scale; set observable acceptance checks and identify unverified product facts. Use [DESIGN.md](DESIGN.md) and [PRODUCT.md](PRODUCT.md). **Exit:** the target slice, assets, behavior, and comparison method are understood; unresolved inputs are explicit.
+2. **Implement one visual slice.** Build for the Pro baseline first, using the clean background as artwork and semantic HTML/CSS for text and controls. Keep text translatable and controls usable; no inert CTA or invented checkout. Reproduce reference copy in the local build while tracking unverified factual claims for publication. Use Next.js + React + strict TypeScript with the framework's own build toolchain; choose each route's rendering mode and Server/Client boundaries from its data and interaction needs. Do not revive the deleted app. Use [ARCHITECTURE.md](ARCHITECTURE.md). **Exit:** the slice renders and its required behavior works; continue through all slices in the requested scope.
+3. **Verify the actual pixels.** Open the running page in a real browser at the iPhone 17 Pro viewport, then verify Pro Max. Confirm the page's actual CSS layout width matches each test profile (the viewport meta tag must be correct). Wait for fonts/images and capture screenshots. Compare the Pro image to the calibrated reference crop; inspect Pro Max as a responsive target unless it has its own reference. The verifier must see screenshots, not only DOM/CSS measurements. Fix material differences and capture again. Use a tolerant pixel diff as a second signal when aligned. Use [docs/visual-qa.md](docs/visual-qa.md). **Exit:** no material mismatch remains in the supported target composition; otherwise keep iterating or report a concrete external blocker without saying “done.”
+4. **Check behavior and adaptation.** Test relevant clicks, hover, scroll, navigation, forms, menus, animation states, keyboard access, Arabic RTL, mobile safe areas, and representative tablet/desktop widths. Check overflow, clipping, crops, wraps, spacing, and tile seams. Use [docs/mobile.md](docs/mobile.md). **Exit:** required states work at the sizes they support.
+5. **Review and optimize.** For code changes, run Codex's native `/review` on the actual diff before delivery (CLI equivalent when needed), examine every actionable finding, fix it, and rerun affected checks. Run available type, lint, test, and production-build checks. Review component boundaries, duplication, accessibility, and unused code. Measure first render, LCP/INP/CLS where measurable, network bytes, JavaScript, layout shifts, and scroll smoothness in a production build. Reassess static, request-time server, and client rendering against measured latency, freshness, and client cost; change strategy where it improves the result. Fix meaningful problems, then repeat affected visual/browser checks. Use [QUALITY.md](QUALITY.md) and [PERFORMANCE.md](PERFORMANCE.md). **Exit:** no known material code, visual, accessibility, or speed regression remains; report if `/review` was unavailable rather than counting a manual pass as its result.
+6. **Learn and report evidence.** Complete the affected [CHANGELOG.md](CHANGELOG.md) entries with actual checks, technical approval and remaining open IDs. Refresh [MEMORY.md](MEMORY.md) when verified state, decisions, or blockers changed; record repeatable errors in [LESSONS.md](LESSONS.md). Use [docs/definition-of-done.md](docs/definition-of-done.md). State tested viewports, screenshot comparisons, interactions, build checks, performance measurements, remaining differences, and checks that could not run. Never claim pixel fidelity, WCAG compliance, a 95+ Lighthouse score, or completion without the corresponding evidence.
+
+
+2026-10-07T13:30:04.878052Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a1168e-58f7-74d2-b764-c750f8b3de8b turn_id=01a1168e-59ad-7802-bf46-8114bda309c1 item_id="exec-454d6b4e-1c52-405b-9fd9-c459f63246f0"
+exec
+/bin/zsh -lc "rg -n 'technology-viewer|new Image|data-technology-open' src app components | head -65; rg -n 'check-public|background_old|telegram|pycache' CHANGELOG.md .gitignore docs/evidence/technology-viewer/cybermind 2>/dev/null | head -35; nl -ba docs/evidence/technology-viewer/cybermind/check-public.mjs | sed -n '15,65p'" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 68ms:
+rg: src: No such file or directory (os error 2)
+app/globals.css:147:.technology-viewer{position:fixed;inset:0;margin:0;width:100vw;max-width:none;height:100dvh;max-height:none;padding:0;border:0;background:#000;color:#fff;overflow:hidden;display:none;z-index:1000;overscroll-behavior:contain}
+app/globals.css:148:.technology-viewer[open]{display:flex;align-items:center;justify-content:center}
+app/globals.css:149:.technology-viewer::backdrop{background:#000}
+app/globals.css:151:html:has(#technology-viewer[open]),body:has(#technology-viewer[open]){background:#000}
+app/globals.css:152:.dialog-controller:has(> #technology-viewer[open]) > :not(#technology-viewer),.dialog-controller:has(> #technology-viewer[open]) > :not(#technology-viewer) *{visibility:hidden}
+app/globals.css:153:.technology-viewer__canvas{position:relative;width:100%;height:100%;container-type:inline-size}
+app/globals.css:154:.technology-viewer__stage{position:absolute;left:8.68840187%;top:11.17917493%;width:82.62319625%;height:77.79038893%;overflow:hidden;touch-action:pinch-zoom;background-color:#000;background-size:100% 100%;background-position:center;background-repeat:no-repeat}
+app/globals.css:155:.technology-viewer__stage img{object-fit:fill;user-select:none;-webkit-user-drag:none}
+app/globals.css:156:.technology-viewer__title{position:absolute;inset:0;margin:0;font-family:OpenSans,Arial,sans-serif;font-weight:400;line-height:1;direction:ltr;pointer-events:none}
+app/globals.css:157:.technology-viewer__title svg{display:block;width:100%;height:100%;font-family:inherit;font-weight:inherit}
+app/globals.css:158:.technology-viewer__descriptions{position:absolute;inset:0;pointer-events:none;font-family:OpenSans,Arial,sans-serif;font-weight:400;color:#000;direction:ltr}
+app/globals.css:159:.technology-viewer__descriptions svg{display:block;width:100%;height:100%;font-family:inherit}
+app/globals.css:165:.technology-viewer__frame{position:absolute;left:5.97484%;top:9.64221%;width:88.05031%;height:80.71559%;pointer-events:none;object-fit:fill}
+app/globals.css:166:.technology-viewer__next-image,.technology-viewer__next-group{position:absolute;z-index:1;padding:0;border:0;background:transparent;color:#f4f1eb;font-family:OpenSans,Arial,sans-serif;font-weight:400;cursor:pointer}
+app/globals.css:167:.technology-viewer__next-image{left:52px;right:max(52px,calc(44px + 2% + env(safe-area-inset-right)));top:0;height:5.8%;min-height:44px;display:flex;align-items:flex-end;justify-content:center;gap:calc(17/954*100cqw);font-size:clamp(14px,calc(48/954*100cqw),26px);line-height:1.12}
+app/globals.css:168:.technology-viewer__next-image span{max-width:calc(100% - 24px);text-align:center}
+app/globals.css:169:.technology-viewer__next-image img{flex:none;align-self:flex-end;width:calc(28/954*100cqw);height:calc(45/1649*100dvh)}
+app/globals.css:170:.technology-viewer__next-group{left:15%;top:92.2%;width:70%;height:6.5%;min-height:44px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:calc(18/1649*100dvh);font-size:clamp(14px,calc(39/954*100cqw),23px);line-height:1.12}
+app/globals.css:171:.technology-viewer__next-group img{flex:none;width:calc(45/954*100cqw);height:calc(29/1649*100dvh)}
+app/globals.css:172:.technology-viewer__dots{position:absolute;z-index:2;top:max(44px,5.8%);left:50%;transform:translateX(-50%);display:flex;direction:ltr}
+app/globals.css:173:.technology-viewer__dots button{position:relative;flex:0 0 24px;width:24px;height:44px;padding:0;border:0;background:transparent;cursor:pointer}
+app/globals.css:174:.technology-viewer__dots img{position:absolute;top:max(2px,calc(7.58dvh - max(44px,5.8dvh) - 6px));left:50%;transform:translateX(-50%);display:block;width:calc(29/954*100cqw);height:auto}
+app/globals.css:175:.technology-viewer__notice{position:absolute;z-index:3;left:10%;right:10%;bottom:11%;margin:0;padding:12px;border:1px solid #dcb477;background:rgb(0 0 0 / .9);color:#fff;text-align:center;font-size:14px;line-height:1.35}
+app/globals.css:176:.technology-viewer__close{position:absolute;right:max(2%,env(safe-area-inset-right));top:max(1%,env(safe-area-inset-top));z-index:4;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;background:transparent;color:#fff;font-size:34px;font-weight:300;line-height:1;cursor:pointer}
+app/globals.css:177:.technology-viewer__previous-group{position:absolute;left:max(2%,env(safe-area-inset-left));top:min(92.2%,calc(99% - 44px - env(safe-area-inset-bottom)));z-index:2;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;background:transparent;cursor:pointer}
+app/globals.css:178:.technology-viewer__previous-group img{width:20px;height:auto;transform:rotate(180deg)}
+app/globals.css:179:.technology-viewer[data-group=CyberMind] .technology-viewer__next-group{left:max(15%,54px);right:15%;width:auto}
+app/globals.css:180:.technology-viewer__sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+app/globals.css:181:.technology-viewer :focus-visible{outline:2px solid #e7ba75;outline-offset:-3px}
+app/globals.css:183:@media(max-width:699px) and (orientation:portrait){.technology-viewer__frame{left:0;width:100%}.technology-viewer__stage{left:3.08182784%;width:93.83634431%}}
+app/globals.css:184:@media(min-width:700px){.technology-viewer__canvas{width:min(100vw,calc(100dvh * 954 / 1649))}}
+components/Story.tsx:84:    return <button {...buttonProps} type="button" aria-haspopup="dialog" {...(node.unavailable === 'technology' ? { 'data-technology-open': true } : { popoverTarget: `unavailable-${node.unavailable ?? 'commerce'}` })}>{content}</button>;
+components/TechnologyViewer.tsx:32:  return <button className={`technology-viewer__next-${direction === 'right' ? 'image' : 'group'}`} type="button" onClick={onClick} aria-label={accessibleLabel}>
+components/TechnologyViewer.tsx:39:  return <div className="technology-viewer__dots" role="group" aria-label={labels.horizontal}>
+components/TechnologyViewer.tsx:110:      const trigger = target.closest<HTMLElement>('[data-technology-open]');
+components/TechnologyViewer.tsx:145:        restoreGroupFocus.current = next.group !== displayed.current.group && active instanceof Element && !!active.closest('.technology-viewer__dots, .technology-viewer__previous-group');
+components/TechnologyViewer.tsx:191:    id="technology-viewer"
+components/TechnologyViewer.tsx:192:    className="technology-viewer"
+components/TechnologyViewer.tsx:193:    aria-labelledby={isOpen ? 'technology-viewer-title' : undefined}
+components/TechnologyViewer.tsx:196:    aria-describedby="technology-viewer-instructions"
+components/TechnologyViewer.tsx:212:    <div className="technology-viewer__canvas">
+components/TechnologyViewer.tsx:213:      <div className="technology-viewer__stage" onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}>
+components/TechnologyViewer.tsx:219:        <Image className="technology-viewer__frame" src="/art/technology/frame-template.webp" width={941} height={1628} alt="" aria-hidden="true" unoptimized priority />
+components/TechnologyViewer.tsx:223:        {selection.group > 0 && <button className="technology-viewer__previous-group" type="button" onClick={() => moveGroup(-1)} aria-label={groupLabels.previous} title={groupLabels.previous}>
+components/TechnologyViewer.tsx:227:      {showUnavailable && <p className="technology-viewer__notice" role="status">{labels.unavailable}</p>}
+components/TechnologyViewer.tsx:228:      <button className="technology-viewer__close" type="button" onClick={close} aria-label={labels.close}>×</button>
+components/TechnologyViewer.tsx:230:    <p id="technology-viewer-instructions" className="technology-viewer__sr-only">{labels.horizontal}. {labels.vertical}. {selection.group > 0 && `${groupLabels.up}. `}{labels.image} {selection.slide + 1} / {group.slides.length}.</p>
+components/TechnologyTitle.tsx:3:  return <h2 id="technology-viewer-title" className="technology-viewer__title">
+components/TechnologyTitle.tsx:4:    <span className="technology-viewer__sr-only">{brand} {descriptor}</span>
+components/TechnologyDescriptions.tsx:48:  return <section className="technology-viewer__descriptions" aria-label={name} data-slide={slide}>
+.gitignore:36:/integrations/telegram/
+CHANGELOG.md:1058:- **Скорость / ограничение:** [production sample](docs/evidence/art-webp/performance.json), Chromium 402×874 DPR3, cold 4 Мбит/с/100 мс: hero paint 2021 мс (прежний PNG 13.659 с), preview дальнего участка 31.8 мс, full distant 5599 мс (прежний PNG 33.88 с), FCP/LCP text 356 мс, CLS 0.00022, first viewport transfer 893,808 B, JS 153,881 B, hero resource 248,536 B, scroll p95 16.7 мс, один кадр >33 мс из 90. Дальний full-res всё ещё догружается несколько секунд при мгновенном cold-jump, но preview сохраняет непрерывную композицию; измерения INP/Lighthouse/полевого цвета нет. sRGB может сузить out-of-gamut Adobe RGB оттенки на широкогамутном дисплее; отдельный P3 variant не делался без доказанной необходимости. Исходный `background.png` изменён пользователем и не перезаписан; `background_old.png` сохранён.
+CHANGELOG.md:1143:- **Повторные проверки / 2026-10-06:** Pro/Max WebKit 10/10 after transparent-hitbox reposition and refreshed screenshots PASS; independent visual re-audit PASS. Финальная production [матрица](docs/evidence/technology-viewer/adaptation-controls.json) 26/26 across EN/AR 320/1440 and all 11 locales 375/768 checks top/dot/bottom clicks, 44px/full-rectangle separation, one active dot, frame decode, no overflow. После финальной CSS правки [затронутый suite](docs/evidence/technology-viewer/targeted-controls-final.log) 52/52 PASS (Pro/Max WebKit, desktop Chromium/Firefox); общий suite перед последней CSS-правкой [113 PASS/19 ожидаемых SKIP](docs/evidence/technology-viewer/full-controls.log). Typecheck/lint/build (14 static routes)/diff-check PASS. [Финальный synthetic local Pro performance](docs/evidence/technology-viewer/performance-controls.json): LCP96ms, CLS0, JS162381B, 0 запросов technology до открытия, open→ready175ms; frame240123B и две точки1704/1541B по transferSize; field INP/Lighthouse/P3 не измерены. Повторный uncommitted native review не нашёл дефекта просмотрщика, но отметил несвязанный untracked 43MB `design/references/background_old.png`; файл пользователя сохранён и исключается из scoped commit, затем будет выполнен commit-specific review. Независимый behavior/adaptation audit PASS; review/performance/final ждёт commit review. **Технический аппрув нового поведения:** `PENDING` до финального review и closeout. **Аппрув пользователя:** `NOT_RECORDED`.
+CHANGELOG.md:1144:- **Scoped commit review / 2026-10-06:** `codex/technology-viewer-controls` содержит implementation, источники `tech_01` и frame, точные производные изображения, тесты, карту и доказательства; несвязанные изменения `.gitignore`, пользовательский `background_old.png` и `tools/__pycache__` исключены. [Native review exact commit](docs/evidence/technology-viewer/native-review-commit.txt) exit 0: «no actionable regression in the committed technology viewer changes». Независимый discipline auditor подтвердил scope, Pro/Max visual и masked source invariant, behavior/adaptation 52/52 + 26/26 и review/performance `PASS`; финальная сверка journal/memory/delivery ожидается после включения этих записей в коммит. **Технический аппрув нового поведения:** 2026-10-06, Codex primary verifier `APPROVED` по source pixel audit, Pro/Max WebKit screenshots, 52 affected browser checks, 26 responsive states, full 113/19 before CSS-only fix, type/lint/build, clean commit review и measured performance; independent final auditor verdict pending. **Аппрув пользователя:** `NOT_RECORDED`.
+CHANGELOG.md:1165:- **Финальный originals record-only audit / 2026-10-07:** Независимый discipline auditor `PASS`: staged diff-check чистый, scoped paths и portable evidence подтверждены; CHG-0061 VERIFIED, датированный technical approval, MEMORY, LESSONS и EVAL-VIEWER согласованы. История failed attempts и controlled agent run NOT_RUN сохранена; user acceptance correction NOT_RECORDED. `.gitignore`, пользовательский background_old.png и pycache исключены. Commit/tree/remote проверяются при отправке.
+CHANGELOG.md:1212:- **Native review closure / 2026-10-07:** Native `codex review --uncommitted` на finalcode/tests/docs после датированного technicalapproval — no actionable regression, exit0. Solepre-recordP2journalapproval закрыт actualdatedentry, finaldocs/memory отражаютреальнопройденныеgates, historicalfailedвердикты сохранены. Finalstagedrecordaudit pending; unrelateduser .gitignore/background_old.png/pycacheexcluded.
+CHANGELOG.md:1263:- **Public verification / 2026-10-07:** Runtime0a00a61c245c2b3360a73c3afb70486005c0efe8 atomically pushed to feature/main. Vercel Production–ramsider6905392448 exactSHA success. Canonical https://ramsider-main.vercel.app/en WebKit DPR3 at390×664,402×874,440×956: isolated document backing RGB0,close restores landing,all4PNG HTTPbodyidentity perprofile,eight Pro/Max decoded RGB0,consoleclean PASS. Primary inspected actual public13Pro capture. Evidence deployment.json/deployment-status.json/public-checks.json/public-*.png/check-public.mjs; original customer image copied unchanged for durable evidence. Scoped public technical approval Codexprimary APPROVED; independent release audit pending. Native recipient toolbar remains APPLIED_UNVERIFIED and0066 OPEN.
+docs/evidence/technology-viewer/cybermind/native-review-final.log:34:?? design/references/background_old.png
+docs/evidence/technology-viewer/cybermind/native-review-final.log:40:?? tools/__pycache__/
+docs/evidence/technology-viewer/cybermind/native-review-final.log:420:+/integrations/telegram/
+docs/evidence/technology-viewer/cybermind/native-review-delivery.log:22:?? design/references/background_old.png
+docs/evidence/technology-viewer/cybermind/native-review-delivery.log:23:?? docs/evidence/technology-viewer/cybermind/check-public.mjs
+docs/evidence/technology-viewer/cybermind/native-review-delivery.log:25:?? tools/__pycache__/
+docs/evidence/technology-viewer/cybermind/native-review-delivery.log:34:/bin/zsh -lc 'git diff -- .gitignore; cat docs/evidence/technology-viewer/cybermind/check-public.mjs; cat docs/evidence/technology-viewer/cybermind/native-review-delivery.log; ls -lh design/references/background_old.png tools/__pycache__/* 2>/dev/null; cat AGENTS.md | head -25' in /Users/asmirnou/Projects/g/ramsider
+docs/evidence/technology-viewer/cybermind/native-review-delivery.log:44:+/integrations/telegram/
+docs/evidence/technology-viewer/cybermind/native-review-delivery.log:149:?? design/references/background_old.png
+docs/evidence/technology-viewer/cybermind/native-review-delivery.log:150:?? docs/evidence/technology-viewer/cybermind/check-public.mjs
+docs/evidence/technology-viewer/cybermind/native-review-delivery.log:152:?? tools/__pycache__/
+docs/evidence/technology-viewer/cybermind/native-review-delivery.log:160:-rw-r--r--@ 1 asmirnou  staff    43M Sep 29 01:55 design/references/background_old.png
+docs/evidence/technology-viewer/cybermind/native-review-delivery.log:161:-rw-r--r--@ 1 asmirnou  staff    17K Oct  4 02:45 tools/__pycache__/convert-art-webp.cpython-314.pyc
+docs/evidence/technology-viewer/cybermind/native-review-delivery.log:190:/bin/zsh -lc "rg -n 'technology-viewer|new Image|data-technology-open' src app components | head -65; rg -n 'check-public|background_old|telegram|pycache' CHANGELOG.md .gitignore docs/evidence/technology-viewer/cybermind 2>/dev/null | head -35; nl -ba docs/evidence/technology-viewer/cybermind/check-public.mjs | sed -n '15,65p'" in /Users/asmirnou/Projects/g/ramsider
+docs/evidence/technology-viewer/cybermind/native-review-staged.log:116:?? design/references/background_old.png
+docs/evidence/technology-viewer/cybermind/native-review-staged.log:118:?? tools/__pycache__/
+docs/evidence/technology-viewer/cybermind/native-review-staged.log:264:+/integrations/telegram/
+docs/evidence/technology-viewer/cybermind/native-review.log:31:?? design/references/background_old.png
+docs/evidence/technology-viewer/cybermind/native-review.log:37:?? tools/__pycache__/
+docs/evidence/technology-viewer/cybermind/native-review.log:105:+/integrations/telegram/
+docs/evidence/technology-viewer/cybermind/native-review.log:986:/bin/zsh -lc "sed -n '158,193p' app/globals.css; git status --short design public docs/evidence tools | tail -35; find tools/__pycache__ -type f -maxdepth 1 -print" in /Users/asmirnou/Projects/g/ramsider
+docs/evidence/technology-viewer/cybermind/native-review.log:1025:?? design/references/background_old.png
+docs/evidence/technology-viewer/cybermind/native-review.log:1029:?? tools/__pycache__/
+docs/evidence/technology-viewer/cybermind/native-review.log:1031:tools/__pycache__/convert-art-webp.cpython-314.pyc
+    15	 for(const [name,width,height] of [['13-pro',390,664],['pro',402,874],['pro-max',440,956]]) {
+    16	  console.log(`${name}: start`);
+    17	  const context=await browser.newContext({viewport:{width,height},deviceScaleFactor:3,isMobile:true,hasTouch:true});
+    18	  const page=await context.newPage(),errors=[],requests=[];
+    19	  page.on('pageerror',e=>errors.push(e.message));
+    20	  page.on('request',r=>{if(files.some(id=>r.url()===`${base}/art/technology/${id}.png`)) requests.push(r.url());});
+    21	  await page.addInitScript(()=>{window.__qa={images:[],openAt:null};window.Image=new Proxy(window.Image,{construct(target,args){const i=Reflect.construct(target,args);window.__qa.images.push(i);return i;}});document.addEventListener('click',e=>{if(e.target instanceof Element&&e.target.closest('[data-technology-open]'))window.__qa.openAt=performance.now();},true);});
+    22	  const resources=files.map(id=>page.waitForResponse(r=>r.url()===`${base}/art/technology/${id}.png`,{timeout:180000}));
+    23	  const photo=async index=>{
+    24	   const response=await resources[index];expect(response.ok()).toBe(true);expect(response.headers()['content-type']).toContain('image/png');
+    25	   const bytes=await bounded(response.body(),`${name}/${files[index]}`);
+    26	   expect(bytes.equals(await readFile(`public/art/technology/${files[index]}.png`))).toBe(true);
+    27	   console.log(`${name}: ${files[index]} original ready (${bytes.length}B)`);
+    28	   return{id:files[index],bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')};
+    29	  };
+    30	  await page.goto(`${base}/en`,{waitUntil:'load',timeout:120000});
+    31	  const firstPhotos=await Promise.all([photo(0),photo(4)]);
+    32	  await page.waitForFunction(()=>window.__qa.images.length===2&&window.__qa.images.every(i=>i.complete&&i.naturalWidth===941),{},{timeout:180000});
+    33	  expect(requests.sort()).toEqual([`${base}/art/technology/02.png`,`${base}/art/technology/cybermind/01.png`].sort());
+    34	  const preOpen=await page.evaluate(async()=>{await Promise.all(window.__qa.images.map(i=>i.decode()));return{load:performance.getEntriesByType('navigation')[0].loadEventEnd,images:window.__qa.images.length,resources:performance.getEntriesByType('resource').filter(e=>/\/technology\/(?:cybermind\/01|02)\.png$/.test(e.name)).map(e=>({url:e.name,start:e.startTime,end:e.responseEnd}))};});
+    35	  preOpen.resources.forEach(r=>expect(r.start).toBeGreaterThanOrEqual(preOpen.load));
+    36	  const cta=page.locator('[data-technology-open]').first();await cta.click();
+    37	  const viewer=page.locator('#technology-viewer');await expect(viewer).toBeVisible();await expect(page.locator('html')).toHaveCSS('background-color','rgb(0, 0, 0)');await expect(page.locator('main.canvas')).not.toBeVisible();
+    38	  const rest=await Promise.all([photo(1),photo(2),photo(3),photo(5)]),photos=[firstPhotos[0],...rest.slice(0,3),firstPhotos[1],rest[3]];
+    39	  await page.waitForFunction(()=>window.__qa.images.length===6&&window.__qa.images.every(i=>i.complete&&i.naturalWidth===941),{},{timeout:180000});await page.evaluate(async()=>Promise.all(window.__qa.images.map(i=>i.decode())));
+    40	  const frame=await viewer.locator('.technology-viewer__frame').boundingBox(),stage=await viewer.locator('.technology-viewer__stage').boundingBox();
+    41	  expect(frame.x).toBeCloseTo(0,1);expect(frame.width).toBeCloseTo(width,1);expect(stage.x).toBeCloseTo(width*29/941,1);expect(stage.width).toBeCloseTo(width*883/941,1);
+    42	  const slides=[];
+    43	  for(const [brand,count] of [['HeatCore',4],['CyberMind',2]]) {
+    44	   if(brand==='CyberMind')await viewer.locator('.technology-viewer__next-group').click();
+    45	   await expect(viewer).toHaveAttribute('data-group',brand);await expect(viewer.locator('.technology-viewer__dots button')).toHaveCount(count);
+    46	   for(let i=0;i<count;i++) {
+    47	    const id=brand==='HeatCore'?files[i]:files[4+i];
+    48	    await viewer.locator('.technology-viewer__dots button').nth(i).click();await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src',`/art/technology/${id}.png`,{timeout:30000});
+    49	    await bounded(viewer.locator('img').evaluateAll(async imgs=>{await document.fonts.ready;await Promise.all(imgs.map(i=>i.decode()));}),`${name}/${id} decode`);
+    50	    if(brand==='CyberMind') {await expect(viewer.locator('.technology-viewer__descriptions')).toHaveCount(0);await expect(viewer.locator('.technology-viewer__title')).toHaveCSS('font-family',/OpenSans/);}
+    51	    const actual=await page.screenshot();if(brand==='CyberMind')await writeFile(`${out}/public-${name}-slide-${i+1}.png`,actual);
+    52	    let changedChannels=null;
+    53	    if(name!=='13-pro') {
+    54	     const local=brand==='HeatCore'?`${name}-heatcore-${i+1}.png`:`${name}-slide-${i+1}.png`;
+    55	     const a=await sharp(actual).raw().toBuffer(),b=await sharp(`${out}/${local}`).raw().toBuffer();expect(a.length).toBe(b.length);changedChannels=0;
+    56	     for(let j=0;j<a.length;j++)if(a[j]!==b[j])changedChannels++;expect(changedChannels).toBe(0);
+    57	    }
+    58	    slides.push({...photos[brand==='HeatCore'?i:4+i],brand,changedChannels});
+    59	   }
+    60	  }
+    61	  await viewer.locator('.technology-viewer__previous-group').click();await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('src','/art/technology/05.png');
+    62	  const timing=await page.evaluate(()=>({openAt:window.__qa.openAt,instances:window.__qa.images.length,photos:performance.getEntriesByType('resource').filter(e=>/\/technology\/(?:cybermind\/0[12]|0[2-5])\.png$/.test(e.name)).map(e=>({url:e.name,start:e.startTime,end:e.responseEnd}))}));
+    63	  for(const r of timing.photos.filter(r=>!preOpen.resources.some(p=>p.url===r.url)))expect(r.start).toBeGreaterThanOrEqual(timing.openAt);
+    64	  const probe=await page.addStyleTag({content:'#technology-viewer[open],#technology-viewer[open] *{visibility:hidden!important}#technology-viewer[open]::backdrop{background:transparent!important}'});
+    65	  expect((await sharp(await page.screenshot()).removeAlpha().raw().toBuffer()).some(v=>v!==0)).toBe(false);await probe.evaluate(el=>el.remove());
+
+2026-10-07T13:30:11.744466Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a1168e-58f7-74d2-b764-c750f8b3de8b turn_id=01a1168e-59ad-7802-bf46-8114bda309c1 item_id="exec-d7e97fa2-9114-47bd-b9a6-db223dcbbb6d"
+exec
+/bin/zsh -lc "sed -n '48,85p;130,165p' components/TechnologyViewer.tsx; ls docs/evidence/technology-viewer/cybermind/*slide* | head; git ls-files design/references/background.png design/references/background_old.png; nl -ba .gitignore | sed -n '32,39p'" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 14ms:
+  const opener = useRef<HTMLElement | null>(null);
+  const previousOverflow = useRef('');
+  const pointer = useRef<{ x: number; y: number } | null>(null);
+  const displayed = useRef<Selection>({ group: 0, slide: 0 });
+  const requested = useRef<Selection>({ group: 0, slide: 0 });
+  const remembered = useRef([0, 0]);
+  const requestToken = useRef(0);
+  const restoreGroupFocus = useRef(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selection, setSelection] = useState<Selection>({ group: 0, slide: 0 });
+  const [showUnavailable, setShowUnavailable] = useState(false);
+  const labels = copy[locale];
+  const groupLabels = technologyGroupCopy[locale];
+  const group = technologyGroups[selection.group];
+  const slide = group.slides[selection.slide];
+  const names = selection.group === 0 ? labels.names : groupLabels.names;
+  useLayoutEffect(() => {
+    if (restoreGroupFocus.current && dialog.current?.open) {
+      restoreGroupFocus.current = false;
+      dialog.current.focus();
+    }
+  }, [selection.group]);
+  const images = useRef(new Map<string, { image: HTMLImageElement; ready: Promise<void> }>());
+  const prepareImage = useCallback((src: string, priority: 'low' | 'high' = 'low') => {
+    const cached = images.current.get(src);
+    if (cached) {
+      if (priority === 'high') cached.image.fetchPriority = 'high';
+      return cached.ready;
+    }
+    const image = new window.Image();
+    image.fetchPriority = priority;
+    image.src = src;
+    const ready = image.decode().catch(error => {
+      // A failed warm-up must not prevent a later user action from retrying.
+      if (images.current.get(src)?.image === image) images.current.delete(src);
+      throw error;
+    });
+    images.current.set(src, { image, ready });
+    document.addEventListener('click', open);
+    return () => {
+      document.removeEventListener('click', open);
+      if (dialogElement?.open) document.body.style.overflow = previousOverflow.current;
+    };
+  }, [prepareImage]);
+
+  const close = () => dialog.current?.close();
+  const select = (next: Selection) => {
+    setShowUnavailable(false);
+    requested.current = next;
+    const token = ++requestToken.current;
+    prepareImage(technologyGroups[next.group].slides[next.slide].src, 'high').then(() => {
+      if (token === requestToken.current && dialog.current?.open) {
+        const active = document.activeElement;
+        restoreGroupFocus.current = next.group !== displayed.current.group && active instanceof Element && !!active.closest('.technology-viewer__dots, .technology-viewer__previous-group');
+        displayed.current = next;
+        remembered.current[next.group] = next.slide;
+        setSelection(next);
+      }
+    }).catch(() => {
+      if (token === requestToken.current) requested.current = displayed.current;
+    });
+  };
+  const showSlide = (position: number, groupIndex = displayed.current.group) => {
+    const length = technologyGroups[groupIndex].slides.length;
+    select({ group: groupIndex, slide: (position + length) % length });
+  };
+  const move = (delta: number) => {
+    const current = requested.current.group === displayed.current.group ? requested.current : displayed.current;
+    showSlide(current.slide + delta, current.group);
+  };
+  const moveGroup = (delta: number) => {
+    const currentGroup = displayed.current.group;
+    if (requested.current.group !== currentGroup) {
+      // Repeated taps wait for the same target; reversing cancels that transition.
+docs/evidence/technology-viewer/cybermind/ar-402x874-slide-1.png
+docs/evidence/technology-viewer/cybermind/en-320x700-slide-1.png
+docs/evidence/technology-viewer/cybermind/en-390x664-slide-1.png
+docs/evidence/technology-viewer/cybermind/en-390x732-slide-1.png
+docs/evidence/technology-viewer/cybermind/en-390x844-slide-1.png
+docs/evidence/technology-viewer/cybermind/en-768x1024-slide-1.png
+docs/evidence/technology-viewer/cybermind/en-844x390-slide-1.png
+docs/evidence/technology-viewer/cybermind/ja-402x874-slide-1.png
+docs/evidence/technology-viewer/cybermind/pro-max-slide-1.png
+docs/evidence/technology-viewer/cybermind/pro-max-slide-2.png
+design/references/background.png
+    32	.pnpm-debug.log*
+    33
+    34	# env files (can opt-in for committing if needed)
+    35	.env*
+    36	/integrations/telegram/
+    37
+    38	# vercel
+    39	.vercel
+
+2026-10-07T13:30:18.089140Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a1168e-58f7-74d2-b764-c750f8b3de8b turn_id=01a1168e-59ad-7802-bf46-8114bda309c1 item_id="exec-9e605fb1-9fd5-4ffa-a619-1b77451bb7d4"
+exec
+/bin/zsh -lc "sed -n '80,128p;165,190p' components/TechnologyViewer.tsx; ls -l docs/evidence/technology-viewer/cybermind/pro*slide* | head" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 20ms:
+    const ready = image.decode().catch(error => {
+      // A failed warm-up must not prevent a later user action from retrying.
+      if (images.current.get(src)?.image === image) images.current.delete(src);
+      throw error;
+    });
+    images.current.set(src, { image, ready });
+    return ready;
+  }, []);
+
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const warm = () => {
+      // Run after load dispatch; never compete with the initial page resources.
+      timer = setTimeout(() => {
+        technologyGroups.forEach(group => { void prepareImage(group.slides[0].src).catch(() => {}); });
+      }, 0);
+    };
+    if (document.readyState === 'complete') warm();
+    else window.addEventListener('load', warm, { once: true });
+    return () => {
+      window.removeEventListener('load', warm);
+      clearTimeout(timer);
+    };
+  }, [prepareImage]);
+
+  useEffect(() => {
+    const dialogElement = dialog.current;
+    const open = (event: MouseEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const trigger = target.closest<HTMLElement>('[data-technology-open]');
+      if (!trigger || !dialogElement || dialogElement.open) return;
+      event.preventDefault();
+      opener.current = trigger;
+      requestToken.current++;
+      displayed.current = { group: 0, slide: 0 };
+      requested.current = displayed.current;
+      remembered.current = [0, 0];
+      setSelection(displayed.current);
+      setShowUnavailable(false);
+      restoreGroupFocus.current = false;
+      technologyGroups.forEach((group, groupIndex) => group.slides.forEach((slide, slideIndex) => {
+        void prepareImage(slide.src, groupIndex === 0 && slideIndex === 0 ? 'high' : 'low').catch(() => {});
+      }));
+      setIsOpen(true);
+      dialogElement.showModal();
+      dialogElement.focus();
+      previousOverflow.current = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      // Repeated taps wait for the same target; reversing cancels that transition.
+      if (Math.sign(delta) !== Math.sign(requested.current.group - currentGroup)) select(displayed.current);
+      return;
+    }
+    const nextGroup = currentGroup + delta;
+    if (nextGroup < 0) return;
+    if (nextGroup >= technologyGroups.length) { setShowUnavailable(true); return; }
+    select({ group: nextGroup, slide: remembered.current[nextGroup] });
+  };
+  const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    pointer.current = { x: event.clientX, y: event.clientY };
+    try { event.currentTarget.setPointerCapture(event.pointerId); } catch { /* Synthetic test events do not own a pointer. */ }
+  };
+  const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
+    const start = pointer.current;
+    pointer.current = null;
+    if (!start) return;
+    const dx = event.clientX - start.x;
+    const dy = event.clientY - start.y;
+    if (Math.abs(dy) > 65 && Math.abs(dy) > Math.abs(dx) * 1.2) { moveGroup(dy > 0 ? 1 : -1); return; }
+    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+    move((dx < 0 ? 1 : -1) * (locale === 'ar' ? -1 : 1));
+  };
+
+  return <dialog
+    ref={dialog}
+-rw-r--r--@ 1 asmirnou  staff  3767994 Oct  7 17:06 docs/evidence/technology-viewer/cybermind/pro-max-slide-1.png
+-rw-r--r--@ 1 asmirnou  staff  2485412 Oct  7 17:06 docs/evidence/technology-viewer/cybermind/pro-max-slide-2.png
+-rw-r--r--@ 1 asmirnou  staff  3277643 Oct  7 17:06 docs/evidence/technology-viewer/cybermind/pro-slide-1.png
+-rw-r--r--@ 1 asmirnou  staff  2185583 Oct  7 17:06 docs/evidence/technology-viewer/cybermind/pro-slide-2.png
+
+2026-10-07T13:30:24.022565Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a1168e-58f7-74d2-b764-c750f8b3de8b turn_id=01a1168e-59ad-7802-bf46-8114bda309c1 item_id="exec-f9701b4b-f2af-435c-a705-a5eb2e81e598"
+codex
+I found no actionable correctness issue in the current staged, unstaged, or untracked changes.
+I found no actionable correctness issue in the current staged, unstaged, or untracked changes.

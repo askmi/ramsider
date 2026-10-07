@@ -1,6 +1,6 @@
 # CyberMind group — CHG-0068
 
-2026-10-07. Two clean source941×1672 images; their paired text versions are excluded until a later request. Title-only live overlay uses Open Sans400/source coordinates matching HeatCore. The source images have no ICC tag; preserve decoded native channels/alpha and dimensions without profile conversion or lossy encoding. Deliver compressionLevel0 PNG after reconstructing only tight title-glyph pixels; every other channel must remain exact. Retained master hashes, masks, source/clean title crops and generation patch under cybermind evidence/derived files prove scope.
+2026-10-07. Two clean source941×1672 images. CHG-0068 delivered title-only imagery; CHG-0069 later added live description text from the paired references, mapped in [technology-cybermind-description-map.md](technology-cybermind-description-map.md). The source images have no ICC tag; preserve decoded native channels/alpha and dimensions without profile conversion or lossy encoding. Deliver compressionLevel0 PNG after reconstructing only tight title-glyph pixels; every other channel must remain exact. Retained master hashes, masks, source/clean title crops and generation patch under cybermind evidence/derived files prove scope.
 
 ## Navigation and loading
 
@@ -12,7 +12,7 @@ Warm first photo of each group at low priority after window load/already-complet
 
 - CyberMind_TOP_ONLY_941x1672.png → public/art/technology/cybermind/01.png (RGBA/all alpha255).
 - CyberMind_02_SYSTEM_CONNECTED_CLEAN_941x1672.png → public/art/technology/cybermind/02.png (RGB).
-- CyberMind_WITH_TEXT and CyberMind_02_SYSTEM_CONNECTED_EN: later descriptive-copy references, not served.
+- CyberMind_WITH_TEXT and CyberMind_02_SYSTEM_CONNECTED_EN: descriptive-copy references for CHG-0069, never served as artwork.
 - Existing frame asset941×1628 and native openingx29:912 remain unchanged; portrait contour is at screen boundaries as accepted0067.
 - Title mask pixel boundsx52:548/y125:277, first25134/second25169 pixels. Reconstructed source-hidden wall is not claimed original; original product/render pixels are outside these masks.
 

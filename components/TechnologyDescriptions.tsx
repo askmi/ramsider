@@ -6,12 +6,12 @@ import type { TechnologyDescriptionCopy, TechnologySlideId } from '@/lib/technol
 
 type BlockProps = {
   id: string; x?: number; y: number; width?: number; height: number;
-  size: number; line?: number; color?: string; tracking?: number;
+  size: number; line?: number; color?: string; tracking?: number; weight?: number;
   kind?: 'h3' | 'h4' | 'p' | 'span'; text: string; number?: string; locale: Locale;
 };
 
 /** HTML stays semantic; the source plane follows the same X/Y fit as the PNG. */
-function TextBlock({ id, x = 54, y, width = 824, height, size, line = size * 1.2, color = '#000', tracking = 0, kind: Tag = 'p', text, number, locale }: BlockProps) {
+export function TextBlock({ id, x = 54, y, width = 824, height, size, line = size * 1.2, color = '#000', tracking = 0, weight = 400, kind: Tag = 'p', text, number, locale }: BlockProps) {
   const box = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
     const fit = () => {
@@ -31,14 +31,14 @@ function TextBlock({ id, x = 54, y, width = 824, height, size, line = size * 1.2
   }, [text, locale, size, line, width, height, tracking, number]);
   return <foreignObject x={x} y={y} width={width} height={height} data-description-block={id}>
     <div ref={box} className="technology-description__box" lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-      <Tag className={`technology-description__copy${color === '#975f41' ? ' technology-description__warm' : ''}`} style={{ fontSize: size, lineHeight: `${line}px`, color, letterSpacing: tracking }}>
+      <Tag className={`technology-description__copy${color === '#975f41' ? ' technology-description__warm' : ''}`} style={{ fontSize: size, lineHeight: `${line}px`, color, letterSpacing: tracking, fontWeight: weight }}>
         {number && <span className="technology-description__number">{number}</span>}{text}
       </Tag>
     </div>
   </foreignObject>;
 }
 
-function Divider({ y }: { y: number }) {
+export function Divider({ y }: { y: number }) {
   return <line x1="56" x2="877" y1={y} y2={y} stroke="#8f8983" strokeWidth="1" aria-hidden="true" />;
 }
 

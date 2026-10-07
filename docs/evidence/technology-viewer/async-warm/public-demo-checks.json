@@ -1,0 +1,172 @@
+[
+  {
+    "name": "pro",
+    "width": 402,
+    "height": 874,
+    "dpr": 3,
+    "hashes": [
+      {
+        "id": "04.png",
+        "sha256": "8af34e3d94e9206cb5c9b5c12826a2c9c178c7f9e3d5976df13f5e44085c1bf0",
+        "bytes": 4729424,
+        "status": 200
+      },
+      {
+        "id": "02.png",
+        "sha256": "b58ce30dea0823afe7ebb03fd930cbfb12109010afba89edce5b8efb06bb635b",
+        "bytes": 4729424,
+        "status": 200
+      },
+      {
+        "id": "05.png",
+        "sha256": "edd20a4990deb6f8656b0918dd06f83db323346b2da0a142a0acb7630a97681a",
+        "bytes": 4729424,
+        "status": 200
+      },
+      {
+        "id": "03.png",
+        "sha256": "e2e3d03bfbaef8b62da25d86d1c77f30b18412edc15715e1309583845ab62fa6",
+        "bytes": 4729424,
+        "status": 200
+      }
+    ],
+    "timing": {
+      "load": 4592,
+      "photos": [
+        {
+          "name": "02.png",
+          "start": 4597,
+          "end": 11012,
+          "transfer": 4732361
+        },
+        {
+          "name": "03.png",
+          "start": 4597,
+          "end": 11320,
+          "transfer": 4732370
+        },
+        {
+          "name": "04.png",
+          "start": 4598,
+          "end": 9884,
+          "transfer": 4732388
+        },
+        {
+          "name": "05.png",
+          "start": 4598,
+          "end": 10886,
+          "transfer": 4732424
+        }
+      ]
+    },
+    "screenshots": [
+      {
+        "file": "pro-slide-1.png",
+        "changedChannels": 0,
+        "maxError": 0
+      },
+      {
+        "file": "pro-slide-2.png",
+        "changedChannels": 0,
+        "maxError": 0
+      },
+      {
+        "file": "pro-slide-3.png",
+        "changedChannels": 0,
+        "maxError": 0
+      },
+      {
+        "file": "pro-slide-4.png",
+        "changedChannels": 0,
+        "maxError": 0
+      }
+    ],
+    "errors": [],
+    "controls": "PASS"
+  },
+  {
+    "name": "pro-max",
+    "width": 440,
+    "height": 956,
+    "dpr": 3,
+    "hashes": [
+      {
+        "id": "04.png",
+        "sha256": "8af34e3d94e9206cb5c9b5c12826a2c9c178c7f9e3d5976df13f5e44085c1bf0",
+        "bytes": 4729424,
+        "status": 200
+      },
+      {
+        "id": "05.png",
+        "sha256": "edd20a4990deb6f8656b0918dd06f83db323346b2da0a142a0acb7630a97681a",
+        "bytes": 4729424,
+        "status": 200
+      },
+      {
+        "id": "03.png",
+        "sha256": "e2e3d03bfbaef8b62da25d86d1c77f30b18412edc15715e1309583845ab62fa6",
+        "bytes": 4729424,
+        "status": 200
+      },
+      {
+        "id": "02.png",
+        "sha256": "b58ce30dea0823afe7ebb03fd930cbfb12109010afba89edce5b8efb06bb635b",
+        "bytes": 4729424,
+        "status": 200
+      }
+    ],
+    "timing": {
+      "load": 2495,
+      "photos": [
+        {
+          "name": "02.png",
+          "start": 2496,
+          "end": 9153,
+          "transfer": 4732352
+        },
+        {
+          "name": "03.png",
+          "start": 2497,
+          "end": 8645,
+          "transfer": 4732424
+        },
+        {
+          "name": "05.png",
+          "start": 2497,
+          "end": 8763,
+          "transfer": 4732415
+        },
+        {
+          "name": "04.png",
+          "start": 2497,
+          "end": 8826,
+          "transfer": 4732415
+        }
+      ]
+    },
+    "screenshots": [
+      {
+        "file": "pro-max-slide-1.png",
+        "changedChannels": 0,
+        "maxError": 0
+      },
+      {
+        "file": "pro-max-slide-2.png",
+        "changedChannels": 0,
+        "maxError": 0
+      },
+      {
+        "file": "pro-max-slide-3.png",
+        "changedChannels": 0,
+        "maxError": 0
+      },
+      {
+        "file": "pro-max-slide-4.png",
+        "changedChannels": 0,
+        "maxError": 0
+      }
+    ],
+    "errors": [],
+    "controls": "PASS"
+  }
+]

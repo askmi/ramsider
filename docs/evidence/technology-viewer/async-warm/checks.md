@@ -27,3 +27,7 @@ Control intercepts only detached preloader Image assignments to omit their downl
 ## Approval
 
 Codex primary verifier technical approval APPROVED on2026-10-07. Independent scope, visualStage3, behavior/adaptationStage4 and review/performanceStage5 PASS after reading actual evidence. Independent final staged record audit PASS; [final native review](native-review-final.log) including strengthened recovery tests found no actionable regression. Commit/deployment verification follows. User acceptance NOT_RECORDED.
+
+## Public delivery
+
+Runtime commit4454538ed0800e7d0f8dfaf9ea4d0ea985f98313 pushed to main and feature branch; Vercel Production–ramsider deployment6904565764 success. Canonical https://ramsider-main.vercel.app/en [live checks](public-demo-checks.json): Pro/Max DPR3 all4PNG byte/hash identity, post-window-load requests before dialog opens, eightfullRGB actualcomparisons0changedchannels against the corresponding portable localcaptures, controls/captions/folioabsence/errors0 PASS. Independent public release audit PASS on2026-10-07. First temporaryinspector importfailedlocalpackageinternalpath; correctedpackageexports resolution and repeatedrealchecks; failedattempt excluded. Publication record closure is documentation only; main runtime remains4454538.

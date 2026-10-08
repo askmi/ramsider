@@ -340,3 +340,12 @@ This is the repository's **error-prevention memory**, separate from current proj
 - Linked [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) extended with these acceptance checks. Product checks pass for ribbons; controlled agent run remains NOT_RUN and no model-weight change is claimed.
 
 - **Dispatch follow-up /CHG0076:** An unstaged diff check excludes new untracked screenshots/logs. Before committing evidence, inspect the exact staged scope and run git diff --cached --check; normalize only log formatting while retaining raw originals and all verdicts. Runtime hashes and unrelated exclusions remain separate assertions. Controlled EVAL-VIEWER NOT_RUN.
+
+- **Scope-record follow-up /CHG0077:** Starting a parallel scope audit before creating its journal ID led to an absent-record FAIL, even though implementation had not started. Seed actual/expected/source/lifecycle at discovery before dispatching the scope audit; refine measured geometry afterward. Controlled EVAL-VIEWER NOT_RUN.
+
+## Technical gallery inherits the landing canvas width — CHG-0078
+
+- **Problem → cause → prevention:** Laptop viewer expanded to100vw while the main canvas stopped at941px. Agent inherited viewport-wide acceptance and missed comparing real landing bounds. Mobile-first galleries use the current main canvas cap unless a user explicitly requests another width. Share the cap, compare dialog/photo left/right/width to actual landing below and above its breakpoint, and inspect mobile pixel preservation plus desktop native wheel/bottom. Full-window matte does not authorize enlarging photo planes. EVAL-VIEWER extended; controlled run NOT_RUN.
+- **Evidence retention follow-up:** Root launched another runner before copying its failed wheel screenshot; shared test-results was cleared. Archive failure artifacts before the next runner, use separate output directories for independent runs, and retain failure logs even if a screenshot is lost. The failed screenshot here is unavailable, not certified retained.
+
+- **Documentation edit verification / CHG0078 Stage6:** An exact-string replacement used a mismatched needle and silently left EVAL prevention absent. Assert the expected occurrence before replacement and verify the resulting targeted diff/postcondition before claiming a documentation update. The record fix does not prove future agent compliance; controlled EVAL-VIEWER remains NOT_RUN.

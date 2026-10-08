@@ -1,0 +1,6 @@
+/* Browser-only proposal CHG-0077. Pending user approval; not imported by site. */
+.technology-viewer__canvas{--toolbar-height:calc(64px + env(safe-area-inset-top))}
+.technology-viewer__dots{left:8px;top:calc(10px + env(safe-area-inset-top));transform:none}
+.technology-viewer__next-image{left:104px;right:max(60px,calc(44px + 2% + env(safe-area-inset-right)));top:calc(10px + env(safe-area-inset-top));height:44px;font-size:18px;gap:8px}
+.technology-viewer__close{top:calc(10px + env(safe-area-inset-top));font-size:28px}
+@container (max-width:360px){.technology-viewer__next-image{font-size:16px}}

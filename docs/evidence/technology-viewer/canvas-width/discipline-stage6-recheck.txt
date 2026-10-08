@@ -1,0 +1,10 @@
+**Stage 6 — PASS: CHG0077/0078 record re-audit.**
+
+Inspected repairs:
+
+- [EVAL-VIEWER row 59](docs/agent-evals.md:59): actual landing/dialog/photo bounds below and above the 941px cap; archive before the next runner or separate outputs; controlled `NOT_RUN` retained.
+- [LESSONS.md](LESSONS.md): expected-occurrence assertion and targeted diff/postcondition verification.
+- [CHANGELOG.md](CHANGELOG.md:1706): original FAIL preserved, mistaken replacement and missed checks explicit, repair and pending re-audit recorded.
+- CHG0077’s dated root technical approval appears under its own anchor; both index entries remain temporarily `APPLIED_UNVERIFIED`.
+
+Prior passed checks stand. No edits, delegation, or browser runs. Primary can record this PASS, restore `VERIFIED`, and reconcile MEMORY/topic pending clauses. Explicit header approval and unchanged residuals remain preserved.

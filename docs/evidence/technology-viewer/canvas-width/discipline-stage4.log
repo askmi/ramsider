@@ -1,0 +1,1397 @@
+2026-10-08T22:43:45.928777Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-08T22:43:45.928850Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-08T22:43:45.963351Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-10-08T22:43:45.970244Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-10-08T22:43:45.977257Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-10-08T22:43:45.983031Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-10-08T22:43:45.990985Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-10-08T22:43:45.996875Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-10-08T22:43:46.004393Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+2026-10-08T22:43:46.011140Z  WARN codex_rollout::list: state db discrepancy during find_thread_path_by_id_str_in_subdir: falling_back
+OpenAI Codex v0.159.0-alpha.12.1
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6.1-sol
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 01a11daf-d85d-7f00-b95b-3b9592c9fef7
+--------
+user
+Act as independent read-only Ramsider discipline auditor using .codex/agents/discipline_auditor.toml instructions. ONLY Stage4 behavior/adaptation CHG0077+0078. No edits or new delegation. Read relevant AGENTS/docs discipline/supervision and actual bounded evidence. Current user approved single-row header «да в одну строку лучше», and desktop viewer must equal main canvas. Actual app CSS cap941 shared, centered dialog, header64+safearea, 18px nav/16px narrow with44disjoint targets. Evidence under docs/evidence/technology-viewer/canvas-width: approved-browser-tests.log11PASS5explicitplatformskips; current technology-width.spec.ts13sizes320..1920 incl941/942 actualmain/dialog/photo/source/bottom, all11locales, nativewheel desktop andChromium native touch/pendingRTL; viewer-behavior.log12passing4profiles entrypoints,boundedRTLswipes,decodedoffline/reopen. Compact-header/approved-check.log54geometry+11navkeyboardclose cycles onactualstyles noCSSinjection; approved-checks.json and check.mjs for precise labels/hits. Earlier firstFirefoxwheel fixturefailed370px remaining sparse5s poll, cadence100ms/10slimit fixed nowrealwheelPASS; preserve fail log. Failed screenshotlost beforearchive, exactrootmistake/prevention explicitlyjournal tail/LESSONS. Stage3 earlier independent visual PASS; approved-pixels.json verifiesfinalfourphonecaptures exactpriorapprovedcandidate; final.json boundsdesktop941 same actualmain. Inspect artifacts yourself, summaries are leads. No oldlargefullhistory. Return concise Stage4 PASS/FAIL/BLOCKED + exactevidence andmaterialmissingcheck if any. Do not infer Stage5/6 or broadsitepass. Do not perform browser launches because supplied current executed test evidence exists.
+
+2026-10-08T22:43:46.627234Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-08T22:43:46.627254Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+hook: UserPromptSubmit
+hook: UserPromptSubmit Completed
+codex
+I’ll read the auditor instructions and bounded evidence for CHG0077–0078, then return a Stage 4 verdict limited to behavior and adaptation. I won’t edit files or launch browsers.
+
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/zsh -lc "pwd; git status --short; rg --files -g 'AGENTS.md' -g '.codex/agents/discipline_auditor.toml' -g 'docs/discipline.md' -g 'docs/supervision.md' -g '*canvas-width*' -g '*approved-check*' -g '*viewer-behavior*' -g '*technology-width*' -g '*approved-pixels*' -g '*final.json'" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 74ms:
+/Users/asmirnou/Projects/g/ramsider
+ M .gitignore
+ M CHANGELOG.md
+ M LESSONS.md
+ M MEMORY.md
+ M app/globals.css
+ M docs/agent-evals.md
+ M docs/technology-viewer.md
+ M tests/e2e/technology-width.spec.ts
+?? design/references/background_old.png
+?? docs/evidence/technology-viewer/canvas-width/
+?? docs/evidence/technology-viewer/compact-header/
+?? tools/__pycache__/
+AGENTS.md
+docs/discipline.md
+docs/supervision.md
+tests/e2e/technology-width.spec.ts
+docs/evidence/locale-axis/final.json
+docs/evidence/locale-axis/performance-final.json
+docs/evidence/locale-axis/cross-engine-final.json
+docs/evidence/locale-axis/ja-final.json
+docs/evidence/locale-axis/midline-final.json
+docs/evidence/technology-viewer/canvas-width/final.json
+docs/evidence/technology-viewer/canvas-width/viewer-behavior.log
+docs/evidence/technology-viewer/compact-header/approved-checks.json
+docs/evidence/technology-viewer/compact-header/approved-pixels.json
+docs/evidence/technology-viewer/compact-header/approved-check.log
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/zsh -lc 'cat .codex/agents/discipline_auditor.toml; cat docs/discipline.md; cat docs/supervision.md' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+name = "discipline_auditor"
+description = "Read-only auditor of Ramsider stage gates and evidence; catches skipped requirements before the main agent proceeds."
+sandbox_mode = "read-only"
+developer_instructions = """
+You audit one named Ramsider stage gate at a time. Read AGENTS.md and the relevant part of docs/discipline.md; use docs/supervision.md for the audit protocol. Inspect the repository, changed files, and evidence artifacts directly. Treat the parent agent's summary and other subagent reports as leads, not proof. For a visual gate, actually view the supplied reference crop and browser screenshot; DOM measurements or a claim of pixel fidelity are insufficient. Do not edit files, create product features, or replace Codex /review.
+
+Return a short finding: gate; PASS, FAIL, or BLOCKED; evidence paths or command results examined; the highest-impact discrepancy with its responsible stage and next check. Mark a feasible but unrun check FAIL; reserve BLOCKED for evidence genuinely unavailable because of an external dependency or tool failure. Never treat missing evidence as PASS. If no material discrepancy remains and required evidence is present, PASS. Check only the named gate and any downstream gate reopened by the change; do not reread every project document or echo long logs.
+"""
+# Development discipline: one request, complete result
+
+The user's “one iteration” means one request to Codex should trigger a complete internal development cycle. It does **not** mean one code edit or one screenshot. Codex owns the repeated diagnosis and repair until all applicable gates pass. Do not transfer routine QA back to the user. A pass is evidence-based: there may be unknown bugs, but no known material mismatch, broken interaction, failing check, or unexamined requirement can be called done.
+
+Work on a visual slice small enough to compare with the reference, then integrate **every slice in the requested scope** into the full scroll page. A passed slice is an internal milestone, not a handoff. At the start of each slice, make a compact coverage record from the render: content/art, controls and destinations, viewport/locale states, and relevant speed risks. Give each applicable check a result of pass, fail, or blocked with evidence; do not equate “not yet tested” with pass. For every stage, keep the target, observation, defect, fix, and recheck clear. A failed gate routes work back to the responsible stage and reopens downstream checks affected by the change.
+
+Decide routine implementation details from the render, assets, code, and product brief without pausing for intermediate user approval. Reproduce visible reference copy in the local build for fidelity, with unverified factual claims tracked for publication. When a required media file, destination, credential, confirmed price/claim, or commerce behavior is genuinely absent, finish independent sections and checks, isolate the missing dependency, and ask only for the external input needed to finish that behavior or publish it. Do not invent it, silently omit a visible control, or mark that control complete. Keep a blocked gate distinct from a failed implementation that Codex can fix itself.
+
+## Log changes as they happen
+
+Follow the required schema and lifecycle in [CHANGELOG.md](../CHANGELOG.md). At scope inspection, search existing IDs; create a record for a new defect/change before implementation, with actual versus expected and source. At implementation, record the cause, mapping/specification → code chain and affected files; use `APPLIED_UNVERIFIED` until checks finish. Record each material failure and reopening immediately under the same ID. At verification, append actual commands/screenshots/results, date, verifier and the applicable auditor verdict. Only evidence-backed technical approval permits `VERIFIED`. Explicit user approval is recorded independently and is never inferred from silence. At delivery, reconcile the current status/index and link remaining open defects. Do this autonomously for small fixes as well as large tasks; use a compact record when appropriate.
+
+Root-cause analysis must identify the agent decision/action, technical mechanism, missed control, evidence-backed responsibility and the behavior to change. Use the CHANGELOG classifications; missing or additional input is not automatically user fault. Unknown historical details stay unknown. Before similar work or rebuilding, load relevant causes/lessons and convert prevention into checks. Link repeatable errors to [Agent Eval](agent-evals.md); update case results only after actual runs, independently of fix approval.
+
+Keep previous events intact when a conclusion changes. Backfilled records must identify their source and that checks are historical; missing evidence must remain explicit. Reuse the existing topic document for diagnosis, plans and verification; create a separate Markdown document only for a distinct maintained topic or an explicit user request. Keep raw screenshots/logs in the relevant evidence directory. Detailed reports can hold large evidence tables, but the journal must state the defect, solution and approval itself, not merely link to an unexplained report.
+
+| Stage | Required action | Evidence and exit gate | On failure |
+| --- | --- | --- | --- |
+| 1. Understand | Check Git state, [MEMORY.md](../MEMORY.md), relevant [LESSONS.md](../LESSONS.md) sections, actual files, instructions, and available tools; read the relevant indexed docs. Inspect `background.png`, then `background_text.png`, then relevant fonts/buttons/PSB layers. Crop the render. Map sections, content, art, controls, behavior, source-to-CSS scale, and unverified product facts. | A section/component map, visual comparison method, interaction destinations, and observable acceptance target exist before coding. | Inspect more; ask only for information that cannot be derived from the repo. |
+| 2. Implement | Build one iPhone 17 Pro-first visual slice with real HTML text/controls and preserved artwork. Use sound React/Next structure; verify Pro Max in stages 3–4 before other sizes. | The slice renders and its required interaction is wired. | Fix implementation before comparison. |
+| 3. Verify visual | Open the real page on iPhone 17 Pro; wait for stable fonts/images; capture the browser image; compare against the calibrated reference crop; use tolerant pixel diff as a second signal. Check Pro Max composition against its own reference only if one exists. | No material design mismatch at a matching reference viewport and screenshot evidence exists. | Identify the largest difference, fix it, capture and compare again. Repeat until passed. |
+| 4. Verify behavior/responsiveness | Check Pro Max, then other phones/tablets/desktops. Exercise clicks, hover, scroll, sticky elements, menus, forms, carousels, CTA, animation states, keyboard, RTL, and relevant widths. | Required states work; no material overflow, clipping, bad crop, seam, or layout jump. | Fix and repeat the affected behavior and visual checks. |
+| 5. Review and optimize | For code changes, invoke native Codex `/review` on the actual diff (CLI equivalent if needed), resolve actionable findings, and inspect architecture, responsibilities, duplication, typing, accessibility, dependencies, and unused code; run relevant static/tests/build checks. Measure the production build: first view, media/JS bytes, LCP/INP/CLS where measurable, network, layout shifts, and long-scroll smoothness. Refactor and improve meaningful problems. | Review findings are resolved or explicitly justified; required checks pass, and the mobile first view remains quick without sacrificing fidelity. An unavailable `/review` is reported, not recorded as passed. | Fix code or delivery; rerun affected static, performance, visual, and behavior checks. |
+| 6. Learn and report | Analyze every user correction and meaningful self-detected failure; update `LESSONS.md` for reusable prevention and `MEMORY.md` for changed verified state, decisions, or blockers. Complete affected change-log records with technical approval, user-approval state and any open/reopened items. Collect final evidence and limitations. | Persistent project context is current; final response accurately states what passed, what was measured, and what could not be checked. | Do not say done while an applicable gate remains unverified. |
+
+Do not treat the stages as a waterfall. After any visual fix, rerun the affected screenshot comparison. After refactoring, revisit affected interactions and visuals. After an image/font/loading optimization, revisit both performance **and** visual fidelity. A section is not finished until its local loop passes; the page is not finished until integration checks pass across the long scroll. Include a final assembled-page screenshot/scroll pass after all local slice passes, so small per-section alignment errors cannot accumulate unnoticed.
+
+For substantive project work, send the [non-editing discipline auditor](supervision.md) the relevant artifacts at each applicable gate, including the final evidence summary. Its independent finding is another checkpoint, not a substitute for executing the gate. If it finds an unrun feasible check, run it before moving on; if it finds a defect, repair and re-audit the affected gate. The auditor also reviews outputs from any other agents at the relevant checkpoint. Keep its handoff concise so independent review does not duplicate the full implementation context.
+
+Keep the test matrix proportionate without skipping requirements: compare each affected English slice to the render on Pro, inspect Pro Max and representative other widths, automatically check translation-key coverage and overflow for **all 11 locales**, and inspect Arabic RTL plus any locale that changes wrapping or behavior. Expand screenshots and interactions where a change or failure warrants it; a full Cartesian set of every locale × width × state is not the default. When the app exists, add repeatable Playwright checks for viewport correctness, the main controls, RTL, overflow, console errors, and screenshot capture. A test command that discovers zero tests is setup, not a passed QA gate.
+
+While coding, use targeted searches, bounded file ranges, and diffs instead of rereading whole files or pasting unrelated source. Keep command output bounded and inspect the failing lines of logs; retain full artifacts on disk when needed. Reuse verified observations and rerun checks that a change could affect, without repeating an unchanged passing matrix. This saves working-context tokens during the full implementation cycle, not just at session start; it never waives a gate.
+
+Keep tool use focused: use native Codex capabilities where they meet the gate, then project-specific skills/tools where they add required evidence. The Codex browser supports quick exploration; configured Playwright WebKit profiles supply repeatable iPhone screenshots and tests. Native `/review` is the code-review gate, not another installed skill; its findings do not replace screenshot, behavior, accessibility, or speed checks. A visual-verification pass checks actual screenshots independently of the code's apparent intent; an interaction pass checks real state transitions. These are responsibilities the main agent can perform sequentially. Tool installation, script availability, and successful checks are distinct states.
+
+For long work, refresh [MEMORY.md](../MEMORY.md) at a material milestone before context is lost; at task end, remove stale status and reconcile affected topic docs. Do not rewrite the transcript. A repeatable failure goes to [LESSONS.md](../LESSONS.md), not to a growing list of ad hoc instructions in `AGENTS.md`. Promote a lesson into the always-loaded rules only when it is truly cross-task and important enough to justify that context cost.
+
+If a check is technically unavailable, record the blocker and completed evidence. Do not silently skip it, replace it with source inspection, or assert an unverified guarantee. See [definition-of-done.md](definition-of-done.md) for the final gate.
+# Independent stage-gate audit
+
+For substantive project work, the main agent starts one non-editing `discipline_auditor` alongside scope inspection. The auditor makes an independent acceptance map from the requested scope and, for UI work, the approved render. The main agent then sends the same auditor a compact checkpoint at each applicable gate and waits for a finding **before advancing**. This is an event-driven review of work in progress, not a claim that a second agent sees or controls every tool call. The main agent remains responsible for implementation, browser evidence, fixes, `/review`, and final delivery. Trivial edits use only their relevant checks.
+
+| Checkpoint | Auditor checks independently | Minimum evidence from the main agent |
+| --- | --- | --- |
+| Scope, before implementation | Requested coverage, acceptance method, unknown inputs; render sections, assets, and controls for UI work | Scope/affected-interface map, relevant reference crops for UI work, unresolved inputs |
+| Each UI slice, before moving on | Real render against reference; Pro then Pro Max; visible controls and responsive risks | Reference crop and actual browser screenshots with viewport/DPR; changed files; visual comparison and retest result |
+| Behavior and adaptation, if affected | Relevant interactions, keyboard/RTL/locales, safe areas and representative widths; for non-UI code, changed behavior and interfaces | Browser/test results, screenshots or traces for affected UI states; relevant tests and API results for other code |
+| Review and optimization, if affected | Required static/tests/build checks and native `/review` for code changes; production speed and visual regression when affected | Diff, `/review` result or explicit unavailability for code, check output, and affected production measurements/recaptures |
+| Final closeout | Full requested scope; assembled long-scroll QA for UI work; `MEMORY.md`/`LESSONS.md` updates where warranted; honest delivery claims; no failed or unexamined applicable gate | Consolidated pass/fail/blocked record, artifact paths, final screenshots where applicable, and draft evidence summary |
+
+For each handoff, name the gate and changed scope, then give **paths to evidence**, concise command outcomes, and any worker-agent reports. The auditor reads the artifacts, not just the worker's claims. Its reply is `PASS`, `FAIL`, or `BLOCKED`, with the precise discrepancy, evidence location, responsible stage, and next check. An unrun feasible check or implementation defect is `FAIL`; `BLOCKED` is reserved for a concrete external dependency or tool failure preventing the evidence. On `FAIL`, the main agent fixes the issue, reruns the affected checks, and asks the auditor to recheck. On `BLOCKED`, it continues independent work and reports the exact dependency. An auditor's `PASS` cannot turn an absent screenshot, zero-test suite, or unmeasured performance target into proof. Include other subagents' outputs at the applicable checkpoint so their work is covered; the auditor does not automatically receive their transcripts.
+
+The auditor profile requests a read-only sandbox and prohibits edits, but a parent session's live sandbox override can supersede that default; verify the effective setting when available and keep the no-edit assignment even if it cannot be enforced. Keep the agent focused on one checkpoint. Keep raw images and logs on disk, send paths and short excerpts, and avoid a second full implementation discussion. If a named custom agent cannot be selected, spawn a subagent with the same non-editing instructions. If subagents are unavailable, perform the same explicit evidence audit in the main thread and report the lost independent check; never imply a second agent ran. The first real site tasks should compare this workflow with the previous one using [agent evals](agent-evals.md): missed gates, material defects at delivery, user corrections, time, and token cost. Keep or adjust the audit cadence based on those results, without waiving the stage gates.
+
+## Audit the change log
+
+For each applicable gate, require the relevant [CHANGELOG.md](../CHANGELOG.md) IDs alongside artifacts. At scope, check actual/expected and source; at implementation, check mapping/specification and changed-file traceability; at verification and final closeout, check dated technical approval against real evidence and preserve prior failed/reopened events. Missing records, unsupported `VERIFIED` status, or invented user approval are **FAIL**. The auditor does not edit or approve its own implementation; the main agent records the auditor's actual verdict and evidence. Absence of an independent audit on a trivial edit is explicitly `not applicable`, never an invented PASS.
+
+## Why this architecture
+
+[Codex subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents) support project-scoped profiles and parallel read-heavy work, but each runs its own model/tools and adds cost. Their documented orchestration routes tasks and results through the parent; automatic continuous visibility into every parent and sibling action is not provided by this profile. [Codex hooks](https://learn.chatgpt.com/docs/hooks) can enforce narrow deterministic conditions, but `agent` hook handlers are currently skipped. A future `Stop` hook should be considered only after a runnable app and concrete, fast gate checks exist; it cannot judge visual fidelity from source code. For a true streaming observer that can steer active turns, a separate application would need to own the [App Server](https://learn.chatgpt.com/docs/app-server) event stream and use `turn/steer` or `turn/interrupt`. That additional controller is unjustified until evidence from agent evals shows the stage auditor is insufficient.
+
+## Audit causal learning
+
+Require each defect's evidence-backed responsibility, causal action/decision, missed check and concrete changed behavior. A cause that merely repeats the symptom, silently blames available references, or invents an internal motive is FAIL. Check linked lesson/eval IDs; NOT_RUN must remain explicit until traces and outcomes exist. Technical approval of a documentation change cannot certify future agent compliance or training of model weights.
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/zsh -lc "cat AGENTS.md; rg -n 'CHG-?007[78]|CHG007[78]|100ms|screenshot.*lost|lost.*screenshot|sparse|cadence' CHANGELOG.md LESSONS.md MEMORY.md docs/technology-viewer.md; rg --files docs/evidence/technology-viewer/canvas-width docs/evidence/technology-viewer/compact-header; cat docs/mobile.md" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+# Ramsider UNO — project rules
+
+Build the new product site from `design/references/`. **Design and implement for iPhone 17 Pro first, then verify iPhone 17 Pro Max; adapt responsively to every other screen size.** The real mobile page must match the supplied reference while loading quickly and working accessibly. One user request should produce one complete delivery: perform as many internal inspect → implement → verify → fix cycles as needed, then code review, performance work, and final re-verification. Visual slices are internal work units; finish and integrate the whole requested page or feature before delivery. Do not hand the user a first draft to find ordinary defects. “Done” means every applicable gate has passed with evidence, not that code compiles or that zero bugs have been assumed.
+
+These are the mandatory rules. [docs/discipline.md](docs/discipline.md) defines stage gates and failure routing; [CONTEXT_INDEX.md](CONTEXT_INDEX.md) routes to other details. For substantive project work, read the short [MEMORY.md](MEMORY.md) for current state, then only the topic files relevant to the task. `PROMPT.txt` and `SUMMARY.txt` are source records for unresolved questions; current user instructions and current assets take precedence over their examples or suggestions.
+
+## Mandatory change and defect log
+
+[CHANGELOG.md](CHANGELOG.md) is the authoritative record of **every logical project change and every discovered defect**, including code, assets, content, mappings, tests, documentation, configuration, user corrections and agent-discovered regressions. The agent maintains it **without a user reminder or a separate permission request**: create/update the entry at discovery, record the solution and changed files when applied, then append verification and approval before delivery. Search relevant IDs when resuming work; do not wait until the final answer to reconstruct the history.
+
+Use the journal's required fields and lifecycle. Record what was wrong/missing/different, expected result, reference/request, cause, solution, intermediate mapping/specification and how it was applied, changed paths, checks and evidence. Every claimed fix needs a dated **technical approval**, naming the verifier and its evidence (and independent auditor when applicable). `APPLIED_UNVERIFIED` is not `VERIFIED`; blocked/skipped checks cannot supply approval. Explicit user approval is a separate field: never invent it or require it for routine authorized fixes. Reopen a failed fix under the same ID and preserve the previous verdict and failure history. Track remaining defects as open entries, even when outside the current task.
+
+For every defect, explain the agent's observable mistaken decision/action, the missed check, responsibility with evidence, and a concrete behavior change. Distinguish genuinely changed/missing inputs from agent failures; do not blame the user merely because an input was absent. Unknown causes stay explicit. Link repeatable causes to LESSONS and an Agent Eval case with its actual run status; a fixed UI does not prove improved agent behavior. Before similar work or a fresh rebuild, retrieve those lessons and turn prevention into acceptance checks. Repository memory improves instructions/context, not model weights.
+
+Small edits may use a short entry, but cannot omit logging or proportionate verification. Group related edits under one logical ID; do not log every tool call. A delivery is incomplete if its journal records or required technical approval are missing. MEMORY describes current state; LESSONS explains reusable prevention; neither replaces CHANGELOG.
+
+## Work in stages
+
+1. **Understand before coding.** Check repository state, [MEMORY.md](MEMORY.md), relevant lessons, and the requested scope. Inspect `design/references/background.png` first, then `background_text.png`, then relevant fonts, button artwork, and source layers. Crop the 941 × 32,127 reference into legible sections. Map content, controls, art layers, section boundaries, and the source-to-CSS viewport scale; set observable acceptance checks and identify unverified product facts. Use [DESIGN.md](DESIGN.md) and [PRODUCT.md](PRODUCT.md). **Exit:** the target slice, assets, behavior, and comparison method are understood; unresolved inputs are explicit.
+2. **Implement one visual slice.** Build for the Pro baseline first, using the clean background as artwork and semantic HTML/CSS for text and controls. Keep text translatable and controls usable; no inert CTA or invented checkout. Reproduce reference copy in the local build while tracking unverified factual claims for publication. Use Next.js + React + strict TypeScript with the framework's own build toolchain; choose each route's rendering mode and Server/Client boundaries from its data and interaction needs. Do not revive the deleted app. Use [ARCHITECTURE.md](ARCHITECTURE.md). **Exit:** the slice renders and its required behavior works; continue through all slices in the requested scope.
+3. **Verify the actual pixels.** Open the running page in a real browser at the iPhone 17 Pro viewport, then verify Pro Max. Confirm the page's actual CSS layout width matches each test profile (the viewport meta tag must be correct). Wait for fonts/images and capture screenshots. Compare the Pro image to the calibrated reference crop; inspect Pro Max as a responsive target unless it has its own reference. The verifier must see screenshots, not only DOM/CSS measurements. Fix material differences and capture again. Use a tolerant pixel diff as a second signal when aligned. Use [docs/visual-qa.md](docs/visual-qa.md). **Exit:** no material mismatch remains in the supported target composition; otherwise keep iterating or report a concrete external blocker without saying “done.”
+4. **Check behavior and adaptation.** Test relevant clicks, hover, scroll, navigation, forms, menus, animation states, keyboard access, Arabic RTL, mobile safe areas, and representative tablet/desktop widths. Check overflow, clipping, crops, wraps, spacing, and tile seams. Use [docs/mobile.md](docs/mobile.md). **Exit:** required states work at the sizes they support.
+5. **Review and optimize.** For code changes, run Codex's native `/review` on the actual diff before delivery (CLI equivalent when needed), examine every actionable finding, fix it, and rerun affected checks. Run available type, lint, test, and production-build checks. Review component boundaries, duplication, accessibility, and unused code. Measure first render, LCP/INP/CLS where measurable, network bytes, JavaScript, layout shifts, and scroll smoothness in a production build. Reassess static, request-time server, and client rendering against measured latency, freshness, and client cost; change strategy where it improves the result. Fix meaningful problems, then repeat affected visual/browser checks. Use [QUALITY.md](QUALITY.md) and [PERFORMANCE.md](PERFORMANCE.md). **Exit:** no known material code, visual, accessibility, or speed regression remains; report if `/review` was unavailable rather than counting a manual pass as its result.
+6. **Learn and report evidence.** Complete the affected [CHANGELOG.md](CHANGELOG.md) entries with actual checks, technical approval and remaining open IDs. Refresh [MEMORY.md](MEMORY.md) when verified state, decisions, or blockers changed; record repeatable errors in [LESSONS.md](LESSONS.md). Use [docs/definition-of-done.md](docs/definition-of-done.md). State tested viewports, screenshot comparisons, interactions, build checks, performance measurements, remaining differences, and checks that could not run. Never claim pixel fidelity, WCAG compliance, a 95+ Lighthouse score, or completion without the corresponding evidence.
+
+**Do not mark a failed gate passed or delegate ordinary QA to the user.** Route the failure back to the stage that can fix it, repeat that stage, and rerun downstream checks the fix could affect. A blocked external dependency must not stop independent work. For UI work, the implement → browser screenshot → compare → fix → recheck loop is mandatory after each completed visual slice and after later appearance changes; repeat it on the assembled page. Work autonomously through all feasible checks; resolve routine choices from the repository and references, and seek only irreducible external facts or access while continuing independent work. For a small non-UI task, apply only relevant stages.
+
+For substantive project work, start one independent, non-editing **discipline auditor** alongside scope inspection. Reuse it at each applicable stage gate: scope before implementation; each completed UI slice's rendering and visual evidence; behavior/adaptation; code review and performance; and final integration, memory, and delivery evidence. Give it acceptance checks, changed files, browser images, command results, and any other agents' findings as relevant. Wait for its evidence-based pass/fail/blocked finding before closing a gate. Fix failures and re-audit affected gates; the main agent owns implementation and required checks. Use the project [auditor profile](.codex/agents/discipline_auditor.toml) when available and [supervision protocol](docs/supervision.md); if the profile cannot be selected, give a subagent the same non-editing assignment. Do not spawn it for a trivial edit. The auditor supplements real QA and native `/review`; it cannot certify missing evidence.
+
+## Standing constraints
+
+- Git: work on `main`. Create or switch to another working branch only on the user’s explicit command; do not infer authorization from the configured upstream, skill defaults or an old checkout. Check the current branch and exact destination before commit/push; push to `origin/main` for this project.
+
+- Working-context efficiency: throughout coding and QA, read only affected code and stage docs; inspect the long reference and screenshots through relevant crops at useful resolution. Keep full-size images, raw image data, long logs, and unrelated file dumps out of model context. Reuse recorded findings, bound tool output, and rerun only checks affected by a change. Never skip required QA to save tokens; stop once all applicable gates pass.
+- Primary devices: **iPhone 17 Pro (402 × 874 CSS px, DPR 3)** is the baseline; **iPhone 17 Pro Max (440 × 956 CSS px, DPR 3)** is the second required mobile target. These are emulation screen sizes, not fixed-height CSS requirements; Safari's visible area changes with browser chrome. Build mobile-first for these devices. All other phones, tablets, and desktops receive responsive adaptation, with no horizontal overflow or broken content. Preserve the supplied composition rather than substituting a generic design. See [docs/mobile.md](docs/mobile.md).
+- Locales: English, Russian, German, French, Spanish, Italian, Turkish, Arabic, Chinese, Japanese, and Korean. Use translation keys. Arabic needs correct RTL layout and behavior.
+- Accessibility: semantic content, keyboard and screen reader support, labels, visible focus, usable touch targets, WCAG AA contrast, and reduced-motion support. Verify affected behavior.
+- Product truth: the render is the visual/content target, not proof of prices, certifications, health claims, stock, or backend behavior. Preserve its visible narrative in the local rebuild; track unverified facts and confirm them before publication or functioning commerce. See [PRODUCT.md](PRODUCT.md).
+- Performance: the first viewport must become useful quickly. The two reference PNGs are each about 44 MB; never serve either as one production background. Derive responsive, compressed sections/tiles from the clean artwork, load the visible segment eagerly and later segments near the viewport, and avoid seams or blank gaps. Never lazy-load the LCP asset. Aim for 95+ mobile Lighthouse only with measured evidence.
+- Artwork color: **always load [artwork-color-pipeline](.agents/skills/artwork-color-pipeline/SKILL.md)** before adding or replacing Photoshop/raster references, cropping or resizing them for the site, converting PNG/PSD exports to WebP/AVIF, or changing how those raster assets are delivered. Apply its source-profile, decoded-color, alpha, browser and speed checks before delivery. CSS-only photo sizing/object-fit/fullscreen adaptation also loads its geometry contract; it does not require raster conversion. Ordinary text and vector-only edits do not trigger it.
+- Tooling: prefer native Codex capabilities when they provide the required evidence; use additional skills/tools for project-specific workflow or capabilities the native route lacks. Read the project [implementer skill](.agents/skills/pixel-perfect-ui-implementer/SKILL.md) when building UI and the [testing skill](.agents/skills/pixel-perfect-ui-testing/SKILL.md) when verifying it. Use the Codex browser for quick exploratory inspection when available; use the configured Playwright WebKit/DPR 3 profiles for required mobile screenshots and repeatable checks. `/review` is a native Codex command, not an installable skill. Load each skill when its stage needs it, not both up front. Broad design-generation skills must not replace the approved render. The requested Codex model and modes are session settings: check availability before claiming they are active. See [TOOLS.md](TOOLS.md) for other skills and limitations.
+- Self-improvement: after **every user correction and meaningful self-detected failure**, find the root cause, fix and recheck it, then decide whether the prevention generalizes. If repeatable, update [LESSONS.md](LESSONS.md) with **problem → cause → prevention** and consult the relevant lesson before similar work; do not promote one-off feedback into a global rule. Keep [MEMORY.md](MEMORY.md) current with verified project state and decisions, without duplicating the task transcript. Preserve user edits and design sources.
+
+If a required check is blocked, explain the concrete reason and do not present it as passed. Do not stop at the first implementation when the remaining stages can be completed.
+LESSONS.md:344:- **Scope-record follow-up /CHG0077:** Starting a parallel scope audit before creating its journal ID led to an absent-record FAIL, even though implementation had not started. Seed actual/expected/source/lifecycle at discovery before dispatching the scope audit; refine measured geometry afterward. Controlled EVAL-VIEWER NOT_RUN.
+LESSONS.md:346:## Technical gallery inherits the landing canvas width — CHG-0078
+LESSONS.md:349:- **Evidence retention follow-up:** Root launched another runner before copying its failed wheel screenshot; shared test-results was cleared. Archive failure artifacts before the next runner, use separate output directories for independent runs, and retain failure logs even if a screenshot is lost. The failed screenshot here is unavailable, not certified retained.
+MEMORY.md:11:CHG0077 user approved «да в одну строку лучше» and header is applied pendingfinalaudit:88→64px+safearea,18pxnav/16px narrow, dots in same row onleft,44disjointtargets. Final liveheader54labelgeometry+11keyboardcyclesPASS, allfourmobilecapturespixel-identicaltoapprovedcandidate; finalwidthsuite11PASS/5platformskips. Actual site header now64px. CHG0071 retainedmain pending paintREOPENED,0065physicalchromeunverified,0035faviconOPEN remain separate. Preserve unrelated .gitignore/background_old/tools cache.
+MEMORY.md:36:- Historical preceding media-readiness approval evidence under [media readiness](docs/evidence/media-loading/checks.md); [current mapping](docs/technology-viewer.md), [plan](docs/media-loading-plan.md). Final acceptance-complete.log160/160 PASS across Pro/Max WebKit and desktop Chromium/Firefox;14SSGbuild/type/lint PASS, latestnative-review-final.log clean. At that preceding approval, Pro/Max assembly screenshots matched the recorded SHA values; current width-revision assembly comparisons are recorded separately above. Independent final_audit scope/visual/behavior/review/performance/final record gates PASS. Native HTTPcache, metal stretch, bootstrap failures, contrast and legacy timing/fixture failures were repaired and rechecked; failed runs remain historical. Final cold useful first view268.3ms local /2007.1ms at4Mbps100ms4xCPU, LCP304/2044ms, CLS0, JS163821B, localscrollp9516.7ms0/159>33. Four originals20.5MB finish~44.3s after throttled navigation; allsix30.0MB~66.0s after opening at46.4s. Synthetic cached-open122/146ms is notINP; noLighthouse/field claim.
+MEMORY.md:94:Update this file when a **verified** project state, durable decision, or external dependency changes, including during long work before context is lost. Replace stale entries instead of appending a running diary. Date material changes and link to the code, command, screenshot, or document that supports them. Check volatile claims against the current files; current user instructions and evidence win over stale memory. Label assumptions and unverified facts explicitly; keep secrets, private data, generated logs, and temporary task notes out. When a repeatable error or user correction yields a prevention rule, update [LESSONS.md](LESSONS.md) instead. Reconcile any affected topic document so the sources do not contradict each other.
+docs/technology-viewer.md:3:## Landing width correction / CHG-0078 — 2026-10-09
+docs/technology-viewer.md:7:Pro402×874/Max440×956DPR3 both groups are decoded-pixel identical before/after. Desktop1440×900 lands/viewer/photo share941px and x249.5..1190.5. Geometry/nativebottom tests cover13width-height pairs including941/942boundary,1280/1440/1920,short/narrow/landscape. First suite10PASS/5explicit platformskips/1Firefoxwheel fixtureFAIL; repeated nativewheel cadence repaired and bothdesktoprechecks2PASS. Separate entry/swipe/offline/reopen checks12PASS. Actual sources remain941×1672; no asset, preload or runtime JS change. [Evidence](evidence/technology-viewer/canvas-width/). Primary finaltype/lint/build/native review clean; independent finalrecordapproval pending; do not infer all-site approval from this scoped correction.
+docs/technology-viewer.md:9:## Approved single-row compact header / CHG-0077 — 2026-10-09
+docs/technology-viewer.md:26:- Isolated production Chromium402×874DPR3: useful first view350.9ms loopback/2247.7ms at4Mbps100ms RTT setting+4×CPU; LCP388/2280ms; CLS0; transferred JS163586B. Cached ribbon open63/156.5ms is synthetic latency, not INP. Main/ribbon scroll p95≤16.8ms,0/159intervals>33ms each condition;0pageerrors. Existing six original PNGs total29952430B; at4Mbps full warm completion74.54s after navigation, HeatCore complete71.39s versus first photo71.38s. This preserves the requested payload/preload policy rather than promising immediate cold gallery opening. All-original delivery is unchanged; no codec or rendering-mode optimization justified for this request. Initial transfer snapshot precedes warm completion in the throttled run; do not confuse it with total eventual payload. See performance.json and build-final.log. No Lighthouse, field INP, physical Safari/Telegram chrome or blanket WCAG certification.
+docs/technology-viewer.md:41:Current correction evidence is in [vertical-bands](evidence/technology-viewer/width-analysis/vertical-bands/): final affected production suite115PASS/5explicit platform skips (`behavior-serial.log`), clean native review, build/type/lint, and isolated performance. Cold useful first view348.8ms loopback /2253.1ms at4Mbps100ms4×CPU; LCP128/2284ms,CLS0,JS164687B. Inner/main scroll p9516.7/16.8ms,0/159 intervals>33ms in both conditions. Cached gallery open130/185.2ms is synthetic, not INP. All six originals remain29952430B. No Lighthouse or physical Safari claim. [Apple iPhone18Pro/Max specifications](https://www.apple.com/ie/iphone-18-pro/specs/) list the same1206×2622/1320×2868 display resolutions as the tested geometry; DPR3 viewport emulation is a geometry proxy, not hardware/browser-chrome certification.
+docs/technology-viewer.md:200:| Measurement | Local loopback | 4Mbps/100ms network setting,4×CPU |
+CHANGELOG.md:138:| [CHG-0078](#chg-0078) | USER_CORRECTION / DEFECT | Desktop viewer shares landing canvas width | `APPLIED_UNVERIFIED` |
+CHANGELOG.md:139:| [CHG-0077](#chg-0077) | USER_CORRECTION / UI | Approved single-row compact technology header | `APPLIED_UNVERIFIED` |
+CHANGELOG.md:973:- **Correction / mapping / checks:** `VERIFIED`. Updated the individual target Y in [Elements Mapping](docs/elements-mapping.md#designer-icon-mapping--chg-0049) **before** changing `lib/icon-map.json`. Restored feature I09–I12 to source Y 5155/5358/5571/5778, preserving the accepted layout. Lowered the seven visible technology icons from the rejected position by individual 3–13 source px (Light & Sound +13, Water Sensor +11, Touch & App +9, Poly Armor +8, Triple Heat +7, Flow Guard +4, Smart Core +3). No icon source bytes, X, sizes, connectors, dividers or text changed. Updated two focused Playwright specs to assert mobile-equivalent visual gaps at desktop widths. Real WebKit DPR3 Pro/Pro Max/Arabic screenshots and 22 locale/device geometry states are recorded in [correction evidence](screenshots/actual/designer-icon-kit/README.md): gaps remain positive, no horizontal overflow. Focused tests 8/8 PASS after the final build; full suite 78 PASS / 18 expected SKIP. First focused attempt failed four desktop assertions because the test applied absolute mobile gap bounds to a scaled desktop canvas; fixed the test scale and reran. First full suite lost the local preview and could not launch browsers. A Firefox test synchronization defect exposed during the second full suite is tracked and resolved separately as [CHG-0050](#chg-0050); final full suite passed. Final `npm run typecheck`, `npm run lint`, `npm run build` (14 static pages), and `git diff --check` PASS. No production artwork or JavaScript-loading strategy changed; prior LCP 144ms/CLS0 loopback sample is historical and no new performance score is claimed. Native review first found untracked evidence, which was force-added; later findings about separate logging and all-visible-tile loading were resolved under CHG-0050; final review found no actionable regression. Updated `LESSONS.md`, `MEMORY.md` and `docs/agent-evals.md` to prevent uniform shifts and preserve accepted elements; controlled Agent Eval remains `NOT_RUN`. Customer acceptance `NOT_RECORDED`.
+CHANGELOG.md:1218:- **Post-numbering-removal checks / 2026-10-07:** Final28/28viewer,4/4explicit3021integration,26/26localewidth(104descriptionstates),type/lint/buildPASS. All8finalPro/Max screenshots refreshed, bottomswithoutfolio; updatedsourcepairs/contrast/browserRGB0immutable8/8. FinalproductionFCP/LCP100ms,TTFB29.5ms,CLS0,JS159398B(+1401Bvsaccepted),0initialtechrequests,ready150ms,scrollp9517.8ms/0>33/noerrors. Fontmap уточнён: familyOpenSans; viewerRegular400какSwipe/Next иlandingheadings, вторичныеlandingparagraphsLight300. Independentfinalvisual/behaviorverdictpending.
+CHANGELOG.md:1236:- **Checks / 2026-10-07:** Fresh production3021 build14SSG/type/lint PASS; viewer40/40 + strengthened failure/retry4/4 + integration4/4 across Pro/Max WebKit and Chromium/Firefox. All4 acceptedPNG/master/HTTP/hash/RGB checks PASS. All8 final actuals show0changedRGB channels vs accepted CHG0063; independent visualStage3 PASS after directly viewing8. Lowpriority all4parallel post-load, no requests beforeload/earlyopen exception, decodedoffline swipes/reopen/cache4instances and failureeviction tested. Native review noactionable defect. Local LCP120/CLS0/JS159607(+209)/scrollp9516.7/0>33; synthetic4Mbps+100ms warmed LCP340/load3187/CLS0.000222/p9516.7 versus disabledwarmcontrol336/3177.5/sameCLS/16.8. Original18.9MB transfers complete~52.75sec duringcoldlongscroll; cache switch18–34mslocal/25–34msconstrained. This is a bandwidth tradeoff, not a guarantee allfiles finish before immediateopen. Evidence docs/evidence/technology-viewer/async-warm/checks.md. Native/screenshot proof retained; independent behavior/review/final record verdicts pending. ExistinguserIAB3021 refreshed and observed actualviewer. No new agentdefect/lesson/evalrun; prior optionalmodal loadingpolicy explicitly superseded by user.
+CHANGELOG.md:1347:- **Production measurements / 2026-10-07:** Corrected localFCP/LCP188ms,CLS0,JS160697B(+1090accepted),scrollp9516.8/no>33,cached27.3–33.1ms; actualclick→observeddecoded/twoRAF120ms excludes3.608s automation setup. Synthetic4Mbps/100msFCP/LCP328ms,CLS0.000222,scroll16.7/no>33,cached29.1–32.8ms,actualclick133ms. First2 lowpriority startafterload, remaining4 onopen parallel, sixretainedinstances/noerrors/29954230Btransfer. Synthetic firstpairfinishes36.98s/all6observed75.44s; no immediatecoldreadiness/fieldINP/Lighthouse claim. Initial flawedinstrumentation remains history, corrected run exit0.
+CHANGELOG.md:1419:- **Final re-verification after cleanup / 2026-10-08:** Fresh production3022; final acceptance119PASS/5 explicit platform skips (124 discovered), final assembly/focus integration8/8PASS; width192 source-plane cases across4profiles/sixslides/eightviewports, all11locale fit264states, actual Chromium EN/RTL touch pan/horizontal/pending lock and desktop Chrome/Firefox wheel, all-profile keyboard/focus/reset/error/close/preload/native cache/unchanged six original pixels. Pro/Max+short+landscape/desktop actuals inspected; direct IAB397×836 photo/cutout width both372.5234375, ratio0.562803928, no side bands. Baseline Pro/Max diff0.4463/0.4222% only explicit region-focus edges; eight assembly crops rawexact, MaxfullSHAexact, ProfullSHAdiff not treated as whole-file identity. Native finalreviewexit0/no actionable findings, aftercleanup14staticbuild/type/lint PASS. Cold local/4Mbps100ms4xCPU useful264.2/2023.1ms, LCP296/2068,CLS0, JS164317B (+496B), cachedactualclick-to-paint111.1/154.3ms synthetic notINP, innerp9516.7ms0/159>33 each, mainp9516.7ms0/159>33 local. Original4/6photos20.5/30MB retained; throttled44.275/66.046s completion unchanged; no Lighthouse/physical iOS claim. Evidence/report: docs/technology-viewer.md#width-verification. Current docs/media-loading-plan.md geometry updated to full photo width/scroll acceptance; loading policy unchanged. Primary applicable checks complete; independent Stage4/Stage5/final record approval PENDING; CHG0070 OPEN until that verdict. No new branch, asset processing, commit/push/deployment. UseracceptanceNOT_RECORDED; EVAL-VIEWERcontrolledrunNOT_RUN.
+CHANGELOG.md:1442:- **Review/performance verification / 2026-10-08:** Native Codex CLI actual-diff review exit0, no actionable finding (`vertical-bands/native-review.log`). Final production build14static/typecheck/lint exit0 (`build.log`, `typecheck.log`, `lint.log`). Isolated current production3024 performance (`performance.mjs/json/log`): cold useful348.8ms loopback /2253.1ms at4Mbps100ms4×CPU; LCP128/2284ms,CLS0,JS164687B, no page errors. Inner/main159-frame scroll p9516.7/16.8ms,0intervals>33ms in both conditions. Cached open130/185.2ms is synthetic, not INP; all6 originals29952430B unchanged. SSG/server main and small client viewer boundaries remain appropriate; no new client code or data freshness need. No Lighthouse/physical iOS claim.
+CHANGELOG.md:1483:- **Final measured performance / 2026-10-08:** Final build cold Chromium402×874 DPR3: useful268.3ms,LCP304ms,CLS0,JS163821B,scrollp9516.7ms0/159>33. Synthetic4Mbps/100ms4xCPU: useful2007.1ms,LCP2044ms,CLS0,longtask73ms. Four originals20,493,582B begin3191ms afterload3187ms, finish44300ms; remainingtwo begin46376ms onopen, six total29,952,430B finish66036ms. Cached-open122.3/146.1ms synthetic, notINP; no Lighthouse/physical hardware claim. performance.json/performance-complete.log exit0.
+CHANGELOG.md:1662:## CHG-0077 — Компактная шапка: предварительный просмотр для согласования
+CHANGELOG.md:1673:## CHG-0078 — Technical viewer must share the landing canvas width
+CHANGELOG.md:1678:- **Solution/mapping before application:** one CSS width variable for main and dialog, centered dialog margin; original941×1672 planes and source coordinates remain proportional; no raster or preload changes. Compact header CHG0077 stays browser-only preview pending approval.
+CHANGELOG.md:1682:- **CHG0078 Stage1:** independent compact_header_preview_audit PASS,2026-10-09; actual landing941 cap and photo equality target confirmed. Shared root width applied in CSS; affected suite compares landing/dialog/stage/source bounds across cap and uses new evidence directory.
+CHANGELOG.md:1684:- **CHG0078 behavior failure/2026-10-09:** firstwidthsuite10PASS/5APIskip/1FAIL, Firefox nativewheel return ended at370px when default5s poll expired on enlarged desktop source range. Root moved fixture615→1440 but retained default sparse polling from smaller range; missed adapting repeated real wheel cadence to observed range. No product scroll blocker inferred. Preserve browser-tests.log/failure image; use bounded100ms real-wheel polling with10s limit in both directions, then recheck affected wheel on both desktops. Existing repeatable wheel lesson/eval applies; controlledNOT_RUN.
+CHANGELOG.md:1686:- **CHG0078 evidence retention failure/2026-10-09:** Root launched reruns before copying firstfailedwheel screenshot, and runner auto-cleared sharedtest-results. Original failure PNG is unavailable; browser-tests.log retains exact370px assertion and verdict. Responsibility AGENTsequencing; missedarchive-before-next-run. LESSON/EVAL prevention now requires archivefirst or uniqueoutput. Do not claim failedimage retained; rechecks have real nativewheel evidence, earlier failure not retroactivelypassed.
+CHANGELOG.md:1687:- **CHG0078 Stage3 visual:** independent compact_header_preview_audit PASS/2026-10-09 after viewing mobilebothgroups, desktop941bounds, assembly and actualcompactproposal; independently decoded allfourmobilepairsidentical. Primary also inspected actualimages. Headerpreview54geometry and11focuscyclesPASS; implementation verification stillpendingreview/performance/finalaudit.
+CHANGELOG.md:1689:- **CHG0078 Stage5 primary evidence/2026-10-09:** npmrunbuild PASS14static routes; finaltypecheck/lint PASS,gitdiffcheck PASS. NativeCodex actualuncommittedreview thenfinalreview afterwheel adaptation bothclean/noactionablefindings; its own browserlaunch sandboxblocked, separate primary realWebKit/Chromium/Firefox evidence supplies runtimecheck. Production3031 coldChromium402DPR3 useful249.1/2245.7ms,LCP280/2276,CLS0,JS163586B unchanged; cachedopen63.3/150.8ms syntheticnotINP; both main/innerp95≤16.8ms,0/159>33ms. Local measurement overlapped other ongoing checks; throttled subsequentcontext4Mbps100ms4xCPU, not physicalSafari/field/Lighthouse. Evidence performance.json+summary,finalreview/type/lint/build logs. No runtimeJS/sourcePNG/preload changes; allsixremain29952430B andpost-loadwarm/offline checksPASS. No reason to change currentstatic/server/client strategy for CSS cap. IndependentStage5 and finalrecordapproval pending.
+CHANGELOG.md:1691:- **CHG0077 explicit user approval/2026-10-09:** «да в одну строку лучше» approves the shown single-row compact proposal. Scope expands from browser-only preview to actual64px header implementation; originalpendingapproval history retained, now APPLIED_UNVERIFIED pending realproductionrecheck/build/review. Same18pxnav/16pxnarrow/28pxCloseglyph,44disjointhits, originalsafearea. No push/deployment requested.
+CHANGELOG.md:1693:- **CHG0077/0078 finalproduction recheck/2026-10-09:** production3032 applies approvedsingle64row and shared941cap. Build14static/finaltype/lint/nativeCodexreviewclean; reviewer freshbrowser sandboxblocked, primary suppliedrealruntimeevidence. Approved-browser-tests.log11PASS/5explicitAPI skips (13viewportpairs,all6planes,11locales,nativewheel/nativeChromiumtouchpending/RTL), approved-check.log54+11PASS against actualstyles WITHOUTinjection; finalbothgroup402/440capturessamepixelsasapprovedcandidate (approved-pixels.json). Geometrydesktop941x249.5 same main; stable finalassembly recaptured. Historical width-only mobile pixelidentity remainsvalidbeforeheaderchange; finalheaderintentional24pxshift is approved. No material browsererror. Scopedindependentaudit/technicalapproval pending, originalFAILhistory preserved.
+docs/evidence/technology-viewer/compact-header/comparison-402.png
+docs/evidence/technology-viewer/compact-header/candidate.css
+docs/evidence/technology-viewer/compact-header/approved-arabic-0.png
+docs/evidence/technology-viewer/compact-header/check.log
+docs/evidence/technology-viewer/compact-header/approved-arabic-1.png
+docs/evidence/technology-viewer/compact-header/check.mjs
+docs/evidence/technology-viewer/compact-header/checks.json
+docs/evidence/technology-viewer/compact-header/approved-checks.json
+docs/evidence/technology-viewer/compact-header/comparison-440.png
+docs/evidence/technology-viewer/compact-header/approved-pixels.json
+docs/evidence/technology-viewer/compact-header/arabic-0.png
+docs/evidence/technology-viewer/compact-header/candidate-402-0.png
+docs/evidence/technology-viewer/compact-header/candidate-402-1.png
+docs/evidence/technology-viewer/compact-header/arabic-1.png
+docs/evidence/technology-viewer/compact-header/approved-check.log
+docs/evidence/technology-viewer/compact-header/candidate-440-0.png
+docs/evidence/technology-viewer/compact-header/candidate-1440-1.png
+docs/evidence/technology-viewer/compact-header/candidate-1440-0.png
+docs/evidence/technology-viewer/compact-header/candidate-440-1.png
+docs/evidence/technology-viewer/canvas-width/mobile-pixels.json
+docs/evidence/technology-viewer/canvas-width/build.log
+docs/evidence/technology-viewer/canvas-width/after.log
+docs/evidence/technology-viewer/canvas-width/approved-performance.json
+docs/evidence/technology-viewer/canvas-width/assembly-402-hero.png
+docs/evidence/technology-viewer/canvas-width/iphone-17-pro-webkit-adapt-844x390.png
+docs/evidence/technology-viewer/canvas-width/desktop-chromium-adapt-844x390.png
+docs/evidence/technology-viewer/canvas-width/browser-tests.log
+docs/evidence/technology-viewer/canvas-width/desktop-firefox-adapt-320x568.png
+docs/evidence/technology-viewer/canvas-width/iphone-17-pro-max-webkit-adapt-320x568.png
+docs/evidence/technology-viewer/canvas-width/iphone-17-pro-max-webkit-adapt-1440x900.png
+docs/evidence/technology-viewer/canvas-width/final-440-1.png
+docs/evidence/technology-viewer/canvas-width/wheel-recheck.log
+docs/evidence/technology-viewer/canvas-width/native-review.log
+docs/evidence/technology-viewer/canvas-width/assembly-440-hero.png
+docs/evidence/technology-viewer/canvas-width/final-440-0.png
+docs/evidence/technology-viewer/canvas-width/iphone-17-pro-webkit-ar-0.png
+docs/evidence/technology-viewer/canvas-width/desktop-chromium-ar-1.png
+docs/evidence/technology-viewer/canvas-width/after-440-0.png
+docs/evidence/technology-viewer/canvas-width/build-approved-header.log
+docs/evidence/technology-viewer/canvas-width/iphone-17-pro-max-webkit-adapt-375x812.png
+docs/evidence/technology-viewer/canvas-width/after-440-1.png
+docs/evidence/technology-viewer/canvas-width/final.json
+docs/evidence/technology-viewer/canvas-width/desktop-firefox-adapt-375x812.png
+docs/evidence/technology-viewer/canvas-width/iphone-17-pro-webkit-ar-1.png
+docs/evidence/technology-viewer/canvas-width/desktop-chromium-ar-0.png
+docs/evidence/technology-viewer/canvas-width/before-1440-1.png
+docs/evidence/technology-viewer/canvas-width/assembly-402-technology.png
+docs/evidence/technology-viewer/canvas-width/after-1440-1.png
+docs/evidence/technology-viewer/canvas-width/before.log
+docs/evidence/technology-viewer/canvas-width/native-touch-arabic.png
+docs/evidence/technology-viewer/canvas-width/approved-performance.log
+docs/evidence/technology-viewer/canvas-width/final.log
+docs/evidence/technology-viewer/canvas-width/lint-approved-header.log
+docs/evidence/technology-viewer/canvas-width/after-1440-0.png
+docs/evidence/technology-viewer/canvas-width/iphone-17-pro-max-webkit-adapt-768x1024.png
+docs/evidence/technology-viewer/canvas-width/before-1440-0.png
+docs/evidence/technology-viewer/canvas-width/approved-browser-tests.log
+docs/evidence/technology-viewer/canvas-width/discipline-stage4.log
+docs/evidence/technology-viewer/canvas-width/lint-final.log
+docs/evidence/technology-viewer/canvas-width/assembly-1440-technology.png
+docs/evidence/technology-viewer/canvas-width/after-402-0.png
+docs/evidence/technology-viewer/canvas-width/iphone-17-pro-max-webkit-ar-1.png
+docs/evidence/technology-viewer/canvas-width/iphone-17-pro-max-webkit-ar-0.png
+docs/evidence/technology-viewer/canvas-width/performance-summary.json
+docs/evidence/technology-viewer/canvas-width/native-touch-ready.png
+docs/evidence/technology-viewer/canvas-width/after-402-1.png
+docs/evidence/technology-viewer/canvas-width/approved-performance.mjs
+docs/evidence/technology-viewer/canvas-width/final-402-1.png
+docs/evidence/technology-viewer/canvas-width/final-402-0.png
+docs/evidence/technology-viewer/canvas-width/performance.json
+docs/evidence/technology-viewer/canvas-width/assembly-402-faq.png
+docs/evidence/technology-viewer/canvas-width/desktop-firefox-ar-0.png
+docs/evidence/technology-viewer/canvas-width/before-440-1.png
+docs/evidence/technology-viewer/canvas-width/after.json
+docs/evidence/technology-viewer/canvas-width/desktop-firefox-adapt-844x390.png
+docs/evidence/technology-viewer/canvas-width/iphone-17-pro-max-webkit-adapt-844x390.png
+docs/evidence/technology-viewer/canvas-width/before-440-0.png
+docs/evidence/technology-viewer/canvas-width/desktop-firefox-ar-1.png
+docs/evidence/technology-viewer/canvas-width/desktop-chromium-adapt-768x1024.png
+docs/evidence/technology-viewer/canvas-width/desktop-chromium-adapt-320x568.png
+docs/evidence/technology-viewer/canvas-width/iphone-17-pro-webkit-adapt-320x568.png
+docs/evidence/technology-viewer/canvas-width/native-review-approved-header.log
+docs/evidence/technology-viewer/canvas-width/typecheck.log
+docs/evidence/technology-viewer/canvas-width/native-touch-pending.png
+docs/evidence/technology-viewer/canvas-width/desktop-chromium-adapt-1440x900.png
+docs/evidence/technology-viewer/canvas-width/iphone-17-pro-webkit-adapt-375x812.png
+docs/evidence/technology-viewer/canvas-width/desktop-chromium-adapt-375x812.png
+docs/evidence/technology-viewer/canvas-width/native-review-final.log
+docs/evidence/technology-viewer/canvas-width/capture.mjs
+docs/evidence/technology-viewer/canvas-width/performance.mjs
+docs/evidence/technology-viewer/canvas-width/native-touch-scrolled.png
+docs/evidence/technology-viewer/canvas-width/typecheck-approved-header.log
+docs/evidence/technology-viewer/canvas-width/assembly-1440-faq.png
+docs/evidence/technology-viewer/canvas-width/viewer-behavior.log
+docs/evidence/technology-viewer/canvas-width/final-1440-0.png
+docs/evidence/technology-viewer/canvas-width/lint.log
+docs/evidence/technology-viewer/canvas-width/assembly-1440-hero.png
+docs/evidence/technology-viewer/canvas-width/desktop-firefox-adapt-1440x900.png
+docs/evidence/technology-viewer/canvas-width/final-1440-1.png
+docs/evidence/technology-viewer/canvas-width/typecheck-final.log
+docs/evidence/technology-viewer/canvas-width/iphone-17-pro-webkit-adapt-768x1024.png
+docs/evidence/technology-viewer/canvas-width/assembly-440-technology.png
+docs/evidence/technology-viewer/canvas-width/assembly-440-faq.png
+docs/evidence/technology-viewer/canvas-width/desktop-firefox-adapt-768x1024.png
+docs/evidence/technology-viewer/canvas-width/before-402-1.png
+docs/evidence/technology-viewer/canvas-width/assembly-contact.png
+docs/evidence/technology-viewer/canvas-width/performance.log
+docs/evidence/technology-viewer/canvas-width/before-402-0.png
+docs/evidence/technology-viewer/canvas-width/iphone-17-pro-webkit-adapt-1440x900.png
+docs/evidence/technology-viewer/canvas-width/before.json
+# iPhone 17 Pro-first and responsive verification
+
+Read during stage 4 of [discipline.md](discipline.md). The **base layout is for iPhone 17 Pro**, with iPhone 17 Pro Max as the second required target. Build the page at those mobile widths before adapting it to other phones, tablets, and desktops. Apple lists the screens as [1206 × 2622 physical pixels for Pro](https://support.apple.com/en-us/125090) and [1320 × 2868 for Pro Max](https://support.apple.com/en-us/125091); at 3×, use **402 × 874** and **440 × 956 CSS px** as reproducible Playwright screen profiles. This is an emulation baseline, not a fixed content-height requirement. Safari browser chrome, keyboard, and safe areas change the visible area; verify those states separately on a real device or simulator when available.
+
+## Viewport order
+
+| Priority | Profile | Purpose |
+| --- | --- | --- |
+| 1 | iPhone 17 Pro, 402 × 874 CSS px, DPR 3, mobile WebKit/touch | Compose and visually verify each reference-led slice; run critical interactions and production performance checks. |
+| 2 | iPhone 17 Pro Max, 440 × 956 CSS px, DPR 3, mobile WebKit/touch | Verify the second target's typography, art crop, section rhythm, controls, safe areas, and long scroll. |
+| 3 | Other phones, e.g. 375 × 812, 390 × 844, 430 × 932 | Responsive interpolation and smaller-screen stress; no device-specific layout fork unless the content requires it. |
+| 4 | Tablet, e.g. 768 × 1024 and 1024 × 768 | Responsive layout, orientation, crop, and interaction. |
+| 5 | Desktop, e.g. 1280 × 800, 1440 × 900, 1920 × 1080 | Complete responsive adaptation, keyboard/pointer behavior, and high-width composition. |
+
+The 941 px-wide reference bitmap is the visual source, not a CSS viewport. Calibrate its crop/scale against the Pro screenshot as described in [visual-qa.md](visual-qa.md). Only call Pro Max or another size a direct pixel match if a comparable reference exists; otherwise report a responsive composition check. Use content-driven breakpoints. The source brief's `640/768/1024/1280/1536` values are examples, not mandatory breakpoints.
+
+Before interpreting any mobile screenshot, assert the page's actual `window.innerWidth` and `window.devicePixelRatio`. With `meta name="viewport" content="width=device-width, initial-scale=1"`, the installed WebKit profiles were verified at 402/440 CSS px and DPR 3. On a blank page without the tag, WebKit reported a 980 px layout viewport; a screenshot from that state is not evidence of the target mobile composition.
+
+At every relevant width, inspect horizontal overflow, overlap, clipping, line breaks, margins, art/product crops, tile seams, and layout jumps. Check menu, CTA, film/play, comparison, FAQ, forms, and sticky behavior when present. Scroll the entire page to find late tiles, gaps, and jank. Long translated strings and alternate scripts must remain usable. Verify `env(safe-area-inset-*)`, `svh`/`dvh`, focus, and touch targets where the actual layout needs them; do not bake the nominal 874/956 screen height into full-screen sections. For Arabic, test RTL text, alignment, and direction-sensitive controls without mirroring photography indiscriminately.
+
+After desktop or shared CSS/font/asset changes, recheck **both** iPhone 17 Pro profiles. A desktop pass cannot close a mobile visual gate.
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/zsh -lc 'cat docs/evidence/technology-viewer/canvas-width/approved-browser-tests.log; cat docs/evidence/technology-viewer/canvas-width/viewer-behavior.log; cat docs/evidence/technology-viewer/compact-header/approved-check.log; cat docs/evidence/technology-viewer/compact-header/approved-pixels.json; cat docs/evidence/technology-viewer/canvas-width/wheel-recheck.log; tail -55 docs/evidence/technology-viewer/canvas-width/browser-tests.log' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+
+Running 16 tests using 1 worker
+
+(node:10496) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access (5.6s)
+  ✓   2 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:30:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (6.4s)
+  -   3 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  -   4 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+(node:10931) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access (4.1s)
+  ✓   6 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:30:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (5.8s)
+  -   7 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  -   8 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+(node:11122) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [desktop-chromium] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access (3.9s)
+  ✓  10 [desktop-chromium] › tests/e2e/technology-width.spec.ts:30:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (12.2s)
+  ✓  11 [desktop-chromium] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (2.2s)
+  ✓  12 [desktop-chromium] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download (6.5s)
+(node:12126) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  13 [desktop-firefox] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access (3.8s)
+  ✓  14 [desktop-firefox] › tests/e2e/technology-width.spec.ts:30:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (6.1s)
+  ✓  15 [desktop-firefox] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (2.4s)
+  -  16 [desktop-firefox] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+
+  5 skipped
+  11 passed (1.1m)
+
+Running 12 tests using 1 worker
+
+(node:3125) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (2.6s)
+  ✓   2 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (1.7s)
+  ✓   3 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:157:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (1.4s)
+(node:3191) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (1.2s)
+  ✓   5 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (1.4s)
+  ✓   6 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:157:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (1.2s)
+(node:3218) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (872ms)
+  ✓   8 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (1.8s)
+  ✓   9 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:157:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (1.1s)
+(node:3254) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (2.2s)
+  ✓  11 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (2.1s)
+  ✓  12 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:157:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (1.2s)
+
+  12 passed (23.0s)
+54 label/geometry cases PASS, 11 locale navigation/keyboard/Close cycles PASS
+[
+  {
+    "width": 402,
+    "group": 0,
+    "approvedPreviewEqualsLivePixels": true
+  },
+  {
+    "width": 402,
+    "group": 1,
+    "approvedPreviewEqualsLivePixels": true
+  },
+  {
+    "width": 440,
+    "group": 0,
+    "approvedPreviewEqualsLivePixels": true
+  },
+  {
+    "width": 440,
+    "group": 1,
+    "approvedPreviewEqualsLivePixels": true
+  }
+]
+Running 2 tests using 1 worker
+
+(node:3039) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop-chromium] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (2.8s)
+(node:3123) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop-firefox] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (4.6s)
+
+  2 passed (9.7s)
+  ✓   1 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access (4.7s)
+  ✓   2 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:30:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (6.5s)
+  -   3 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  -   4 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+(node:1779) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access (4.1s)
+  ✓   6 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:30:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (6.1s)
+  -   7 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  -   8 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+(node:2032) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [desktop-chromium] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access (2.7s)
+  ✓  10 [desktop-chromium] › tests/e2e/technology-width.spec.ts:30:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (12.7s)
+  ✓  11 [desktop-chromium] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (7.8s)
+  ✓  12 [desktop-chromium] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download (6.4s)
+(node:2474) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  13 [desktop-firefox] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access (3.3s)
+  ✓  14 [desktop-firefox] › tests/e2e/technology-width.spec.ts:30:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (5.7s)
+  ✘  15 [desktop-firefox] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (10.7s)
+(node:2737) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  -  16 [desktop-firefox] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+
+
+  1) [desktop-firefox] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 370
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      45 |
+      46 | test('native desktop wheel scrolls the ribbon without moving landing or switching groups',async({page},info)=>{
+    > 47 |  test.skip(!!info.project.use.isMobile,'Native mobile pan is covered by Chromium protocol plus WebKit pointer/keyboard checks.');await page.setViewportSize({width:1440,height:900});await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');const y=await page.evaluate(()=>scrollY);const scroller=viewer.locator('.technology-viewer__scroll');await scroller.hover();await page.mouse.wheel(0,500);await expect.poll(()=>scroller.evaluate(e=>e.scrollTop)).toBeGreaterThan(100);await expect.poll(async()=>{await page.mouse.wheel(0,1200);return scroller.evaluate(e=>Math.abs(e.scrollHeight-e.clientHeight-e.scrollTop));}).toBeLessThan(1);await expect(viewer).toHaveAttribute('data-group','HeatCore');expect(await page.evaluate(()=>scrollY)).toBe(y);await expect.poll(async()=>{await page.mouse.wheel(0,-1200);return scroller.evaluate(e=>e.scrollTop);}).toBe(0);
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ^
+      48 | });
+      49 |
+      50 | test('native touch pans vertically, swipes horizontally and freezes during download', async ({ browser }, info) => {
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/technology-width.spec.ts:47:944
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/technology-width-native-de-4d9db-landing-or-switching-groups-desktop-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/technology-width-native-de-4d9db-landing-or-switching-groups-desktop-firefox/error-context.md
+
+  1 failed
+    [desktop-firefox] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  5 skipped
+  10 passed (1.3m)
+
+hook: PostToolUse
+hook: PreToolUse Completed
+hook: PreToolUse Completed
+exec
+/bin/zsh -lc "sed -n '1662,1702p' CHANGELOG.md; sed -n '332,353p' LESSONS.md; sed -n '1,18p' MEMORY.md; sed -n '1,18p' docs/technology-viewer.md" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+## CHG-0077 — Компактная шапка: предварительный просмотр для согласования
+
+- **Дата / источник / тип / статус:** 2026-10-09; пользователь сообщает о недовольстве заказчика и просит сначала показать аккуратную уменьшенную версию; USER_CORRECTION / PREVIEW, OPEN. Входной снимок: /var/folders/zz/rg7fqt550kq6vr4fn6b2h7vw0000gn/T/codex-clipboard-e46a90e0-ac95-4836-a009-c3c47217f565.png.
+- **Было → ожидается:** Шапка сайта88CSSpx+safe-area top, два ряда44px, текст20.2pxPro/22.1pxMax → умеренно меньше высота/текст, читаемость и удобные непересекающиеся нажатия сохранены. Внешняя панель Telegram/addressbar в снимке отдельно; CSSсайта не управляет её высотой. Пользователь хочет reviewablepreview прежде применения.
+- **Причина / ответственность / пропущенная проверка:** INPUT_CHANGE: прошлое требование сохраняло верхние controls «как было», CHG0076preview принят; новый запрос уточняет плотность. ObservableAGENTdecision retainedtwo44rows88px; раньше плотность под Telegram не была отдельным acceptancecriterion, физическийchrome0065не сертифицирован. Не приписывать CSSвысоте всю обведённую системную область. Одноразовая densitypreference не становится глобальным правилом; используем существующий lesson0065 про nativechrome и отдельное измерение targetrectangles.
+- **Предложение / применение:** browser-only CSS на неизменённой production3030: одна64pxстрока+тотжеenvsafeareatop; две исходные интерактивные точки слева в44×44targets, navcenter18px (narrow320 mayneed16px), Closeglyph28px в44target. Два stacked44pxряда без пересечения физически не могут быть ниже88px. Это кандидат для согласования; app/globals.css/components/tests/publicPNG не изменять. Арт941×1672,sourcecopy/titlecoordinates,scroll/groups/retainedlowpriorityPNGpolicy прежние. До userapproval нет публикации/commit/push.
+- **Проверки / файлы / критерии:** PreviewCSS/capture/results/screenshots в docs/evidence/technology-viewer/compact-header/. Реальный WebKitPro402×874/Max440×956DPR3 before/after обоих групп после retainedDOMdecode/fonts/paint; photo width/aspect/body unchanged. Все11localesgroup labels читабельны, targets>=44×44,доступныбезпересечения/clipping; narrow320/375,shortheight,landscape,tablet/desktop. Clickdots/Next/Previous/Close, keyboardfocus/scroll. Предварительный макет не равен внедрённому/prodrelease; sourcebuild/review/performance нового runtime N/A пока нет его изменений. Журнал/MEMORY/existingviewer topic отражают pendingapproval, PNG/assetdelivery не меняются.
+- **Аппрув:** technicalpreviewPENDING, independentauditorapplicable; explicituserapprovalPENDING по его текущему запросу. CHG0071mainpendingpaintREOPENED/0065physicalchromeunverified/0035faviconOPEN вне области. ControlledEVAL-VIEWERNOT_RUN.
+- **Stage1 record failure /2026-10-09:** compact_header_preview_audit FAIL: initial scopeauditor started before root wrote this ID, so recordabsent when audited. AGENTsequencing mistake, missedjournal-at-discovery gate; no prototype/siteedit happened. Recordcreated before any previewmutation; scope re-auditrequired. Concreteprevention: seedactual/expected/source/status entrybefore parallel scopeauditor, then refinegeometry. Existingrecordclosurelesson/EVAL prevention updated; controlledNOT_RUN. EarlierFAILpreserved,not countedPASS.
+
+<a id="chg-0078"></a>
+## CHG-0078 — Technical viewer must share the landing canvas width
+
+- **Date/source/type/status:** 2026-10-09; explicit user correction, DEFECT, APPLIED_UNVERIFIED. Desktop/laptop technical photo expands beyond the centered landing canvas.
+- **Actual → expected:** `.canvas` max-width941px versus dialog100vw/max-width:none → viewer and every proportional photo use the same min(viewport,941px) width and centered horizontal bounds as landing; mobile402/440 remains unchanged. This implements the current landing-width contract, not a newly invented mobile cap.
+- **Cause/responsibility/missed check:** AGENT implemented unconditional100vw in CHG0076 and inherited viewport-width tests from earlier viewer revisions. Desktop checks measured photo against viewport rather than actual landing canvas; user correction exposes incorrect acceptance target. Root owns the geometry and missed comparison. Prevention: shared canvas cap and browser equality of landing/viewer/photo horizontal bounds above and below the cap; link EVAL-VIEWER, controlled run NOT_RUN.
+- **Solution/mapping before application:** one CSS width variable for main and dialog, centered dialog margin; original941×1672 planes and source coordinates remain proportional; no raster or preload changes. Compact header CHG0077 stays browser-only preview pending approval.
+- **Paths/checks:** app/globals.css, existing tests/e2e/technology-width.spec.ts; existing viewer topic/MEMORY/LESSONS/eval. WebKitPro/MaxDPR3 before/after comparisons, desktop1280/1440/wider at both groups, actual native wheel/bottom, keyboard/close, Arabic and11locale controls, type/lint/build/native review, production bytes/LCP/CLS and final settled screenshots. No commit/push for this new work.
+- **Approval:** technicalPENDING; independent scope/visual/behavior/review-performance/final audit pending. CHG0071 REOPENED, physicalchrome0065 andfavicon0035 remain outside this correction.
+
+- **CHG0078 Stage1:** independent compact_header_preview_audit PASS,2026-10-09; actual landing941 cap and photo equality target confirmed. Shared root width applied in CSS; affected suite compares landing/dialog/stage/source bounds across cap and uses new evidence directory.
+
+- **CHG0078 behavior failure/2026-10-09:** firstwidthsuite10PASS/5APIskip/1FAIL, Firefox nativewheel return ended at370px when default5s poll expired on enlarged desktop source range. Root moved fixture615→1440 but retained default sparse polling from smaller range; missed adapting repeated real wheel cadence to observed range. No product scroll blocker inferred. Preserve browser-tests.log/failure image; use bounded100ms real-wheel polling with10s limit in both directions, then recheck affected wheel on both desktops. Existing repeatable wheel lesson/eval applies; controlledNOT_RUN.
+
+- **CHG0078 evidence retention failure/2026-10-09:** Root launched reruns before copying firstfailedwheel screenshot, and runner auto-cleared sharedtest-results. Original failure PNG is unavailable; browser-tests.log retains exact370px assertion and verdict. Responsibility AGENTsequencing; missedarchive-before-next-run. LESSON/EVAL prevention now requires archivefirst or uniqueoutput. Do not claim failedimage retained; rechecks have real nativewheel evidence, earlier failure not retroactivelypassed.
+- **CHG0078 Stage3 visual:** independent compact_header_preview_audit PASS/2026-10-09 after viewing mobilebothgroups, desktop941bounds, assembly and actualcompactproposal; independently decoded allfourmobilepairsidentical. Primary also inspected actualimages. Headerpreview54geometry and11focuscyclesPASS; implementation verification stillpendingreview/performance/finalaudit.
+
+- **CHG0078 Stage5 primary evidence/2026-10-09:** npmrunbuild PASS14static routes; finaltypecheck/lint PASS,gitdiffcheck PASS. NativeCodex actualuncommittedreview thenfinalreview afterwheel adaptation bothclean/noactionablefindings; its own browserlaunch sandboxblocked, separate primary realWebKit/Chromium/Firefox evidence supplies runtimecheck. Production3031 coldChromium402DPR3 useful249.1/2245.7ms,LCP280/2276,CLS0,JS163586B unchanged; cachedopen63.3/150.8ms syntheticnotINP; both main/innerp95≤16.8ms,0/159>33ms. Local measurement overlapped other ongoing checks; throttled subsequentcontext4Mbps100ms4xCPU, not physicalSafari/field/Lighthouse. Evidence performance.json+summary,finalreview/type/lint/build logs. No runtimeJS/sourcePNG/preload changes; allsixremain29952430B andpost-loadwarm/offline checksPASS. No reason to change currentstatic/server/client strategy for CSS cap. IndependentStage5 and finalrecordapproval pending.
+
+- **CHG0077 explicit user approval/2026-10-09:** «да в одну строку лучше» approves the shown single-row compact proposal. Scope expands from browser-only preview to actual64px header implementation; originalpendingapproval history retained, now APPLIED_UNVERIFIED pending realproductionrecheck/build/review. Same18pxnav/16pxnarrow/28pxCloseglyph,44disjointhits, originalsafearea. No push/deployment requested.
+
+- **CHG0077/0078 finalproduction recheck/2026-10-09:** production3032 applies approvedsingle64row and shared941cap. Build14static/finaltype/lint/nativeCodexreviewclean; reviewer freshbrowser sandboxblocked, primary suppliedrealruntimeevidence. Approved-browser-tests.log11PASS/5explicitAPI skips (13viewportpairs,all6planes,11locales,nativewheel/nativeChromiumtouchpending/RTL), approved-check.log54+11PASS against actualstyles WITHOUTinjection; finalbothgroup402/440capturessamepixelsasapprovedcandidate (approved-pixels.json). Geometrydesktop941x249.5 same main; stable finalassembly recaptured. Historical width-only mobile pixelidentity remainsvalidbeforeheaderchange; finalheaderintentional24pxshift is approved. No material browsererror. Scopedindependentaudit/technicalapproval pending, originalFAILhistory preserved.
+
+
+## Ribbon navigation and actual paint — CHG-0076 / CHG-0071
+
+- **Problem → cause → prevention:** Removing a numeric callout span also shifted the following label. The agent edited layout before asserting its independent source-local x/width. Remove the index while retaining the label's original x94/195sourcepx box; compare all six body planes with only intentional regions masked. Full-width geometry alone cannot establish unchanged text placement.
+- **Problem → cause → prevention:** Native dialog containment passed short focus checks but a complete new-control Tab cycle escaped in ProMax/Chromium. Exercise every enabled control plus scroll region through full Tab and ShiftTab cycles, while ready and pending; wrap first/last explicitly and test after group change/Close restoration. A partial cycle cannot approve containment.
+- **Problem → cause → prevention:** A new Firefox fixture rejected0.5CSSpx despite the defined<1px contract and expected one giant wheel event to reach the bottom. Assert the documented tolerance, repeat bounded real wheel events until an observed endpoint, and never replace wheel verification with programmatic scrolling. Inspect actual pixels before dismissing differences as rounding.
+- **Problem → cause → prevention:** A decoded DOM marker was treated as sufficient paint readiness; immediate WebKit assembly captures sometimes lacked artwork, and existing held-resource captures failed on both current and untouched baseline versions. Await actual fonts/images and paint settlement for stable compositions, preserve failures and separately audit transient/pending paint. Do not claim a test timing barrier fixes the runtime; exact held-resource cause remains UNKNOWN and CHG0071 reopened. Compare unchanged host baseline before attributing an unrelated defect to a new feature. Preserve historical approved screenshots before suites overwrite them; keep current failures under new evidence paths and restore historical bytes.
+- Linked [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) extended with these acceptance checks. Product checks pass for ribbons; controlled agent run remains NOT_RUN and no model-weight change is claimed.
+
+- **Dispatch follow-up /CHG0076:** An unstaged diff check excludes new untracked screenshots/logs. Before committing evidence, inspect the exact staged scope and run git diff --cached --check; normalize only log formatting while retaining raw originals and all verdicts. Runtime hashes and unrelated exclusions remain separate assertions. Controlled EVAL-VIEWER NOT_RUN.
+
+- **Scope-record follow-up /CHG0077:** Starting a parallel scope audit before creating its journal ID led to an absent-record FAIL, even though implementation had not started. Seed actual/expected/source/lifecycle at discovery before dispatching the scope audit; refine measured geometry afterward. Controlled EVAL-VIEWER NOT_RUN.
+
+## Technical gallery inherits the landing canvas width — CHG-0078
+
+- **Problem → cause → prevention:** Laptop viewer expanded to100vw while the main canvas stopped at941px. Agent inherited viewport-wide acceptance and missed comparing real landing bounds. Mobile-first galleries use the current main canvas cap unless a user explicitly requests another width. Share the cap, compare dialog/photo left/right/width to actual landing below and above its breakpoint, and inspect mobile pixel preservation plus desktop native wheel/bottom. Full-window matte does not authorize enlarging photo planes. EVAL-VIEWER extended; controlled run NOT_RUN.
+- **Evidence retention follow-up:** Root launched another runner before copying its failed wheel screenshot; shared test-results was cleared. Archive failure artifacts before the next runner, use separate output directories for independent runs, and retain failure logs even if a screenshot is lost. The failed screenshot here is unavailable, not certified retained.
+# Ramsider project memory
+
+Durable handoff for work in this repository, across chats and context compactions. Read this short file at the start of substantive project work; follow [AGENTS.md](AGENTS.md) for rules and [CONTEXT_INDEX.md](CONTEXT_INDEX.md) for topic details. [LESSONS.md](LESSONS.md) stores reusable mistakes separately. This file records **state and decisions**, not a transcript or a second instruction set.
+
+The mandatory [CHANGELOG.md](CHANGELOG.md) now records logical changes and defects with stable IDs, solution/mapping traceability, checks and dated technical approval. Agents update it autonomously at discovery, application and verification; user approval remains separate. It backfills this session’s font/button, Business and FAQ work and retains open residuals. CHG-0023 adds explicit responsibility, missed checks and behavior/eval links: agent implementation/verification failures are distinguished from new inputs (Business). Before similar work or a fresh rebuild, retrieve these causes and prevention checks. Agent Eval has a documented current-code protocol; the browser suite now defines 16 cases (four cover wheel input), but no controlled agent-run baseline has been executed and no model-weight training is claimed.
+
+## Current width correction and header proposal — 2026-10-09
+
+Baseline CHG0076 was accepted, committed506e69f1100de4f2981cb1552455550e351faa01 and pushed/remote-hash verified origin/main. New user correction0078: technical viewing on laptops must keep exactly the centered landing canvas width, min(viewport,941px), shared CSS variable; mobile-first policy extends to dialogs. Applied scoped CSS correction, Pro/Max4group captures pixel-identical; desktop1440 bounds941px x249.5 equal main. Required remaining approval evidence in CHANGELOG; no new commit/push. Preview3032/en#technology (3030/3031old builds superseded).
+
+CHG0077 user approved «да в одну строку лучше» and header is applied pendingfinalaudit:88→64px+safearea,18pxnav/16px narrow, dots in same row onleft,44disjointtargets. Final liveheader54labelgeometry+11keyboardcyclesPASS, allfourmobilecapturespixel-identicaltoapprovedcandidate; finalwidthsuite11PASS/5platformskips. Actual site header now64px. CHG0071 retainedmain pending paintREOPENED,0065physicalchromeunverified,0035faviconOPEN remain separate. Preserve unrelated .gitignore/background_old/tools cache.
+
+## Latest user direction — 2026-10-08
+
+CHG-0075 cleanup VERIFIED: cancelled expanding-frame previews archived with matching hashes; they are not current requirements. CHG-0076 VERIFIED /2026-10-08: two full-width vertical ribbons implemented:4HeatCore+2CyberMind, no metal/bottomcontrols/numbering, one title/group, unchanged local descriptions, two topgroupdots, literal rightward next/leftwardprevious swipe in every locale. Six originalPNG post-windowload low-priority warm/cache policy preserved; complete groups commit after all own images decode. Pending keeps old group, locks scroll/navigation, Close/Retry usable. Pro402×874/Max440×956DPR3 body/join/bottom screenshots checked; final assembled hero/technology/documents/FAQ recaptured after paint settlement,0pageerrors. All67applicable ribbon cases PASS (65final+2Firefoxrechecks),5explicit API skips; build14static/type/lint/native review clean. Reviewer fresh browsers sandbox blocked; primary real browser evidence present. Isolated useful351/2248ms,LCP388/2280,CLS0,JS163586B,scrollp95≤16.8ms0>33; cachedopen63/156.5ms synthetic, notINP. Unchanged originals29.95MB, cold4Mbps warm finishes74.54s. Independent ribbon_audit scope/visual/behavior PASS and fresh ribbon_closeout_audit review/performance PASS; corrected ribbon_final_records final record/integration audit PASS; primary dated technical APPROVED. Current production preview http://127.0.0.1:3030/en.
+
+CHG-0071 REOPENED: earlier retained-main approval is historical. Artificially held04.webp WebKit check intermittently loses main artwork; reproduced in exact untouchedHEAD baseline (47source/config byte matches, framework webpack build), baselineProPASS/MaxFAIL,currentProFAIL/MaxPASS. Exact cause UNKNOWN; no main-loading fix in0076. Immediate main assembly capture also showed transient missing art, settled capture after ten animationframes is correct; this is not proof of fixing the held-resource failure. Preserve failed evidence and state the residual; do not call broader147PASS/10SKIP/7FAIL run a full pass. Historical11media evidence PNGs restored byte-identicalHEAD; current failures preserved in docs/evidence/technology-viewer/ribbons. CHG0065physical chrome/CHG0035favicon remain unverified. Work on main; preserve unrelated .gitignore/background_old/tools cache. User accepted preview («отлично») and explicitly authorized commit/push of relevant CHG0076 changes on main to origin/main; unrelated local files remain excluded.
+
+# Technology viewer — separate layers, current revision 2026-10-09
+
+## Landing width correction / CHG-0078 — 2026-10-09
+
+The site remains mobile first. The technical viewer uses the same centered `min(viewport width,941px)` canvas as the landing page on every pointer profile. Shared root `--page-max-width` is consumed by both main and native dialog; photos, semantic source coordinates and48sourcepx joins scale inside it. Full-screen black backdrop does not imply viewport-wide photos on a laptop. Earlier viewport-wide descriptions below are historical and superseded by this width contract. The approved64px+safearea header below and original source/loading policies are implemented. New production preview3032.
+
+Pro402×874/Max440×956DPR3 both groups are decoded-pixel identical before/after. Desktop1440×900 lands/viewer/photo share941px and x249.5..1190.5. Geometry/nativebottom tests cover13width-height pairs including941/942boundary,1280/1440/1920,short/narrow/landscape. First suite10PASS/5explicit platformskips/1Firefoxwheel fixtureFAIL; repeated nativewheel cadence repaired and bothdesktoprechecks2PASS. Separate entry/swipe/offline/reopen checks12PASS. Actual sources remain941×1672; no asset, preload or runtime JS change. [Evidence](evidence/technology-viewer/canvas-width/). Primary finaltype/lint/build/native review clean; independent finalrecordapproval pending; do not infer all-site approval from this scoped correction.
+
+## Approved single-row compact header / CHG-0077 — 2026-10-09
+
+User approved «да в одну строку лучше». The implemented CSS reduces the site's88px header to64px+unchangedsafearea: dots left, navigation18px (16px below361px), Close28px glyph, all original disjoint44px hit targets in one row. Native Telegram/browser toolbar remains external. The application uses the same geometry as the original browser-only candidate. Two-group Pro/Max/desktop real screenshots and Arabic inspected;54locale/width/group geometry cases and11keyboard/navigation/Close cyclesPASS. After implementation allfourPro/Maxbothgroup captures exactlymatchtheapprovedpreview; finalproductionwidthsuite11PASS/5API skips and actualheader54geometry/11keyboardcyclesPASS. [Before/after comparison](evidence/technology-viewer/compact-header/comparison-402.png), [candidate CSS](evidence/technology-viewer/compact-header/candidate.css). Explicit preview approval is recorded; currentproduction3032 contains bothchanges.
+
+## Two vertical group ribbons / CHG-0076 — implemented and checked 2026-10-08
+
+User replaces the preceding frame/per-slide model. Ordered HeatCore02–05 and CyberMind01–02 each become a vertical ribbon of untouched full941×1672PNG source planes, scaled uniformly to100%content viewport width. Keep the existing source-coordinate live descriptions; render one group title only on its first plane and remove all folio/callout numbering. No metal contour or bottom controls/inset. Fixed top action, two group dots and Close remain; literal rightward swipe selects CyberMind, leftward returns HeatCore in all locales; vertical pan scrolls only. KeyboardRight/Left selects bounded groups, Up/Down/Page/Home/End scrolls; dot buttons provide an accessible alternative.
+
+Every join overlaps48sourcepx of empty image edges, softly blending only the preceding photo's bottom through a CSSmask over the next photo's top. Text ends at/before1619sourcepx, before the1624blendstart; meaningful artwork and local text coordinates remain intact. No raster conversion, source editing or giant stitched download. Acceptance: zero DOMgap, four visually inspected joins, full viewport image width, native941:1672ratio, complete bottom access, exactlyone h2/group and two stable dots. Existing metadata/source fidelity checks remain valid; no wide-gamut color claim for untagged masters.
+
+
+hook: PostToolUse
+exec
+/bin/zsh -lc 'cat tests/e2e/technology-width.spec.ts; cat docs/evidence/technology-viewer/compact-header/check.mjs; git diff -- app/globals.css' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+import { expect, test } from '@playwright/test';
+import { openTechnology } from './helpers/technology';
+const evidence=process.env.TECH_EVIDENCE ?? 'docs/evidence/technology-viewer/ribbons';
+
+test('all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access',async({page},info)=>{
+ await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
+ for(const [width,height] of [[402,874],[440,956],[402,664],[440,732],[375,812],[320,568],[844,390],[768,1024],[941,900],[942,900],[1280,800],[1440,900],[1920,1080]]){
+  await page.setViewportSize({width,height});
+  for(const group of [0,1]){
+   await viewer.locator('.technology-viewer__dots button').nth(group).click();await expect(viewer).toHaveAttribute('data-group',group?'CyberMind':'HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');
+   const g=await viewer.evaluate(element=>{
+    const stage=element.querySelector('.technology-viewer__stage')!.getBoundingClientRect();const scroll=element.querySelector('.technology-viewer__scroll')!;
+    const planes=[...element.querySelectorAll('.technology-viewer__content')].map(el=>{const r=el.getBoundingClientRect();const img=el.querySelector('img')!;const ir=img.getBoundingClientRect();return{width:r.width,height:r.height,top:r.top,bottom:r.bottom,imageWidth:ir.width,imageHeight:ir.height,source:[img.naturalWidth,img.naturalHeight]};});
+    const landing=document.querySelector('.canvas')!.getBoundingClientRect();const dialog=element.getBoundingClientRect();
+    return{landing:{width:landing.width,left:landing.left,right:landing.right},dialog:{width:dialog.width,left:dialog.left,right:dialog.right},width:innerWidth,dpr:devicePixelRatio,meta:document.querySelector('meta[name=viewport]')?.getAttribute('content'),stage:{left:stage.left,right:stage.right,bottom:stage.bottom},planes,overflow:scroll.scrollWidth-scroll.clientWidth};
+   });
+   expect(g.width).toBe(width);expect(g.meta).toContain('width=device-width');expect(g.dialog).toEqual(g.landing);expect(g.stage.left).toBe(g.landing.left);expect(g.stage.right).toBe(g.landing.right);expect(g.stage.bottom).toBe(height);expect(g.overflow).toBe(0);
+   const contentWidth=g.landing.width;expect(contentWidth).toBe(Math.min(width,941));
+   for(const [index,plane]of g.planes.entries()){
+    expect(plane.width).toBe(contentWidth);expect(plane.imageWidth).toBe(contentWidth);expect(Math.abs(plane.height-contentWidth*1672/941)).toBeLessThan(1);expect(Math.abs(plane.imageHeight-plane.height)).toBeLessThan(.1);expect(plane.source).toEqual([941,1672]);
+    if(index)expect(Math.abs(g.planes[index-1].bottom-plane.top-contentWidth*48/941)).toBeLessThan(.05);
+   }
+   await page.keyboard.press('End');const bottom=await viewer.locator('.technology-viewer__content').last().boundingBox();expect(Math.abs(bottom!.y+bottom!.height-height)).toBeLessThan(1);
+   await page.keyboard.press('Home');expect(await viewer.locator('.technology-viewer__scroll').evaluate(e=>e.scrollTop)).toBe(0);
+   if([320,375,768,844,1440].includes(width)&&group===1)await page.screenshot({path:`${evidence}/${info.project.name}-adapt-${width}x${height}.png`});
+  }
+ }
+});
+
+test('all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow',async({page},info)=>{
+ for(const locale of ['en','ru','de','fr','es','it','tr','ar','zh','ja','ko']){
+  await page.goto(`/${locale}`);await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
+  for(const group of [0,1]){
+   await viewer.locator('.technology-viewer__dots button').nth(group).click();await expect(viewer).toHaveAttribute('data-group',group?'CyberMind':'HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');await page.evaluate(()=>document.fonts.ready);
+   await expect(viewer.locator('.technology-viewer__title')).toHaveCount(1);await expect(viewer.locator('.technology-viewer__descriptions')).toHaveCount(group?2:4);await expect(viewer.locator('.technology-description__number')).toHaveCount(0);
+   const overflow=await viewer.locator('.technology-description__box').evaluateAll(boxes=>boxes.filter(box=>{const text=box.firstElementChild!;return text.scrollHeight>box.clientHeight+1||text.scrollWidth>box.clientWidth+1;}).map(box=>box.parentElement?.getAttribute('data-description-block')));
+   expect(overflow).toEqual([]);
+   const hits=await viewer.locator('.technology-viewer__dots button,.technology-viewer__close,.technology-viewer__next-image').evaluateAll(buttons=>buttons.map(b=>{const r=b.getBoundingClientRect();return{width:r.width,height:r.height,left:r.left,right:r.right,top:r.top,bottom:r.bottom};}));
+   for(const hit of hits){expect(hit.width).toBeGreaterThanOrEqual(44);expect(hit.height).toBeGreaterThanOrEqual(44);expect(hit.left).toBeGreaterThanOrEqual(0);expect(hit.right).toBeLessThanOrEqual(info.project.use.viewport!.width);expect(hit.bottom).toBeLessThanOrEqual(64);}
+   if(locale==='ar'){await expect(viewer.locator('.technology-description__box').first()).toHaveAttribute('dir','rtl');await page.screenshot({path:`${evidence}/${info.project.name}-ar-${group}.png`});}
+  }
+  await viewer.locator('.technology-viewer__close').click();
+ }
+});
+
+test('native desktop wheel scrolls the ribbon without moving landing or switching groups',async({page},info)=>{
+ test.skip(!!info.project.use.isMobile,'Native mobile pan is covered by Chromium protocol plus WebKit pointer/keyboard checks.');await page.setViewportSize({width:1440,height:900});await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');const y=await page.evaluate(()=>scrollY);const scroller=viewer.locator('.technology-viewer__scroll');await scroller.hover();await page.mouse.wheel(0,500);await expect.poll(()=>scroller.evaluate(e=>e.scrollTop)).toBeGreaterThan(100);await expect.poll(async()=>{await page.mouse.wheel(0,1200);return scroller.evaluate(e=>Math.abs(e.scrollHeight-e.clientHeight-e.scrollTop));},{timeout:10000,intervals:[100]}).toBeLessThan(1);await expect(viewer).toHaveAttribute('data-group','HeatCore');expect(await page.evaluate(()=>scrollY)).toBe(y);await expect.poll(async()=>{await page.mouse.wheel(0,-1200);return scroller.evaluate(e=>e.scrollTop);},{timeout:10000,intervals:[100]}).toBe(0);
+});
+
+test('native touch pans vertically, swipes horizontally and freezes during download', async ({ browser }, info) => {
+  test.skip(info.project.use.browserName !== 'chromium', 'Chromium native touch protocol; WebKit/Firefox have no matching public swipe API.');
+  const context = await browser.newContext({ viewport: { width: 390, height: 664 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
+  const page = await context.newPage();
+  let release!: () => void;
+  const gate = new Promise<void>(resolve => { release = resolve; });
+  await page.route('**/art/technology/cybermind/02.png', async route => { await gate; await route.continue(); });
+  try {
+    await page.goto(`${process.env.BASE_URL ?? 'http://127.0.0.1:3000'}/en`);
+    await openTechnology(page);
+    const viewer = page.locator('#technology-viewer');
+    const scroller = viewer.locator('.technology-viewer__scroll');
+    await expect(viewer).toHaveAttribute('aria-busy', 'false');
+    const y = await page.evaluate(() => scrollY);
+    const touch = await context.newCDPSession(page);
+    const swipe = async (start: [number, number], end: [number, number]) => {
+      await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: start[0], y: start[1] }] });
+      for (let step = 1; step <= 10; step++) {
+        await touch.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: start[0] + (end[0] - start[0]) * step / 10, y: start[1] + (end[1] - start[1]) * step / 10 }] });
+        await page.waitForTimeout(16); // Real gesture duration; lets the browser recognize native panning.
+      }
+      await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+    };
+    await swipe([220, 440], [220, 290]);
+    await expect.poll(() => scroller.evaluate(element => element.scrollTop)).toBeGreaterThan(80);
+    await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
+    expect(await page.evaluate(() => scrollY)).toBe(y);
+    await page.screenshot({ path: `${evidence}/native-touch-scrolled.png` });
+    await swipe([70, 350], [300, 350]);
+    await expect(viewer).toHaveAttribute('aria-busy', 'true');
+    const frozen = await scroller.evaluate(element => element.scrollTop);
+    await swipe([220, 440], [220, 290]);
+    expect(await scroller.evaluate(element => element.scrollTop)).toBeCloseTo(frozen, 0);
+    expect(await page.evaluate(() => scrollY)).toBe(y);
+    await expect(viewer.locator('.technology-viewer__photo img').first()).toHaveAttribute('data-source', '/art/technology/02.png');
+    await page.screenshot({ path: `${evidence}/native-touch-pending.png` });
+    release();
+    await expect(viewer).toHaveAttribute('aria-busy', 'false');
+    await expect(viewer).toHaveAttribute('aria-busy','false');
+    await expect(viewer.locator('.technology-viewer__photo img').first()).toHaveAttribute('data-source', '/art/technology/cybermind/01.png');
+    expect(await scroller.evaluate(element => element.scrollTop)).toBe(0);
+    await swipe([300, 350], [80, 350]);
+    await expect(viewer.locator('.technology-viewer__photo img').first()).toHaveAttribute('data-source', '/art/technology/02.png');
+    await swipe([300, 350], [80, 350]);
+    await expect(viewer.locator('.technology-viewer__photo img').first()).toHaveAttribute('data-source', '/art/technology/02.png');
+    await page.screenshot({ path: `${evidence}/native-touch-ready.png` });
+    await viewer.locator('.technology-viewer__close').click();
+    await page.goto(`${process.env.BASE_URL ?? 'http://127.0.0.1:3000'}/ar`);
+    await openTechnology(page);
+    await expect(viewer).toHaveAttribute('aria-busy', 'false');
+    await swipe([80, 350], [300, 350]);
+    await expect(viewer).toHaveAttribute('aria-busy','false');
+    await expect(viewer.locator('.technology-viewer__photo img').first()).toHaveAttribute('data-source', '/art/technology/cybermind/01.png');
+    await swipe([300, 350], [80, 350]);
+    await expect(viewer.locator('.technology-viewer__photo img').first()).toHaveAttribute('data-source', '/art/technology/02.png');
+    await swipe([220, 440], [220, 290]);
+    await expect.poll(() => scroller.evaluate(element => element.scrollTop)).toBeGreaterThan(80);
+    await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
+    await page.screenshot({ path: `${evidence}/native-touch-arabic.png` });
+  } finally { release(); await context.close(); }
+});
+import {webkit} from '@playwright/test';
+import {readFile,writeFile} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const out='docs/evidence/technology-viewer/compact-header',css=await readFile(`${out}/candidate.css`,'utf8');
+const browser=await webkit.launch(),rows=[];
+for(const locale of ['en','ru','de','fr','es','it','tr','ar','zh','ja','ko']){
+ const page=await browser.newPage({viewport:{width:402,height:874},deviceScaleFactor:3,isMobile:true,hasTouch:true});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(`${process.env.BASE_URL??'http://127.0.0.1:3031'}/${locale}`);await page.waitForFunction(()=>document.documentElement.hasAttribute('data-media-hydrated'));if(process.env.LIVE_HEADER!=='1')await page.addStyleTag({content:css});const trigger=page.locator('[data-technology-open]').first();await trigger.scrollIntoViewIfNeeded();await page.waitForFunction(()=>!document.querySelector('.page-media-overlay')&&!document.querySelector('.page-media-content[inert]'));await trigger.click();
+ for(const width of (locale==='en'?[402,440,320,375,844,768,1440]:[402,320])){
+  await page.setViewportSize({width,height:width===440?956:width===844?390:874});
+  for(let group=0;group<2;group++){
+   await page.locator('.technology-viewer__dots button').nth(group).click();await page.waitForFunction(g=>document.querySelector('#technology-viewer')?.dataset.group===g&&document.querySelector('#technology-viewer')?.getAttribute('aria-busy')==='false',group?'CyberMind':'HeatCore');await page.evaluate(()=>document.fonts.ready);
+   const g=await page.evaluate(()=>{const rect=e=>{const r=e.getBoundingClientRect();return{x:r.x,y:r.y,width:r.width,height:r.height,right:r.right,bottom:r.bottom}};const d=document.querySelector('#technology-viewer'),nav=d.querySelector('.technology-viewer__next-image');return{dialog:rect(d),stage:rect(d.querySelector('.technology-viewer__stage')),hits:[...d.querySelectorAll('.technology-viewer__next-image,.technology-viewer__dots button,.technology-viewer__close')].map(rect),label:rect(nav.querySelector('span')),text:nav.textContent,font:getComputedStyle(nav).fontSize}});
+   assert.equal(g.stage.y,64);for(const h of g.hits){assert(h.width>=44&&h.height>=44);assert(h.x>=g.dialog.x&&h.right<=g.dialog.right+.01);assert(h.bottom<=64)}
+   assert(g.label.height<=44&&g.label.y>=10&&g.label.bottom<=54,`${locale}/${width} label clips: ${JSON.stringify(g)}`);
+   for(let i=0;i<g.hits.length;i++)for(let j=i+1;j<g.hits.length;j++){const a=g.hits[i],b=g.hits[j];assert(!(a.x<b.right&&b.x<a.right&&a.y<b.bottom&&b.y<a.bottom),'targets overlap')}
+   rows.push({locale,width,group,...g});
+   if(locale==='ar'&&width===402){await page.evaluate(()=>new Promise(r=>{let n=0;const f=()=>++n===10?r():requestAnimationFrame(f);requestAnimationFrame(f)}));await page.screenshot({path:`${out}/${process.env.LIVE_HEADER==='1'?'approved-arabic':'arabic'}-${group}.png`})}
+  }
+ }
+ await page.setViewportSize({width:402,height:874});await page.locator('.technology-viewer__next-image').click();await page.waitForFunction(()=>document.querySelector('#technology-viewer').dataset.group==='HeatCore');await page.keyboard.press('End');assert(await page.locator('.technology-viewer__scroll').evaluate(e=>Math.abs(e.scrollHeight-e.clientHeight-e.scrollTop))<1);await page.keyboard.press('Home');
+ for(let i=0;i<6;i++){await page.keyboard.press('Tab');assert(await page.evaluate(()=>document.querySelector('#technology-viewer').contains(document.activeElement)))}
+ for(let i=0;i<6;i++){await page.keyboard.press('Shift+Tab');assert(await page.evaluate(()=>document.querySelector('#technology-viewer').contains(document.activeElement)))}
+ await page.locator('.technology-viewer__close').click();assert(await trigger.evaluate(e=>e===document.activeElement));assert.equal(errors.length,0);await page.close();
+}
+await writeFile(`${out}/${process.env.LIVE_HEADER==='1'?'approved-checks':'checks'}.json`,JSON.stringify(rows,null,2));console.log(`${rows.length} label/geometry cases PASS, 11 locale navigation/keyboard/Close cycles PASS`);await browser.close();
+diff --git a/app/globals.css b/app/globals.css
+index 6ed3063..e6d495b 100644
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -7,7 +7,7 @@
+ @font-face{font-family:NotoButtonSC;src:url('/fonts/button-fallback/noto-zh-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+ @font-face{font-family:NotoButtonJP;src:url('/fonts/button-fallback/noto-ja-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+ @font-face{font-family:NotoButtonKR;src:url('/fonts/button-fallback/noto-ko-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+-:root{color-scheme:light;font-family:OpenSans,Arial,sans-serif;color:#292018;background:#d3b79f}
++:root{--page-max-width:941px;color-scheme:light;font-family:OpenSans,Arial,sans-serif;color:#292018;background:#d3b79f}
+ *{box-sizing:border-box}
+ html{scroll-behavior:smooth}
+ body{margin:0;min-width:280px}
+@@ -15,7 +15,7 @@ button,a{font:inherit}
+ button{cursor:pointer}
+ a{color:inherit}
+ :focus-visible{outline:3px solid #815013;outline-offset:3px}
+-.canvas{position:relative;container-type:inline-size;display:grid;grid-template-rows:auto auto auto;width:100%;max-width:941px;margin-inline:auto;overflow:clip;isolation:isolate;background:#d8bb9f}
++.canvas{position:relative;container-type:inline-size;display:grid;grid-template-rows:auto auto auto;width:100%;max-width:var(--page-max-width);margin-inline:auto;overflow:clip;isolation:isolate;background:#d8bb9f}
+ .art{position:absolute;inset:0 0 auto;height:calc(27147/941*100cqw);overflow:hidden;z-index:0;pointer-events:none}
+ .art img,.tail-art img{display:block;width:100%;height:auto;background-size:100% 100%;background-repeat:no-repeat}
+ .art img:not(:first-child),.tail-art-track img{margin-top:calc(-2/941*100cqw)}
+@@ -145,14 +145,14 @@ html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.
+ .availability h2{font-size:23px;line-height:1.2;margin:0 0 14px}
+ .availability p{line-height:1.5;margin:0 0 24px}
+ .availability button{border:1px solid #9d713a;border-radius:999px;background:#2a251e;color:#fff;padding:10px 22px;min-height:44px}
+-.technology-viewer{position:fixed;inset:0;margin:0;width:100vw;max-width:none;height:100dvh;max-height:none;padding:0;border:0;background:#000;color:#fff;overflow:hidden;display:none;z-index:1000;overscroll-behavior:contain}
++.technology-viewer{position:fixed;inset:0;margin:0 auto;width:100%;max-width:var(--page-max-width);height:100dvh;max-height:none;padding:0;border:0;background:#000;color:#fff;overflow:hidden;display:none;z-index:1000;overscroll-behavior:contain}
+ .technology-viewer[open]{display:flex;align-items:center;justify-content:center}
+ .technology-viewer::backdrop{background:#000}
+ /* Safari can sample document paint outside a modal's visual viewport. */
+ html:has(#technology-viewer[open]),body:has(#technology-viewer[open]){background:#000}
+ .dialog-controller:has(> #technology-viewer[open]) > :not(#technology-viewer),.dialog-controller:has(> #technology-viewer[open]) > :not(#technology-viewer) *{visibility:hidden}
+ /* Full-width proportional source planes; only empty photo edges overlap. */
+-.technology-viewer__canvas{--toolbar-height:calc(88px + env(safe-area-inset-top));--join:calc(48 / 941 * 100cqw);position:relative;width:100%;height:100%;container-type:inline-size}
++.technology-viewer__canvas{--toolbar-height:calc(64px + env(safe-area-inset-top));--join:calc(48 / 941 * 100cqw);position:relative;width:100%;height:100%;container-type:inline-size}
+ .technology-viewer__stage{position:absolute;inset:var(--toolbar-height) 0 0;overflow:hidden;touch-action:pan-y pinch-zoom;background:#fff}
+ .technology-viewer__scroll{width:100%;height:100%;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y pinch-zoom;scrollbar-width:none}
+ .technology-viewer__scroll::-webkit-scrollbar{display:none}
+@@ -173,14 +173,14 @@ html:has(#technology-viewer[open]),body:has(#technology-viewer[open]){background
+ .technology-description__copy{margin:0;font-family:inherit;font-weight:400;white-space:pre-line;overflow-wrap:break-word}
+ .technology-description__warm{-webkit-text-stroke:1.5px #fff;paint-order:stroke fill}
+ .technology-description__status{color:#fff;font:400 10px/20px OpenSans,Arial,sans-serif;direction:ltr}
+-.technology-viewer__next-image{position:absolute;z-index:2;padding:0;border:0;background:transparent;color:#f4f1eb;font-family:OpenSans,Arial,sans-serif;font-weight:400;cursor:pointer;left:52px;right:max(52px,calc(44px + 2% + env(safe-area-inset-right)));top:env(safe-area-inset-top);height:44px;display:flex;align-items:center;justify-content:center;gap:calc(17/954*100cqw);font-size:clamp(14px,calc(48/954*100cqw),26px);line-height:1.12;direction:ltr}
++.technology-viewer__next-image{position:absolute;z-index:2;padding:0;border:0;background:transparent;color:#f4f1eb;font-family:OpenSans,Arial,sans-serif;font-weight:400;cursor:pointer;left:104px;right:max(60px,calc(44px + 2% + env(safe-area-inset-right)));top:calc(10px + env(safe-area-inset-top));height:44px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:18px;line-height:1.12;direction:ltr}
+ .technology-viewer__next-image span{max-width:calc(100% - 24px);text-align:center}
+ .technology-viewer__next-image img{flex:none;width:min(16px,calc(28/954*100cqw));height:auto}
+ .technology-viewer__next-image img.is-previous{transform:rotate(180deg)}
+-.technology-viewer__dots{position:absolute;z-index:2;top:calc(44px + env(safe-area-inset-top));left:50%;transform:translateX(-50%);display:flex;direction:ltr}
++.technology-viewer__dots{position:absolute;z-index:2;top:calc(10px + env(safe-area-inset-top));left:8px;display:flex;direction:ltr}
+ .technology-viewer__dots button{position:relative;flex:0 0 44px;width:44px;height:44px;padding:0;border:0;background:transparent;cursor:pointer}
+ .technology-viewer__dots img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:block;width:min(16px,calc(29/954*100cqw));height:auto}
+-.technology-viewer__close{position:absolute;right:max(2%,env(safe-area-inset-right));top:env(safe-area-inset-top);z-index:4;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;background:transparent;color:#fff;font-size:34px;font-weight:300;line-height:1;cursor:pointer}
++.technology-viewer__close{position:absolute;right:max(2%,env(safe-area-inset-right));top:calc(10px + env(safe-area-inset-top));z-index:4;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;background:transparent;color:#fff;font-size:28px;font-weight:300;line-height:1;cursor:pointer}
+ .technology-viewer__sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+ .technology-viewer :focus-visible{outline:2px solid #e7ba75;outline-offset:-3px}
+ .technology-viewer button:disabled{cursor:default;opacity:.45}
+@@ -286,3 +286,5 @@ html:lang(en) .overlay:not(.key-touch) .technology-label-line:not(:first-child){
+ .model-comparison{width:100%;table-layout:fixed;border-collapse:collapse;margin-bottom:24px;font-size:14px;overflow-wrap:anywhere}
+ .model-comparison th,.model-comparison td{padding:10px 6px;border:1px solid #bda181;vertical-align:top;text-align:start}
+ .model-comparison td p{margin:6px 0 0;line-height:1.35}
++
++@container (max-width:360px){.technology-viewer__next-image{font-size:16px}}
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/zsh -lc 'cat docs/evidence/technology-viewer/canvas-width/approved-browser-tests.log; cat docs/evidence/technology-viewer/canvas-width/viewer-behavior.log; cat docs/evidence/technology-viewer/compact-header/approved-check.log; cat docs/evidence/technology-viewer/compact-header/approved-pixels.json; cat docs/evidence/technology-viewer/canvas-width/wheel-recheck.log; tail -45 docs/evidence/technology-viewer/canvas-width/browser-tests.log' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+
+Running 16 tests using 1 worker
+
+(node:10496) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access (5.6s)
+  ✓   2 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:30:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (6.4s)
+  -   3 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  -   4 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+(node:10931) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access (4.1s)
+  ✓   6 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:30:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (5.8s)
+  -   7 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  -   8 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+(node:11122) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [desktop-chromium] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access (3.9s)
+  ✓  10 [desktop-chromium] › tests/e2e/technology-width.spec.ts:30:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (12.2s)
+  ✓  11 [desktop-chromium] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (2.2s)
+  ✓  12 [desktop-chromium] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download (6.5s)
+(node:12126) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  13 [desktop-firefox] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access (3.8s)
+  ✓  14 [desktop-firefox] › tests/e2e/technology-width.spec.ts:30:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (6.1s)
+  ✓  15 [desktop-firefox] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (2.4s)
+  -  16 [desktop-firefox] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+
+  5 skipped
+  11 passed (1.1m)
+
+Running 12 tests using 1 worker
+
+(node:3125) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (2.6s)
+  ✓   2 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (1.7s)
+  ✓   3 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:157:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (1.4s)
+(node:3191) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (1.2s)
+  ✓   5 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (1.4s)
+  ✓   6 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:157:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (1.2s)
+(node:3218) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (872ms)
+  ✓   8 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (1.8s)
+  ✓   9 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:157:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (1.1s)
+(node:3254) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (2.2s)
+  ✓  11 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (2.1s)
+  ✓  12 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:157:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (1.2s)
+
+  12 passed (23.0s)
+54 label/geometry cases PASS, 11 locale navigation/keyboard/Close cycles PASS
+[
+  {
+    "width": 402,
+    "group": 0,
+    "approvedPreviewEqualsLivePixels": true
+  },
+  {
+    "width": 402,
+    "group": 1,
+    "approvedPreviewEqualsLivePixels": true
+  },
+  {
+    "width": 440,
+    "group": 0,
+    "approvedPreviewEqualsLivePixels": true
+  },
+  {
+    "width": 440,
+    "group": 1,
+    "approvedPreviewEqualsLivePixels": true
+  }
+]
+Running 2 tests using 1 worker
+
+(node:3039) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop-chromium] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (2.8s)
+(node:3123) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop-firefox] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (4.6s)
+
+  2 passed (9.7s)
+(node:2032) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [desktop-chromium] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access (2.7s)
+  ✓  10 [desktop-chromium] › tests/e2e/technology-width.spec.ts:30:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (12.7s)
+  ✓  11 [desktop-chromium] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (7.8s)
+  ✓  12 [desktop-chromium] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download (6.4s)
+(node:2474) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  13 [desktop-firefox] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access (3.3s)
+  ✓  14 [desktop-firefox] › tests/e2e/technology-width.spec.ts:30:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (5.7s)
+  ✘  15 [desktop-firefox] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (10.7s)
+(node:2737) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  -  16 [desktop-firefox] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+
+
+  1) [desktop-firefox] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 370
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      45 |
+      46 | test('native desktop wheel scrolls the ribbon without moving landing or switching groups',async({page},info)=>{
+    > 47 |  test.skip(!!info.project.use.isMobile,'Native mobile pan is covered by Chromium protocol plus WebKit pointer/keyboard checks.');await page.setViewportSize({width:1440,height:900});await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');const y=await page.evaluate(()=>scrollY);const scroller=viewer.locator('.technology-viewer__scroll');await scroller.hover();await page.mouse.wheel(0,500);await expect.poll(()=>scroller.evaluate(e=>e.scrollTop)).toBeGreaterThan(100);await expect.poll(async()=>{await page.mouse.wheel(0,1200);return scroller.evaluate(e=>Math.abs(e.scrollHeight-e.clientHeight-e.scrollTop));}).toBeLessThan(1);await expect(viewer).toHaveAttribute('data-group','HeatCore');expect(await page.evaluate(()=>scrollY)).toBe(y);await expect.poll(async()=>{await page.mouse.wheel(0,-1200);return scroller.evaluate(e=>e.scrollTop);}).toBe(0);
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ^
+      48 | });
+      49 |
+      50 | test('native touch pans vertically, swipes horizontally and freezes during download', async ({ browser }, info) => {
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/technology-width.spec.ts:47:944
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/technology-width-native-de-4d9db-landing-or-switching-groups-desktop-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/technology-width-native-de-4d9db-landing-or-switching-groups-desktop-firefox/error-context.md
+
+  1 failed
+    [desktop-firefox] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  5 skipped
+  10 passed (1.3m)
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/zsh -lc "sed -n '1,64p' tests/e2e/technology-width.spec.ts; rg -n 'entrypoint|swipe|offline|reopen|safe.area|keyboard|Escape' tests/e2e/technology*.spec.ts; cat playwright.config.ts; cat docs/evidence/technology-viewer/canvas-width/final.log" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+import { expect, test } from '@playwright/test';
+import { openTechnology } from './helpers/technology';
+const evidence=process.env.TECH_EVIDENCE ?? 'docs/evidence/technology-viewer/ribbons';
+
+test('all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access',async({page},info)=>{
+ await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
+ for(const [width,height] of [[402,874],[440,956],[402,664],[440,732],[375,812],[320,568],[844,390],[768,1024],[941,900],[942,900],[1280,800],[1440,900],[1920,1080]]){
+  await page.setViewportSize({width,height});
+  for(const group of [0,1]){
+   await viewer.locator('.technology-viewer__dots button').nth(group).click();await expect(viewer).toHaveAttribute('data-group',group?'CyberMind':'HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');
+   const g=await viewer.evaluate(element=>{
+    const stage=element.querySelector('.technology-viewer__stage')!.getBoundingClientRect();const scroll=element.querySelector('.technology-viewer__scroll')!;
+    const planes=[...element.querySelectorAll('.technology-viewer__content')].map(el=>{const r=el.getBoundingClientRect();const img=el.querySelector('img')!;const ir=img.getBoundingClientRect();return{width:r.width,height:r.height,top:r.top,bottom:r.bottom,imageWidth:ir.width,imageHeight:ir.height,source:[img.naturalWidth,img.naturalHeight]};});
+    const landing=document.querySelector('.canvas')!.getBoundingClientRect();const dialog=element.getBoundingClientRect();
+    return{landing:{width:landing.width,left:landing.left,right:landing.right},dialog:{width:dialog.width,left:dialog.left,right:dialog.right},width:innerWidth,dpr:devicePixelRatio,meta:document.querySelector('meta[name=viewport]')?.getAttribute('content'),stage:{left:stage.left,right:stage.right,bottom:stage.bottom},planes,overflow:scroll.scrollWidth-scroll.clientWidth};
+   });
+   expect(g.width).toBe(width);expect(g.meta).toContain('width=device-width');expect(g.dialog).toEqual(g.landing);expect(g.stage.left).toBe(g.landing.left);expect(g.stage.right).toBe(g.landing.right);expect(g.stage.bottom).toBe(height);expect(g.overflow).toBe(0);
+   const contentWidth=g.landing.width;expect(contentWidth).toBe(Math.min(width,941));
+   for(const [index,plane]of g.planes.entries()){
+    expect(plane.width).toBe(contentWidth);expect(plane.imageWidth).toBe(contentWidth);expect(Math.abs(plane.height-contentWidth*1672/941)).toBeLessThan(1);expect(Math.abs(plane.imageHeight-plane.height)).toBeLessThan(.1);expect(plane.source).toEqual([941,1672]);
+    if(index)expect(Math.abs(g.planes[index-1].bottom-plane.top-contentWidth*48/941)).toBeLessThan(.05);
+   }
+   await page.keyboard.press('End');const bottom=await viewer.locator('.technology-viewer__content').last().boundingBox();expect(Math.abs(bottom!.y+bottom!.height-height)).toBeLessThan(1);
+   await page.keyboard.press('Home');expect(await viewer.locator('.technology-viewer__scroll').evaluate(e=>e.scrollTop)).toBe(0);
+   if([320,375,768,844,1440].includes(width)&&group===1)await page.screenshot({path:`${evidence}/${info.project.name}-adapt-${width}x${height}.png`});
+  }
+ }
+});
+
+test('all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow',async({page},info)=>{
+ for(const locale of ['en','ru','de','fr','es','it','tr','ar','zh','ja','ko']){
+  await page.goto(`/${locale}`);await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
+  for(const group of [0,1]){
+   await viewer.locator('.technology-viewer__dots button').nth(group).click();await expect(viewer).toHaveAttribute('data-group',group?'CyberMind':'HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');await page.evaluate(()=>document.fonts.ready);
+   await expect(viewer.locator('.technology-viewer__title')).toHaveCount(1);await expect(viewer.locator('.technology-viewer__descriptions')).toHaveCount(group?2:4);await expect(viewer.locator('.technology-description__number')).toHaveCount(0);
+   const overflow=await viewer.locator('.technology-description__box').evaluateAll(boxes=>boxes.filter(box=>{const text=box.firstElementChild!;return text.scrollHeight>box.clientHeight+1||text.scrollWidth>box.clientWidth+1;}).map(box=>box.parentElement?.getAttribute('data-description-block')));
+   expect(overflow).toEqual([]);
+   const hits=await viewer.locator('.technology-viewer__dots button,.technology-viewer__close,.technology-viewer__next-image').evaluateAll(buttons=>buttons.map(b=>{const r=b.getBoundingClientRect();return{width:r.width,height:r.height,left:r.left,right:r.right,top:r.top,bottom:r.bottom};}));
+   for(const hit of hits){expect(hit.width).toBeGreaterThanOrEqual(44);expect(hit.height).toBeGreaterThanOrEqual(44);expect(hit.left).toBeGreaterThanOrEqual(0);expect(hit.right).toBeLessThanOrEqual(info.project.use.viewport!.width);expect(hit.bottom).toBeLessThanOrEqual(64);}
+   if(locale==='ar'){await expect(viewer.locator('.technology-description__box').first()).toHaveAttribute('dir','rtl');await page.screenshot({path:`${evidence}/${info.project.name}-ar-${group}.png`});}
+  }
+  await viewer.locator('.technology-viewer__close').click();
+ }
+});
+
+test('native desktop wheel scrolls the ribbon without moving landing or switching groups',async({page},info)=>{
+ test.skip(!!info.project.use.isMobile,'Native mobile pan is covered by Chromium protocol plus WebKit pointer/keyboard checks.');await page.setViewportSize({width:1440,height:900});await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');const y=await page.evaluate(()=>scrollY);const scroller=viewer.locator('.technology-viewer__scroll');await scroller.hover();await page.mouse.wheel(0,500);await expect.poll(()=>scroller.evaluate(e=>e.scrollTop)).toBeGreaterThan(100);await expect.poll(async()=>{await page.mouse.wheel(0,1200);return scroller.evaluate(e=>Math.abs(e.scrollHeight-e.clientHeight-e.scrollTop));},{timeout:10000,intervals:[100]}).toBeLessThan(1);await expect(viewer).toHaveAttribute('data-group','HeatCore');expect(await page.evaluate(()=>scrollY)).toBe(y);await expect.poll(async()=>{await page.mouse.wheel(0,-1200);return scroller.evaluate(e=>e.scrollTop);},{timeout:10000,intervals:[100]}).toBe(0);
+});
+
+test('native touch pans vertically, swipes horizontally and freezes during download', async ({ browser }, info) => {
+  test.skip(info.project.use.browserName !== 'chromium', 'Chromium native touch protocol; WebKit/Firefox have no matching public swipe API.');
+  const context = await browser.newContext({ viewport: { width: 390, height: 664 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
+  const page = await context.newPage();
+  let release!: () => void;
+  const gate = new Promise<void>(resolve => { release = resolve; });
+  await page.route('**/art/technology/cybermind/02.png', async route => { await gate; await route.continue(); });
+  try {
+    await page.goto(`${process.env.BASE_URL ?? 'http://127.0.0.1:3000'}/en`);
+    await openTechnology(page);
+    const viewer = page.locator('#technology-viewer');
+    const scroller = viewer.locator('.technology-viewer__scroll');
+    await expect(viewer).toHaveAttribute('aria-busy', 'false');
+    const y = await page.evaluate(() => scrollY);
+    const touch = await context.newCDPSession(page);
+tests/e2e/technology-width.spec.ts:23:   await page.keyboard.press('End');const bottom=await viewer.locator('.technology-viewer__content').last().boundingBox();expect(Math.abs(bottom!.y+bottom!.height-height)).toBeLessThan(1);
+tests/e2e/technology-width.spec.ts:24:   await page.keyboard.press('Home');expect(await viewer.locator('.technology-viewer__scroll').evaluate(e=>e.scrollTop)).toBe(0);
+tests/e2e/technology-width.spec.ts:47: test.skip(!!info.project.use.isMobile,'Native mobile pan is covered by Chromium protocol plus WebKit pointer/keyboard checks.');await page.setViewportSize({width:1440,height:900});await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');const y=await page.evaluate(()=>scrollY);const scroller=viewer.locator('.technology-viewer__scroll');await scroller.hover();await page.mouse.wheel(0,500);await expect.poll(()=>scroller.evaluate(e=>e.scrollTop)).toBeGreaterThan(100);await expect.poll(async()=>{await page.mouse.wheel(0,1200);return scroller.evaluate(e=>Math.abs(e.scrollHeight-e.clientHeight-e.scrollTop));},{timeout:10000,intervals:[100]}).toBeLessThan(1);await expect(viewer).toHaveAttribute('data-group','HeatCore');expect(await page.evaluate(()=>scrollY)).toBe(y);await expect.poll(async()=>{await page.mouse.wheel(0,-1200);return scroller.evaluate(e=>e.scrollTop);},{timeout:10000,intervals:[100]}).toBe(0);
+tests/e2e/technology-width.spec.ts:50:test('native touch pans vertically, swipes horizontally and freezes during download', async ({ browser }, info) => {
+tests/e2e/technology-width.spec.ts:51:  test.skip(info.project.use.browserName !== 'chromium', 'Chromium native touch protocol; WebKit/Firefox have no matching public swipe API.');
+tests/e2e/technology-width.spec.ts:65:    const swipe = async (start: [number, number], end: [number, number]) => {
+tests/e2e/technology-width.spec.ts:73:    await swipe([220, 440], [220, 290]);
+tests/e2e/technology-width.spec.ts:78:    await swipe([70, 350], [300, 350]);
+tests/e2e/technology-width.spec.ts:81:    await swipe([220, 440], [220, 290]);
+tests/e2e/technology-width.spec.ts:91:    await swipe([300, 350], [80, 350]);
+tests/e2e/technology-width.spec.ts:93:    await swipe([300, 350], [80, 350]);
+tests/e2e/technology-width.spec.ts:100:    await swipe([80, 350], [300, 350]);
+tests/e2e/technology-width.spec.ts:103:    await swipe([300, 350], [80, 350]);
+tests/e2e/technology-width.spec.ts:105:    await swipe([220, 440], [220, 290]);
+tests/e2e/technology-loading.spec.ts:33:    await page.keyboard.press('ArrowRight');
+tests/e2e/technology-loading.spec.ts:34:    await page.keyboard.press('ArrowDown');
+tests/e2e/technology-loading.spec.ts:130:  const scroller=viewer.locator('.technology-viewer__scroll');await page.keyboard.press('PageDown');const y=await scroller.evaluate(e=>e.scrollTop);expect(y).toBeGreaterThan(200);
+tests/e2e/technology-loading.spec.ts:134:  await expect(viewer.getByRole('progressbar')).toBeVisible();await page.keyboard.press('ArrowRight');await page.keyboard.press('End');
+tests/e2e/technology-loading.spec.ts:147: await page.keyboard.press('ArrowRight');await expect(viewer).toHaveAttribute('data-group','HeatCore');
+tests/e2e/technology-viewer.spec.ts:130:    await page.keyboard.press('ArrowRight');
+tests/e2e/technology-viewer.spec.ts:132:    await page.keyboard.press('ArrowLeft');
+tests/e2e/technology-viewer.spec.ts:135:    for(let i=0;i<8;i++){await page.keyboard.press('Tab');expect(await page.evaluate(()=>!!document.activeElement?.closest('#technology-viewer'))).toBe(true);}
+tests/e2e/technology-viewer.spec.ts:136:    await page.keyboard.press('Escape');await expect(viewer).not.toBeVisible();await expect(trigger).toBeFocused();
+tests/e2e/technology-viewer.spec.ts:140:test('literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling',async({page})=>{
+tests/e2e/technology-viewer.spec.ts:144:  const swipe=async(dx:number,dy=0)=>{await canvas.dispatchEvent('pointerdown',{pointerType:'touch',clientX:150,clientY:250});await canvas.dispatchEvent('pointerup',{pointerType:'touch',clientX:150+dx,clientY:250+dy});};
+tests/e2e/technology-viewer.spec.ts:145:  await swipe(-100);await expect(viewer).toHaveAttribute('data-group','HeatCore');
+tests/e2e/technology-viewer.spec.ts:146:  await swipe(100,200);await expect(viewer).toHaveAttribute('data-group','HeatCore');
+tests/e2e/technology-viewer.spec.ts:147:  await swipe(100);await expect(viewer).toHaveAttribute('data-group','CyberMind');await expect(viewer).toHaveAttribute('aria-busy','false');
+tests/e2e/technology-viewer.spec.ts:148:  await swipe(100);await expect(viewer).toHaveAttribute('data-group','CyberMind');
+tests/e2e/technology-viewer.spec.ts:149:  await swipe(-100);await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');
+tests/e2e/technology-viewer.spec.ts:150:  await page.keyboard.press('End');await expect.poll(()=>viewer.locator('.technology-viewer__scroll').evaluate(e=>e.scrollTop)).toBeGreaterThan(500);
+tests/e2e/technology-viewer.spec.ts:157:test('all six post-load low-priority decoded images are reused offline across ribbons and reopening',async({page,context})=>{
+tests/e2e/technology-viewer.spec.ts:205:  await page.keyboard.press('Escape');
+cat: playwright.config.ts: No such file or directory
+[{"width":402,"height":874,"group":0,"geometry":{"landing":{"width":402,"left":0,"right":402,"height":13724.71875},"viewer":{"width":402,"left":0,"right":402,"height":874},"photo":{"width":402,"left":0,"right":402,"height":714.28125},"stage":{"width":402,"left":0,"right":402,"height":810},"viewport":402,"dpr":3},"errors":[]},{"width":402,"height":874,"group":1,"geometry":{"landing":{"width":402,"left":0,"right":402,"height":13724.71875},"viewer":{"width":402,"left":0,"right":402,"height":874},"photo":{"width":402,"left":0,"right":402,"height":714.28125},"stage":{"width":402,"left":0,"right":402,"height":810},"viewport":402,"dpr":3},"errors":[]},{"width":440,"height":956,"group":0,"geometry":{"landing":{"width":440,"left":0,"right":440,"height":15022.109375},"viewer":{"width":440,"left":0,"right":440,"height":956},"photo":{"width":440,"left":0,"right":440,"height":781.796875},"stage":{"width":440,"left":0,"right":440,"height":892},"viewport":440,"dpr":3},"errors":[]},{"width":440,"height":956,"group":1,"geometry":{"landing":{"width":440,"left":0,"right":440,"height":15022.109375},"viewer":{"width":440,"left":0,"right":440,"height":956},"photo":{"width":440,"left":0,"right":440,"height":781.796875},"stage":{"width":440,"left":0,"right":440,"height":892},"viewport":440,"dpr":3},"errors":[]},{"width":1440,"height":900,"group":0,"geometry":{"landing":{"width":941,"left":249.5,"right":1190.5,"height":32126.984375},"viewer":{"width":941,"left":249.5,"right":1190.5,"height":900},"photo":{"width":941,"left":249.5,"right":1190.5,"height":1672},"stage":{"width":941,"left":249.5,"right":1190.5,"height":836},"viewport":1440,"dpr":1},"errors":[]},{"width":1440,"height":900,"group":1,"geometry":{"landing":{"width":941,"left":249.5,"right":1190.5,"height":32126.984375},"viewer":{"width":941,"left":249.5,"right":1190.5,"height":900},"photo":{"width":941,"left":249.5,"right":1190.5,"height":1672},"stage":{"width":941,"left":249.5,"right":1190.5,"height":836},"viewport":1440,"dpr":1},"errors":[]}]
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+The logs show passing native wheel and touch checks, eleven-locale fit checks, and keyboard/Close cycles against the applied header. I’ll finish by inspecting the recorded geometry and responsive screenshots. The earlier Firefox failure remains in the log, and the journal explicitly records its lost screenshot.
+
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/zsh -lc "cat .agents/skills/pixel-perfect-ui-testing/SKILL.md; rg --files -g '*playwright*config*'; sed -n '112,182p' tests/e2e/technology-viewer.spec.ts; cat docs/evidence/technology-viewer/canvas-width/capture.mjs; sed -n '1,75p' docs/evidence/technology-viewer/compact-header/approved-checks.json" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 35ms:
+---
+name: pixel-perfect-ui-testing
+description: Verify Ramsider UI on iPhone 17 Pro against the supplied render, then inspect Pro Max responsive output with real Playwright screenshots. Use aligned pixel diffs only where references are comparable.
+---
+
+# Pixel-perfect UI testing
+
+Follow `AGENTS.md`, `docs/visual-qa.md`, and the completion gate in `docs/definition-of-done.md`. This is the Codex-compatible project skill for the render → screenshot → compare → fix loop.
+
+For raster photo sizing/adaptation, use [artwork-color-pipeline's geometry contract](../artwork-color-pipeline/SKILL.md): measure the photo itself against the cutout and source ratio at different heights of the same width, inspect actual screenshots and reach every required content region. A full-width wrapper or unchanged raster bytes alone cannot pass this gate.
+
+1. Run the application in Playwright on iPhone 17 Pro (402 × 874 CSS px) and Pro Max (440 × 956), both mobile WebKit at DPR 3. Assert actual `window.innerWidth`/DPR and a responsive viewport meta tag before capturing at matching scroll positions and stable font/image states. Inspect the Pro screenshot **image** alongside the calibrated crop from `design/references/background_text.png`; inspect Pro Max for responsive fidelity. Do not claim Pro Max pixel equivalence without a comparable Pro Max reference.
+2. When images align, run `npm run visual:diff -- reference.png actual.png diff.png [max-difference-percent]`. Read the JSON result and inspect `diff.png`. The percentage is a second signal; antialiasing and browser differences mean 0% is not required. Material visual discrepancies still fail even when the numeric threshold passes.
+3. Identify and fix the cause, recapture, and compare again. Check mobile and desktop adaptation, required interactions, and console errors. Re-run affected visual checks after refactoring or performance work.
+
+The CLI and browser test runner are installed in the project. Browser tests belong under `tests/e2e/`; `playwright.config.mjs` defines iPhone 17 Pro/Pro Max WebKit and desktop Chromium/Firefox projects. Reuse the existing relevant browser suites and add coverage only for a missing acceptance check. Report actual executed checks; skill availability alone is not verification.
+playwright.config.mjs
+test('both story controls open a complete ribbon with one title and two group controls', async ({ page }) => {
+  await page.goto('/en');
+  for (const id of ['technology-experience','technology-repeat']) {
+    const trigger=page.locator(`#${id}`);
+    await openTechnology(page,trigger);
+    const viewer=page.locator('#technology-viewer');
+    await expect(viewer).toHaveAttribute('aria-busy','false');
+    await expect(viewer.locator('.technology-viewer__photo img')).toHaveCount(4);
+    await expect(viewer.locator('.technology-viewer__title')).toHaveCount(1);
+    await expect(viewer.getByRole('heading',{name:'HeatCore Technology',exact:true})).toBeVisible();
+    await expect(viewer.locator('.technology-viewer__dots button')).toHaveCount(2);
+    await expect(viewer.locator('.technology-viewer__frame,.technology-viewer__next-group,.technology-viewer__previous-group,.technology-description__number')).toHaveCount(0);
+    await viewer.locator('.technology-viewer__dots button').last().click();
+    await expect(viewer).toHaveAttribute('data-group','CyberMind');
+    await expect(viewer).toHaveAttribute('aria-busy','false');
+    await expect(viewer.locator('.technology-viewer__photo img')).toHaveCount(2);
+    await expect(viewer.locator('.technology-viewer__title')).toHaveCount(1);
+    await expect(viewer.getByRole('heading',{name:'CyberMind Technology',exact:true})).toBeVisible();
+    await page.keyboard.press('ArrowRight');
+    await expect(viewer).toHaveAttribute('data-group','CyberMind');
+    await page.keyboard.press('ArrowLeft');
+    await expect(viewer).toHaveAttribute('data-group','HeatCore');
+    await expect(viewer).toHaveAttribute('aria-busy','false');
+    for(let i=0;i<8;i++){await page.keyboard.press('Tab');expect(await page.evaluate(()=>!!document.activeElement?.closest('#technology-viewer'))).toBe(true);}
+    await page.keyboard.press('Escape');await expect(viewer).not.toBeVisible();await expect(trigger).toBeFocused();
+  }
+});
+
+test('literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling',async({page})=>{
+ for(const locale of ['en','ar']){
+  await page.goto(`/${locale}`);await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
+  const canvas=viewer.locator('.technology-viewer__canvas');
+  const swipe=async(dx:number,dy=0)=>{await canvas.dispatchEvent('pointerdown',{pointerType:'touch',clientX:150,clientY:250});await canvas.dispatchEvent('pointerup',{pointerType:'touch',clientX:150+dx,clientY:250+dy});};
+  await swipe(-100);await expect(viewer).toHaveAttribute('data-group','HeatCore');
+  await swipe(100,200);await expect(viewer).toHaveAttribute('data-group','HeatCore');
+  await swipe(100);await expect(viewer).toHaveAttribute('data-group','CyberMind');await expect(viewer).toHaveAttribute('aria-busy','false');
+  await swipe(100);await expect(viewer).toHaveAttribute('data-group','CyberMind');
+  await swipe(-100);await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');
+  await page.keyboard.press('End');await expect.poll(()=>viewer.locator('.technology-viewer__scroll').evaluate(e=>e.scrollTop)).toBeGreaterThan(500);
+  await expect(viewer).toHaveAttribute('data-group','HeatCore');await viewer.locator('.technology-viewer__next-image').click();await expect(viewer).toHaveAttribute('data-group','CyberMind');await expect(viewer).toHaveAttribute('aria-busy','false');
+  expect(await viewer.locator('.technology-viewer__scroll').evaluate(e=>e.scrollTop)).toBe(0);
+  await viewer.locator('.technology-viewer__close').click();
+ }
+});
+
+test('all six post-load low-priority decoded images are reused offline across ribbons and reopening',async({page,context})=>{
+ await page.addInitScript(()=>{
+  const images:HTMLImageElement[]=[];const fetches:{url:string;priority?:string}[]=[];
+  Object.assign(window,{__technologyWarmImages:images,__technologyFetches:fetches});
+  const nativeFetch=window.fetch;window.fetch=(input,init)=>{const url=String(input);if(/\/technology\/(?:cybermind\/0[12]|0[2-5])\.png$/.test(url))fetches.push({url,priority:(init as RequestInit & {priority?:string})?.priority});return nativeFetch(input,init);};
+  window.Image=new Proxy(window.Image,{construct(target,args){const image=Reflect.construct(target,args) as HTMLImageElement;images.push(image);return image;}});
+ });
+ await page.goto('/en');
+ await expect.poll(()=>page.evaluate(()=>(window as unknown as {__technologyWarmImages:HTMLImageElement[]}).__technologyWarmImages.filter(i=>i.dataset.source&&i.complete&&i.naturalWidth===941).length)).toBe(6);
+ const timings=await page.evaluate(()=>({load:(performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming).loadEventStart,starts:performance.getEntriesByType('resource').filter(e=>/\/technology\/(?:cybermind\/0[12]|0[2-5])\.png$/.test(e.name)).map(e=>e.startTime),fetches:(window as unknown as {__technologyFetches:{priority:string}[]}).__technologyFetches}));
+ expect(timings.starts).toHaveLength(6);expect(timings.starts.every(t=>t>=timings.load)).toBe(true);expect(timings.fetches.map(f=>f.priority)).toEqual(Array(6).fill('low'));
+ await openTechnology(page);await expect(page.locator('#technology-viewer')).toHaveAttribute('aria-busy','false');await context.setOffline(true);
+ for(const group of [1,0,1,0]){
+  await page.locator('.technology-viewer__dots button').nth(group).click();await expect(page.locator('#technology-viewer')).toHaveAttribute('data-group',group?'CyberMind':'HeatCore');await expect(page.locator('#technology-viewer')).toHaveAttribute('aria-busy','false');
+  expect(await page.locator('.technology-viewer__photo img').evaluateAll(elements=>elements.every(image=>(window as unknown as {__technologyWarmImages:HTMLImageElement[]}).__technologyWarmImages.includes(image as HTMLImageElement)))).toBe(true);
+ }
+ await page.locator('.technology-viewer__close').click();await openTechnology(page);await expect(page.locator('#technology-viewer')).toHaveAttribute('aria-busy','false');await expect(page.locator('.technology-viewer__photo img')).toHaveCount(4);
+ expect(await page.evaluate(()=>(window as unknown as {__technologyFetches:unknown[]}).__technologyFetches.length)).toBe(6);await context.setOffline(false);
+});
+test('technology viewer hides landing paint beneath browser chrome and restores it on close', async ({ page }, testInfo) => {
+  await page.goto('/en');
+  // Expanded FAQ icons explicitly set visibility:visible and must also be hidden.
+  await page.locator('#faq-preorder').click();
+  const opener = page.locator('[data-technology-open]').first();
+  await opener.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(100);
+import {webkit,chromium} from '@playwright/test';
+import {readFile,writeFile} from 'node:fs/promises';
+import sharp from 'sharp';
+import assert from 'node:assert/strict';
+const phase=process.env.PHASE??'before',base=process.env.BASE_URL??'http://127.0.0.1:3030';
+const out='docs/evidence/technology-viewer/canvas-width',header='docs/evidence/technology-viewer/compact-header';
+const css=await readFile(`${header}/candidate.css`,'utf8');
+const rows=[];
+async function paint(page){await page.evaluate(()=>document.fonts.ready);await page.waitForFunction(()=>[...document.querySelectorAll('.technology-viewer__photo img')].every(i=>i.complete&&i.naturalWidth===941));await page.evaluate(()=>new Promise(resolve=>{let n=0;function frame(){if(++n===10)resolve();else requestAnimationFrame(frame)}requestAnimationFrame(frame)}));}
+for(const [engine,width,height,mobile] of [[webkit,402,874,true],[webkit,440,956,true],[chromium,1440,900,false]]){
+ const browser=await engine.launch(),page=await browser.newPage({viewport:{width,height},deviceScaleFactor:mobile?3:1,isMobile:mobile,hasTouch:mobile});
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(`${base}/en`);await page.waitForFunction(()=>document.documentElement.hasAttribute('data-media-hydrated'));
+ const trigger=page.locator('[data-technology-open]').first();await trigger.scrollIntoViewIfNeeded();await page.waitForFunction(()=>!document.querySelector('.page-media-overlay')&&!document.querySelector('.page-media-content[inert]'));await trigger.click();
+ for(let group=0;group<2;group++){
+  await page.locator('.technology-viewer__dots button').nth(group).click();await page.waitForFunction(g=>document.querySelector('#technology-viewer')?.dataset.group===g&&document.querySelector('#technology-viewer')?.getAttribute('aria-busy')==='false',group?'CyberMind':'HeatCore');await paint(page);
+  const geometry=await page.evaluate(()=>{const r=s=>{const a=document.querySelector(s).getBoundingClientRect();return{width:a.width,left:a.left,right:a.right,height:a.height}};return{landing:r('.canvas'),viewer:r('#technology-viewer'),photo:r('.technology-viewer__photo img'),stage:r('.technology-viewer__stage'),viewport:innerWidth,dpr:devicePixelRatio}});
+  if(phase!=='before'){assert.equal(geometry.viewer.width,geometry.landing.width);assert.equal(geometry.viewer.left,geometry.landing.left);assert.equal(geometry.photo.width,geometry.landing.width);assert(Math.abs(geometry.photo.height-geometry.photo.width*1672/941)<1)}
+  await page.screenshot({path:`${out}/${phase}-${width}-${group}.png`});rows.push({width,height,group,geometry,errors});
+  if(phase==='after'){
+   const style=await page.addStyleTag({content:css});await paint(page);await page.screenshot({path:`${header}/candidate-${width}-${group}.png`});await style.evaluate(el=>el.remove());await paint(page);
+  }
+ }
+ if(phase!=='before'){
+ await page.locator('.technology-viewer__close').click();await page.waitForFunction(()=>[...document.querySelectorAll('img[data-media]')].every(i=>i.hasAttribute('data-media-ready')));
+ for(const [name,selector]of [['hero','h1'],['technology','#technology-experience'],['faq','#faq']]){await page.locator(selector).first().scrollIntoViewIfNeeded();await paint(page);await page.screenshot({path:`${out}/assembly-${width}-${name}.png`});}
+ }
+ await browser.close();
+}
+await writeFile(`${out}/${phase}.json`,JSON.stringify(rows,null,2));
+if(phase==='after')for(const w of [402,440]){
+ const a=await sharp(`${out}/before-${w}-0.png`).raw().toBuffer(),b=await sharp(`${out}/after-${w}-0.png`).raw().toBuffer();assert(a.equals(b),`mobile pixels changed ${w}`);
+ const dpr=3,h=300;await sharp({create:{width:w*2,height:h,channels:3,background:'#fff'}}).composite(await Promise.all([`${out}/after-${w}-0.png`,`${header}/candidate-${w}-0.png`].map(async(path,i)=>({input:await sharp(path).extract({left:0,top:0,width:w*dpr,height:h*dpr}).resize(w,h).png().toBuffer(),left:i*w,top:0})))).png().toFile(`${header}/comparison-${w}.png`);
+}
+console.log(JSON.stringify(rows));
+[
+  {
+    "locale": "en",
+    "width": 402,
+    "group": 0,
+    "dialog": {
+      "x": 0,
+      "y": 0,
+      "width": 402,
+      "height": 874,
+      "right": 402,
+      "bottom": 874
+    },
+    "stage": {
+      "x": 0,
+      "y": 64,
+      "width": 402,
+      "height": 810,
+      "right": 402,
+      "bottom": 874
+    },
+    "hits": [
+      {
+        "x": 104,
+        "y": 10,
+        "width": 238,
+        "height": 44,
+        "right": 342,
+        "bottom": 54
+      },
+      {
+        "x": 8,
+        "y": 10,
+        "width": 44,
+        "height": 44,
+        "right": 52,
+        "bottom": 54
+      },
+      {
+        "x": 52,
+        "y": 10,
+        "width": 44,
+        "height": 44,
+        "right": 96,
+        "bottom": 54
+      },
+      {
+        "x": 349.96875,
+        "y": 10,
+        "width": 44,
+        "height": 44,
+        "right": 393.96875,
+        "bottom": 54
+      }
+    ],
+    "label": {
+      "x": 143.15625,
+      "y": 21.921875,
+      "width": 139.890625,
+      "height": 20.15625,
+      "right": 283.046875,
+      "bottom": 42.078125
+    },
+    "text": "Next Technology",
+    "font": "18px"
+  },
+  {
+    "locale": "en",
+    "width": 402,
+    "group": 1,
+    "dialog": {
+      "x": 0,
+      "y": 0,
+      "width": 402,
+      "height": 874,
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+2026-10-08T22:44:31.295389Z  WARN codex_sandboxing::violation: recorded sandbox violation: resource=filesystem backend=seatbelt reason=operation_not_permitted path=unknown
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+I’m using the project’s UI testing skill to assess the existing screenshots and geometry evidence, within your read-only Stage 4 scope.
+
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/zsh -lc "cat playwright.config.mjs; rg -n 'geometry|Geometry|safe-area|CSS-only' .agents/skills/artwork-color-pipeline/SKILL.md; python3 -c 'import json; from pathlib import Path; p=Path(\"docs/evidence/technology-viewer\"); r=json.loads((p/\"compact-header/approved-checks.json\").read_text()); print(\"rows\",len(r),\"locales\",sorted(set(x[\"locale\"] for x in r)),\"widths\",sorted(set(x[\"width\"] for x in r))); print(\"fonts\",sorted(set((x[\"width\"],x[\"font\"]) for x in r))); print(\"final\",json.loads((p/\"canvas-width/final.json\").read_text()))'" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 54ms:
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  testDir: './tests/e2e',
+  outputDir: './test-results',
+  reporter: [['list'], ['html', { open: 'never' }]],
+  use: {
+    baseURL: process.env.BASE_URL ?? 'http://127.0.0.1:3000',
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+  },
+  projects: [
+    {
+      name: 'iphone-17-pro-webkit',
+      use: { browserName: 'webkit', viewport: { width: 402, height: 874 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true },
+    },
+    {
+      name: 'iphone-17-pro-max-webkit',
+      use: { browserName: 'webkit', viewport: { width: 440, height: 956 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true },
+    },
+    {
+      name: 'desktop-chromium',
+      use: { browserName: 'chromium', viewport: { width: 1440, height: 900 } },
+    },
+    {
+      name: 'desktop-firefox',
+      use: { browserName: 'firefox', viewport: { width: 1440, height: 900 } },
+    },
+  ],
+});
+8:Use this skill before transforming raster assets or changing their displayed geometry. Keep source files and user edits intact. For CSS-only image geometry, use the geometry contract below without re-encoding assets or rerunning unrelated color/export checks. For source, codec or delivery changes, also follow the color workflow and read [the project's color method](../../../docs/art-color-pipeline.md). Retrieve relevant `LESSONS.md` image width, aspect, color and edge failures before similar work.
+10:## Geometry contract before implementation
+15:4. **Verify the real output.** Assert photo width equals its intended inner width within 1 CSS px and its proportional height differs from `renderedWidth×Sh/Sw` by no more than 1 CSS px (or document a justified browser rounding tolerance). Inspect ready screenshots on Pro and Max, at multiple heights of the same phone width and representative wide/landscape sizes, for every distinct source composition. Check full bottom-content access, overlay alignment, side bands, clipped labels and fixed controls. Source-byte/color checks are additional evidence, never geometry approval. Reuse `tests/e2e/technology-width.spec.ts` for this viewer; adapt checks to the current feature instead of copying its source ratio or gesture policy globally.
+18:Record the chosen geometry and actual evidence in the existing topic document and CHANGELOG. Reuse existing sections for diagnosis, plan and results; create a separate document only for a genuinely distinct maintained topic or an explicit user request. After superseding a policy, reread the complete affected narrative and reconcile its callers, not only headings/tables. Instruction changes and passing UI tests do not guarantee future agent behavior; record controlled eval status separately.
+rows 54 locales ['ar', 'de', 'en', 'es', 'fr', 'it', 'ja', 'ko', 'ru', 'tr', 'zh'] widths [320, 375, 402, 440, 768, 844, 1440]
+fonts [(320, '16px'), (375, '18px'), (402, '18px'), (440, '18px'), (768, '18px'), (844, '18px'), (1440, '18px')]
+final [{'width': 402, 'height': 874, 'group': 0, 'geometry': {'landing': {'width': 402, 'left': 0, 'right': 402, 'height': 13724.71875}, 'viewer': {'width': 402, 'left': 0, 'right': 402, 'height': 874}, 'photo': {'width': 402, 'left': 0, 'right': 402, 'height': 714.28125}, 'stage': {'width': 402, 'left': 0, 'right': 402, 'height': 810}, 'viewport': 402, 'dpr': 3}, 'errors': []}, {'width': 402, 'height': 874, 'group': 1, 'geometry': {'landing': {'width': 402, 'left': 0, 'right': 402, 'height': 13724.71875}, 'viewer': {'width': 402, 'left': 0, 'right': 402, 'height': 874}, 'photo': {'width': 402, 'left': 0, 'right': 402, 'height': 714.28125}, 'stage': {'width': 402, 'left': 0, 'right': 402, 'height': 810}, 'viewport': 402, 'dpr': 3}, 'errors': []}, {'width': 440, 'height': 956, 'group': 0, 'geometry': {'landing': {'width': 440, 'left': 0, 'right': 440, 'height': 15022.109375}, 'viewer': {'width': 440, 'left': 0, 'right': 440, 'height': 956}, 'photo': {'width': 440, 'left': 0, 'right': 440, 'height': 781.796875}, 'stage': {'width': 440, 'left': 0, 'right': 440, 'height': 892}, 'viewport': 440, 'dpr': 3}, 'errors': []}, {'width': 440, 'height': 956, 'group': 1, 'geometry': {'landing': {'width': 440, 'left': 0, 'right': 440, 'height': 15022.109375}, 'viewer': {'width': 440, 'left': 0, 'right': 440, 'height': 956}, 'photo': {'width': 440, 'left': 0, 'right': 440, 'height': 781.796875}, 'stage': {'width': 440, 'left': 0, 'right': 440, 'height': 892}, 'viewport': 440, 'dpr': 3}, 'errors': []}, {'width': 1440, 'height': 900, 'group': 0, 'geometry': {'landing': {'width': 941, 'left': 249.5, 'right': 1190.5, 'height': 32126.984375}, 'viewer': {'width': 941, 'left': 249.5, 'right': 1190.5, 'height': 900}, 'photo': {'width': 941, 'left': 249.5, 'right': 1190.5, 'height': 1672}, 'stage': {'width': 941, 'left': 249.5, 'right': 1190.5, 'height': 836}, 'viewport': 1440, 'dpr': 1}, 'errors': []}, {'width': 1440, 'height': 900, 'group': 1, 'geometry': {'landing': {'width': 941, 'left': 249.5, 'right': 1190.5, 'height': 32126.984375}, 'viewer': {'width': 941, 'left': 249.5, 'right': 1190.5, 'height': 900}, 'photo': {'width': 941, 'left': 249.5, 'right': 1190.5, 'height': 1672}, 'stage': {'width': 941, 'left': 249.5, 'right': 1190.5, 'height': 836}, 'viewport': 1440, 'dpr': 1}, 'errors': []}]
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/zsh -lc "sed -n '1,19p' .agents/skills/artwork-color-pipeline/SKILL.md; node --input-type=module -e 'import sharp from \"sharp\"; import fs from \"node:fs\"; import assert from \"node:assert/strict\"; const root=\"docs/evidence/technology-viewer/\"; const rows=JSON.parse(fs.readFileSync(root+\"compact-header/approved-checks.json\")); assert.equal(rows.length,54); for(const r of rows){assert.equal(r.stage.y,64); for(const h of r.hits){assert(h.width>=44 && h.height>=44); assert(h.x>=r.dialog.x && h.right<=r.dialog.right+.01); } for(let i=0;i<r.hits.length;i++)for(let j=i+1;j<r.hits.length;j++){const a=r.hits[i],b=r.hits[j]; assert("'!(a.x<b.right&&b.x<a.right&&a.y<b.bottom&&b.y<a.bottom));} assert(r.label.x>=r.hits[0].x && r.label.right<=r.hits[0].right+.01); assert(r.label.y>=10&&r.label.bottom<=54); } console.log("Independent JSON recheck: 54 stage/target/label cases PASS"); for(const w of [402,440])for(const g of [0,1]){const a=await sharp(root+`compact-header/candidate-${w}-${g}.png`).raw().toBuffer({resolveWithObject:true}),b=await sharp(root+`canvas-width/final-${w}-${g}.png`).raw().toBuffer({resolveWithObject:true}); assert.deepEqual(a.info,b.info); assert(a.data.equals(b.data)); console.log(`Independent decoded-pixel check ${w}/${g}: exact PASS`);}'"'" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 569ms:
+---
+name: artwork-color-pipeline
+description: Preserve color, detail and proportions of Ramsider raster artwork. Use for source changes, crop/resizing, format conversion, delivery changes, and CSS image sizing, object-fit or fullscreen adaptation. Text-only and vector-only edits do not trigger it.
+---
+
+# Artwork color pipeline
+
+Use this skill before transforming raster assets or changing their displayed geometry. Keep source files and user edits intact. For CSS-only image geometry, use the geometry contract below without re-encoding assets or rerunning unrelated color/export checks. For source, codec or delivery changes, also follow the color workflow and read [the project's color method](../../../docs/art-color-pipeline.md). Retrieve relevant `LESSONS.md` image width, aspect, color and edge failures before similar work.
+
+## Geometry contract before implementation
+
+1. **Separate the requirements.** Measure the source dimensions and actual browser content viewport/cutout. Define independent checks for frame width, photo width, undistorted photo ratio, required content visibility and fixed controls. A full-width frame or matching source hash cannot prove a full-width photograph. Browser chrome changes available height at the same width.
+2. **Resolve unequal aspect ratios.** For width `W` and source `Sw×Sh`, proportional photo height is `W×Sh/Sw`. Compare it with available height before selecting a fit. When full width, no distortion and all source content are required, use proportional width with accessible vertical overflow or an approved responsive recomposition. `contain` can leave side bands; `cover` can crop captions/diagrams. Neither satisfies all those requirements automatically. Never stretch image axes independently (`object-fit:fill`, separate width/height scales) to force a fit. Do not silently crop meaningful regions. If simultaneous full visibility without scrolling is also required, assess source layers for recomposition and make unresolved requirements explicit.
+3. **Keep layers aligned.** Scale photo and source-positioned live text/callouts as one proportional plane. A viewport-filling metal frame needs separately adaptable borders (for example nine-slice), preserving corners and thickness. Inspect sprite ratios too. CSS overflow and object-fit must describe the actual image element, not just its wrapper.
+4. **Verify the real output.** Assert photo width equals its intended inner width within 1 CSS px and its proportional height differs from `renderedWidth×Sh/Sw` by no more than 1 CSS px (or document a justified browser rounding tolerance). Inspect ready screenshots on Pro and Max, at multiple heights of the same phone width and representative wide/landscape sizes, for every distinct source composition. Check full bottom-content access, overlay alignment, side bands, clipped labels and fixed controls. Source-byte/color checks are additional evidence, never geometry approval. Reuse `tests/e2e/technology-width.spec.ts` for this viewer; adapt checks to the current feature instead of copying its source ratio or gesture policy globally.
+5. **Recheck affected interactions.** If overflow changes, verify native vertical pan, keyboard/wheel, bounded reversible horizontal navigation and Arabic RTL as applicable; scrolling must not also change groups. In a protected media view, pending/error freezes its scroll/navigation, the old complete frame stays visible, and decoded replacement resets position only on commit. Keep Close/Retry usable. Distinguish emulated content tests from physical Safari/Telegram chrome and synthetic events from native input.
+
+Record the chosen geometry and actual evidence in the existing topic document and CHANGELOG. Reuse existing sections for diagnosis, plan and results; create a separate document only for a genuinely distinct maintained topic or an explicit user request. After superseding a policy, reread the complete affected narrative and reconcile its callers, not only headings/tables. Instruction changes and passing UI tests do not guarantee future agent behavior; record controlled eval status separately.
+
+Independent JSON recheck: 54 stage/target/label cases PASS
+Independent decoded-pixel check 402/0: exact PASS
+Independent decoded-pixel check 402/1: exact PASS
+Independent decoded-pixel check 440/0: exact PASS
+Independent decoded-pixel check 440/1: exact PASS
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+**Stage 4 — PASS, scoped to CHG-0077 + CHG-0078.**
+
+- [approved-browser-tests.log](/Users/asmirnou/Projects/g/ramsider/docs/evidence/technology-viewer/canvas-width/approved-browser-tests.log): **11 passed, 5 explicit platform skips**. Inspected test assertions cover 13 sizes, all six proportional planes, bottom access, eleven locales, native desktop wheel and Chromium touch/pending/RTL.
+- [approved-checks.json](/Users/asmirnou/Projects/g/ramsider/docs/evidence/technology-viewer/compact-header/approved-checks.json) and `check.mjs`: independently rechecked **54 geometry cases**; 44px targets are disjoint and labels fit. Executed log records **11 keyboard/navigation/Close cycles passing**.
+- [viewer-behavior.log](/Users/asmirnou/Projects/g/ramsider/docs/evidence/technology-viewer/canvas-width/viewer-behavior.log): **12 passed** across four profiles for both entrypoints, bounded reversible RTL swipes and decoded offline/reopen behavior.
+- Inspected mobile, narrow, landscape, desktop and Arabic screenshots. Independently decoded all four final phone captures: exact approved-candidate pixels. [final.json](/Users/asmirnou/Projects/g/ramsider/docs/evidence/technology-viewer/canvas-width/final.json) confirms desktop main/dialog/photo share **941px, x249.5–1190.5**.
+
+No material missing check within this scoped emulation gate. Earlier Firefox failure remains preserved; subsequent native-wheel runs pass, and the lost screenshot is explicitly documented. Physical Safari/Telegram chrome remains unverified under CHG-0065. No Stage 5/6 or broad-site approval inferred.
+tokens used
+69,119
+**Stage 4 — PASS, scoped to CHG-0077 + CHG-0078.**
+
+- [approved-browser-tests.log](/Users/asmirnou/Projects/g/ramsider/docs/evidence/technology-viewer/canvas-width/approved-browser-tests.log): **11 passed, 5 explicit platform skips**. Inspected test assertions cover 13 sizes, all six proportional planes, bottom access, eleven locales, native desktop wheel and Chromium touch/pending/RTL.
+- [approved-checks.json](/Users/asmirnou/Projects/g/ramsider/docs/evidence/technology-viewer/compact-header/approved-checks.json) and `check.mjs`: independently rechecked **54 geometry cases**; 44px targets are disjoint and labels fit. Executed log records **11 keyboard/navigation/Close cycles passing**.
+- [viewer-behavior.log](/Users/asmirnou/Projects/g/ramsider/docs/evidence/technology-viewer/canvas-width/viewer-behavior.log): **12 passed** across four profiles for both entrypoints, bounded reversible RTL swipes and decoded offline/reopen behavior.
+- Inspected mobile, narrow, landscape, desktop and Arabic screenshots. Independently decoded all four final phone captures: exact approved-candidate pixels. [final.json](/Users/asmirnou/Projects/g/ramsider/docs/evidence/technology-viewer/canvas-width/final.json) confirms desktop main/dialog/photo share **941px, x249.5–1190.5**.
+
+No material missing check within this scoped emulation gate. Earlier Firefox failure remains preserved; subsequent native-wheel runs pass, and the lost screenshot is explicitly documented. Physical Safari/Telegram chrome remains unverified under CHG-0065. No Stage 5/6 or broad-site approval inferred.

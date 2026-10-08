@@ -1,0 +1,42 @@
+[
+  {
+    "conditions": "Chromium mobile402x874 DPR3,unthrottled loopback,cold context",
+    "usefulMs": 249.10000014305115,
+    "lcpMs": 280,
+    "cls": 0,
+    "jsBytes": 163586,
+    "cachedOpenSyntheticMs": 63.299999952316284,
+    "innerScroll": {
+      "frames": 159,
+      "p95Ms": 16.799999999999955,
+      "over33Ms": 0,
+      "scrollRange": 2136
+    },
+    "mainScroll": {
+      "frames": 159,
+      "p95Ms": 16.800000000000182,
+      "over33Ms": 0
+    },
+    "errors": []
+  },
+  {
+    "conditions": "Chromium mobile402x874 DPR3,4Mbps/100ms RTT setting,4xCPU, cold context",
+    "usefulMs": 2245.7000000476837,
+    "lcpMs": 2276,
+    "cls": 0,
+    "jsBytes": 163586,
+    "cachedOpenSyntheticMs": 150.79999995231628,
+    "innerScroll": {
+      "frames": 159,
+      "p95Ms": 16.79999999998836,
+      "over33Ms": 0,
+      "scrollRange": 2136
+    },
+    "mainScroll": {
+      "frames": 159,
+      "p95Ms": 16.79999999998836,
+      "over33Ms": 0
+    },
+    "errors": []
+  }
+]

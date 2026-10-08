@@ -1,4 +1,14 @@
-# Technology viewer — separate layers, current revision 2026-10-08
+# Technology viewer — separate layers, current revision 2026-10-09
+
+## Landing width correction / CHG-0078 — 2026-10-09
+
+The site remains mobile first. The technical viewer uses the same centered `min(viewport width,941px)` canvas as the landing page on every pointer profile. Shared root `--page-max-width` is consumed by both main and native dialog; photos, semantic source coordinates and48sourcepx joins scale inside it. Full-screen black backdrop does not imply viewport-wide photos on a laptop. Earlier viewport-wide descriptions below are historical and superseded by this width contract. The approved64px+safearea header below and original source/loading policies are implemented. New production preview3032.
+
+Pro402×874/Max440×956DPR3 both groups are decoded-pixel identical before/after. Desktop1440×900 lands/viewer/photo share941px and x249.5..1190.5. Geometry/nativebottom tests cover13width-height pairs including941/942boundary,1280/1440/1920,short/narrow/landscape. First suite10PASS/5explicit platformskips/1Firefoxwheel fixtureFAIL; repeated nativewheel cadence repaired and bothdesktoprechecks2PASS. Separate entry/swipe/offline/reopen checks12PASS. Actual sources remain941×1672; no asset, preload or runtime JS change. [Evidence](evidence/technology-viewer/canvas-width/). Primary finaltype/lint/build/native review clean; dated primarytechnicalAPPROVED andindependentStages1/3/4/5PASS; independent finalrecords re-auditPASS aftermissingEVALpreventionrepair; do not infer all-site approval from this scoped correction.
+
+## Approved single-row compact header / CHG-0077 — 2026-10-09
+
+User approved «да в одну строку лучше». The implemented CSS reduces the site's88px header to64px+unchangedsafearea: dots left, navigation18px (16px below361px), Close28px glyph, all original disjoint44px hit targets in one row. Native Telegram/browser toolbar remains external. The application uses the same geometry as the original browser-only candidate. Two-group Pro/Max/desktop real screenshots and Arabic inspected;54locale/width/group geometry cases and11keyboard/navigation/Close cyclesPASS. After implementation allfourPro/Maxbothgroup captures exactlymatchtheapprovedpreview; finalproductionwidthsuite11PASS/5API skips and actualheader54geometry/11keyboardcyclesPASS. [Before/after comparison](evidence/technology-viewer/compact-header/comparison-402.png), [candidate CSS](evidence/technology-viewer/compact-header/candidate.css). Explicit preview approval is recorded; currentproduction3032 contains bothchanges. FinalcoldChromiumProDPR3 useful326.1/2247.2ms,LCP364/2276,CLS0,unchangedJS163586B; livegallerylocalp9516.8ms0>33. Throttledcurrenttrace measuresinitialpageonly, earlierthrottledgallerytrace is historical; noINP/Lighthouse/physicalchromeclaim. DatedprimarytechnicalAPPROVED andindependentStage4/5PASS; independent finalrecordre-auditPASS; firstrecordFAIL andrepair preserved inCHANGELOG.
 
 ## Two vertical group ribbons / CHG-0076 — implemented and checked 2026-10-08
 

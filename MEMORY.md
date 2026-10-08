@@ -4,6 +4,10 @@ Durable handoff for work in this repository, across chats and context compaction
 
 The mandatory [CHANGELOG.md](CHANGELOG.md) now records logical changes and defects with stable IDs, solution/mapping traceability, checks and dated technical approval. Agents update it autonomously at discovery, application and verification; user approval remains separate. It backfills this session’s font/button, Business and FAQ work and retains open residuals. CHG-0023 adds explicit responsibility, missed checks and behavior/eval links: agent implementation/verification failures are distinguished from new inputs (Business). Before similar work or a fresh rebuild, retrieve these causes and prevention checks. Agent Eval has a documented current-code protocol; the browser suite now defines 16 cases (four cover wheel input), but no controlled agent-run baseline has been executed and no model-weight training is claimed.
 
+## Git branch rule — 2026-10-08
+
+User requires work on main and no branch creation or switch to another working branch without an explicit command. CHG0074 verified: current checkout is main, fast-forwarded to0a09966 without losing history; original local and remote codex/technology-viewer-controls removed. origin/main confirmed at0a0996624724e78c602cbe7e77aa1e6950c68d31 after atomic push/delete. Earlier dual-target push authorization is superseded; origin/main is the delivery target.
+
 ## Documentation and photo skill — 2026-10-08
 
 CHG-0073 VERIFIED / 2026-10-08: reuse the existing topic document for diagnosis, plans and verification; do not create a Markdown file for each correction. Viewer width analysis/results now reside in docs/technology-viewer.md; raw evidence remains in place. Existing artwork-color-pipeline covers CSS photo geometry as well as raster transforms, with separate photo-width/aspect/content checks and mandatory implementer/testing routing. All3 schema checks and78 local links PASS; independent instruction/scenario audit PASS. Historical-filename migration error repaired; independent final record re-audit PASS, primary technical APPROVED. Controlled EVAL-VIEWER NOT_RUN.

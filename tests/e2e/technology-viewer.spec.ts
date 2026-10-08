@@ -29,9 +29,9 @@ test('technology artwork keeps its native proportions as Safari chrome changes t
     expect(bounds.frameRight).toBe(width);
     expect(bounds.nextBottom).toBeLessThanOrEqual(height + 1);
     expect(bounds.canvasWidth).toBe(width);
-    if (width === 320) await page.screenshot({ path: 'docs/evidence/technology-viewer/width-analysis/ready-320x568.png' });
+    if (width === 320) await page.screenshot({ path: 'docs/evidence/media-loading/retained-width-ready-320x568.png' });
     if (height === 664) {
-      await page.screenshot({ path: 'docs/evidence/technology-viewer/width-analysis/ready-390x664.png' });
+      await page.screenshot({ path: 'docs/evidence/media-loading/retained-width-ready-390x664.png' });
     }
   }
   await page.locator('.technology-viewer__next-group').click();
@@ -42,7 +42,7 @@ test('technology artwork keeps its native proportions as Safari chrome changes t
     await document.fonts.ready;
     await Promise.all(images.map(image => (image as HTMLImageElement).decode()));
   });
-  await page.screenshot({ path: 'docs/evidence/technology-viewer/width-analysis/ready-cybermind-390x664.png' });
+  await page.screenshot({ path: 'docs/evidence/media-loading/retained-width-ready-cybermind-390x664.png' });
   await viewer.locator('.technology-viewer__close').click();
   await expect(viewer).not.toBeVisible();
 });
@@ -291,6 +291,9 @@ test('failed warm-up and failed selection retry the same image', async ({ page }
   });
   await page.goto('/en');
   await expect.poll(() => requests).toBe(1);
+  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+  await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   await page.waitForTimeout(150);
   await openTechnology(page);
   await expect.poll(() => requests).toBe(2);
@@ -304,7 +307,7 @@ test('failed warm-up and failed selection retry the same image', async ({ page }
   await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 2 \/ 4/);
 });
 
-test('two photos of each group warm after load; remaining photos start together on open', async ({ page }) => {
+test('all six photos warm after load without blocking the main page', async ({ page }) => {
   let releaseHero!: () => void, releasePhotos!: () => void;
   const heroGate = new Promise<void>(resolve => { releaseHero = resolve; });
   const photoGate = new Promise<void>(resolve => { releasePhotos = resolve; });
@@ -317,8 +320,11 @@ test('two photos of each group warm after load; remaining photos start together 
   await expect(page.locator('.page-media-overlay')).toBeVisible();
   expect(requests).toHaveLength(0);
   releaseHero(); await page.waitForLoadState('load');
-  await expect.poll(() => requests.length).toBe(4);
-  expect(requests.map(url => new URL(url).pathname).sort()).toEqual(['/art/technology/02.png', '/art/technology/03.png', '/art/technology/cybermind/01.png', '/art/technology/cybermind/02.png']);
+  await expect.poll(() => requests.length).toBe(6);
+  expect(requests.map(url => new URL(url).pathname).sort()).toEqual(['/art/technology/02.png', '/art/technology/03.png', '/art/technology/04.png', '/art/technology/05.png', '/art/technology/cybermind/01.png', '/art/technology/cybermind/02.png']);
+  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+  await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
+  await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden');
   await openTechnology(page);
   await expect.poll(() => requests.length).toBe(6);
   expect(new Set(requests).size).toBe(6);
@@ -342,7 +348,7 @@ test('incomplete hero protects the main view before technology can be opened', a
   await expect(page.locator('#technology-viewer')).toBeVisible();
 });
 
-test('four photos warm at low priority; retained decoded images are reused offline across groups', async ({ page, context }) => {
+test('six photos warm at low priority; retained decoded images are reused offline across groups', async ({ page, context }) => {
   await page.addInitScript(() => {
     const records: HTMLImageElement[] = [];
     const fetches: { url: string; priority: string | undefined }[] = [];
@@ -360,14 +366,14 @@ test('four photos warm at low priority; retained decoded images are reused offli
     } });
   });
   await page.goto('/en');
-  await expect.poll(() => page.evaluate(() => (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages.filter(image => image.dataset.source && image.complete && image.naturalWidth === 941).length)).toBe(4);
+  await expect.poll(() => page.evaluate(() => (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages.filter(image => image.dataset.source && image.complete && image.naturalWidth === 941).length)).toBe(6);
   const timing = await page.evaluate(() => {
     const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
-    return { load: navigation.loadEventStart, starts: performance.getEntriesByType('resource').filter(entry => /\/technology\/(?:cybermind\/0[12]|0[23])\.png$/.test(entry.name)).map(entry => entry.startTime), fetches: (window as unknown as { __technologyFetches: { url: string; priority: string }[] }).__technologyFetches };
+    return { load: navigation.loadEventStart, starts: performance.getEntriesByType('resource').filter(entry => /\/technology\/(?:cybermind\/0[12]|0[2-5])\.png$/.test(entry.name)).map(entry => entry.startTime), fetches: (window as unknown as { __technologyFetches: { url: string; priority: string }[] }).__technologyFetches };
   });
-  expect(timing.starts).toHaveLength(4);
+  expect(timing.starts).toHaveLength(6);
   expect(timing.starts.every(start => start >= timing.load)).toBe(true);
-  expect(timing.fetches.map(item => item.priority)).toEqual(['low', 'low', 'low', 'low']);
+  expect(timing.fetches.map(item => item.priority)).toEqual(['low', 'low', 'low', 'low', 'low', 'low']);
   await openTechnology(page);
   await expect.poll(() => page.evaluate(() => (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages.filter(image => image.dataset.source && image.complete && image.naturalWidth === 941).length)).toBe(6);
   await context.setOffline(true);
@@ -560,6 +566,7 @@ test('CyberMind uses two interactive slides, a live title and explicit group nav
 });
 
 test('CyberMind descriptions fit all locales and omit source folios', async ({ page }) => {
+  test.setTimeout(120000);
   for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
     await page.goto(`/${locale}`);
     await openTechnology(page);

@@ -1,0 +1,1100 @@
+2026-10-08T10:03:19.391730Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-08T10:03:19.403062Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-08T10:03:23.238967Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-08T10:03:23.245360Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.159.0-alpha.12.1
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: low
+reasoning summaries: none
+session id: 01a11af7-a085-7c80-90df-0efb728e65dd
+--------
+user
+Review current actual diff for CHG0071: retained main media frontier, upward native scrolling, all main high priority after hero decode, all six tech low priority background prefetch nonblocking main, error/retry/cache. Read only; report actionable introduced bugs.
+exec
+/bin/zsh -lc 'git status --short; git diff --stat; git diff --name-only; find .. -name AGENTS.md -o -name AGENTS.override.md | head -30' in /Users/asmirnou/Projects/g/ramsider
+2026-10-08T10:04:07.538411Z  WARN codex_analytics::client: failed to send events request: route-aware request timed out
+2026-10-08T10:04:15.169928Z  WARN codex_core_plugins::manager: failed to refresh cached remote plugin catalog error=failed to send remote plugin catalog request to https://chatgpt.com/backend-api/ps/plugins/list?scope=GLOBAL&limit=200&pageToken=eyJzY29wZSI6IkdMT0JBTCIsIndvcmtzcGFjZV9pZCI6bnVsbCwiY3JlYXRvcl9hY2NvdW50X3VzZXJfaWQiOm51bGwsImNvbGxlY3Rpb24iOm51bGwsImluY2x1ZGVfcmVzdHJpY3RlZF9wbHVnaW5zIjp0cnVlLCJpbmNsdWRlX3VubGlzdGVkX2dsb2JhbF9wbHVnaW5zIjp0cnVlLCJlbGlnaWJsZV9wbGFuX3R5cGUiOiJwcm9saXRlIiwiZW5mb3JjZV9wbGFuX2VsaWdpYmlsaXR5IjpmYWxzZSwicmFua19ieV9wb3B1bGFyaXR5Ijp0cnVlLCJjb250aW51YXRpb24iOnsiZGVwbG95bWVudF90eXBlIjoicHJpbWFyeSIsInF1ZXJ5X2lkIjoicnM0OjY1ZDRhZmU1LTRjZjYtNDAxNy1iODFjLWQwNGY1NDY4YjhlMjpqT0JqRXlROjA6bGVhZi1jNDhmMjE2ZS0yMzMyLTQ3ZWYtYTcyNC1jMGE5YTJjOGY2Y2MiLCJjdXJzb3IiOiJaSDY5ZFhDNGdMdnZlSExwaEpVSzZmamkyTkdqUE5TMEdzVkNwSlZaZ192VU5lRUZjWjVjZGpTNENKZ3BSWlpnTHVIdHZoa0RENlYxYmNGcFF1Qno2M3hsUWpCTUNKclRaVGpRTmdrQ1pYUEVBTVlRaUhXYjJQYzYxWFJaWEEzMFdxU25hV0RqZ3hvUzdQR2hGc1U1ZFREN0MtOXREMkE4TXZ1LTRBVU96YXl2cHdtX3M1QnBOWFVWMmdLWTkxV2dnWEVZbzFIdkt6az0ifX0: error decoding response body scope=Global
+exec
+/bin/zsh -lc 'cat AGENTS.md 2>/dev/null | head -25; git diff -- components/PageMediaGate.tsx components/Story.tsx components/TechnologyViewer.tsx lib/media-resource.ts app/globals.css; cat docs/media-loading-plan.md | tail -70' in /Users/asmirnou/Projects/g/ramsider
+2026-10-08T10:04:30.118176Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11af7-a085-7c80-90df-0efb728e65dd turn_id=01a11af7-b879-7870-8269-7cb1e3bc689c item_id="exec-5080068f-cf06-4018-bb0f-80ceaa74317d"
+ succeeded in 636ms:
+# Ramsider UNO — project rules
+
+Build the new product site from `design/references/`. **Design and implement for iPhone 17 Pro first, then verify iPhone 17 Pro Max; adapt responsively to every other screen size.** The real mobile page must match the supplied reference while loading quickly and working accessibly. One user request should produce one complete delivery: perform as many internal inspect → implement → verify → fix cycles as needed, then code review, performance work, and final re-verification. Visual slices are internal work units; finish and integrate the whole requested page or feature before delivery. Do not hand the user a first draft to find ordinary defects. “Done” means every applicable gate has passed with evidence, not that code compiles or that zero bugs have been assumed.
+
+These are the mandatory rules. [docs/discipline.md](docs/discipline.md) defines stage gates and failure routing; [CONTEXT_INDEX.md](CONTEXT_INDEX.md) routes to other details. For substantive project work, read the short [MEMORY.md](MEMORY.md) for current state, then only the topic files relevant to the task. `PROMPT.txt` and `SUMMARY.txt` are source records for unresolved questions; current user instructions and current assets take precedence over their examples or suggestions.
+
+## Mandatory change and defect log
+
+[CHANGELOG.md](CHANGELOG.md) is the authoritative record of **every logical project change and every discovered defect**, including code, assets, content, mappings, tests, documentation, configuration, user corrections and agent-discovered regressions. The agent maintains it **without a user reminder or a separate permission request**: create/update the entry at discovery, record the solution and changed files when applied, then append verification and approval before delivery. Search relevant IDs when resuming work; do not wait until the final answer to reconstruct the history.
+
+Use the journal's required fields and lifecycle. Record what was wrong/missing/different, expected result, reference/request, cause, solution, intermediate mapping/specification and how it was applied, changed paths, checks and evidence. Every claimed fix needs a dated **technical approval**, naming the verifier and its evidence (and independent auditor when applicable). `APPLIED_UNVERIFIED` is not `VERIFIED`; blocked/skipped checks cannot supply approval. Explicit user approval is a separate field: never invent it or require it for routine authorized fixes. Reopen a failed fix under the same ID and preserve the previous verdict and failure history. Track remaining defects as open entries, even when outside the current task.
+
+For every defect, explain the agent's observable mistaken decision/action, the missed check, responsibility with evidence, and a concrete behavior change. Distinguish genuinely changed/missing inputs from agent failures; do not blame the user merely because an input was absent. Unknown causes stay explicit. Link repeatable causes to LESSONS and an Agent Eval case with its actual run status; a fixed UI does not prove improved agent behavior. Before similar work or a fresh rebuild, retrieve those lessons and turn prevention into acceptance checks. Repository memory improves instructions/context, not model weights.
+
+Small edits may use a short entry, but cannot omit logging or proportionate verification. Group related edits under one logical ID; do not log every tool call. A delivery is incomplete if its journal records or required technical approval are missing. MEMORY describes current state; LESSONS explains reusable prevention; neither replaces CHANGELOG.
+
+## Work in stages
+
+1. **Understand before coding.** Check repository state, [MEMORY.md](MEMORY.md), relevant lessons, and the requested scope. Inspect `design/references/background.png` first, then `background_text.png`, then relevant fonts, button artwork, and source layers. Crop the 941 × 32,127 reference into legible sections. Map content, controls, art layers, section boundaries, and the source-to-CSS viewport scale; set observable acceptance checks and identify unverified product facts. Use [DESIGN.md](DESIGN.md) and [PRODUCT.md](PRODUCT.md). **Exit:** the target slice, assets, behavior, and comparison method are understood; unresolved inputs are explicit.
+2. **Implement one visual slice.** Build for the Pro baseline first, using the clean background as artwork and semantic HTML/CSS for text and controls. Keep text translatable and controls usable; no inert CTA or invented checkout. Reproduce reference copy in the local build while tracking unverified factual claims for publication. Use Next.js + React + strict TypeScript with the framework's own build toolchain; choose each route's rendering mode and Server/Client boundaries from its data and interaction needs. Do not revive the deleted app. Use [ARCHITECTURE.md](ARCHITECTURE.md). **Exit:** the slice renders and its required behavior works; continue through all slices in the requested scope.
+3. **Verify the actual pixels.** Open the running page in a real browser at the iPhone 17 Pro viewport, then verify Pro Max. Confirm the page's actual CSS layout width matches each test profile (the viewport meta tag must be correct). Wait for fonts/images and capture screenshots. Compare the Pro image to the calibrated reference crop; inspect Pro Max as a responsive target unless it has its own reference. The verifier must see screenshots, not only DOM/CSS measurements. Fix material differences and capture again. Use a tolerant pixel diff as a second signal when aligned. Use [docs/visual-qa.md](docs/visual-qa.md). **Exit:** no material mismatch remains in the supported target composition; otherwise keep iterating or report a concrete external blocker without saying “done.”
+4. **Check behavior and adaptation.** Test relevant clicks, hover, scroll, navigation, forms, menus, animation states, keyboard access, Arabic RTL, mobile safe areas, and representative tablet/desktop widths. Check overflow, clipping, crops, wraps, spacing, and tile seams. Use [docs/mobile.md](docs/mobile.md). **Exit:** required states work at the sizes they support.
+5. **Review and optimize.** For code changes, run Codex's native `/review` on the actual diff before delivery (CLI equivalent when needed), examine every actionable finding, fix it, and rerun affected checks. Run available type, lint, test, and production-build checks. Review component boundaries, duplication, accessibility, and unused code. Measure first render, LCP/INP/CLS where measurable, network bytes, JavaScript, layout shifts, and scroll smoothness in a production build. Reassess static, request-time server, and client rendering against measured latency, freshness, and client cost; change strategy where it improves the result. Fix meaningful problems, then repeat affected visual/browser checks. Use [QUALITY.md](QUALITY.md) and [PERFORMANCE.md](PERFORMANCE.md). **Exit:** no known material code, visual, accessibility, or speed regression remains; report if `/review` was unavailable rather than counting a manual pass as its result.
+6. **Learn and report evidence.** Complete the affected [CHANGELOG.md](CHANGELOG.md) entries with actual checks, technical approval and remaining open IDs. Refresh [MEMORY.md](MEMORY.md) when verified state, decisions, or blockers changed; record repeatable errors in [LESSONS.md](LESSONS.md). Use [docs/definition-of-done.md](docs/definition-of-done.md). State tested viewports, screenshot comparisons, interactions, build checks, performance measurements, remaining differences, and checks that could not run. Never claim pixel fidelity, WCAG compliance, a 95+ Lighthouse score, or completion without the corresponding evidence.
+
+diff --git a/app/globals.css b/app/globals.css
+index 1ba7235..322160e 100644
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -188,14 +188,17 @@ html:has(#technology-viewer[open]),body:has(#technology-viewer[open]){background
+ .technology-viewer__sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+ .technology-viewer :focus-visible{outline:2px solid #e7ba75;outline-offset:-3px}
+ .technology-viewer button:disabled{cursor:default;opacity:.45}
+-.page-media-shell,.page-media-content{display:contents}
+-html[data-media-js]:has(.page-media-shell[data-media-blocked]),html[data-media-js] body:has(.page-media-shell[data-media-blocked]){overflow:hidden}
+-html[data-media-js] .dialog-controller:has(.page-media-shell[data-media-blocked])>.back-to-top{visibility:hidden}
++.page-media-shell{overflow:clip}.page-media-content{display:contents}
++html[data-media-js]:has(.page-media-shell[data-media-initial][data-media-blocked]),html[data-media-js] body:has(.page-media-shell[data-media-initial][data-media-blocked]){overflow:hidden}
++html[data-media-js] .dialog-controller:has(.page-media-shell[data-media-initial][data-media-blocked])>.back-to-top{visibility:hidden}
+ html[data-media-js] img[data-media]:not([data-media-ready]){visibility:hidden}
+-html[data-media-js] .page-media-shell[data-media-blocked] .page-media-content,html[data-media-js] .page-media-shell[data-media-blocked] .page-media-content *{visibility:hidden}
++html[data-media-js] .page-media-shell[data-media-initial][data-media-blocked] .page-media-content,html[data-media-js] .page-media-shell[data-media-initial][data-media-blocked] .page-media-content *{visibility:hidden}
+ .page-media-overlay{position:fixed;inset:0;z-index:900;display:none;place-items:end center;padding:24px max(24px,env(safe-area-inset-right)) max(32px,env(safe-area-inset-bottom));background:#181512;color:#fff;touch-action:none}
+ html[data-media-js] .page-media-overlay{display:grid}
+ .page-media-overlay .media-loading{width:min(100%,420px)}
++.page-media-shell:not([data-media-initial]) .page-media-overlay{top:auto;background:transparent;pointer-events:none;padding:12px max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom))}
++.page-media-shell:not([data-media-initial]) .page-media-overlay .media-loading{background:#181512;padding:12px 16px}
++.page-media-overlay button{pointer-events:auto}
+ .media-loading{font:400 14px/1.4 OpenSans,Arial,sans-serif;text-align:center}
+ .media-loading p{margin:0 0 10px}
+ .media-loading__track{height:4px;background:#d6d0c7;overflow:hidden;direction:ltr}
+diff --git a/components/PageMediaGate.tsx b/components/PageMediaGate.tsx
+index 409a3d9..d94c312 100644
+--- a/components/PageMediaGate.tsx
++++ b/components/PageMediaGate.tsx
+@@ -5,12 +5,12 @@ import type { Locale } from '@/lib/i18n';
+ import { decodeImageElement } from '@/lib/media-resource';
+ import { LoadingStatus, useScrollLock } from './MediaLoading';
+
+-function visible(image: HTMLImageElement) {
++/** Actual painted resource bounds, ignoring the gate's temporary scroll cap. */
++function bounds(image: HTMLImageElement, root: HTMLElement) {
+   const box = image.getBoundingClientRect();
+-  let top = Math.max(0, box.top), bottom = Math.min(innerHeight, box.bottom);
++  let top = box.top, bottom = box.bottom;
+   let left = Math.max(0, box.left), right = Math.min(innerWidth, box.right);
+-  if (bottom <= top || right <= left) return false;
+-  for (let parent = image.parentElement; parent; parent = parent.parentElement) {
++  for (let parent = image.parentElement; parent && parent !== root; parent = parent.parentElement) {
+     const css = getComputedStyle(parent);
+     if (/(hidden|clip|scroll|auto)/.test(css.overflow + css.overflowY + css.overflowX)) {
+       const clip = parent.getBoundingClientRect();
+@@ -18,36 +18,63 @@ function visible(image: HTMLImageElement) {
+       left = Math.max(left, clip.left); right = Math.min(right, clip.right);
+     }
+   }
+-  return bottom > top && right > left;
++  return bottom > top && right > left ? { top: top + scrollY, bottom: bottom + scrollY } : null;
+ }
+
+ export function PageMediaGate({ locale, children }: { locale: Locale; children: ReactNode }) {
+   const root = useRef<HTMLDivElement>(null);
+   const retryAction = useRef<() => void>(() => {});
+-  const [state, setState] = useState({ activated: false, blocked: true, error: false });
+-  useScrollLock(state.activated && state.blocked);
++  const [state, setState] = useState({ activated: false, blocked: true, initial: true, error: false });
++  useScrollLock(state.activated && state.blocked && state.initial);
+   useEffect(() => {
+     // The early head bootstrap opts into guarded loading. Without JavaScript,
+     // or when an initial framework script failed, retain native static content.
+     if (!document.documentElement.hasAttribute('data-media-js')) return;
+     document.documentElement.setAttribute('data-media-hydrated', '');
+-    const images = [...root.current!.querySelectorAll<HTMLImageElement>('img[data-media]')];
++    const shell = root.current!;
++    const images = [...shell.querySelectorAll<HTMLImageElement>('img[data-media]')];
+     const loading = new Set<HTMLImageElement>();
+     const failures = new Set<HTMLImageElement>();
+     let alive = true, frame = 0, retryVersion = Date.now();
++    let shown = false, warming = false, cap: number | null = null;
++    const managed = new Map<HTMLElement, boolean>();
++    const controls = [...shell.querySelectorAll<HTMLElement>('a,button,input,textarea,select,summary,[tabindex]')];
+     const refresh = () => {
+       if (!alive) return;
++      // The first decoded block starts all remaining page artwork in the background.
++      if (!warming && images[0]?.hasAttribute('data-media-ready')) {
++        warming = true;
++        images.forEach(image => start(image));
++      }
++      const pending = images.filter(image => !image.hasAttribute('data-media-ready'))
++        .map(image => ({ image, box: bounds(image, shell) }))
++        .filter(item => item.box !== null)
++        .sort((a, b) => a.box!.top - b.box!.top);
++      const frontier = pending[0]?.box!.top ?? null;
++      const nextCap = frontier === null ? null : Math.max(0, Math.floor(frontier - shell.getBoundingClientRect().top - scrollY));
++      // A native document boundary stops momentum, wheel and programmatic jumps
++      // before missing pixels. Upward scrolling remains completely native.
++      if (cap !== nextCap) {
++        cap = nextCap;
++        shell.style.height = cap === null ? '' : `${cap}px`;
++        for (const control of controls) {
++          const clipped = frontier !== null && control.getBoundingClientRect().bottom + scrollY > frontier;
++          if (clipped && !managed.has(control)) { managed.set(control, control.inert); control.inert = true; }
++          if (!clipped && managed.has(control)) { control.inert = managed.get(control)!; managed.delete(control); }
++        }
++      }
+       const suspended = !!document.querySelector('dialog[open]');
+-      const current = suspended ? [] : images.filter(visible);
+-      const pending = current.filter(image => !image.hasAttribute('data-media-ready'));
+-      const next = { activated: true, blocked: pending.length > 0, error: pending.some(image => failures.has(image)) };
+-      setState(previous => previous.activated && previous.blocked === next.blocked && previous.error === next.error ? previous : next);
+-      pending.forEach(image => start(image));
++      const blocked = !suspended && frontier !== null && frontier <= scrollY + innerHeight + 1;
++      if (frontier === null || frontier >= shell.getBoundingClientRect().top + scrollY + innerHeight) shown = true;
++      const next = { activated: true, blocked, initial: !shown, error: blocked && failures.has(pending[0].image) };
++      setState(previous => previous.activated && previous.blocked === next.blocked && previous.initial === next.initial && previous.error === next.error ? previous : next);
++      if (!suspended && pending[0]) start(pending[0].image);
+     };
+     const schedule = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(refresh); };
+     const start = (image: HTMLImageElement, retry = false) => {
+       if (loading.has(image) || failures.has(image) || image.hasAttribute('data-media-ready')) return;
+       loading.add(image);
++      image.fetchPriority = 'high';
+       image.loading = 'eager';
+       // On Firefox a decode immediately after src mutation can still reject
+       // against the previous failed request. Wait for the replacement load.
+@@ -81,13 +108,16 @@ export function PageMediaGate({ locale, children }: { locale: Locale; children:
+       });
+       schedule();
+     };
++    const resize = new ResizeObserver(schedule);
++    const main = shell.querySelector('main');
++    if (main) resize.observe(main);
+     addEventListener('scroll', schedule, { passive: true });
+     addEventListener('resize', schedule);
+     refresh();
+-    return () => { alive = false; observer.disconnect(); dialogs.disconnect(); cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); };
++    return () => { alive = false; observer.disconnect(); dialogs.disconnect(); resize.disconnect(); shell.style.height = ''; managed.forEach((inert, control) => { control.inert = inert; }); cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); };
+   }, []);
+-  return <div ref={root} className="page-media-shell" data-media-blocked={state.blocked ? '' : undefined}>
+-    <div className="page-media-content" inert={state.activated && state.blocked}>{children}</div>
++  return <div ref={root} className="page-media-shell" data-media-blocked={state.blocked ? '' : undefined} data-media-initial={state.initial ? '' : undefined}>
++    <div className="page-media-content" inert={state.activated && state.blocked && state.initial}>{children}</div>
+     {state.blocked && <div className="page-media-overlay"><LoadingStatus locale={locale} error={state.error} onRetry={() => retryAction.current()} /></div>}
+   </div>;
+ }
+diff --git a/components/Story.tsx b/components/Story.tsx
+index d94f941..c886f25 100644
+--- a/components/Story.tsx
++++ b/components/Story.tsx
+@@ -109,7 +109,7 @@ const docs: { key: Key; detail: string; x: number; y: number }[] = [
+ function DocumentCards({ locale }: { locale: Locale }) {
+   return <>
+     {docs.map((doc) => <div className={`doc-card doc-card--${doc.key} source-panel`} key={doc.key} style={sourceStyle(doc.x, doc.y, 356)}>
+-      <Image data-media className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized />
++      <Image data-media className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized loading="lazy" fetchPriority="high" />
+       <strong>{textLines(t(locale, doc.key))}</strong>
+       <small>{textLines(doc.detail)}</small>
+       <button id={`document-${doc.key}`} type="button" aria-haspopup="dialog" popoverTarget={`doc-detail-${doc.key}`} aria-label={`${t(locale, 'docView')}: ${t(locale, doc.key).replaceAll('\n', ' ')}`}><span className="doc-action-label">{t(locale, 'docView')}</span><ActionArrow /></button>
+@@ -143,8 +143,8 @@ function Faq({ locale }: { locale: Locale }) {
+     } as React.CSSProperties}>
+       <div className="faq-row-art" aria-hidden="true">
+         {['top', 'middle', 'bottom'].map(part => <div className={`faq-art-${part}`} key={part}>
+-          <Image data-media src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
+-          {part === 'middle' && <Image data-media className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
++          <Image data-media src={`/art/faq-row-${index + 1}.webp`} fetchPriority="high" width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
++          {part === 'middle' && <Image data-media className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} fetchPriority="high" width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
+         </div>)}
+       </div>
+       <details>
+@@ -237,7 +237,7 @@ export function Story({ locale }: { locale: Locale }) {
+           unoptimized
+           preload={i === 0}
+           loading={i === 0 ? 'eager' : 'lazy'}
+-          fetchPriority={i === 0 ? 'high' : 'low'}
++          fetchPriority="high"
+           placeholder={i === 0 ? 'empty' : artPreviews[file as keyof typeof artPreviews] as `data:image/${string}`}
+         />)}
+       </div>
+@@ -279,7 +279,7 @@ export function Story({ locale }: { locale: Locale }) {
+         aria-hidden="true"
+         unoptimized
+         loading="lazy"
+-        fetchPriority="low"
++        fetchPriority="high"
+       />
+       {iconMap.icons.filter(icon => icon.render).map(icon => <Image
+         key={icon.id}
+@@ -303,8 +303,8 @@ export function Story({ locale }: { locale: Locale }) {
+       <Faq locale={locale} />
+       <section className="story-tail" aria-label={t(locale, 'account')}>
+         <div className="tail-art" aria-hidden="true"><div className="tail-art-track">
+-          <Image data-media src="/art/09-10.webp" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['09-10'] as `data:image/${string}`} />
+-          <Image data-media src="/art/11.webp" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['11'] as `data:image/${string}`} />
++          <Image data-media src="/art/09-10.webp" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="high" placeholder={artPreviews['09-10'] as `data:image/${string}`} />
++          <Image data-media src="/art/11.webp" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="high" placeholder={artPreviews['11'] as `data:image/${string}`} />
+         </div></div>
+         {storyNodes.filter(node => node.y >= 28207).map((node, index) => <OverlayNode node={node} locale={locale} key={`${node.key}-${index}`} />)}
+       <button id="account-personal" type="button" className="account-hit" style={sourceStyle(45, 28230, 850)} popoverTarget="unavailable-account" aria-label={t(locale, 'account')} />
+diff --git a/components/TechnologyViewer.tsx b/components/TechnologyViewer.tsx
+index e981948..ecc4524 100644
+--- a/components/TechnologyViewer.tsx
++++ b/components/TechnologyViewer.tsx
+@@ -107,7 +107,7 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+     setFailed(false);
+     const token = ++requestToken.current;
+     unsubscribe.current?.();
+-    const resource = loadImage(technologyGroups[next.group].slides[next.slide].src, 'high');
++    const resource = loadImage(technologyGroups[next.group].slides[next.slide].src, 'auto');
+     const update = (value: typeof resource.progress) => setProgress(value.total ? Math.round(value.loaded / value.total * 100) : null);
+     update(resource.progress);
+     unsubscribe.current = resource.subscribe(update);
+@@ -137,7 +137,7 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+     const warm = () => {
+       // Run after load dispatch; never compete with the initial page resources.
+       timer = setTimeout(() => {
+-        technologyGroups.forEach(group => group.slides.slice(0, 2).forEach(slide => { void loadImage(slide.src).ready.catch(() => {}); }));
++        technologyGroups.forEach(group => group.slides.forEach(slide => { void loadImage(slide.src).ready.catch(() => {}); }));
+       }, 0);
+     };
+     if (document.readyState === 'complete') warm();
+diff --git a/lib/media-resource.ts b/lib/media-resource.ts
+index d4961df..974f0ea 100644
+--- a/lib/media-resource.ts
++++ b/lib/media-resource.ts
+@@ -24,7 +24,7 @@ export function decodeImageElement(image: HTMLImageElement): Promise<void> {
+ }
+
+ /** One original-byte transfer and one retained decoded image per URL, shared by all viewers. */
+-export function loadImage(src: string, priority: 'low' | 'high' = 'low'): ImageResource {
++export function loadImage(src: string, priority: 'low' | 'auto' | 'high' = 'low'): ImageResource {
+   const existing = images.get(src);
+   if (existing) return existing;
+   const listeners = new Set<(progress: ImageProgress) => void>();
+# Media readiness and technology viewer — 2026-10-08
+
+**Width follow-up:** the customer subsequently prioritized full photo width without distortion. The current geometry below follows [the width analysis](technology-viewer.md#width-analysis) and [final width evidence](technology-viewer.md#width-verification); The latest loading/preload policy is specified below and supersedes the earlier first2/group and near-viewport-only policies; source bytes and successful-resource reuse are unchanged.
+
+## Request and acceptance map
+
+| Requirement | Implementation target | Evidence required |
+| --- | --- | --- |
+| No half-loaded image or orphan description text | Initial technology content stays absent until its retained image is downloaded and decoded; transitions retain the complete current frame until replacement is ready | Slow/partial response, actual pending screenshot, no title/descriptions before first decode, complete reveal |
+| White behind technology photo | Only frame cutout/stage uses #fff; outer matte stays black and metal asset is unchanged | Empty, pending, failed and ready screenshots |
+| Shared loading status and progress | One loading-status component, shared resource readiness helpers and scroll-lock hook; real streamed byte progress for technology images, indeterminate native-page progress where browser byte counts are unavailable | Partial byte percentage when Content-Length exists; indeterminate fallback; accessible labels and retry |
+| Preserve landing view at an unready boundary | Initial no-ready-content guard only; after first ready view, native document cap stops downward scroll before missing pixels, ready content stays painted and upward scroll remains available. Progress/Retry appears at reached cap | Pixel equality outside status, fast native wheel/touch/keyboard/programmatic down and reverse up, decode expansion without jump, resize/FAQ |
+| Background page preloading | After actual first-block decode, start all remaining main data-media assets asynchronously at high priority; do not wait for scrolling. Optional background work never gates an already-ready viewport | Far art11 requested/completed before scroll, actual DOM decoded markers, foreground usable during held/corrupt background resources |
+| Background gallery preloading | All six photos asynchronously after window load at low priority; opening reuses pending/decoded resources, cold active selection uses auto priority. Gallery warm does not enter the landing gate | Six unique requests before opening, high main vs low/auto fetch hints, all6 held/corrupt prefetch leaves landing painted and interactive, offline retained reuse |
+| Frame and photograph fill width without squashing | Viewport-wide canvas/metal frame on all pointer profiles; photo/title/descriptions share one proportional941×1672 plane filling100% of the white cutout width. Excess height scrolls inside fixed frame; vertical pan/keyboard scroll content, group buttons change technology | Explicit photo/cutout width equality and source ratio, reachable lower content, fixed controls, pending inner-scroll freeze/reset,390×664/732/844 and Pro/Max plus tablet/desktop/landscape actuals |
+| Browse both directions and stop at ends | Clamp horizontal selection to first/last slide, no modulo wrap; arrows/keyboard/touch/dots obey readiness | Both endpoint swipes and reverse motion, AR direction, no group jump |
+
+The frame fills the browser content area available between existing top and bottom controls. The photo fills the entire inner cutout width and preserves its source proportions. When its proportional height exceeds the available height, the photo and its text scroll vertically inside the fixed frame, without side bands. When the complete photo fits, remaining vertical space stays white. Browser-owned status/address bars cannot be covered by webpage CSS. This supersedes CHG-0070's earlier narrow-canvas and height-contained-photo policies.
+
+## Resource inventory
+
+- Technology: four supplied HeatCore PNGs (02–05), two CyberMind PNGs (01–02), original bytes/resolution/color retained. User confirmed four on 2026-10-08; all source inputs are present. Loading policy is driven by group data.
+- Landing substantial artwork: main responsive WebP tiles, reused tail tiles, FAQ row art, document thumbnails, expression-wave layer. Keep native eager/preloaded first tile; decode the actual DOM image before revealing. Native hero remains eager/preloaded; all remaining marked resources start asynchronously after its actual decode with high priority. The document frontier ends at the first incomplete required resource; this blocks only downward entry, while earlier ready content remains usable.
+- Small decoration: icons, connector/divider sprites, diamond, arrows/dots, SVG button surfaces. They retain existing delivery; do not make the entire long page wait for offscreen decoration. The metal frame is small and can paint while the photo loads.
+- No video content or remote document raster viewer currently exists; unavailable-action dialogs remain semantic text.
+
+## Work sequence and gates
+
+1. Inspect current code/assets and user images; create defect log and acceptance map. Independent read-only auditor checks scope.
+2. Implement shared readiness/progress/lock and main-page gate, then technology initial/transition loading and exact inner layout. Keep boundaries small and no new dependency.
+3. Inspect real Pro/Max and short-window WebKit pending/ready images; compare artwork color/bytes and proportions; fix and recapture.
+4. Test slow/error/retry/cache/preload order, input lock, endpoint swipes, close/focus, 11 locales including Arabic, tablet/desktop/landscape and assembled page scroll.
+5. Native Codex review on actual diff, type/lint/tests/production build, measured first view/scroll/payload; fix/refactor findings then rerun affected checks.
+6. Final independent audit, dated technical approval, CHANGELOG/MEMORY/LESSONS reconciliation and evidence report. Open the final local production preview for user review. No publication is requested in this delivery.
+
+## Landing retained view correction — CHG-0071, 2026-10-08
+
+Current scope: after the first block decodes, warm all main data-media resources at high priority; warm all six gallery photos separately at low priority after window load, without gating the landing. After the first complete viewport, keep ready artwork/text painted and cap native document scrolling before the first unready resource. Advance the cap only after actual DOM decode; background requests proceed independently of scrolling. At the cap show the existing progress/Retry strip, allow native upward scroll and prevent downward overshoot (including wheel/touch momentum, keyboard and programmatic jumps). Initial no-ready-content loading keeps its existing guard; no-JS/framework-failure static fallback and native dialogs remain usable. Test real retained pixels rather than merely asserting that the page is hidden/inert; check resize/FAQ geometry, RTL, retry, resume without an automatic jump, full integration and measured production performance. No new assets/dependencies/document files. Status OPEN; runtime/application and technical evidence pending.
+
+ succeeded in 35410ms:
+ M .gitignore
+ M CHANGELOG.md
+ M MEMORY.md
+ M app/globals.css
+ M components/PageMediaGate.tsx
+ M components/Story.tsx
+ M components/TechnologyViewer.tsx
+ M docs/evidence/technology-viewer/width-analysis/ready-320x568.png
+ M docs/evidence/technology-viewer/width-analysis/ready-390x664.png
+ M docs/evidence/technology-viewer/width-analysis/ready-cybermind-390x664.png
+ M docs/media-loading-plan.md
+ M docs/technology-viewer.md
+ M lib/media-resource.ts
+ M tests/e2e/media-loading.spec.ts
+ M tests/e2e/technology-viewer.spec.ts
+?? design/references/background_old.png
+?? docs/evidence/media-loading/retained-desktop-chromium-arabic.png
+?? docs/evidence/media-loading/retained-desktop-chromium-faq-resize.png
+?? docs/evidence/media-loading/retained-desktop-chromium-pending.png
+?? docs/evidence/media-loading/retained-desktop-chromium-ready.png
+?? docs/evidence/media-loading/retained-desktop-firefox-arabic.png
+?? docs/evidence/media-loading/retained-desktop-firefox-faq-resize.png
+?? docs/evidence/media-loading/retained-desktop-firefox-pending.png
+?? docs/evidence/media-loading/retained-desktop-firefox-ready.png
+?? docs/evidence/media-loading/retained-iphone-17-pro-max-webkit-arabic.png
+?? docs/evidence/media-loading/retained-iphone-17-pro-max-webkit-faq-resize.png
+?? docs/evidence/media-loading/retained-iphone-17-pro-max-webkit-pending.png
+?? docs/evidence/media-loading/retained-iphone-17-pro-max-webkit-ready.png
+?? docs/evidence/media-loading/retained-iphone-17-pro-webkit-arabic.png
+?? docs/evidence/media-loading/retained-iphone-17-pro-webkit-faq-resize.png
+?? docs/evidence/media-loading/retained-iphone-17-pro-webkit-pending.png
+?? docs/evidence/media-loading/retained-iphone-17-pro-webkit-ready.png
+?? docs/evidence/media-loading/retained-native-touch-up.png
+?? docs/evidence/media-loading/retained-performance.mjs
+?? tools/__pycache__/
+ .gitignore                                         |   3 +-
+ CHANGELOG.md                                       |  24 ++-
+ MEMORY.md                                          |   2 +-
+ app/globals.css                                    |  11 +-
+ components/PageMediaGate.tsx                       |  62 +++++--
+ components/Story.tsx                               |  14 +-
+ components/TechnologyViewer.tsx                    |   4 +-
+ .../width-analysis/ready-320x568.png               | Bin 205948 -> 1532429 bytes
+ .../width-analysis/ready-390x664.png               | Bin 302321 -> 2160129 bytes
+ .../width-analysis/ready-cybermind-390x664.png     | Bin 343789 -> 2361492 bytes
+ docs/media-loading-plan.md                         |  13 +-
+ docs/technology-viewer.md                          |   6 +-
+ lib/media-resource.ts                              |   2 +-
+ tests/e2e/media-loading.spec.ts                    | 181 +++++++++++++++++++--
+ tests/e2e/technology-viewer.spec.ts                |  22 ++-
+ 15 files changed, 284 insertions(+), 60 deletions(-)
+.gitignore
+CHANGELOG.md
+MEMORY.md
+app/globals.css
+components/PageMediaGate.tsx
+components/Story.tsx
+components/TechnologyViewer.tsx
+docs/evidence/technology-viewer/width-analysis/ready-320x568.png
+docs/evidence/technology-viewer/width-analysis/ready-390x664.png
+docs/evidence/technology-viewer/width-analysis/ready-cybermind-390x664.png
+docs/media-loading-plan.md
+docs/technology-viewer.md
+lib/media-resource.ts
+tests/e2e/media-loading.spec.ts
+tests/e2e/technology-viewer.spec.ts
+../ramsider/.agents/skills/vercel-react-best-practices/AGENTS.md
+../ramsider/.agents/skills/vercel-composition-patterns/AGENTS.md
+../ramsider/AGENTS.md
+
+2026-10-08T10:04:34.648306Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11af7-a085-7c80-90df-0efb728e65dd turn_id=01a11af7-b879-7870-8269-7cb1e3bc689c item_id="exec-cb007a71-0c85-4eb9-a927-3b80b66e1f4a"
+exec
+/bin/zsh -lc "cat components/PageMediaGate.tsx; cat lib/media-resource.ts; git diff -- tests/e2e/media-loading.spec.ts | tail -210; rg -n 'page-media-shell|page-media-content|data-media' components app | head -70; find components app lib tests -name 'AGENTS*' -o -name 'AGENTS.override.md'" in /Users/asmirnou/Projects/g/ramsider
+2026-10-08T10:04:42.545909Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11af7-a085-7c80-90df-0efb728e65dd turn_id=01a11af7-b879-7870-8269-7cb1e3bc689c item_id="exec-04375c90-ef24-4d37-8b2a-f435c18a3d76"
+ succeeded in 341ms:
+'use client';
+
+import { useEffect, useRef, useState, type ReactNode } from 'react';
+import type { Locale } from '@/lib/i18n';
+import { decodeImageElement } from '@/lib/media-resource';
+import { LoadingStatus, useScrollLock } from './MediaLoading';
+
+/** Actual painted resource bounds, ignoring the gate's temporary scroll cap. */
+function bounds(image: HTMLImageElement, root: HTMLElement) {
+  const box = image.getBoundingClientRect();
+  let top = box.top, bottom = box.bottom;
+  let left = Math.max(0, box.left), right = Math.min(innerWidth, box.right);
+  for (let parent = image.parentElement; parent && parent !== root; parent = parent.parentElement) {
+    const css = getComputedStyle(parent);
+    if (/(hidden|clip|scroll|auto)/.test(css.overflow + css.overflowY + css.overflowX)) {
+      const clip = parent.getBoundingClientRect();
+      top = Math.max(top, clip.top); bottom = Math.min(bottom, clip.bottom);
+      left = Math.max(left, clip.left); right = Math.min(right, clip.right);
+    }
+  }
+  return bottom > top && right > left ? { top: top + scrollY, bottom: bottom + scrollY } : null;
+}
+
+export function PageMediaGate({ locale, children }: { locale: Locale; children: ReactNode }) {
+  const root = useRef<HTMLDivElement>(null);
+  const retryAction = useRef<() => void>(() => {});
+  const [state, setState] = useState({ activated: false, blocked: true, initial: true, error: false });
+  useScrollLock(state.activated && state.blocked && state.initial);
+  useEffect(() => {
+    // The early head bootstrap opts into guarded loading. Without JavaScript,
+    // or when an initial framework script failed, retain native static content.
+    if (!document.documentElement.hasAttribute('data-media-js')) return;
+    document.documentElement.setAttribute('data-media-hydrated', '');
+    const shell = root.current!;
+    const images = [...shell.querySelectorAll<HTMLImageElement>('img[data-media]')];
+    const loading = new Set<HTMLImageElement>();
+    const failures = new Set<HTMLImageElement>();
+    let alive = true, frame = 0, retryVersion = Date.now();
+    let shown = false, warming = false, cap: number | null = null;
+    const managed = new Map<HTMLElement, boolean>();
+    const controls = [...shell.querySelectorAll<HTMLElement>('a,button,input,textarea,select,summary,[tabindex]')];
+    const refresh = () => {
+      if (!alive) return;
+      // The first decoded block starts all remaining page artwork in the background.
+      if (!warming && images[0]?.hasAttribute('data-media-ready')) {
+        warming = true;
+        images.forEach(image => start(image));
+      }
+      const pending = images.filter(image => !image.hasAttribute('data-media-ready'))
+        .map(image => ({ image, box: bounds(image, shell) }))
+        .filter(item => item.box !== null)
+        .sort((a, b) => a.box!.top - b.box!.top);
+      const frontier = pending[0]?.box!.top ?? null;
+      const nextCap = frontier === null ? null : Math.max(0, Math.floor(frontier - shell.getBoundingClientRect().top - scrollY));
+      // A native document boundary stops momentum, wheel and programmatic jumps
+      // before missing pixels. Upward scrolling remains completely native.
+      if (cap !== nextCap) {
+        cap = nextCap;
+        shell.style.height = cap === null ? '' : `${cap}px`;
+        for (const control of controls) {
+          const clipped = frontier !== null && control.getBoundingClientRect().bottom + scrollY > frontier;
+          if (clipped && !managed.has(control)) { managed.set(control, control.inert); control.inert = true; }
+          if (!clipped && managed.has(control)) { control.inert = managed.get(control)!; managed.delete(control); }
+        }
+      }
+      const suspended = !!document.querySelector('dialog[open]');
+      const blocked = !suspended && frontier !== null && frontier <= scrollY + innerHeight + 1;
+      if (frontier === null || frontier >= shell.getBoundingClientRect().top + scrollY + innerHeight) shown = true;
+      const next = { activated: true, blocked, initial: !shown, error: blocked && failures.has(pending[0].image) };
+      setState(previous => previous.activated && previous.blocked === next.blocked && previous.initial === next.initial && previous.error === next.error ? previous : next);
+      if (!suspended && pending[0]) start(pending[0].image);
+    };
+    const schedule = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(refresh); };
+    const start = (image: HTMLImageElement, retry = false) => {
+      if (loading.has(image) || failures.has(image) || image.hasAttribute('data-media-ready')) return;
+      loading.add(image);
+      image.fetchPriority = 'high';
+      image.loading = 'eager';
+      // On Firefox a decode immediately after src mutation can still reject
+      // against the previous failed request. Wait for the replacement load.
+      const loaded = retry ? new Promise<void>((resolve, reject) => {
+        const cleanup = () => { image.removeEventListener('load', success); image.removeEventListener('error', failure); };
+        const success = () => { cleanup(); resolve(); };
+        const failure = () => { cleanup(); reject(new Error('Image retry failed')); };
+        image.addEventListener('load', success, { once: true });
+        image.addEventListener('error', failure, { once: true });
+      }) : Promise.resolve();
+      void loaded.then(() => decodeImageElement(image)).then(() => {
+        if (alive) image.setAttribute('data-media-ready', '');
+      }).catch(() => { if (alive) failures.add(image); }).finally(() => { loading.delete(image); schedule(); });
+    };
+    const observer = new IntersectionObserver(entries => {
+      if (!document.querySelector('dialog[open]')) entries.forEach(entry => { if (entry.isIntersecting) start(entry.target as HTMLImageElement); });
+      schedule();
+    }, { rootMargin: '75% 0px' });
+    images.forEach(image => observer.observe(image));
+    const dialogs = new MutationObserver(schedule);
+    document.querySelectorAll('dialog').forEach(dialog => dialogs.observe(dialog, { attributes: true, attributeFilter: ['open'] }));
+    retryAction.current = () => {
+      failures.forEach(image => {
+        failures.delete(image);
+        // Some browsers retain a corrupt HTTP 200 in their image cache.
+        // Retry the same original asset bytes through a fresh cache key.
+        const src = new URL(image.getAttribute('src')!, document.baseURI);
+        src.searchParams.set('media-retry', String(++retryVersion));
+        image.src = src.href;
+        start(image, true);
+      });
+      schedule();
+    };
+    const resize = new ResizeObserver(schedule);
+    const main = shell.querySelector('main');
+    if (main) resize.observe(main);
+    addEventListener('scroll', schedule, { passive: true });
+    addEventListener('resize', schedule);
+    refresh();
+    return () => { alive = false; observer.disconnect(); dialogs.disconnect(); resize.disconnect(); shell.style.height = ''; managed.forEach((inert, control) => { control.inert = inert; }); cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); };
+  }, []);
+  return <div ref={root} className="page-media-shell" data-media-blocked={state.blocked ? '' : undefined} data-media-initial={state.initial ? '' : undefined}>
+    <div className="page-media-content" inert={state.activated && state.blocked && state.initial}>{children}</div>
+    {state.blocked && <div className="page-media-overlay"><LoadingStatus locale={locale} error={state.error} onRetry={() => retryAction.current()} /></div>}
+  </div>;
+}
+export type ImageProgress = { loaded: number; total: number | null; ready: boolean; error: boolean };
+export type ImageResource = {
+  ready: Promise<HTMLImageElement>;
+  progress: ImageProgress;
+  subscribe: (listener: (progress: ImageProgress) => void) => () => void;
+};
+
+const images = new Map<string, ImageResource>();
+const failed = new Set<string>();
+const decoded = new WeakMap<HTMLImageElement, Promise<void>>();
+
+/** Readiness belongs to the actual element that will paint, including native lazy images. */
+export function decodeImageElement(image: HTMLImageElement): Promise<void> {
+  const existing = decoded.get(image);
+  if (existing) return existing;
+  const ready = image.decode().then(() => {
+    if (!image.naturalWidth) throw new Error('Image has no decoded pixels');
+  }).catch(error => {
+    decoded.delete(image);
+    throw error;
+  });
+  decoded.set(image, ready);
+  return ready;
+}
+
+/** One original-byte transfer and one retained decoded image per URL, shared by all viewers. */
+export function loadImage(src: string, priority: 'low' | 'auto' | 'high' = 'low'): ImageResource {
+  const existing = images.get(src);
+  if (existing) return existing;
+  const listeners = new Set<(progress: ImageProgress) => void>();
+  const resource: ImageResource = {
+    progress: { loaded: 0, total: null, ready: false, error: false },
+    ready: Promise.resolve(null as unknown as HTMLImageElement),
+    subscribe(listener) {
+      listeners.add(listener);
+      listener(resource.progress);
+      return () => { listeners.delete(listener); };
+    },
+  };
+  const update = (patch: Partial<ImageProgress>) => {
+    resource.progress = { ...resource.progress, ...patch };
+    listeners.forEach(listener => listener(resource.progress));
+  };
+  resource.ready = (async () => {
+    let objectURL: string | undefined;
+    try {
+      // A corrupt HTTP 200 can survive in the browser cache after decode fails.
+      const response = await fetch(src, { priority, cache: failed.has(src) ? 'reload' : 'default' } as RequestInit);
+      if (!response.ok) throw new Error(`Image response ${response.status}`);
+      // Compressed transfers do not have a reliable decoded byte denominator.
+      const length = Number(response.headers.get('content-length'));
+      const total = !response.headers.get('content-encoding') && length > 0 ? length : null;
+      update({ total });
+      const chunks: Uint8Array<ArrayBuffer>[] = [];
+      const reader = response.body?.getReader();
+      if (reader) {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          chunks.push(new Uint8Array(value));
+          update({ loaded: resource.progress.loaded + value.byteLength });
+        }
+      } else {
+        chunks.push(new Uint8Array(await response.arrayBuffer()));
+        update({ loaded: chunks[0].byteLength });
+      }
+      if (total !== null && resource.progress.loaded !== total) throw new Error('Incomplete image transfer');
+      objectURL = URL.createObjectURL(new Blob(chunks, { type: response.headers.get('content-type') ?? 'application/octet-stream' }));
+      const image = new Image();
+      image.dataset.source = src;
+      image.src = objectURL;
+      await decodeImageElement(image);
+      failed.delete(src);
+      update({ ready: true });
+      return image;
+    } catch (error) {
+      if (objectURL) URL.revokeObjectURL(objectURL);
+      images.delete(src);
+      failed.add(src);
+      update({ error: true });
+      throw error;
+    }
+  })();
+  // Prefetch callers may choose to observe progress without awaiting readiness.
+  void resource.ready.catch(() => {});
+  images.set(src, resource);
+  return resource;
+}
+@@ -1,4 +1,10 @@
+ import { expect, test } from '@playwright/test';
++import sharp from 'sharp';
++
++async function readyExcept(page: import('@playwright/test').Page, path: string) {
++  await expect.poll(() => page.locator('img[data-media]:not([data-media-ready])').evaluateAll((images, path) => images.every(image => new URL((image as HTMLImageElement).src).pathname === path), path)).toBe(true);
++}
++
+
+ test('without JavaScript the native page artwork, text and FAQ remain usable', async ({ browser, baseURL }, testInfo) => {
+   const profile = testInfo.project.use;
+@@ -114,7 +120,7 @@ test('visible artwork remains hidden and page scroll locked until complete decod
+   await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
+ });
+
+-test('offscreen pending artwork does not block the hero but blocks when reached', async ({ page }) => {
++test('pending next block retains ready pixels, stops downward scroll and allows upward scroll', async ({ page }, info) => {
+   let release!: () => void;
+   const held = new Promise<void>(resolve => { release = resolve; });
+   await page.route('**/art/04.webp', async route => { await held; await route.continue(); });
+@@ -122,24 +128,69 @@ test('offscreen pending artwork does not block the hero but blocks when reached'
+   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+   const image = page.locator('img[data-media][src="/art/04.webp"]');
+   await expect(image).not.toHaveAttribute('data-media-ready');
+-  await page.evaluate(() => {
+-    const image = document.querySelector('img[data-media][src="/art/04.webp"]')!;
+-    scrollTo({ top: image.getBoundingClientRect().top + scrollY + 40, behavior: 'instant' });
+-  });
++  await readyExcept(page, '/art/04.webp');
++  const frontier = await image.evaluate(image => image.getBoundingClientRect().top + scrollY);
++  // Let preceding resources decode, without entering the held block.
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++  await expect.poll(() => page.evaluate(() => scrollY)).toBe(Math.floor(frontier) - info.project.use.viewport!.height);
+   await expect(page.locator('.page-media-overlay')).toBeVisible();
++  await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
++  await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden');
+   const scroll = await page.evaluate(() => scrollY);
+-  await expect(page.locator('#back-to-top')).toBeHidden();
+-  await page.keyboard.press('PageDown');
+-  expect(await page.evaluate(() => {
+-    const touch = new Event('touchmove', { bubbles: true, cancelable: true });
+-    document.querySelector('.page-media-overlay')!.dispatchEvent(touch);
+-    return touch.defaultPrevented;
+-  })).toBe(true);
+-  await expect(page.locator('body')).toHaveCSS('overflow', 'hidden');
++  await page.keyboard.press('End');
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++  await expect.poll(() => page.evaluate(() => scrollY)).toBe(scroll);
++  await page.evaluate(() => document.fonts.ready);
++  const viewport = info.project.use.viewport!;
++  const crop = { left: 0, top: 0, width: viewport.width, height: viewport.height - 200 };
++  const pending = await sharp(await page.screenshot({ scale: 'css' })).extract(crop).raw().toBuffer();
++  await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-pending.png` });
++  await page.keyboard.press('Home');
++  await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
++  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
+   await expect.poll(() => page.evaluate(() => scrollY)).toBe(scroll);
+   release();
+   await expect(image).toHaveAttribute('data-media-ready', '');
+   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
++  expect(await page.evaluate(() => scrollY)).toBe(scroll);
++  const ready = await sharp(await page.screenshot({ scale: 'css' })).extract(crop).raw().toBuffer();
++  expect(ready.equals(pending)).toBe(true);
++  await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-ready.png` });
++  await page.evaluate(() => scrollTo({ top: scrollY + 200, behavior: 'instant' }));
++  await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(scroll);
++});
++
++test('remaining landing artwork warms asynchronously after first block decode without scrolling', async ({ page }) => {
++  await page.addInitScript(() => {
++    const qa = window as Window & { mediaFetchPriorities?: string[] };
++    qa.mediaFetchPriorities = [];
++    const fetchResource = window.fetch;
++    window.fetch = (input, options) => {
++      if (String(input).includes('/art/technology/')) qa.mediaFetchPriorities!.push((options as RequestInit & { priority?: string })?.priority ?? 'auto');
++      return fetchResource(input, options);
++    };
++  });
++  const requested = new Set<string>();
++  page.on('request', request => { requested.add(new URL(request.url()).pathname); });
++  await page.addInitScript(() => {
++    const qa = window as Window & { releaseHeroDecode?: () => void };
++    const held = new Promise<void>(resolve => { qa.releaseHeroDecode = resolve; });
++    const decode = HTMLImageElement.prototype.decode;
++    HTMLImageElement.prototype.decode = async function () {
++      await decode.call(this);
++      if (new URL(this.currentSrc || this.src).pathname === '/art/00.webp') await held;
++    };
++  });
++  await page.goto('/en');
++  expect(requested.has('/art/11.webp')).toBe(false);
++  await page.evaluate(() => (window as Window & { releaseHeroDecode?: () => void }).releaseHeroDecode!());
++  await expect.poll(() => requested.has('/art/11.webp')).toBe(true);
++  await expect.poll(() => page.locator('img[data-media]:not([data-media-ready])').count()).toBe(0);
++  expect(await page.locator('img[data-media]').evaluateAll(images => images.every(image => (image as HTMLImageElement).fetchPriority === 'high'))).toBe(true);
++  expect(await page.evaluate(() => scrollY)).toBe(0);
++  await expect.poll(() => page.evaluate(() => (window as Window & { mediaFetchPriorities?: string[] }).mediaFetchPriorities?.length ?? 0)).toBeGreaterThan(0);
++  expect(await page.evaluate(() => (window as Window & { mediaFetchPriorities?: string[] }).mediaFetchPriorities?.every(priority => priority === 'low' || priority === 'auto'))).toBe(true);
+ });
+
+ test('failed visible image has an accessible retry and successful recovery', async ({ page }) => {
+@@ -202,3 +253,107 @@ test('page gate suspends behind a native dialog and resumes missing page media a
+   release();
+   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+ });
++
++
++test('native desktop wheel stops at pending boundary and can reverse upward', async ({ page }, info) => {
++  test.skip(!!info.project.use.isMobile, 'Use native Chromium touch below; mobile WebKit mouse wheel is unavailable.');
++  let release!: () => void;
++  const held = new Promise<void>(resolve => { release = resolve; });
++  await page.route('**/art/04.webp', async route => { await held; await route.continue(); });
++  await page.goto('/en');
++  await readyExcept(page, '/art/04.webp');
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++  await expect(page.locator('.page-media-overlay')).toBeVisible();
++  const edge = await page.evaluate(() => scrollY);
++  await page.mouse.move(info.project.use.viewport!.width / 2, 300);
++  await page.mouse.wheel(0, 10000);
++  // Chromium completes the first wheel gesture asynchronously, including at a boundary.
++  await page.waitForTimeout(200);
++  expect(await page.evaluate(() => scrollY)).toBe(edge);
++  await page.mouse.wheel(0, -600);
++  await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(edge);
++  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
++  await page.mouse.wheel(0, 10000);
++  await expect.poll(() => page.evaluate(() => scrollY)).toBe(edge);
++  release();
++});
++
++test('native mobile touch cannot cross missing block and can reverse while it is pending', async ({ browser }, info) => {
++  test.skip(info.project.use.browserName !== 'chromium', 'CDP native touch exists only on Chromium; WebKit native hardware momentum is not claimed.');
++  const context = await browser.newContext({ baseURL: process.env.BASE_URL, viewport: { width: 402, height: 874 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
++  const page = await context.newPage();
++  let release!: () => void;
++  const held = new Promise<void>(resolve => { release = resolve; });
++  await page.route('**/art/04.webp', async route => { await held; await route.continue(); });
++  await page.goto('/en');
++  await readyExcept(page, '/art/04.webp');
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++  await expect(page.locator('.page-media-overlay')).toBeVisible();
++  const edge = await page.evaluate(() => scrollY);
++  const touch = await context.newCDPSession(page);
++  const pan = async (from: number, to: number) => {
++    await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: 200, y: from }] });
++    for (let step = 1; step <= 12; step++) {
++      await touch.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: 200, y: from + (to - from) * step / 12 }] });
++      await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => resolve())));
++    }
++    await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
++  };
++  await pan(620, 160);
++  expect(await page.evaluate(() => scrollY)).toBe(edge);
++  await pan(180, 600);
++  await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(edge);
++  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
++  await page.screenshot({ path: 'docs/evidence/media-loading/retained-native-touch-up.png' });
++  release();
++  await context.close();
++});
++
++test('pending frontier follows viewport resize and expanded FAQ instead of exposing blank artwork', async ({ page }, info) => {
++  let release!: () => void;
++  const held = new Promise<void>(resolve => { release = resolve; });
++  await page.route('**/art/faq-row-3.webp', async route => { await held; await route.continue(); });
++  await page.goto('/en');
++  await readyExcept(page, '/art/faq-row-3.webp');
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++  await expect(page.locator('.page-media-overlay')).toBeVisible();
++  const cap = () => page.locator('.page-media-shell').evaluate(element => Number.parseFloat((element as HTMLElement).style.height));
++  const before = await cap();
++  const first = page.locator('.faq-stack details').first();
++  await first.locator('summary').click();
++  await expect(first).toHaveAttribute('open', '');
++  await expect.poll(cap).toBeGreaterThan(before);
++  await page.setViewportSize({ width: 390, height: 664 });
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++  await expect(page.locator('.page-media-overlay')).toBeVisible();
++  const frontier = await cap();
++  expect(await page.evaluate(() => scrollY + innerHeight)).toBe(frontier);
++  await expect(first.locator('summary')).not.toHaveAttribute('inert');
++  await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
++  await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-faq-resize.png` });
++  release();
++  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
++});
++
++
++test('retained loading strip fits all eleven locales including Arabic', async ({ page }, info) => {
++  let release!: () => void;
++  const held = new Promise<void>(resolve => { release = resolve; });
++  await page.route('**/art/04.webp', async route => { await held; await route.continue(); });
++  // Failed optional gallery background fetches must never block the main page.
++  await page.route('**/art/technology/**', route => route.abort());
++  for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
++    await page.goto(`/${locale}`);
++    await readyExcept(page, '/art/04.webp');
++    await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++    const status = page.locator('.page-media-overlay .media-loading');
++    await expect(status).toBeVisible();
++    await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
++    expect(await status.evaluate(element => element.scrollWidth <= element.clientWidth && element.getBoundingClientRect().right <= innerWidth)).toBe(true);
++    if (locale === 'ar') {
++      await expect(status).toHaveAttribute('dir', 'rtl');
++      await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-arabic.png` });
++    }
++  }
++  release();
++});
+app/globals.css:191:.page-media-shell{overflow:clip}.page-media-content{display:contents}
+app/globals.css:192:html[data-media-js]:has(.page-media-shell[data-media-initial][data-media-blocked]),html[data-media-js] body:has(.page-media-shell[data-media-initial][data-media-blocked]){overflow:hidden}
+app/globals.css:193:html[data-media-js] .dialog-controller:has(.page-media-shell[data-media-initial][data-media-blocked])>.back-to-top{visibility:hidden}
+app/globals.css:194:html[data-media-js] img[data-media]:not([data-media-ready]){visibility:hidden}
+app/globals.css:195:html[data-media-js] .page-media-shell[data-media-initial][data-media-blocked] .page-media-content,html[data-media-js] .page-media-shell[data-media-initial][data-media-blocked] .page-media-content *{visibility:hidden}
+app/globals.css:197:html[data-media-js] .page-media-overlay{display:grid}
+app/globals.css:199:.page-media-shell:not([data-media-initial]) .page-media-overlay{top:auto;background:transparent;pointer-events:none;padding:12px max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom))}
+app/globals.css:200:.page-media-shell:not([data-media-initial]) .page-media-overlay .media-loading{background:#181512;padding:12px 16px}
+components/Story.tsx:112:      <Image data-media className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized loading="lazy" fetchPriority="high" />
+components/Story.tsx:146:          <Image data-media src={`/art/faq-row-${index + 1}.webp`} fetchPriority="high" width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
+components/Story.tsx:147:          {part === 'middle' && <Image data-media className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} fetchPriority="high" width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
+components/Story.tsx:232:          data-media
+components/Story.tsx:272:        data-media
+components/Story.tsx:306:          <Image data-media src="/art/09-10.webp" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="high" placeholder={artPreviews['09-10'] as `data:image/${string}`} />
+components/Story.tsx:307:          <Image data-media src="/art/11.webp" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="high" placeholder={artPreviews['11'] as `data:image/${string}`} />
+components/PageMediaGate.tsx:32:    if (!document.documentElement.hasAttribute('data-media-js')) return;
+components/PageMediaGate.tsx:33:    document.documentElement.setAttribute('data-media-hydrated', '');
+components/PageMediaGate.tsx:35:    const images = [...shell.querySelectorAll<HTMLImageElement>('img[data-media]')];
+components/PageMediaGate.tsx:45:      if (!warming && images[0]?.hasAttribute('data-media-ready')) {
+components/PageMediaGate.tsx:49:      const pending = images.filter(image => !image.hasAttribute('data-media-ready'))
+components/PageMediaGate.tsx:75:      if (loading.has(image) || failures.has(image) || image.hasAttribute('data-media-ready')) return;
+components/PageMediaGate.tsx:89:        if (alive) image.setAttribute('data-media-ready', '');
+components/PageMediaGate.tsx:119:  return <div ref={root} className="page-media-shell" data-media-blocked={state.blocked ? '' : undefined} data-media-initial={state.initial ? '' : undefined}>
+components/PageMediaGate.tsx:120:    <div className="page-media-content" inert={state.activated && state.blocked && state.initial}>{children}</div>
+app/[locale]/layout.tsx:14:  const mediaBootstrap = `(()=>{const root=document.documentElement;root.setAttribute('data-media-js','');const fallback=()=>{if(!root.hasAttribute('data-media-hydrated'))root.removeAttribute('data-media-js')};window.addEventListener('error',event=>{const script=event.target;if(event instanceof ErrorEvent||(script instanceof HTMLScriptElement&&new URL(script.src,document.baseURI).pathname.startsWith('/_next/')))fallback()},true);window.addEventListener('unhandledrejection',fallback)})()`;
+
+exec
+/bin/zsh -lc "rg -n 'PageMediaGate|dialog-controller|back-to-top' components app | head -35; nl -ba components/PageMediaGate.tsx | sed -n '45,73p'; rg -n 'story|main|page-media' app/globals.css | head -35; cat components/MediaLoading.tsx | tail -75" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 185ms:
+app/globals.css:153:.dialog-controller:has(> #technology-viewer[open]) > :not(#technology-viewer),.dialog-controller:has(> #technology-viewer[open]) > :not(#technology-viewer) *{visibility:hidden}
+app/globals.css:193:html[data-media-js] .dialog-controller:has(.page-media-shell[data-media-initial][data-media-blocked])>.back-to-top{visibility:hidden}
+app/globals.css:231:.back-to-top{position:fixed;z-index:20;right:max(16px,env(safe-area-inset-right));bottom:max(20px,calc(env(safe-area-inset-bottom) + 16px));width:48px;height:48px;display:grid;place-items:center;padding:0;border:1px solid #f7e9d0c7;border-radius:13px;background:#211b17c9;backdrop-filter:blur(8px) brightness(.86);-webkit-backdrop-filter:blur(8px) brightness(.86);box-shadow:0 5px 18px #1b110a36, inset 0 1px #fff5;cursor:pointer;touch-action:manipulation}
+app/globals.css:232:.back-to-top svg{width:22px;height:22px;color:#fff}
+app/globals.css:233:.back-to-top:hover{background:#211b17e0}
+app/globals.css:234:.back-to-top:active{transform:translateY(1px)}
+app/globals.css:235:.back-to-top:focus-visible{outline:3px solid #211b17;outline-offset:3px;box-shadow:0 0 0 9px #fff}
+components/DialogController.tsx:7:  return <div className="dialog-controller" onClick={event => {
+components/Story.tsx:18:import { PageMediaGate } from './PageMediaGate';
+components/Story.tsx:227:    <PageMediaGate locale={locale}><main className="canvas" data-locale={locale}>
+components/Story.tsx:329:    </main></PageMediaGate>
+components/PageMediaGate.tsx:24:export function PageMediaGate({ locale, children }: { locale: Locale; children: ReactNode }) {
+components/BackToTop.tsx:31:    id="back-to-top"
+components/BackToTop.tsx:32:    className="back-to-top"
+    45	      if (!warming && images[0]?.hasAttribute('data-media-ready')) {
+    46	        warming = true;
+    47	        images.forEach(image => start(image));
+    48	      }
+    49	      const pending = images.filter(image => !image.hasAttribute('data-media-ready'))
+    50	        .map(image => ({ image, box: bounds(image, shell) }))
+    51	        .filter(item => item.box !== null)
+    52	        .sort((a, b) => a.box!.top - b.box!.top);
+    53	      const frontier = pending[0]?.box!.top ?? null;
+    54	      const nextCap = frontier === null ? null : Math.max(0, Math.floor(frontier - shell.getBoundingClientRect().top - scrollY));
+    55	      // A native document boundary stops momentum, wheel and programmatic jumps
+    56	      // before missing pixels. Upward scrolling remains completely native.
+    57	      if (cap !== nextCap) {
+    58	        cap = nextCap;
+    59	        shell.style.height = cap === null ? '' : `${cap}px`;
+    60	        for (const control of controls) {
+    61	          const clipped = frontier !== null && control.getBoundingClientRect().bottom + scrollY > frontier;
+    62	          if (clipped && !managed.has(control)) { managed.set(control, control.inert); control.inert = true; }
+    63	          if (!clipped && managed.has(control)) { control.inert = managed.get(control)!; managed.delete(control); }
+    64	        }
+    65	      }
+    66	      const suspended = !!document.querySelector('dialog[open]');
+    67	      const blocked = !suspended && frontier !== null && frontier <= scrollY + innerHeight + 1;
+    68	      if (frontier === null || frontier >= shell.getBoundingClientRect().top + scrollY + innerHeight) shown = true;
+    69	      const next = { activated: true, blocked, initial: !shown, error: blocked && failures.has(pending[0].image) };
+    70	      setState(previous => previous.activated && previous.blocked === next.blocked && previous.initial === next.initial && previous.error === next.error ? previous : next);
+    71	      if (!suspended && pending[0]) start(pending[0].image);
+    72	    };
+    73	    const schedule = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(refresh); };
+22:.story-prefix-space{grid-row:1;height:calc(27147/941*100cqw)}
+23:.story-tail{grid-row:3;position:relative;height:calc(3920/941*100cqw);--source-offset:calc(28207/941*100cqw)}
+42:.story-button{display:flex;align-items:center;justify-content:center;position:absolute;min-height:44px;padding:0;border:0;background:transparent;text-decoration:none;font-weight:400;line-height:1.15;isolation:isolate}
+49:.story-button:hover .button-surface{filter:brightness(1.04)}
+50:.story-button:focus-visible{outline:2px solid #815013;outline-offset:4px;border-radius:999px}
+60:.canvas:not([data-locale="en"]) .story-button .button-label{min-width:0;white-space:nowrap;overflow-wrap:normal;line-height:1.05}
+66:.canvas:is([data-locale="ar"],[data-locale="zh"],[data-locale="ja"],[data-locale="ko"]) .story-button:not(.button-pill) .button-label{font-family:OpenSans,var(--button-script-font),Arial,sans-serif}
+191:.page-media-shell{overflow:clip}.page-media-content{display:contents}
+192:html[data-media-js]:has(.page-media-shell[data-media-initial][data-media-blocked]),html[data-media-js] body:has(.page-media-shell[data-media-initial][data-media-blocked]){overflow:hidden}
+193:html[data-media-js] .dialog-controller:has(.page-media-shell[data-media-initial][data-media-blocked])>.back-to-top{visibility:hidden}
+195:html[data-media-js] .page-media-shell[data-media-initial][data-media-blocked] .page-media-content,html[data-media-js] .page-media-shell[data-media-initial][data-media-blocked] .page-media-content *{visibility:hidden}
+196:.page-media-overlay{position:fixed;inset:0;z-index:900;display:none;place-items:end center;padding:24px max(24px,env(safe-area-inset-right)) max(32px,env(safe-area-inset-bottom));background:#181512;color:#fff;touch-action:none}
+197:html[data-media-js] .page-media-overlay{display:grid}
+198:.page-media-overlay .media-loading{width:min(100%,420px)}
+199:.page-media-shell:not([data-media-initial]) .page-media-overlay{top:auto;background:transparent;pointer-events:none;padding:12px max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom))}
+200:.page-media-shell:not([data-media-initial]) .page-media-overlay .media-loading{background:#181512;padding:12px 16px}
+201:.page-media-overlay button{pointer-events:auto}
+227:[dir="rtl"] .story-button{direction:rtl}
+'use client';
+
+import { useEffect } from 'react';
+import type { Locale } from '@/lib/i18n';
+
+const copy: Record<Locale, [string, string, string]> = {
+  en: ['Loading image…', 'The image could not load.', 'Retry'],
+  ru: ['Загрузка изображения…', 'Не удалось загрузить изображение.', 'Повторить'],
+  de: ['Bild wird geladen…', 'Das Bild konnte nicht geladen werden.', 'Erneut versuchen'],
+  fr: ['Chargement de l’image…', 'Impossible de charger l’image.', 'Réessayer'],
+  es: ['Cargando imagen…', 'No se pudo cargar la imagen.', 'Reintentar'],
+  it: ['Caricamento immagine…', 'Impossibile caricare l’immagine.', 'Riprova'],
+  tr: ['Görsel yükleniyor…', 'Görsel yüklenemedi.', 'Tekrar dene'],
+  ar: ['جارٍ تحميل الصورة…', 'تعذّر تحميل الصورة.', 'إعادة المحاولة'],
+  zh: ['正在加载图片…', '图片加载失败。', '重试'],
+  ja: ['画像を読み込み中…', '画像を読み込めませんでした。', '再試行'],
+  ko: ['이미지 로딩 중…', '이미지를 불러올 수 없습니다.', '다시 시도'],
+};
+
+export function LoadingStatus({ locale, progress = null, error = false, onRetry, className = '' }: {
+  locale: Locale; progress?: number | null; error?: boolean; onRetry?: () => void; className?: string;
+}) {
+  const value = progress === null ? null : Math.max(0, Math.min(100, Math.floor(progress)));
+  const [loading, failed, retry] = copy[locale];
+  return <div className={`media-loading ${className}`} role="status" aria-live="polite" dir={locale === 'ar' ? 'rtl' : undefined}>
+    <p>{error ? failed : loading}{!error && value !== null && <span aria-hidden="true"> {value}%</span>}</p>
+    {!error && <div className="media-loading__track" role="progressbar" aria-label={loading} aria-valuemin={0} aria-valuemax={100} {...(value !== null ? { 'aria-valuenow': value } : {})}>
+      <span className={value === null ? 'media-loading__bar is-indeterminate' : 'media-loading__bar'} style={value !== null ? { width: `${value}%` } : undefined} />
+    </div>}
+    {error && onRetry && <button type="button" onClick={onRetry}>{retry}</button>}
+  </div>;
+}
+
+let locks = 0;
+let restore: (() => void) | undefined;
+/** Multiple media views can own a lock without prematurely unlocking each other. */
+export function useScrollLock(active: boolean) {
+  useEffect(() => {
+    if (!active) return;
+    if (locks++ === 0) {
+      const roots = [document.documentElement, document.body];
+      const previous = roots.map(element => ({ overflow: element.style.overflow, overscroll: element.style.overscrollBehavior, scrollBehavior: element.style.scrollBehavior }));
+      // Cancel a smooth anchor/opener scroll already in flight before freezing the view.
+      window.scrollTo({ left: scrollX, top: scrollY, behavior: 'instant' });
+      roots.forEach(element => { element.style.overflow = 'hidden'; element.style.overscrollBehavior = 'none'; element.style.scrollBehavior = 'auto'; });
+      const keydown = (event: KeyboardEvent) => {
+        if (document.querySelector('dialog[open]') || (event.target as Element)?.closest('button,input,textarea,select,a')) return;
+        if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)) event.preventDefault();
+      };
+      const preventScroll = (event: Event) => {
+        if ((event.target as Element)?.closest?.('dialog[open]')) return;
+        event.preventDefault();
+      };
+      document.addEventListener('keydown', keydown);
+      document.addEventListener('wheel', preventScroll, { passive: false });
+      document.addEventListener('touchmove', preventScroll, { passive: false });
+      restore = () => {
+        roots.forEach((element, index) => { element.style.overflow = previous[index].overflow; element.style.overscrollBehavior = previous[index].overscroll; element.style.scrollBehavior = previous[index].scrollBehavior; });
+        document.removeEventListener('keydown', keydown);
+        document.removeEventListener('wheel', preventScroll);
+        document.removeEventListener('touchmove', preventScroll);
+      };
+    }
+    return () => { if (--locks === 0) { restore?.(); restore = undefined; } };
+  }, [active]);
+}
+
+2026-10-08T10:04:51.854492Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11af7-a085-7c80-90df-0efb728e65dd turn_id=01a11af7-b879-7870-8269-7cb1e3bc689c item_id="exec-68ee8a5a-b4d7-4842-9767-18bb860cdfd9"
+exec
+/bin/zsh -lc "sed -n '1,33p' app/globals.css; sed -n '1,65p' components/DialogController.tsx; sed -n '1,55p' components/BackToTop.tsx; sed -n '1,65p' app/'[locale]'/page.tsx; rg -n 'data-media|page-media' docs/discipline.md docs/mobile.md" in /Users/asmirnou/Projects/g/ramsider
+ exited 1 in 178ms:
+@font-face{font-family:OpenSans;src:url('/fonts/opensans-light.ttf') format('truetype');font-style:normal;font-weight:300;font-display:swap}
+@font-face{font-family:OpenSans;src:url('/fonts/opensans-regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:OpenSans;src:url('/fonts/opensans-bold.ttf') format('truetype');font-style:normal;font-weight:700;font-display:swap}
+@font-face{font-family:OpenSansButton;src:url('/fonts/opensans-button.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:BankGothic;src:url('/fonts/bankgothic.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:NotoButtonArabic;src:url('/fonts/button-fallback/noto-arabic-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:NotoButtonSC;src:url('/fonts/button-fallback/noto-zh-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:NotoButtonJP;src:url('/fonts/button-fallback/noto-ja-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:NotoButtonKR;src:url('/fonts/button-fallback/noto-ko-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+:root{color-scheme:light;font-family:OpenSans,Arial,sans-serif;color:#292018;background:#d3b79f}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-width:280px}
+button,a{font:inherit}
+button{cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:3px solid #815013;outline-offset:3px}
+.canvas{position:relative;container-type:inline-size;display:grid;grid-template-rows:auto auto auto;width:100%;max-width:941px;margin-inline:auto;overflow:clip;isolation:isolate;background:#d8bb9f}
+.art{position:absolute;inset:0 0 auto;height:calc(27147/941*100cqw);overflow:hidden;z-index:0;pointer-events:none}
+.art img,.tail-art img{display:block;width:100%;height:auto;background-size:100% 100%;background-repeat:no-repeat}
+.art img:not(:first-child),.tail-art-track img{margin-top:calc(-2/941*100cqw)}
+.story-prefix-space{grid-row:1;height:calc(27147/941*100cqw)}
+.story-tail{grid-row:3;position:relative;height:calc(3920/941*100cqw);--source-offset:calc(28207/941*100cqw)}
+.tail-art{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.tail-art-track{position:absolute;inset:calc(-3007/941*100cqw) 0 auto}
+.overlay{position:absolute;z-index:3;margin:0;line-height:1.16;font-weight:400;white-space:normal;color:#261d18;text-align:start}
+.overlay span{white-space:nowrap}
+.overlay.title{font-weight:400;letter-spacing:0;line-height:1.2}
+.overlay.body{font-weight:300;color:#5d5149;line-height:1.22}
+.overlay.key-choiceBody{color:#41342d}
+.overlay.label{font-weight:400;letter-spacing:.08em;line-height:1.25}
+.feature-divider-art,.technology-connector-art,.designer-icon{position:absolute;z-index:3;height:auto;pointer-events:none}
+.expression-waves-art{position:absolute;z-index:2;height:auto;pointer-events:none}
+'use client';
+
+import type { ReactNode } from 'react';
+
+/** Server-rendered content, with native modal focus containment and Escape. */
+export function DialogController({ children }: { children: ReactNode }) {
+  return <div className="dialog-controller" onClick={event => {
+    const target = event.target as Element;
+    const trigger = target.closest<HTMLButtonElement>('button[popovertarget]');
+    if (trigger) {
+      const panel = document.getElementById(trigger.getAttribute('popovertarget') ?? '');
+      if (panel instanceof HTMLDialogElement) {
+        event.preventDefault();
+        if (trigger.getAttribute('popovertargetaction') === 'hide') panel.close();
+        else panel.showModal();
+      }
+    } else if (target.closest('a[href^="#"]')) {
+      target.closest('dialog')?.close();
+    }
+  }}>{children}</div>;
+}
+'use client';
+
+import { useEffect, useState } from 'react';
+
+/** A small viewport control for the long story, independent of its clipped artwork. */
+export function BackToTop({ label }: { label: string }) {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        setVisible(scrollY > Math.max(500, innerHeight * 0.75));
+      });
+    };
+    update();
+    addEventListener('scroll', update, { passive: true });
+    addEventListener('resize', update);
+    return () => {
+      removeEventListener('scroll', update);
+      removeEventListener('resize', update);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  if (!visible) return null;
+
+  return <button
+    id="back-to-top"
+    className="back-to-top"
+    type="button"
+    aria-label={label}
+    onClick={() => {
+      document.getElementById('home-link')?.focus({ preventScroll: true });
+      scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    }}
+  >
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <path d="m5.5 14.5 6.5-6.5 6.5 6.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  </button>;
+}
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { Story } from '@/components/Story';
+import { locales, t, type Locale } from '@/lib/i18n';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  if (!locales.includes(locale as Locale)) notFound();
+  const language = locale as Locale;
+  return {
+    title: 'RAMSIDER UNO — Fograiser',
+    description: `${t(language, 'hero').replaceAll('\n', ' ')} ${t(language, 'expression')}`,
+  };
+}
+
+export const dynamicParams = false;
+
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  if (!locales.includes(locale as Locale)) notFound();
+  return <Story locale={locale as Locale} />;
+}
+
+2026-10-08T10:05:02.290298Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11af7-a085-7c80-90df-0efb728e65dd turn_id=01a11af7-b879-7870-8269-7cb1e3bc689c item_id="exec-94cc5594-7db6-4d19-aed8-787fd82321c1"
+codex
+The reviewed diff shows no actionable introduced bug in the retained media frontier, native scrolling, prefetch priority, or retry behavior.
+The reviewed diff shows no actionable introduced bug in the retained media frontier, native scrolling, prefetch priority, or retry behavior.

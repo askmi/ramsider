@@ -1,4 +1,10 @@
 import { expect, test } from '@playwright/test';
+import sharp from 'sharp';
+
+async function readyExcept(page: import('@playwright/test').Page, path: string) {
+  await expect.poll(() => page.locator('img[data-media]:not([data-media-ready])').evaluateAll((images, path) => images.every(image => new URL((image as HTMLImageElement).src).pathname === path), path)).toBe(true);
+}
+
 
 test('without JavaScript the native page artwork, text and FAQ remain usable', async ({ browser, baseURL }, testInfo) => {
   const profile = testInfo.project.use;
@@ -114,7 +120,7 @@ test('visible artwork remains hidden and page scroll locked until complete decod
   await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
 });
 
-test('offscreen pending artwork does not block the hero but blocks when reached', async ({ page }) => {
+test('pending next block retains ready pixels, stops downward scroll and allows upward scroll', async ({ page }, info) => {
   let release!: () => void;
   const held = new Promise<void>(resolve => { release = resolve; });
   await page.route('**/art/04.webp', async route => { await held; await route.continue(); });
@@ -122,24 +128,72 @@ test('offscreen pending artwork does not block the hero but blocks when reached'
   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
   const image = page.locator('img[data-media][src="/art/04.webp"]');
   await expect(image).not.toHaveAttribute('data-media-ready');
-  await page.evaluate(() => {
-    const image = document.querySelector('img[data-media][src="/art/04.webp"]')!;
-    scrollTo({ top: image.getBoundingClientRect().top + scrollY + 40, behavior: 'instant' });
-  });
+  await readyExcept(page, '/art/04.webp');
+  const frontier = await image.evaluate(image => image.getBoundingClientRect().top + scrollY);
+  // Let preceding resources decode, without entering the held block.
+  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
+  await expect.poll(() => page.evaluate(() => scrollY)).toBe(Math.floor(frontier) - info.project.use.viewport!.height);
   await expect(page.locator('.page-media-overlay')).toBeVisible();
+  await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
+  await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden');
+  const clipped = page.locator('#account-personal');
+  expect(await clipped.evaluate(element => (element as HTMLElement).inert)).toBe(true);
+  expect(await clipped.evaluate(element => { (element as HTMLElement).focus({ preventScroll: true }); return document.activeElement === element; })).toBe(false);
   const scroll = await page.evaluate(() => scrollY);
-  await expect(page.locator('#back-to-top')).toBeHidden();
-  await page.keyboard.press('PageDown');
-  expect(await page.evaluate(() => {
-    const touch = new Event('touchmove', { bubbles: true, cancelable: true });
-    document.querySelector('.page-media-overlay')!.dispatchEvent(touch);
-    return touch.defaultPrevented;
-  })).toBe(true);
-  await expect(page.locator('body')).toHaveCSS('overflow', 'hidden');
+  await page.keyboard.press('End');
+  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
+  await expect.poll(() => page.evaluate(() => scrollY)).toBe(scroll);
+  await page.evaluate(() => document.fonts.ready);
+  const viewport = info.project.use.viewport!;
+  const crop = { left: 0, top: 0, width: viewport.width, height: viewport.height - 200 };
+  const pending = await sharp(await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-pending.png`, scale: 'device' })).resize({ width: viewport.width }).extract(crop).raw().toBuffer();
+  await page.keyboard.press('Home');
+  await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
+  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
   await expect.poll(() => page.evaluate(() => scrollY)).toBe(scroll);
   release();
   await expect(image).toHaveAttribute('data-media-ready', '');
   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+  expect(await page.evaluate(() => scrollY)).toBe(scroll);
+  await expect.poll(async () => {
+    const ready = await sharp(await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-ready.png`, scale: 'device' })).resize({ width: viewport.width }).extract(crop).raw().toBuffer();
+    return ready.equals(pending);
+  }).toBe(true);
+  await page.evaluate(() => scrollTo({ top: scrollY + 200, behavior: 'instant' }));
+  await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(scroll);
+});
+
+test('remaining landing artwork warms asynchronously after first block decode without scrolling', async ({ page }) => {
+  await page.addInitScript(() => {
+    const qa = window as Window & { mediaFetchPriorities?: string[] };
+    qa.mediaFetchPriorities = [];
+    const fetchResource = window.fetch;
+    window.fetch = (input, options) => {
+      if (String(input).includes('/art/technology/')) qa.mediaFetchPriorities!.push((options as RequestInit & { priority?: string })?.priority ?? 'auto');
+      return fetchResource(input, options);
+    };
+  });
+  const requested = new Set<string>();
+  page.on('request', request => { requested.add(new URL(request.url()).pathname); });
+  await page.addInitScript(() => {
+    const qa = window as Window & { releaseHeroDecode?: () => void };
+    const held = new Promise<void>(resolve => { qa.releaseHeroDecode = resolve; });
+    const decode = HTMLImageElement.prototype.decode;
+    HTMLImageElement.prototype.decode = async function () {
+      await decode.call(this);
+      if (new URL(this.currentSrc || this.src).pathname === '/art/00.webp') await held;
+    };
+  });
+  await page.goto('/en');
+  expect(requested.has('/art/11.webp')).toBe(false);
+  await page.evaluate(() => (window as Window & { releaseHeroDecode?: () => void }).releaseHeroDecode!());
+  await expect.poll(() => requested.has('/art/11.webp')).toBe(true);
+  await expect.poll(() => page.locator('img[data-media]:not([data-media-ready])').count()).toBe(0);
+  expect(await page.locator('img[data-media]').evaluateAll(images => images.every(image => (image as HTMLImageElement).fetchPriority === 'high'))).toBe(true);
+  expect(await page.evaluate(() => scrollY)).toBe(0);
+  await expect.poll(() => page.evaluate(() => (window as Window & { mediaFetchPriorities?: string[] }).mediaFetchPriorities?.length ?? 0)).toBeGreaterThan(0);
+  expect(await page.evaluate(() => (window as Window & { mediaFetchPriorities?: string[] }).mediaFetchPriorities?.every(priority => priority === 'low' || priority === 'auto'))).toBe(true);
 });
 
 test('failed visible image has an accessible retry and successful recovery', async ({ page }) => {
@@ -201,4 +255,109 @@ test('page gate suspends behind a native dialog and resumes missing page media a
   await expect(page.locator('.page-media-content')).toHaveAttribute('inert', '');
   release();
   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+});
+
+
+test('native desktop wheel stops at pending boundary and can reverse upward', async ({ page }, info) => {
+  test.skip(!!info.project.use.isMobile, 'Use native Chromium touch below; mobile WebKit mouse wheel is unavailable.');
+  let release!: () => void;
+  const held = new Promise<void>(resolve => { release = resolve; });
+  await page.route('**/art/04.webp', async route => { await held; await route.continue(); });
+  await page.goto('/en');
+  await readyExcept(page, '/art/04.webp');
+  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
+  await expect(page.locator('.page-media-overlay')).toBeVisible();
+  const edge = await page.evaluate(() => scrollY);
+  await page.mouse.move(info.project.use.viewport!.width / 2, 300);
+  await page.mouse.wheel(0, 10000);
+  // Chromium completes the first wheel gesture asynchronously, including at a boundary.
+  await page.waitForTimeout(200);
+  expect(await page.evaluate(() => scrollY)).toBe(edge);
+  await page.mouse.wheel(0, -600);
+  await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(edge);
+  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+  await page.mouse.wheel(0, 10000);
+  await expect.poll(() => page.evaluate(() => scrollY)).toBe(edge);
+  release();
+});
+
+test('native mobile touch cannot cross missing block and can reverse while it is pending', async ({ browser }, info) => {
+  test.skip(info.project.use.browserName !== 'chromium', 'CDP native touch exists only on Chromium; WebKit native hardware momentum is not claimed.');
+  const context = await browser.newContext({ baseURL: process.env.BASE_URL, viewport: { width: 402, height: 874 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
+  const page = await context.newPage();
+  let release!: () => void;
+  const held = new Promise<void>(resolve => { release = resolve; });
+  await page.route('**/art/04.webp', async route => { await held; await route.continue(); });
+  await page.goto('/en');
+  await readyExcept(page, '/art/04.webp');
+  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
+  await expect(page.locator('.page-media-overlay')).toBeVisible();
+  const edge = await page.evaluate(() => scrollY);
+  const touch = await context.newCDPSession(page);
+  const pan = async (from: number, to: number) => {
+    await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: 200, y: from }] });
+    for (let step = 1; step <= 12; step++) {
+      await touch.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: 200, y: from + (to - from) * step / 12 }] });
+      await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => resolve())));
+    }
+    await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+  };
+  await pan(620, 160);
+  expect(await page.evaluate(() => scrollY)).toBe(edge);
+  await pan(180, 600);
+  await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(edge);
+  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+  await page.screenshot({ path: 'docs/evidence/media-loading/retained-native-touch-up.png' });
+  release();
+  await context.close();
+});
+
+test('pending frontier follows viewport resize and expanded FAQ instead of exposing blank artwork', async ({ page }, info) => {
+  let release!: () => void;
+  const held = new Promise<void>(resolve => { release = resolve; });
+  await page.route('**/art/faq-row-3.webp', async route => { await held; await route.continue(); });
+  await page.goto('/en');
+  await readyExcept(page, '/art/faq-row-3.webp');
+  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
+  await expect(page.locator('.page-media-overlay')).toBeVisible();
+  const cap = () => page.locator('.page-media-shell').evaluate(element => Number.parseFloat((element as HTMLElement).style.height));
+  const before = await cap();
+  const first = page.locator('.faq-stack details').first();
+  await first.locator('summary').click();
+  await expect(first).toHaveAttribute('open', '');
+  await expect.poll(cap).toBeGreaterThan(before);
+  await page.setViewportSize({ width: 390, height: 664 });
+  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
+  await expect(page.locator('.page-media-overlay')).toBeVisible();
+  const frontier = await cap();
+  expect(await page.evaluate(() => scrollY + innerHeight)).toBe(frontier);
+  await expect(first.locator('summary')).not.toHaveAttribute('inert');
+  await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
+  await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-faq-resize.png` });
+  release();
+  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+});
+
+
+test('retained loading strip fits all eleven locales including Arabic', async ({ page }, info) => {
+  test.setTimeout(120000);
+  let release!: () => void;
+  const held = new Promise<void>(resolve => { release = resolve; });
+  await page.route('**/art/04.webp', async route => { await held; await route.continue(); });
+  // Failed optional gallery background fetches must never block the main page.
+  await page.route('**/art/technology/**', route => route.abort());
+  for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
+    await page.goto(`/${locale}`);
+    await readyExcept(page, '/art/04.webp');
+    await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
+    const status = page.locator('.page-media-overlay .media-loading');
+    await expect(status).toBeVisible();
+    await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
+    expect(await status.evaluate(element => element.scrollWidth <= element.clientWidth && element.getBoundingClientRect().right <= innerWidth)).toBe(true);
+    if (locale === 'ar') {
+      await expect(status).toHaveAttribute('dir', 'rtl');
+      await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-arabic.png` });
+    }
+  }
+  release();
 });

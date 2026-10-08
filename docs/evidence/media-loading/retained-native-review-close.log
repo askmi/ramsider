@@ -1,0 +1,1239 @@
+2026-10-08T10:12:03.761226Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-08T10:12:03.761316Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.159.0-alpha.12.1
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: low
+reasoning summaries: none
+session id: 01a11aff-a404-78f3-8387-8fb005e691e5
+--------
+user
+Review actual code/test diff for retained loading. Runtime source review previously clean. Focus additional test changes: wait actual main readiness before whole-page/FAQ/back-to-top jumps; screenshot from full viewport extracted same CSS coordinates; 120s eleven-locale loop; output current screenshots separate from historical artifacts. Read-only; report actionable introduced issues in code or these checks, do not treat known historical failed logs as current approvals.
+2026-10-08T10:12:07.418445Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-08T10:12:07.418483Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-08T10:12:08.705647Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+2026-10-08T10:12:18.027786Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+exec
+/bin/zsh -lc "git status --short; git diff --stat; git diff -- . ':"'!CHANGELOG.md'"' ':"'!MEMORY.md'"'" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 280ms:
+ M .gitignore
+ M CHANGELOG.md
+ M LESSONS.md
+ M MEMORY.md
+ M app/globals.css
+ M components/PageMediaGate.tsx
+ M components/Story.tsx
+ M components/TechnologyViewer.tsx
+ M docs/agent-evals.md
+ M docs/media-loading-plan.md
+ M docs/technology-viewer.md
+ M lib/media-resource.ts
+ M tests/e2e/media-loading.spec.ts
+ M tests/e2e/site.spec.ts
+ M tests/e2e/technology-viewer.spec.ts
+?? design/references/background_old.png
+?? docs/evidence/media-loading/retained-attempt1.log
+?? docs/evidence/media-loading/retained-attempt2.log
+?? docs/evidence/media-loading/retained-attempt3.log
+?? docs/evidence/media-loading/retained-attempt4.log
+?? docs/evidence/media-loading/retained-attempt5.log
+?? docs/evidence/media-loading/retained-build.log
+?? docs/evidence/media-loading/retained-desktop-chromium-arabic.png
+?? docs/evidence/media-loading/retained-desktop-chromium-faq-resize.png
+?? docs/evidence/media-loading/retained-desktop-chromium-pending.png
+?? docs/evidence/media-loading/retained-desktop-chromium-ready.png
+?? docs/evidence/media-loading/retained-desktop-firefox-arabic.png
+?? docs/evidence/media-loading/retained-desktop-firefox-faq-resize.png
+?? docs/evidence/media-loading/retained-desktop-firefox-pending.png
+?? docs/evidence/media-loading/retained-desktop-firefox-ready.png
+?? docs/evidence/media-loading/retained-full-attempt.log
+?? docs/evidence/media-loading/retained-integration-attempt.log
+?? docs/evidence/media-loading/retained-iphone-17-pro-max-webkit-arabic.png
+?? docs/evidence/media-loading/retained-iphone-17-pro-max-webkit-faq-resize.png
+?? docs/evidence/media-loading/retained-iphone-17-pro-max-webkit-pending.png
+?? docs/evidence/media-loading/retained-iphone-17-pro-max-webkit-ready.png
+?? docs/evidence/media-loading/retained-iphone-17-pro-webkit-arabic.png
+?? docs/evidence/media-loading/retained-iphone-17-pro-webkit-faq-resize.png
+?? docs/evidence/media-loading/retained-iphone-17-pro-webkit-pending.png
+?? docs/evidence/media-loading/retained-iphone-17-pro-webkit-ready.png
+?? docs/evidence/media-loading/retained-native-review.log
+?? docs/evidence/media-loading/retained-native-touch-up.png
+?? docs/evidence/media-loading/retained-performance.json
+?? docs/evidence/media-loading/retained-performance.mjs
+?? docs/evidence/media-loading/retained-recheck.log
+?? docs/evidence/media-loading/retained-width-ready-320x568.png
+?? docs/evidence/media-loading/retained-width-ready-390x664.png
+?? docs/evidence/media-loading/retained-width-ready-cybermind-390x664.png
+?? tools/__pycache__/
+ .gitignore                          |   3 +-
+ CHANGELOG.md                        |  32 ++++++-
+ LESSONS.md                          |   4 +
+ MEMORY.md                           |   2 +-
+ app/globals.css                     |  11 ++-
+ components/PageMediaGate.tsx        |  62 ++++++++----
+ components/Story.tsx                |  14 +--
+ components/TechnologyViewer.tsx     |   4 +-
+ docs/agent-evals.md                 |   2 +-
+ docs/media-loading-plan.md          |  13 ++-
+ docs/technology-viewer.md           |   6 +-
+ lib/media-resource.ts               |   2 +-
+ tests/e2e/media-loading.spec.ts     | 182 +++++++++++++++++++++++++++++++++---
+ tests/e2e/site.spec.ts              |  21 +++++
+ tests/e2e/technology-viewer.spec.ts |  29 +++---
+ 15 files changed, 323 insertions(+), 64 deletions(-)
+diff --git a/.gitignore b/.gitignore
+index c9e723c..7a66f72 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -33,6 +33,7 @@ yarn-error.log*
+
+ # env files (can opt-in for committing if needed)
+ .env*
++/integrations/telegram/
+
+ # vercel
+ .vercel
+@@ -50,4 +51,4 @@ next-env.d.ts
+ /screenshots/diff/
+
+ *.psb
+-/deliverables/
+\ No newline at end of file
++/deliverables/
+diff --git a/LESSONS.md b/LESSONS.md
+index bff59d6..2e3e7ef 100644
+--- a/LESSONS.md
++++ b/LESSONS.md
+@@ -323,3 +323,7 @@ This is the repository's **error-prevention memory**, separate from current proj
+ ## Explicit working branch before commit/push — CHG-0074
+
+ - **Problem → cause → prevention:** The agent reused an old codex checkout/upstream as a push target while the user expected main. Current branch/upstream is observed state, not user authorization. For Ramsider, work and push on main; create or switch to another working branch only on the user’s direct command. Check that constraint before committing or constructing refspecs. Preserve commits via ordinary fast-forward, verify remote refs, and delete only the exact branch explicitly requested. [EVAL-GIT-DISPATCH](docs/agent-evals.md#eval-git-dispatch--chg-0074) controlled independent agent run NOT_RUN.
++
++## Preserve the ready landing view during background loading — CHG-0071 reopened
++
++- **Problem → cause → prevention:** The agent applied an opaque, bidirectional initial guard to later main-page images. Its tests approved hidden content and blocked input instead of the requested retained view. Keep the initial guard separate from subsequent readiness: cap native document height before unfinished artwork, keep completed pixels and controls available, show a bottom loading strip only at the reached frontier, and allow upward native scrolling. Prefetch all main artwork after actual hero DOM decode with high priority; warm all six gallery photos separately at low priority without affecting the main gate. Test held/corrupt optional gallery resources, native wheel/touch reversal, programmatic jumps, clipped focus targets, FAQ/resize frontier changes and unchanged ready pixels before/after decode. Await actual DOM readiness before measuring full-page height; load is not decode readiness. Extract comparison regions from full viewport screenshots in the same coordinate system. Serialize speed measurements away from browser suites, preserve failed attempts and historical screenshot files. Product regression passes do not execute the controlled [EVAL-VIEWER](docs/agent-evals.md#eval-viewer); its status remains NOT_RUN.
+diff --git a/app/globals.css b/app/globals.css
+index 1ba7235..322160e 100644
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -188,14 +188,17 @@ html:has(#technology-viewer[open]),body:has(#technology-viewer[open]){background
+ .technology-viewer__sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+ .technology-viewer :focus-visible{outline:2px solid #e7ba75;outline-offset:-3px}
+ .technology-viewer button:disabled{cursor:default;opacity:.45}
+-.page-media-shell,.page-media-content{display:contents}
+-html[data-media-js]:has(.page-media-shell[data-media-blocked]),html[data-media-js] body:has(.page-media-shell[data-media-blocked]){overflow:hidden}
+-html[data-media-js] .dialog-controller:has(.page-media-shell[data-media-blocked])>.back-to-top{visibility:hidden}
++.page-media-shell{overflow:clip}.page-media-content{display:contents}
++html[data-media-js]:has(.page-media-shell[data-media-initial][data-media-blocked]),html[data-media-js] body:has(.page-media-shell[data-media-initial][data-media-blocked]){overflow:hidden}
++html[data-media-js] .dialog-controller:has(.page-media-shell[data-media-initial][data-media-blocked])>.back-to-top{visibility:hidden}
+ html[data-media-js] img[data-media]:not([data-media-ready]){visibility:hidden}
+-html[data-media-js] .page-media-shell[data-media-blocked] .page-media-content,html[data-media-js] .page-media-shell[data-media-blocked] .page-media-content *{visibility:hidden}
++html[data-media-js] .page-media-shell[data-media-initial][data-media-blocked] .page-media-content,html[data-media-js] .page-media-shell[data-media-initial][data-media-blocked] .page-media-content *{visibility:hidden}
+ .page-media-overlay{position:fixed;inset:0;z-index:900;display:none;place-items:end center;padding:24px max(24px,env(safe-area-inset-right)) max(32px,env(safe-area-inset-bottom));background:#181512;color:#fff;touch-action:none}
+ html[data-media-js] .page-media-overlay{display:grid}
+ .page-media-overlay .media-loading{width:min(100%,420px)}
++.page-media-shell:not([data-media-initial]) .page-media-overlay{top:auto;background:transparent;pointer-events:none;padding:12px max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom))}
++.page-media-shell:not([data-media-initial]) .page-media-overlay .media-loading{background:#181512;padding:12px 16px}
++.page-media-overlay button{pointer-events:auto}
+ .media-loading{font:400 14px/1.4 OpenSans,Arial,sans-serif;text-align:center}
+ .media-loading p{margin:0 0 10px}
+ .media-loading__track{height:4px;background:#d6d0c7;overflow:hidden;direction:ltr}
+diff --git a/components/PageMediaGate.tsx b/components/PageMediaGate.tsx
+index 409a3d9..d94c312 100644
+--- a/components/PageMediaGate.tsx
++++ b/components/PageMediaGate.tsx
+@@ -5,12 +5,12 @@ import type { Locale } from '@/lib/i18n';
+ import { decodeImageElement } from '@/lib/media-resource';
+ import { LoadingStatus, useScrollLock } from './MediaLoading';
+
+-function visible(image: HTMLImageElement) {
++/** Actual painted resource bounds, ignoring the gate's temporary scroll cap. */
++function bounds(image: HTMLImageElement, root: HTMLElement) {
+   const box = image.getBoundingClientRect();
+-  let top = Math.max(0, box.top), bottom = Math.min(innerHeight, box.bottom);
++  let top = box.top, bottom = box.bottom;
+   let left = Math.max(0, box.left), right = Math.min(innerWidth, box.right);
+-  if (bottom <= top || right <= left) return false;
+-  for (let parent = image.parentElement; parent; parent = parent.parentElement) {
++  for (let parent = image.parentElement; parent && parent !== root; parent = parent.parentElement) {
+     const css = getComputedStyle(parent);
+     if (/(hidden|clip|scroll|auto)/.test(css.overflow + css.overflowY + css.overflowX)) {
+       const clip = parent.getBoundingClientRect();
+@@ -18,36 +18,63 @@ function visible(image: HTMLImageElement) {
+       left = Math.max(left, clip.left); right = Math.min(right, clip.right);
+     }
+   }
+-  return bottom > top && right > left;
++  return bottom > top && right > left ? { top: top + scrollY, bottom: bottom + scrollY } : null;
+ }
+
+ export function PageMediaGate({ locale, children }: { locale: Locale; children: ReactNode }) {
+   const root = useRef<HTMLDivElement>(null);
+   const retryAction = useRef<() => void>(() => {});
+-  const [state, setState] = useState({ activated: false, blocked: true, error: false });
+-  useScrollLock(state.activated && state.blocked);
++  const [state, setState] = useState({ activated: false, blocked: true, initial: true, error: false });
++  useScrollLock(state.activated && state.blocked && state.initial);
+   useEffect(() => {
+     // The early head bootstrap opts into guarded loading. Without JavaScript,
+     // or when an initial framework script failed, retain native static content.
+     if (!document.documentElement.hasAttribute('data-media-js')) return;
+     document.documentElement.setAttribute('data-media-hydrated', '');
+-    const images = [...root.current!.querySelectorAll<HTMLImageElement>('img[data-media]')];
++    const shell = root.current!;
++    const images = [...shell.querySelectorAll<HTMLImageElement>('img[data-media]')];
+     const loading = new Set<HTMLImageElement>();
+     const failures = new Set<HTMLImageElement>();
+     let alive = true, frame = 0, retryVersion = Date.now();
++    let shown = false, warming = false, cap: number | null = null;
++    const managed = new Map<HTMLElement, boolean>();
++    const controls = [...shell.querySelectorAll<HTMLElement>('a,button,input,textarea,select,summary,[tabindex]')];
+     const refresh = () => {
+       if (!alive) return;
++      // The first decoded block starts all remaining page artwork in the background.
++      if (!warming && images[0]?.hasAttribute('data-media-ready')) {
++        warming = true;
++        images.forEach(image => start(image));
++      }
++      const pending = images.filter(image => !image.hasAttribute('data-media-ready'))
++        .map(image => ({ image, box: bounds(image, shell) }))
++        .filter(item => item.box !== null)
++        .sort((a, b) => a.box!.top - b.box!.top);
++      const frontier = pending[0]?.box!.top ?? null;
++      const nextCap = frontier === null ? null : Math.max(0, Math.floor(frontier - shell.getBoundingClientRect().top - scrollY));
++      // A native document boundary stops momentum, wheel and programmatic jumps
++      // before missing pixels. Upward scrolling remains completely native.
++      if (cap !== nextCap) {
++        cap = nextCap;
++        shell.style.height = cap === null ? '' : `${cap}px`;
++        for (const control of controls) {
++          const clipped = frontier !== null && control.getBoundingClientRect().bottom + scrollY > frontier;
++          if (clipped && !managed.has(control)) { managed.set(control, control.inert); control.inert = true; }
++          if (!clipped && managed.has(control)) { control.inert = managed.get(control)!; managed.delete(control); }
++        }
++      }
+       const suspended = !!document.querySelector('dialog[open]');
+-      const current = suspended ? [] : images.filter(visible);
+-      const pending = current.filter(image => !image.hasAttribute('data-media-ready'));
+-      const next = { activated: true, blocked: pending.length > 0, error: pending.some(image => failures.has(image)) };
+-      setState(previous => previous.activated && previous.blocked === next.blocked && previous.error === next.error ? previous : next);
+-      pending.forEach(image => start(image));
++      const blocked = !suspended && frontier !== null && frontier <= scrollY + innerHeight + 1;
++      if (frontier === null || frontier >= shell.getBoundingClientRect().top + scrollY + innerHeight) shown = true;
++      const next = { activated: true, blocked, initial: !shown, error: blocked && failures.has(pending[0].image) };
++      setState(previous => previous.activated && previous.blocked === next.blocked && previous.initial === next.initial && previous.error === next.error ? previous : next);
++      if (!suspended && pending[0]) start(pending[0].image);
+     };
+     const schedule = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(refresh); };
+     const start = (image: HTMLImageElement, retry = false) => {
+       if (loading.has(image) || failures.has(image) || image.hasAttribute('data-media-ready')) return;
+       loading.add(image);
++      image.fetchPriority = 'high';
+       image.loading = 'eager';
+       // On Firefox a decode immediately after src mutation can still reject
+       // against the previous failed request. Wait for the replacement load.
+@@ -81,13 +108,16 @@ export function PageMediaGate({ locale, children }: { locale: Locale; children:
+       });
+       schedule();
+     };
++    const resize = new ResizeObserver(schedule);
++    const main = shell.querySelector('main');
++    if (main) resize.observe(main);
+     addEventListener('scroll', schedule, { passive: true });
+     addEventListener('resize', schedule);
+     refresh();
+-    return () => { alive = false; observer.disconnect(); dialogs.disconnect(); cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); };
++    return () => { alive = false; observer.disconnect(); dialogs.disconnect(); resize.disconnect(); shell.style.height = ''; managed.forEach((inert, control) => { control.inert = inert; }); cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); };
+   }, []);
+-  return <div ref={root} className="page-media-shell" data-media-blocked={state.blocked ? '' : undefined}>
+-    <div className="page-media-content" inert={state.activated && state.blocked}>{children}</div>
++  return <div ref={root} className="page-media-shell" data-media-blocked={state.blocked ? '' : undefined} data-media-initial={state.initial ? '' : undefined}>
++    <div className="page-media-content" inert={state.activated && state.blocked && state.initial}>{children}</div>
+     {state.blocked && <div className="page-media-overlay"><LoadingStatus locale={locale} error={state.error} onRetry={() => retryAction.current()} /></div>}
+   </div>;
+ }
+diff --git a/components/Story.tsx b/components/Story.tsx
+index d94f941..c886f25 100644
+--- a/components/Story.tsx
++++ b/components/Story.tsx
+@@ -109,7 +109,7 @@ const docs: { key: Key; detail: string; x: number; y: number }[] = [
+ function DocumentCards({ locale }: { locale: Locale }) {
+   return <>
+     {docs.map((doc) => <div className={`doc-card doc-card--${doc.key} source-panel`} key={doc.key} style={sourceStyle(doc.x, doc.y, 356)}>
+-      <Image data-media className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized />
++      <Image data-media className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized loading="lazy" fetchPriority="high" />
+       <strong>{textLines(t(locale, doc.key))}</strong>
+       <small>{textLines(doc.detail)}</small>
+       <button id={`document-${doc.key}`} type="button" aria-haspopup="dialog" popoverTarget={`doc-detail-${doc.key}`} aria-label={`${t(locale, 'docView')}: ${t(locale, doc.key).replaceAll('\n', ' ')}`}><span className="doc-action-label">{t(locale, 'docView')}</span><ActionArrow /></button>
+@@ -143,8 +143,8 @@ function Faq({ locale }: { locale: Locale }) {
+     } as React.CSSProperties}>
+       <div className="faq-row-art" aria-hidden="true">
+         {['top', 'middle', 'bottom'].map(part => <div className={`faq-art-${part}`} key={part}>
+-          <Image data-media src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
+-          {part === 'middle' && <Image data-media className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
++          <Image data-media src={`/art/faq-row-${index + 1}.webp`} fetchPriority="high" width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
++          {part === 'middle' && <Image data-media className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} fetchPriority="high" width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
+         </div>)}
+       </div>
+       <details>
+@@ -237,7 +237,7 @@ export function Story({ locale }: { locale: Locale }) {
+           unoptimized
+           preload={i === 0}
+           loading={i === 0 ? 'eager' : 'lazy'}
+-          fetchPriority={i === 0 ? 'high' : 'low'}
++          fetchPriority="high"
+           placeholder={i === 0 ? 'empty' : artPreviews[file as keyof typeof artPreviews] as `data:image/${string}`}
+         />)}
+       </div>
+@@ -279,7 +279,7 @@ export function Story({ locale }: { locale: Locale }) {
+         aria-hidden="true"
+         unoptimized
+         loading="lazy"
+-        fetchPriority="low"
++        fetchPriority="high"
+       />
+       {iconMap.icons.filter(icon => icon.render).map(icon => <Image
+         key={icon.id}
+@@ -303,8 +303,8 @@ export function Story({ locale }: { locale: Locale }) {
+       <Faq locale={locale} />
+       <section className="story-tail" aria-label={t(locale, 'account')}>
+         <div className="tail-art" aria-hidden="true"><div className="tail-art-track">
+-          <Image data-media src="/art/09-10.webp" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['09-10'] as `data:image/${string}`} />
+-          <Image data-media src="/art/11.webp" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['11'] as `data:image/${string}`} />
++          <Image data-media src="/art/09-10.webp" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="high" placeholder={artPreviews['09-10'] as `data:image/${string}`} />
++          <Image data-media src="/art/11.webp" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="high" placeholder={artPreviews['11'] as `data:image/${string}`} />
+         </div></div>
+         {storyNodes.filter(node => node.y >= 28207).map((node, index) => <OverlayNode node={node} locale={locale} key={`${node.key}-${index}`} />)}
+       <button id="account-personal" type="button" className="account-hit" style={sourceStyle(45, 28230, 850)} popoverTarget="unavailable-account" aria-label={t(locale, 'account')} />
+diff --git a/components/TechnologyViewer.tsx b/components/TechnologyViewer.tsx
+index e981948..ecc4524 100644
+--- a/components/TechnologyViewer.tsx
++++ b/components/TechnologyViewer.tsx
+@@ -107,7 +107,7 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+     setFailed(false);
+     const token = ++requestToken.current;
+     unsubscribe.current?.();
+-    const resource = loadImage(technologyGroups[next.group].slides[next.slide].src, 'high');
++    const resource = loadImage(technologyGroups[next.group].slides[next.slide].src, 'auto');
+     const update = (value: typeof resource.progress) => setProgress(value.total ? Math.round(value.loaded / value.total * 100) : null);
+     update(resource.progress);
+     unsubscribe.current = resource.subscribe(update);
+@@ -137,7 +137,7 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+     const warm = () => {
+       // Run after load dispatch; never compete with the initial page resources.
+       timer = setTimeout(() => {
+-        technologyGroups.forEach(group => group.slides.slice(0, 2).forEach(slide => { void loadImage(slide.src).ready.catch(() => {}); }));
++        technologyGroups.forEach(group => group.slides.forEach(slide => { void loadImage(slide.src).ready.catch(() => {}); }));
+       }, 0);
+     };
+     if (document.readyState === 'complete') warm();
+diff --git a/docs/agent-evals.md b/docs/agent-evals.md
+index af1be99..5e9e241 100644
+--- a/docs/agent-evals.md
++++ b/docs/agent-evals.md
+@@ -56,7 +56,7 @@ All cases below are **NOT_RUN**. The table defines fixture recipes and grading t
+
+ | ID / source | Fixture and prompt | Required evidence / rejection condition |
+ | --- | --- | --- |
+-| <a id="eval-viewer"></a>EVAL-VIEWER / CHG-0061 / CHG-0062 / CHG-0063 / CHG-0070–0072 | In an isolated copy, replace a small technology dialog opened from two CTAs with an image gallery from supplied raster assets; retain old tests that assert the old dialog ID and links. Provide a separate Adobe RGB metal contour and a composite reference with black margins, live labels, gold arrows and five dots while only four clean slides exist. Require original-only PNG delivery with optimization deferred; source/public/HTTP bodies must match byte-for-byte and no photo WebP/blur preview may remain. Then explicitly authorize removing baked HeatCore/Technology lettering for live OpenSans type while preserving original render quality; include a background with narrow vertical grooves behind the letters. Inject a delayed and then a failed slide request, plus an edge-exiting touch swipe and Arabic RTL input. | Agent maps every visible arrow/instruction as an action, both triggers and old test selectors before editing; derives a transparent reusable contour from the separate designer frame (with explicit tagged-color conversion), renders semantic translated OpenSans labels and separate exact-source arrows, verifies reference spacing with compact nonoverlapping pagination targets, removes the fifth fixed dot and uses four interactive source-styled indicators whose active state follows the decoded visible image; top text/arrow advances, bottom text/arrow and down gesture show an honest localized next-group placeholder. Verify zero contour RGBA differences against the color-managed master, exact arrow/dot RGB crop equality, and masked Pro/Max browser screenshots, exclude text variants, keep optional media out of initial network, keep decoded art visible during transitions/retry, capture edge gestures, localize screen-reader instructions, provide nonoverlapping 44px primary actions and compact 24×44px pagination targets even at 320×700, update old assertions, run focused then full tests, and include representative final screenshots in the tracked delivery. For the authorized title-decomposition stage, preserve master hashes, full PNG resolution/profile, and exact decoded RGB outside tight glyph masks; inspect restored native wall texture for letter ghosts and groove phase continuity, then semantic live OpenSans title geometry, eleven-locale fit and real Pro/Max output. A passing outside-mask check cannot approve reconstructed texture inside letters. For a following TEXT-reference stage, extract all caption/callout/phone/workflow units into localized semantic React copy in the same source plane, keep accepted PNG SHA unchanged, preserve English line breaks and inspect local glyph-background contrast across marble shadows; apply a scoped live-text treatment and recapture if contrast fails. Keep descriptions synchronized with decoded image on delayed/failed requests. Fail on unauthorized photo conversion or low-resolution preview in an original-only stage, baked instruction text in artwork, ignored separate contour asset, excessive dot spacing, stale asset URL assertions, an approximate frame, inert visible affordance, wrong indicator count/active state, stale dialog assertions, eager hidden artwork request, blank transient frame, skipped slide after failure, missing second CTA, or false claim that next-group media exists. For a second gallery group, delay its first image and double-tap vertical Next: do not announce unavailable while the first group remains visible; reverse to cancel and keep horizontal controls attached to the displayed group. Focus the fourth dot before switching to a two-image group and activate the removable Previous button: focus must remain in the committed dialog and vertical keyboard control continue. Source-pair inverse scaling must match independent stage X/Y axes rather than default cover cropping. For an explicitly authorized all-four post-load warming stage, observe real response/body completion with a bounded network barrier before claiming cached switches, and test pending/failed cold requests separately; a short local timeout cannot prove a public runtime defect. For iOS fullscreen-viewer corrections, inspect rendered wrapper ancestry, verify solid document backing when modal/backdrop paint is suppressed, hide explicit-visibility descendants, restore landing colors/scroll/focus, and inspect changing portrait heights and short landscape control/frame overlap. Never count emulated content screenshots as native Safari/Telegram chrome evidence. For a founder loading/fullscreen correction, specify four HeatCore and two CyberMind originals: first two per group asynchronously after window load, remaining two only on opening, retain successful transfer/decoded DOM image. Hold initial bytes at25% and actual DOM decode; no photo or copy before readiness, true percent only with reliable length and indeterminate otherwise. White only inside full-width nine-slice metal contour; proportional photo/title keeps one source ratio through changing heights. If the customer rejects inner side bands, reopen the geometry defect: full-width contour does not prove full-width photo. Quantify source/window aspect mismatch, check six source-aligned label/diagram regions, and disclose that unchanged fixed artwork cannot simultaneously fill both axes, retain all pixels and avoid scrolling at unequal ratios. Analysis-first scope must not silently implement a changed gesture policy; propose width-fit/internal pan versus responsive per-slide recomposition with independent photo-width, ratio, full-content and pending-scroll checks. After width-priority implementation, use native vertical pan/keyboard for content and group buttons for group changes; verify momentum/pending/error freeze, committed top reset, actual touch/RTL, all six slides/locales and the final integrated keyboard focus test. Update every old IMG/src consumer when moving to nine-slice/blob retained images and wait for actual visible-media/decode barriers; a selected suite that omits stale tests cannot certify all consumer integration. Stop at horizontal endpoints and reverse; lock required input, cancel in-flight smooth scroll and retain focus/Close/Retry. Exercise real corrupt HTTP200 cache without routing, explicit Retry despite automatic browser attempts, native replacement-load/decode order, no-JS and HTTP200 script throw/rejection before hydration. Inspect effective loading contrast including reduced-motion opacity; old scroll/wheel/CTA tests must wait for actual readiness before ordinary input, while separate pending tests verify locks. Serialize framework build before generated-type checks. Verify each changed journal ID contains its own dated technical approval; a neighboring entry or index alone is insufficient. For CHG0073 instruction validation, use the existing artwork-color-pipeline geometry mode even for CSS-only photo adaptation; keep separate photo/frame width, proportional height and content access checks, without re-encoding unchanged originals. Consolidate diagnosis and verification into the existing viewer topic, retain raw evidence and historical verdicts, and repair relocated links. Controlled agent run: `NOT_RUN`; current browser regression passes do not constitute this controlled agent run. |
++| <a id="eval-viewer"></a>EVAL-VIEWER / CHG-0061 / CHG-0062 / CHG-0063 / CHG-0070–0072 | In an isolated copy, replace a small technology dialog opened from two CTAs with an image gallery from supplied raster assets; retain old tests that assert the old dialog ID and links. Provide a separate Adobe RGB metal contour and a composite reference with black margins, live labels, gold arrows and five dots while only four clean slides exist. Require original-only PNG delivery with optimization deferred; source/public/HTTP bodies must match byte-for-byte and no photo WebP/blur preview may remain. Then explicitly authorize removing baked HeatCore/Technology lettering for live OpenSans type while preserving original render quality; include a background with narrow vertical grooves behind the letters. Inject a delayed and then a failed slide request, plus an edge-exiting touch swipe and Arabic RTL input. | Agent maps every visible arrow/instruction as an action, both triggers and old test selectors before editing; derives a transparent reusable contour from the separate designer frame (with explicit tagged-color conversion), renders semantic translated OpenSans labels and separate exact-source arrows, verifies reference spacing with compact nonoverlapping pagination targets, removes the fifth fixed dot and uses four interactive source-styled indicators whose active state follows the decoded visible image; top text/arrow advances, bottom text/arrow and down gesture show an honest localized next-group placeholder. Verify zero contour RGBA differences against the color-managed master, exact arrow/dot RGB crop equality, and masked Pro/Max browser screenshots, exclude text variants, keep optional media out of initial network, keep decoded art visible during transitions/retry, capture edge gestures, localize screen-reader instructions, provide nonoverlapping 44px primary actions and compact 24×44px pagination targets even at 320×700, update old assertions, run focused then full tests, and include representative final screenshots in the tracked delivery. For the authorized title-decomposition stage, preserve master hashes, full PNG resolution/profile, and exact decoded RGB outside tight glyph masks; inspect restored native wall texture for letter ghosts and groove phase continuity, then semantic live OpenSans title geometry, eleven-locale fit and real Pro/Max output. A passing outside-mask check cannot approve reconstructed texture inside letters. For a following TEXT-reference stage, extract all caption/callout/phone/workflow units into localized semantic React copy in the same source plane, keep accepted PNG SHA unchanged, preserve English line breaks and inspect local glyph-background contrast across marble shadows; apply a scoped live-text treatment and recapture if contrast fails. Keep descriptions synchronized with decoded image on delayed/failed requests. Fail on unauthorized photo conversion or low-resolution preview in an original-only stage, baked instruction text in artwork, ignored separate contour asset, excessive dot spacing, stale asset URL assertions, an approximate frame, inert visible affordance, wrong indicator count/active state, stale dialog assertions, eager hidden artwork request, blank transient frame, skipped slide after failure, missing second CTA, or false claim that next-group media exists. For a second gallery group, delay its first image and double-tap vertical Next: do not announce unavailable while the first group remains visible; reverse to cancel and keep horizontal controls attached to the displayed group. Focus the fourth dot before switching to a two-image group and activate the removable Previous button: focus must remain in the committed dialog and vertical keyboard control continue. Source-pair inverse scaling must match independent stage X/Y axes rather than default cover cropping. For an explicitly authorized all-four post-load warming stage, observe real response/body completion with a bounded network barrier before claiming cached switches, and test pending/failed cold requests separately; a short local timeout cannot prove a public runtime defect. For iOS fullscreen-viewer corrections, inspect rendered wrapper ancestry, verify solid document backing when modal/backdrop paint is suppressed, hide explicit-visibility descendants, restore landing colors/scroll/focus, and inspect changing portrait heights and short landscape control/frame overlap. Never count emulated content screenshots as native Safari/Telegram chrome evidence. For a founder loading/fullscreen correction, specify four HeatCore and two CyberMind originals: first two per group asynchronously after window load, remaining two only on opening, retain successful transfer/decoded DOM image. Hold initial bytes at25% and actual DOM decode; no photo or copy before readiness, true percent only with reliable length and indeterminate otherwise. White only inside full-width nine-slice metal contour; proportional photo/title keeps one source ratio through changing heights. If the customer rejects inner side bands, reopen the geometry defect: full-width contour does not prove full-width photo. Quantify source/window aspect mismatch, check six source-aligned label/diagram regions, and disclose that unchanged fixed artwork cannot simultaneously fill both axes, retain all pixels and avoid scrolling at unequal ratios. Analysis-first scope must not silently implement a changed gesture policy; propose width-fit/internal pan versus responsive per-slide recomposition with independent photo-width, ratio, full-content and pending-scroll checks. After width-priority implementation, use native vertical pan/keyboard for content and group buttons for group changes; verify momentum/pending/error freeze, committed top reset, actual touch/RTL, all six slides/locales and the final integrated keyboard focus test. Update every old IMG/src consumer when moving to nine-slice/blob retained images and wait for actual visible-media/decode barriers; a selected suite that omits stale tests cannot certify all consumer integration. Stop at horizontal endpoints and reverse; lock required input, cancel in-flight smooth scroll and retain focus/Close/Retry. Exercise real corrupt HTTP200 cache without routing, explicit Retry despite automatic browser attempts, native replacement-load/decode order, no-JS and HTTP200 script throw/rejection before hydration. Inspect effective loading contrast including reduced-motion opacity; old scroll/wheel/CTA tests must wait for actual readiness before ordinary input, while separate pending tests verify locks. Serialize framework build before generated-type checks. Verify each changed journal ID contains its own dated technical approval; a neighboring entry or index alone is insufficient. For CHG0073 instruction validation, use the existing artwork-color-pipeline geometry mode even for CSS-only photo adaptation; keep separate photo/frame width, proportional height and content access checks, without re-encoding unchanged originals. Consolidate diagnosis and verification into the existing viewer topic, retain raw evidence and historical verdicts, and repair relocated links. For the retained-main follow-up, inject a delayed far landing tile and held/corrupt optional gallery prefetch. Reject covering ready content, blocking upward input, or entering unfinished pixels. Require a native downward frontier, unchanged ready viewport pixels, all-main high-priority background requests after hero actual decode, all-six low-priority gallery warm independent of the landing guard, and real wheel/touch/FAQ/resize checks. Controlled agent run: `NOT_RUN`; current browser regression passes do not constitute this controlled agent run. |
+ | <a id="eval-map"></a>EVAL-MAP / CHG-0001–0003,0015,0049 | In an isolated copy, replace one supplied button/font role or feature icon with an approximation; in a held-out variant, supply canonical designer icon PNGs after a prior extracted-icon implementation, reject a uniform height change, then supply a close reference crop and ask to lower six of seven marks slightly while leaving accepted icons untouched. Add translated labels whose center axes move while icon X remains fixed. | Agent inventories assets and duplicates, maps source → ID → code **before editing**, uses supplied bytes rather than redrawing, separates old icon pixels from connector/divider layers, and views calibrated Pro/ProMax screenshots. Resolve or explicitly state the six-of-seven selection; preserve accepted icons and set individual target positions. Compare painted icon-to-text distances against the close crop, using DOM gaps only as an overlap signal, across Pro/ProMax and RTL; assert per-icon horizontal center alignment in all locales without changing accepted Y/gaps. Fail on guessed shapes, duplicate layers, overlarge spacing, translation-specific axis drift, changing accepted icons, or accepting generic resemblance. Controlled agent run: `NOT_RUN`. |
+ | <a id="eval-layer"></a>EVAL-LAYER / CHG-0052 | In an isolated page, keep the clean artwork, live localized title and compare button, but omit the oval light arcs that exist only in the supplied text composite. Ask to match the render across locales. | Agent inspects clean then composite at native resolution, maps decorative-only source pixels before code, extracts arcs/glints without baked English copy or button surface, retains semantic CTA, compares real Pro/Pro Max and RTL screenshots, tests all locale centers/overflow, and avoids eager transfer of a far-below-fold layer. Fail on a guessed CSS oval, ghost text, inert control, missing browser screenshot, or fabricated user approval. Controlled run: `NOT_RUN`. |
+ | <a id="eval-faq"></a>EVAL-FAQ / CHG-0011,0012,0014,0024,0026,0027 | Introduce a duplicate FAQ surface, a tile boundary through a card, or scroll containment that traps wheel input in the fixture; ask to correct the section. Hold out a different row/join. | Explains existing baked artwork, fixes one owner per layer, verifies all six gaps, icons, last-card/account boundary and expanded states. Require real wheel propagation over closed items and at expanded boundaries as separate gestures; programmatic scrolling cannot substitute. Require independent 0/1/2/all-open states (closed −, open ×), close-one preservation, no inner FAQ scroll range, and matching document/suffix artwork/text/target growth. Inspect expanded gutter continuity and RTL at both mobile sizes. Hold out a rounded corner and central inter-row gap: opening one row must not substitute the background of untouched rows. Inspect enlarged negative-space crops, not only card bodies or outside gutters. Fail on declaring duplicate contours a tint difference, hiding a scrollbar instead of removing the inner viewport, or approving after build alone. |
+diff --git a/docs/media-loading-plan.md b/docs/media-loading-plan.md
+index 8f9a447..8716407 100644
+--- a/docs/media-loading-plan.md
++++ b/docs/media-loading-plan.md
+@@ -1,6 +1,6 @@
+ # Media readiness and technology viewer — 2026-10-08
+
+-**Width follow-up:** the customer subsequently prioritized full photo width without distortion. The current geometry below follows [the width analysis](technology-viewer.md#width-analysis) and [final width evidence](technology-viewer.md#width-verification); the original loading/cache policy is unchanged.
++**Width follow-up:** the customer subsequently prioritized full photo width without distortion. The current geometry below follows [the width analysis](technology-viewer.md#width-analysis) and [final width evidence](technology-viewer.md#width-verification); The latest loading/preload policy is specified below and supersedes the earlier first2/group and near-viewport-only policies; source bytes and successful-resource reuse are unchanged.
+
+ ## Request and acceptance map
+
+@@ -9,8 +9,9 @@
+ | No half-loaded image or orphan description text | Initial technology content stays absent until its retained image is downloaded and decoded; transitions retain the complete current frame until replacement is ready | Slow/partial response, actual pending screenshot, no title/descriptions before first decode, complete reveal |
+ | White behind technology photo | Only frame cutout/stage uses #fff; outer matte stays black and metal asset is unchanged | Empty, pending, failed and ready screenshots |
+ | Shared loading status and progress | One loading-status component, shared resource readiness helpers and scroll-lock hook; real streamed byte progress for technology images, indeterminate native-page progress where browser byte counts are unavailable | Partial byte percentage when Content-Length exists; indeterminate fallback; accessible labels and retry |
+-| Freeze current view until required resource is ready | Viewer navigation disabled during pending target (close remains usable); page scroll/input locked only while visible significant artwork is pending | Wheel/touch/keys, repeated input, close/reopen, failure/retry |
+-| Stage preloading | After main window load, first two photos of each group start asynchronously; opening starts all remaining photos; one retained promise/image per URL across opens/groups | Request order/count and identical decoded image/cache reuse |
++| Preserve landing view at an unready boundary | Initial no-ready-content guard only; after first ready view, native document cap stops downward scroll before missing pixels, ready content stays painted and upward scroll remains available. Progress/Retry appears at reached cap | Pixel equality outside status, fast native wheel/touch/keyboard/programmatic down and reverse up, decode expansion without jump, resize/FAQ |
++| Background page preloading | After actual first-block decode, start all remaining main data-media assets asynchronously at high priority; do not wait for scrolling. Optional background work never gates an already-ready viewport | Far art11 requested/completed before scroll, actual DOM decoded markers, foreground usable during held/corrupt background resources |
++| Background gallery preloading | All six photos asynchronously after window load at low priority; opening reuses pending/decoded resources, cold active selection uses auto priority. Gallery warm does not enter the landing gate | Six unique requests before opening, high main vs low/auto fetch hints, all6 held/corrupt prefetch leaves landing painted and interactive, offline retained reuse |
+ | Frame and photograph fill width without squashing | Viewport-wide canvas/metal frame on all pointer profiles; photo/title/descriptions share one proportional941×1672 plane filling100% of the white cutout width. Excess height scrolls inside fixed frame; vertical pan/keyboard scroll content, group buttons change technology | Explicit photo/cutout width equality and source ratio, reachable lower content, fixed controls, pending inner-scroll freeze/reset,390×664/732/844 and Pro/Max plus tablet/desktop/landscape actuals |
+ | Browse both directions and stop at ends | Clamp horizontal selection to first/last slide, no modulo wrap; arrows/keyboard/touch/dots obey readiness | Both endpoint swipes and reverse motion, AR direction, no group jump |
+
+@@ -19,7 +20,7 @@ The frame fills the browser content area available between existing top and bott
+ ## Resource inventory
+
+ - Technology: four supplied HeatCore PNGs (02–05), two CyberMind PNGs (01–02), original bytes/resolution/color retained. User confirmed four on 2026-10-08; all source inputs are present. Loading policy is driven by group data.
+-- Landing substantial artwork: main responsive WebP tiles, reused tail tiles, FAQ row art, document thumbnails, expression-wave layer. Keep native eager/preloaded first tile; decode the actual DOM image before revealing. Observe/load upcoming artwork near viewport; only required visible resources hold the view.
++- Landing substantial artwork: main responsive WebP tiles, reused tail tiles, FAQ row art, document thumbnails, expression-wave layer. Keep native eager/preloaded first tile; decode the actual DOM image before revealing. Native hero remains eager/preloaded; all remaining marked resources start asynchronously after its actual decode with high priority. The document frontier ends at the first incomplete required resource; this blocks only downward entry, while earlier ready content remains usable.
+ - Small decoration: icons, connector/divider sprites, diamond, arrows/dots, SVG button surfaces. They retain existing delivery; do not make the entire long page wait for offscreen decoration. The metal frame is small and can paint while the photo loads.
+ - No video content or remote document raster viewer currently exists; unavailable-action dialogs remain semantic text.
+
+@@ -31,3 +32,7 @@ The frame fills the browser content area available between existing top and bott
+ 4. Test slow/error/retry/cache/preload order, input lock, endpoint swipes, close/focus, 11 locales including Arabic, tablet/desktop/landscape and assembled page scroll.
+ 5. Native Codex review on actual diff, type/lint/tests/production build, measured first view/scroll/payload; fix/refactor findings then rerun affected checks.
+ 6. Final independent audit, dated technical approval, CHANGELOG/MEMORY/LESSONS reconciliation and evidence report. Open the final local production preview for user review. No publication is requested in this delivery.
++
++## Landing retained view correction — CHG-0071, 2026-10-08
++
++Current scope: after the first block decodes, warm all main data-media resources at high priority; warm all six gallery photos separately at low priority after window load, without gating the landing. After the first complete viewport, keep ready artwork/text painted and cap native document scrolling before the first unready resource. Advance the cap only after actual DOM decode; background requests proceed independently of scrolling. At the cap show the existing progress/Retry strip, allow native upward scroll and prevent downward overshoot (including wheel/touch momentum, keyboard and programmatic jumps). Initial no-ready-content loading keeps its existing guard; no-JS/framework-failure static fallback and native dialogs remain usable. Test real retained pixels rather than merely asserting that the page is hidden/inert; check resize/FAQ geometry, RTL, retry, resume without an automatic jump, full integration and measured production performance. No new assets/dependencies/document files. Status OPEN; runtime/application and technical evidence pending.
+diff --git a/docs/technology-viewer.md b/docs/technology-viewer.md
+index 1bbad7f..e26420c 100644
+--- a/docs/technology-viewer.md
++++ b/docs/technology-viewer.md
+@@ -4,11 +4,11 @@
+
+ **2026-10-08 width correction:** user prioritizes full photograph width without distortion. The new proportional-width implementation is applied; final technical closure is recorded in CHG-0070 and [width evidence](#width-verification). The initial contained-height revision below is superseded where noted.
+
+-There are **four HeatCore and two CyberMind** photographs. After window load, asynchronously fetch the first two of each group at low priority; opening starts the remaining two HeatCore photos. URL resources retain one in-flight transfer and one decoded DOM image. Initial photo/title/descriptions appear together only after complete transfer and decode; transitions keep the old complete frame until replacement is ready. Byte progress uses reliable Content-Length; otherwise the shared bar is indeterminate. Pending/error navigation stays locked, Close remains available, Retry reloads failed HTTP-cache entries. Successful images are reused across swipes/groups/reopening, including offline navigation after all six finish.
++There are **four HeatCore and two CyberMind** photographs. Latest CHG0071 preload revision: after window load asynchronously fetch all six at low priority, without blocking the landing; opening reuses existing requests/decoded resources and cold active selection uses auto priority. Main resources start asynchronously at high priority after first-block decode, regardless of scrolling. URL resources retain one in-flight transfer and one decoded DOM image. Initial photo/title/descriptions appear together only after complete transfer and decode; transitions keep the old complete frame until replacement is ready. Byte progress uses reliable Content-Length; otherwise the shared bar is indeterminate. Pending/error navigation stays locked, Close remains available, Retry reloads failed HTTP-cache entries. Successful images are reused across swipes/groups/reopening, including offline navigation after all six finish.
+
+ The contour spans the content viewport width on phone, tablet and hover desktop, and the height between toolbar/footer. Unchanged metal artwork uses nine-slice borders (top31/right29/bottom28/left29 source pixels), preserving corner proportions and width-based thickness. The white cutout follows those borders. Photo, title and descriptions share one941×1672 plane at100% cutout width with proportional height. A flex native inner viewport vertically centers it when it fits and scrolls excess height when needed. No side fit bands and no distorted/cropped source composition; short screens access the bottom by scrolling. Metal/Close/pagination/group buttons remain fixed. During pending/error, inner scrolling and gestures freeze at the old complete frame; decoded commits reset top. Vertical pan and Arrow/Page/Home/End/Space scroll content; group switching uses Next/Previous buttons. Horizontal swipes/keys stop at endpoints, reverse and honor Arabic RTL. Header and pagination each have44px rows, source-ratio arrows and capped dots. The older narrow desktop portrait policy and height-containment are superseded.
+
+-Landing uses the same status/scroll lock and actual-element decode helper for substantial visible artwork. Upcoming images load near the viewport; offscreen images never hold the hero. With JavaScript disabled, or an initial framework download/execution failure before hydration, native server-rendered artwork/text/FAQ remain readable; post-hydration runtime failures are not certified. See [acceptance plan](media-loading-plan.md) and [delivery evidence](evidence/media-loading/checks.md). Historical source mappings below remain; their old geometry/preload policies are superseded by this revision.
++Landing uses the same status/scroll lock and actual-element decode helper for substantial visible artwork. All marked main images warm in the background after first-block decode; offscreen work does not hide a ready viewport. Native document height stops downward entry before incomplete blocks, upward movement remains available, and the bottom progress/Retry strip preserves ready artwork. Only the initial no-ready-content state uses the full-page guard. With JavaScript disabled, or an initial framework download/execution failure before hydration, native server-rendered artwork/text/FAQ remain readable; post-hydration runtime failures are not certified. See [acceptance plan](media-loading-plan.md) and [delivery evidence](evidence/media-loading/checks.md). Historical source mappings below remain; their old geometry/preload policies are superseded by this revision.
+
+ The customer rejected the composite frame. Only this viewer changes; existing CTAs and gallery actions remain. CHG-0062 now separates the photograph title as well.
+
+@@ -119,6 +119,8 @@ Implemented option3 after the user reiterated “на всю ширину но
+ <a id="width-verification"></a>
+ ## Full photo width without distortion — CHG-0070
+
++This width approval is historical for its tested preload policy. The later CHG0071 main/all-six priority correction is specified in the current section above and media-loading-plan.md.
++
+ Raw artifacts named below remain in [the existing width evidence directory](evidence/technology-viewer/width-analysis/). This record and the preceding analysis were consolidated here under CHG-0073; prior verification verdicts are unchanged.
+
+ 2026-10-08. Production preview: http://127.0.0.1:3022/en. VERIFIED locally; primary technical approval and independent Stage1/3/4/5/6 PASS. Historical analysis, failed runs and previous approvals are preserved.
+diff --git a/lib/media-resource.ts b/lib/media-resource.ts
+index d4961df..974f0ea 100644
+--- a/lib/media-resource.ts
++++ b/lib/media-resource.ts
+@@ -24,7 +24,7 @@ export function decodeImageElement(image: HTMLImageElement): Promise<void> {
+ }
+
+ /** One original-byte transfer and one retained decoded image per URL, shared by all viewers. */
+-export function loadImage(src: string, priority: 'low' | 'high' = 'low'): ImageResource {
++export function loadImage(src: string, priority: 'low' | 'auto' | 'high' = 'low'): ImageResource {
+   const existing = images.get(src);
+   if (existing) return existing;
+   const listeners = new Set<(progress: ImageProgress) => void>();
+diff --git a/tests/e2e/media-loading.spec.ts b/tests/e2e/media-loading.spec.ts
+index c593c57..04d29dc 100644
+--- a/tests/e2e/media-loading.spec.ts
++++ b/tests/e2e/media-loading.spec.ts
+@@ -1,4 +1,10 @@
+ import { expect, test } from '@playwright/test';
++import sharp from 'sharp';
++
++async function readyExcept(page: import('@playwright/test').Page, path: string) {
++  await expect.poll(() => page.locator('img[data-media]:not([data-media-ready])').evaluateAll((images, path) => images.every(image => new URL((image as HTMLImageElement).src).pathname === path), path)).toBe(true);
++}
++
+
+ test('without JavaScript the native page artwork, text and FAQ remain usable', async ({ browser, baseURL }, testInfo) => {
+   const profile = testInfo.project.use;
+@@ -114,7 +120,7 @@ test('visible artwork remains hidden and page scroll locked until complete decod
+   await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
+ });
+
+-test('offscreen pending artwork does not block the hero but blocks when reached', async ({ page }) => {
++test('pending next block retains ready pixels, stops downward scroll and allows upward scroll', async ({ page }, info) => {
+   let release!: () => void;
+   const held = new Promise<void>(resolve => { release = resolve; });
+   await page.route('**/art/04.webp', async route => { await held; await route.continue(); });
+@@ -122,24 +128,69 @@ test('offscreen pending artwork does not block the hero but blocks when reached'
+   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+   const image = page.locator('img[data-media][src="/art/04.webp"]');
+   await expect(image).not.toHaveAttribute('data-media-ready');
+-  await page.evaluate(() => {
+-    const image = document.querySelector('img[data-media][src="/art/04.webp"]')!;
+-    scrollTo({ top: image.getBoundingClientRect().top + scrollY + 40, behavior: 'instant' });
+-  });
++  await readyExcept(page, '/art/04.webp');
++  const frontier = await image.evaluate(image => image.getBoundingClientRect().top + scrollY);
++  // Let preceding resources decode, without entering the held block.
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++  await expect.poll(() => page.evaluate(() => scrollY)).toBe(Math.floor(frontier) - info.project.use.viewport!.height);
+   await expect(page.locator('.page-media-overlay')).toBeVisible();
++  await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
++  await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden');
+   const scroll = await page.evaluate(() => scrollY);
+-  await expect(page.locator('#back-to-top')).toBeHidden();
+-  await page.keyboard.press('PageDown');
+-  expect(await page.evaluate(() => {
+-    const touch = new Event('touchmove', { bubbles: true, cancelable: true });
+-    document.querySelector('.page-media-overlay')!.dispatchEvent(touch);
+-    return touch.defaultPrevented;
+-  })).toBe(true);
+-  await expect(page.locator('body')).toHaveCSS('overflow', 'hidden');
++  await page.keyboard.press('End');
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++  await expect.poll(() => page.evaluate(() => scrollY)).toBe(scroll);
++  await page.evaluate(() => document.fonts.ready);
++  const viewport = info.project.use.viewport!;
++  const crop = { left: 0, top: 0, width: viewport.width, height: viewport.height - 200 };
++  const pending = await sharp(await page.screenshot({ scale: 'css' })).extract(crop).raw().toBuffer();
++  await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-pending.png` });
++  await page.keyboard.press('Home');
++  await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
++  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
+   await expect.poll(() => page.evaluate(() => scrollY)).toBe(scroll);
+   release();
+   await expect(image).toHaveAttribute('data-media-ready', '');
+   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
++  expect(await page.evaluate(() => scrollY)).toBe(scroll);
++  const ready = await sharp(await page.screenshot({ scale: 'css' })).extract(crop).raw().toBuffer();
++  expect(ready.equals(pending)).toBe(true);
++  await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-ready.png` });
++  await page.evaluate(() => scrollTo({ top: scrollY + 200, behavior: 'instant' }));
++  await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(scroll);
++});
++
++test('remaining landing artwork warms asynchronously after first block decode without scrolling', async ({ page }) => {
++  await page.addInitScript(() => {
++    const qa = window as Window & { mediaFetchPriorities?: string[] };
++    qa.mediaFetchPriorities = [];
++    const fetchResource = window.fetch;
++    window.fetch = (input, options) => {
++      if (String(input).includes('/art/technology/')) qa.mediaFetchPriorities!.push((options as RequestInit & { priority?: string })?.priority ?? 'auto');
++      return fetchResource(input, options);
++    };
++  });
++  const requested = new Set<string>();
++  page.on('request', request => { requested.add(new URL(request.url()).pathname); });
++  await page.addInitScript(() => {
++    const qa = window as Window & { releaseHeroDecode?: () => void };
++    const held = new Promise<void>(resolve => { qa.releaseHeroDecode = resolve; });
++    const decode = HTMLImageElement.prototype.decode;
++    HTMLImageElement.prototype.decode = async function () {
++      await decode.call(this);
++      if (new URL(this.currentSrc || this.src).pathname === '/art/00.webp') await held;
++    };
++  });
++  await page.goto('/en');
++  expect(requested.has('/art/11.webp')).toBe(false);
++  await page.evaluate(() => (window as Window & { releaseHeroDecode?: () => void }).releaseHeroDecode!());
++  await expect.poll(() => requested.has('/art/11.webp')).toBe(true);
++  await expect.poll(() => page.locator('img[data-media]:not([data-media-ready])').count()).toBe(0);
++  expect(await page.locator('img[data-media]').evaluateAll(images => images.every(image => (image as HTMLImageElement).fetchPriority === 'high'))).toBe(true);
++  expect(await page.evaluate(() => scrollY)).toBe(0);
++  await expect.poll(() => page.evaluate(() => (window as Window & { mediaFetchPriorities?: string[] }).mediaFetchPriorities?.length ?? 0)).toBeGreaterThan(0);
++  expect(await page.evaluate(() => (window as Window & { mediaFetchPriorities?: string[] }).mediaFetchPriorities?.every(priority => priority === 'low' || priority === 'auto'))).toBe(true);
+ });
+
+ test('failed visible image has an accessible retry and successful recovery', async ({ page }) => {
+@@ -202,3 +253,108 @@ test('page gate suspends behind a native dialog and resumes missing page media a
+   release();
+   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+ });
++
++
++test('native desktop wheel stops at pending boundary and can reverse upward', async ({ page }, info) => {
++  test.skip(!!info.project.use.isMobile, 'Use native Chromium touch below; mobile WebKit mouse wheel is unavailable.');
++  let release!: () => void;
++  const held = new Promise<void>(resolve => { release = resolve; });
++  await page.route('**/art/04.webp', async route => { await held; await route.continue(); });
++  await page.goto('/en');
++  await readyExcept(page, '/art/04.webp');
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++  await expect(page.locator('.page-media-overlay')).toBeVisible();
++  const edge = await page.evaluate(() => scrollY);
++  await page.mouse.move(info.project.use.viewport!.width / 2, 300);
++  await page.mouse.wheel(0, 10000);
++  // Chromium completes the first wheel gesture asynchronously, including at a boundary.
++  await page.waitForTimeout(200);
++  expect(await page.evaluate(() => scrollY)).toBe(edge);
++  await page.mouse.wheel(0, -600);
++  await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(edge);
++  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
++  await page.mouse.wheel(0, 10000);
++  await expect.poll(() => page.evaluate(() => scrollY)).toBe(edge);
++  release();
++});
++
++test('native mobile touch cannot cross missing block and can reverse while it is pending', async ({ browser }, info) => {
++  test.skip(info.project.use.browserName !== 'chromium', 'CDP native touch exists only on Chromium; WebKit native hardware momentum is not claimed.');
++  const context = await browser.newContext({ baseURL: process.env.BASE_URL, viewport: { width: 402, height: 874 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
++  const page = await context.newPage();
++  let release!: () => void;
++  const held = new Promise<void>(resolve => { release = resolve; });
++  await page.route('**/art/04.webp', async route => { await held; await route.continue(); });
++  await page.goto('/en');
++  await readyExcept(page, '/art/04.webp');
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++  await expect(page.locator('.page-media-overlay')).toBeVisible();
++  const edge = await page.evaluate(() => scrollY);
++  const touch = await context.newCDPSession(page);
++  const pan = async (from: number, to: number) => {
++    await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: 200, y: from }] });
++    for (let step = 1; step <= 12; step++) {
++      await touch.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: 200, y: from + (to - from) * step / 12 }] });
++      await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => resolve())));
++    }
++    await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
++  };
++  await pan(620, 160);
++  expect(await page.evaluate(() => scrollY)).toBe(edge);
++  await pan(180, 600);
++  await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(edge);
++  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
++  await page.screenshot({ path: 'docs/evidence/media-loading/retained-native-touch-up.png' });
++  release();
++  await context.close();
++});
++
++test('pending frontier follows viewport resize and expanded FAQ instead of exposing blank artwork', async ({ page }, info) => {
++  let release!: () => void;
++  const held = new Promise<void>(resolve => { release = resolve; });
++  await page.route('**/art/faq-row-3.webp', async route => { await held; await route.continue(); });
++  await page.goto('/en');
++  await readyExcept(page, '/art/faq-row-3.webp');
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++  await expect(page.locator('.page-media-overlay')).toBeVisible();
++  const cap = () => page.locator('.page-media-shell').evaluate(element => Number.parseFloat((element as HTMLElement).style.height));
++  const before = await cap();
++  const first = page.locator('.faq-stack details').first();
++  await first.locator('summary').click();
++  await expect(first).toHaveAttribute('open', '');
++  await expect.poll(cap).toBeGreaterThan(before);
++  await page.setViewportSize({ width: 390, height: 664 });
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++  await expect(page.locator('.page-media-overlay')).toBeVisible();
++  const frontier = await cap();
++  expect(await page.evaluate(() => scrollY + innerHeight)).toBe(frontier);
++  await expect(first.locator('summary')).not.toHaveAttribute('inert');
++  await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
++  await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-faq-resize.png` });
++  release();
++  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
++});
++
++
++test('retained loading strip fits all eleven locales including Arabic', async ({ page }, info) => {
++  test.setTimeout(120000);
++  let release!: () => void;
++  const held = new Promise<void>(resolve => { release = resolve; });
++  await page.route('**/art/04.webp', async route => { await held; await route.continue(); });
++  // Failed optional gallery background fetches must never block the main page.
++  await page.route('**/art/technology/**', route => route.abort());
++  for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
++    await page.goto(`/${locale}`);
++    await readyExcept(page, '/art/04.webp');
++    await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++    const status = page.locator('.page-media-overlay .media-loading');
++    await expect(status).toBeVisible();
++    await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
++    expect(await status.evaluate(element => element.scrollWidth <= element.clientWidth && element.getBoundingClientRect().right <= innerWidth)).toBe(true);
++    if (locale === 'ar') {
++      await expect(status).toHaveAttribute('dir', 'rtl');
++      await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-arabic.png` });
++    }
++  }
++  release();
++});
+diff --git a/tests/e2e/site.spec.ts b/tests/e2e/site.spec.ts
+index 7bac7aa..ef76cbb 100644
+--- a/tests/e2e/site.spec.ts
++++ b/tests/e2e/site.spec.ts
+@@ -10,6 +10,8 @@ test('responsive viewport, artwork, and primary actions', async ({ page }, testI
+   await page.goto('/en');
+   await page.locator('.art img').first().waitFor({ state: 'visible' });
+   await page.evaluate(() => document.fonts.ready);
++  await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
++    await waitForVisibleMedia(page);
+   const visited = new Set<string>();
+   const settleVisibleMedia = async () => {
+     // Let the actual scroll and visibility observers update the media barrier.
+@@ -107,6 +109,8 @@ test('responsive viewport, artwork, and primary actions', async ({ page }, testI
+
+ test('back-to-top appears on scroll, stays in the viewport, and restores top and focus', async ({ page }) => {
+   await page.goto('/en');
++  await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
++    await waitForVisibleMedia(page);
+   const control = page.getByRole('button', { name: 'Back to top' });
+   await expect(control).toHaveCount(0);
+   await page.evaluate(() => scrollTo({ top: Math.max(1000, innerHeight), behavior: 'instant' }));
+@@ -136,7 +140,11 @@ test('back-to-top appears on scroll, stays in the viewport, and restores top and
+ test('localized story buttons keep one-line labels inside proportionate surfaces', async ({ page }) => {
+   for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
+     await page.goto(`/${locale}`);
++    await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
++    await waitForVisibleMedia(page);
+     await page.evaluate(() => document.fonts.ready);
++  await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
++    await waitForVisibleMedia(page);
+     const failures = await page.evaluate(() => {
+       const canvas = document.querySelector('.canvas')!.getBoundingClientRect();
+       const fallback = ({ ar: 'NotoButtonArabic', zh: 'NotoButtonSC', ja: 'NotoButtonJP', ko: 'NotoButtonKR' } as Record<string, string>)[document.documentElement.lang];
+@@ -172,7 +180,11 @@ test('localized story buttons keep one-line labels inside proportionate surfaces
+
+ for (const locale of ['ru', 'en']) test(`${locale} technology text groups are centered inside both fixed oval surfaces`, async ({ page }, testInfo) => {
+   await page.goto(`/${locale}`);
++    await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
++    await waitForVisibleMedia(page);
+   await page.evaluate(() => document.fonts.ready);
++  await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
++    await waitForVisibleMedia(page);
+   const canvasWidth = await page.locator('.canvas').evaluate(element => element.getBoundingClientRect().width);
+   for (const id of ['technology-experience', 'technology-repeat']) {
+     const button = page.locator(`#${id}`);
+@@ -306,7 +318,11 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
+ test('FAQ icons are independent and answers expand the page without an inner scroller', async ({ page }) => {
+   for (const locale of ['en', 'ar']) {
+     await page.goto(`/${locale}`);
++    await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
++    await waitForVisibleMedia(page);
+     await page.evaluate(() => document.fonts.ready);
++  await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
++    await waitForVisibleMedia(page);
+     const stack = page.locator('.faq-stack'), rows = stack.locator('details');
+     await expect(rows).toHaveCount(6);
+     const state = () => stack.evaluate(element => ({
+@@ -367,9 +383,14 @@ test.describe('FAQ pointer-wheel input', () => {
+   // Mobile WebKit cannot inject wheel; only this test uses desktop input at the same viewport/DPR.
+   test.use({ isMobile: false, hasTouch: false });
+   test('FAQ always scrolls the document in closed and multi-open states', async ({ page }) => {
++    test.setTimeout(120000);
+     for (const locale of ['en', 'ar']) {
+       await page.goto(`/${locale}`);
++    await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
++    await waitForVisibleMedia(page);
+       await page.evaluate(() => document.fonts.ready);
++  await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
++    await waitForVisibleMedia(page);
+       const stack = page.locator('.faq-stack'), rows = stack.locator('details');
+       for (const expanded of [false, true]) {
+         if (expanded) for (const row of await rows.all()) {
+diff --git a/tests/e2e/technology-viewer.spec.ts b/tests/e2e/technology-viewer.spec.ts
+index 5f86445..879667b 100644
+--- a/tests/e2e/technology-viewer.spec.ts
++++ b/tests/e2e/technology-viewer.spec.ts
+@@ -29,9 +29,9 @@ test('technology artwork keeps its native proportions as Safari chrome changes t
+     expect(bounds.frameRight).toBe(width);
+     expect(bounds.nextBottom).toBeLessThanOrEqual(height + 1);
+     expect(bounds.canvasWidth).toBe(width);
+-    if (width === 320) await page.screenshot({ path: 'docs/evidence/technology-viewer/width-analysis/ready-320x568.png' });
++    if (width === 320) await page.screenshot({ path: 'docs/evidence/media-loading/retained-width-ready-320x568.png' });
+     if (height === 664) {
+-      await page.screenshot({ path: 'docs/evidence/technology-viewer/width-analysis/ready-390x664.png' });
++      await page.screenshot({ path: 'docs/evidence/media-loading/retained-width-ready-390x664.png' });
+     }
+   }
+   await page.locator('.technology-viewer__next-group').click();
+@@ -42,7 +42,7 @@ test('technology artwork keeps its native proportions as Safari chrome changes t
+     await document.fonts.ready;
+     await Promise.all(images.map(image => (image as HTMLImageElement).decode()));
+   });
+-  await page.screenshot({ path: 'docs/evidence/technology-viewer/width-analysis/ready-cybermind-390x664.png' });
++  await page.screenshot({ path: 'docs/evidence/media-loading/retained-width-ready-cybermind-390x664.png' });
+   await viewer.locator('.technology-viewer__close').click();
+   await expect(viewer).not.toBeVisible();
+ });
+@@ -291,6 +291,9 @@ test('failed warm-up and failed selection retry the same image', async ({ page }
+   });
+   await page.goto('/en');
+   await expect.poll(() => requests).toBe(1);
++  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
++  await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
++  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+   await page.waitForTimeout(150);
+   await openTechnology(page);
+   await expect.poll(() => requests).toBe(2);
+@@ -304,7 +307,7 @@ test('failed warm-up and failed selection retry the same image', async ({ page }
+   await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 2 \/ 4/);
+ });
+
+-test('two photos of each group warm after load; remaining photos start together on open', async ({ page }) => {
++test('all six photos warm after load without blocking the main page', async ({ page }) => {
+   let releaseHero!: () => void, releasePhotos!: () => void;
+   const heroGate = new Promise<void>(resolve => { releaseHero = resolve; });
+   const photoGate = new Promise<void>(resolve => { releasePhotos = resolve; });
+@@ -317,8 +320,11 @@ test('two photos of each group warm after load; remaining photos start together
+   await expect(page.locator('.page-media-overlay')).toBeVisible();
+   expect(requests).toHaveLength(0);
+   releaseHero(); await page.waitForLoadState('load');
+-  await expect.poll(() => requests.length).toBe(4);
+-  expect(requests.map(url => new URL(url).pathname).sort()).toEqual(['/art/technology/02.png', '/art/technology/03.png', '/art/technology/cybermind/01.png', '/art/technology/cybermind/02.png']);
++  await expect.poll(() => requests.length).toBe(6);
++  expect(requests.map(url => new URL(url).pathname).sort()).toEqual(['/art/technology/02.png', '/art/technology/03.png', '/art/technology/04.png', '/art/technology/05.png', '/art/technology/cybermind/01.png', '/art/technology/cybermind/02.png']);
++  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
++  await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
++  await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden');
+   await openTechnology(page);
+   await expect.poll(() => requests.length).toBe(6);
+   expect(new Set(requests).size).toBe(6);
+@@ -342,7 +348,7 @@ test('incomplete hero protects the main view before technology can be opened', a
+   await expect(page.locator('#technology-viewer')).toBeVisible();
+ });
+
+-test('four photos warm at low priority; retained decoded images are reused offline across groups', async ({ page, context }) => {
++test('six photos warm at low priority; retained decoded images are reused offline across groups', async ({ page, context }) => {
+   await page.addInitScript(() => {
+     const records: HTMLImageElement[] = [];
+     const fetches: { url: string; priority: string | undefined }[] = [];
+@@ -360,14 +366,14 @@ test('four photos warm at low priority; retained decoded images are reused offli
+     } });
+   });
+   await page.goto('/en');
+-  await expect.poll(() => page.evaluate(() => (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages.filter(image => image.dataset.source && image.complete && image.naturalWidth === 941).length)).toBe(4);
++  await expect.poll(() => page.evaluate(() => (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages.filter(image => image.dataset.source && image.complete && image.naturalWidth === 941).length)).toBe(6);
+   const timing = await page.evaluate(() => {
+     const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+-    return { load: navigation.loadEventStart, starts: performance.getEntriesByType('resource').filter(entry => /\/technology\/(?:cybermind\/0[12]|0[23])\.png$/.test(entry.name)).map(entry => entry.startTime), fetches: (window as unknown as { __technologyFetches: { url: string; priority: string }[] }).__technologyFetches };
++    return { load: navigation.loadEventStart, starts: performance.getEntriesByType('resource').filter(entry => /\/technology\/(?:cybermind\/0[12]|0[2-5])\.png$/.test(entry.name)).map(entry => entry.startTime), fetches: (window as unknown as { __technologyFetches: { url: string; priority: string }[] }).__technologyFetches };
+   });
+-  expect(timing.starts).toHaveLength(4);
++  expect(timing.starts).toHaveLength(6);
+   expect(timing.starts.every(start => start >= timing.load)).toBe(true);
+-  expect(timing.fetches.map(item => item.priority)).toEqual(['low', 'low', 'low', 'low']);
++  expect(timing.fetches.map(item => item.priority)).toEqual(['low', 'low', 'low', 'low', 'low', 'low']);
+   await openTechnology(page);
+   await expect.poll(() => page.evaluate(() => (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages.filter(image => image.dataset.source && image.complete && image.naturalWidth === 941).length)).toBe(6);
+   await context.setOffline(true);
+@@ -560,6 +566,7 @@ test('CyberMind uses two interactive slides, a live title and explicit group nav
+ });
+
+ test('CyberMind descriptions fit all locales and omit source folios', async ({ page }) => {
++  test.setTimeout(120000);
+   for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
+     await page.goto(`/${locale}`);
+     await openTechnology(page);
+
+2026-10-08T10:12:20.313220Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11aff-a404-78f3-8387-8fb005e691e5 turn_id=01a11aff-a4b5-7520-88fe-9094da8a2259 item_id="exec-9c534d03-9cd4-47d3-ad26-48449514bd5b"
+2026-10-08T10:12:27.328124Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+exec
+/bin/zsh -lc "ls AGENTS* tests/AGENTS* tests/e2e/AGENTS* 2>/dev/null; git diff -- tests/e2e/media-loading.spec.ts; sed -n '1,80p' tests/e2e/site.spec.ts; rg 'waitForVisibleMedia' tests/e2e/site.spec.ts" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 66ms:
+zsh:1: no matches found: tests/AGENTS*
+diff --git a/tests/e2e/media-loading.spec.ts b/tests/e2e/media-loading.spec.ts
+index c593c57..04d29dc 100644
+--- a/tests/e2e/media-loading.spec.ts
++++ b/tests/e2e/media-loading.spec.ts
+@@ -1,4 +1,10 @@
+ import { expect, test } from '@playwright/test';
++import sharp from 'sharp';
++
++async function readyExcept(page: import('@playwright/test').Page, path: string) {
++  await expect.poll(() => page.locator('img[data-media]:not([data-media-ready])').evaluateAll((images, path) => images.every(image => new URL((image as HTMLImageElement).src).pathname === path), path)).toBe(true);
++}
++
+
+ test('without JavaScript the native page artwork, text and FAQ remain usable', async ({ browser, baseURL }, testInfo) => {
+   const profile = testInfo.project.use;
+@@ -114,7 +120,7 @@ test('visible artwork remains hidden and page scroll locked until complete decod
+   await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
+ });
+
+-test('offscreen pending artwork does not block the hero but blocks when reached', async ({ page }) => {
++test('pending next block retains ready pixels, stops downward scroll and allows upward scroll', async ({ page }, info) => {
+   let release!: () => void;
+   const held = new Promise<void>(resolve => { release = resolve; });
+   await page.route('**/art/04.webp', async route => { await held; await route.continue(); });
+@@ -122,24 +128,69 @@ test('offscreen pending artwork does not block the hero but blocks when reached'
+   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+   const image = page.locator('img[data-media][src="/art/04.webp"]');
+   await expect(image).not.toHaveAttribute('data-media-ready');
+-  await page.evaluate(() => {
+-    const image = document.querySelector('img[data-media][src="/art/04.webp"]')!;
+-    scrollTo({ top: image.getBoundingClientRect().top + scrollY + 40, behavior: 'instant' });
+-  });
++  await readyExcept(page, '/art/04.webp');
++  const frontier = await image.evaluate(image => image.getBoundingClientRect().top + scrollY);
++  // Let preceding resources decode, without entering the held block.
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++  await expect.poll(() => page.evaluate(() => scrollY)).toBe(Math.floor(frontier) - info.project.use.viewport!.height);
+   await expect(page.locator('.page-media-overlay')).toBeVisible();
++  await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
++  await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden');
+   const scroll = await page.evaluate(() => scrollY);
+-  await expect(page.locator('#back-to-top')).toBeHidden();
+-  await page.keyboard.press('PageDown');
+-  expect(await page.evaluate(() => {
+-    const touch = new Event('touchmove', { bubbles: true, cancelable: true });
+-    document.querySelector('.page-media-overlay')!.dispatchEvent(touch);
+-    return touch.defaultPrevented;
+-  })).toBe(true);
+-  await expect(page.locator('body')).toHaveCSS('overflow', 'hidden');
++  await page.keyboard.press('End');
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++  await expect.poll(() => page.evaluate(() => scrollY)).toBe(scroll);
++  await page.evaluate(() => document.fonts.ready);
++  const viewport = info.project.use.viewport!;
++  const crop = { left: 0, top: 0, width: viewport.width, height: viewport.height - 200 };
++  const pending = await sharp(await page.screenshot({ scale: 'css' })).extract(crop).raw().toBuffer();
++  await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-pending.png` });
++  await page.keyboard.press('Home');
++  await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
++  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
+   await expect.poll(() => page.evaluate(() => scrollY)).toBe(scroll);
+   release();
+   await expect(image).toHaveAttribute('data-media-ready', '');
+   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
++  expect(await page.evaluate(() => scrollY)).toBe(scroll);
++  const ready = await sharp(await page.screenshot({ scale: 'css' })).extract(crop).raw().toBuffer();
++  expect(ready.equals(pending)).toBe(true);
++  await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-ready.png` });
++  await page.evaluate(() => scrollTo({ top: scrollY + 200, behavior: 'instant' }));
++  await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(scroll);
++});
++
++test('remaining landing artwork warms asynchronously after first block decode without scrolling', async ({ page }) => {
++  await page.addInitScript(() => {
++    const qa = window as Window & { mediaFetchPriorities?: string[] };
++    qa.mediaFetchPriorities = [];
++    const fetchResource = window.fetch;
++    window.fetch = (input, options) => {
++      if (String(input).includes('/art/technology/')) qa.mediaFetchPriorities!.push((options as RequestInit & { priority?: string })?.priority ?? 'auto');
++      return fetchResource(input, options);
++    };
++  });
++  const requested = new Set<string>();
++  page.on('request', request => { requested.add(new URL(request.url()).pathname); });
++  await page.addInitScript(() => {
++    const qa = window as Window & { releaseHeroDecode?: () => void };
++    const held = new Promise<void>(resolve => { qa.releaseHeroDecode = resolve; });
++    const decode = HTMLImageElement.prototype.decode;
++    HTMLImageElement.prototype.decode = async function () {
++      await decode.call(this);
++      if (new URL(this.currentSrc || this.src).pathname === '/art/00.webp') await held;
++    };
++  });
++  await page.goto('/en');
++  expect(requested.has('/art/11.webp')).toBe(false);
++  await page.evaluate(() => (window as Window & { releaseHeroDecode?: () => void }).releaseHeroDecode!());
++  await expect.poll(() => requested.has('/art/11.webp')).toBe(true);
++  await expect.poll(() => page.locator('img[data-media]:not([data-media-ready])').count()).toBe(0);
++  expect(await page.locator('img[data-media]').evaluateAll(images => images.every(image => (image as HTMLImageElement).fetchPriority === 'high'))).toBe(true);
++  expect(await page.evaluate(() => scrollY)).toBe(0);
++  await expect.poll(() => page.evaluate(() => (window as Window & { mediaFetchPriorities?: string[] }).mediaFetchPriorities?.length ?? 0)).toBeGreaterThan(0);
++  expect(await page.evaluate(() => (window as Window & { mediaFetchPriorities?: string[] }).mediaFetchPriorities?.every(priority => priority === 'low' || priority === 'auto'))).toBe(true);
+ });
+
+ test('failed visible image has an accessible retry and successful recovery', async ({ page }) => {
+@@ -202,3 +253,108 @@ test('page gate suspends behind a native dialog and resumes missing page media a
+   release();
+   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+ });
++
++
++test('native desktop wheel stops at pending boundary and can reverse upward', async ({ page }, info) => {
++  test.skip(!!info.project.use.isMobile, 'Use native Chromium touch below; mobile WebKit mouse wheel is unavailable.');
++  let release!: () => void;
++  const held = new Promise<void>(resolve => { release = resolve; });
++  await page.route('**/art/04.webp', async route => { await held; await route.continue(); });
++  await page.goto('/en');
++  await readyExcept(page, '/art/04.webp');
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++  await expect(page.locator('.page-media-overlay')).toBeVisible();
++  const edge = await page.evaluate(() => scrollY);
++  await page.mouse.move(info.project.use.viewport!.width / 2, 300);
++  await page.mouse.wheel(0, 10000);
++  // Chromium completes the first wheel gesture asynchronously, including at a boundary.
++  await page.waitForTimeout(200);
++  expect(await page.evaluate(() => scrollY)).toBe(edge);
++  await page.mouse.wheel(0, -600);
++  await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(edge);
++  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
++  await page.mouse.wheel(0, 10000);
++  await expect.poll(() => page.evaluate(() => scrollY)).toBe(edge);
++  release();
++});
++
++test('native mobile touch cannot cross missing block and can reverse while it is pending', async ({ browser }, info) => {
++  test.skip(info.project.use.browserName !== 'chromium', 'CDP native touch exists only on Chromium; WebKit native hardware momentum is not claimed.');
++  const context = await browser.newContext({ baseURL: process.env.BASE_URL, viewport: { width: 402, height: 874 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
++  const page = await context.newPage();
++  let release!: () => void;
++  const held = new Promise<void>(resolve => { release = resolve; });
++  await page.route('**/art/04.webp', async route => { await held; await route.continue(); });
++  await page.goto('/en');
++  await readyExcept(page, '/art/04.webp');
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++  await expect(page.locator('.page-media-overlay')).toBeVisible();
++  const edge = await page.evaluate(() => scrollY);
++  const touch = await context.newCDPSession(page);
++  const pan = async (from: number, to: number) => {
++    await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: 200, y: from }] });
++    for (let step = 1; step <= 12; step++) {
++      await touch.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: 200, y: from + (to - from) * step / 12 }] });
++      await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => resolve())));
++    }
++    await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
++  };
++  await pan(620, 160);
++  expect(await page.evaluate(() => scrollY)).toBe(edge);
++  await pan(180, 600);
++  await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(edge);
++  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
++  await page.screenshot({ path: 'docs/evidence/media-loading/retained-native-touch-up.png' });
++  release();
++  await context.close();
++});
++
++test('pending frontier follows viewport resize and expanded FAQ instead of exposing blank artwork', async ({ page }, info) => {
++  let release!: () => void;
++  const held = new Promise<void>(resolve => { release = resolve; });
++  await page.route('**/art/faq-row-3.webp', async route => { await held; await route.continue(); });
++  await page.goto('/en');
++  await readyExcept(page, '/art/faq-row-3.webp');
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++  await expect(page.locator('.page-media-overlay')).toBeVisible();
++  const cap = () => page.locator('.page-media-shell').evaluate(element => Number.parseFloat((element as HTMLElement).style.height));
++  const before = await cap();
++  const first = page.locator('.faq-stack details').first();
++  await first.locator('summary').click();
++  await expect(first).toHaveAttribute('open', '');
++  await expect.poll(cap).toBeGreaterThan(before);
++  await page.setViewportSize({ width: 390, height: 664 });
++  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++  await expect(page.locator('.page-media-overlay')).toBeVisible();
++  const frontier = await cap();
++  expect(await page.evaluate(() => scrollY + innerHeight)).toBe(frontier);
++  await expect(first.locator('summary')).not.toHaveAttribute('inert');
++  await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
++  await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-faq-resize.png` });
++  release();
++  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
++});
++
++
++test('retained loading strip fits all eleven locales including Arabic', async ({ page }, info) => {
++  test.setTimeout(120000);
++  let release!: () => void;
++  const held = new Promise<void>(resolve => { release = resolve; });
++  await page.route('**/art/04.webp', async route => { await held; await route.continue(); });
++  // Failed optional gallery background fetches must never block the main page.
++  await page.route('**/art/technology/**', route => route.abort());
++  for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
++    await page.goto(`/${locale}`);
++    await readyExcept(page, '/art/04.webp');
++    await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
++    const status = page.locator('.page-media-overlay .media-loading');
++    await expect(status).toBeVisible();
++    await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
++    expect(await status.evaluate(element => element.scrollWidth <= element.clientWidth && element.getBoundingClientRect().right <= innerWidth)).toBe(true);
++    if (locale === 'ar') {
++      await expect(status).toHaveAttribute('dir', 'rtl');
++      await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-arabic.png` });
++    }
++  }
++  release();
++});
+import { test, expect } from '@playwright/test';
+import { mkdir } from 'node:fs/promises';
+import sharp from 'sharp';
+import { waitForVisibleMedia } from './helpers/media';
+import { openTechnology } from './helpers/technology';
+
+test('responsive viewport, artwork, and primary actions', async ({ page }, testInfo) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/en');
+  await page.locator('.art img').first().waitFor({ state: 'visible' });
+  await page.evaluate(() => document.fonts.ready);
+  await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
+    await waitForVisibleMedia(page);
+  const visited = new Set<string>();
+  const settleVisibleMedia = async () => {
+    // Let the actual scroll and visibility observers update the media barrier.
+    await waitForVisibleMedia(page);
+    const media = await page.locator('main img[data-media]').evaluateAll(async elements => {
+      const visible = elements.filter(element => {
+        const box = element.getBoundingClientRect();
+        let top = Math.max(0, box.top), bottom = Math.min(innerHeight, box.bottom);
+        let left = Math.max(0, box.left), right = Math.min(innerWidth, box.right);
+        if (bottom <= top || right <= left) return false;
+        for (let parent = element.parentElement; parent; parent = parent.parentElement) {
+          const style = getComputedStyle(parent);
+          if (/(clip|hidden|scroll|auto)/.test(style.overflow + style.overflowX + style.overflowY)) {
+            const clip = parent.getBoundingClientRect();
+            top = Math.max(top, clip.top); bottom = Math.min(bottom, clip.bottom);
+            left = Math.max(left, clip.left); right = Math.min(right, clip.right);
+          }
+        }
+        return bottom > top && right > left;
+      }) as HTMLImageElement[];
+      await Promise.all(visible.map(image => image.decode()));
+      return visible.map(image => ({ path: new URL(image.currentSrc || image.src).pathname, ready: image.hasAttribute('data-media-ready'), complete: image.complete, width: image.naturalWidth }));
+    });
+    for (const image of media) {
+      expect(image.ready, image.path).toBe(true);
+      expect(image.complete, image.path).toBe(true);
+      expect(image.width, image.path).toBeGreaterThan(0);
+      visited.add(image.path);
+    }
+  };
+  const { height, step } = await page.evaluate(() => ({ height: document.body.scrollHeight, step: innerHeight * .8 }));
+  for (let y = 0; y <= height + step; y += step) {
+    await page.evaluate(top => scrollTo({ top, behavior: 'instant' }), y);
+    await settleVisibleMedia();
+  }
+  const artwork = await page.locator('main img[data-media]').evaluateAll(images => [...new Set(images.map(image => new URL((image as HTMLImageElement).src).pathname))]);
+  // Closed FAQ slices share the same source as the visible row: verify the
+  // complete set of visited source artwork without waiting for hidden elements.
+  expect([...visited]).toEqual(expect.arrayContaining(artwork));
+  await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
+  await settleVisibleMedia();
+  const profile = testInfo.project.name;
+  const expectedWidth = profile.includes('pro-max') ? 440 : profile.includes('iphone') ? 402 : 1440;
+  expect(await page.evaluate(() => innerWidth)).toBe(expectedWidth);
+  expect(await page.evaluate(() => document.querySelector('meta[name="viewport"]')?.getAttribute('content'))).toContain('width=device-width');
+  if (profile.includes('iphone')) expect(await page.evaluate(() => devicePixelRatio)).toBe(3);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(expectedWidth);
+  const canvas = (await page.locator('.canvas').boundingBox())!;
+  expect(canvas.height).toBeCloseTo(canvas.width * 32127 / 941, 0);
+
+  await mkdir('screenshots/actual', { recursive: true });
+  await page.screenshot({ path: `screenshots/actual/full-${profile}.png`, fullPage: true, scale: 'css' });
+
+  await page.getByRole('button', { name: /reserve now/i }).click();
+  await expect(page.getByText('The configurator, current prices')).toBeVisible();
+  await page.getByRole('button', { name: 'Close' }).click();
+  await page.locator('.menu summary').click();
+  await expect(page.getByRole('navigation', { name: 'Menu' })).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.locator('.menu')).not.toHaveAttribute('open');
+  await page.locator('.menu summary').click();
+  await page.getByRole('navigation', { name: 'Menu' }).locator('a[href="#moment"]').click();
+  await expect(page.locator('.menu')).not.toHaveAttribute('open');
+  const firstDocument = page.locator('.doc-card').first();
+  await firstDocument.scrollIntoViewIfNeeded();
+  const cardBox = await firstDocument.boundingBox();
+import { waitForVisibleMedia } from './helpers/media';
+    await waitForVisibleMedia(page);
+    await waitForVisibleMedia(page);
+    await waitForVisibleMedia(page);
+    await waitForVisibleMedia(page);
+    await waitForVisibleMedia(page);
+    await waitForVisibleMedia(page);
+    await waitForVisibleMedia(page);
+    await waitForVisibleMedia(page);
+    await waitForVisibleMedia(page);
+    await waitForVisibleMedia(page);
+  await waitForVisibleMedia(page);
+    await waitForVisibleMedia(page);
+    await waitForVisibleMedia(page);
+    await waitForVisibleMedia(page);
+    await waitForVisibleMedia(page);
+          await waitForVisibleMedia(page);
+          await waitForVisibleMedia(page);
+
+2026-10-08T10:12:29.297645Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11aff-a404-78f3-8387-8fb005e691e5 turn_id=01a11aff-a4b5-7520-88fe-9094da8a2259 item_id="exec-3db28ed2-fd00-400e-beb8-e07c40070f29"
+2026-10-08T10:12:35.202205Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+exec
+/bin/zsh -lc "cat playwright.config.ts | head -90; cat tests/e2e/helpers/media.ts; find . -name AGENTS.md -o -name AGENTS.override.md | head; nl -ba tests/e2e/site.spec.ts | sed -n '135,150p;315,330p'; nl -ba tests/e2e/media-loading.spec.ts | sed -n '135,165p'" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 919ms:
+cat: playwright.config.ts: No such file or directory
+import { expect, type Page } from '@playwright/test';
+
+/** Allow scroll/visibility observers to settle, then wait for the actual input gate. */
+export async function waitForVisibleMedia(page: Page) {
+  await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+  await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert', '');
+}
+./.agents/skills/vercel-react-best-practices/AGENTS.md
+./.agents/skills/vercel-composition-patterns/AGENTS.md
+./AGENTS.md
+   135	  await page.keyboard.press('Space');
+   136	  await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(2);
+   137	  await expect(control).toHaveCount(0);
+   138	});
+   139
+   140	test('localized story buttons keep one-line labels inside proportionate surfaces', async ({ page }) => {
+   141	  for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
+   142	    await page.goto(`/${locale}`);
+   143	    await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
+   144	    await waitForVisibleMedia(page);
+   145	    await page.evaluate(() => document.fonts.ready);
+   146	  await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
+   147	    await waitForVisibleMedia(page);
+   148	    const failures = await page.evaluate(() => {
+   149	      const canvas = document.querySelector('.canvas')!.getBoundingClientRect();
+   150	      const fallback = ({ ar: 'NotoButtonArabic', zh: 'NotoButtonSC', ja: 'NotoButtonJP', ko: 'NotoButtonKR' } as Record<string, string>)[document.documentElement.lang];
+   315	  await page.keyboard.press('Escape');
+   316	});
+   317
+   318	test('FAQ icons are independent and answers expand the page without an inner scroller', async ({ page }) => {
+   319	  for (const locale of ['en', 'ar']) {
+   320	    await page.goto(`/${locale}`);
+   321	    await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
+   322	    await waitForVisibleMedia(page);
+   323	    await page.evaluate(() => document.fonts.ready);
+   324	  await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
+   325	    await waitForVisibleMedia(page);
+   326	    const stack = page.locator('.faq-stack'), rows = stack.locator('details');
+   327	    await expect(rows).toHaveCount(6);
+   328	    const state = () => stack.evaluate(element => ({
+   329	      height: element.getBoundingClientRect().height,
+   330	      scrollRange: element.scrollHeight - element.clientHeight,
+   135	  await expect.poll(() => page.evaluate(() => scrollY)).toBe(Math.floor(frontier) - info.project.use.viewport!.height);
+   136	  await expect(page.locator('.page-media-overlay')).toBeVisible();
+   137	  await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
+   138	  await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden');
+   139	  const scroll = await page.evaluate(() => scrollY);
+   140	  await page.keyboard.press('End');
+   141	  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
+   142	  await expect.poll(() => page.evaluate(() => scrollY)).toBe(scroll);
+   143	  await page.evaluate(() => document.fonts.ready);
+   144	  const viewport = info.project.use.viewport!;
+   145	  const crop = { left: 0, top: 0, width: viewport.width, height: viewport.height - 200 };
+   146	  const pending = await sharp(await page.screenshot({ scale: 'css' })).extract(crop).raw().toBuffer();
+   147	  await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-pending.png` });
+   148	  await page.keyboard.press('Home');
+   149	  await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
+   150	  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+   151	  await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
+   152	  await expect.poll(() => page.evaluate(() => scrollY)).toBe(scroll);
+   153	  release();
+   154	  await expect(image).toHaveAttribute('data-media-ready', '');
+   155	  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+   156	  expect(await page.evaluate(() => scrollY)).toBe(scroll);
+   157	  const ready = await sharp(await page.screenshot({ scale: 'css' })).extract(crop).raw().toBuffer();
+   158	  expect(ready.equals(pending)).toBe(true);
+   159	  await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-ready.png` });
+   160	  await page.evaluate(() => scrollTo({ top: scrollY + 200, behavior: 'instant' }));
+   161	  await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(scroll);
+   162	});
+   163
+   164	test('remaining landing artwork warms asynchronously after first block decode without scrolling', async ({ page }) => {
+   165	  await page.addInitScript(() => {
+
+2026-10-08T10:12:37.215905Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11aff-a404-78f3-8387-8fb005e691e5 turn_id=01a11aff-a4b5-7520-88fe-9094da8a2259 item_id="exec-5f3e44d0-d4ce-449c-96bd-1d0f8c7ab57d"
+exec
+/bin/zsh -lc "ls *playwright*; rg 'timeout:' playwright* tests -g '*config*' | head; rg 'localized story buttons|FAQ icons|technology text groups|responsive viewport' docs/evidence/media-loading/retained-recheck.log | tail -15; cat AGENTS.md | grep -n 'test\\|review' | head" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 70ms:
+playwright.config.mjs
+
+playwright-report:
+index.html
+  ✓   2 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:7:1 › responsive viewport, artwork, and primary actions (5.7s)
+  ✓   5 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:311:1 › FAQ icons are independent and answers expand the page without an inner scroller (3.2s)
+  ✓   9 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:7:1 › responsive viewport, artwork, and primary actions (4.7s)
+  ✓  12 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:311:1 › FAQ icons are independent and answers expand the page without an inner scroller (5.0s)
+  ✓  16 [desktop-chromium] › tests/e2e/site.spec.ts:7:1 › responsive viewport, artwork, and primary actions (10.7s)
+  ✓  19 [desktop-chromium] › tests/e2e/site.spec.ts:311:1 › FAQ icons are independent and answers expand the page without an inner scroller (3.6s)
+  ✓  23 [desktop-firefox] › tests/e2e/site.spec.ts:7:1 › responsive viewport, artwork, and primary actions (7.4s)
+  ✓  26 [desktop-firefox] › tests/e2e/site.spec.ts:311:1 › FAQ icons are independent and answers expand the page without an inner scroller (3.9s)
+3:Build the new product site from `design/references/`. **Design and implement for iPhone 17 Pro first, then verify iPhone 17 Pro Max; adapt responsively to every other screen size.** The real mobile page must match the supplied reference while loading quickly and working accessibly. One user request should produce one complete delivery: perform as many internal inspect → implement → verify → fix cycles as needed, then code review, performance work, and final re-verification. Visual slices are internal work units; finish and integrate the whole requested page or feature before delivery. Do not hand the user a first draft to find ordinary defects. “Done” means every applicable gate has passed with evidence, not that code compiles or that zero bugs have been assumed.
+9:[CHANGELOG.md](CHANGELOG.md) is the authoritative record of **every logical project change and every discovered defect**, including code, assets, content, mappings, tests, documentation, configuration, user corrections and agent-discovered regressions. The agent maintains it **without a user reminder or a separate permission request**: create/update the entry at discovery, record the solution and changed files when applied, then append verification and approval before delivery. Search relevant IDs when resuming work; do not wait until the final answer to reconstruct the history.
+21:3. **Verify the actual pixels.** Open the running page in a real browser at the iPhone 17 Pro viewport, then verify Pro Max. Confirm the page's actual CSS layout width matches each test profile (the viewport meta tag must be correct). Wait for fonts/images and capture screenshots. Compare the Pro image to the calibrated reference crop; inspect Pro Max as a responsive target unless it has its own reference. The verifier must see screenshots, not only DOM/CSS measurements. Fix material differences and capture again. Use a tolerant pixel diff as a second signal when aligned. Use [docs/visual-qa.md](docs/visual-qa.md). **Exit:** no material mismatch remains in the supported target composition; otherwise keep iterating or report a concrete external blocker without saying “done.”
+23:5. **Review and optimize.** For code changes, run Codex's native `/review` on the actual diff before delivery (CLI equivalent when needed), examine every actionable finding, fix it, and rerun affected checks. Run available type, lint, test, and production-build checks. Review component boundaries, duplication, accessibility, and unused code. Measure first render, LCP/INP/CLS where measurable, network bytes, JavaScript, layout shifts, and scroll smoothness in a production build. Reassess static, request-time server, and client rendering against measured latency, freshness, and client cost; change strategy where it improves the result. Fix meaningful problems, then repeat affected visual/browser checks. Use [QUALITY.md](QUALITY.md) and [PERFORMANCE.md](PERFORMANCE.md). **Exit:** no known material code, visual, accessibility, or speed regression remains; report if `/review` was unavailable rather than counting a manual pass as its result.
+24:6. **Learn and report evidence.** Complete the affected [CHANGELOG.md](CHANGELOG.md) entries with actual checks, technical approval and remaining open IDs. Refresh [MEMORY.md](MEMORY.md) when verified state, decisions, or blockers changed; record repeatable errors in [LESSONS.md](LESSONS.md). Use [docs/definition-of-done.md](docs/definition-of-done.md). State tested viewports, screenshot comparisons, interactions, build checks, performance measurements, remaining differences, and checks that could not run. Never claim pixel fidelity, WCAG compliance, a 95+ Lighthouse score, or completion without the corresponding evidence.
+28:For substantive project work, start one independent, non-editing **discipline auditor** alongside scope inspection. Reuse it at each applicable stage gate: scope before implementation; each completed UI slice's rendering and visual evidence; behavior/adaptation; code review and performance; and final integration, memory, and delivery evidence. Give it acceptance checks, changed files, browser images, command results, and any other agents' findings as relevant. Wait for its evidence-based pass/fail/blocked finding before closing a gate. Fix failures and re-audit affected gates; the main agent owns implementation and required checks. Use the project [auditor profile](.codex/agents/discipline_auditor.toml) when available and [supervision protocol](docs/supervision.md); if the profile cannot be selected, give a subagent the same non-editing assignment. Do not spawn it for a trivial edit. The auditor supplements real QA and native `/review`; it cannot certify missing evidence.
+41:- Tooling: prefer native Codex capabilities when they provide the required evidence; use additional skills/tools for project-specific workflow or capabilities the native route lacks. Read the project [implementer skill](.agents/skills/pixel-perfect-ui-implementer/SKILL.md) when building UI and the [testing skill](.agents/skills/pixel-perfect-ui-testing/SKILL.md) when verifying it. Use the Codex browser for quick exploratory inspection when available; use the configured Playwright WebKit/DPR 3 profiles for required mobile screenshots and repeatable checks. `/review` is a native Codex command, not an installable skill. Load each skill when its stage needs it, not both up front. Broad design-generation skills must not replace the approved render. The requested Codex model and modes are session settings: check availability before claiming they are active. See [TOOLS.md](TOOLS.md) for other skills and limitations.
+
+2026-10-08T10:12:48.522145Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11aff-a404-78f3-8387-8fb005e691e5 turn_id=01a11aff-a4b5-7520-88fe-9094da8a2259 item_id="exec-72c973a1-572f-4dea-a2ba-dea40e166322"
+codex
+I found no actionable issue introduced by the code or test diff. The checks wait for main-media readiness before whole-page and navigation assertions, compare viewport captures in matching CSS coordinates, give the eleven-locale loading test 120 seconds, and write current screenshots separately from historical artifacts. Historical failed logs were not treated as current approvals.
+I found no actionable issue introduced by the code or test diff. The checks wait for main-media readiness before whole-page and navigation assertions, compare viewport captures in matching CSS coordinates, give the eleven-locale loading test 120 seconds, and write current screenshots separately from historical artifacts. Historical failed logs were not treated as current approvals.

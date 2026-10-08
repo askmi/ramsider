@@ -10,6 +10,8 @@ test('responsive viewport, artwork, and primary actions', async ({ page }, testI
   await page.goto('/en');
   await page.locator('.art img').first().waitFor({ state: 'visible' });
   await page.evaluate(() => document.fonts.ready);
+  await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
+    await waitForVisibleMedia(page);
   const visited = new Set<string>();
   const settleVisibleMedia = async () => {
     // Let the actual scroll and visibility observers update the media barrier.
@@ -107,6 +109,8 @@ test('responsive viewport, artwork, and primary actions', async ({ page }, testI
 
 test('back-to-top appears on scroll, stays in the viewport, and restores top and focus', async ({ page }) => {
   await page.goto('/en');
+  await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
+    await waitForVisibleMedia(page);
   const control = page.getByRole('button', { name: 'Back to top' });
   await expect(control).toHaveCount(0);
   await page.evaluate(() => scrollTo({ top: Math.max(1000, innerHeight), behavior: 'instant' }));
@@ -136,7 +140,11 @@ test('back-to-top appears on scroll, stays in the viewport, and restores top and
 test('localized story buttons keep one-line labels inside proportionate surfaces', async ({ page }) => {
   for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
     await page.goto(`/${locale}`);
+    await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
+    await waitForVisibleMedia(page);
     await page.evaluate(() => document.fonts.ready);
+  await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
+    await waitForVisibleMedia(page);
     const failures = await page.evaluate(() => {
       const canvas = document.querySelector('.canvas')!.getBoundingClientRect();
       const fallback = ({ ar: 'NotoButtonArabic', zh: 'NotoButtonSC', ja: 'NotoButtonJP', ko: 'NotoButtonKR' } as Record<string, string>)[document.documentElement.lang];
@@ -172,7 +180,11 @@ test('localized story buttons keep one-line labels inside proportionate surfaces
 
 for (const locale of ['ru', 'en']) test(`${locale} technology text groups are centered inside both fixed oval surfaces`, async ({ page }, testInfo) => {
   await page.goto(`/${locale}`);
+    await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
+    await waitForVisibleMedia(page);
   await page.evaluate(() => document.fonts.ready);
+  await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
+    await waitForVisibleMedia(page);
   const canvasWidth = await page.locator('.canvas').evaluate(element => element.getBoundingClientRect().width);
   for (const id of ['technology-experience', 'technology-repeat']) {
     const button = page.locator(`#${id}`);
@@ -306,7 +318,11 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
 test('FAQ icons are independent and answers expand the page without an inner scroller', async ({ page }) => {
   for (const locale of ['en', 'ar']) {
     await page.goto(`/${locale}`);
+    await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
+    await waitForVisibleMedia(page);
     await page.evaluate(() => document.fonts.ready);
+  await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
+    await waitForVisibleMedia(page);
     const stack = page.locator('.faq-stack'), rows = stack.locator('details');
     await expect(rows).toHaveCount(6);
     const state = () => stack.evaluate(element => ({
@@ -367,9 +383,14 @@ test.describe('FAQ pointer-wheel input', () => {
   // Mobile WebKit cannot inject wheel; only this test uses desktop input at the same viewport/DPR.
   test.use({ isMobile: false, hasTouch: false });
   test('FAQ always scrolls the document in closed and multi-open states', async ({ page }) => {
+    test.setTimeout(120000);
     for (const locale of ['en', 'ar']) {
       await page.goto(`/${locale}`);
+    await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
+    await waitForVisibleMedia(page);
       await page.evaluate(() => document.fonts.ready);
+  await expect(page.locator('img[data-media]:not([data-media-ready])')).toHaveCount(0);
+    await waitForVisibleMedia(page);
       const stack = page.locator('.faq-stack'), rows = stack.locator('details');
       for (const expanded of [false, true]) {
         if (expanded) for (const row of await rows.all()) {

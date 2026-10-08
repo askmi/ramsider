@@ -1,0 +1,253 @@
+{
+  "conditions": "isolated Chromium mobile402x874 DPR3 loopback; art04 held, landing starts at top, all6 optional gallery decoded in background",
+  "qa": {
+    "decodes": [
+      {
+        "src": "/art/technology/03.png",
+        "start": 235.5,
+        "end": 303.2999999523163
+      },
+      {
+        "src": "/art/technology/05.png",
+        "start": 247.70000004768372,
+        "end": 303.2999999523163
+      },
+      {
+        "src": "/art/technology/cybermind/01.png",
+        "start": 258.5,
+        "end": 305.09999990463257
+      },
+      {
+        "src": "/art/technology/04.png",
+        "start": 267.09999990463257,
+        "end": 310
+      },
+      {
+        "src": "/art/technology/02.png",
+        "start": 276.2999999523163,
+        "end": 311.09999990463257
+      },
+      {
+        "src": "/art/technology/cybermind/02.png",
+        "start": 291.2999999523163,
+        "end": 314.2000000476837
+      }
+    ],
+    "longTasks": [],
+    "mainVisible": "visible",
+    "mainInert": false,
+    "overlay": false,
+    "scrollY": 0
+  },
+  "frames": {
+    "p95Ms": 16.799999999999955,
+    "over33Ms": 0,
+    "count": 179
+  },
+  "priorities": [
+    {
+      "url": "/art/00.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/feature-divider-control.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/feature-divider-draw.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/feature-divider-intensity.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/technology-connector-triple.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/technology-connector-core.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/technology-connector-touch.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/technology-connector-water.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/technology-connector-light.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/technology-connector-armor.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/technology-connector-flow.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/icon-kit/01.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/icon-kit/02.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/icon-kit/03.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/icon-kit/04.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/icon-kit/05.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/icon-kit/07.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/icon-kit/08.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/icon-kit/09.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/icon-kit/10.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/icon-kit/11.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/icon-kit/12.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/tech-ring.svg",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/01.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/02.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/03.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/technology/02.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/technology/03.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/technology/04.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/technology/05.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/technology/cybermind/01.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/technology/cybermind/02.png",
+      "priority": "Low"
+    },
+    {
+      "url": "/art/04.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/05.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/06.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/07.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/08.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/09-10.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/expression-waves.png",
+      "priority": "High"
+    },
+    {
+      "url": "/art/doc-electrical.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/doc-emc.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/doc-uae.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/doc-rohs.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/doc-telecom.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/faq-row-1.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/faq-row-2.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/faq-row-3.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/faq-row-4.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/faq-row-5.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/faq-row-6.webp",
+      "priority": "High"
+    },
+    {
+      "url": "/art/11.webp",
+      "priority": "High"
+    }
+  ]
+}

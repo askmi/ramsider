@@ -257,12 +257,14 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
   await page.keyboard.press('Escape');
   for (const id of ['technology-experience', 'technology-repeat', 'expressions-compare', 'hero-reserve']) {
     const trigger = page.locator(`#${id}`);
+    await trigger.scrollIntoViewIfNeeded();
+    await waitForVisibleMedia(page);
     await trigger.focus();
     await page.keyboard.press('Enter');
     const dialog = page.locator('dialog:modal');
     await expect(dialog).toBeVisible();
     await expect(dialog).toHaveAccessibleName(/.+/);
-    if (id.startsWith('technology')) await expect(dialog.locator('.technology-viewer__frame')).toHaveAttribute('src', /frame-template\.webp/);
+    if (id.startsWith('technology')) await expect(dialog.locator('.technology-viewer__frame')).toHaveCSS('border-image-source', /frame-template\.webp/);
     if (id === 'expressions-compare') {
       await expect(dialog.getByRole('columnheader')).toHaveCount(2);
       await expect(dialog).toContainText('TiN-Coated Heater');
@@ -282,13 +284,17 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
     await expect(dialog).toHaveCount(0);
     await expect(trigger).toBeFocused();
   }
-  await page.locator('#technology-repeat').click();
+  await openTechnology(page, page.locator('#technology-repeat'));
+  await expect(page.locator('#technology-viewer')).toHaveAttribute('aria-busy', 'false');
   await page.keyboard.press('ArrowRight');
+  await expect(page.locator('#technology-viewer .technology-viewer__stage img')).toHaveAttribute('data-source', /03\.png/);
   await page.keyboard.press('ArrowRight');
-  await expect(page.locator('#technology-viewer .technology-viewer__stage img')).toHaveAttribute('src', /04\.png/);
+  await expect(page.locator('#technology-viewer .technology-viewer__stage img')).toHaveAttribute('data-source', /04\.png/);
   await page.locator('#technology-viewer .technology-viewer__close').click();
   await expect(page.locator('dialog:modal')).toHaveCount(0);
   await page.goto('/ar');
+  await page.locator('#expressions-compare').scrollIntoViewIfNeeded();
+  await waitForVisibleMedia(page);
   await page.locator('#expressions-compare').click();
   await expect(page.locator('dialog:modal')).toBeVisible();
   expect(await page.locator('dialog:modal').evaluate(el => getComputedStyle(el).direction)).toBe('rtl');

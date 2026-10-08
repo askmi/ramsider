@@ -1,0 +1,26 @@
+[
+  {
+    "profile": "pro",
+    "previous": "docs/evidence/media-loading/iphone-17-pro-webkit-ready.png",
+    "current": "docs/evidence/technology-viewer/width-analysis/iphone-17-pro-webkit-402x874-g0-s0-top.png",
+    "size": [
+      1206,
+      2622
+    ],
+    "differentPixels": 14112,
+    "percent": 0.44628117991279304,
+    "note": "Current includes visible focus outline from explicit keyboard focus on inner region; previous capture focused dialog. Aligned source-photo baseline otherwise comparable; numerical diff is a secondary signal."
+  },
+  {
+    "profile": "max",
+    "previous": "docs/evidence/media-loading/iphone-17-pro-max-webkit-ready.png",
+    "current": "docs/evidence/technology-viewer/width-analysis/iphone-17-pro-max-webkit-440x956-g0-s0-top.png",
+    "size": [
+      1320,
+      2868
+    ],
+    "differentPixels": 15984,
+    "percent": 0.4222137694941042,
+    "note": "Current includes visible focus outline from explicit keyboard focus on inner region; previous capture focused dialog. Aligned source-photo baseline otherwise comparable; numerical diff is a secondary signal."
+  }
+]

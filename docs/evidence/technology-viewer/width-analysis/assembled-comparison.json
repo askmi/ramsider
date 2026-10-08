@@ -1,0 +1,86 @@
+[
+  {
+    "profile": "iphone-17-pro-webkit",
+    "source": "screenshots/actual/full-iphone-17-pro-webkit.png",
+    "sourceSha256": "6ff11fcf0b5b7e21e18d08a6bc1e98636ad45b26b922ed0fb448c8135c7420c9",
+    "size": {
+      "width": 402,
+      "height": 13725
+    },
+    "sourceScale": 0.42720510095642933,
+    "crops": [
+      {
+        "name": "hero",
+        "label": "Hero",
+        "top": 0,
+        "height": 874,
+        "output": "docs/evidence/technology-viewer/width-analysis/assembled-pro-hero.png"
+      },
+      {
+        "name": "technology",
+        "label": "Technology",
+        "top": 2648,
+        "height": 1239,
+        "output": "docs/evidence/technology-viewer/width-analysis/assembled-pro-technology.png"
+      },
+      {
+        "name": "documents",
+        "label": "Documents",
+        "top": 9398,
+        "height": 1111,
+        "output": "docs/evidence/technology-viewer/width-analysis/assembled-pro-documents.png"
+      },
+      {
+        "name": "faq",
+        "label": "FAQ",
+        "top": 11235,
+        "height": 834,
+        "output": "docs/evidence/technology-viewer/width-analysis/assembled-pro-faq.png"
+      }
+    ],
+    "contact": "docs/evidence/media-loading/assembled-pro-contact.png",
+    "equalsPreviousAssembly": false
+  },
+  {
+    "profile": "iphone-17-pro-max-webkit",
+    "source": "screenshots/actual/full-iphone-17-pro-max-webkit.png",
+    "sourceSha256": "9ae73767171d76853ad3f8dfd4a6a6c9f11fe1f437fb9318b7c756a1d7cb8e9c",
+    "size": {
+      "width": 440,
+      "height": 15022
+    },
+    "sourceScale": 0.4675876726886291,
+    "crops": [
+      {
+        "name": "hero",
+        "label": "Hero",
+        "top": 0,
+        "height": 956,
+        "output": "docs/evidence/technology-viewer/width-analysis/assembled-max-hero.png"
+      },
+      {
+        "name": "technology",
+        "label": "Technology",
+        "top": 2899,
+        "height": 1357,
+        "output": "docs/evidence/technology-viewer/width-analysis/assembled-max-technology.png"
+      },
+      {
+        "name": "documents",
+        "label": "Documents",
+        "top": 10286,
+        "height": 1216,
+        "output": "docs/evidence/technology-viewer/width-analysis/assembled-max-documents.png"
+      },
+      {
+        "name": "faq",
+        "label": "FAQ",
+        "top": 12297,
+        "height": 912,
+        "output": "docs/evidence/technology-viewer/width-analysis/assembled-max-faq.png"
+      }
+    ],
+    "contact": "docs/evidence/media-loading/assembled-pro-max-contact.png",
+    "equalsPreviousAssembly": true
+  }
+]

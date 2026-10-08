@@ -1,0 +1,961 @@
+2026-10-08T08:09:57.795141Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-08T08:09:57.795209Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.159.0-alpha.12.1
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: low
+reasoning summaries: none
+session id: 01a11a8f-db00-7c10-8883-fb1a0561e32e
+--------
+user
+Read-only native review of the actual final uncommitted diff. Focus full photo width/proportional shared source plane/native inner scroll, keyboard/group button policy, horizontal bounded RTL gestures, pending momentum lock and committed reset; retained media lifecycle unchanged. Inspect updated integration and new width/elevenlocale/native touch tests. Previous review clean; final cleanup removed unused group-swipe up translations/type from lib/technology-gallery.ts and formatted JSX. No edits. User files .gitignore/background_old.png/tools/__pycache__ remain outside scope. Report actionable regressions only.
+2026-10-08T08:09:59.161811Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-08T08:09:59.161847Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+exec
+/bin/zsh -lc 'git status --short; git diff --stat; git diff -- lib/technology-gallery.ts; find .. -name AGENTS.md -o -name AGENTS.override.md' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 5925ms:
+ M .gitignore
+ M CHANGELOG.md
+ M LESSONS.md
+ M MEMORY.md
+ M app/globals.css
+ M components/TechnologyViewer.tsx
+ M docs/agent-evals.md
+ M docs/technology-viewer.md
+ M lib/technology-gallery.ts
+ M tests/e2e/site.spec.ts
+ M tests/e2e/technology-loading.spec.ts
+ M tests/e2e/technology-viewer.spec.ts
+?? design/references/background_old.png
+?? docs/evidence/technology-viewer/width-analysis/
+?? docs/technology-viewer-width-analysis.md
+?? tests/e2e/technology-width.spec.ts
+?? tools/__pycache__/
+ .gitignore                           |  3 +-
+ CHANGELOG.md                         | 20 +++++++++--
+ LESSONS.md                           |  4 +++
+ MEMORY.md                            |  2 +-
+ app/globals.css                      | 10 +++---
+ components/TechnologyViewer.tsx      | 66 ++++++++++++++++++++++++------------
+ docs/agent-evals.md                  |  2 +-
+ docs/technology-viewer.md            |  2 ++
+ lib/technology-gallery.ts            | 24 ++++++-------
+ tests/e2e/site.spec.ts               | 12 +++++--
+ tests/e2e/technology-loading.spec.ts | 16 +++++----
+ tests/e2e/technology-viewer.spec.ts  | 22 +++++++-----
+ 12 files changed, 123 insertions(+), 60 deletions(-)
+diff --git a/lib/technology-gallery.ts b/lib/technology-gallery.ts
+index 4c69145..90ac306 100644
+--- a/lib/technology-gallery.ts
++++ b/lib/technology-gallery.ts
+@@ -13,17 +13,17 @@ export const technologyGroups = [
+   ] },
+ ] as const;
+
+-type GroupCopy = { names: readonly [string, string]; previous: string; up: string };
++type GroupCopy = { names: readonly [string, string]; previous: string };
+ export const technologyGroupCopy: Record<Locale, GroupCopy> = {
+-  en: { names: ['CyberMind core', 'Connected system'], previous: 'Previous technology', up: 'Swipe up for the previous technology' },
+-  ru: { names: ['Ядро CyberMind', 'Подключённая система'], previous: 'Предыдущая технология', up: 'Свайп вверх — предыдущая технология' },
+-  de: { names: ['CyberMind-Kern', 'Vernetztes System'], previous: 'Vorherige Technologie', up: 'Für die vorherige Technologie nach oben wischen' },
+-  fr: { names: ['Cœur CyberMind', 'Système connecté'], previous: 'Technologie précédente', up: 'Balayez vers le haut pour la technologie précédente' },
+-  es: { names: ['Núcleo CyberMind', 'Sistema conectado'], previous: 'Tecnología anterior', up: 'Desliza arriba para la tecnología anterior' },
+-  it: { names: ['Nucleo CyberMind', 'Sistema connesso'], previous: 'Tecnologia precedente', up: 'Scorri su per la tecnologia precedente' },
+-  tr: { names: ['CyberMind çekirdeği', 'Bağlantılı sistem'], previous: 'Önceki teknoloji', up: 'Önceki teknoloji için yukarı kaydırın' },
+-  ar: { names: ['نواة CyberMind', 'النظام المتصل'], previous: 'التقنية السابقة', up: 'اسحب للأعلى للانتقال إلى التقنية السابقة' },
+-  zh: { names: ['CyberMind 核心', '互联系统'], previous: '上一项技术', up: '向上滑动查看上一项技术' },
+-  ja: { names: ['CyberMindコア', '接続されたシステム'], previous: '前の技術', up: '上にスワイプして前の技術を見る' },
+-  ko: { names: ['CyberMind 코어', '연결된 시스템'], previous: '이전 기술', up: '위로 스와이프하여 이전 기술 보기' },
++  en: { names: ['CyberMind core', 'Connected system'], previous: 'Previous technology' },
++  ru: { names: ['Ядро CyberMind', 'Подключённая система'], previous: 'Предыдущая технология' },
++  de: { names: ['CyberMind-Kern', 'Vernetztes System'], previous: 'Vorherige Technologie' },
++  fr: { names: ['Cœur CyberMind', 'Système connecté'], previous: 'Technologie précédente' },
++  es: { names: ['Núcleo CyberMind', 'Sistema conectado'], previous: 'Tecnología anterior' },
++  it: { names: ['Nucleo CyberMind', 'Sistema connesso'], previous: 'Tecnologia precedente' },
++  tr: { names: ['CyberMind çekirdeği', 'Bağlantılı sistem'], previous: 'Önceki teknoloji' },
++  ar: { names: ['نواة CyberMind', 'النظام المتصل'], previous: 'التقنية السابقة' },
++  zh: { names: ['CyberMind 核心', '互联系统'], previous: '上一项技术' },
++  ja: { names: ['CyberMindコア', '接続されたシステム'], previous: '前の技術' },
++  ko: { names: ['CyberMind 코어', '연결된 시스템'], previous: '이전 기술' },
+ };
+../ramsider/.agents/skills/vercel-react-best-practices/AGENTS.md
+../ramsider/.agents/skills/vercel-composition-patterns/AGENTS.md
+../ramsider/AGENTS.md
+
+2026-10-08T08:10:13.735006Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11a8f-db00-7c10-8883-fb1a0561e32e turn_id=01a11a8f-dba7-77f1-a5a2-f9090070e9e8 item_id="exec-3b78fa90-99d7-4ae5-acf4-e4bc92de8abd"
+exec
+/bin/zsh -lc 'git diff -- components/TechnologyViewer.tsx app/globals.css tests/e2e/technology-viewer.spec.ts tests/e2e/technology-loading.spec.ts tests/e2e/site.spec.ts; cat tests/e2e/technology-width.spec.ts' in /Users/asmirnou/Projects/g/ramsider
+2026-10-08T08:10:22.189748Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11a8f-db00-7c10-8883-fb1a0561e32e turn_id=01a11a8f-dba7-77f1-a5a2-f9090070e9e8 item_id="exec-2d96102b-fa31-4e32-bc62-1972a77e2408"
+ succeeded in 449ms:
+diff --git a/app/globals.css b/app/globals.css
+index 66d6283..1ba7235 100644
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -152,11 +152,14 @@ html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.
+ html:has(#technology-viewer[open]),body:has(#technology-viewer[open]){background:#000}
+ .dialog-controller:has(> #technology-viewer[open]) > :not(#technology-viewer),.dialog-controller:has(> #technology-viewer[open]) > :not(#technology-viewer) *{visibility:hidden}
+ .technology-viewer__canvas{--frame-top:calc(88px + env(safe-area-inset-top));--frame-bottom:max(68px,calc(64px + env(safe-area-inset-bottom)));--frame-height:calc(100dvh - var(--frame-top) - var(--frame-bottom));--metal-side:calc(29 / 941 * 100cqw);--metal-top:calc(31 / 941 * 100cqw);--metal-bottom:calc(28 / 941 * 100cqw);position:relative;width:100%;height:100%;container-type:inline-size}
+-.technology-viewer__stage{position:absolute;left:var(--metal-side);top:calc(var(--frame-top) + var(--metal-top));width:calc(100% - 2 * var(--metal-side));height:calc(var(--frame-height) - var(--metal-top) - var(--metal-bottom));overflow:hidden;touch-action:pinch-zoom;background:#fff;container-type:size;display:grid;place-items:center}
+-.technology-viewer__content{position:relative;width:min(100%,calc(100cqh * 941 / 1672));aspect-ratio:941/1672}
++.technology-viewer__stage{position:absolute;left:var(--metal-side);top:calc(var(--frame-top) + var(--metal-top));width:calc(100% - 2 * var(--metal-side));height:calc(var(--frame-height) - var(--metal-top) - var(--metal-bottom));overflow:hidden;touch-action:pan-y pinch-zoom;background:#fff;container-type:size}
++.technology-viewer__scroll{width:100%;height:100%;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;touch-action:pan-y pinch-zoom;scrollbar-width:none}
++.technology-viewer__scroll::-webkit-scrollbar{display:none}
++.technology-viewer__content{position:relative;flex:none;width:100%;aspect-ratio:941/1672;margin-block:auto}
+ .technology-viewer__photo{position:absolute;inset:0}
+ .technology-viewer__photo img{display:block;width:100%;height:100%;user-select:none;-webkit-user-drag:none}
+-.technology-viewer[aria-busy=true] .technology-viewer__stage{touch-action:none}
++.technology-viewer[aria-busy=true] .technology-viewer__stage,.technology-viewer[aria-busy=true] .technology-viewer__scroll{touch-action:none}
++.technology-viewer[aria-busy=true] .technology-viewer__scroll{overflow-y:hidden}
+ .technology-viewer__loading{position:absolute;z-index:5;left:4%;right:4%;bottom:3%;padding:16px;background:rgb(255 255 255 / .96);color:#241d15;border:1px solid #ad8c5a}
+ .technology-viewer__title{position:absolute;inset:0;margin:0;font-family:OpenSans,Arial,sans-serif;font-weight:400;line-height:1;direction:ltr;pointer-events:none}
+ .technology-viewer__title svg{display:block;width:100%;height:100%;font-family:inherit;font-weight:inherit}
+@@ -185,7 +188,6 @@ html:has(#technology-viewer[open]),body:has(#technology-viewer[open]){background
+ .technology-viewer__sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+ .technology-viewer :focus-visible{outline:2px solid #e7ba75;outline-offset:-3px}
+ .technology-viewer button:disabled{cursor:default;opacity:.45}
+-@media(min-width:700px) and (hover:hover){.technology-viewer__canvas{width:min(100vw,calc(100dvh * 954 / 1649))}}
+ .page-media-shell,.page-media-content{display:contents}
+ html[data-media-js]:has(.page-media-shell[data-media-blocked]),html[data-media-js] body:has(.page-media-shell[data-media-blocked]){overflow:hidden}
+ html[data-media-js] .dialog-controller:has(.page-media-shell[data-media-blocked])>.back-to-top{visibility:hidden}
+diff --git a/components/TechnologyViewer.tsx b/components/TechnologyViewer.tsx
+index 47f3ea2..e981948 100644
+--- a/components/TechnologyViewer.tsx
++++ b/components/TechnologyViewer.tsx
+@@ -19,17 +19,17 @@ type Selection = { group: number; slide: number };
+
+ type ViewerCopy = { technology: string; horizontal: string; vertical: string; details: string; close: string; image: string; nextImage: string; nextGroup: string; unavailable: string; names: readonly [string, string, string, string] };
+ const copy: Record<Locale, ViewerCopy> = {
+-  en: { technology: 'Technology', details: 'Swipe for Details', horizontal: 'Swipe horizontally to browse images', vertical: 'Swipe down for the next technology', close: 'Close technology viewer', image: 'Image', nextImage: 'Show next image', nextGroup: 'Next Technology', unavailable: 'The next technology is coming soon.', names: ['Three heaters', 'Active air sails', 'Programmable heat profiles', 'Gold and titanium nitride'] },
+-  ru: { technology: 'Технология', details: 'Свайп для деталей', horizontal: 'Листайте изображения по горизонтали', vertical: 'Свайп вниз — следующая технология', close: 'Закрыть просмотр технологий', image: 'Изображение', nextImage: 'Следующее изображение', nextGroup: 'Следующая технология', unavailable: 'Следующая технология скоро появится.', names: ['Три нагревателя', 'Активные воздушные паруса', 'Программируемые профили нагрева', 'Золото и нитрид титана'] },
+-  de: { technology: 'Technologie', details: 'Für Details wischen', horizontal: 'Horizontal durch die Bilder wischen', vertical: 'Für die nächste Technologie nach unten wischen', close: 'Technologieansicht schließen', image: 'Bild', nextImage: 'Nächstes Bild anzeigen', nextGroup: 'Nächste Technologie', unavailable: 'Die nächste Technologie kommt bald.', names: ['Drei Heizelemente', 'Aktive Luftsegel', 'Programmierbare Wärmeprofile', 'Gold und Titannitrid'] },
+-  fr: { technology: 'Technologie', details: 'Balayez pour les détails', horizontal: 'Balayez horizontalement pour parcourir les images', vertical: 'Balayez vers le bas pour la technologie suivante', close: 'Fermer la galerie', image: 'Image', nextImage: 'Afficher l’image suivante', nextGroup: 'Technologie suivante', unavailable: 'La prochaine technologie arrive bientôt.', names: ['Trois éléments chauffants', 'Volets d’air actifs', 'Profils de chauffe programmables', 'Or et nitrure de titane'] },
+-  es: { technology: 'Tecnología', details: 'Desliza para ver detalles', horizontal: 'Desliza horizontalmente para ver las imágenes', vertical: 'Desliza abajo para la siguiente tecnología', close: 'Cerrar la galería', image: 'Imagen', nextImage: 'Mostrar la siguiente imagen', nextGroup: 'Siguiente tecnología', unavailable: 'La próxima tecnología estará disponible pronto.', names: ['Tres calentadores', 'Aletas de aire activas', 'Perfiles de calor programables', 'Oro y nitruro de titanio'] },
+-  it: { technology: 'Tecnologia', details: 'Scorri per i dettagli', horizontal: 'Scorri orizzontalmente tra le immagini', vertical: 'Scorri giù per la tecnologia successiva', close: 'Chiudi la galleria', image: 'Immagine', nextImage: 'Mostra l’immagine successiva', nextGroup: 'Tecnologia successiva', unavailable: 'La prossima tecnologia arriverà presto.', names: ['Tre riscaldatori', 'Alette d’aria attive', 'Profili di calore programmabili', 'Oro e nitruro di titanio'] },
+-  tr: { technology: 'Teknoloji', details: 'Ayrıntılar için kaydırın', horizontal: 'Görseller arasında yatay kaydırın', vertical: 'Sonraki teknoloji için aşağı kaydırın', close: 'Teknoloji görünümünü kapat', image: 'Görsel', nextImage: 'Sonraki görseli göster', nextGroup: 'Sonraki teknoloji', unavailable: 'Sonraki teknoloji yakında sunulacak.', names: ['Üç ısıtıcı', 'Aktif hava kanatları', 'Programlanabilir ısı profilleri', 'Altın ve titanyum nitrür'] },
+-  ar: { technology: 'تقنية', details: 'اسحب لعرض التفاصيل', horizontal: 'اسحب أفقياً لتصفح الصور', vertical: 'اسحب للأسفل للانتقال إلى التقنية التالية', close: 'إغلاق معرض التقنيات', image: 'صورة', nextImage: 'عرض الصورة التالية', nextGroup: 'التقنية التالية', unavailable: 'التقنية التالية ستتوفر قريباً.', names: ['ثلاثة سخانات', 'زعانف هوائية نشطة', 'ملفات حرارة قابلة للبرمجة', 'الذهب ونتريد التيتانيوم'] },
+-  zh: { technology: '技术', details: '滑动查看详情', horizontal: '左右滑动浏览图片', vertical: '向下滑动查看下一项技术', close: '关闭技术图库', image: '图片', nextImage: '显示下一张图片', nextGroup: '下一项技术', unavailable: '下一项技术即将推出。', names: ['三个加热器', '主动导流翼', '可编程加热曲线', '黄金与氮化钛'] },
+-  ja: { technology: 'テクノロジー', details: 'スワイプして詳細を見る', horizontal: '左右にスワイプして画像を見る', vertical: '下にスワイプして次の技術を見る', close: '技術ギャラリーを閉じる', image: '画像', nextImage: '次の画像を表示', nextGroup: '次の技術', unavailable: '次の技術は近日公開予定です。', names: ['3つのヒーター', 'アクティブエアセイル', 'プログラム可能な加熱プロファイル', '金と窒化チタン'] },
+-  ko: { technology: '기술', details: '스와이프하여 상세 보기', horizontal: '좌우로 스와이프하여 이미지 보기', vertical: '아래로 스와이프하여 다음 기술 보기', close: '기술 갤러리 닫기', image: '이미지', nextImage: '다음 이미지 보기', nextGroup: '다음 기술', unavailable: '다음 기술은 곧 공개됩니다.', names: ['세 개의 히터', '액티브 에어 세일', '프로그래밍 가능한 열 프로필', '금과 질화 티타늄'] },
++  en: { technology: 'Technology', details: 'Swipe for Details', horizontal: 'Swipe horizontally to browse images', vertical: 'Scroll vertically to view the full image. Use the buttons to change technology', close: 'Close technology viewer', image: 'Image', nextImage: 'Show next image', nextGroup: 'Next Technology', unavailable: 'The next technology is coming soon.', names: ['Three heaters', 'Active air sails', 'Programmable heat profiles', 'Gold and titanium nitride'] },
++  ru: { technology: 'Технология', details: 'Свайп для деталей', horizontal: 'Листайте изображения по горизонтали', vertical: 'Прокрутите по вертикали, чтобы увидеть изображение целиком. Переключайте технологии кнопками', close: 'Закрыть просмотр технологий', image: 'Изображение', nextImage: 'Следующее изображение', nextGroup: 'Следующая технология', unavailable: 'Следующая технология скоро появится.', names: ['Три нагревателя', 'Активные воздушные паруса', 'Программируемые профили нагрева', 'Золото и нитрид титана'] },
++  de: { technology: 'Technologie', details: 'Für Details wischen', horizontal: 'Horizontal durch die Bilder wischen', vertical: 'Vertikal scrollen, um das ganze Bild zu sehen. Technologien mit den Schaltflächen wechseln', close: 'Technologieansicht schließen', image: 'Bild', nextImage: 'Nächstes Bild anzeigen', nextGroup: 'Nächste Technologie', unavailable: 'Die nächste Technologie kommt bald.', names: ['Drei Heizelemente', 'Aktive Luftsegel', 'Programmierbare Wärmeprofile', 'Gold und Titannitrid'] },
++  fr: { technology: 'Technologie', details: 'Balayez pour les détails', horizontal: 'Balayez horizontalement pour parcourir les images', vertical: 'Faites défiler verticalement pour voir toute l’image. Changez de technologie avec les boutons', close: 'Fermer la galerie', image: 'Image', nextImage: 'Afficher l’image suivante', nextGroup: 'Technologie suivante', unavailable: 'La prochaine technologie arrive bientôt.', names: ['Trois éléments chauffants', 'Volets d’air actifs', 'Profils de chauffe programmables', 'Or et nitrure de titane'] },
++  es: { technology: 'Tecnología', details: 'Desliza para ver detalles', horizontal: 'Desliza horizontalmente para ver las imágenes', vertical: 'Desplázate verticalmente para ver toda la imagen. Cambia de tecnología con los botones', close: 'Cerrar la galería', image: 'Imagen', nextImage: 'Mostrar la siguiente imagen', nextGroup: 'Siguiente tecnología', unavailable: 'La próxima tecnología estará disponible pronto.', names: ['Tres calentadores', 'Aletas de aire activas', 'Perfiles de calor programables', 'Oro y nitruro de titanio'] },
++  it: { technology: 'Tecnologia', details: 'Scorri per i dettagli', horizontal: 'Scorri orizzontalmente tra le immagini', vertical: 'Scorri in verticale per vedere tutta l’immagine. Cambia tecnologia con i pulsanti', close: 'Chiudi la galleria', image: 'Immagine', nextImage: 'Mostra l’immagine successiva', nextGroup: 'Tecnologia successiva', unavailable: 'La prossima tecnologia arriverà presto.', names: ['Tre riscaldatori', 'Alette d’aria attive', 'Profili di calore programmabili', 'Oro e nitruro di titanio'] },
++  tr: { technology: 'Teknoloji', details: 'Ayrıntılar için kaydırın', horizontal: 'Görseller arasında yatay kaydırın', vertical: 'Görselin tamamını görmek için dikey kaydırın. Teknolojiyi düğmelerle değiştirin', close: 'Teknoloji görünümünü kapat', image: 'Görsel', nextImage: 'Sonraki görseli göster', nextGroup: 'Sonraki teknoloji', unavailable: 'Sonraki teknoloji yakında sunulacak.', names: ['Üç ısıtıcı', 'Aktif hava kanatları', 'Programlanabilir ısı profilleri', 'Altın ve titanyum nitrür'] },
++  ar: { technology: 'تقنية', details: 'اسحب لعرض التفاصيل', horizontal: 'اسحب أفقياً لتصفح الصور', vertical: 'مرّر عمودياً لعرض الصورة كاملة. استخدم الأزرار لتغيير التقنية', close: 'إغلاق معرض التقنيات', image: 'صورة', nextImage: 'عرض الصورة التالية', nextGroup: 'التقنية التالية', unavailable: 'التقنية التالية ستتوفر قريباً.', names: ['ثلاثة سخانات', 'زعانف هوائية نشطة', 'ملفات حرارة قابلة للبرمجة', 'الذهب ونتريد التيتانيوم'] },
++  zh: { technology: '技术', details: '滑动查看详情', horizontal: '左右滑动浏览图片', vertical: '上下滚动查看完整图片，使用按钮切换技术', close: '关闭技术图库', image: '图片', nextImage: '显示下一张图片', nextGroup: '下一项技术', unavailable: '下一项技术即将推出。', names: ['三个加热器', '主动导流翼', '可编程加热曲线', '黄金与氮化钛'] },
++  ja: { technology: 'テクノロジー', details: 'スワイプして詳細を見る', horizontal: '左右にスワイプして画像を見る', vertical: '縦にスクロールして画像全体を表示します。ボタンで技術を切り替えます', close: '技術ギャラリーを閉じる', image: '画像', nextImage: '次の画像を表示', nextGroup: '次の技術', unavailable: '次の技術は近日公開予定です。', names: ['3つのヒーター', 'アクティブエアセイル', 'プログラム可能な加熱プロファイル', '金と窒化チタン'] },
++  ko: { technology: '기술', details: '스와이프하여 상세 보기', horizontal: '좌우로 스와이프하여 이미지 보기', vertical: '세로로 스크롤하여 전체 이미지를 보고 버튼으로 기술을 전환하세요', close: '기술 갤러리 닫기', image: '이미지', nextImage: '다음 이미지 보기', nextGroup: '다음 기술', unavailable: '다음 기술은 곧 공개됩니다.', names: ['세 개의 히터', '액티브 에어 세일', '프로그래밍 가능한 열 프로필', '금과 질화 티타늄'] },
+ };
+
+ function TechnologyNavigation({ direction, label, accessibleLabel, onClick, disabled }: { direction: 'right' | 'down'; label: string; accessibleLabel: string; onClick: () => void; disabled?: boolean }) {
+@@ -51,6 +51,9 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+   const dialog = useRef<HTMLDialogElement>(null);
+   const opener = useRef<HTMLElement | null>(null);
+   const photo = useRef<HTMLDivElement>(null);
++  const contentViewport = useRef<HTMLDivElement>(null);
++  const lockedScroll = useRef(0);
++  const resetScroll = useRef(false);
+   const asset = useRef<HTMLImageElement | null>(null);
+   const pointer = useRef<{ x: number; y: number } | null>(null);
+   const displayed = useRef<Selection>({ group: 0, slide: 0 });
+@@ -81,6 +84,10 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+       asset.current.draggable = false;
+       photo.current.replaceChildren(asset.current);
+     }
++    if (resetScroll.current && contentViewport.current) {
++      resetScroll.current = false;
++      contentViewport.current.scrollTo({ top: 0, left: 0, behavior: 'instant' });
++    }
+     if (restoreGroupFocus.current && dialog.current?.open) {
+       restoreGroupFocus.current = false;
+       dialog.current.focus({ preventScroll: true });
+@@ -91,6 +98,11 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+     setShowUnavailable(false);
+     requested.current = next;
+     pending.current = true;
++    pointer.current = null;
++    const viewport = contentViewport.current;
++    lockedScroll.current = viewport?.scrollTop ?? 0;
++    // Stop an existing scroll before the pending frame freezes this viewport.
++    viewport?.scrollTo({ top: lockedScroll.current, left: 0, behavior: 'instant' });
+     setLoading(true);
+     setFailed(false);
+     const token = ++requestToken.current;
+@@ -106,6 +118,7 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+       displayed.current = next;
+       remembered.current[next.group] = next.slide;
+       asset.current = image;
++      resetScroll.current = true;
+       setHasAsset(true);
+       setSelection(next);
+       pending.current = false;
+@@ -198,7 +211,6 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+     if (!start) return;
+     const dx = event.clientX - start.x;
+     const dy = event.clientY - start.y;
+-    if (Math.abs(dy) > 65 && Math.abs(dy) > Math.abs(dx) * 1.2) { moveGroup(dy > 0 ? 1 : -1); return; }
+     if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+     move((dx < 0 ? 1 : -1) * (locale === 'ar' ? -1 : 1));
+   };
+@@ -223,20 +235,32 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+       opener.current?.focus();
+     }}
+     onKeyDown={event => {
+-      if (event.key === 'ArrowDown') { event.preventDefault(); moveGroup(1); }
+-      if (event.key === 'ArrowUp') { event.preventDefault(); moveGroup(-1); }
++      const viewport = contentViewport.current;
++      if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '].includes(event.key)) {
++        if (event.key === ' ' && (event.target as Element).closest('button')) return;
++        event.preventDefault();
++        if (!viewport || pending.current) return;
++        const direction = ['ArrowUp', 'PageUp', 'Home'].includes(event.key) || (event.key === ' ' && event.shiftKey) ? -1 : 1;
++        const distance = event.key.startsWith('Arrow') ? 40 : viewport.clientHeight * .9;
++        const top = event.key === 'Home' ? 0 : event.key === 'End' ? viewport.scrollHeight : viewport.scrollTop + direction * distance;
++        viewport.scrollTo({ top, behavior: 'instant' });
++      }
+       if (event.key === 'ArrowRight') { event.preventDefault(); move(locale === 'ar' ? -1 : 1); }
+       if (event.key === 'ArrowLeft') { event.preventDefault(); move(locale === 'ar' ? 1 : -1); }
+     }}
+   >
+     <div className="technology-viewer__canvas">
+       <div className="technology-viewer__stage" onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}>
+-        {isOpen && hasAsset && <div className="technology-viewer__content">
+-          <div className="technology-viewer__photo" ref={photo} />
+-          <TechnologyTitle descriptor={labels.technology} brand={group.title} />
+-          {selection.group === 0 && <TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={names[selection.slide]} copy={descriptions} />}
+-          {selection.group === 1 && <CyberMindDescriptions slide={slide.id as '01' | '02'} locale={locale} name={names[selection.slide]} copy={cyberMindDescriptions} />}
+-        </div>}
++        <div className="technology-viewer__scroll" ref={contentViewport} role="region" aria-label={labels.vertical} tabIndex={0} onScroll={event => {
++          if (pending.current && event.currentTarget.scrollTop !== lockedScroll.current) event.currentTarget.scrollTop = lockedScroll.current;
++        }}>
++          {isOpen && hasAsset && <div className="technology-viewer__content">
++            <div className="technology-viewer__photo" ref={photo} />
++            <TechnologyTitle descriptor={labels.technology} brand={group.title} />
++            {selection.group === 0 && <TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={names[selection.slide]} copy={descriptions} />}
++            {selection.group === 1 && <CyberMindDescriptions slide={slide.id as '01' | '02'} locale={locale} name={names[selection.slide]} copy={cyberMindDescriptions} />}
++          </div>}
++        </div>
+         {isOpen && loading && <LoadingStatus locale={locale} progress={progress} error={failed} onRetry={() => select(requested.current)} className="technology-viewer__loading" />}
+       </div>
+       {isOpen && <>
+@@ -251,6 +275,6 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+       {showUnavailable && <p className="technology-viewer__notice" role="status">{labels.unavailable}</p>}
+       <button className="technology-viewer__close" type="button" onClick={close} aria-label={labels.close}>×</button>
+     </div>
+-    <p id="technology-viewer-instructions" className="technology-viewer__sr-only">{labels.horizontal}. {labels.vertical}. {selection.group > 0 && `${groupLabels.up}. `}{labels.image} {selection.slide + 1} / {group.slides.length}.</p>
++    <p id="technology-viewer-instructions" className="technology-viewer__sr-only">{labels.horizontal}. {labels.vertical}. {selection.group > 0 && `${groupLabels.previous}. `}{labels.image} {selection.slide + 1} / {group.slides.length}.</p>
+   </dialog>;
+ }
+diff --git a/tests/e2e/site.spec.ts b/tests/e2e/site.spec.ts
+index 5c305ff..7bac7aa 100644
+--- a/tests/e2e/site.spec.ts
++++ b/tests/e2e/site.spec.ts
+@@ -257,12 +257,14 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
+   await page.keyboard.press('Escape');
+   for (const id of ['technology-experience', 'technology-repeat', 'expressions-compare', 'hero-reserve']) {
+     const trigger = page.locator(`#${id}`);
++    await trigger.scrollIntoViewIfNeeded();
++    await waitForVisibleMedia(page);
+     await trigger.focus();
+     await page.keyboard.press('Enter');
+     const dialog = page.locator('dialog:modal');
+     await expect(dialog).toBeVisible();
+     await expect(dialog).toHaveAccessibleName(/.+/);
+-    if (id.startsWith('technology')) await expect(dialog.locator('.technology-viewer__frame')).toHaveAttribute('src', /frame-template\.webp/);
++    if (id.startsWith('technology')) await expect(dialog.locator('.technology-viewer__frame')).toHaveCSS('border-image-source', /frame-template\.webp/);
+     if (id === 'expressions-compare') {
+       await expect(dialog.getByRole('columnheader')).toHaveCount(2);
+       await expect(dialog).toContainText('TiN-Coated Heater');
+@@ -282,13 +284,17 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
+     await expect(dialog).toHaveCount(0);
+     await expect(trigger).toBeFocused();
+   }
+-  await page.locator('#technology-repeat').click();
++  await openTechnology(page, page.locator('#technology-repeat'));
++  await expect(page.locator('#technology-viewer')).toHaveAttribute('aria-busy', 'false');
+   await page.keyboard.press('ArrowRight');
++  await expect(page.locator('#technology-viewer .technology-viewer__stage img')).toHaveAttribute('data-source', /03\.png/);
+   await page.keyboard.press('ArrowRight');
+-  await expect(page.locator('#technology-viewer .technology-viewer__stage img')).toHaveAttribute('src', /04\.png/);
++  await expect(page.locator('#technology-viewer .technology-viewer__stage img')).toHaveAttribute('data-source', /04\.png/);
+   await page.locator('#technology-viewer .technology-viewer__close').click();
+   await expect(page.locator('dialog:modal')).toHaveCount(0);
+   await page.goto('/ar');
++  await page.locator('#expressions-compare').scrollIntoViewIfNeeded();
++  await waitForVisibleMedia(page);
+   await page.locator('#expressions-compare').click();
+   await expect(page.locator('dialog:modal')).toBeVisible();
+   expect(await page.locator('dialog:modal').evaluate(el => getComputedStyle(el).direction)).toBe('rtl');
+diff --git a/tests/e2e/technology-loading.spec.ts b/tests/e2e/technology-loading.spec.ts
+index 103a1eb..e9af7f4 100644
+--- a/tests/e2e/technology-loading.spec.ts
++++ b/tests/e2e/technology-loading.spec.ts
+@@ -38,7 +38,7 @@ test('a partially transferred first photo stays hidden with true progress and lo
+     await viewer.locator('.technology-viewer__stage').dispatchEvent('pointerup', { pointerType: 'touch', clientX: 100, clientY: 500 });
+     expect(await page.evaluate(() => scrollY)).toBe(scroll);
+     await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
+-    await page.screenshot({ path: `docs/evidence/media-loading/${info.project.name}-pending.png` });
++    await page.screenshot({ path: `docs/evidence/technology-viewer/width-analysis/${info.project.name}-pending.png` });
+     release();
+     await expect(viewer).toHaveAttribute('aria-busy', 'false');
+     const image = viewer.locator('.technology-viewer__stage img');
+@@ -50,7 +50,7 @@ test('a partially transferred first photo stays hidden with true progress and lo
+     });
+     expect(delivered).toBe(createHash('sha256').update(bytes).digest('hex'));
+     await expect(viewer.getByRole('heading', { name: 'HeatCore Technology' })).toBeVisible();
+-    await page.screenshot({ path: `docs/evidence/media-loading/${info.project.name}-ready.png` });
++    await page.screenshot({ path: `docs/evidence/technology-viewer/width-analysis/${info.project.name}-ready.png` });
+   } finally {
+     release();
+     server.closeAllConnections();
+@@ -141,7 +141,7 @@ test('horizontal swipes stop at both ends and reverse through preceding photos',
+   await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
+ });
+
+-test('contained artwork and controls adapt to short landscape, tablet and desktop', async ({ page }, info) => {
++test('full-width proportional artwork and controls adapt to short landscape, tablet and desktop', async ({ page }, info) => {
+   await page.goto('/en');
+   await openTechnology(page);
+   const viewer = page.locator('#technology-viewer');
+@@ -161,17 +161,19 @@ test('contained artwork and controls adapt to short landscape, tablet and deskto
+     expect(bounds.cornerRatio).toBeCloseTo(29 / 31, 3);
+     expect(bounds.rightArrowRatio).toBeCloseTo(28 / 45, 2);
+     expect(bounds.downArrowRatio).toBeCloseTo(45 / 29, 2);
+-    expect(bounds.photo.left).toBeGreaterThanOrEqual(bounds.stage.left - 1);
+-    expect(bounds.photo.right).toBeLessThanOrEqual(bounds.stage.right + 1);
++    expect(bounds.photo.left).toBeCloseTo(bounds.stage.left, 1);
++    expect(bounds.photo.right).toBeCloseTo(bounds.stage.right, 1);
+     expect(bounds.photo.top).toBeGreaterThanOrEqual(bounds.stage.top - 1);
+-    expect(bounds.photo.bottom).toBeLessThanOrEqual(bounds.stage.bottom + 1);
++    // Height overflow remains reachable through the inner scroller; it is never compressed.
++    const reachable = await viewer.locator('.technology-viewer__scroll').evaluate(element => element.scrollHeight >= element.clientHeight && element.scrollWidth <= element.clientWidth);
++    expect(reachable).toBe(true);
+     expect(bounds.headerBottom).toBeLessThanOrEqual(bounds.frame.top);
+     expect(bounds.headerBottom).toBeLessThanOrEqual(bounds.dotsTop);
+     expect(bounds.dotsBottom).toBeLessThanOrEqual(bounds.frame.top);
+     expect(bounds.frame.bottom).toBeLessThanOrEqual(bounds.nextTop);
+     expect(bounds.nextBottom).toBeLessThanOrEqual(height);
+     expect(bounds.closeRight).toBeLessThanOrEqual(width);
+-    await page.screenshot({ path: `docs/evidence/media-loading/${info.project.name}-${width}x${height}.png` });
++    await page.screenshot({ path: `docs/evidence/technology-viewer/width-analysis/${info.project.name}-${width}x${height}.png` });
+   }
+ });
+
+diff --git a/tests/e2e/technology-viewer.spec.ts b/tests/e2e/technology-viewer.spec.ts
+index 37c03f5..5f86445 100644
+--- a/tests/e2e/technology-viewer.spec.ts
++++ b/tests/e2e/technology-viewer.spec.ts
+@@ -29,9 +29,9 @@ test('technology artwork keeps its native proportions as Safari chrome changes t
+     expect(bounds.frameRight).toBe(width);
+     expect(bounds.nextBottom).toBeLessThanOrEqual(height + 1);
+     expect(bounds.canvasWidth).toBe(width);
+-    if (width === 320) await page.screenshot({ path: 'docs/evidence/media-loading/ready-320x568.png' });
++    if (width === 320) await page.screenshot({ path: 'docs/evidence/technology-viewer/width-analysis/ready-320x568.png' });
+     if (height === 664) {
+-      await page.screenshot({ path: 'docs/evidence/media-loading/ready-390x664.png' });
++      await page.screenshot({ path: 'docs/evidence/technology-viewer/width-analysis/ready-390x664.png' });
+     }
+   }
+   await page.locator('.technology-viewer__next-group').click();
+@@ -42,7 +42,7 @@ test('technology artwork keeps its native proportions as Safari chrome changes t
+     await document.fonts.ready;
+     await Promise.all(images.map(image => (image as HTMLImageElement).decode()));
+   });
+-  await page.screenshot({ path: 'docs/evidence/media-loading/ready-cybermind-390x664.png' });
++  await page.screenshot({ path: 'docs/evidence/technology-viewer/width-analysis/ready-cybermind-390x664.png' });
+   await viewer.locator('.technology-viewer__close').click();
+   await expect(viewer).not.toBeVisible();
+ });
+@@ -112,7 +112,7 @@ test('technology descriptions render all source text in the decoded image coordi
+   await expect(viewer.getByRole('heading', { name: '01 UPPER HEAT' })).toBeVisible();
+   await expect(viewer.locator('[data-description-block="upper-temperature"]')).toHaveText('0–280°C');
+   await expect(viewer.locator('[data-description-block="lower-temperature"]')).toHaveText('0–160°C');
+-  await expect(viewer.locator('.technology-viewer__stage')).toHaveCSS('touch-action', 'pinch-zoom');
++  await expect(viewer.locator('.technology-viewer__stage')).toHaveCSS('touch-action', 'pan-y pinch-zoom');
+ });
+
+ test('technology viewer opens from both story controls and pages through clean images', async ({ page }, testInfo) => {
+@@ -244,9 +244,13 @@ test('technology viewer supports touch pointers, Escape and Arabic framing', asy
+   await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 200, clientY: 350 });
+   await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 200, clientY: 550 });
+   await expect(viewer).toBeVisible();
++  await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
++  await viewer.locator('.technology-viewer__next-group').click();
+   await expect(viewer).toHaveAttribute('data-group', 'CyberMind');
+   await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 200, clientY: 350 });
+   await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 200, clientY: 550 });
++  await expect(viewer.getByRole('status')).toHaveCount(0);
++  await viewer.locator('.technology-viewer__next-group').click();
+   await expect(viewer.getByRole('status')).toHaveText('التقنية التالية ستتوفر قريباً.');
+   await viewer.locator('.technology-viewer__next-group').focus();
+   await page.keyboard.press('Enter');
+@@ -501,14 +505,14 @@ test('CyberMind PNGs retain native RGB, alpha and resolution outside title glyph
+   }
+ });
+
+-test('CyberMind uses two interactive slides, a live title and two-axis navigation', async ({ page }, testInfo) => {
++test('CyberMind uses two interactive slides, a live title and explicit group navigation', async ({ page }, testInfo) => {
+   await page.goto('/en');
+   await openTechnology(page);
+   const viewer=page.locator('#technology-viewer'), stage=viewer.locator('.technology-viewer__stage');
+   await viewer.locator('.technology-viewer__dots button').nth(2).click();
+   await expect(stage.locator('img')).toHaveAttribute('data-source','/art/technology/04.png');
+   await viewer.locator('.technology-viewer__dots button').nth(3).focus();
+-  await page.keyboard.press('ArrowDown');
++  await viewer.locator('.technology-viewer__next-group').click();
+   await expect(viewer).toHaveAttribute('data-group','CyberMind');
+   await expect(viewer).toHaveAccessibleName('CyberMind Technology');
+   await expect(viewer).toBeFocused();
+@@ -539,12 +543,14 @@ test('CyberMind uses two interactive slides, a live title and two-axis navigatio
+   await expect(stage.locator('img')).toHaveAttribute('data-source','/art/technology/cybermind/01.png');
+   await viewer.locator('.technology-viewer__next-group').click();
+   await expect(viewer.getByRole('status')).toHaveText('The next technology is coming soon.');
+-  await page.keyboard.press('ArrowUp');
++  await viewer.locator('.technology-viewer__previous-group').click();
+   await expect(viewer).toHaveAttribute('data-group','HeatCore');
+   await expect(stage.locator('img')).toHaveAttribute('data-source','/art/technology/04.png');
+   await expect(viewer.getByRole('status')).toHaveCount(0);
+   await stage.dispatchEvent('pointerdown',{pointerType:'touch',clientX:200,clientY:300});
+   await stage.dispatchEvent('pointerup',{pointerType:'touch',clientX:200,clientY:450});
++  await expect(viewer).toHaveAttribute('data-group','HeatCore');
++  await viewer.locator('.technology-viewer__next-group').click();
+   await expect(viewer).toHaveAttribute('data-group','CyberMind');
+   await back.click();
+   await expect(viewer).toHaveAttribute('data-group','HeatCore');
+@@ -596,7 +602,7 @@ test('pending slide locks navigation and commits only fully loaded selection', a
+   release();
+   await expect(stage.locator('img')).toHaveAttribute('data-source', '/art/technology/cybermind/02.png');
+   await expect(viewer).toHaveAttribute('aria-busy', 'false');
+-  await page.keyboard.press('ArrowUp');
++  await viewer.locator('.technology-viewer__previous-group').click();
+   await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
+ });
+
+import { expect, test } from '@playwright/test';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { openTechnology } from './helpers/technology';
+
+const evidence = 'docs/evidence/technology-viewer/width-analysis';
+
+test('every technology photo fills the frame width without distortion and its bottom stays reachable', async ({ page }, info) => {
+  test.setTimeout(120_000);
+  await mkdir(evidence, { recursive: true });
+  await page.goto('/en');
+  await openTechnology(page);
+  const viewer = page.locator('#technology-viewer');
+  const scroller = viewer.locator('.technology-viewer__scroll');
+  await expect(viewer).toHaveAttribute('aria-busy', 'false');
+  await page.evaluate(() => document.fonts.ready);
+  const results = [];
+  const baseline = info.project.use.viewport!;
+  for (const size of [baseline, { width: 390, height: 664 }, { width: 615, height: 849 }, { width: 844, height: 390 }, { width: 768, height: 1024 }, { width: 320, height: 568 }, { width: 390, height: 732 }, { width: 390, height: 844 }]) {
+    await page.setViewportSize(size);
+    for (let group = 0; group < 2; group++) {
+      if (group === 0 && await viewer.getAttribute('data-group') === 'CyberMind') await viewer.locator('.technology-viewer__previous-group').click();
+      if (group === 1) await viewer.locator('.technology-viewer__next-group').click();
+      await expect(viewer).toHaveAttribute('data-group', group ? 'CyberMind' : 'HeatCore');
+      for (let slide = 0; slide < (group ? 2 : 4); slide++) {
+        await viewer.locator('.technology-viewer__dots button').nth(slide).click();
+        await expect(viewer).toHaveAttribute('aria-busy', 'false');
+        await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', group ? `/art/technology/cybermind/0${slide + 1}.png` : `/art/technology/0${slide + 2}.png`);
+        // Same-slide selection is a no-op; bring its top into view explicitly for this geometry probe.
+        await scroller.focus();
+        await page.keyboard.press('Home');
+        const top = await viewer.evaluate(element => {
+          const rect = (selector: string) => { const r = element.querySelector(selector)!.getBoundingClientRect(); return { left: r.left, top: r.top, width: r.width, height: r.height, bottom: r.bottom }; };
+          const scroll = element.querySelector('.technology-viewer__scroll')!;
+          return { width: innerWidth, dpr: devicePixelRatio, frame: rect('.technology-viewer__frame'), cutout: rect('.technology-viewer__stage'), plane: rect('.technology-viewer__content'), photo: rect('.technology-viewer__photo img'), title: rect('.technology-viewer__title'), copy: rect('.technology-viewer__descriptions'), scroll: { top: scroll.scrollTop, height: scroll.scrollHeight, client: scroll.clientHeight }, documentX: scrollX, documentY: scrollY };
+        });
+        expect(top.width).toBe(size.width);
+        if (info.project.use.isMobile) expect(top.dpr).toBe(3);
+        expect(top.frame.left).toBe(0);
+        expect(top.frame.width).toBe(size.width);
+        expect(top.photo.width).toBeCloseTo(top.cutout.width, 1);
+        expect(top.photo.left).toBeCloseTo(top.cutout.left, 1);
+        expect(top.photo.width / top.photo.height).toBeCloseTo(941 / 1672, 4);
+        for (const layer of [top.photo, top.title, top.copy]) {
+          expect(layer.left).toBeCloseTo(top.plane.left, 1);
+          expect(layer.top).toBeCloseTo(top.plane.top, 1);
+          expect(layer.width).toBeCloseTo(top.plane.width, 1);
+          expect(layer.height).toBeCloseTo(top.plane.height, 1);
+        }
+        const capture = (size === baseline && info.project.use.isMobile) || (size.width === 390 && size.height === 664 && info.project.name === 'iphone-17-pro-webkit');
+        if (capture) await page.screenshot({ path: `${evidence}/${info.project.name}-${size.width}x${size.height}-g${group}-s${slide}-top.png` });
+        await page.keyboard.press('End');
+        const bottom = await scroller.evaluate(element => ({ top: element.scrollTop, max: element.scrollHeight - element.clientHeight, width: element.scrollWidth, clientWidth: element.clientWidth, photoBottom: element.querySelector('img')!.getBoundingClientRect().bottom, viewportBottom: element.getBoundingClientRect().bottom, y: scrollY }));
+        expect(bottom.top).toBeCloseTo(bottom.max, 0);
+        expect(bottom.width).toBeLessThanOrEqual(bottom.clientWidth);
+        expect(bottom.photoBottom).toBeLessThanOrEqual(bottom.viewportBottom + 1);
+        expect(bottom.y).toBe(top.documentY);
+        if (capture && bottom.max > 0) await page.screenshot({ path: `${evidence}/${info.project.name}-${size.width}x${size.height}-g${group}-s${slide}-bottom.png` });
+        results.push({ size, group, slide, top, bottom });
+      }
+    }
+  }
+  await writeFile(`${evidence}/${info.project.name}-width-matrix.json`, JSON.stringify(results, null, 2) + '\n');
+});
+
+test('inner scroll freezes at pending and failed frames, then resets after decoded commit', async ({ page }, info) => {
+  await page.setViewportSize({ width: 390, height: 664 });
+  let release!: () => void;
+  const gate = new Promise<void>(resolve => { release = resolve; });
+  let failed = true;
+  await page.route('**/art/technology/03.png', async route => { await gate; if (failed) await route.fulfill({ status: 503 }); else await route.continue(); });
+  try {
+    await page.goto('/en');
+    await openTechnology(page);
+    const viewer = page.locator('#technology-viewer');
+    const scroller = viewer.locator('.technology-viewer__scroll');
+    await expect(viewer).toHaveAttribute('aria-busy', 'false');
+    await scroller.focus();
+    await page.keyboard.press('End');
+    const frozen = await scroller.evaluate(element => element.scrollTop);
+    expect(frozen).toBeGreaterThan(100);
+    const pageY = await page.evaluate(() => scrollY);
+    await viewer.locator('.technology-viewer__next-image').click();
+    await expect(viewer).toHaveAttribute('aria-busy', 'true');
+    await page.keyboard.press('Home');
+    await page.keyboard.press('ArrowDown');
+    await page.keyboard.press('PageDown');
+    if (!info.project.use.isMobile) { await scroller.hover(); await page.mouse.wheel(0, -600); }
+    await scroller.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 200, clientY: 450 });
+    await scroller.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 200, clientY: 300 });
+    // Simulate an already queued scroll at the loading boundary, separately from native input.
+    await scroller.evaluate(element => { element.scrollTop = 0; });
+    await expect.poll(() => scroller.evaluate(element => element.scrollTop)).toBeCloseTo(frozen, 0);
+    await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
+    await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', '/art/technology/02.png');
+    await page.screenshot({ path: `${evidence}/${info.project.name}-pending-inner-scroll.png` });
+    release();
+    await expect(viewer.getByRole('button', { name: 'Retry', exact: true })).toBeVisible();
+    await page.keyboard.press('End');
+    expect(await scroller.evaluate(element => element.scrollTop)).toBeCloseTo(frozen, 0);
+    failed = false;
+    await viewer.getByRole('button', { name: 'Retry', exact: true }).click();
+    await expect(viewer).toHaveAttribute('aria-busy', 'false');
+    await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', '/art/technology/03.png');
+    expect(await scroller.evaluate(element => element.scrollTop)).toBe(0);
+    expect(await page.evaluate(() => scrollY)).toBe(pageY);
+    await scroller.focus();
+    await page.keyboard.press('ArrowDown');
+    expect(await scroller.evaluate(element => element.scrollTop)).toBeGreaterThan(0);
+    await page.keyboard.press('End');
+    await page.keyboard.press('ArrowDown');
+    await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
+    await viewer.locator('.technology-viewer__next-group').click();
+    await expect(viewer).toHaveAttribute('data-group', 'CyberMind');
+    expect(await scroller.evaluate(element => element.scrollTop)).toBe(0);
+    await scroller.focus();
+    await page.keyboard.press('End');
+    await viewer.locator('.technology-viewer__close').click();
+    await openTechnology(page);
+    await expect(viewer).toHaveAttribute('aria-busy', 'false');
+    expect(await scroller.evaluate(element => element.scrollTop)).toBe(0);
+  } finally { release(); }
+});
+
+test('native desktop wheel pans the picture without moving the page or changing technology', async ({ page }, info) => {
+  test.skip(!!info.project.use.isMobile, 'Native mobile touch is checked with the Chromium touch protocol separately; mobile keyboard is checked above.');
+  await page.setViewportSize({ width: 615, height: 849 });
+  await page.goto('/en');
+  await openTechnology(page);
+  const viewer = page.locator('#technology-viewer');
+  const scroller = viewer.locator('.technology-viewer__scroll');
+  await expect(viewer).toHaveAttribute('aria-busy', 'false');
+  const y = await page.evaluate(() => scrollY);
+  await scroller.hover();
+  await page.mouse.wheel(0, 200);
+  await expect.poll(() => scroller.evaluate(element => element.scrollTop)).toBeGreaterThan(100);
+  await page.mouse.wheel(0, 3000);
+  await expect.poll(() => scroller.evaluate(element => Math.abs(element.scrollHeight - element.clientHeight - element.scrollTop))).toBeLessThan(1);
+  await page.mouse.wheel(0, 200);
+  await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
+  expect(await page.evaluate(() => scrollY)).toBe(y);
+  await page.mouse.wheel(0, -3000);
+  await expect.poll(() => scroller.evaluate(element => element.scrollTop)).toBe(0);
+});
+
+test('native touch pans vertically, swipes horizontally and freezes during download', async ({ browser }, info) => {
+  test.skip(info.project.use.browserName !== 'chromium', 'Chromium native touch protocol; WebKit/Firefox have no matching public swipe API.');
+  const context = await browser.newContext({ viewport: { width: 390, height: 664 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
+  const page = await context.newPage();
+  let release!: () => void;
+  const gate = new Promise<void>(resolve => { release = resolve; });
+  await page.route('**/art/technology/03.png', async route => { await gate; await route.continue(); });
+  try {
+    await page.goto(`${process.env.BASE_URL ?? 'http://127.0.0.1:3000'}/en`);
+    await openTechnology(page);
+    const viewer = page.locator('#technology-viewer');
+    const scroller = viewer.locator('.technology-viewer__scroll');
+    await expect(viewer).toHaveAttribute('aria-busy', 'false');
+    const y = await page.evaluate(() => scrollY);
+    const touch = await context.newCDPSession(page);
+    const swipe = async (start: [number, number], end: [number, number]) => {
+      await touch.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: start[0], y: start[1] }] });
+      for (let step = 1; step <= 10; step++) {
+        await touch.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: start[0] + (end[0] - start[0]) * step / 10, y: start[1] + (end[1] - start[1]) * step / 10 }] });
+        await page.waitForTimeout(16); // Real gesture duration; lets the browser recognize native panning.
+      }
+      await touch.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+    };
+    await swipe([220, 440], [220, 290]);
+    await expect.poll(() => scroller.evaluate(element => element.scrollTop)).toBeGreaterThan(80);
+    await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
+    expect(await page.evaluate(() => scrollY)).toBe(y);
+    await page.screenshot({ path: `${evidence}/native-touch-scrolled.png` });
+    await swipe([300, 350], [70, 350]);
+    await expect(viewer).toHaveAttribute('aria-busy', 'true');
+    const frozen = await scroller.evaluate(element => element.scrollTop);
+    await swipe([220, 440], [220, 290]);
+    expect(await scroller.evaluate(element => element.scrollTop)).toBeCloseTo(frozen, 0);
+    expect(await page.evaluate(() => scrollY)).toBe(y);
+    await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', '/art/technology/02.png');
+    await page.screenshot({ path: `${evidence}/native-touch-pending.png` });
+    release();
+    await expect(viewer).toHaveAttribute('aria-busy', 'false');
+    await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', '/art/technology/03.png');
+    expect(await scroller.evaluate(element => element.scrollTop)).toBe(0);
+    await swipe([80, 350], [300, 350]);
+    await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', '/art/technology/02.png');
+    await swipe([80, 350], [300, 350]);
+    await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', '/art/technology/02.png');
+    await page.screenshot({ path: `${evidence}/native-touch-ready.png` });
+    await viewer.locator('.technology-viewer__close').click();
+    await page.goto(`${process.env.BASE_URL ?? 'http://127.0.0.1:3000'}/ar`);
+    await openTechnology(page);
+    await expect(viewer).toHaveAttribute('aria-busy', 'false');
+    await swipe([80, 350], [300, 350]);
+    await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', '/art/technology/03.png');
+    await swipe([300, 350], [80, 350]);
+    await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', '/art/technology/02.png');
+    await swipe([220, 440], [220, 290]);
+    await expect.poll(() => scroller.evaluate(element => element.scrollTop)).toBeGreaterThan(80);
+    await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
+    await page.screenshot({ path: `${evidence}/native-touch-arabic.png` });
+  } finally { release(); await context.close(); }
+});
+
+test('all six full-width compositions keep translated text usable in eleven locales', async ({ page }, info) => {
+  test.setTimeout(120_000);
+  await page.setViewportSize({ width: 390, height: 664 });
+  for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
+    await page.goto(`/${locale}`);
+    await openTechnology(page);
+    const viewer = page.locator('#technology-viewer');
+    const scroller = viewer.locator('.technology-viewer__scroll');
+    await expect(scroller).toHaveAccessibleName(/.+/);
+    for (let group = 0; group < 2; group++) {
+      if (group === 1) await viewer.locator('.technology-viewer__next-group').click();
+      await expect(viewer).toHaveAttribute('data-group', group ? 'CyberMind' : 'HeatCore');
+      for (let slide = 0; slide < (group ? 2 : 4); slide++) {
+        await viewer.locator('.technology-viewer__dots button').nth(slide).click();
+        await expect(viewer).toHaveAttribute('aria-busy', 'false');
+        await page.evaluate(() => document.fonts.ready);
+        const blocks = await viewer.locator('.technology-description__box').evaluateAll(elements => elements.map(element => ({ width: element.firstElementChild?.scrollWidth ?? 0, maxWidth: element.clientWidth, height: element.firstElementChild?.scrollHeight ?? 0, maxHeight: element.clientHeight })));
+        for (const block of blocks) {
+          expect(block.width).toBeLessThanOrEqual(block.maxWidth + 1);
+          expect(block.height).toBeLessThanOrEqual(block.maxHeight + 1);
+        }
+        if (locale === 'ar') await expect(viewer.locator('.technology-description__box').first()).toHaveAttribute('dir', 'rtl');
+        await scroller.focus();
+        await page.keyboard.press('End');
+        expect(await scroller.evaluate(element => Math.abs(element.scrollHeight - element.clientHeight - element.scrollTop))).toBeLessThan(1);
+        if (locale === 'ar' && info.project.name === 'iphone-17-pro-webkit') await page.screenshot({ path: `${evidence}/arabic-short-g${group}-s${slide}-bottom.png` });
+      }
+    }
+    await viewer.locator('.technology-viewer__close').click();
+  }
+});
+
+exec
+/bin/zsh -lc "nl -ba components/TechnologyViewer.tsx | sed -n '45,330p'; sed -n '1,100p' AGENTS.md" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 114ms:
+    45	      <Image src={index === slideIndex ? '/art/technology/dot-active.png' : '/art/technology/dot-inactive.png'} width={29} height={29} alt="" aria-hidden="true" unoptimized />
+    46	    </button>)}
+    47	  </div>;
+    48	}
+    49
+    50	export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }: { locale: Locale; descriptions: TechnologyDescriptionCopy; cyberMindDescriptions: CyberMindCopy }) {
+    51	  const dialog = useRef<HTMLDialogElement>(null);
+    52	  const opener = useRef<HTMLElement | null>(null);
+    53	  const photo = useRef<HTMLDivElement>(null);
+    54	  const contentViewport = useRef<HTMLDivElement>(null);
+    55	  const lockedScroll = useRef(0);
+    56	  const resetScroll = useRef(false);
+    57	  const asset = useRef<HTMLImageElement | null>(null);
+    58	  const pointer = useRef<{ x: number; y: number } | null>(null);
+    59	  const displayed = useRef<Selection>({ group: 0, slide: 0 });
+    60	  const requested = useRef<Selection>({ group: 0, slide: 0 });
+    61	  const remembered = useRef([0, 0]);
+    62	  const requestToken = useRef(0);
+    63	  const restoreGroupFocus = useRef(false);
+    64	  const pending = useRef(false);
+    65	  const unsubscribe = useRef<(() => void) | null>(null);
+    66	  const [isOpen, setIsOpen] = useState(false);
+    67	  const [selection, setSelection] = useState<Selection>({ group: 0, slide: 0 });
+    68	  const [showUnavailable, setShowUnavailable] = useState(false);
+    69	  const [hasAsset, setHasAsset] = useState(false);
+    70	  const [loading, setLoading] = useState(false);
+    71	  const [failed, setFailed] = useState(false);
+    72	  const [progress, setProgress] = useState<number | null>(null);
+    73	  useScrollLock(isOpen);
+    74	  const labels = copy[locale];
+    75	  const groupLabels = technologyGroupCopy[locale];
+    76	  const group = technologyGroups[selection.group];
+    77	  const slide = group.slides[selection.slide];
+    78	  const names = selection.group === 0 ? labels.names : groupLabels.names;
+    79	  useLayoutEffect(() => {
+    80	    // A disabled navigation button can lose focus to the document in desktop browsers.
+    81	    if (loading && dialog.current?.open) dialog.current.focus({ preventScroll: true });
+    82	    if (asset.current && photo.current) {
+    83	      asset.current.alt = `${group.title} — ${names[selection.slide]}`;
+    84	      asset.current.draggable = false;
+    85	      photo.current.replaceChildren(asset.current);
+    86	    }
+    87	    if (resetScroll.current && contentViewport.current) {
+    88	      resetScroll.current = false;
+    89	      contentViewport.current.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    90	    }
+    91	    if (restoreGroupFocus.current && dialog.current?.open) {
+    92	      restoreGroupFocus.current = false;
+    93	      dialog.current.focus({ preventScroll: true });
+    94	    }
+    95	  }, [hasAsset, loading, group.title, names, selection.slide, selection.group]);
+    96
+    97	  const select = useCallback((next: Selection) => {
+    98	    setShowUnavailable(false);
+    99	    requested.current = next;
+   100	    pending.current = true;
+   101	    pointer.current = null;
+   102	    const viewport = contentViewport.current;
+   103	    lockedScroll.current = viewport?.scrollTop ?? 0;
+   104	    // Stop an existing scroll before the pending frame freezes this viewport.
+   105	    viewport?.scrollTo({ top: lockedScroll.current, left: 0, behavior: 'instant' });
+   106	    setLoading(true);
+   107	    setFailed(false);
+   108	    const token = ++requestToken.current;
+   109	    unsubscribe.current?.();
+   110	    const resource = loadImage(technologyGroups[next.group].slides[next.slide].src, 'high');
+   111	    const update = (value: typeof resource.progress) => setProgress(value.total ? Math.round(value.loaded / value.total * 100) : null);
+   112	    update(resource.progress);
+   113	    unsubscribe.current = resource.subscribe(update);
+   114	    resource.ready.then(image => {
+   115	      if (token !== requestToken.current || !dialog.current?.open) return;
+   116	      const active = document.activeElement;
+   117	      restoreGroupFocus.current = next.group !== displayed.current.group && active instanceof Element && !!active.closest('.technology-viewer__dots, .technology-viewer__previous-group');
+   118	      displayed.current = next;
+   119	      remembered.current[next.group] = next.slide;
+   120	      asset.current = image;
+   121	      resetScroll.current = true;
+   122	      setHasAsset(true);
+   123	      setSelection(next);
+   124	      pending.current = false;
+   125	      setLoading(false);
+   126	      unsubscribe.current?.();
+   127	    }).catch(() => {
+   128	      if (token !== requestToken.current || !dialog.current?.open) return;
+   129	      setFailed(true);
+   130	      // Keep navigation locked until retry or close; the current complete frame stays visible.
+   131	      unsubscribe.current?.();
+   132	    });
+   133	  }, []);
+   134
+   135	  useEffect(() => {
+   136	    let timer: ReturnType<typeof setTimeout> | undefined;
+   137	    const warm = () => {
+   138	      // Run after load dispatch; never compete with the initial page resources.
+   139	      timer = setTimeout(() => {
+   140	        technologyGroups.forEach(group => group.slides.slice(0, 2).forEach(slide => { void loadImage(slide.src).ready.catch(() => {}); }));
+   141	      }, 0);
+   142	    };
+   143	    if (document.readyState === 'complete') warm();
+   144	    else window.addEventListener('load', warm, { once: true });
+   145	    return () => {
+   146	      window.removeEventListener('load', warm);
+   147	      clearTimeout(timer);
+   148	    };
+   149	  }, []);
+   150
+   151	  useLayoutEffect(() => {
+   152	    const dialogElement = dialog.current;
+   153	    const open = (event: MouseEvent) => {
+   154	      const target = event.target;
+   155	      if (!(target instanceof Element)) return;
+   156	      const trigger = target.closest<HTMLElement>('[data-technology-open]');
+   157	      if (!trigger || !dialogElement || dialogElement.open) return;
+   158	      event.preventDefault();
+   159	      opener.current = trigger;
+   160	      requestToken.current++;
+   161	      displayed.current = { group: 0, slide: 0 };
+   162	      requested.current = displayed.current;
+   163	      remembered.current = [0, 0];
+   164	      setSelection(displayed.current);
+   165	      asset.current = null;
+   166	      setHasAsset(false);
+   167	      setShowUnavailable(false);
+   168	      restoreGroupFocus.current = false;
+   169	      setIsOpen(true);
+   170	      dialogElement.showModal();
+   171	      dialogElement.focus({ preventScroll: true });
+   172	      select(displayed.current);
+   173	      technologyGroups.forEach(group => group.slides.forEach(slide => { void loadImage(slide.src).ready.catch(() => {}); }));
+   174	    };
+   175	    document.addEventListener('click', open);
+   176	    return () => {
+   177	      document.removeEventListener('click', open);
+   178	      unsubscribe.current?.();
+   179	    };
+   180	  }, [select]);
+   181
+   182	  const close = () => dialog.current?.close();
+   183	  const showSlide = (position: number, groupIndex = displayed.current.group) => {
+   184	    const length = technologyGroups[groupIndex].slides.length;
+   185	    if (pending.current || position < 0 || position >= length) return;
+   186	    if (groupIndex === displayed.current.group && position === displayed.current.slide) return;
+   187	    select({ group: groupIndex, slide: position });
+   188	  };
+   189	  const move = (delta: number) => {
+   190	    if (pending.current) return;
+   191	    setShowUnavailable(false);
+   192	    const current = displayed.current;
+   193	    showSlide(current.slide + delta, current.group);
+   194	  };
+   195	  const moveGroup = (delta: number) => {
+   196	    if (pending.current) return;
+   197	    const currentGroup = displayed.current.group;
+   198	    const nextGroup = currentGroup + delta;
+   199	    if (nextGroup < 0) return;
+   200	    if (nextGroup >= technologyGroups.length) { setShowUnavailable(true); return; }
+   201	    select({ group: nextGroup, slide: remembered.current[nextGroup] });
+   202	  };
+   203	  const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+   204	    if (pending.current) return;
+   205	    pointer.current = { x: event.clientX, y: event.clientY };
+   206	    try { event.currentTarget.setPointerCapture(event.pointerId); } catch { /* Synthetic test events do not own a pointer. */ }
+   207	  };
+   208	  const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
+   209	    const start = pointer.current;
+   210	    pointer.current = null;
+   211	    if (!start) return;
+   212	    const dx = event.clientX - start.x;
+   213	    const dy = event.clientY - start.y;
+   214	    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+   215	    move((dx < 0 ? 1 : -1) * (locale === 'ar' ? -1 : 1));
+   216	  };
+   217
+   218	  return <dialog
+   219	    ref={dialog}
+   220	    id="technology-viewer"
+   221	    className="technology-viewer"
+   222	    aria-labelledby={isOpen && hasAsset ? 'technology-viewer-title' : undefined}
+   223	    aria-label={isOpen && hasAsset ? undefined : group.title}
+   224	    data-group={group.title}
+   225	    aria-busy={loading}
+   226	    aria-describedby="technology-viewer-instructions"
+   227	    tabIndex={-1}
+   228	    onClose={() => {
+   229	      requestToken.current++;
+   230	      restoreGroupFocus.current = false;
+   231	      setIsOpen(false);
+   232	      pending.current = false;
+   233	      unsubscribe.current?.();
+   234	      setLoading(false);
+   235	      opener.current?.focus();
+   236	    }}
+   237	    onKeyDown={event => {
+   238	      const viewport = contentViewport.current;
+   239	      if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '].includes(event.key)) {
+   240	        if (event.key === ' ' && (event.target as Element).closest('button')) return;
+   241	        event.preventDefault();
+   242	        if (!viewport || pending.current) return;
+   243	        const direction = ['ArrowUp', 'PageUp', 'Home'].includes(event.key) || (event.key === ' ' && event.shiftKey) ? -1 : 1;
+   244	        const distance = event.key.startsWith('Arrow') ? 40 : viewport.clientHeight * .9;
+   245	        const top = event.key === 'Home' ? 0 : event.key === 'End' ? viewport.scrollHeight : viewport.scrollTop + direction * distance;
+   246	        viewport.scrollTo({ top, behavior: 'instant' });
+   247	      }
+   248	      if (event.key === 'ArrowRight') { event.preventDefault(); move(locale === 'ar' ? -1 : 1); }
+   249	      if (event.key === 'ArrowLeft') { event.preventDefault(); move(locale === 'ar' ? 1 : -1); }
+   250	    }}
+   251	  >
+   252	    <div className="technology-viewer__canvas">
+   253	      <div className="technology-viewer__stage" onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}>
+   254	        <div className="technology-viewer__scroll" ref={contentViewport} role="region" aria-label={labels.vertical} tabIndex={0} onScroll={event => {
+   255	          if (pending.current && event.currentTarget.scrollTop !== lockedScroll.current) event.currentTarget.scrollTop = lockedScroll.current;
+   256	        }}>
+   257	          {isOpen && hasAsset && <div className="technology-viewer__content">
+   258	            <div className="technology-viewer__photo" ref={photo} />
+   259	            <TechnologyTitle descriptor={labels.technology} brand={group.title} />
+   260	            {selection.group === 0 && <TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={names[selection.slide]} copy={descriptions} />}
+   261	            {selection.group === 1 && <CyberMindDescriptions slide={slide.id as '01' | '02'} locale={locale} name={names[selection.slide]} copy={cyberMindDescriptions} />}
+   262	          </div>}
+   263	        </div>
+   264	        {isOpen && loading && <LoadingStatus locale={locale} progress={progress} error={failed} onRetry={() => select(requested.current)} className="technology-viewer__loading" />}
+   265	      </div>
+   266	      {isOpen && <>
+   267	        <div className="technology-viewer__frame" aria-hidden="true" />
+   268	        <TechnologyNavigation direction="right" label={labels.details} accessibleLabel={labels.nextImage} onClick={() => move(1)} disabled={loading || selection.slide === group.slides.length - 1} />
+   269	        <TechnologyPagination index={selection.slide} labels={labels} names={names} onSelect={position => showSlide(position)} disabled={loading} />
+   270	        <TechnologyNavigation direction="down" label={labels.nextGroup} accessibleLabel={labels.nextGroup} onClick={() => moveGroup(1)} disabled={loading} />
+   271	        {selection.group > 0 && <button className="technology-viewer__previous-group" type="button" onClick={() => moveGroup(-1)} disabled={loading} aria-label={groupLabels.previous} title={groupLabels.previous}>
+   272	          <Image src="/art/technology/arrow-down.png" width={45} height={29} alt="" aria-hidden="true" unoptimized />
+   273	        </button>}
+   274	      </>}
+   275	      {showUnavailable && <p className="technology-viewer__notice" role="status">{labels.unavailable}</p>}
+   276	      <button className="technology-viewer__close" type="button" onClick={close} aria-label={labels.close}>×</button>
+   277	    </div>
+   278	    <p id="technology-viewer-instructions" className="technology-viewer__sr-only">{labels.horizontal}. {labels.vertical}. {selection.group > 0 && `${groupLabels.previous}. `}{labels.image} {selection.slide + 1} / {group.slides.length}.</p>
+   279	  </dialog>;
+   280	}
+# Ramsider UNO — project rules
+
+Build the new product site from `design/references/`. **Design and implement for iPhone 17 Pro first, then verify iPhone 17 Pro Max; adapt responsively to every other screen size.** The real mobile page must match the supplied reference while loading quickly and working accessibly. One user request should produce one complete delivery: perform as many internal inspect → implement → verify → fix cycles as needed, then code review, performance work, and final re-verification. Visual slices are internal work units; finish and integrate the whole requested page or feature before delivery. Do not hand the user a first draft to find ordinary defects. “Done” means every applicable gate has passed with evidence, not that code compiles or that zero bugs have been assumed.
+
+These are the mandatory rules. [docs/discipline.md](docs/discipline.md) defines stage gates and failure routing; [CONTEXT_INDEX.md](CONTEXT_INDEX.md) routes to other details. For substantive project work, read the short [MEMORY.md](MEMORY.md) for current state, then only the topic files relevant to the task. `PROMPT.txt` and `SUMMARY.txt` are source records for unresolved questions; current user instructions and current assets take precedence over their examples or suggestions.
+
+## Mandatory change and defect log
+
+[CHANGELOG.md](CHANGELOG.md) is the authoritative record of **every logical project change and every discovered defect**, including code, assets, content, mappings, tests, documentation, configuration, user corrections and agent-discovered regressions. The agent maintains it **without a user reminder or a separate permission request**: create/update the entry at discovery, record the solution and changed files when applied, then append verification and approval before delivery. Search relevant IDs when resuming work; do not wait until the final answer to reconstruct the history.
+
+Use the journal's required fields and lifecycle. Record what was wrong/missing/different, expected result, reference/request, cause, solution, intermediate mapping/specification and how it was applied, changed paths, checks and evidence. Every claimed fix needs a dated **technical approval**, naming the verifier and its evidence (and independent auditor when applicable). `APPLIED_UNVERIFIED` is not `VERIFIED`; blocked/skipped checks cannot supply approval. Explicit user approval is a separate field: never invent it or require it for routine authorized fixes. Reopen a failed fix under the same ID and preserve the previous verdict and failure history. Track remaining defects as open entries, even when outside the current task.
+
+For every defect, explain the agent's observable mistaken decision/action, the missed check, responsibility with evidence, and a concrete behavior change. Distinguish genuinely changed/missing inputs from agent failures; do not blame the user merely because an input was absent. Unknown causes stay explicit. Link repeatable causes to LESSONS and an Agent Eval case with its actual run status; a fixed UI does not prove improved agent behavior. Before similar work or a fresh rebuild, retrieve those lessons and turn prevention into acceptance checks. Repository memory improves instructions/context, not model weights.
+
+Small edits may use a short entry, but cannot omit logging or proportionate verification. Group related edits under one logical ID; do not log every tool call. A delivery is incomplete if its journal records or required technical approval are missing. MEMORY describes current state; LESSONS explains reusable prevention; neither replaces CHANGELOG.
+
+## Work in stages
+
+1. **Understand before coding.** Check repository state, [MEMORY.md](MEMORY.md), relevant lessons, and the requested scope. Inspect `design/references/background.png` first, then `background_text.png`, then relevant fonts, button artwork, and source layers. Crop the 941 × 32,127 reference into legible sections. Map content, controls, art layers, section boundaries, and the source-to-CSS viewport scale; set observable acceptance checks and identify unverified product facts. Use [DESIGN.md](DESIGN.md) and [PRODUCT.md](PRODUCT.md). **Exit:** the target slice, assets, behavior, and comparison method are understood; unresolved inputs are explicit.
+2. **Implement one visual slice.** Build for the Pro baseline first, using the clean background as artwork and semantic HTML/CSS for text and controls. Keep text translatable and controls usable; no inert CTA or invented checkout. Reproduce reference copy in the local build while tracking unverified factual claims for publication. Use Next.js + React + strict TypeScript with the framework's own build toolchain; choose each route's rendering mode and Server/Client boundaries from its data and interaction needs. Do not revive the deleted app. Use [ARCHITECTURE.md](ARCHITECTURE.md). **Exit:** the slice renders and its required behavior works; continue through all slices in the requested scope.
+3. **Verify the actual pixels.** Open the running page in a real browser at the iPhone 17 Pro viewport, then verify Pro Max. Confirm the page's actual CSS layout width matches each test profile (the viewport meta tag must be correct). Wait for fonts/images and capture screenshots. Compare the Pro image to the calibrated reference crop; inspect Pro Max as a responsive target unless it has its own reference. The verifier must see screenshots, not only DOM/CSS measurements. Fix material differences and capture again. Use a tolerant pixel diff as a second signal when aligned. Use [docs/visual-qa.md](docs/visual-qa.md). **Exit:** no material mismatch remains in the supported target composition; otherwise keep iterating or report a concrete external blocker without saying “done.”
+4. **Check behavior and adaptation.** Test relevant clicks, hover, scroll, navigation, forms, menus, animation states, keyboard access, Arabic RTL, mobile safe areas, and representative tablet/desktop widths. Check overflow, clipping, crops, wraps, spacing, and tile seams. Use [docs/mobile.md](docs/mobile.md). **Exit:** required states work at the sizes they support.
+5. **Review and optimize.** For code changes, run Codex's native `/review` on the actual diff before delivery (CLI equivalent when needed), examine every actionable finding, fix it, and rerun affected checks. Run available type, lint, test, and production-build checks. Review component boundaries, duplication, accessibility, and unused code. Measure first render, LCP/INP/CLS where measurable, network bytes, JavaScript, layout shifts, and scroll smoothness in a production build. Reassess static, request-time server, and client rendering against measured latency, freshness, and client cost; change strategy where it improves the result. Fix meaningful problems, then repeat affected visual/browser checks. Use [QUALITY.md](QUALITY.md) and [PERFORMANCE.md](PERFORMANCE.md). **Exit:** no known material code, visual, accessibility, or speed regression remains; report if `/review` was unavailable rather than counting a manual pass as its result.
+6. **Learn and report evidence.** Complete the affected [CHANGELOG.md](CHANGELOG.md) entries with actual checks, technical approval and remaining open IDs. Refresh [MEMORY.md](MEMORY.md) when verified state, decisions, or blockers changed; record repeatable errors in [LESSONS.md](LESSONS.md). Use [docs/definition-of-done.md](docs/definition-of-done.md). State tested viewports, screenshot comparisons, interactions, build checks, performance measurements, remaining differences, and checks that could not run. Never claim pixel fidelity, WCAG compliance, a 95+ Lighthouse score, or completion without the corresponding evidence.
+
+**Do not mark a failed gate passed or delegate ordinary QA to the user.** Route the failure back to the stage that can fix it, repeat that stage, and rerun downstream checks the fix could affect. A blocked external dependency must not stop independent work. For UI work, the implement → browser screenshot → compare → fix → recheck loop is mandatory after each completed visual slice and after later appearance changes; repeat it on the assembled page. Work autonomously through all feasible checks; resolve routine choices from the repository and references, and seek only irreducible external facts or access while continuing independent work. For a small non-UI task, apply only relevant stages.
+
+For substantive project work, start one independent, non-editing **discipline auditor** alongside scope inspection. Reuse it at each applicable stage gate: scope before implementation; each completed UI slice's rendering and visual evidence; behavior/adaptation; code review and performance; and final integration, memory, and delivery evidence. Give it acceptance checks, changed files, browser images, command results, and any other agents' findings as relevant. Wait for its evidence-based pass/fail/blocked finding before closing a gate. Fix failures and re-audit affected gates; the main agent owns implementation and required checks. Use the project [auditor profile](.codex/agents/discipline_auditor.toml) when available and [supervision protocol](docs/supervision.md); if the profile cannot be selected, give a subagent the same non-editing assignment. Do not spawn it for a trivial edit. The auditor supplements real QA and native `/review`; it cannot certify missing evidence.
+
+## Standing constraints
+
+- Working-context efficiency: throughout coding and QA, read only affected code and stage docs; inspect the long reference and screenshots through relevant crops at useful resolution. Keep full-size images, raw image data, long logs, and unrelated file dumps out of model context. Reuse recorded findings, bound tool output, and rerun only checks affected by a change. Never skip required QA to save tokens; stop once all applicable gates pass.
+- Primary devices: **iPhone 17 Pro (402 × 874 CSS px, DPR 3)** is the baseline; **iPhone 17 Pro Max (440 × 956 CSS px, DPR 3)** is the second required mobile target. These are emulation screen sizes, not fixed-height CSS requirements; Safari's visible area changes with browser chrome. Build mobile-first for these devices. All other phones, tablets, and desktops receive responsive adaptation, with no horizontal overflow or broken content. Preserve the supplied composition rather than substituting a generic design. See [docs/mobile.md](docs/mobile.md).
+- Locales: English, Russian, German, French, Spanish, Italian, Turkish, Arabic, Chinese, Japanese, and Korean. Use translation keys. Arabic needs correct RTL layout and behavior.
+- Accessibility: semantic content, keyboard and screen reader support, labels, visible focus, usable touch targets, WCAG AA contrast, and reduced-motion support. Verify affected behavior.
+- Product truth: the render is the visual/content target, not proof of prices, certifications, health claims, stock, or backend behavior. Preserve its visible narrative in the local rebuild; track unverified facts and confirm them before publication or functioning commerce. See [PRODUCT.md](PRODUCT.md).
+- Performance: the first viewport must become useful quickly. The two reference PNGs are each about 44 MB; never serve either as one production background. Derive responsive, compressed sections/tiles from the clean artwork, load the visible segment eagerly and later segments near the viewport, and avoid seams or blank gaps. Never lazy-load the LCP asset. Aim for 95+ mobile Lighthouse only with measured evidence.
+- Artwork color: **always load [artwork-color-pipeline](.agents/skills/artwork-color-pipeline/SKILL.md)** before adding or replacing Photoshop/raster references, cropping or resizing them for the site, converting PNG/PSD exports to WebP/AVIF, or changing how those raster assets are delivered. Apply its source-profile, decoded-color, alpha, browser and speed checks before delivery. Ordinary text, CSS-only, and vector-only edits do not trigger it.
+- Tooling: prefer native Codex capabilities when they provide the required evidence; use additional skills/tools for project-specific workflow or capabilities the native route lacks. Read the project [implementer skill](.agents/skills/pixel-perfect-ui-implementer/SKILL.md) when building UI and the [testing skill](.agents/skills/pixel-perfect-ui-testing/SKILL.md) when verifying it. Use the Codex browser for quick exploratory inspection when available; use the configured Playwright WebKit/DPR 3 profiles for required mobile screenshots and repeatable checks. `/review` is a native Codex command, not an installable skill. Load each skill when its stage needs it, not both up front. Broad design-generation skills must not replace the approved render. The requested Codex model and modes are session settings: check availability before claiming they are active. See [TOOLS.md](TOOLS.md) for other skills and limitations.
+- Self-improvement: after **every user correction and meaningful self-detected failure**, find the root cause, fix and recheck it, then decide whether the prevention generalizes. If repeatable, update [LESSONS.md](LESSONS.md) with **problem → cause → prevention** and consult the relevant lesson before similar work; do not promote one-off feedback into a global rule. Keep [MEMORY.md](MEMORY.md) current with verified project state and decisions, without duplicating the task transcript. Preserve user edits and design sources.
+
+If a required check is blocked, explain the concrete reason and do not present it as passed. Do not stop at the first implementation when the remaining stages can be completed.
+
+2026-10-08T08:10:28.349322Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11a8f-db00-7c10-8883-fb1a0561e32e turn_id=01a11a8f-dba7-77f1-a5a2-f9090070e9e8 item_id="exec-1d29bf64-28b2-4c29-be5a-4106ff339093"
+codex
+I found no actionable regression in the final uncommitted diff within the requested scope.
+I found no actionable regression in the final uncommitted diff within the requested scope.

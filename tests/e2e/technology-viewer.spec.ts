@@ -29,9 +29,9 @@ test('technology artwork keeps its native proportions as Safari chrome changes t
     expect(bounds.frameRight).toBe(width);
     expect(bounds.nextBottom).toBeLessThanOrEqual(height + 1);
     expect(bounds.canvasWidth).toBe(width);
-    if (width === 320) await page.screenshot({ path: 'docs/evidence/media-loading/ready-320x568.png' });
+    if (width === 320) await page.screenshot({ path: 'docs/evidence/technology-viewer/width-analysis/ready-320x568.png' });
     if (height === 664) {
-      await page.screenshot({ path: 'docs/evidence/media-loading/ready-390x664.png' });
+      await page.screenshot({ path: 'docs/evidence/technology-viewer/width-analysis/ready-390x664.png' });
     }
   }
   await page.locator('.technology-viewer__next-group').click();
@@ -42,7 +42,7 @@ test('technology artwork keeps its native proportions as Safari chrome changes t
     await document.fonts.ready;
     await Promise.all(images.map(image => (image as HTMLImageElement).decode()));
   });
-  await page.screenshot({ path: 'docs/evidence/media-loading/ready-cybermind-390x664.png' });
+  await page.screenshot({ path: 'docs/evidence/technology-viewer/width-analysis/ready-cybermind-390x664.png' });
   await viewer.locator('.technology-viewer__close').click();
   await expect(viewer).not.toBeVisible();
 });
@@ -112,7 +112,7 @@ test('technology descriptions render all source text in the decoded image coordi
   await expect(viewer.getByRole('heading', { name: '01 UPPER HEAT' })).toBeVisible();
   await expect(viewer.locator('[data-description-block="upper-temperature"]')).toHaveText('0–280°C');
   await expect(viewer.locator('[data-description-block="lower-temperature"]')).toHaveText('0–160°C');
-  await expect(viewer.locator('.technology-viewer__stage')).toHaveCSS('touch-action', 'pinch-zoom');
+  await expect(viewer.locator('.technology-viewer__stage')).toHaveCSS('touch-action', 'pan-y pinch-zoom');
 });
 
 test('technology viewer opens from both story controls and pages through clean images', async ({ page }, testInfo) => {
@@ -244,9 +244,13 @@ test('technology viewer supports touch pointers, Escape and Arabic framing', asy
   await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 200, clientY: 350 });
   await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 200, clientY: 550 });
   await expect(viewer).toBeVisible();
+  await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
+  await viewer.locator('.technology-viewer__next-group').click();
   await expect(viewer).toHaveAttribute('data-group', 'CyberMind');
   await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 200, clientY: 350 });
   await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 200, clientY: 550 });
+  await expect(viewer.getByRole('status')).toHaveCount(0);
+  await viewer.locator('.technology-viewer__next-group').click();
   await expect(viewer.getByRole('status')).toHaveText('التقنية التالية ستتوفر قريباً.');
   await viewer.locator('.technology-viewer__next-group').focus();
   await page.keyboard.press('Enter');
@@ -501,14 +505,14 @@ test('CyberMind PNGs retain native RGB, alpha and resolution outside title glyph
   }
 });
 
-test('CyberMind uses two interactive slides, a live title and two-axis navigation', async ({ page }, testInfo) => {
+test('CyberMind uses two interactive slides, a live title and explicit group navigation', async ({ page }, testInfo) => {
   await page.goto('/en');
   await openTechnology(page);
   const viewer=page.locator('#technology-viewer'), stage=viewer.locator('.technology-viewer__stage');
   await viewer.locator('.technology-viewer__dots button').nth(2).click();
   await expect(stage.locator('img')).toHaveAttribute('data-source','/art/technology/04.png');
   await viewer.locator('.technology-viewer__dots button').nth(3).focus();
-  await page.keyboard.press('ArrowDown');
+  await viewer.locator('.technology-viewer__next-group').click();
   await expect(viewer).toHaveAttribute('data-group','CyberMind');
   await expect(viewer).toHaveAccessibleName('CyberMind Technology');
   await expect(viewer).toBeFocused();
@@ -539,12 +543,14 @@ test('CyberMind uses two interactive slides, a live title and two-axis navigatio
   await expect(stage.locator('img')).toHaveAttribute('data-source','/art/technology/cybermind/01.png');
   await viewer.locator('.technology-viewer__next-group').click();
   await expect(viewer.getByRole('status')).toHaveText('The next technology is coming soon.');
-  await page.keyboard.press('ArrowUp');
+  await viewer.locator('.technology-viewer__previous-group').click();
   await expect(viewer).toHaveAttribute('data-group','HeatCore');
   await expect(stage.locator('img')).toHaveAttribute('data-source','/art/technology/04.png');
   await expect(viewer.getByRole('status')).toHaveCount(0);
   await stage.dispatchEvent('pointerdown',{pointerType:'touch',clientX:200,clientY:300});
   await stage.dispatchEvent('pointerup',{pointerType:'touch',clientX:200,clientY:450});
+  await expect(viewer).toHaveAttribute('data-group','HeatCore');
+  await viewer.locator('.technology-viewer__next-group').click();
   await expect(viewer).toHaveAttribute('data-group','CyberMind');
   await back.click();
   await expect(viewer).toHaveAttribute('data-group','HeatCore');
@@ -596,7 +602,7 @@ test('pending slide locks navigation and commits only fully loaded selection', a
   release();
   await expect(stage.locator('img')).toHaveAttribute('data-source', '/art/technology/cybermind/02.png');
   await expect(viewer).toHaveAttribute('aria-busy', 'false');
-  await page.keyboard.press('ArrowUp');
+  await viewer.locator('.technology-viewer__previous-group').click();
   await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
 });
 

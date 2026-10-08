@@ -2,9 +2,11 @@
 
 ## Current readiness and geometry / CHG-0070–0072
 
+**2026-10-08 width correction:** user prioritizes full photograph width without distortion. The new proportional-width implementation is applied; final technical closure is recorded in CHG-0070 and [width evidence](#width-verification). The initial contained-height revision below is superseded where noted.
+
 There are **four HeatCore and two CyberMind** photographs. After window load, asynchronously fetch the first two of each group at low priority; opening starts the remaining two HeatCore photos. URL resources retain one in-flight transfer and one decoded DOM image. Initial photo/title/descriptions appear together only after complete transfer and decode; transitions keep the old complete frame until replacement is ready. Byte progress uses reliable Content-Length; otherwise the shared bar is indeterminate. Pending/error navigation stays locked, Close remains available, Retry reloads failed HTTP-cache entries. Successful images are reused across swipes/groups/reopening, including offline navigation after all six finish.
 
-The phone contour spans the content viewport width and the height between toolbar/footer. Unchanged metal artwork uses nine-slice borders (top31/right29/bottom28/left29 source pixels), preserving corner proportions and width-based thickness. The white cutout follows those borders. The photo and live text share one contained941×1672 composition; unused fit space is white inside the contour. Header and pagination each have a44px row, source-ratio arrows and capped dots. Desktop mouse devices retain a centered portrait canvas; coarse-pointer tablets/landscape adapt across the available width. Horizontal navigation stops at either endpoint; reverse swipes/keys work and never jump between groups.
+The contour spans the content viewport width on phone, tablet and hover desktop, and the height between toolbar/footer. Unchanged metal artwork uses nine-slice borders (top31/right29/bottom28/left29 source pixels), preserving corner proportions and width-based thickness. The white cutout follows those borders. Photo, title and descriptions share one941×1672 plane at100% cutout width with proportional height. A flex native inner viewport vertically centers it when it fits and scrolls excess height when needed. No side fit bands and no distorted/cropped source composition; short screens access the bottom by scrolling. Metal/Close/pagination/group buttons remain fixed. During pending/error, inner scrolling and gestures freeze at the old complete frame; decoded commits reset top. Vertical pan and Arrow/Page/Home/End/Space scroll content; group switching uses Next/Previous buttons. Horizontal swipes/keys stop at endpoints, reverse and honor Arabic RTL. Header and pagination each have44px rows, source-ratio arrows and capped dots. The older narrow desktop portrait policy and height-containment are superseded.
 
 Landing uses the same status/scroll lock and actual-element decode helper for substantial visible artwork. Upcoming images load near the viewport; offscreen images never hold the hero. With JavaScript disabled, or an initial framework download/execution failure before hydration, native server-rendered artwork/text/FAQ remain readable; post-hydration runtime failures are not certified. See [acceptance plan](media-loading-plan.md) and [delivery evidence](evidence/media-loading/checks.md). Historical source mappings below remain; their old geometry/preload policies are superseded by this revision.
 
@@ -60,3 +62,128 @@ Two clean CyberMind photographs now follow HeatCore via down/Next. Horizontal pa
 The live CyberMind heading and Technology descriptor use **Open Sans Regular 400**, CSS family OpenSans, the landing/navigation face. Source coordinates: main x46/baseline209/font112/textLength500; descriptor x54/baseline267/font31/textLength161 in English, source brown #975f41 with a thin1.5sourcepx white stroke for marble contrast. Its semantic h2 labels the dialog. Tight title-glyph removal changes only25134/25169 native pixels; every decoded RGB(A) channel outside those masks, all alpha values, dimensions and product pixels remain exact. Native source masters are retained. The original wall hidden under lettering is locally reconstructed.
 
 **Historical CHG-0068 policy, superseded by CHG-0071 above:** first photograph of each group (two total) starts at low priority after window load/already-complete hydration; opening starts the remaining four originals in parallel in the background. Selected photographs receive high priority. Six URL-keyed pending/decoded Image promises are retained across swipes, groups and close/reopen; failures evict and retry. Early opening starts the necessary requests immediately; readiness on a cold connection depends on transfer completion. Full-size compressionLevel0 PNGs remain original-resolution, without WebP, thumbnails, profile conversion or whole-image resampling. [Verification](evidence/technology-viewer/cybermind/checks.md).
+
+<a id="width-analysis"></a>
+## Technology photo width — CHG-0070, 2026-10-08
+
+### Scope and finding
+
+This section preserves the requested analysis before implementation (no runtime changes in that analysis stage). The subsequent width-priority implementation is recorded below. Prior technical approvals remain historical for their actual acceptance scopes; analysis audit PASS.
+
+All six original photographs are 941×1672 (aspect 0.5628). `app/globals.css` currently gives the photo/live-copy plane `width:min(100%,100cqh * 941 / 1672)`. It fits by height whenever the white cutout is wider than that ratio. The metal contour fills its target width; the photograph does not. This causes the reported white side bands, independently of download readiness.
+
+The primary agent approved the contour-width/aspect checks without a separate image-width requirement. This specification and verification omission belongs to the agent. The user's screen reveals it; it is not caused by new photo inputs or the phone model.
+
+### Evidence and geometry
+
+- Directly inspected user screenshot `codex-clipboard-b3327bd7-ad4b-41aa-8eb6-32b9377c0711.png` (1228×1672 pixels); CSS viewport/DPR cannot be inferred reliably from that attachment alone.
+- Earlier read-only local browser observation at 615×849 CSS px, DPR2: inner stage577.0859×654.4375, content368.3125×654.4297. Image fills63.8% of inner width, leaving about104.38px on each side. Width-fit needs1025.40px height, about370.96px beyond the stage.
+- Existing actual WebKit capture `evidence/media-loading/ready-390x664.png` also shows inner side bands; independently inspected by the discipline auditor.
+- PNG header dimensions and calculated matrix: [geometry.json](evidence/technology-viewer/width-analysis/geometry.json). Calculated rows below assume current full-width mobile/coarse canvas and zero safe-area insets; they are not new browser test results. Hover desktop's centered portrait canvas is a separate policy.
+
+| CSS viewport | Inner width × height | Width-fit photo height | Extra vertical content |
+| --- | --- | --- | --- |
+| Pro402×874 | 377.22×692.79 | 670.26 | 0 |
+| Max440×956 | 412.88×772.41 | 733.62 | 0 |
+| Short390×664 | 365.96×483.55 | 650.25 | 166.71 |
+| Wide615×849 | 577.09×654.44 | 1025.40 | 370.96 |
+| Landscape844×390 | 791.98×181.08 | 1407.21 | 1226.13 |
+
+Scaling uniformly preserves the source ratio. If source and viewport ratios differ, unchanged fixed artwork cannot simultaneously fill both axes, show every pixel at once and avoid scrolling. Browser chrome changes available height even on the same phone; adaptation must use available geometry rather than phone names.
+
+### Options and recommended policy
+
+1. **Contain:** undistorted, entire composition visible, but side bands. Current result rejected.
+2. **Cover:** undistorted and fills both axes, but crops meaningful content. Descriptions include callouts around y703–1096 and footers reaching y1604/1619; other slides include baked diagram/phone leader art. Photo/title/descriptions share one coordinate plane. Blanket cover is unsafe without per-slide critical-region mapping.
+3. **Width-fit plus internal vertical scroll:** simplest complete-content solution using unchanged artwork. Photo/title/descriptions share one proportional scale, filling the entire white cutout width. Only when height is insufficient, the cutout scrolls vertically; the metal contour, Close and controls stay fixed. Normal Pro/Max need no scroll under these assumptions. Landscape is accessible but requires substantial scroll, so compact responsive composition is a possible later product improvement.
+4. **Responsive recomposition:** if every caption/detail must remain visible simultaneously without scrolling, separate and map title, scene/product, callouts and body for all six slides; arrange them for available aspect and locale. Live text alone cannot reflow the baked artwork. Requires per-slide safe regions/alignment and new visual acceptance. This is a larger composition change, not a generic object-fit fix. Source-layer sufficiency remains to be assessed before implementation.
+
+Recommend option3 as the minimal robust next implementation. It satisfies width, proportions and access to all content; it explicitly trades simultaneous all-content visibility for scrolling on short windows. If all-at-once/no-scroll is mandatory, choose option4 instead.
+
+### Proposed interaction and verification contract
+
+- Image plane width equals inner frame width (≤1CSSpx tolerance), aspect equals941/1672, photo and overlays stay aligned. No exterior page overflow; source/photo quality and white loading backing preserved.
+- Native vertical gesture scrolls content; change technology groups with explicit Next/Previous buttons. Do not combine boundary scrolling and automatic group switching. Horizontal swipes stay bounded and reversible; vertical keyboard input follows the scrolling policy, with accessible group controls retained.
+- Background page remains locked. Pending resource/decode state freezes internal scroll as well as navigation; Close/Retry remain usable. Reset inner scroll to top on each committed new slide, rather than during a pending request.
+- Verify six slides, both primary profiles,390×664/732/844,320×568,615×849, landscape/tablet/desktop, eleven locales/RTL, real touch/wheel/keyboard, both scroll boundaries and changed browser heights. Inspect actual screenshots of top and bottom content, source alignment and frame corners; ensure every meaningful label remains reachable.
+- Reuse current media lifecycle/cache. Rerun affected loading tests, static checks, native review, production visual/behavior/performance gates and independent audit after implementation. Earlier160 passing tests do not certify this new width/scroll contract.
+
+### Analysis approval
+
+2026-10-08: Codex primary/root APPROVED the analysis only after six PNG-header checks, source CSS/overlay/gesture inspection, supplied screenshot inspection, earlier live DOM and repeatable geometry assertions. Independent read-only `aspect_analysis_audit` scope/evidence/record PASS after directly inspecting the user screenshot and existing ready-390x664.png, source mappings, dimensions, calculations and affected records. git diff --check PASS. CHG-0070 remains OPEN; no implemented UI approval, native code-review/build/browser re-verification claim in this documentation-only analysis stage. User acceptance NOT_RECORDED; EVAL-VIEWER controlled run NOT_RUN.
+
+### Subsequent implementation — user width priority, 2026-10-08
+
+Implemented option3 after the user reiterated “на всю ширину но без искажения”. The frame also fills hover-desktop viewport width; the earlier centered desktop restriction is removed. All original raster bytes stay unchanged. Photo/title/copy fill the inner width with one source ratio; native internal scrolling exposes excess height, fixed controls stay usable, pending/error freezes scroll and decoded commits reset top. Vertical group swipes are replaced by existing buttons; keyboard scroll and localized instructions are consistent. Removed unused prior vertical-swipe copy. See [final checks](#width-verification) and [CHG-0070](../CHANGELOG.md#chg-0070). Primary implementation approval and independent Stage1/3/4/5 PASS are recorded in final checks. Independent width_closeout_audit corrected-record Stage6 PASS after repairing the stale plan paragraph; CHG0070 VERIFIED / 2026-10-08. User acceptance NOT_RECORDED. Analysis and earlier failed test evidence above remain historical.
+
+<a id="width-verification"></a>
+## Full photo width without distortion — CHG-0070
+
+Raw artifacts named below remain in [the existing width evidence directory](evidence/technology-viewer/width-analysis/). This record and the preceding analysis were consolidated here under CHG-0073; prior verification verdicts are unchanged.
+
+2026-10-08. Production preview: http://127.0.0.1:3022/en. VERIFIED locally; primary technical approval and independent Stage1/3/4/5/6 PASS. Historical analysis, failed runs and previous approvals are preserved.
+
+### Result and mapping
+
+The metal frame fills the viewport width on all tested pointer profiles. Inside it, one source plane at941×1672 fills100% of the white cutout width. Photo, title and all captions share that proportional scale. When height is insufficient, native vertical scrolling exposes the lower content; metal, Close, pagination and group controls remain fixed. No source photo crop, conversion or replacement. Vertical pan/keyboard scroll content; existing buttons change technology groups. Horizontal gestures remain bounded and reverse in Arabic.
+
+White backing and the fixed loading indicator remain. Pending/error freezes inner scroll including queued movement; downloaded-and-decoded commits reset top. Original first2/group-after-load/remainder-on-open retained-resource policy is unchanged. Removed obsolete vertical-group-swipe translations/type; no added dependency or per-frame React state.
+
+### Final checks
+
+| Gate | Result | Evidence |
+| --- | --- | --- |
+| Scope/analysis | PASS, independent aspect_analysis_audit | width analysis, geometry.json, CHG-0070 |
+| Pro/Max visual | PASS, primary and independent Stage3 | pro/max contact sheets; actual baseline, six-slide, short top/bottom, landscape/desktop PNGs |
+| Final affected production suite | 119 PASS,5 explicit platform skips | acceptance-final.log;124 discovered cases |
+| Final assembled page/dialog integration | 8/8 PASS | integration-after-cleanup.log |
+| Width/ratio/source alignment/content access | 192 image cases across4profiles,6slides,8viewports; exact inner width | *-width-matrix.json |
+| Localized composition | 264 fit/reachability states:11locales×6slides×4profiles | acceptance-final.log; Arabic short/native screenshots |
+| Native input | Chromium touch EN/RTL vertical/horizontal/pending; Chromium/Firefox wheel; all-profile keyboard/reset/error | technology-width.spec.ts and final log/native-touch*.png |
+| Existing media behavior | Original PNG/source/HTTP pixel identity, true25% progress, corrupt200 retry, retained decode/offline/preload/bounded endpoints | existing viewer/loading tests in final log |
+| Native actual-diff review | Clean, CLI exit0, no actionable findings | native-review-final.log; previous clean reviews retained |
+| Production/type/lint | PASS after cleanup;14 generated static pages | build-after-cleanup.log, typecheck-final.log, lint-final.log |
+| Independent behavior/adaptation | Stage4 PASS, width_closeout_audit | Final tests, integration, actual Arabic touch/pending screenshots |
+| Independent review/performance | Stage5 PASS, width_closeout_audit | Final native review/static checks/performance/assembly |
+| Document consistency/whitespace | Stage6 re-audit PASS, width_closeout_audit; git diff --check PASS | CHG-0070/current mappings/memory/lessons |
+
+Primary profiles: WebKit402×874 and440×956, DPR3. Other sizes:320×568,375×667,390×664/732/844,615×849,844×390,768×1024,1440×900. The five intentional skips are mobile desktop-wheel cases (2) and native Chromium touch protocol on WebKit/Firefox (3); native WebKit hardware swipe/chrome is not claimed. Synthetic pointer tests are reported separately from the actual Chromium touch protocol. Original-quality/raster delivery checks reused the unchanged source mapping; CSS-only geometry does not change pixels or ICC.
+
+### Visual comparison and assembled page
+
+Baseline Pro/Max source-plane appearance remains the approved composition. Aligned baseline-comparison.json differences0.4463%/0.4222% are confined to the explicit keyboard-focus outline on the inner region, as directly inspected in pro-baseline-diff.png; this is not a permanent border. Short-window upper/lower captures show full-width artwork and reachable details rather than fit side bands. Adapted sizes have no matching new designer reference, so no whole-image pixel-match claim.
+
+Eight assembled hero/technology/documents/FAQ crops are raw-pixel identical to the prior approved local captures: assembled-pixel-comparison.json; assembled-contact-sheet.png directly inspected. Max whole PNG SHA also matches. Pro whole PNG SHA differs; equality is claimed for the eight measured crops only, not its whole file. Current assembly capture passed console/viewport/artwork checks.
+
+Read-only in-app preview observation after final cleanup:397×836 CSS px, DPR2; cutout and photograph both372.5234375px wide; rendered ratio0.562803928 versus source0.562799043. Actual preview directly inspected: no side bands or distortion. The browser screenshot is an emulated/content observation, not physical Safari toolbar proof.
+
+### Final measured production performance
+
+Cold Chromium402×874 DPR3. performance.mjs/performance.json/performance.log; measurements after final cleanup:
+
+| Measurement | Local loopback | 4Mbps/100ms network setting,4×CPU |
+| --- | --- | --- |
+| Useful first view | 264.2ms | 2023.1ms |
+| LCP | 296ms | 2068ms |
+| CLS | 0 | 0 |
+| JS transferred | 164317B | 164317B |
+| Cached actual click to ready+paint | 111.1ms | 154.3ms |
+| Inner scroll p95 interval | 16.7ms | 16.7ms |
+| Inner intervals >33ms | 0/159 | 0/159 |
+| Main long scroll p95 | 16.7ms,0/159 >33ms | Not resampled |
+| Page errors | 0 | 0 |
+
+SSG routes/server main and small client gallery boundaries retained: no new request-time data or rendering bottleneck warrants a rendering-strategy change. JS increase versus prior media revision is496B. Original media payload remains20,493,582B for first4 /29,952,430B for all6. Under throttling warm starts after load at~3.171s and finishes~44.275s; remainder starts only at open~46.397s and ends~66.046s. These large original PNG costs are unchanged and explicit; image optimization was previously deferred by the user. Cached latency is synthetic, not measured INP. No Lighthouse, field speed, WCAG or physical iOS claim.
+
+### Failure history and boundaries
+
+- Prior full-width-contour/contained-photo approval missed the independent picture-width requirement; CHG-0070 reopened, primary responsibility recorded.
+- Stage3 initially lacked application journal records despite valid visual proof; record repaired before independent PASS.
+- integration-attempt-1.log4PASS/4FAIL: old IMG/src frame assertion after nine-slice DIV. locale-integration-attempt-2.log9PASS/3 skips/4FAIL: missing offscreen media/decode barriers and stale retained-image src checks. Corrected the integration test, final8/8PASS on fresh production. No runtime defect is claimed from those stale assertions.
+- Independent Stage6 records initially FAIL: media-loading-plan retained a short-window height-containment paragraph after its header/table changed. Primary missed rereading the complete affected narrative; corrected it to full inner width/proportional height/native overflow scroll. Runtime evidence remains valid; width_closeout_audit corrected-record re-audit Stage6 PASS.
+- Physical Telegram/Safari chrome CHG-0065 remains APPLIED_UNVERIFIED; favicon0035 and other unrelated open IDs unchanged. Branch unchanged; unrelated user files preserved. This delivery is local; no new commit/push/public-deployment assertion.
+- User acceptance NOT_RECORDED; controlled EVAL-VIEWER NOT_RUN. Product browser passes do not establish improved agent behavior/model training.
+
+### Technical approval
+
+2026-10-08: Codex primary/root APPROVED implemented width/ratio/scroll/loading/gesture/integration and static/native/performance checks using the final evidence above. Independent aspect_analysis_audit Stage1/Stage3 PASS and width_closeout_audit Stage4/Stage5 PASS. Independent width_closeout_audit corrected-record re-audit Stage6 PASS after the preserved Stage6 FAIL; no material record discrepancy remains. CHG-0070 VERIFIED for the local width implementation. User acceptance NOT_RECORDED; controlled EVAL-VIEWER NOT_RUN.

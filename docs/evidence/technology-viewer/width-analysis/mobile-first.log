@@ -1,0 +1,18 @@
+
+Running 8 tests using 2 workers
+
+(node:80926) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:80927) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:7:1 › every technology photo fills the frame width without distortion and its bottom stays reachable (5.9s)
+  ✓  1 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:7:1 › every technology photo fills the frame width without distortion and its bottom stays reachable (7.2s)
+  ✓  3 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:65:1 › inner scroll freezes at pending and failed frames, then resets after decoded commit (1.5s)
+  -  5 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:124:1 › native desktop wheel pans the picture without moving the page or changing technology
+  -  6 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:145:1 › native touch pans vertically, swipes horizontally and freezes during download
+  ✓  4 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:65:1 › inner scroll freezes at pending and failed frames, then resets after decoded commit (1.3s)
+  -  7 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:124:1 › native desktop wheel pans the picture without moving the page or changing technology
+  -  8 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:145:1 › native touch pans vertically, swipes horizontally and freezes during download
+
+  4 skipped
+  4 passed (10.1s)

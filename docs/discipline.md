@@ -12,7 +12,7 @@ Follow the required schema and lifecycle in [CHANGELOG.md](../CHANGELOG.md). At 
 
 Root-cause analysis must identify the agent decision/action, technical mechanism, missed control, evidence-backed responsibility and the behavior to change. Use the CHANGELOG classifications; missing or additional input is not automatically user fault. Unknown historical details stay unknown. Before similar work or rebuilding, load relevant causes/lessons and convert prevention into checks. Link repeatable errors to [Agent Eval](agent-evals.md); update case results only after actual runs, independently of fix approval.
 
-Keep previous events intact when a conclusion changes. Backfilled records must identify their source and that checks are historical; missing evidence must remain explicit. Detailed reports can hold large evidence tables, but the journal must state the defect, solution and approval itself, not merely link to an unexplained report.
+Keep previous events intact when a conclusion changes. Backfilled records must identify their source and that checks are historical; missing evidence must remain explicit. Reuse the existing topic document for diagnosis, plans and verification; create a separate Markdown document only for a distinct maintained topic or an explicit user request. Keep raw screenshots/logs in the relevant evidence directory. Detailed reports can hold large evidence tables, but the journal must state the defect, solution and approval itself, not merely link to an unexplained report.
 
 | Stage | Required action | Evidence and exit gate | On failure |
 | --- | --- | --- | --- |

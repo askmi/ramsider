@@ -1,5 +1,7 @@
 # Media readiness and technology viewer — 2026-10-08
 
+**Width follow-up:** the customer subsequently prioritized full photo width without distortion. The current geometry below follows [the width analysis](technology-viewer.md#width-analysis) and [final width evidence](technology-viewer.md#width-verification); the original loading/cache policy is unchanged.
+
 ## Request and acceptance map
 
 | Requirement | Implementation target | Evidence required |
@@ -9,10 +11,10 @@
 | Shared loading status and progress | One loading-status component, shared resource readiness helpers and scroll-lock hook; real streamed byte progress for technology images, indeterminate native-page progress where browser byte counts are unavailable | Partial byte percentage when Content-Length exists; indeterminate fallback; accessible labels and retry |
 | Freeze current view until required resource is ready | Viewer navigation disabled during pending target (close remains usable); page scroll/input locked only while visible significant artwork is pending | Wheel/touch/keys, repeated input, close/reopen, failure/retry |
 | Stage preloading | After main window load, first two photos of each group start asynchronously; opening starts all remaining photos; one retained promise/image per URL across opens/groups | Request order/count and identical decoded image/cache reuse |
-| Frame reaches screen edges without squashing | Full-width canvas and metal frame across phone viewport; artwork/title/descriptions share an exact 941×1672 inner composition contained in the white cutout | 390×664/732/844 and Pro/Max actual screenshots, source aspect assertion, frame x0/right edge; tablet/desktop/landscape controls |
+| Frame and photograph fill width without squashing | Viewport-wide canvas/metal frame on all pointer profiles; photo/title/descriptions share one proportional941×1672 plane filling100% of the white cutout width. Excess height scrolls inside fixed frame; vertical pan/keyboard scroll content, group buttons change technology | Explicit photo/cutout width equality and source ratio, reachable lower content, fixed controls, pending inner-scroll freeze/reset,390×664/732/844 and Pro/Max plus tablet/desktop/landscape actuals |
 | Browse both directions and stop at ends | Clamp horizontal selection to first/last slide, no modulo wrap; arrows/keyboard/touch/dots obey readiness | Both endpoint swipes and reverse motion, AR direction, no group jump |
 
-The frame fills the browser content area available between existing top and bottom controls. On short windows the inner photo keeps its proportions with white unused space *inside* the metal frame; there is no black exterior side gutter. Browser-owned status/address bars cannot be covered by webpage CSS. This explicitly replaces CHG-0070's short-window narrow-canvas fit.
+The frame fills the browser content area available between existing top and bottom controls. The photo fills the entire inner cutout width and preserves its source proportions. When its proportional height exceeds the available height, the photo and its text scroll vertically inside the fixed frame, without side bands. When the complete photo fits, remaining vertical space stays white. Browser-owned status/address bars cannot be covered by webpage CSS. This supersedes CHG-0070's earlier narrow-canvas and height-contained-photo policies.
 
 ## Resource inventory
 

@@ -1,0 +1,115 @@
+{
+  "date": "2026-10-08",
+  "scope": "Analysis only; no runtime change",
+  "assets": [
+    {
+      "path": "public/art/technology/02.png",
+      "width": 941,
+      "height": 1672
+    },
+    {
+      "path": "public/art/technology/03.png",
+      "width": 941,
+      "height": 1672
+    },
+    {
+      "path": "public/art/technology/04.png",
+      "width": 941,
+      "height": 1672
+    },
+    {
+      "path": "public/art/technology/05.png",
+      "width": 941,
+      "height": 1672
+    },
+    {
+      "path": "public/art/technology/cybermind/01.png",
+      "width": 941,
+      "height": 1672
+    },
+    {
+      "path": "public/art/technology/cybermind/02.png",
+      "width": 941,
+      "height": 1672
+    }
+  ],
+  "calculationAssumptions": "Full-width coarse/mobile canvas; current CSS; zero safe-area insets. Wide hover-desktop centered canvas excluded. Calculations are not new browser QA.",
+  "calculated": [
+    {
+      "viewport": [
+        402,
+        874
+      ],
+      "stageWidth": 377.22,
+      "stageHeight": 692.79,
+      "containedWidth": 377.22,
+      "widthFitHeight": 670.26,
+      "verticalOverflow": 0
+    },
+    {
+      "viewport": [
+        440,
+        956
+      ],
+      "stageWidth": 412.88,
+      "stageHeight": 772.41,
+      "containedWidth": 412.88,
+      "widthFitHeight": 733.62,
+      "verticalOverflow": 0
+    },
+    {
+      "viewport": [
+        390,
+        664
+      ],
+      "stageWidth": 365.96,
+      "stageHeight": 483.55,
+      "containedWidth": 272.14,
+      "widthFitHeight": 650.25,
+      "verticalOverflow": 166.71
+    },
+    {
+      "viewport": [
+        615,
+        849
+      ],
+      "stageWidth": 577.09,
+      "stageHeight": 654.44,
+      "containedWidth": 368.32,
+      "widthFitHeight": 1025.4,
+      "verticalOverflow": 370.96
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "stageWidth": 791.98,
+      "stageHeight": 181.08,
+      "containedWidth": 101.91,
+      "widthFitHeight": 1407.21,
+      "verticalOverflow": 1226.13
+    }
+  ],
+  "earlierLiveDOM": {
+    "url": "http://127.0.0.1:3022/en",
+    "viewport": [
+      615,
+      849
+    ],
+    "dpr": 2,
+    "stage": {
+      "x": 18.953125,
+      "y": 108.2578125,
+      "width": 577.0859375,
+      "height": 654.4375
+    },
+    "content": {
+      "x": 123.3359375,
+      "y": 108.2578125,
+      "width": 368.3125,
+      "height": 654.4296875
+    },
+    "note": "Read-only measurements earlier in this analysis turn; later viewport397x836 had viewer closed, so no new geometry measurement counted."
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "head": "8aa0df6f9d644e208a642b5310a3d8fbdbc619a8",
+  "server": "http://127.0.0.1:3031",
+  "snapshot": "/tmp/ramsider-ribbon-baseline-8aa0df6",
+  "frameworkBuild": "next build --webpack; Turbopack externalnode_modules symlink rejected",
+  "items": [
+    {
+      "path": "app/(landing)/layout.tsx",
+      "sha256": "091336f45e4af8565ad721e0c848d7c24e4cb09b021ef33c7a0c60fec98d81cf",
+      "equalsHead": true
+    },
+    {
+      "path": "app/(landing)/page.tsx",
+      "sha256": "f4d321998ff9376fd01a2808aaf048b976487e54b090f641d80a7dd15c9b0166",
+      "equalsHead": true
+    },
+    {
+      "path": "app/[locale]/layout.tsx",
+      "sha256": "f66c94e11adfde19a59c2fb3011987e2f76740531d5424074d5f423a3cbf92d4",
+      "equalsHead": true
+    },
+    {
+      "path": "app/[locale]/page.tsx",
+      "sha256": "484b91dffbafb166f774d5cc205111a561b1329706265e48abc738b910831c18",
+      "equalsHead": true
+    },
+    {
+      "path": "app/globals.css",
+      "sha256": "1518ae3036f990aad421e240e2d5bddb783f9a7d006b5100ddd3b5c5586bea62",
+      "equalsHead": true
+    },
+    {
+      "path": "components/ActionArrow.tsx",
+      "sha256": "b8720372dbb696b7862e19c27681b7c03c57c61273164bbd2b7565dba9829c31",
+      "equalsHead": true
+    },
+    {
+      "path": "components/BackToTop.tsx",
+      "sha256": "f215d3376d2797e3468264da6d69c1a1b39818d5968378536adee02ef5e375e5",
+      "equalsHead": true
+    },
+    {
+      "path": "components/CyberMindDescriptions.tsx",
+      "sha256": "c1083a3d5b36b9d6095c8ebd65f0b6b34ec2054a0d390a57dca89300af276ce2",
+      "equalsHead": true
+    },
+    {
+      "path": "components/DialogController.tsx",
+      "sha256": "ecf98284a6c87864f1197b5efb00d979c53b5033fa6f0725cdd9a86ad2013263",
+      "equalsHead": true
+    },
+    {
+      "path": "components/LocaleSwitcher.tsx",
+      "sha256": "a8a50729a3a99503f70d2424e371a7ad52d15d684ce8bee73b08a6e569866f25",
+      "equalsHead": true
+    },
+    {
+      "path": "components/MediaLoading.tsx",
+      "sha256": "f11914e886c6430f729d781c1b284fbbd8eebacfa685d0fffda1a0d2067152b2",
+      "equalsHead": true
+    },
+    {
+      "path": "components/MenuShell.tsx",
+      "sha256": "f9ed8c1a86a7ca8d8406bd563828534f415d36346ce27f896ad05cd6fc593443",
+      "equalsHead": true
+    },
+    {
+      "path": "components/PageMediaGate.tsx",
+      "sha256": "91227b84a315af8404122a994355ecee6bf309dbcee1c615e1e3ed57584db094",
+      "equalsHead": true
+    },
+    {
+      "path": "components/Story.tsx",
+      "sha256": "fd0f19bbdcc28b49ff14d71728c8ec3d28e0ec32ef9263c92e174dbbea886b9d",
+      "equalsHead": true
+    },
+    {
+      "path": "components/TechnologyDescriptions.tsx",
+      "sha256": "5bc0a65c3bace6e646296e44c89f4320c64e658776324c7233454390f347ee08",
+      "equalsHead": true
+    },
+    {
+      "path": "components/TechnologyTitle.tsx",
+      "sha256": "20d7381f00333089c19e2ab19eea11aa3ae6c55e87469d784b2bf750d2da3a05",
+      "equalsHead": true
+    },
+    {
+      "path": "components/TechnologyViewer.tsx",
+      "sha256": "bd8aba3b2084b34668a1ab085b18ade0f6532e22bea452bf5b428a958d9ce30c",
+      "equalsHead": true
+    },
+    {
+      "path": "lib/art-previews.json",
+      "sha256": "db283ba84f63059ee2a1e5df676ef57ff18418df28451de1c83efca437ae97ec",
+      "equalsHead": true
+    },
+    {
+      "path": "lib/button-localized-widths.json",
+      "sha256": "9cf879c83d4061aa1b0ef9d8ebe15960cc9ffb0cb033036f3400b0aa27050929",
+      "equalsHead": true
+    },
+    {
+      "path": "lib/button-map.json",
+      "sha256": "8606375e4d8b0af7e2bf0134e20374fc379c69d805abf7e6ece7bb2676cf3d2d",
+      "equalsHead": true
+    },
+    {
+      "path": "lib/cybermind-descriptions.ts",
+      "sha256": "c92fb6301ca8447efa9fa53f65f53948afd8a78adf8e7f5e66b81f91cd110a65",
+      "equalsHead": true
+    },
+    {
+      "path": "lib/i18n.ts",
+      "sha256": "f290971ab6d856d51e3fa1d315c63ee1f27f14a756ccc6fcc9b2588cdace97f5",
+      "equalsHead": true
+    },
+    {
+      "path": "lib/icon-map.json",
+      "sha256": "17b6a250634e50425688d0522d93cb8ee5b25a8326687cb4de4092fe522e5cf6",
+      "equalsHead": true
+    },
+    {
+      "path": "lib/media-resource.ts",
+      "sha256": "bd22eda3a26678c294a565ef991597c1da2cf70c35d6a5c6301d1de25e61a86d",
+      "equalsHead": true
+    },
+    {
+      "path": "lib/narrative-translations.ts",
+      "sha256": "dd88a904e68367e05f01a2dc04daafb5cf45ea116f5e6a93a8fdc4a8f923844e",
+      "equalsHead": true
+    },
+    {
+      "path": "lib/story.ts",
+      "sha256": "745a022ae2505fc826a8e90a33425ab6fd2c3806c650de8875649bee4719c9b2",
+      "equalsHead": true
+    },
+    {
+      "path": "lib/technical-translations.ts",
+      "sha256": "0b12342712bd21e236e7e15fc91d614068d06dce3bd774c70fd05ba4368ab6a7",
+      "equalsHead": true
+    },
+    {
+      "path": "lib/technology-descriptions.ts",
+      "sha256": "ba7eedb75719285ea109dab9d0d6c8f8d3b1701f2df80ac8b13f7c8bc3503ad9",
+      "equalsHead": true
+    },
+    {
+      "path": "lib/technology-gallery.ts",
+      "sha256": "0a7e578434013917d9265b9d52bc250faebffbcd93e53d57a8d1a249da128d97",
+      "equalsHead": true
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "d24f9273c25e7b092ee811f78b59a4ba7077cd3b42d129489e0c77aa5d975515",
+      "equalsHead": true
+    },
+    {
+      "path": "package.json",
+      "sha256": "02643d8f03db91f722306b388af5e55aa4d53824ba6387de84a94a92e4e6fb20",
+      "equalsHead": true
+    },
+    {
+      "path": "public/fonts/OpenSans_OFL.txt",
+      "sha256": "01cd5ffb3a528c219a86e49a814c6c53bd8a69b9a3c305dd237074ba1c811af7",
+      "equalsHead": true
+    },
+    {
+      "path": "public/fonts/bankgothic.ttf",
+      "sha256": "45011fd962c235fab90f09f958e4a05c0da13815d4808621c8e7e08652f1fbee",
+      "equalsHead": true
+    },
+    {
+      "path": "public/fonts/button-fallback/LICENSE-arabic.txt",
+      "sha256": "91053c23e8a0fe5fc9b5fdbe5ff74ceffd66f6f996c123f1a6ca4c23487c1fff",
+      "equalsHead": true
+    },
+    {
+      "path": "public/fonts/button-fallback/LICENSE-ja.txt",
+      "sha256": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3",
+      "equalsHead": true
+    },
+    {
+      "path": "public/fonts/button-fallback/LICENSE-ko.txt",
+      "sha256": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3",
+      "equalsHead": true
+    },
+    {
+      "path": "public/fonts/button-fallback/LICENSE-zh.txt",
+      "sha256": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3",
+      "equalsHead": true
+    },
+    {
+      "path": "public/fonts/button-fallback/noto-arabic-buttons.woff2",
+      "sha256": "74bc4fa8427c498c5967e742bf14880b9f8392a06c3423eb7f2ef18be8d56107",
+      "equalsHead": true
+    },
+    {
+      "path": "public/fonts/button-fallback/noto-ja-buttons.woff2",
+      "sha256": "36703858842ceb0048b1525d2506085ef88254bc3c1b6fa67e3b15605e4c9413",
+      "equalsHead": true
+    },
+    {
+      "path": "public/fonts/button-fallback/noto-ko-buttons.woff2",
+      "sha256": "d8850b379671544c02afe1feab71f7fc3137cb4f6bad720836fba64a7ac3c65e",
+      "equalsHead": true
+    },
+    {
+      "path": "public/fonts/button-fallback/noto-zh-buttons.woff2",
+      "sha256": "d797f889efa04673670730af19cc89062b3a42a0992c902d52ed7dedcc19efba",
+      "equalsHead": true
+    },
+    {
+      "path": "public/fonts/opensans-bold.ttf",
+      "sha256": "5f4c6f0c6beae94863a099a7a538059c480f91587f1abffc06552e9fa3a44f40",
+      "equalsHead": true
+    },
+    {
+      "path": "public/fonts/opensans-button.ttf",
+      "sha256": "c53aceea2dcf5b4098099c0c4d0a061d17e178a049317b42a422b1a9f7f8eb59",
+      "equalsHead": true
+    },
+    {
+      "path": "public/fonts/opensans-light.ttf",
+      "sha256": "0ceb0091b5426ef576c9e8f9f17fb010c3bddbb405250742887eeba92b382b4d",
+      "equalsHead": true
+    },
+    {
+      "path": "public/fonts/opensans-regular.ttf",
+      "sha256": "33e93bec67d91c396876db50694213802a39e43a911bb5c22322f0dbdf4d5e43",
+      "equalsHead": true
+    },
+    {
+      "path": "public/fonts/opensans.ttf",
+      "sha256": "177359dff5017066301cff7264b86851b60b68628636255015d1db37b54b344d",
+      "equalsHead": true
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "86c57aa7eec3e819fc7f5f7075219d9383d4ce824b751816636e581170b7cc97",
+      "equalsHead": true
+    }
+  ],
+  "artPath": "symlink to current unchangedpublic/art; gitdiffempty",
+  "siteUnmodified": true
+}

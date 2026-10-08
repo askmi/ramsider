@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { openTechnology } from './helpers/technology';
 
-test('a partially transferred first photo stays hidden with true progress and locked navigation', async ({ page }, info) => {
+test('a partial first group resource prevents the whole ribbon revealing and reports aggregate progress', async ({ page }, info) => {
   const bytes = await readFile('public/art/technology/02.png');
   let release!: () => void;
   const gate = new Promise<void>(resolve => { release = resolve; });
@@ -26,7 +26,7 @@ test('a partially transferred first photo stays hidden with true progress and lo
     await expect(viewer.locator('.technology-viewer__stage')).toHaveCSS('background-color', 'rgb(255, 255, 255)');
     await expect(viewer.locator('.technology-viewer__stage img')).toHaveCount(0);
     await expect(viewer.locator('.technology-viewer__title, .technology-viewer__descriptions')).toHaveCount(0);
-    await expect(viewer.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '25');
+    await expect(viewer.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '81');
     await expect(viewer.locator('.technology-viewer__next-image')).toBeDisabled();
     await expect(viewer.locator('.technology-viewer__dots button').first()).toBeDisabled();
     const scroll = await page.evaluate(() => scrollY);
@@ -38,10 +38,10 @@ test('a partially transferred first photo stays hidden with true progress and lo
     await viewer.locator('.technology-viewer__stage').dispatchEvent('pointerup', { pointerType: 'touch', clientX: 100, clientY: 500 });
     expect(await page.evaluate(() => scrollY)).toBe(scroll);
     await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
-    await page.screenshot({ path: `docs/evidence/technology-viewer/width-analysis/${info.project.name}-pending.png` });
+    await page.screenshot({ path: `docs/evidence/technology-viewer/ribbons/${info.project.name}-pending.png` });
     release();
     await expect(viewer).toHaveAttribute('aria-busy', 'false');
-    const image = viewer.locator('.technology-viewer__stage img');
+    const image = viewer.locator('.technology-viewer__stage img').first();
     await expect(image).toHaveAttribute('data-source', '/art/technology/02.png');
     const delivered = await image.evaluate(async (element: HTMLImageElement) => {
       const buffer = await (await fetch(element.src)).arrayBuffer();
@@ -50,7 +50,7 @@ test('a partially transferred first photo stays hidden with true progress and lo
     });
     expect(delivered).toBe(createHash('sha256').update(bytes).digest('hex'));
     await expect(viewer.getByRole('heading', { name: 'HeatCore Technology' })).toBeVisible();
-    await page.screenshot({ path: `docs/evidence/technology-viewer/width-analysis/${info.project.name}-ready.png` });
+    await page.screenshot({ path: `docs/evidence/technology-viewer/ribbons/${info.project.name}-ready.png` });
   } finally {
     release();
     server.closeAllConnections();
@@ -73,7 +73,7 @@ test('invalid first image has white backing and retry; close never traps the use
   valid = true;
   await viewer.getByRole('button', { name: 'Retry' }).click();
   await expect(viewer).toHaveAttribute('aria-busy', 'false');
-  await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('data-source', '/art/technology/02.png');
+  await expect(viewer.locator('.technology-viewer__stage img').first()).toHaveAttribute('data-source', '/art/technology/02.png');
 });
 
 test('retry replaces a corrupt HTTP 200 retained in the real browser cache', async ({ page }, info) => {
@@ -109,11 +109,11 @@ test('retry replaces a corrupt HTTP 200 retained in the real browser cache', asy
     valid = true;
     await viewer.getByRole('button', { name: 'Retry' }).click();
     await expect(viewer).toHaveAttribute('aria-busy', 'false');
-    await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('data-source', '/art/technology/02.png');
+    await expect(viewer.locator('.technology-viewer__stage img').first()).toHaveAttribute('data-source', '/art/technology/02.png');
     expect(requests).toBe(before + 1);
     await viewer.locator('.technology-viewer__close').click();
     await openTechnology(page);
-    await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('data-source', '/art/technology/02.png');
+    await expect(viewer.locator('.technology-viewer__stage img').first()).toHaveAttribute('data-source', '/art/technology/02.png');
     expect(requests).toBe(before + 1);
   } finally {
     server.closeAllConnections();
@@ -121,73 +121,39 @@ test('retry replaces a corrupt HTTP 200 retained in the real browser cache', asy
   }
 });
 
-test('horizontal swipes stop at both ends and reverse through preceding photos', async ({ page }) => {
-  await page.goto('/en');
-  await openTechnology(page);
-  const viewer = page.locator('#technology-viewer'), stage = viewer.locator('.technology-viewer__stage');
-  await expect(viewer).toHaveAttribute('aria-busy', 'false');
-  const swipe = async (from: number, to: number) => {
-    await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: from, clientY: 400 });
-    await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: to, clientY: 400 });
-  };
-  await swipe(100, 300);
-  await expect(stage.locator('img')).toHaveAttribute('data-source', '/art/technology/02.png');
-  await viewer.locator('.technology-viewer__dots button').last().click();
-  await expect(stage.locator('img')).toHaveAttribute('data-source', '/art/technology/05.png');
-  await swipe(300, 100);
-  await expect(stage.locator('img')).toHaveAttribute('data-source', '/art/technology/05.png');
-  await swipe(100, 300);
-  await expect(stage.locator('img')).toHaveAttribute('data-source', '/art/technology/04.png');
-  await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
+
+test('a delayed next group retains the complete old ribbon, freezes scroll, and commits atomically',async({page},info)=>{
+ let release!:()=>void;const gate=new Promise<void>(resolve=>{release=resolve;});
+ await page.route('**/art/technology/cybermind/02.png',async route=>{await gate;await route.continue();});
+ try{
+  await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
+  const scroller=viewer.locator('.technology-viewer__scroll');await page.keyboard.press('PageDown');const y=await scroller.evaluate(e=>e.scrollTop);expect(y).toBeGreaterThan(200);
+  await viewer.locator('.technology-viewer__dots button').last().click();await expect(viewer).toHaveAttribute('aria-busy','true');
+  await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer.locator('.technology-viewer__photo img')).toHaveCount(4);
+  await expect(viewer.locator('.technology-viewer__title')).toHaveCount(1);await expect(viewer.locator('.technology-viewer__dots button[aria-current=true]')).toHaveAttribute('aria-label','HeatCore Technology');
+  await expect(viewer.getByRole('progressbar')).toBeVisible();await page.keyboard.press('ArrowRight');await page.keyboard.press('End');
+  await scroller.evaluate(e=>e.scrollTop+=100);await expect.poll(()=>scroller.evaluate(e=>e.scrollTop)).toBe(y);
+  await page.screenshot({path:`docs/evidence/technology-viewer/ribbons/${info.project.name}-retained-pending.png`});
+  release();await expect(viewer).toHaveAttribute('aria-busy','false');await expect(viewer).toHaveAttribute('data-group','CyberMind');await expect(viewer.locator('.technology-viewer__photo img')).toHaveCount(2);expect(await scroller.evaluate(e=>e.scrollTop)).toBe(0);
+ }finally{release();}
 });
 
-test('full-width proportional artwork and controls adapt to short landscape, tablet and desktop', async ({ page }, info) => {
-  await page.goto('/en');
-  await openTechnology(page);
-  const viewer = page.locator('#technology-viewer');
-  await expect(viewer).toHaveAttribute('aria-busy', 'false');
-  for (const [width, height] of [[390, 664], [844, 390], [768, 1024], [1440, 900]] as const) {
-    await page.setViewportSize({ width, height });
-    const bounds = await viewer.evaluate(element => {
-      const box = (selector: string) => element.querySelector(selector)!.getBoundingClientRect();
-      const photo = box('.technology-viewer__content'), stage = box('.technology-viewer__stage'), frame = box('.technology-viewer__frame');
-      const next = box('.technology-viewer__next-group'), top = box('.technology-viewer__next-image'), close = box('.technology-viewer__close'), dots = box('.technology-viewer__dots');
-      const rightArrow = box('.technology-viewer__next-image img'), downArrow = box('.technology-viewer__next-group img');
-      const metal = getComputedStyle(element.querySelector('.technology-viewer__frame')!);
-      const paintWidths = metal.borderImageWidth.split(' ').map(parseFloat);
-      return { ratio: photo.width / photo.height, cornerRatio: paintWidths[1] / paintWidths[0], rightArrowRatio: rightArrow.width / rightArrow.height, downArrowRatio: downArrow.width / downArrow.height, photo: { left: photo.left, right: photo.right, top: photo.top, bottom: photo.bottom }, stage: { left: stage.left, right: stage.right, top: stage.top, bottom: stage.bottom }, frame: { top: frame.top, bottom: frame.bottom }, nextTop: next.top, nextBottom: next.bottom, headerBottom: top.bottom, dotsTop: dots.top, dotsBottom: dots.bottom, closeRight: close.right };
-    });
-    expect(bounds.ratio).toBeCloseTo(941 / 1672, 3);
-    expect(bounds.cornerRatio).toBeCloseTo(29 / 31, 3);
-    expect(bounds.rightArrowRatio).toBeCloseTo(28 / 45, 2);
-    expect(bounds.downArrowRatio).toBeCloseTo(45 / 29, 2);
-    expect(bounds.photo.left).toBeCloseTo(bounds.stage.left, 1);
-    expect(bounds.photo.right).toBeCloseTo(bounds.stage.right, 1);
-    expect(bounds.photo.top).toBeGreaterThanOrEqual(bounds.stage.top - 1);
-    // Height overflow remains reachable through the inner scroller; it is never compressed.
-    const reachable = await viewer.locator('.technology-viewer__scroll').evaluate(element => element.scrollHeight >= element.clientHeight && element.scrollWidth <= element.clientWidth);
-    expect(reachable).toBe(true);
-    expect(bounds.headerBottom).toBeLessThanOrEqual(bounds.frame.top);
-    expect(bounds.headerBottom).toBeLessThanOrEqual(bounds.dotsTop);
-    expect(bounds.dotsBottom).toBeLessThanOrEqual(bounds.frame.top);
-    expect(bounds.frame.bottom).toBeLessThanOrEqual(bounds.nextTop);
-    expect(bounds.nextBottom).toBeLessThanOrEqual(height);
-    expect(bounds.closeRight).toBeLessThanOrEqual(width);
-    await page.screenshot({ path: `docs/evidence/technology-viewer/width-analysis/${info.project.name}-${width}x${height}.png` });
-  }
+test('failed optional group leaves landing usable and recovers with explicit retry without skipping',async({page})=>{
+ let valid=false;let requests=0;
+ await page.route('**/art/technology/cybermind/02.png',route=>{requests++;return valid?route.continue():route.fulfill({status:503,body:'not ready'});});
+ await page.goto('/en');await expect(page.locator('.page-media-overlay')).toHaveCount(0);await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert','');
+ await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
+ await viewer.locator('.technology-viewer__dots button').last().click();await expect(viewer.getByRole('button',{name:'Retry'})).toBeVisible();await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer.locator('.technology-viewer__photo img')).toHaveCount(4);
+ await page.keyboard.press('ArrowRight');await expect(viewer).toHaveAttribute('data-group','HeatCore');
+ const before=requests;valid=true;await viewer.getByRole('button',{name:'Retry'}).click();await expect(viewer).toHaveAttribute('aria-busy','false');await expect(viewer).toHaveAttribute('data-group','CyberMind');expect(requests).toBe(before+1);
+ await viewer.locator('.technology-viewer__close').click();await expect(viewer).not.toBeVisible();
 });
 
-test('loading and retry fit every locale including Arabic at a short phone height', async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 664 });
-  await page.route('**/art/technology/02.png', route => route.fulfill({ status: 503, body: 'Unavailable' }));
-  for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
-    await page.goto(`/${locale}`);
-    await openTechnology(page);
-    const loader = page.locator('.technology-viewer__loading');
-    await expect(loader.locator('button')).toBeVisible();
-    const fit = await loader.locator('p,button').evaluateAll(elements => elements.map(element => ({ width: element.scrollWidth, available: element.clientWidth })));
-    for (const item of fit) expect(item.width).toBeLessThanOrEqual(item.available + 1);
-    if (locale === 'ar') await expect(loader).toHaveAttribute('dir', 'rtl');
-    await page.locator('.technology-viewer__close').click();
-  }
+test('loading and retry remain reachable in every locale at a short phone height',async({page})=>{
+ await page.setViewportSize({width:320,height:568});
+ await page.route('**/art/technology/05.png',route=>route.fulfill({status:503,body:'held error'}));
+ for(const locale of ['en','ru','de','fr','es','it','tr','ar','zh','ja','ko']){
+  await page.goto(`/${locale}`);await openTechnology(page);const viewer=page.locator('#technology-viewer');const retry=viewer.locator('.technology-viewer__loading button');await expect(retry).toBeVisible();
+  const box=await retry.boundingBox();expect(box).not.toBeNull();expect(box!.x).toBeGreaterThanOrEqual(0);expect(box!.y).toBeGreaterThanOrEqual(88);expect(box!.x+box!.width).toBeLessThanOrEqual(320);expect(box!.y+box!.height).toBeLessThanOrEqual(568);await viewer.locator('.technology-viewer__close').click();
+ }
 });

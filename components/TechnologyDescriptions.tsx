@@ -7,11 +7,11 @@ import type { TechnologyDescriptionCopy, TechnologySlideId } from '@/lib/technol
 type BlockProps = {
   id: string; x?: number; y: number; width?: number; height: number;
   size: number; line?: number; color?: string; tracking?: number; weight?: number;
-  kind?: 'h3' | 'h4' | 'p' | 'span'; text: string; number?: string; locale: Locale;
+  kind?: 'h3' | 'h4' | 'p' | 'span'; text: string; locale: Locale;
 };
 
 /** HTML stays semantic; the source plane follows the same X/Y fit as the PNG. */
-export function TextBlock({ id, x = 54, y, width = 824, height, size, line = size * 1.2, color = '#000', tracking = 0, weight = 400, kind: Tag = 'p', text, number, locale }: BlockProps) {
+export function TextBlock({ id, x = 54, y, width = 824, height, size, line = size * 1.2, color = '#000', tracking = 0, weight = 400, kind: Tag = 'p', text, locale }: BlockProps) {
   const box = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
     const fit = () => {
@@ -28,11 +28,11 @@ export function TextBlock({ id, x = 54, y, width = 824, height, size, line = siz
     };
     fit();
     void document.fonts.ready.then(fit);
-  }, [text, locale, size, line, width, height, tracking, number]);
+  }, [text, locale, size, line, width, height, tracking]);
   return <foreignObject x={x} y={y} width={width} height={height} data-description-block={id}>
     <div ref={box} className="technology-description__box" lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <Tag className={`technology-description__copy${color === '#975f41' ? ' technology-description__warm' : ''}`} style={{ fontSize: size, lineHeight: `${line}px`, color, letterSpacing: tracking, fontWeight: weight }}>
-        {number && <span className="technology-description__number">{number}</span>}{text}
+        {text}
       </Tag>
     </div>
   </foreignObject>;
@@ -49,12 +49,12 @@ export function TechnologyDescriptions({ slide, locale, name, copy }: { slide: T
     <svg viewBox="0 0 941 1672" preserveAspectRatio="none" role="presentation">
       {slide === '02' && <>
         <TextBlock {...common} id="headline" x={56} y={332} height={128} kind="h3" size={50} line={58} text={copy.three} />
-        <TextBlock {...common} id="upper-label" y={703} width={235} height={32} kind="h4" size={23} line={30} text={copy.upper} number="01" />
+        <TextBlock {...common} id="upper-label" x={94} y={703} width={195} height={32} kind="h4" size={23} line={30} text={copy.upper} />
         <TextBlock {...common} id="upper-temperature" x={94} y={735} width={180} height={32} size={22} line={30} color={brown} text="0–280°C" />
         <TextBlock {...common} id="upper-body" y={767} width={235} height={60} size={21} line={28} text={copy.upperBody} />
-        <TextBlock {...common} id="grill-label" y={832} width={235} height={32} kind="h4" size={23} line={30} text={copy.grillMode} number="02" />
+        <TextBlock {...common} id="grill-label" x={94} y={832} width={195} height={32} kind="h4" size={23} line={30} text={copy.grillMode} />
         <TextBlock {...common} id="grill-body" y={866} width={235} height={86} size={21} line={28} text={copy.grillBody} />
-        <TextBlock {...common} id="lower-label" y={972} width={235} height={32} kind="h4" size={23} line={30} text={copy.lower} number="03" />
+        <TextBlock {...common} id="lower-label" x={94} y={972} width={195} height={32} kind="h4" size={23} line={30} text={copy.lower} />
         <TextBlock {...common} id="lower-temperature" x={94} y={1004} width={180} height={32} size={22} line={30} color={brown} text="0–160°C" />
         <TextBlock {...common} id="lower-body" y={1036} width={235} height={60} size={21} line={28} text={copy.lowerBody} />
         <TextBlock {...common} id="eyebrow" y={1322} height={42} size={26} line={34} color={brown} text={copy.architecture} />

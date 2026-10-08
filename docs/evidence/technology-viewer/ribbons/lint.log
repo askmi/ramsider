@@ -1,0 +1,50 @@
+
+> lint
+> eslint .
+
+
+/Users/asmirnou/Projects/g/ramsider/components/TechnologyViewer.tsx
+   36:19  error    Error: Cannot modify local variables after render completes
+
+This argument is a function which may reassign or mutate `image` after render, which can cause inconsistent behavior on subsequent renders. Consider using state instead.
+
+/Users/asmirnou/Projects/g/ramsider/components/TechnologyViewer.tsx:36:19
+  34 | function RetainedPhoto({ image, name }: { image: HTMLImageElement; name: string }) {
+  35 |   const host = useRef<HTMLDivElement>(null);
+> 36 |   useLayoutEffect(() => {
+     |                   ^^^^^^^
+> 37 |     image.alt = name;
+     | ^^^^^^^^^^^^^^^^^^^^^
+> 38 |     image.draggable = false;
+     | ^^^^^^^^^^^^^^^^^^^^^
+> 39 |     host.current?.replaceChildren(image);
+     | ^^^^^^^^^^^^^^^^^^^^^
+> 40 |   }, [image, name]);
+     | ^^^^ This function may (indirectly) reassign or modify `image` after render
+  41 |   return <div className="technology-viewer__photo" ref={host} />;
+  42 | }
+  43 |
+
+/Users/asmirnou/Projects/g/ramsider/components/TechnologyViewer.tsx:37:5
+  35 |   const host = useRef<HTMLDivElement>(null);
+  36 |   useLayoutEffect(() => {
+> 37 |     image.alt = name;
+     |     ^^^^^ This modifies `image`
+  38 |     image.draggable = false;
+  39 |     host.current?.replaceChildren(image);
+  40 |   }, [image, name]);  react-hooks/immutability
+   37:5   error    Error: This value cannot be modified
+
+Modifying component props or hook arguments is not allowed. Consider using a local variable instead.
+
+/Users/asmirnou/Projects/g/ramsider/components/TechnologyViewer.tsx:37:5
+  35 |   const host = useRef<HTMLDivElement>(null);
+  36 |   useLayoutEffect(() => {
+> 37 |     image.alt = name;
+     |     ^^^^^ `image` cannot be modified
+  38 |     image.draggable = false;
+  39 |     host.current?.replaceChildren(image);
+  40 |   }, [image, name]);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       react-hooks/immutability
+  153:20  warning  The ref value 'requestToken.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'requestToken.current' to a variable inside the effect, and use that variable in the cleanup function                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   react-hooks/exhaustive-deps
+
+✖ 3 problems (2 errors, 1 warning)

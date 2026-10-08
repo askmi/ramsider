@@ -1,0 +1,10 @@
+
+Running 2 tests using 1 worker
+
+(node:5870) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/2] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:568:1 › CyberMind descriptions fit all locales and omit source folios
+[2/2] [desktop-chromium] › tests/e2e/technology-width.spec.ts:210:1 › all six full-width compositions keep translated text usable in eleven locales
+  2 passed (25.9s)

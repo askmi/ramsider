@@ -1,0 +1,213 @@
+
+Running 120 tests using 6 workers
+
+(node:92587) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:92585) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:92583) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:92586) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:92584) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:92582) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-loading.spec.ts:7:1 › a partially transferred first photo stays hidden with true progress and locked navigation
+[2/120] [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:7:1 › every technology photo fills the frame width without distortion and its bottom stays reachable
+[3/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:7:1 › every technology photo fills the frame width without distortion and its bottom stays reachable
+[4/120] [iphone-17-pro-webkit] › tests/e2e/technology-loading.spec.ts:7:1 › a partially transferred first photo stays hidden with true progress and locked navigation
+[5/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:7:1 › technology artwork keeps its native proportions as Safari chrome changes the visible height
+[6/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:7:1 › technology artwork keeps its native proportions as Safari chrome changes the visible height
+[7/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-loading.spec.ts:61:1 › invalid first image has white backing and retry; close never traps the user
+[8/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:50:1 › technology PNGs preserve every original pixel outside the title mask
+[9/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:50:1 › technology PNGs preserve every original pixel outside the title mask
+[10/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:87:1 › technology descriptions render all source text in the decoded image coordinates
+[11/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:87:1 › technology descriptions render all source text in the decoded image coordinates
+[12/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-loading.spec.ts:79:1 › retry replaces a corrupt HTTP 200 retained in the real browser cache
+[13/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-loading.spec.ts:124:1 › horizontal swipes stop at both ends and reverse through preceding photos
+  1) [iphone-17-pro-webkit] › tests/e2e/technology-loading.spec.ts:7:1 › a partially transferred first photo stays hidden with true progress and locked navigation
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator:  locator('#technology-viewer')
+    Expected: visible
+    Received: hidden
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeVisible" locator('#technology-viewer') with timeout 5000ms
+      - waiting for locator('#technology-viewer')
+        13 × locator resolved to <dialog tabindex="-1" aria-busy="false" aria-label="HeatCore" data-group="HeatCore" id="technology-viewer" class="technology-viewer" aria-describedby="technology-viewer-instructions">…</dialog>
+           - unexpected value "hidden"
+
+
+       at helpers/technology.ts:9
+
+       7 |   await waitForVisibleMedia(page);
+       8 |   await trigger.click();
+    >  9 |   await expect(page.locator('#technology-viewer')).toBeVisible();
+         |                                                    ^
+      10 | }
+      11 |
+        at openTechnology (/Users/asmirnou/Projects/g/ramsider/tests/e2e/helpers/technology.ts:9:52)
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/technology-loading.spec.ts:23:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/technology-loading-a-parti-5fe86-gress-and-locked-navigation-iphone-17-pro-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/technology-loading-a-parti-5fe86-gress-and-locked-navigation-iphone-17-pro-webkit/error-context.md
+
+
+[14/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:118:1 › technology viewer opens from both story controls and pages through clean images
+[15/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:118:1 › technology viewer opens from both story controls and pages through clean images
+(node:92753) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[16/120] [iphone-17-pro-webkit] › tests/e2e/technology-loading.spec.ts:61:1 › invalid first image has white backing and retry; close never traps the user
+[17/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-loading.spec.ts:144:1 › full-width proportional artwork and controls adapt to short landscape, tablet and desktop
+[18/120] [iphone-17-pro-webkit] › tests/e2e/technology-loading.spec.ts:79:1 › retry replaces a corrupt HTTP 200 retained in the real browser cache
+[19/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-loading.spec.ts:180:1 › loading and retry fit every locale including Arabic at a short phone height
+[20/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:70:1 › inner scroll freezes at pending and failed frames, then resets after decoded commit
+[21/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:212:1 › technology viewer supports touch pointers, Escape and Arabic framing
+[22/120] [iphone-17-pro-webkit] › tests/e2e/technology-loading.spec.ts:124:1 › horizontal swipes stop at both ends and reverse through preceding photos
+[23/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:212:1 › technology viewer supports touch pointers, Escape and Arabic framing
+[24/120] [iphone-17-pro-webkit] › tests/e2e/technology-loading.spec.ts:144:1 › full-width proportional artwork and controls adapt to short landscape, tablet and desktop
+[25/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:129:1 › native desktop wheel pans the picture without moving the page or changing technology
+[26/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:150:1 › native touch pans vertically, swipes horizontally and freezes during download
+[27/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:210:1 › all six full-width compositions keep translated text usable in eleven locales
+[28/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:262:1 › previous artwork stays visible while the next slide loads
+[29/120] [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:70:1 › inner scroll freezes at pending and failed frames, then resets after decoded commit
+[30/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:262:1 › previous artwork stays visible while the next slide loads
+[31/120] [iphone-17-pro-webkit] › tests/e2e/technology-loading.spec.ts:180:1 › loading and retry fit every locale including Arabic at a short phone height
+[32/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:285:1 › failed warm-up and failed selection retry the same image
+[33/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:285:1 › failed warm-up and failed selection retry the same image
+[34/120] [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:129:1 › native desktop wheel pans the picture without moving the page or changing technology
+[35/120] [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:150:1 › native touch pans vertically, swipes horizontally and freezes during download
+[36/120] [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:210:1 › all six full-width compositions keep translated text usable in eleven locales
+[37/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:310:1 › all six photos warm after load without blocking the main page
+[38/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:310:1 › all six photos warm after load without blocking the main page
+[39/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:335:1 › incomplete hero protects the main view before technology can be opened
+[40/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:335:1 › incomplete hero protects the main view before technology can be opened
+[41/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:351:1 › six photos warm at low priority; retained decoded images are reused offline across groups
+(node:92908) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[42/120] [desktop-chromium] › tests/e2e/technology-loading.spec.ts:7:1 › a partially transferred first photo stays hidden with true progress and locked navigation
+[43/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:351:1 › six photos warm at low priority; retained decoded images are reused offline across groups
+[44/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:398:1 › swipe completes when the pointer leaves the artwork
+[45/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:414:1 › technology viewer hides landing paint beneath browser chrome and restores it on close
+[46/120] [desktop-chromium] › tests/e2e/technology-loading.spec.ts:61:1 › invalid first image has white backing and retry; close never traps the user
+[47/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:398:1 › swipe completes when the pointer leaves the artwork
+(node:92944) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[48/120] [desktop-chromium] › tests/e2e/technology-loading.spec.ts:79:1 › retry replaces a corrupt HTTP 200 retained in the real browser cache
+[49/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:7:1 › technology artwork keeps its native proportions as Safari chrome changes the visible height
+[50/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:414:1 › technology viewer hides landing paint beneath browser chrome and restores it on close
+[51/120] [desktop-chromium] › tests/e2e/technology-loading.spec.ts:124:1 › horizontal swipes stop at both ends and reverse through preceding photos
+[52/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:457:1 › metal contour reaches mobile side edges and the image stays inside its cutout
+[53/120] [desktop-chromium] › tests/e2e/technology-loading.spec.ts:144:1 › full-width proportional artwork and controls adapt to short landscape, tablet and desktop
+[54/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:50:1 › technology PNGs preserve every original pixel outside the title mask
+[55/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:487:1 › CyberMind PNGs retain native RGB, alpha and resolution outside title glyphs
+[56/120] [desktop-chromium] › tests/e2e/technology-loading.spec.ts:180:1 › loading and retry fit every locale including Arabic at a short phone height
+[57/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:87:1 › technology descriptions render all source text in the decoded image coordinates
+[58/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:514:1 › CyberMind uses two interactive slides, a live title and explicit group navigation
+[59/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:457:1 › metal contour reaches mobile side edges and the image stays inside its cutout
+[60/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:487:1 › CyberMind PNGs retain native RGB, alpha and resolution outside title glyphs
+[61/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:514:1 › CyberMind uses two interactive slides, a live title and explicit group navigation
+[62/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:118:1 › technology viewer opens from both story controls and pages through clean images
+[63/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:568:1 › CyberMind descriptions fit all locales and omit source folios
+[64/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:568:1 › CyberMind descriptions fit all locales and omit source folios
+(node:93055) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[65/120] [desktop-chromium] › tests/e2e/technology-width.spec.ts:7:1 › every technology photo fills the frame width without distortion and its bottom stays reachable
+[66/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:212:1 › technology viewer supports touch pointers, Escape and Arabic framing
+(node:93067) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[67/120] [desktop-firefox] › tests/e2e/technology-loading.spec.ts:7:1 › a partially transferred first photo stays hidden with true progress and locked navigation
+[68/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:262:1 › previous artwork stays visible while the next slide loads
+(node:93090) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[69/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:285:1 › failed warm-up and failed selection retry the same image
+[70/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:7:1 › technology artwork keeps its native proportions as Safari chrome changes the visible height
+[71/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:310:1 › all six photos warm after load without blocking the main page
+[72/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:595:1 › pending slide locks navigation and commits only fully loaded selection
+[73/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:335:1 › incomplete hero protects the main view before technology can be opened
+[74/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:595:1 › pending slide locks navigation and commits only fully loaded selection
+[75/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:351:1 › six photos warm at low priority; retained decoded images are reused offline across groups
+[76/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:616:1 › failed CyberMind warm and selection recover with explicit Retry without skipping the group
+[77/120] [desktop-chromium] › tests/e2e/technology-width.spec.ts:70:1 › inner scroll freezes at pending and failed frames, then resets after decoded commit
+[78/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:398:1 › swipe completes when the pointer leaves the artwork
+[79/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:616:1 › failed CyberMind warm and selection recover with explicit Retry without skipping the group
+[80/120] [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:632:1 › pending group blocks gestures and repeated keys while close remains available
+[81/120] [desktop-chromium] › tests/e2e/technology-width.spec.ts:129:1 › native desktop wheel pans the picture without moving the page or changing technology
+[82/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:414:1 › technology viewer hides landing paint beneath browser chrome and restores it on close
+[83/120] [desktop-chromium] › tests/e2e/technology-width.spec.ts:150:1 › native touch pans vertically, swipes horizontally and freezes during download
+[84/120] [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:632:1 › pending group blocks gestures and repeated keys while close remains available
+(node:93249) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[85/120] [desktop-firefox] › tests/e2e/technology-width.spec.ts:7:1 › every technology photo fills the frame width without distortion and its bottom stays reachable
+[86/120] [desktop-firefox] › tests/e2e/technology-loading.spec.ts:61:1 › invalid first image has white backing and retry; close never traps the user
+[87/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:50:1 › technology PNGs preserve every original pixel outside the title mask
+[88/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:87:1 › technology descriptions render all source text in the decoded image coordinates
+[89/120] [desktop-firefox] › tests/e2e/technology-loading.spec.ts:79:1 › retry replaces a corrupt HTTP 200 retained in the real browser cache
+[90/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:457:1 › metal contour reaches mobile side edges and the image stays inside its cutout
+[91/120] [desktop-firefox] › tests/e2e/technology-loading.spec.ts:124:1 › horizontal swipes stop at both ends and reverse through preceding photos
+[92/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:118:1 › technology viewer opens from both story controls and pages through clean images
+[93/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:487:1 › CyberMind PNGs retain native RGB, alpha and resolution outside title glyphs
+[94/120] [desktop-chromium] › tests/e2e/technology-width.spec.ts:210:1 › all six full-width compositions keep translated text usable in eleven locales
+[95/120] [desktop-firefox] › tests/e2e/technology-loading.spec.ts:144:1 › full-width proportional artwork and controls adapt to short landscape, tablet and desktop
+[96/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:514:1 › CyberMind uses two interactive slides, a live title and explicit group navigation
+[97/120] [desktop-firefox] › tests/e2e/technology-loading.spec.ts:180:1 › loading and retry fit every locale including Arabic at a short phone height
+[98/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:568:1 › CyberMind descriptions fit all locales and omit source folios
+[99/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:212:1 › technology viewer supports touch pointers, Escape and Arabic framing
+[100/120] [desktop-firefox] › tests/e2e/technology-width.spec.ts:70:1 › inner scroll freezes at pending and failed frames, then resets after decoded commit
+[101/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:262:1 › previous artwork stays visible while the next slide loads
+[102/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:285:1 › failed warm-up and failed selection retry the same image
+[103/120] [desktop-firefox] › tests/e2e/technology-width.spec.ts:129:1 › native desktop wheel pans the picture without moving the page or changing technology
+[104/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:310:1 › all six photos warm after load without blocking the main page
+[105/120] [desktop-firefox] › tests/e2e/technology-width.spec.ts:150:1 › native touch pans vertically, swipes horizontally and freezes during download
+[106/120] [desktop-firefox] › tests/e2e/technology-width.spec.ts:210:1 › all six full-width compositions keep translated text usable in eleven locales
+[107/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:335:1 › incomplete hero protects the main view before technology can be opened
+[108/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:351:1 › six photos warm at low priority; retained decoded images are reused offline across groups
+[109/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:595:1 › pending slide locks navigation and commits only fully loaded selection
+[110/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:616:1 › failed CyberMind warm and selection recover with explicit Retry without skipping the group
+[111/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:398:1 › swipe completes when the pointer leaves the artwork
+[112/120] [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:632:1 › pending group blocks gestures and repeated keys while close remains available
+[113/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:414:1 › technology viewer hides landing paint beneath browser chrome and restores it on close
+[114/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:457:1 › metal contour reaches mobile side edges and the image stays inside its cutout
+[115/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:487:1 › CyberMind PNGs retain native RGB, alpha and resolution outside title glyphs
+[116/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:514:1 › CyberMind uses two interactive slides, a live title and explicit group navigation
+[117/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:568:1 › CyberMind descriptions fit all locales and omit source folios
+[118/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:595:1 › pending slide locks navigation and commits only fully loaded selection
+[119/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:616:1 › failed CyberMind warm and selection recover with explicit Retry without skipping the group
+[120/120] [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:632:1 › pending group blocks gestures and repeated keys while close remains available
+  1 failed
+    [iphone-17-pro-webkit] › tests/e2e/technology-loading.spec.ts:7:1 › a partially transferred first photo stays hidden with true progress and locked navigation
+  5 skipped
+  114 passed (2.2m)

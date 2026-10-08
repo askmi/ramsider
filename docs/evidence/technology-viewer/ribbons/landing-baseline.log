@@ -1,0 +1,39 @@
+
+Running 2 tests using 1 worker
+
+(node:38980) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:123:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll (3.1s)
+(node:39013) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:123:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll (6.6s)
+
+
+  1) [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:123:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      160 |     const ready = await sharp(await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-ready.png`, scale: 'device' })).resize({ width: viewport.width }).extract(crop).raw().toBuffer();
+      161 |     return ready.equals(pending);
+    > 162 |   }).toBe(true);
+          |      ^
+      163 |   await page.evaluate(() => scrollTo({ top: scrollY + 200, behavior: 'instant' }));
+      164 |   await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(scroll);
+      165 | });
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/media-loading.spec.ts:162:6
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/media-loading-pending-next-a0c8e-ll-and-allows-upward-scroll-iphone-17-pro-max-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/media-loading-pending-next-a0c8e-ll-and-allows-upward-scroll-iphone-17-pro-max-webkit/error-context.md
+
+  1 failed
+    [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:123:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll
+  1 passed (12.2s)

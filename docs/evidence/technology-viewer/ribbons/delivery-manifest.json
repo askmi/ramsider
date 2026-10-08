@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-08",
+  "head": "8aa0df6f9d644e208a642b5310a3d8fbdbc619a8",
+  "branch": "main",
+  "runtimeFiles": [
+    {
+      "path": "app/globals.css",
+      "sha256": "38797c1fc9872681419b9560a3ccdd205b7e3aa2625bd5d472e19037fda2f22e"
+    },
+    {
+      "path": "components/TechnologyViewer.tsx",
+      "sha256": "7748e750184c4276a6c8579c3dcb50305623cad439fccf787adde91396453a38"
+    },
+    {
+      "path": "components/TechnologyDescriptions.tsx",
+      "sha256": "b25d7b237ccdf8daceaf261624a727a70e04405bab82d14250300984174897c6"
+    },
+    {
+      "path": "tests/e2e/site.spec.ts",
+      "sha256": "3d0c7655aab7621e100df6fc81da765669db48ab9f8d9d1ef64fcc5b27382c1a"
+    },
+    {
+      "path": "tests/e2e/technology-viewer.spec.ts",
+      "sha256": "78dca987fca689d4ae131ce26425d96fbef3845beee99ffee44758ae27360692"
+    },
+    {
+      "path": "tests/e2e/technology-loading.spec.ts",
+      "sha256": "d539236568a2b1197a7f2030d21df66a45a0f846c2877c56598cb3cfb6f52dc0"
+    },
+    {
+      "path": "tests/e2e/technology-width.spec.ts",
+      "sha256": "f13a3cad9e5e0ccfab266d4d99e53580b22a6b6ba7dbbe35f0caa28734df1d75"
+    }
+  ],
+  "finalArtifacts": [
+    "visual.json",
+    "capture-paint-barrier.log",
+    "behavior-final.log",
+    "firefox-recheck.log",
+    "native-review-final.log",
+    "typecheck-final.log",
+    "lint-final.log",
+    "build-final.log",
+    "performance.json",
+    "baseline-runtime.json",
+    "historical-evidence-restored.json"
+  ],
+  "assemblyNote": "First immediate snapshots observed transient missing Pro documents and Max hero; same runtime recaptured after fonts/images and ten animation frames. Stable composition only; does not fix or approve held-resource CHG0071 paint failure.",
+  "recordChecks": {
+    "diffWhitespace": "PASS",
+    "captureScriptSyntax": "PASS",
+    "performanceScriptSyntax": "PASS",
+    "affectedTopicLocalLinks": {
+      "checked": 104,
+      "missing": 0
+    }
+  },
+  "assemblyCaptureWait": "actual DOM image decode markers, fonts.ready, ten requestAnimationFrame callbacks after each section scroll",
+  "preview": {
+    "url": "http://127.0.0.1:3030/en",
+    "codexBrowserTab": "1",
+    "firstRibbonVisible": true,
+    "markedDeliverable": true
+  },
+  "independentAudits": {
+    "scope": "ribbon_audit PASS",
+    "visual": "ribbon_audit PASS",
+    "behavior": "ribbon_audit PASS",
+    "reviewPerformance": "ribbon_closeout_audit PASS",
+    "finalRecords": "ribbon_final_records corrected Stage6 PASS"
+  },
+  "residuals": {
+    "CHG-0071": "REOPENED, pre-existing held main-artwork WebKit paint failure, no fix claimed",
+    "CHG-0065": "physical Safari/Telegram chrome unverified",
+    "CHG-0035": "favicon open"
+  },
+  "status": "VERIFIED",
+  "technicalApproval": {
+    "date": "2026-10-08",
+    "verifier": "Codex primary root",
+    "scope": "CHG-0076 two-ribbon viewer only",
+    "userAcceptance": "APPROVED /2026-10-08: \u043e\u0442\u043b\u0438\u0447\u043d\u043e",
+    "controlledAgentEval": "NOT_RUN"
+  },
+  "dispatchAuthorization": "User requested commit push to origin/main /2026-10-08"
+}

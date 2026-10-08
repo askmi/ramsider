@@ -4,49 +4,6 @@ import { createHash } from 'node:crypto';
 import sharp from 'sharp';
 import { openTechnology } from './helpers/technology';
 
-test('technology artwork keeps its native proportions as Safari chrome changes the visible height', async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/en');
-  await openTechnology(page);
-  const viewer = page.locator('#technology-viewer');
-  await expect(viewer).toHaveAttribute('aria-busy', 'false');
-  await viewer.locator('.technology-viewer__stage img').evaluateAll(async images => {
-    await document.fonts.ready;
-    await Promise.all(images.map(image => (image as HTMLImageElement).decode()));
-  });
-  for (const [width, height] of [[320, 568], [375, 667], [390, 844], [390, 732], [390, 664], [402, 874], [440, 956]] as const) {
-    await page.setViewportSize({ width, height });
-    const bounds = await viewer.evaluate(element => {
-      const box = (selector: string) => element.querySelector(selector)!.getBoundingClientRect();
-      const canvas = box('.technology-viewer__canvas');
-      const stage = box('.technology-viewer__content');
-      const frame = box('.technology-viewer__frame');
-      const next = box('.technology-viewer__next-group');
-      return { canvasWidth: canvas.width, stageRatio: stage.width / stage.height, frameLeft: frame.left, frameRight: frame.right, nextBottom: next.bottom };
-    });
-    expect(Math.abs(bounds.stageRatio - 941 / 1672)).toBeLessThan(.02);
-    expect(bounds.frameLeft).toBe(0);
-    expect(bounds.frameRight).toBe(width);
-    expect(bounds.nextBottom).toBeLessThanOrEqual(height + 1);
-    expect(bounds.canvasWidth).toBe(width);
-    if (width === 320) await page.screenshot({ path: 'docs/evidence/media-loading/retained-width-ready-320x568.png' });
-    if (height === 664) {
-      await page.screenshot({ path: 'docs/evidence/media-loading/retained-width-ready-390x664.png' });
-    }
-  }
-  await page.locator('.technology-viewer__next-group').click();
-  await expect(viewer).toHaveAttribute('data-group', 'CyberMind');
-  await page.setViewportSize({ width: 390, height: 664 });
-  await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('data-source', '/art/technology/cybermind/01.png');
-  await viewer.locator('.technology-viewer__stage img').evaluateAll(async images => {
-    await document.fonts.ready;
-    await Promise.all(images.map(image => (image as HTMLImageElement).decode()));
-  });
-  await page.screenshot({ path: 'docs/evidence/media-loading/retained-width-ready-cybermind-390x664.png' });
-  await viewer.locator('.technology-viewer__close').click();
-  await expect(viewer).not.toBeVisible();
-});
-
 test('technology PNGs preserve every original pixel outside the title mask', async ({ request }) => {
   const originals = [
     ['02', 'HeatCore_02_THREE_HEATERS_941x1672.png'],
@@ -84,227 +41,31 @@ test('technology PNGs preserve every original pixel outside the title mask', asy
   }
 });
 
-test('technology descriptions render all source text in the decoded image coordinates', async ({ page }, testInfo) => {
-  await page.goto('/en');
-  await openTechnology(page);
-  const viewer = page.locator('#technology-viewer');
-  const headings = ['THREE HEATERS. ONE CONTINUOUS BALANCE.', 'EXCESS HEAT. CONTINUOUSLY RELEASED.', 'POWER, SHAPED OVER TIME.', 'GOLD FOR PURITY. TITANIUM NITRIDE FOR HEAT.'];
-  for (let index = 0; index < 4; index++) {
-    await viewer.locator('.technology-viewer__dots button').nth(index).click();
-    const id = String(index + 2).padStart(2, '0');
-    await expect(viewer.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', id);
-    await expect(viewer.getByRole('heading', { level: 3 })).toHaveText(headings[index]);
-    await viewer.locator('img').evaluateAll(async images => { await document.fonts.ready; await Promise.all(images.map(image => (image as HTMLImageElement).decode())); });
-    const blocks = await viewer.locator('.technology-description__box').evaluateAll(elements => elements.map(element => {
-      const copy = element.firstElementChild as HTMLElement;
-      return { font: getComputedStyle(copy).fontFamily, height: copy.scrollHeight, maxHeight: element.clientHeight, width: copy.scrollWidth, maxWidth: element.clientWidth };
-    }));
-    expect(blocks.length).toBeGreaterThan(2);
-    for (const block of blocks) {
-      expect(block.font).toMatch(/^OpenSans/);
-      expect(block.height).toBeLessThanOrEqual(block.maxHeight + 1);
-      expect(block.width).toBeLessThanOrEqual(block.maxWidth + 1);
+test('CyberMind PNGs retain native RGB, alpha and resolution outside title glyphs', async ({ request }) => {
+  const manifest = JSON.parse(await readFile('docs/evidence/technology-viewer/cybermind/assets.json', 'utf8'));
+  for (const item of manifest.items) {
+    const source = await readFile(item.source);
+    const delivered = await readFile(item.output);
+    expect(createHash('sha256').update(source).digest('hex')).toBe(item.sourceSha256);
+    expect(createHash('sha256').update(delivered).digest('hex')).toBe(item.outputSha256);
+    const metadata = await sharp(delivered).metadata();
+    expect([metadata.width, metadata.height, metadata.channels]).toEqual([941,1672,item.channels]);
+    expect(metadata.icc).toBeUndefined();
+    const response = await request.get(`/art/technology/cybermind/${item.id}.png`);
+    expect(response.ok()).toBe(true);
+    expect(response.headers()['content-type']).toContain('image/png');
+    expect((await response.body()).equals(delivered)).toBe(true);
+    const a = await sharp(source).raw().toBuffer(), b = await sharp(delivered).raw().toBuffer();
+    const mask = await sharp(`docs/evidence/technology-viewer/cybermind/mask-${item.id}.png`).greyscale().raw().toBuffer();
+    let outside = 0, alpha = 0, remainingLetters = 0;
+    for (let i=0;i<mask.length;i++) {
+      if (!mask[i]) for (let c=0;c<item.channels;c++) if (a[i*item.channels+c]!==b[i*item.channels+c]) outside++;
+      if (item.channels===4 && a[i*4+3]!==b[i*4+3]) alpha++;
+      if (mask[i] && Math.max(...b.subarray(i*item.channels,i*item.channels+3))<130) remainingLetters++;
     }
-    await expect(viewer.locator('.technology-description__folio')).toHaveCount(0);
-    await page.screenshot({ path: `screenshots/actual/technology-descriptions/${testInfo.project.name}-slide-${index + 1}.png` });
+    expect([outside,alpha,remainingLetters]).toEqual([0,0,0]);
+    expect((await request.get(`/art/technology/cybermind/${item.id}.webp`)).status()).toBe(404);
   }
-  await viewer.locator('.technology-viewer__dots button').first().click();
-  await expect(viewer.getByRole('heading', { name: '01 UPPER HEAT' })).toBeVisible();
-  await expect(viewer.locator('[data-description-block="upper-temperature"]')).toHaveText('0–280°C');
-  await expect(viewer.locator('[data-description-block="lower-temperature"]')).toHaveText('0–160°C');
-  await expect(viewer.locator('.technology-viewer__stage')).toHaveCSS('touch-action', 'pan-y pinch-zoom');
-});
-
-test('technology viewer opens from both story controls and pages through clean images', async ({ page }, testInfo) => {
-  await page.goto('/en');
-  expect(await page.evaluate(() => window.innerWidth)).toBe(testInfo.project.use.viewport?.width);
-  expect(await page.evaluate(() => window.devicePixelRatio)).toBe(testInfo.project.use.deviceScaleFactor ?? 1);
-  expect(await page.locator('meta[name="viewport"]').getAttribute('content')).toContain('width=device-width');
-
-  const openers = page.locator('[data-technology-open]');
-  await expect(openers).toHaveCount(2);
-  const viewer = page.locator('#technology-viewer');
-  for (let triggerIndex = 0; triggerIndex < 2; triggerIndex++) {
-    await openers.nth(triggerIndex).scrollIntoViewIfNeeded();
-    await openTechnology(page, openers.nth(triggerIndex));
-    await expect(viewer).toBeVisible();
-    await expect(viewer.getByRole('heading', { name: 'HeatCore Technology' })).toHaveCount(1);
-    await expect(viewer.locator('.technology-viewer__title')).toHaveCSS('font-family', /OpenSans/);
-    await expect(viewer).toHaveAttribute('aria-labelledby', 'technology-viewer-title');
-    await expect(viewer.locator('.technology-viewer__frame')).toHaveCSS('border-image-source', /frame-template\.webp/);
-    const dots = viewer.locator('.technology-viewer__dots button');
-    await expect(dots).toHaveCount(4);
-    await expect(dots.nth(0)).toHaveAttribute('aria-current', 'true');
-    for (const dot of await dots.all()) {
-      const hit = await dot.boundingBox();
-      expect(hit?.width).toBeGreaterThanOrEqual(24);
-      expect(hit?.height).toBeGreaterThanOrEqual(44);
-    }
-    const closeHit = await viewer.locator('.technology-viewer__close').boundingBox();
-    expect(closeHit?.width).toBeGreaterThanOrEqual(44);
-    expect(closeHit?.height).toBeGreaterThanOrEqual(44);
-    await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('data-source', /02\.png/);
-    await expect(viewer.locator('.technology-viewer__stage')).toHaveCSS('background-image', 'none');
-    await expect.poll(() => viewer.locator('.technology-viewer__stage img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true);
-    await viewer.locator('img').evaluateAll(async images => {
-      await document.fonts.ready;
-      await Promise.all(images.map(image => (image as HTMLImageElement).decode()));
-    });
-    await page.screenshot({ path: `screenshots/actual/technology-viewer/${testInfo.project.name}-entry-${triggerIndex + 1}.png` });
-
-    const nextImage = viewer.locator('.technology-viewer__next-image');
-    await expect(nextImage).toHaveAttribute('aria-label', 'Show next image');
-    await expect(nextImage.locator('span')).toHaveText('Swipe for Details');
-    await expect(nextImage).toHaveCSS('font-family', /OpenSans/);
-    await expect(nextImage.locator('img')).toHaveAttribute('src', '/art/technology/arrow-right.png');
-    await expect(viewer.locator('.technology-viewer__next-group span')).toHaveText('Next Technology');
-    await expect(viewer.locator('.technology-viewer__next-group img')).toHaveAttribute('src', '/art/technology/arrow-down.png');
-    await nextImage.click();
-    await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('data-source', /03\.png/);
-    await expect(dots.nth(1)).toHaveAttribute('aria-current', 'true');
-    await dots.nth(3).click();
-    await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('data-source', /05\.png/);
-    await expect(dots.nth(3)).toHaveAttribute('aria-current', 'true');
-    await expect(nextImage).toBeDisabled();
-    await page.keyboard.press('ArrowRight');
-    await expect(dots.nth(3)).toHaveAttribute('aria-current', 'true');
-    await page.keyboard.press('ArrowLeft');
-    await expect(dots.nth(2)).toHaveAttribute('aria-current', 'true');
-    await dots.nth(0).click();
-
-    const stage = viewer.locator('.technology-viewer__stage');
-    const box = await stage.boundingBox();
-    if (!box) throw new Error('Missing technology stage');
-    const y = box.y + box.height / 2;
-    await page.mouse.move(box.x + box.width * .8, y);
-    await page.mouse.down();
-    await page.mouse.move(box.x + box.width * .2, y, { steps: 5 });
-    await page.mouse.up();
-    await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('data-source', /03\.png/);
-    await expect(dots.nth(1)).toHaveAttribute('aria-current', 'true');
-    if (triggerIndex === 0) {
-      for (let slideIndex = 0; slideIndex < 4; slideIndex++) {
-        await dots.nth(slideIndex).click();
-        await expect.poll(() => viewer.locator('.technology-viewer__stage img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
-        await expect(dots.nth(slideIndex)).toHaveAttribute('aria-current', 'true');
-        await page.screenshot({ path: `screenshots/actual/technology-viewer/${testInfo.project.name}-slide-${slideIndex + 1}.png` });
-      }
-      await dots.nth(2).focus();
-      await page.keyboard.press('Enter');
-      await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('data-source', /04\.png/);
-      await expect(dots.nth(2)).toHaveAttribute('aria-current', 'true');
-    }
-    await viewer.locator('.technology-viewer__next-group').click();
-    await expect(viewer).toHaveAttribute('data-group', 'CyberMind');
-    await expect(dots).toHaveCount(2);
-    await viewer.locator('.technology-viewer__next-group').click();
-    await expect(viewer.getByRole('status')).toHaveText('The next technology is coming soon.');
-    if (triggerIndex === 0) await page.screenshot({ path: `screenshots/actual/technology-viewer/${testInfo.project.name}-next-group-placeholder.png` });
-    await expect(viewer).toBeVisible();
-    await page.keyboard.press('ArrowLeft');
-    await expect(viewer.getByRole('status')).toHaveCount(0);
-    await viewer.locator('.technology-viewer__close').click();
-    await expect(viewer).not.toBeVisible();
-    await expect(openers.nth(triggerIndex)).toBeFocused();
-  }
-});
-
-test('technology viewer supports touch pointers, Escape and Arabic framing', async ({ page }, testInfo) => {
-  await page.goto('/ar');
-  await page.waitForLoadState('networkidle');
-  await openTechnology(page);
-  const viewer = page.locator('#technology-viewer');
-  await expect(viewer).toBeVisible();
-  const stage = viewer.locator('.technology-viewer__stage');
-  const box = await stage.boundingBox();
-  if (!box) throw new Error('Missing technology stage');
-  const y = box.y + box.height / 2;
-  await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: box.x + box.width * .2, clientY: y });
-  await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: box.x + box.width * .8, clientY: y });
-  await expect(stage.locator('img')).toHaveAttribute('data-source', /03\.png/);
-  await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '03');
-  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
-  await expect(stage.locator('img')).toHaveAttribute('alt', /زعانف هوائية نشطة/);
-  await page.keyboard.press('ArrowLeft');
-  await expect(stage.locator('img')).toHaveAttribute('data-source', /04\.png/);
-  await page.keyboard.press('ArrowRight');
-  await expect(stage.locator('img')).toHaveAttribute('data-source', /03\.png/);
-  await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '03');
-  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
-  await expect(page.locator('body')).toHaveCSS('overflow', 'hidden');
-  await page.screenshot({ path: `screenshots/actual/technology-viewer/${testInfo.project.name}-arabic-swipe.png` });
-  await page.keyboard.press('Escape');
-  await expect(viewer).not.toBeVisible();
-  await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden');
-  await openTechnology(page);
-  await expect(viewer).toBeVisible();
-  await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 200, clientY: 500 });
-  await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 200, clientY: 350 });
-  await expect(viewer).toBeVisible();
-  await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 200, clientY: 350 });
-  await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 200, clientY: 550 });
-  await expect(viewer).toBeVisible();
-  await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
-  await viewer.locator('.technology-viewer__next-group').click();
-  await expect(viewer).toHaveAttribute('data-group', 'CyberMind');
-  await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 200, clientY: 350 });
-  await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 200, clientY: 550 });
-  await expect(viewer.getByRole('status')).toHaveCount(0);
-  await viewer.locator('.technology-viewer__next-group').click();
-  await expect(viewer.getByRole('status')).toHaveText('التقنية التالية ستتوفر قريباً.');
-  await viewer.locator('.technology-viewer__next-group').focus();
-  await page.keyboard.press('Enter');
-  await expect(viewer.getByRole('status')).toBeVisible();
-  await viewer.locator('.technology-viewer__close').click();
-  await expect(viewer).not.toBeVisible();
-});
-
-test('previous artwork stays visible while the next slide loads', async ({ page }) => {
-  let release!: () => void;
-  const gate = new Promise<void>(resolve => { release = resolve; });
-  await page.route('**/art/technology/03.png', async route => {
-    await gate;
-    await route.continue();
-  });
-  await page.goto('/en');
-  await openTechnology(page);
-  const stage = page.locator('#technology-viewer .technology-viewer__stage');
-  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
-  await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 300, clientY: 400 });
-  await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 90, clientY: 400 });
-  await expect(stage.locator('img')).toHaveAttribute('data-source', /02\.png/);
-  await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '02');
-  await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 1 \/ 4/);
-  release();
-  await expect(stage.locator('img')).toHaveAttribute('data-source', /03\.png/);
-  await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '03');
-  await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 2 \/ 4/);
-  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
-});
-
-test('failed warm-up and failed selection retry the same image', async ({ page }) => {
-  let requests = 0;
-  await page.route('**/art/technology/03.png', async route => {
-    requests++;
-    if (requests <= 2) await route.abort();
-    else await route.continue();
-  });
-  await page.goto('/en');
-  await expect.poll(() => requests).toBe(1);
-  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
-  await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
-  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
-  await page.waitForTimeout(150);
-  await openTechnology(page);
-  await expect.poll(() => requests).toBe(2);
-  await page.waitForTimeout(150);
-  const stage = page.locator('#technology-viewer .technology-viewer__stage');
-  await page.locator('.technology-viewer__next-image').click();
-  await expect.poll(() => requests).toBe(3);
-  await page.waitForTimeout(150);
-  await expect(stage.locator('img')).toHaveAttribute('data-source', /03\.png/);
-  await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '03');
-  await expect(page.locator('.technology-viewer__dots button[aria-current="true"]')).toHaveAttribute('aria-label', /Image 2 \/ 4/);
 });
 
 test('all six photos warm after load without blocking the main page', async ({ page }) => {
@@ -348,69 +109,70 @@ test('incomplete hero protects the main view before technology can be opened', a
   await expect(page.locator('#technology-viewer')).toBeVisible();
 });
 
-test('six photos warm at low priority; retained decoded images are reused offline across groups', async ({ page, context }) => {
-  await page.addInitScript(() => {
-    const records: HTMLImageElement[] = [];
-    const fetches: { url: string; priority: string | undefined }[] = [];
-    Object.defineProperty(window, '__technologyWarmImages', { value: records });
-    Object.defineProperty(window, '__technologyFetches', { value: fetches });
-    const originalFetch = window.fetch;
-    window.fetch = (input, init) => {
-      const url = String(input);
-      if (/\/technology\/(?:cybermind\/0[12]|0[2-5])\.png$/.test(url)) fetches.push({ url, priority: (init as RequestInit & { priority?: string })?.priority });
-      return originalFetch(input, init);
-    };
-    window.Image = new Proxy(window.Image, { construct(target, args) {
-      const image = Reflect.construct(target, args) as HTMLImageElement;
-      records.push(image); return image;
-    } });
-  });
+test('both story controls open a complete ribbon with one title and two group controls', async ({ page }) => {
   await page.goto('/en');
-  await expect.poll(() => page.evaluate(() => (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages.filter(image => image.dataset.source && image.complete && image.naturalWidth === 941).length)).toBe(6);
-  const timing = await page.evaluate(() => {
-    const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
-    return { load: navigation.loadEventStart, starts: performance.getEntriesByType('resource').filter(entry => /\/technology\/(?:cybermind\/0[12]|0[2-5])\.png$/.test(entry.name)).map(entry => entry.startTime), fetches: (window as unknown as { __technologyFetches: { url: string; priority: string }[] }).__technologyFetches };
-  });
-  expect(timing.starts).toHaveLength(6);
-  expect(timing.starts.every(start => start >= timing.load)).toBe(true);
-  expect(timing.fetches.map(item => item.priority)).toEqual(['low', 'low', 'low', 'low', 'low', 'low']);
-  await openTechnology(page);
-  await expect.poll(() => page.evaluate(() => (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages.filter(image => image.dataset.source && image.complete && image.naturalWidth === 941).length)).toBe(6);
-  await context.setOffline(true);
-  for (let index = 0; index < 4; index++) {
-    await page.locator('.technology-viewer__dots button').nth(index).click();
-    await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', String(index + 2).padStart(2, '0'));
-    expect(await page.locator('.technology-viewer__photo img').evaluate(image => (window as unknown as { __technologyWarmImages: HTMLImageElement[] }).__technologyWarmImages.includes(image as HTMLImageElement))).toBe(true);
+  for (const id of ['technology-experience','technology-repeat']) {
+    const trigger=page.locator(`#${id}`);
+    await openTechnology(page,trigger);
+    const viewer=page.locator('#technology-viewer');
+    await expect(viewer).toHaveAttribute('aria-busy','false');
+    await expect(viewer.locator('.technology-viewer__photo img')).toHaveCount(4);
+    await expect(viewer.locator('.technology-viewer__title')).toHaveCount(1);
+    await expect(viewer.getByRole('heading',{name:'HeatCore Technology',exact:true})).toBeVisible();
+    await expect(viewer.locator('.technology-viewer__dots button')).toHaveCount(2);
+    await expect(viewer.locator('.technology-viewer__frame,.technology-viewer__next-group,.technology-viewer__previous-group,.technology-description__number')).toHaveCount(0);
+    await viewer.locator('.technology-viewer__dots button').last().click();
+    await expect(viewer).toHaveAttribute('data-group','CyberMind');
+    await expect(viewer).toHaveAttribute('aria-busy','false');
+    await expect(viewer.locator('.technology-viewer__photo img')).toHaveCount(2);
+    await expect(viewer.locator('.technology-viewer__title')).toHaveCount(1);
+    await expect(viewer.getByRole('heading',{name:'CyberMind Technology',exact:true})).toBeVisible();
+    await page.keyboard.press('ArrowRight');
+    await expect(viewer).toHaveAttribute('data-group','CyberMind');
+    await page.keyboard.press('ArrowLeft');
+    await expect(viewer).toHaveAttribute('data-group','HeatCore');
+    await expect(viewer).toHaveAttribute('aria-busy','false');
+    for(let i=0;i<8;i++){await page.keyboard.press('Tab');expect(await page.evaluate(()=>!!document.activeElement?.closest('#technology-viewer'))).toBe(true);}
+    await page.keyboard.press('Escape');await expect(viewer).not.toBeVisible();await expect(trigger).toBeFocused();
   }
-  await page.locator('.technology-viewer__next-group').click();
-  await expect(page.locator('#technology-viewer')).toHaveAttribute('data-group', 'CyberMind');
-  for (let index = 0; index < 2; index++) {
-    await page.locator('.technology-viewer__dots button').nth(index).click();
-    await expect(page.locator('.technology-viewer__stage img')).toHaveAttribute('data-source', `/art/technology/cybermind/0${index + 1}.png`);
-  }
-  await page.locator('.technology-viewer__close').click();
-  await openTechnology(page);
-  await expect(page.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', '/art/technology/02.png');
-  expect(await page.evaluate(() => (window as unknown as { __technologyFetches: unknown[] }).__technologyFetches.length)).toBe(6);
-  await context.setOffline(false);
 });
 
-test('swipe completes when the pointer leaves the artwork', async ({ page }) => {
-  await page.goto('/en');
-  await openTechnology(page);
-  const stage = page.locator('#technology-viewer .technology-viewer__stage');
-  await expect.poll(() => stage.locator('img').evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth === 941)).toBe(true);
-  const box = await stage.boundingBox();
-  if (!box) throw new Error('Missing technology stage');
-  const y = box.y + box.height / 2;
-  await page.mouse.move(box.x + box.width * .8, y);
-  await page.mouse.down();
-  await page.mouse.move(0, y, { steps: 5 });
-  await page.mouse.up();
-  await expect(stage.locator('img')).toHaveAttribute('data-source', /03\.png/);
-  await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-slide', '03');
+test('literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling',async({page})=>{
+ for(const locale of ['en','ar']){
+  await page.goto(`/${locale}`);await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
+  const canvas=viewer.locator('.technology-viewer__canvas');
+  const swipe=async(dx:number,dy=0)=>{await canvas.dispatchEvent('pointerdown',{pointerType:'touch',clientX:150,clientY:250});await canvas.dispatchEvent('pointerup',{pointerType:'touch',clientX:150+dx,clientY:250+dy});};
+  await swipe(-100);await expect(viewer).toHaveAttribute('data-group','HeatCore');
+  await swipe(100,200);await expect(viewer).toHaveAttribute('data-group','HeatCore');
+  await swipe(100);await expect(viewer).toHaveAttribute('data-group','CyberMind');await expect(viewer).toHaveAttribute('aria-busy','false');
+  await swipe(100);await expect(viewer).toHaveAttribute('data-group','CyberMind');
+  await swipe(-100);await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');
+  await page.keyboard.press('End');await expect.poll(()=>viewer.locator('.technology-viewer__scroll').evaluate(e=>e.scrollTop)).toBeGreaterThan(500);
+  await expect(viewer).toHaveAttribute('data-group','HeatCore');await viewer.locator('.technology-viewer__next-image').click();await expect(viewer).toHaveAttribute('data-group','CyberMind');await expect(viewer).toHaveAttribute('aria-busy','false');
+  expect(await viewer.locator('.technology-viewer__scroll').evaluate(e=>e.scrollTop)).toBe(0);
+  await viewer.locator('.technology-viewer__close').click();
+ }
 });
 
+test('all six post-load low-priority decoded images are reused offline across ribbons and reopening',async({page,context})=>{
+ await page.addInitScript(()=>{
+  const images:HTMLImageElement[]=[];const fetches:{url:string;priority?:string}[]=[];
+  Object.assign(window,{__technologyWarmImages:images,__technologyFetches:fetches});
+  const nativeFetch=window.fetch;window.fetch=(input,init)=>{const url=String(input);if(/\/technology\/(?:cybermind\/0[12]|0[2-5])\.png$/.test(url))fetches.push({url,priority:(init as RequestInit & {priority?:string})?.priority});return nativeFetch(input,init);};
+  window.Image=new Proxy(window.Image,{construct(target,args){const image=Reflect.construct(target,args) as HTMLImageElement;images.push(image);return image;}});
+ });
+ await page.goto('/en');
+ await expect.poll(()=>page.evaluate(()=>(window as unknown as {__technologyWarmImages:HTMLImageElement[]}).__technologyWarmImages.filter(i=>i.dataset.source&&i.complete&&i.naturalWidth===941).length)).toBe(6);
+ const timings=await page.evaluate(()=>({load:(performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming).loadEventStart,starts:performance.getEntriesByType('resource').filter(e=>/\/technology\/(?:cybermind\/0[12]|0[2-5])\.png$/.test(e.name)).map(e=>e.startTime),fetches:(window as unknown as {__technologyFetches:{priority:string}[]}).__technologyFetches}));
+ expect(timings.starts).toHaveLength(6);expect(timings.starts.every(t=>t>=timings.load)).toBe(true);expect(timings.fetches.map(f=>f.priority)).toEqual(Array(6).fill('low'));
+ await openTechnology(page);await expect(page.locator('#technology-viewer')).toHaveAttribute('aria-busy','false');await context.setOffline(true);
+ for(const group of [1,0,1,0]){
+  await page.locator('.technology-viewer__dots button').nth(group).click();await expect(page.locator('#technology-viewer')).toHaveAttribute('data-group',group?'CyberMind':'HeatCore');await expect(page.locator('#technology-viewer')).toHaveAttribute('aria-busy','false');
+  expect(await page.locator('.technology-viewer__photo img').evaluateAll(elements=>elements.every(image=>(window as unknown as {__technologyWarmImages:HTMLImageElement[]}).__technologyWarmImages.includes(image as HTMLImageElement)))).toBe(true);
+ }
+ await page.locator('.technology-viewer__close').click();await openTechnology(page);await expect(page.locator('#technology-viewer')).toHaveAttribute('aria-busy','false');await expect(page.locator('.technology-viewer__photo img')).toHaveCount(4);
+ expect(await page.evaluate(()=>(window as unknown as {__technologyFetches:unknown[]}).__technologyFetches.length)).toBe(6);await context.setOffline(false);
+});
 test('technology viewer hides landing paint beneath browser chrome and restores it on close', async ({ page }, testInfo) => {
   await page.goto('/en');
   // Expanded FAQ icons explicitly set visibility:visible and must also be hidden.
@@ -419,9 +181,10 @@ test('technology viewer hides landing paint beneath browser chrome and restores 
   await opener.scrollIntoViewIfNeeded();
   await page.waitForTimeout(100);
   const original = await page.evaluate(() => ({ root: getComputedStyle(document.documentElement).backgroundColor, body: getComputedStyle(document.body).backgroundColor, height: document.documentElement.scrollHeight, y: scrollY }));
-  await opener.click();
+  await openTechnology(page, opener);
   const viewer = page.locator('#technology-viewer');
   await expect(viewer).toBeVisible();
+  await expect(viewer).toHaveAttribute('aria-busy', 'false');
   await expect(page.locator('html')).toHaveCSS('background-color', 'rgb(0, 0, 0)');
   await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(0, 0, 0)');
   const paint = await page.locator('.dialog-controller > :not(#technology-viewer), .dialog-controller > :not(#technology-viewer) *').evaluateAll(elements => elements.filter(element => {
@@ -452,201 +215,4 @@ test('technology viewer hides landing paint beneath browser chrome and restores 
   await expect(page.locator('html')).toHaveCSS('background-color', 'rgb(0, 0, 0)');
   await viewer.locator('.technology-viewer__close').click();
   await expect(page.locator('html')).toHaveCSS('background-color', original.root);
-});
-
-test('metal contour reaches mobile side edges and the image stays inside its cutout', async ({ page }, testInfo) => {
-  await page.goto('/en');
-  await openTechnology(page);
-  const viewer = page.locator('#technology-viewer');
-  await viewer.locator('img').evaluateAll(async images => { await document.fonts.ready; await Promise.all(images.map(image => (image as HTMLImageElement).decode())); });
-  const canvas = await viewer.locator('.technology-viewer__canvas').boundingBox();
-  const frame = await viewer.locator('.technology-viewer__frame').boundingBox();
-  const stage = await viewer.locator('.technology-viewer__stage').boundingBox();
-  if (!canvas || !frame || !stage) throw new Error('Missing gallery geometry');
-  const viewportWidth = await page.evaluate(() => innerWidth);
-  expect(viewportWidth).toBe(testInfo.project.use.viewport?.width);
-  const fullWidth = viewportWidth < 700;
-  if (fullWidth) {
-    expect(frame.x).toBeCloseTo(canvas.x, 1);
-    expect(frame.width).toBeCloseTo(canvas.width, 1);
-    expect(frame.x).toBe(0);
-    expect(frame.width).toBe(viewportWidth);
-  }
-  expect(stage.x).toBeCloseTo(frame.x + frame.width * 29 / 941, 1);
-  expect(stage.width).toBeCloseTo(frame.width * 883 / 941, 1);
-  const screenshot = await page.screenshot();
-  const { data, info } = await sharp(screenshot).removeAlpha().raw().toBuffer({ resolveWithObject: true });
-  const scale = info.width / viewportWidth;
-  const y = Math.floor((frame.y + frame.height / 2) * scale);
-  // Both edge pixels must contain metal, not the formerly exterior black gutters.
-  for (const x of [Math.round(frame.x * scale), Math.round((frame.x + frame.width) * scale) - 1]) {
-    expect(Math.max(...data.subarray((y * info.width + x) * 3, (y * info.width + x) * 3 + 3))).toBeGreaterThan(10);
-  }
-});
-
-test('CyberMind PNGs retain native RGB, alpha and resolution outside title glyphs', async ({ request }) => {
-  const manifest = JSON.parse(await readFile('docs/evidence/technology-viewer/cybermind/assets.json', 'utf8'));
-  for (const item of manifest.items) {
-    const source = await readFile(item.source);
-    const delivered = await readFile(item.output);
-    expect(createHash('sha256').update(source).digest('hex')).toBe(item.sourceSha256);
-    expect(createHash('sha256').update(delivered).digest('hex')).toBe(item.outputSha256);
-    const metadata = await sharp(delivered).metadata();
-    expect([metadata.width, metadata.height, metadata.channels]).toEqual([941,1672,item.channels]);
-    expect(metadata.icc).toBeUndefined();
-    const response = await request.get(`/art/technology/cybermind/${item.id}.png`);
-    expect(response.ok()).toBe(true);
-    expect(response.headers()['content-type']).toContain('image/png');
-    expect((await response.body()).equals(delivered)).toBe(true);
-    const a = await sharp(source).raw().toBuffer(), b = await sharp(delivered).raw().toBuffer();
-    const mask = await sharp(`docs/evidence/technology-viewer/cybermind/mask-${item.id}.png`).greyscale().raw().toBuffer();
-    let outside = 0, alpha = 0, remainingLetters = 0;
-    for (let i=0;i<mask.length;i++) {
-      if (!mask[i]) for (let c=0;c<item.channels;c++) if (a[i*item.channels+c]!==b[i*item.channels+c]) outside++;
-      if (item.channels===4 && a[i*4+3]!==b[i*4+3]) alpha++;
-      if (mask[i] && Math.max(...b.subarray(i*item.channels,i*item.channels+3))<130) remainingLetters++;
-    }
-    expect([outside,alpha,remainingLetters]).toEqual([0,0,0]);
-    expect((await request.get(`/art/technology/cybermind/${item.id}.webp`)).status()).toBe(404);
-  }
-});
-
-test('CyberMind uses two interactive slides, a live title and explicit group navigation', async ({ page }, testInfo) => {
-  await page.goto('/en');
-  await openTechnology(page);
-  const viewer=page.locator('#technology-viewer'), stage=viewer.locator('.technology-viewer__stage');
-  await viewer.locator('.technology-viewer__dots button').nth(2).click();
-  await expect(stage.locator('img')).toHaveAttribute('data-source','/art/technology/04.png');
-  await viewer.locator('.technology-viewer__dots button').nth(3).focus();
-  await viewer.locator('.technology-viewer__next-group').click();
-  await expect(viewer).toHaveAttribute('data-group','CyberMind');
-  await expect(viewer).toHaveAccessibleName('CyberMind Technology');
-  await expect(viewer).toBeFocused();
-  await expect(viewer.locator('.technology-viewer__dots button')).toHaveCount(2);
-  await expect(viewer.locator('.technology-viewer__descriptions')).toHaveAttribute('data-cybermind-slide', '01');
-  await expect(viewer.getByRole('heading', { name: /The system does not simply respond/ })).toBeVisible();
-  await expect(viewer.locator('.technology-description__folio')).toHaveCount(0);
-  await expect(viewer.locator('.technology-viewer__title')).toHaveCSS('font-family',/OpenSans/);
-  await expect(viewer.locator('.technology-viewer__title svg text').last()).toHaveAttribute('stroke','#fff');
-  await expect(viewer.locator('.technology-viewer__title svg text').last()).toHaveAttribute('paint-order','stroke fill');
-  const back=viewer.getByRole('button',{name:'Previous technology',exact:true});
-  const backBox=await back.boundingBox(), nextBox=await viewer.locator('.technology-viewer__next-group').boundingBox();
-  if(!backBox||!nextBox)throw new Error('Missing group navigation');
-  await expect(back).toHaveCSS('width','44px');await expect(back).toHaveCSS('height','44px');
-  expect(backBox.width).toBeGreaterThanOrEqual(43.99);expect(backBox.height).toBeGreaterThanOrEqual(43.99);
-  expect(backBox.x+backBox.width).toBeLessThanOrEqual(nextBox.x);
-  for(let i=0;i<2;i++){
-    await viewer.locator('.technology-viewer__dots button').nth(i).click();
-    await expect(stage.locator('img')).toHaveAttribute('data-source',`/art/technology/cybermind/0${i+1}.png`);
-    await expect(viewer.locator('.technology-viewer__descriptions')).toHaveAttribute('data-cybermind-slide', `0${i+1}`);
-    if (i === 1) await expect(viewer.locator('[data-description-block^="cyber-callout-"]')).toHaveCount(10);
-    await expect(viewer.locator('.technology-viewer__dots button').nth(i)).toHaveAttribute('aria-current','true');
-    await viewer.locator('img').evaluateAll(async imgs=>{await document.fonts.ready;await Promise.all(imgs.map(img=>(img as HTMLImageElement).decode()));});
-    await page.screenshot({path:`screenshots/actual/cybermind/${testInfo.project.name}-slide-${i+1}.png`});
-  }
-  await expect(viewer.locator('.technology-viewer__next-image')).toBeDisabled();
-  await page.keyboard.press('ArrowLeft');
-  await expect(stage.locator('img')).toHaveAttribute('data-source','/art/technology/cybermind/01.png');
-  await viewer.locator('.technology-viewer__next-group').click();
-  await expect(viewer.getByRole('status')).toHaveText('The next technology is coming soon.');
-  await viewer.locator('.technology-viewer__previous-group').click();
-  await expect(viewer).toHaveAttribute('data-group','HeatCore');
-  await expect(stage.locator('img')).toHaveAttribute('data-source','/art/technology/04.png');
-  await expect(viewer.getByRole('status')).toHaveCount(0);
-  await stage.dispatchEvent('pointerdown',{pointerType:'touch',clientX:200,clientY:300});
-  await stage.dispatchEvent('pointerup',{pointerType:'touch',clientX:200,clientY:450});
-  await expect(viewer).toHaveAttribute('data-group','HeatCore');
-  await viewer.locator('.technology-viewer__next-group').click();
-  await expect(viewer).toHaveAttribute('data-group','CyberMind');
-  await back.click();
-  await expect(viewer).toHaveAttribute('data-group','HeatCore');
-  expect(await page.evaluate(()=>!!document.activeElement?.closest('dialog[open]'))).toBe(true);
-  await viewer.locator('.technology-viewer__close').click();
-  await expect(page.locator('[data-technology-open]').first()).toBeFocused();
-});
-
-test('CyberMind descriptions fit all locales and omit source folios', async ({ page }) => {
-  test.setTimeout(120000);
-  for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
-    await page.goto(`/${locale}`);
-    await openTechnology(page);
-    await page.locator('.technology-viewer__next-group').click();
-    await expect(page.locator('#technology-viewer')).toHaveAttribute('data-group', 'CyberMind');
-    for (let slide = 0; slide < 2; slide++) {
-      await page.locator('.technology-viewer__dots button').nth(slide).click();
-      await expect(page.locator('.technology-viewer__descriptions')).toHaveAttribute('data-cybermind-slide', `0${slide + 1}`);
-      await page.evaluate(() => document.fonts.ready);
-      const blocks = await page.locator('.technology-viewer__descriptions .technology-description__box').evaluateAll(elements => elements.map(element => ({
-        scrollWidth: element.firstElementChild?.scrollWidth ?? 0,
-        clientWidth: element.clientWidth,
-        scrollHeight: element.firstElementChild?.scrollHeight ?? 0,
-        clientHeight: element.clientHeight,
-      })));
-      for (const block of blocks) {
-        expect(block.scrollWidth).toBeLessThanOrEqual(block.clientWidth + 1);
-        expect(block.scrollHeight).toBeLessThanOrEqual(block.clientHeight + 1);
-      }
-      await expect(page.locator('.technology-description__folio')).toHaveCount(0);
-      if (locale === 'ar') await expect(page.locator('.technology-viewer__descriptions .technology-description__box').first()).toHaveAttribute('dir', 'rtl');
-    }
-  }
-});
-
-test('pending slide locks navigation and commits only fully loaded selection', async ({ page }) => {
-  let release!: () => void; const gate = new Promise<void>(resolve => { release = resolve; });
-  await page.route('**/technology/cybermind/02.png', async route => { await gate; await route.continue(); });
-  await page.goto('/en'); await openTechnology(page);
-  const viewer = page.locator('#technology-viewer'), stage = viewer.locator('.technology-viewer__stage');
-  await viewer.locator('.technology-viewer__next-group').click();
-  await expect(viewer).toHaveAttribute('data-group', 'CyberMind');
-  await viewer.locator('.technology-viewer__dots button').nth(1).click();
-  await expect(viewer).toHaveAttribute('aria-busy', 'true');
-  await expect(stage.locator('img')).toHaveAttribute('data-source', '/art/technology/cybermind/01.png');
-  await expect(viewer.locator('.technology-viewer__next-group')).toBeDisabled();
-  await expect(viewer.locator('.technology-viewer__previous-group')).toBeDisabled();
-  await page.keyboard.press('ArrowUp');
-  await expect(viewer).toHaveAttribute('data-group', 'CyberMind');
-  release();
-  await expect(stage.locator('img')).toHaveAttribute('data-source', '/art/technology/cybermind/02.png');
-  await expect(viewer).toHaveAttribute('aria-busy', 'false');
-  await viewer.locator('.technology-viewer__previous-group').click();
-  await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
-});
-
-test('failed CyberMind warm and selection recover with explicit Retry without skipping the group', async ({ page }) => {
-  let requests = 0;
-  await page.route('**/technology/cybermind/01.png', async route => { if (++requests <= 3) await route.abort(); else await route.continue(); });
-  await page.goto('/en'); await expect.poll(() => requests).toBe(1);
-  await openTechnology(page); await expect.poll(() => requests).toBe(2);
-  const viewer = page.locator('#technology-viewer');
-  await viewer.locator('.technology-viewer__next-group').click();
-  await expect(viewer.getByRole('button', { name: 'Retry', exact: true })).toBeVisible();
-  await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
-  await expect(viewer.locator('.technology-viewer__next-group')).toBeDisabled();
-  await viewer.getByRole('button', { name: 'Retry', exact: true }).click();
-  await expect(viewer).toHaveAttribute('data-group', 'CyberMind');
-  await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('data-source', '/art/technology/cybermind/01.png');
-  expect(requests).toBe(4);
-});
-
-test('pending group blocks gestures and repeated keys while close remains available', async ({ page }) => {
-  let release!: () => void; const gate = new Promise<void>(resolve => { release = resolve; });
-  await page.route('**/technology/cybermind/01.png', async route => { await gate; await route.continue(); });
-  await page.goto('/en'); await openTechnology(page);
-  const viewer = page.locator('#technology-viewer'), stage = viewer.locator('.technology-viewer__stage');
-  await viewer.locator('.technology-viewer__next-group').click();
-  await expect(viewer).toHaveAttribute('aria-busy', 'true');
-  await page.keyboard.press('ArrowDown'); await page.keyboard.press('ArrowRight');
-  await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 200, clientY: 500 });
-  await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 80, clientY: 500 });
-  await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
-  await expect(stage.locator('img')).toHaveAttribute('data-source', '/art/technology/02.png');
-  await expect(viewer.locator('.technology-viewer__notice')).toHaveCount(0);
-  await viewer.locator('.technology-viewer__close').click(); await expect(viewer).not.toBeVisible();
-  release();
-  await openTechnology(page);
-  await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
-  await expect(viewer).toHaveAttribute('aria-busy', 'false');
-  await viewer.locator('.technology-viewer__next-group').click();
-  await expect(viewer).toHaveAttribute('data-group', 'CyberMind');
 });

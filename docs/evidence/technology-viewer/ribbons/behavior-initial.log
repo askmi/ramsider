@@ -1,0 +1,368 @@
+
+Running 164 tests using 1 worker
+
+(node:29096) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓    1 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:9:1 › without JavaScript the native page artwork, text and FAQ remain usable (1.4s)
+  ✓    2 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:31:1 › early bootstrap protects held artwork before framework hydration (842ms)
+  ✓    3 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:57:1 › initial framework script network failure falls back to native readable content (635ms)
+  ✓    4 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:73:3 › initial framework synchronous failure restores native readable content (740ms)
+  ✓    5 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:73:3 › initial framework rejection failure restores native readable content (718ms)
+  ✓    6 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:98:1 › visible artwork remains hidden and page scroll locked until complete decode (725ms)
+  ✘    7 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:123:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll (6.1s)
+(node:29479) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓    8 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:167:1 › remaining landing artwork warms asynchronously after first block decode without scrolling (1.1s)
+  ✓    9 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:199:1 › failed visible image has an accessible retry and successful recovery (776ms)
+  ✓   10 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:220:1 › truncated visible image is never revealed as a partially decoded resource (723ms)
+  ✓   11 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:244:1 › page gate suspends behind a native dialog and resumes missing page media after close (788ms)
+  -   12 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:261:1 › native desktop wheel stops at pending boundary and can reverse upward
+  -   13 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:284:1 › native mobile touch cannot cross missing block and can reverse while it is pending
+  ✓   14 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:315:1 › pending frontier follows viewport resize and expanded FAQ instead of exposing blank artwork (1.2s)
+  ✓   15 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:342:1 › retained loading strip fits all eleven locales including Arabic (5.3s)
+  ✓   16 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:7:1 › responsive viewport, artwork, and primary actions (3.5s)
+  ✓   17 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:110:1 › back-to-top appears on scroll, stays in the viewport, and restores top and focus (1.1s)
+  ✓   18 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:140:1 › localized story buttons keep one-line labels inside proportionate surfaces (4.6s)
+  ✓   19 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:181:36 › ru technology text groups are centered inside both fixed oval surfaces (2.6s)
+  ✓   20 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:181:36 › en technology text groups are centered inside both fixed oval surfaces (2.5s)
+  ✓   21 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:263:1 › mapped exploration dialogs contain focus and restore their triggers (1.9s)
+  ✓   22 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:319:1 › FAQ icons are independent and answers expand the page without an inner scroller (2.7s)
+  ✓   23 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:386:3 › FAQ pointer-wheel input › FAQ always scrolls the document in closed and multi-open states (5.6s)
+  ✓   24 [iphone-17-pro-webkit] › tests/e2e/technology-loading.spec.ts:7:1 › a partial first group resource prevents the whole ribbon revealing and reports aggregate progress (1.2s)
+  ✓   25 [iphone-17-pro-webkit] › tests/e2e/technology-loading.spec.ts:61:1 › invalid first image has white backing and retry; close never traps the user (1.0s)
+  ✓   26 [iphone-17-pro-webkit] › tests/e2e/technology-loading.spec.ts:79:1 › retry replaces a corrupt HTTP 200 retained in the real browser cache (1.1s)
+  ✓   27 [iphone-17-pro-webkit] › tests/e2e/technology-loading.spec.ts:125:1 › a delayed next group retains the complete old ribbon, freezes scroll, and commits atomically (1.2s)
+  ✓   28 [iphone-17-pro-webkit] › tests/e2e/technology-loading.spec.ts:141:1 › failed optional group leaves landing usable and recovers with explicit retry without skipping (1.0s)
+  ✓   29 [iphone-17-pro-webkit] › tests/e2e/technology-loading.spec.ts:152:1 › loading and retry remain reachable in every locale at a short phone height (5.4s)
+  ✓   30 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:7:1 › technology PNGs preserve every original pixel outside the title mask (298ms)
+  ✓   31 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:44:1 › CyberMind PNGs retain native RGB, alpha and resolution outside title glyphs (147ms)
+  ✓   32 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:71:1 › all six photos warm after load without blocking the main page (1.0s)
+  ✓   33 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:96:1 › incomplete hero protects the main view before technology can be opened (822ms)
+  ✘   34 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (842ms)
+(node:29987) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   35 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (1.8s)
+  ✓   36 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:157:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (1.4s)
+  ✓   37 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:176:1 › technology viewer hides landing paint beneath browser chrome and restores it on close (1.7s)
+  ✓   38 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes fill viewport width with native proportions, joined edges and complete bottom access (3.6s)
+  ✓   39 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:28:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (5.7s)
+  -   40 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:44:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  -   41 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:48:1 › native touch pans vertically, swipes horizontally and freezes during download
+(node:30124) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   42 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:9:1 › without JavaScript the native page artwork, text and FAQ remain usable (809ms)
+  ✓   43 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:31:1 › early bootstrap protects held artwork before framework hydration (788ms)
+  ✓   44 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:57:1 › initial framework script network failure falls back to native readable content (675ms)
+  ✓   45 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:73:3 › initial framework synchronous failure restores native readable content (948ms)
+  ✓   46 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:73:3 › initial framework rejection failure restores native readable content (764ms)
+  ✓   47 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:98:1 › visible artwork remains hidden and page scroll locked until complete decode (750ms)
+  ✘   48 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:123:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll (6.7s)
+(node:30322) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   49 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:167:1 › remaining landing artwork warms asynchronously after first block decode without scrolling (1.3s)
+  ✓   50 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:199:1 › failed visible image has an accessible retry and successful recovery (854ms)
+  ✓   51 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:220:1 › truncated visible image is never revealed as a partially decoded resource (778ms)
+  ✓   52 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:244:1 › page gate suspends behind a native dialog and resumes missing page media after close (921ms)
+  -   53 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:261:1 › native desktop wheel stops at pending boundary and can reverse upward
+  -   54 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:284:1 › native mobile touch cannot cross missing block and can reverse while it is pending
+  ✓   55 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:315:1 › pending frontier follows viewport resize and expanded FAQ instead of exposing blank artwork (1.3s)
+  ✓   56 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:342:1 › retained loading strip fits all eleven locales including Arabic (6.1s)
+  ✓   57 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:7:1 › responsive viewport, artwork, and primary actions (3.6s)
+  ✓   58 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:110:1 › back-to-top appears on scroll, stays in the viewport, and restores top and focus (1.1s)
+  ✓   59 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:140:1 › localized story buttons keep one-line labels inside proportionate surfaces (5.3s)
+  ✓   60 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:181:36 › ru technology text groups are centered inside both fixed oval surfaces (3.1s)
+  ✓   61 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:181:36 › en technology text groups are centered inside both fixed oval surfaces (3.5s)
+  ✓   62 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:263:1 › mapped exploration dialogs contain focus and restore their triggers (2.3s)
+  ✓   63 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:319:1 › FAQ icons are independent and answers expand the page without an inner scroller (3.0s)
+  ✓   64 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:386:3 › FAQ pointer-wheel input › FAQ always scrolls the document in closed and multi-open states (5.8s)
+  ✓   65 [iphone-17-pro-max-webkit] › tests/e2e/technology-loading.spec.ts:7:1 › a partial first group resource prevents the whole ribbon revealing and reports aggregate progress (1.3s)
+  ✓   66 [iphone-17-pro-max-webkit] › tests/e2e/technology-loading.spec.ts:61:1 › invalid first image has white backing and retry; close never traps the user (1.1s)
+  ✓   67 [iphone-17-pro-max-webkit] › tests/e2e/technology-loading.spec.ts:79:1 › retry replaces a corrupt HTTP 200 retained in the real browser cache (1.3s)
+  ✓   68 [iphone-17-pro-max-webkit] › tests/e2e/technology-loading.spec.ts:125:1 › a delayed next group retains the complete old ribbon, freezes scroll, and commits atomically (1.5s)
+  ✓   69 [iphone-17-pro-max-webkit] › tests/e2e/technology-loading.spec.ts:141:1 › failed optional group leaves landing usable and recovers with explicit retry without skipping (1.0s)
+  ✓   70 [iphone-17-pro-max-webkit] › tests/e2e/technology-loading.spec.ts:152:1 › loading and retry remain reachable in every locale at a short phone height (5.8s)
+  ✓   71 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:7:1 › technology PNGs preserve every original pixel outside the title mask (289ms)
+  ✓   72 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:44:1 › CyberMind PNGs retain native RGB, alpha and resolution outside title glyphs (248ms)
+  ✓   73 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:71:1 › all six photos warm after load without blocking the main page (1.2s)
+  ✓   74 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:96:1 › incomplete hero protects the main view before technology can be opened (996ms)
+  ✘   75 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (1.0s)
+(node:30957) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   76 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (1.9s)
+  ✓   77 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:157:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (1.5s)
+  ✓   78 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:176:1 › technology viewer hides landing paint beneath browser chrome and restores it on close (1.9s)
+  ✓   79 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes fill viewport width with native proportions, joined edges and complete bottom access (3.6s)
+  ✓   80 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:28:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (6.1s)
+  -   81 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:44:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  -   82 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:48:1 › native touch pans vertically, swipes horizontally and freezes during download
+(node:31107) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   83 [desktop-chromium] › tests/e2e/media-loading.spec.ts:9:1 › without JavaScript the native page artwork, text and FAQ remain usable (1.1s)
+  ✓   84 [desktop-chromium] › tests/e2e/media-loading.spec.ts:31:1 › early bootstrap protects held artwork before framework hydration (634ms)
+  ✓   85 [desktop-chromium] › tests/e2e/media-loading.spec.ts:57:1 › initial framework script network failure falls back to native readable content (353ms)
+  ✓   86 [desktop-chromium] › tests/e2e/media-loading.spec.ts:73:3 › initial framework synchronous failure restores native readable content (277ms)
+  ✓   87 [desktop-chromium] › tests/e2e/media-loading.spec.ts:73:3 › initial framework rejection failure restores native readable content (281ms)
+  ✓   88 [desktop-chromium] › tests/e2e/media-loading.spec.ts:98:1 › visible artwork remains hidden and page scroll locked until complete decode (413ms)
+  ✓   89 [desktop-chromium] › tests/e2e/media-loading.spec.ts:123:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll (1.8s)
+  ✓   90 [desktop-chromium] › tests/e2e/media-loading.spec.ts:167:1 › remaining landing artwork warms asynchronously after first block decode without scrolling (976ms)
+  ✓   91 [desktop-chromium] › tests/e2e/media-loading.spec.ts:199:1 › failed visible image has an accessible retry and successful recovery (391ms)
+  ✓   92 [desktop-chromium] › tests/e2e/media-loading.spec.ts:220:1 › truncated visible image is never revealed as a partially decoded resource (425ms)
+  ✓   93 [desktop-chromium] › tests/e2e/media-loading.spec.ts:244:1 › page gate suspends behind a native dialog and resumes missing page media after close (430ms)
+  ✓   94 [desktop-chromium] › tests/e2e/media-loading.spec.ts:261:1 › native desktop wheel stops at pending boundary and can reverse upward (1.7s)
+  ✓   95 [desktop-chromium] › tests/e2e/media-loading.spec.ts:284:1 › native mobile touch cannot cross missing block and can reverse while it is pending (3.4s)
+  ✓   96 [desktop-chromium] › tests/e2e/media-loading.spec.ts:315:1 › pending frontier follows viewport resize and expanded FAQ instead of exposing blank artwork (1.4s)
+  ✓   97 [desktop-chromium] › tests/e2e/media-loading.spec.ts:342:1 › retained loading strip fits all eleven locales including Arabic (7.7s)
+  ✓   98 [desktop-chromium] › tests/e2e/site.spec.ts:7:1 › responsive viewport, artwork, and primary actions (9.7s)
+  ✓   99 [desktop-chromium] › tests/e2e/site.spec.ts:110:1 › back-to-top appears on scroll, stays in the viewport, and restores top and focus (1.3s)
+  ✓  100 [desktop-chromium] › tests/e2e/site.spec.ts:140:1 › localized story buttons keep one-line labels inside proportionate surfaces (10.8s)
+  ✓  101 [desktop-chromium] › tests/e2e/site.spec.ts:181:36 › ru technology text groups are centered inside both fixed oval surfaces (1.8s)
+  ✓  102 [desktop-chromium] › tests/e2e/site.spec.ts:181:36 › en technology text groups are centered inside both fixed oval surfaces (1.8s)
+  ✓  103 [desktop-chromium] › tests/e2e/site.spec.ts:263:1 › mapped exploration dialogs contain focus and restore their triggers (2.6s)
+  ✓  104 [desktop-chromium] › tests/e2e/site.spec.ts:319:1 › FAQ icons are independent and answers expand the page without an inner scroller (3.8s)
+  ✓  105 [desktop-chromium] › tests/e2e/site.spec.ts:386:3 › FAQ pointer-wheel input › FAQ always scrolls the document in closed and multi-open states (11.7s)
+  ✓  106 [desktop-chromium] › tests/e2e/technology-loading.spec.ts:7:1 › a partial first group resource prevents the whole ribbon revealing and reports aggregate progress (1.8s)
+  ✓  107 [desktop-chromium] › tests/e2e/technology-loading.spec.ts:61:1 › invalid first image has white backing and retry; close never traps the user (865ms)
+  ✓  108 [desktop-chromium] › tests/e2e/technology-loading.spec.ts:79:1 › retry replaces a corrupt HTTP 200 retained in the real browser cache (1.1s)
+  ✓  109 [desktop-chromium] › tests/e2e/technology-loading.spec.ts:125:1 › a delayed next group retains the complete old ribbon, freezes scroll, and commits atomically (1.1s)
+  ✓  110 [desktop-chromium] › tests/e2e/technology-loading.spec.ts:141:1 › failed optional group leaves landing usable and recovers with explicit retry without skipping (1.1s)
+  ✓  111 [desktop-chromium] › tests/e2e/technology-loading.spec.ts:152:1 › loading and retry remain reachable in every locale at a short phone height (4.0s)
+  ✓  112 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:7:1 › technology PNGs preserve every original pixel outside the title mask (303ms)
+  ✓  113 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:44:1 › CyberMind PNGs retain native RGB, alpha and resolution outside title glyphs (150ms)
+  ✓  114 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:71:1 › all six photos warm after load without blocking the main page (943ms)
+  ✓  115 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:96:1 › incomplete hero protects the main view before technology can be opened (385ms)
+  ✘  116 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (862ms)
+(node:31531) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  117 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (2.0s)
+  ✓  118 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:157:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (1.1s)
+  ✓  119 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:176:1 › technology viewer hides landing paint beneath browser chrome and restores it on close (5.0s)
+  ✓  120 [desktop-chromium] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes fill viewport width with native proportions, joined edges and complete bottom access (2.9s)
+  ✓  121 [desktop-chromium] › tests/e2e/technology-width.spec.ts:28:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (13.5s)
+  ✓  122 [desktop-chromium] › tests/e2e/technology-width.spec.ts:44:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (1.2s)
+  ✓  123 [desktop-chromium] › tests/e2e/technology-width.spec.ts:48:1 › native touch pans vertically, swipes horizontally and freezes during download (6.7s)
+(node:32699) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  124 [desktop-firefox] › tests/e2e/media-loading.spec.ts:9:1 › without JavaScript the native page artwork, text and FAQ remain usable (1.9s)
+  ✓  125 [desktop-firefox] › tests/e2e/media-loading.spec.ts:31:1 › early bootstrap protects held artwork before framework hydration (894ms)
+  ✓  126 [desktop-firefox] › tests/e2e/media-loading.spec.ts:57:1 › initial framework script network failure falls back to native readable content (845ms)
+  ✓  127 [desktop-firefox] › tests/e2e/media-loading.spec.ts:73:3 › initial framework synchronous failure restores native readable content (1.3s)
+  ✓  128 [desktop-firefox] › tests/e2e/media-loading.spec.ts:73:3 › initial framework rejection failure restores native readable content (1.3s)
+  ✓  129 [desktop-firefox] › tests/e2e/media-loading.spec.ts:98:1 › visible artwork remains hidden and page scroll locked until complete decode (965ms)
+  ✓  130 [desktop-firefox] › tests/e2e/media-loading.spec.ts:123:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll (2.5s)
+  ✓  131 [desktop-firefox] › tests/e2e/media-loading.spec.ts:167:1 › remaining landing artwork warms asynchronously after first block decode without scrolling (906ms)
+  ✓  132 [desktop-firefox] › tests/e2e/media-loading.spec.ts:199:1 › failed visible image has an accessible retry and successful recovery (867ms)
+  ✓  133 [desktop-firefox] › tests/e2e/media-loading.spec.ts:220:1 › truncated visible image is never revealed as a partially decoded resource (1.2s)
+  ✓  134 [desktop-firefox] › tests/e2e/media-loading.spec.ts:244:1 › page gate suspends behind a native dialog and resumes missing page media after close (887ms)
+  ✓  135 [desktop-firefox] › tests/e2e/media-loading.spec.ts:261:1 › native desktop wheel stops at pending boundary and can reverse upward (1.6s)
+  -  136 [desktop-firefox] › tests/e2e/media-loading.spec.ts:284:1 › native mobile touch cannot cross missing block and can reverse while it is pending
+  ✓  137 [desktop-firefox] › tests/e2e/media-loading.spec.ts:315:1 › pending frontier follows viewport resize and expanded FAQ instead of exposing blank artwork (960ms)
+  ✓  138 [desktop-firefox] › tests/e2e/media-loading.spec.ts:342:1 › retained loading strip fits all eleven locales including Arabic (5.4s)
+  ✓  139 [desktop-firefox] › tests/e2e/site.spec.ts:7:1 › responsive viewport, artwork, and primary actions (5.3s)
+  ✓  140 [desktop-firefox] › tests/e2e/site.spec.ts:110:1 › back-to-top appears on scroll, stays in the viewport, and restores top and focus (1.2s)
+  ✓  141 [desktop-firefox] › tests/e2e/site.spec.ts:140:1 › localized story buttons keep one-line labels inside proportionate surfaces (3.8s)
+  ✓  142 [desktop-firefox] › tests/e2e/site.spec.ts:181:36 › ru technology text groups are centered inside both fixed oval surfaces (1.6s)
+  ✓  143 [desktop-firefox] › tests/e2e/site.spec.ts:181:36 › en technology text groups are centered inside both fixed oval surfaces (1.4s)
+  ✓  144 [desktop-firefox] › tests/e2e/site.spec.ts:263:1 › mapped exploration dialogs contain focus and restore their triggers (3.1s)
+  ✓  145 [desktop-firefox] › tests/e2e/site.spec.ts:319:1 › FAQ icons are independent and answers expand the page without an inner scroller (2.9s)
+  ✓  146 [desktop-firefox] › tests/e2e/site.spec.ts:386:3 › FAQ pointer-wheel input › FAQ always scrolls the document in closed and multi-open states (9.3s)
+  ✓  147 [desktop-firefox] › tests/e2e/technology-loading.spec.ts:7:1 › a partial first group resource prevents the whole ribbon revealing and reports aggregate progress (680ms)
+  ✓  148 [desktop-firefox] › tests/e2e/technology-loading.spec.ts:61:1 › invalid first image has white backing and retry; close never traps the user (745ms)
+  ✓  149 [desktop-firefox] › tests/e2e/technology-loading.spec.ts:79:1 › retry replaces a corrupt HTTP 200 retained in the real browser cache (841ms)
+  ✓  150 [desktop-firefox] › tests/e2e/technology-loading.spec.ts:125:1 › a delayed next group retains the complete old ribbon, freezes scroll, and commits atomically (861ms)
+  ✓  151 [desktop-firefox] › tests/e2e/technology-loading.spec.ts:141:1 › failed optional group leaves landing usable and recovers with explicit retry without skipping (1.2s)
+  ✓  152 [desktop-firefox] › tests/e2e/technology-loading.spec.ts:152:1 › loading and retry remain reachable in every locale at a short phone height (4.8s)
+  ✓  153 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:7:1 › technology PNGs preserve every original pixel outside the title mask (293ms)
+  ✓  154 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:44:1 › CyberMind PNGs retain native RGB, alpha and resolution outside title glyphs (144ms)
+  ✓  155 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:71:1 › all six photos warm after load without blocking the main page (627ms)
+  ✓  156 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:96:1 › incomplete hero protects the main view before technology can be opened (962ms)
+  ✓  157 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (1.1s)
+  ✓  158 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (1.4s)
+  ✓  159 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:157:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (779ms)
+  ✓  160 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:176:1 › technology viewer hides landing paint beneath browser chrome and restores it on close (2.5s)
+  ✘  161 [desktop-firefox] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes fill viewport width with native proportions, joined edges and complete bottom access (1.2s)
+(node:33716) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  162 [desktop-firefox] › tests/e2e/technology-width.spec.ts:28:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (6.5s)
+  ✘  163 [desktop-firefox] › tests/e2e/technology-width.spec.ts:44:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (5.7s)
+(node:33850) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  -  164 [desktop-firefox] › tests/e2e/technology-width.spec.ts:48:1 › native touch pans vertically, swipes horizontally and freezes during download
+
+
+  1) [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:123:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      160 |     const ready = await sharp(await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-ready.png`, scale: 'device' })).resize({ width: viewport.width }).extract(crop).raw().toBuffer();
+      161 |     return ready.equals(pending);
+    > 162 |   }).toBe(true);
+          |      ^
+      163 |   await page.evaluate(() => scrollTo({ top: scrollY + 200, behavior: 'instant' }));
+      164 |   await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(scroll);
+      165 | });
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/media-loading.spec.ts:162:6
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/media-loading-pending-next-a0c8e-ll-and-allows-upward-scroll-iphone-17-pro-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/media-loading-pending-next-a0c8e-ll-and-allows-upward-scroll-iphone-17-pro-webkit/error-context.md
+
+  2) [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      133 |     await expect(viewer).toHaveAttribute('data-group','HeatCore');
+      134 |     await expect(viewer).toHaveAttribute('aria-busy','false');
+    > 135 |     for(let i=0;i<8;i++){await page.keyboard.press('Tab');expect(await page.evaluate(()=>!!document.activeElement?.closest('#technology-viewer'))).toBe(true);}
+          |                                                                                                                                                    ^
+      136 |     await page.keyboard.press('Escape');await expect(viewer).not.toBeVisible();await expect(trigger).toBeFocused();
+      137 |   }
+      138 | });
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/technology-viewer.spec.ts:135:148
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/technology-viewer-both-sto-b374d-itle-and-two-group-controls-iphone-17-pro-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/technology-viewer-both-sto-b374d-itle-and-two-group-controls-iphone-17-pro-webkit/error-context.md
+
+  3) [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:123:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      160 |     const ready = await sharp(await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-ready.png`, scale: 'device' })).resize({ width: viewport.width }).extract(crop).raw().toBuffer();
+      161 |     return ready.equals(pending);
+    > 162 |   }).toBe(true);
+          |      ^
+      163 |   await page.evaluate(() => scrollTo({ top: scrollY + 200, behavior: 'instant' }));
+      164 |   await expect.poll(() => page.evaluate(() => scrollY)).toBeGreaterThan(scroll);
+      165 | });
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/media-loading.spec.ts:162:6
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/media-loading-pending-next-a0c8e-ll-and-allows-upward-scroll-iphone-17-pro-max-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/media-loading-pending-next-a0c8e-ll-and-allows-upward-scroll-iphone-17-pro-max-webkit/error-context.md
+
+  4) [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      133 |     await expect(viewer).toHaveAttribute('data-group','HeatCore');
+      134 |     await expect(viewer).toHaveAttribute('aria-busy','false');
+    > 135 |     for(let i=0;i<8;i++){await page.keyboard.press('Tab');expect(await page.evaluate(()=>!!document.activeElement?.closest('#technology-viewer'))).toBe(true);}
+          |                                                                                                                                                    ^
+      136 |     await page.keyboard.press('Escape');await expect(viewer).not.toBeVisible();await expect(trigger).toBeFocused();
+      137 |   }
+      138 | });
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/technology-viewer.spec.ts:135:148
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/technology-viewer-both-sto-b374d-itle-and-two-group-controls-iphone-17-pro-max-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/technology-viewer-both-sto-b374d-itle-and-two-group-controls-iphone-17-pro-max-webkit/error-context.md
+
+  5) [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      133 |     await expect(viewer).toHaveAttribute('data-group','HeatCore');
+      134 |     await expect(viewer).toHaveAttribute('aria-busy','false');
+    > 135 |     for(let i=0;i<8;i++){await page.keyboard.press('Tab');expect(await page.evaluate(()=>!!document.activeElement?.closest('#technology-viewer'))).toBe(true);}
+          |                                                                                                                                                    ^
+      136 |     await page.keyboard.press('Escape');await expect(viewer).not.toBeVisible();await expect(trigger).toBeFocused();
+      137 |   }
+      138 | });
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/technology-viewer.spec.ts:135:148
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/technology-viewer-both-sto-b374d-itle-and-two-group-controls-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/technology-viewer-both-sto-b374d-itle-and-two-group-controls-desktop-chromium/error-context.md
+
+  6) [desktop-firefox] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes fill viewport width with native proportions, joined edges and complete bottom access
+
+    Error: expect(received).toBeCloseTo(expected, precision)
+
+    Expected: 812
+    Received: 811.5
+
+    Expected precision:    0
+    Expected difference: < 0.5
+    Received difference:   0.5
+
+      19 |     if(index)expect(Math.abs(g.planes[index-1].bottom-plane.top-width*48/941)).toBeLessThan(.05);
+      20 |    }
+    > 21 |    await page.keyboard.press('End');const bottom=await viewer.locator('.technology-viewer__content').last().boundingBox();expect(bottom!.y+bottom!.height).toBeCloseTo(height,0);
+         |                                                                                                                                                            ^
+      22 |    await page.keyboard.press('Home');expect(await viewer.locator('.technology-viewer__scroll').evaluate(e=>e.scrollTop)).toBe(0);
+      23 |    if([320,375,768,844,1440].includes(width)&&group===1)await page.screenshot({path:`${evidence}/${info.project.name}-adapt-${width}x${height}.png`});
+      24 |   }
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/technology-width.spec.ts:21:156
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/technology-width-all-six-s-36fba--and-complete-bottom-access-desktop-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/technology-width-all-six-s-36fba--and-complete-bottom-access-desktop-firefox/error-context.md
+
+  7) [desktop-firefox] › tests/e2e/technology-width.spec.ts:44:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 1
+    Received:   2301
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      43 |
+      44 | test('native desktop wheel scrolls the ribbon without moving landing or switching groups',async({page},info)=>{
+    > 45 |  test.skip(!!info.project.use.isMobile,'Native mobile pan is covered by Chromium protocol plus WebKit pointer/keyboard checks.');await page.setViewportSize({width:615,height:849});await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');const y=await page.evaluate(()=>scrollY);const scroller=viewer.locator('.technology-viewer__scroll');await scroller.hover();await page.mouse.wheel(0,500);await expect.poll(()=>scroller.evaluate(e=>e.scrollTop)).toBeGreaterThan(100);await page.mouse.wheel(0,10000);await expect.poll(()=>scroller.evaluate(e=>Math.abs(e.scrollHeight-e.clientHeight-e.scrollTop))).toBeLessThan(1);await expect(viewer).toHaveAttribute('data-group','HeatCore');expect(await page.evaluate(()=>scrollY)).toBe(y);await page.mouse.wheel(0,-10000);await expect.poll(()=>scroller.evaluate(e=>e.scrollTop)).toBe(0);
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ^
+      46 | });
+      47 |
+      48 | test('native touch pans vertically, swipes horizontally and freezes during download', async ({ browser }, info) => {
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/technology-width.spec.ts:45:698
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/technology-width-native-de-4d9db-landing-or-switching-groups-desktop-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/technology-width-native-de-4d9db-landing-or-switching-groups-desktop-firefox/error-context.md
+
+  7 failed
+    [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:123:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll
+    [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls
+    [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:123:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll
+    [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls
+    [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls
+    [desktop-firefox] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes fill viewport width with native proportions, joined edges and complete bottom access
+    [desktop-firefox] › tests/e2e/technology-width.spec.ts:44:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  10 skipped
+  147 passed (6.0m)

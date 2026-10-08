@@ -1,0 +1,9 @@
+
+Running 2 tests using 1 worker
+
+(node:37823) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop-firefox] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes fill viewport width with native proportions, joined edges and complete bottom access (3.9s)
+  ✓  2 [desktop-firefox] › tests/e2e/technology-width.spec.ts:44:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (6.7s)
+
+  2 passed (12.7s)

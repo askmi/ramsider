@@ -276,7 +276,7 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
     const dialog = page.locator('dialog:modal');
     await expect(dialog).toBeVisible();
     await expect(dialog).toHaveAccessibleName(/.+/);
-    if (id.startsWith('technology')) await expect(dialog.locator('.technology-viewer__frame')).toHaveCSS('border-image-source', /frame-template\.webp/);
+    if (id.startsWith('technology')) { await expect(dialog.locator('.technology-viewer__frame')).toHaveCount(0); await expect(dialog.locator('.technology-viewer__dots button')).toHaveCount(2); }
     if (id === 'expressions-compare') {
       await expect(dialog.getByRole('columnheader')).toHaveCount(2);
       await expect(dialog).toContainText('TiN-Coated Heater');
@@ -299,9 +299,10 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
   await openTechnology(page, page.locator('#technology-repeat'));
   await expect(page.locator('#technology-viewer')).toHaveAttribute('aria-busy', 'false');
   await page.keyboard.press('ArrowRight');
-  await expect(page.locator('#technology-viewer .technology-viewer__stage img')).toHaveAttribute('data-source', /03\.png/);
+  await expect(page.locator('#technology-viewer')).toHaveAttribute('data-group', 'CyberMind');
+  await expect(page.locator('#technology-viewer')).toHaveAttribute('aria-busy', 'false');
   await page.keyboard.press('ArrowRight');
-  await expect(page.locator('#technology-viewer .technology-viewer__stage img')).toHaveAttribute('data-source', /04\.png/);
+  await expect(page.locator('#technology-viewer')).toHaveAttribute('data-group', 'CyberMind');
   await page.locator('#technology-viewer .technology-viewer__close').click();
   await expect(page.locator('dialog:modal')).toHaveCount(0);
   await page.goto('/ar');

@@ -1,150 +1,48 @@
 import { expect, test } from '@playwright/test';
-import { mkdir, writeFile } from 'node:fs/promises';
 import { openTechnology } from './helpers/technology';
+const evidence='docs/evidence/technology-viewer/ribbons';
 
-const evidence = 'docs/evidence/technology-viewer/width-analysis';
-
-test('every technology photo fills the frame width without distortion and its bottom stays reachable', async ({ page }, info) => {
-  test.setTimeout(120_000);
-  await mkdir(evidence, { recursive: true });
-  await page.goto('/en');
-  await openTechnology(page);
-  const viewer = page.locator('#technology-viewer');
-  const scroller = viewer.locator('.technology-viewer__scroll');
-  await expect(viewer).toHaveAttribute('aria-busy', 'false');
-  await page.evaluate(() => document.fonts.ready);
-  const results = [];
-  const baseline = info.project.use.viewport!;
-  for (const size of [baseline, { width: 393, height: 852 }, { width: 390, height: 664 }, { width: 615, height: 849 }, { width: 844, height: 390 }, { width: 768, height: 1024 }, { width: 320, height: 568 }, { width: 390, height: 732 }, { width: 390, height: 844 }]) {
-    await page.setViewportSize(size);
-    for (let group = 0; group < 2; group++) {
-      if (group === 0 && await viewer.getAttribute('data-group') === 'CyberMind') await viewer.locator('.technology-viewer__previous-group').click();
-      if (group === 1) await viewer.locator('.technology-viewer__next-group').click();
-      await expect(viewer).toHaveAttribute('data-group', group ? 'CyberMind' : 'HeatCore');
-      for (let slide = 0; slide < (group ? 2 : 4); slide++) {
-        await viewer.locator('.technology-viewer__dots button').nth(slide).click();
-        await expect(viewer).toHaveAttribute('aria-busy', 'false');
-        await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', group ? `/art/technology/cybermind/0${slide + 1}.png` : `/art/technology/0${slide + 2}.png`);
-        // Same-slide selection is a no-op; bring its top into view explicitly for this geometry probe.
-        await scroller.focus();
-        await page.keyboard.press('Home');
-        const top = await viewer.evaluate(element => {
-          const rect = (selector: string) => { const r = element.querySelector(selector)!.getBoundingClientRect(); return { left: r.left, top: r.top, width: r.width, height: r.height, bottom: r.bottom }; };
-          const scroll = element.querySelector('.technology-viewer__scroll')!;
-          return { width: innerWidth, dpr: devicePixelRatio, frame: rect('.technology-viewer__frame'), cutout: rect('.technology-viewer__stage'), plane: rect('.technology-viewer__content'), photo: rect('.technology-viewer__photo img'), title: rect('.technology-viewer__title'), copy: rect('.technology-viewer__descriptions'), scroll: { top: scroll.scrollTop, height: scroll.scrollHeight, client: scroll.clientHeight }, documentX: scrollX, documentY: scrollY };
-        });
-        expect(top.width).toBe(size.width);
-        if (info.project.use.isMobile) expect(top.dpr).toBe(3);
-        expect(top.frame.left).toBe(0);
-        expect(top.frame.width).toBe(size.width);
-        expect(top.photo.width).toBeCloseTo(top.cutout.width, 1);
-        expect(top.photo.left).toBeCloseTo(top.cutout.left, 1);
-        expect(top.photo.width / top.photo.height).toBeCloseTo(941 / 1672, 4);
-        if (top.photo.height <= top.cutout.height + 1) {
-          expect(Math.abs(top.photo.top - top.cutout.top)).toBeLessThanOrEqual(1);
-          expect(Math.abs(top.photo.bottom - top.cutout.bottom)).toBeLessThanOrEqual(1);
-          expect(top.scroll.height - top.scroll.client).toBeLessThanOrEqual(1);
-        }
-        for (const layer of [top.photo, top.title, top.copy]) {
-          expect(layer.left).toBeCloseTo(top.plane.left, 1);
-          expect(layer.top).toBeCloseTo(top.plane.top, 1);
-          expect(layer.width).toBeCloseTo(top.plane.width, 1);
-          expect(layer.height).toBeCloseTo(top.plane.height, 1);
-        }
-        const capture = (size === baseline && info.project.use.isMobile) || (info.project.name === 'iphone-17-pro-webkit' && ((size.width === 390 && size.height === 664) || (size.width === 393 && size.height === 852)));
-        if (capture) await page.screenshot({ path: `${evidence}/${info.project.name}-${size.width}x${size.height}-g${group}-s${slide}-top.png` });
-        await page.keyboard.press('End');
-        const bottom = await scroller.evaluate(element => ({ top: element.scrollTop, max: element.scrollHeight - element.clientHeight, width: element.scrollWidth, clientWidth: element.clientWidth, photoBottom: element.querySelector('img')!.getBoundingClientRect().bottom, viewportBottom: element.getBoundingClientRect().bottom, y: scrollY }));
-        expect(bottom.top).toBeCloseTo(bottom.max, 0);
-        expect(bottom.width).toBeLessThanOrEqual(bottom.clientWidth);
-        expect(bottom.photoBottom).toBeLessThanOrEqual(bottom.viewportBottom + 1);
-        expect(bottom.y).toBe(top.documentY);
-        if (capture && bottom.max > 0) await page.screenshot({ path: `${evidence}/${info.project.name}-${size.width}x${size.height}-g${group}-s${slide}-bottom.png` });
-        results.push({ size, group, slide, top, bottom });
-      }
-    }
+test('all six source planes fill viewport width with native proportions, joined edges and complete bottom access',async({page},info)=>{
+ await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
+ for(const [width,height] of [[402,874],[440,956],[402,664],[440,732],[375,812],[320,568],[844,390],[768,1024],[1440,900]]){
+  await page.setViewportSize({width,height});
+  for(const group of [0,1]){
+   await viewer.locator('.technology-viewer__dots button').nth(group).click();await expect(viewer).toHaveAttribute('data-group',group?'CyberMind':'HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');
+   const g=await viewer.evaluate(element=>{
+    const stage=element.querySelector('.technology-viewer__stage')!.getBoundingClientRect();const scroll=element.querySelector('.technology-viewer__scroll')!;
+    const planes=[...element.querySelectorAll('.technology-viewer__content')].map(el=>{const r=el.getBoundingClientRect();const img=el.querySelector('img')!;const ir=img.getBoundingClientRect();return{width:r.width,height:r.height,top:r.top,bottom:r.bottom,imageWidth:ir.width,imageHeight:ir.height,source:[img.naturalWidth,img.naturalHeight]};});
+    return{width:innerWidth,dpr:devicePixelRatio,meta:document.querySelector('meta[name=viewport]')?.getAttribute('content'),stage:{left:stage.left,right:stage.right,bottom:stage.bottom},planes,overflow:scroll.scrollWidth-scroll.clientWidth};
+   });
+   expect(g.width).toBe(width);expect(g.meta).toContain('width=device-width');expect(g.stage.left).toBe(0);expect(g.stage.right).toBe(width);expect(g.stage.bottom).toBe(height);expect(g.overflow).toBe(0);
+   for(const [index,plane]of g.planes.entries()){
+    expect(plane.width).toBe(width);expect(plane.imageWidth).toBe(width);expect(Math.abs(plane.height-width*1672/941)).toBeLessThan(1);expect(Math.abs(plane.imageHeight-plane.height)).toBeLessThan(.1);expect(plane.source).toEqual([941,1672]);
+    if(index)expect(Math.abs(g.planes[index-1].bottom-plane.top-width*48/941)).toBeLessThan(.05);
+   }
+   await page.keyboard.press('End');const bottom=await viewer.locator('.technology-viewer__content').last().boundingBox();expect(Math.abs(bottom!.y+bottom!.height-height)).toBeLessThan(1);
+   await page.keyboard.press('Home');expect(await viewer.locator('.technology-viewer__scroll').evaluate(e=>e.scrollTop)).toBe(0);
+   if([320,375,768,844,1440].includes(width)&&group===1)await page.screenshot({path:`${evidence}/${info.project.name}-adapt-${width}x${height}.png`});
   }
-  await writeFile(`${evidence}/${info.project.name}-width-matrix.json`, JSON.stringify(results, null, 2) + '\n');
+ }
 });
 
-test('inner scroll freezes at pending and failed frames, then resets after decoded commit', async ({ page }, info) => {
-  await page.setViewportSize({ width: 390, height: 664 });
-  let release!: () => void;
-  const gate = new Promise<void>(resolve => { release = resolve; });
-  let failed = true;
-  await page.route('**/art/technology/03.png', async route => { await gate; if (failed) await route.fulfill({ status: 503 }); else await route.continue(); });
-  try {
-    await page.goto('/en');
-    await openTechnology(page);
-    const viewer = page.locator('#technology-viewer');
-    const scroller = viewer.locator('.technology-viewer__scroll');
-    await expect(viewer).toHaveAttribute('aria-busy', 'false');
-    await scroller.focus();
-    await page.keyboard.press('End');
-    const frozen = await scroller.evaluate(element => element.scrollTop);
-    expect(frozen).toBeGreaterThan(100);
-    const pageY = await page.evaluate(() => scrollY);
-    await viewer.locator('.technology-viewer__next-image').click();
-    await expect(viewer).toHaveAttribute('aria-busy', 'true');
-    await page.keyboard.press('Home');
-    await page.keyboard.press('ArrowDown');
-    await page.keyboard.press('PageDown');
-    if (!info.project.use.isMobile) { await scroller.hover(); await page.mouse.wheel(0, -600); }
-    await scroller.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 200, clientY: 450 });
-    await scroller.dispatchEvent('pointerup', { pointerType: 'touch', clientX: 200, clientY: 300 });
-    // Simulate an already queued scroll at the loading boundary, separately from native input.
-    await scroller.evaluate(element => { element.scrollTop = 0; });
-    await expect.poll(() => scroller.evaluate(element => element.scrollTop)).toBeCloseTo(frozen, 0);
-    await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
-    await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', '/art/technology/02.png');
-    await page.screenshot({ path: `${evidence}/${info.project.name}-pending-inner-scroll.png` });
-    release();
-    await expect(viewer.getByRole('button', { name: 'Retry', exact: true })).toBeVisible();
-    await page.keyboard.press('End');
-    expect(await scroller.evaluate(element => element.scrollTop)).toBeCloseTo(frozen, 0);
-    failed = false;
-    await viewer.getByRole('button', { name: 'Retry', exact: true }).click();
-    await expect(viewer).toHaveAttribute('aria-busy', 'false');
-    await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', '/art/technology/03.png');
-    expect(await scroller.evaluate(element => element.scrollTop)).toBe(0);
-    expect(await page.evaluate(() => scrollY)).toBe(pageY);
-    await scroller.focus();
-    await page.keyboard.press('ArrowDown');
-    expect(await scroller.evaluate(element => element.scrollTop)).toBeGreaterThan(0);
-    await page.keyboard.press('End');
-    await page.keyboard.press('ArrowDown');
-    await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
-    await viewer.locator('.technology-viewer__next-group').click();
-    await expect(viewer).toHaveAttribute('data-group', 'CyberMind');
-    expect(await scroller.evaluate(element => element.scrollTop)).toBe(0);
-    await scroller.focus();
-    await page.keyboard.press('End');
-    await viewer.locator('.technology-viewer__close').click();
-    await openTechnology(page);
-    await expect(viewer).toHaveAttribute('aria-busy', 'false');
-    expect(await scroller.evaluate(element => element.scrollTop)).toBe(0);
-  } finally { release(); }
+test('all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow',async({page},info)=>{
+ for(const locale of ['en','ru','de','fr','es','it','tr','ar','zh','ja','ko']){
+  await page.goto(`/${locale}`);await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
+  for(const group of [0,1]){
+   await viewer.locator('.technology-viewer__dots button').nth(group).click();await expect(viewer).toHaveAttribute('data-group',group?'CyberMind':'HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');await page.evaluate(()=>document.fonts.ready);
+   await expect(viewer.locator('.technology-viewer__title')).toHaveCount(1);await expect(viewer.locator('.technology-viewer__descriptions')).toHaveCount(group?2:4);await expect(viewer.locator('.technology-description__number')).toHaveCount(0);
+   const overflow=await viewer.locator('.technology-description__box').evaluateAll(boxes=>boxes.filter(box=>{const text=box.firstElementChild!;return text.scrollHeight>box.clientHeight+1||text.scrollWidth>box.clientWidth+1;}).map(box=>box.parentElement?.getAttribute('data-description-block')));
+   expect(overflow).toEqual([]);
+   const hits=await viewer.locator('.technology-viewer__dots button,.technology-viewer__close,.technology-viewer__next-image').evaluateAll(buttons=>buttons.map(b=>{const r=b.getBoundingClientRect();return{width:r.width,height:r.height,left:r.left,right:r.right,top:r.top,bottom:r.bottom};}));
+   for(const hit of hits){expect(hit.width).toBeGreaterThanOrEqual(44);expect(hit.height).toBeGreaterThanOrEqual(44);expect(hit.left).toBeGreaterThanOrEqual(0);expect(hit.right).toBeLessThanOrEqual(info.project.use.viewport!.width);expect(hit.bottom).toBeLessThanOrEqual(88);}
+   if(locale==='ar'){await expect(viewer.locator('.technology-description__box').first()).toHaveAttribute('dir','rtl');await page.screenshot({path:`${evidence}/${info.project.name}-ar-${group}.png`});}
+  }
+  await viewer.locator('.technology-viewer__close').click();
+ }
 });
 
-test('native desktop wheel pans the picture without moving the page or changing technology', async ({ page }, info) => {
-  test.skip(!!info.project.use.isMobile, 'Native mobile touch is checked with the Chromium touch protocol separately; mobile keyboard is checked above.');
-  await page.setViewportSize({ width: 615, height: 849 });
-  await page.goto('/en');
-  await openTechnology(page);
-  const viewer = page.locator('#technology-viewer');
-  const scroller = viewer.locator('.technology-viewer__scroll');
-  await expect(viewer).toHaveAttribute('aria-busy', 'false');
-  const y = await page.evaluate(() => scrollY);
-  await scroller.hover();
-  await page.mouse.wheel(0, 200);
-  await expect.poll(() => scroller.evaluate(element => element.scrollTop)).toBeGreaterThan(100);
-  await page.mouse.wheel(0, 3000);
-  await expect.poll(() => scroller.evaluate(element => Math.abs(element.scrollHeight - element.clientHeight - element.scrollTop))).toBeLessThan(1);
-  await page.mouse.wheel(0, 200);
-  await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
-  expect(await page.evaluate(() => scrollY)).toBe(y);
-  await page.mouse.wheel(0, -3000);
-  await expect.poll(() => scroller.evaluate(element => element.scrollTop)).toBe(0);
+test('native desktop wheel scrolls the ribbon without moving landing or switching groups',async({page},info)=>{
+ test.skip(!!info.project.use.isMobile,'Native mobile pan is covered by Chromium protocol plus WebKit pointer/keyboard checks.');await page.setViewportSize({width:615,height:849});await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');const y=await page.evaluate(()=>scrollY);const scroller=viewer.locator('.technology-viewer__scroll');await scroller.hover();await page.mouse.wheel(0,500);await expect.poll(()=>scroller.evaluate(e=>e.scrollTop)).toBeGreaterThan(100);await expect.poll(async()=>{await page.mouse.wheel(0,1200);return scroller.evaluate(e=>Math.abs(e.scrollHeight-e.clientHeight-e.scrollTop));}).toBeLessThan(1);await expect(viewer).toHaveAttribute('data-group','HeatCore');expect(await page.evaluate(()=>scrollY)).toBe(y);await expect.poll(async()=>{await page.mouse.wheel(0,-1200);return scroller.evaluate(e=>e.scrollTop);}).toBe(0);
 });
 
 test('native touch pans vertically, swipes horizontally and freezes during download', async ({ browser }, info) => {
@@ -153,7 +51,7 @@ test('native touch pans vertically, swipes horizontally and freezes during downl
   const page = await context.newPage();
   let release!: () => void;
   const gate = new Promise<void>(resolve => { release = resolve; });
-  await page.route('**/art/technology/03.png', async route => { await gate; await route.continue(); });
+  await page.route('**/art/technology/cybermind/02.png', async route => { await gate; await route.continue(); });
   try {
     await page.goto(`${process.env.BASE_URL ?? 'http://127.0.0.1:3000'}/en`);
     await openTechnology(page);
@@ -175,66 +73,36 @@ test('native touch pans vertically, swipes horizontally and freezes during downl
     await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
     expect(await page.evaluate(() => scrollY)).toBe(y);
     await page.screenshot({ path: `${evidence}/native-touch-scrolled.png` });
-    await swipe([300, 350], [70, 350]);
+    await swipe([70, 350], [300, 350]);
     await expect(viewer).toHaveAttribute('aria-busy', 'true');
     const frozen = await scroller.evaluate(element => element.scrollTop);
     await swipe([220, 440], [220, 290]);
     expect(await scroller.evaluate(element => element.scrollTop)).toBeCloseTo(frozen, 0);
     expect(await page.evaluate(() => scrollY)).toBe(y);
-    await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', '/art/technology/02.png');
+    await expect(viewer.locator('.technology-viewer__photo img').first()).toHaveAttribute('data-source', '/art/technology/02.png');
     await page.screenshot({ path: `${evidence}/native-touch-pending.png` });
     release();
     await expect(viewer).toHaveAttribute('aria-busy', 'false');
-    await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', '/art/technology/03.png');
+    await expect(viewer).toHaveAttribute('aria-busy','false');
+    await expect(viewer.locator('.technology-viewer__photo img').first()).toHaveAttribute('data-source', '/art/technology/cybermind/01.png');
     expect(await scroller.evaluate(element => element.scrollTop)).toBe(0);
-    await swipe([80, 350], [300, 350]);
-    await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', '/art/technology/02.png');
-    await swipe([80, 350], [300, 350]);
-    await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', '/art/technology/02.png');
+    await swipe([300, 350], [80, 350]);
+    await expect(viewer.locator('.technology-viewer__photo img').first()).toHaveAttribute('data-source', '/art/technology/02.png');
+    await swipe([300, 350], [80, 350]);
+    await expect(viewer.locator('.technology-viewer__photo img').first()).toHaveAttribute('data-source', '/art/technology/02.png');
     await page.screenshot({ path: `${evidence}/native-touch-ready.png` });
     await viewer.locator('.technology-viewer__close').click();
     await page.goto(`${process.env.BASE_URL ?? 'http://127.0.0.1:3000'}/ar`);
     await openTechnology(page);
     await expect(viewer).toHaveAttribute('aria-busy', 'false');
     await swipe([80, 350], [300, 350]);
-    await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', '/art/technology/03.png');
+    await expect(viewer).toHaveAttribute('aria-busy','false');
+    await expect(viewer.locator('.technology-viewer__photo img').first()).toHaveAttribute('data-source', '/art/technology/cybermind/01.png');
     await swipe([300, 350], [80, 350]);
-    await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-source', '/art/technology/02.png');
+    await expect(viewer.locator('.technology-viewer__photo img').first()).toHaveAttribute('data-source', '/art/technology/02.png');
     await swipe([220, 440], [220, 290]);
     await expect.poll(() => scroller.evaluate(element => element.scrollTop)).toBeGreaterThan(80);
     await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
     await page.screenshot({ path: `${evidence}/native-touch-arabic.png` });
   } finally { release(); await context.close(); }
-});
-
-test('all six full-width compositions keep translated text usable in eleven locales', async ({ page }, info) => {
-  test.setTimeout(120_000);
-  await page.setViewportSize({ width: 390, height: 664 });
-  for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
-    await page.goto(`/${locale}`);
-    await openTechnology(page);
-    const viewer = page.locator('#technology-viewer');
-    const scroller = viewer.locator('.technology-viewer__scroll');
-    await expect(scroller).toHaveAccessibleName(/.+/);
-    for (let group = 0; group < 2; group++) {
-      if (group === 1) await viewer.locator('.technology-viewer__next-group').click();
-      await expect(viewer).toHaveAttribute('data-group', group ? 'CyberMind' : 'HeatCore');
-      for (let slide = 0; slide < (group ? 2 : 4); slide++) {
-        await viewer.locator('.technology-viewer__dots button').nth(slide).click();
-        await expect(viewer).toHaveAttribute('aria-busy', 'false');
-        await page.evaluate(() => document.fonts.ready);
-        const blocks = await viewer.locator('.technology-description__box').evaluateAll(elements => elements.map(element => ({ width: element.firstElementChild?.scrollWidth ?? 0, maxWidth: element.clientWidth, height: element.firstElementChild?.scrollHeight ?? 0, maxHeight: element.clientHeight })));
-        for (const block of blocks) {
-          expect(block.width).toBeLessThanOrEqual(block.maxWidth + 1);
-          expect(block.height).toBeLessThanOrEqual(block.maxHeight + 1);
-        }
-        if (locale === 'ar') await expect(viewer.locator('.technology-description__box').first()).toHaveAttribute('dir', 'rtl');
-        await scroller.focus();
-        await page.keyboard.press('End');
-        expect(await scroller.evaluate(element => Math.abs(element.scrollHeight - element.clientHeight - element.scrollTop))).toBeLessThan(1);
-        if (locale === 'ar' && info.project.name === 'iphone-17-pro-webkit') await page.screenshot({ path: `${evidence}/arabic-short-g${group}-s${slide}-bottom.png` });
-      }
-    }
-    await viewer.locator('.technology-viewer__close').click();
-  }
 });

@@ -1,0 +1,173 @@
+[
+  {
+    "width": 402,
+    "height": 874,
+    "dpr": 3,
+    "innerWidth": 402,
+    "errors": [],
+    "comparisons": [
+      {
+        "group": 0,
+        "index": 0,
+        "changed": 0,
+        "total": 2586870,
+        "percent": 0
+      },
+      {
+        "group": 0,
+        "index": 1,
+        "changed": 64648,
+        "total": 2586870,
+        "percent": 2.4990819020669766
+      },
+      {
+        "group": 0,
+        "index": 2,
+        "changed": 73565,
+        "total": 2586870,
+        "percent": 2.843784187067769
+      },
+      {
+        "group": 0,
+        "index": 3,
+        "changed": 43562,
+        "total": 2586870,
+        "percent": 1.6839655645625795
+      },
+      {
+        "group": 1,
+        "index": 0,
+        "changed": 0,
+        "total": 2586870,
+        "percent": 0
+      },
+      {
+        "group": 1,
+        "index": 1,
+        "changed": 69264,
+        "total": 2586870,
+        "percent": 2.677521483491633
+      }
+    ],
+    "joins": [
+      {
+        "group": 0,
+        "index": 1,
+        "src": "/art/technology/03.png",
+        "width": 402,
+        "height": 714.28125,
+        "offset": 694
+      },
+      {
+        "group": 0,
+        "index": 2,
+        "src": "/art/technology/04.png",
+        "width": 402,
+        "height": 714.28125,
+        "offset": 1388
+      },
+      {
+        "group": 0,
+        "index": 3,
+        "src": "/art/technology/05.png",
+        "width": 402,
+        "height": 714.28125,
+        "offset": 2081
+      },
+      {
+        "group": 1,
+        "index": 1,
+        "src": "/art/technology/cybermind/02.png",
+        "width": 402,
+        "height": 714.28125,
+        "offset": 694
+      }
+    ],
+    "assembly": [
+      {
+        "name": "hero",
+        "selector": "h1",
+        "scrollY": 0
+      },
+      {
+        "name": "technology",
+        "selector": "#technology-experience",
+        "scrollY": 2498
+      },
+      {
+        "name": "documents",
+        "selector": "#documents",
+        "scrollY": 9429
+      },
+      {
+        "name": "faq",
+        "selector": "#faq",
+        "scrollY": 11104
+      }
+    ]
+  },
+  {
+    "width": 440,
+    "height": 956,
+    "dpr": 3,
+    "innerWidth": 440,
+    "errors": [],
+    "comparisons": [],
+    "joins": [
+      {
+        "group": 0,
+        "index": 1,
+        "src": "/art/technology/03.png",
+        "width": 440,
+        "height": 781.796875,
+        "offset": 759
+      },
+      {
+        "group": 0,
+        "index": 2,
+        "src": "/art/technology/04.png",
+        "width": 440,
+        "height": 781.796875,
+        "offset": 1519
+      },
+      {
+        "group": 0,
+        "index": 3,
+        "src": "/art/technology/05.png",
+        "width": 440,
+        "height": 781.796875,
+        "offset": 2278
+      },
+      {
+        "group": 1,
+        "index": 1,
+        "src": "/art/technology/cybermind/02.png",
+        "width": 440,
+        "height": 781.796875,
+        "offset": 759
+      }
+    ],
+    "assembly": [
+      {
+        "name": "hero",
+        "selector": "h1",
+        "scrollY": 0
+      },
+      {
+        "name": "technology",
+        "selector": "#technology-experience",
+        "scrollY": 2735
+      },
+      {
+        "name": "documents",
+        "selector": "#documents",
+        "scrollY": 10320
+      },
+      {
+        "name": "faq",
+        "selector": "#faq",
+        "scrollY": 12154
+      }
+    ]
+  }
+]

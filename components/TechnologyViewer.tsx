@@ -12,6 +12,8 @@ import type { CyberMindCopy } from '@/lib/cybermind-descriptions';
 
 import { technologyGroups, technologyGroupCopy } from '@/lib/technology-gallery';
 import type { TechnologySlideId } from '@/lib/technology-descriptions';
+import { loadImage } from '@/lib/media-resource';
+import { LoadingStatus, useScrollLock } from './MediaLoading';
 
 type Selection = { group: number; slide: number };
 
@@ -30,16 +32,16 @@ const copy: Record<Locale, ViewerCopy> = {
   ko: { technology: '기술', details: '스와이프하여 상세 보기', horizontal: '좌우로 스와이프하여 이미지 보기', vertical: '아래로 스와이프하여 다음 기술 보기', close: '기술 갤러리 닫기', image: '이미지', nextImage: '다음 이미지 보기', nextGroup: '다음 기술', unavailable: '다음 기술은 곧 공개됩니다.', names: ['세 개의 히터', '액티브 에어 세일', '프로그래밍 가능한 열 프로필', '금과 질화 티타늄'] },
 };
 
-function TechnologyNavigation({ direction, label, accessibleLabel, onClick }: { direction: 'right' | 'down'; label: string; accessibleLabel: string; onClick: () => void }) {
-  return <button className={`technology-viewer__next-${direction === 'right' ? 'image' : 'group'}`} type="button" onClick={onClick} aria-label={accessibleLabel}>
+function TechnologyNavigation({ direction, label, accessibleLabel, onClick, disabled }: { direction: 'right' | 'down'; label: string; accessibleLabel: string; onClick: () => void; disabled?: boolean }) {
+  return <button className={`technology-viewer__next-${direction === 'right' ? 'image' : 'group'}`} type="button" onClick={onClick} aria-label={accessibleLabel} disabled={disabled}>
     <span>{label}</span>
     <Image src={`/art/technology/arrow-${direction}.png`} width={direction === 'right' ? 28 : 45} height={direction === 'right' ? 45 : 29} alt="" aria-hidden="true" unoptimized />
   </button>;
 }
 
-function TechnologyPagination({ index, labels, names, onSelect }: { index: number; labels: ViewerCopy; names: readonly string[]; onSelect: (index: number) => void }) {
+function TechnologyPagination({ index, labels, names, onSelect, disabled }: { index: number; labels: ViewerCopy; names: readonly string[]; onSelect: (index: number) => void; disabled: boolean }) {
   return <div className="technology-viewer__dots" role="group" aria-label={labels.horizontal}>
-    {names.map((name, slideIndex) => <button key={slideIndex} type="button" onClick={() => onSelect(slideIndex)} aria-label={`${labels.image} ${slideIndex + 1} / ${names.length}: ${name}`} aria-current={index === slideIndex ? 'true' : undefined}>
+    {names.map((name, slideIndex) => <button key={slideIndex} type="button" onClick={() => onSelect(slideIndex)} disabled={disabled} aria-label={`${labels.image} ${slideIndex + 1} / ${names.length}: ${name}`} aria-current={index === slideIndex ? 'true' : undefined}>
       <Image src={index === slideIndex ? '/art/technology/dot-active.png' : '/art/technology/dot-inactive.png'} width={29} height={29} alt="" aria-hidden="true" unoptimized />
     </button>)}
   </div>;
@@ -48,44 +50,73 @@ function TechnologyPagination({ index, labels, names, onSelect }: { index: numbe
 export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }: { locale: Locale; descriptions: TechnologyDescriptionCopy; cyberMindDescriptions: CyberMindCopy }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLElement | null>(null);
-  const previousOverflow = useRef('');
+  const photo = useRef<HTMLDivElement>(null);
+  const asset = useRef<HTMLImageElement | null>(null);
   const pointer = useRef<{ x: number; y: number } | null>(null);
   const displayed = useRef<Selection>({ group: 0, slide: 0 });
   const requested = useRef<Selection>({ group: 0, slide: 0 });
   const remembered = useRef([0, 0]);
   const requestToken = useRef(0);
   const restoreGroupFocus = useRef(false);
+  const pending = useRef(false);
+  const unsubscribe = useRef<(() => void) | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [selection, setSelection] = useState<Selection>({ group: 0, slide: 0 });
   const [showUnavailable, setShowUnavailable] = useState(false);
+  const [hasAsset, setHasAsset] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const [progress, setProgress] = useState<number | null>(null);
+  useScrollLock(isOpen);
   const labels = copy[locale];
   const groupLabels = technologyGroupCopy[locale];
   const group = technologyGroups[selection.group];
   const slide = group.slides[selection.slide];
   const names = selection.group === 0 ? labels.names : groupLabels.names;
   useLayoutEffect(() => {
+    // A disabled navigation button can lose focus to the document in desktop browsers.
+    if (loading && dialog.current?.open) dialog.current.focus({ preventScroll: true });
+    if (asset.current && photo.current) {
+      asset.current.alt = `${group.title} — ${names[selection.slide]}`;
+      asset.current.draggable = false;
+      photo.current.replaceChildren(asset.current);
+    }
     if (restoreGroupFocus.current && dialog.current?.open) {
       restoreGroupFocus.current = false;
-      dialog.current.focus();
+      dialog.current.focus({ preventScroll: true });
     }
-  }, [selection.group]);
-  const images = useRef(new Map<string, { image: HTMLImageElement; ready: Promise<void> }>());
-  const prepareImage = useCallback((src: string, priority: 'low' | 'high' = 'low') => {
-    const cached = images.current.get(src);
-    if (cached) {
-      if (priority === 'high') cached.image.fetchPriority = 'high';
-      return cached.ready;
-    }
-    const image = new window.Image();
-    image.fetchPriority = priority;
-    image.src = src;
-    const ready = image.decode().catch(error => {
-      // A failed warm-up must not prevent a later user action from retrying.
-      if (images.current.get(src)?.image === image) images.current.delete(src);
-      throw error;
+  }, [hasAsset, loading, group.title, names, selection.slide, selection.group]);
+
+  const select = useCallback((next: Selection) => {
+    setShowUnavailable(false);
+    requested.current = next;
+    pending.current = true;
+    setLoading(true);
+    setFailed(false);
+    const token = ++requestToken.current;
+    unsubscribe.current?.();
+    const resource = loadImage(technologyGroups[next.group].slides[next.slide].src, 'high');
+    const update = (value: typeof resource.progress) => setProgress(value.total ? Math.round(value.loaded / value.total * 100) : null);
+    update(resource.progress);
+    unsubscribe.current = resource.subscribe(update);
+    resource.ready.then(image => {
+      if (token !== requestToken.current || !dialog.current?.open) return;
+      const active = document.activeElement;
+      restoreGroupFocus.current = next.group !== displayed.current.group && active instanceof Element && !!active.closest('.technology-viewer__dots, .technology-viewer__previous-group');
+      displayed.current = next;
+      remembered.current[next.group] = next.slide;
+      asset.current = image;
+      setHasAsset(true);
+      setSelection(next);
+      pending.current = false;
+      setLoading(false);
+      unsubscribe.current?.();
+    }).catch(() => {
+      if (token !== requestToken.current || !dialog.current?.open) return;
+      setFailed(true);
+      // Keep navigation locked until retry or close; the current complete frame stays visible.
+      unsubscribe.current?.();
     });
-    images.current.set(src, { image, ready });
-    return ready;
   }, []);
 
   useEffect(() => {
@@ -93,7 +124,7 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
     const warm = () => {
       // Run after load dispatch; never compete with the initial page resources.
       timer = setTimeout(() => {
-        technologyGroups.forEach(group => { void prepareImage(group.slides[0].src).catch(() => {}); });
+        technologyGroups.forEach(group => group.slides.slice(0, 2).forEach(slide => { void loadImage(slide.src).ready.catch(() => {}); }));
       }, 0);
     };
     if (document.readyState === 'complete') warm();
@@ -102,9 +133,9 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
       window.removeEventListener('load', warm);
       clearTimeout(timer);
     };
-  }, [prepareImage]);
+  }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const dialogElement = dialog.current;
     const open = (event: MouseEvent) => {
       const target = event.target;
@@ -118,62 +149,46 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
       requested.current = displayed.current;
       remembered.current = [0, 0];
       setSelection(displayed.current);
+      asset.current = null;
+      setHasAsset(false);
       setShowUnavailable(false);
       restoreGroupFocus.current = false;
-      technologyGroups.forEach((group, groupIndex) => group.slides.forEach((slide, slideIndex) => {
-        void prepareImage(slide.src, groupIndex === 0 && slideIndex === 0 ? 'high' : 'low').catch(() => {});
-      }));
       setIsOpen(true);
       dialogElement.showModal();
-      dialogElement.focus();
-      previousOverflow.current = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
+      dialogElement.focus({ preventScroll: true });
+      select(displayed.current);
+      technologyGroups.forEach(group => group.slides.forEach(slide => { void loadImage(slide.src).ready.catch(() => {}); }));
     };
     document.addEventListener('click', open);
     return () => {
       document.removeEventListener('click', open);
-      if (dialogElement?.open) document.body.style.overflow = previousOverflow.current;
+      unsubscribe.current?.();
     };
-  }, [prepareImage]);
+  }, [select]);
 
   const close = () => dialog.current?.close();
-  const select = (next: Selection) => {
-    setShowUnavailable(false);
-    requested.current = next;
-    const token = ++requestToken.current;
-    prepareImage(technologyGroups[next.group].slides[next.slide].src, 'high').then(() => {
-      if (token === requestToken.current && dialog.current?.open) {
-        const active = document.activeElement;
-        restoreGroupFocus.current = next.group !== displayed.current.group && active instanceof Element && !!active.closest('.technology-viewer__dots, .technology-viewer__previous-group');
-        displayed.current = next;
-        remembered.current[next.group] = next.slide;
-        setSelection(next);
-      }
-    }).catch(() => {
-      if (token === requestToken.current) requested.current = displayed.current;
-    });
-  };
   const showSlide = (position: number, groupIndex = displayed.current.group) => {
     const length = technologyGroups[groupIndex].slides.length;
-    select({ group: groupIndex, slide: (position + length) % length });
+    if (pending.current || position < 0 || position >= length) return;
+    if (groupIndex === displayed.current.group && position === displayed.current.slide) return;
+    select({ group: groupIndex, slide: position });
   };
   const move = (delta: number) => {
-    const current = requested.current.group === displayed.current.group ? requested.current : displayed.current;
+    if (pending.current) return;
+    setShowUnavailable(false);
+    const current = displayed.current;
     showSlide(current.slide + delta, current.group);
   };
   const moveGroup = (delta: number) => {
+    if (pending.current) return;
     const currentGroup = displayed.current.group;
-    if (requested.current.group !== currentGroup) {
-      // Repeated taps wait for the same target; reversing cancels that transition.
-      if (Math.sign(delta) !== Math.sign(requested.current.group - currentGroup)) select(displayed.current);
-      return;
-    }
     const nextGroup = currentGroup + delta;
     if (nextGroup < 0) return;
     if (nextGroup >= technologyGroups.length) { setShowUnavailable(true); return; }
     select({ group: nextGroup, slide: remembered.current[nextGroup] });
   };
   const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    if (pending.current) return;
     pointer.current = { x: event.clientX, y: event.clientY };
     try { event.currentTarget.setPointerCapture(event.pointerId); } catch { /* Synthetic test events do not own a pointer. */ }
   };
@@ -192,16 +207,19 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
     ref={dialog}
     id="technology-viewer"
     className="technology-viewer"
-    aria-labelledby={isOpen ? 'technology-viewer-title' : undefined}
-    aria-label={isOpen ? undefined : 'HeatCore'}
+    aria-labelledby={isOpen && hasAsset ? 'technology-viewer-title' : undefined}
+    aria-label={isOpen && hasAsset ? undefined : group.title}
     data-group={group.title}
+    aria-busy={loading}
     aria-describedby="technology-viewer-instructions"
     tabIndex={-1}
     onClose={() => {
       requestToken.current++;
       restoreGroupFocus.current = false;
       setIsOpen(false);
-      document.body.style.overflow = previousOverflow.current;
+      pending.current = false;
+      unsubscribe.current?.();
+      setLoading(false);
       opener.current?.focus();
     }}
     onKeyDown={event => {
@@ -213,17 +231,20 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
   >
     <div className="technology-viewer__canvas">
       <div className="technology-viewer__stage" onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}>
-        {isOpen && <Image key={slide.src} src={slide.src} alt={`${group.title} — ${names[selection.slide]}`} fill sizes="100vw" unoptimized priority={selection.slide === 0} draggable={false} />}
-        {isOpen && <TechnologyTitle descriptor={labels.technology} brand={group.title} />}
-        {isOpen && selection.group === 0 && <TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={names[selection.slide]} copy={descriptions} />}
-        {isOpen && selection.group === 1 && <CyberMindDescriptions slide={slide.id as '01' | '02'} locale={locale} name={names[selection.slide]} copy={cyberMindDescriptions} />}
+        {isOpen && hasAsset && <div className="technology-viewer__content">
+          <div className="technology-viewer__photo" ref={photo} />
+          <TechnologyTitle descriptor={labels.technology} brand={group.title} />
+          {selection.group === 0 && <TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={names[selection.slide]} copy={descriptions} />}
+          {selection.group === 1 && <CyberMindDescriptions slide={slide.id as '01' | '02'} locale={locale} name={names[selection.slide]} copy={cyberMindDescriptions} />}
+        </div>}
+        {isOpen && loading && <LoadingStatus locale={locale} progress={progress} error={failed} onRetry={() => select(requested.current)} className="technology-viewer__loading" />}
       </div>
       {isOpen && <>
-        <Image className="technology-viewer__frame" src="/art/technology/frame-template.webp" width={941} height={1628} alt="" aria-hidden="true" unoptimized priority />
-        <TechnologyNavigation direction="right" label={labels.details} accessibleLabel={labels.nextImage} onClick={() => move(1)} />
-        <TechnologyPagination index={selection.slide} labels={labels} names={names} onSelect={position => showSlide(position)} />
-        <TechnologyNavigation direction="down" label={labels.nextGroup} accessibleLabel={labels.nextGroup} onClick={() => moveGroup(1)} />
-        {selection.group > 0 && <button className="technology-viewer__previous-group" type="button" onClick={() => moveGroup(-1)} aria-label={groupLabels.previous} title={groupLabels.previous}>
+        <div className="technology-viewer__frame" aria-hidden="true" />
+        <TechnologyNavigation direction="right" label={labels.details} accessibleLabel={labels.nextImage} onClick={() => move(1)} disabled={loading || selection.slide === group.slides.length - 1} />
+        <TechnologyPagination index={selection.slide} labels={labels} names={names} onSelect={position => showSlide(position)} disabled={loading} />
+        <TechnologyNavigation direction="down" label={labels.nextGroup} accessibleLabel={labels.nextGroup} onClick={() => moveGroup(1)} disabled={loading} />
+        {selection.group > 0 && <button className="technology-viewer__previous-group" type="button" onClick={() => moveGroup(-1)} disabled={loading} aria-label={groupLabels.previous} title={groupLabels.previous}>
           <Image src="/art/technology/arrow-down.png" width={45} height={29} alt="" aria-hidden="true" unoptimized />
         </button>}
       </>}

@@ -1,0 +1,21 @@
+
+Running 12 tests using 2 workers
+
+(node:39717) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:39718) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:302:1 › two photos of each group warm after load; remaining photos start together on open (2.0s)
+  ✓   2 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:302:1 › two photos of each group warm after load; remaining photos start together on open (2.0s)
+  ✓   3 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:324:1 › incomplete hero protects the main view before technology can be opened (1.2s)
+  ✓   4 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:324:1 › incomplete hero protects the main view before technology can be opened (1.2s)
+  ✓   5 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:340:1 › four photos warm at low priority; retained decoded images are reused offline across groups (1.9s)
+  ✓   6 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:340:1 › four photos warm at low priority; retained decoded images are reused offline across groups (1.9s)
+  ✓   7 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:581:1 › pending slide locks navigation and commits only fully loaded selection (1.3s)
+  ✓   8 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:581:1 › pending slide locks navigation and commits only fully loaded selection (1.3s)
+  ✓   9 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:602:1 › failed CyberMind warm and selection recover with explicit Retry without skipping the group (1.5s)
+  ✓  10 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:602:1 › failed CyberMind warm and selection recover with explicit Retry without skipping the group (1.4s)
+  ✓  11 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:618:1 › pending group blocks gestures and repeated keys while close remains available (1.3s)
+  ✓  12 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:618:1 › pending group blocks gestures and repeated keys while close remains available (1.4s)
+
+  12 passed (11.3s)

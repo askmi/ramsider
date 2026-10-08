@@ -1,0 +1,39 @@
+{
+  "webkit503": {
+    "requests": [
+      {
+        "time": 1791413988607,
+        "url": "http://127.0.0.1:3022/art/00.webp",
+        "attempt": 1
+      },
+      {
+        "time": 1791413988635,
+        "url": "http://127.0.0.1:3022/art/00.webp",
+        "attempt": 2
+      }
+    ],
+    "snapshot": {
+      "marker": "<html lang=\"en\" dir=\"ltr\" data-media-js=\"\" data-media-hydrated=\"\" style=\"overflow: hidden; overscroll-behavior: none; scroll-behavior: auto;\"><head><meta charse",
+      "src": "http://127.0.0.1:3022/art/00.webp",
+      "currentSrc": "http://127.0.0.1:3022/art/00.webp",
+      "complete": true,
+      "naturalWidth": 941,
+      "ready": true,
+      "retry": false
+    }
+  },
+  "firefoxNoJS": {
+    "nativeResponse": {
+      "url": "http://127.0.0.1:3022/art/00.webp",
+      "status": 200,
+      "bodyLength": 248236
+    },
+    "evaluate": {
+      "tag": "IMG",
+      "complete": true,
+      "naturalWidth": 941,
+      "completeDescriptor": "function complete() {\n    [native code]\n}",
+      "src": "/art/00.webp"
+    }
+  }
+}

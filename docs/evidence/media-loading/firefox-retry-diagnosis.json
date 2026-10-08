@@ -1,0 +1,118 @@
+{
+  "attempts": 2,
+  "events": [
+    {
+      "event": "decode-call",
+      "at": 284,
+      "src": "http://127.0.0.1:3022/art/00.webp",
+      "currentSrc": "http://127.0.0.1:3022/art/00.webp",
+      "complete": true,
+      "naturalWidth": 0
+    },
+    {
+      "event": "decode-reject",
+      "at": 286,
+      "src": "http://127.0.0.1:3022/art/00.webp",
+      "currentSrc": "http://127.0.0.1:3022/art/00.webp",
+      "complete": true,
+      "naturalWidth": 0
+    },
+    {
+      "event": "decode-call",
+      "at": 292,
+      "src": "http://127.0.0.1:3022/art/00.webp",
+      "currentSrc": "http://127.0.0.1:3022/art/00.webp",
+      "complete": true,
+      "naturalWidth": 0
+    },
+    {
+      "event": "decode-reject",
+      "at": 293,
+      "src": "http://127.0.0.1:3022/art/00.webp",
+      "currentSrc": "http://127.0.0.1:3022/art/00.webp",
+      "complete": true,
+      "naturalWidth": 0
+    },
+    {
+      "event": "decode-call",
+      "at": 419,
+      "src": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+      "currentSrc": "http://127.0.0.1:3022/art/00.webp",
+      "complete": false,
+      "naturalWidth": 0
+    },
+    {
+      "event": "decode-reject",
+      "at": 419,
+      "src": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+      "currentSrc": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+      "complete": false,
+      "naturalWidth": 0
+    },
+    {
+      "event": "decode-call",
+      "at": 429,
+      "src": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+      "currentSrc": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+      "complete": true,
+      "naturalWidth": 941
+    },
+    {
+      "event": "load",
+      "at": 429,
+      "src": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+      "currentSrc": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+      "complete": true,
+      "naturalWidth": 941
+    },
+    {
+      "event": "load",
+      "at": 429,
+      "src": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+      "currentSrc": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+      "complete": true,
+      "naturalWidth": 941
+    },
+    {
+      "event": "load",
+      "at": 429,
+      "src": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+      "currentSrc": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+      "complete": true,
+      "naturalWidth": 941
+    },
+    {
+      "event": "decode-resolve",
+      "at": 457,
+      "src": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+      "currentSrc": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+      "complete": true,
+      "naturalWidth": 941
+    },
+    {
+      "event": "decode-call",
+      "at": 1431,
+      "src": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+      "currentSrc": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+      "complete": true,
+      "naturalWidth": 941
+    },
+    {
+      "event": "decode-resolve",
+      "at": 1431,
+      "src": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+      "currentSrc": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+      "complete": true,
+      "naturalWidth": 941
+    }
+  ],
+  "final": {
+    "src": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+    "currentSrc": "http://127.0.0.1:3022/art/00.webp?media-retry=1791412645359",
+    "complete": true,
+    "naturalWidth": 941,
+    "ready": false,
+    "decode": true,
+    "status": "The image could not load.Retry"
+  }
+}

@@ -1,30 +1,56 @@
 import { test, expect } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 import sharp from 'sharp';
+import { waitForVisibleMedia } from './helpers/media';
+import { openTechnology } from './helpers/technology';
 
 test('responsive viewport, artwork, and primary actions', async ({ page }, testInfo) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/en');
   await page.locator('.art img').first().waitFor({ state: 'visible' });
-  await page.evaluate(async () => {
-    await document.fonts.ready;
-    for (let y = 0; y < document.body.scrollHeight; y += innerHeight * 0.8) {
-      scrollTo(0, y);
-      await new Promise(resolve => setTimeout(resolve, 25));
+  await page.evaluate(() => document.fonts.ready);
+  const visited = new Set<string>();
+  const settleVisibleMedia = async () => {
+    // Let the actual scroll and visibility observers update the media barrier.
+    await waitForVisibleMedia(page);
+    const media = await page.locator('main img[data-media]').evaluateAll(async elements => {
+      const visible = elements.filter(element => {
+        const box = element.getBoundingClientRect();
+        let top = Math.max(0, box.top), bottom = Math.min(innerHeight, box.bottom);
+        let left = Math.max(0, box.left), right = Math.min(innerWidth, box.right);
+        if (bottom <= top || right <= left) return false;
+        for (let parent = element.parentElement; parent; parent = parent.parentElement) {
+          const style = getComputedStyle(parent);
+          if (/(clip|hidden|scroll|auto)/.test(style.overflow + style.overflowX + style.overflowY)) {
+            const clip = parent.getBoundingClientRect();
+            top = Math.max(top, clip.top); bottom = Math.min(bottom, clip.bottom);
+            left = Math.max(left, clip.left); right = Math.min(right, clip.right);
+          }
+        }
+        return bottom > top && right > left;
+      }) as HTMLImageElement[];
+      await Promise.all(visible.map(image => image.decode()));
+      return visible.map(image => ({ path: new URL(image.currentSrc || image.src).pathname, ready: image.hasAttribute('data-media-ready'), complete: image.complete, width: image.naturalWidth }));
+    });
+    for (const image of media) {
+      expect(image.ready, image.path).toBe(true);
+      expect(image.complete, image.path).toBe(true);
+      expect(image.width, image.path).toBeGreaterThan(0);
+      visited.add(image.path);
     }
-    scrollTo(0, document.body.scrollHeight);
-    await Promise.all([...document.querySelectorAll<HTMLImageElement>('.art img, .tail-art img, .faq-row-art img')].map(async image => {
-      // Hidden disclosure slices load only when expanded; do not await their closed-state load.
-      if (!image.getClientRects().length) return;
-      if (!image.currentSrc || !image.complete) await new Promise<void>((resolve, reject) => {
-        image.addEventListener('load', () => resolve(), { once: true });
-        image.addEventListener('error', () => reject(new Error(`Image failed: ${image.src}`)), { once: true });
-      });
-      await image.decode();
-    }));
-    scrollTo({ top: 0, behavior: 'instant' });
-  });
+  };
+  const { height, step } = await page.evaluate(() => ({ height: document.body.scrollHeight, step: innerHeight * .8 }));
+  for (let y = 0; y <= height + step; y += step) {
+    await page.evaluate(top => scrollTo({ top, behavior: 'instant' }), y);
+    await settleVisibleMedia();
+  }
+  const artwork = await page.locator('main img[data-media]').evaluateAll(images => [...new Set(images.map(image => new URL((image as HTMLImageElement).src).pathname))]);
+  // Closed FAQ slices share the same source as the visible row: verify the
+  // complete set of visited source artwork without waiting for hidden elements.
+  expect([...visited]).toEqual(expect.arrayContaining(artwork));
+  await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
+  await settleVisibleMedia();
   const profile = testInfo.project.name;
   const expectedWidth = profile.includes('pro-max') ? 440 : profile.includes('iphone') ? 402 : 1440;
   expect(await page.evaluate(() => innerWidth)).toBe(expectedWidth);
@@ -73,6 +99,7 @@ test('responsive viewport, artwork, and primary actions', async ({ page }, testI
   await expect(page.locator('#unavailable-account')).toBeVisible();
   await page.keyboard.press('Escape');
   await page.locator('.faq-stack details').first().locator('summary').click();
+  await settleVisibleMedia();
   await expect(page.locator('.faq-stack details').first().getByText('Confirmed details are not available')).toBeVisible();
   expect(errors).toEqual([]);
 });
@@ -149,6 +176,8 @@ for (const locale of ['ru', 'en']) test(`${locale} technology text groups are ce
   const canvasWidth = await page.locator('.canvas').evaluate(element => element.getBoundingClientRect().width);
   for (const id of ['technology-experience', 'technology-repeat']) {
     const button = page.locator(`#${id}`);
+    await button.scrollIntoViewIfNeeded();
+    await waitForVisibleMedia(page);
     const box = (await button.boundingBox())!;
     const label = (await button.locator('.button-label').boundingBox())!;
     const caption = await button.evaluate(element => element.nextElementSibling?.getBoundingClientRect().toJSON());
@@ -206,10 +235,11 @@ for (const locale of ['ru', 'en']) test(`${locale} technology text groups are ce
       const inkCenter = (inkTop + inkBottom) / (2 * scale);
       expect(Math.abs(inkCenter - visibleRingCenter) * 941 / canvasWidth, `${id} visible ink center in source pixels`).toBeLessThanOrEqual(6);
     }
-    await button.click();
+    await openTechnology(page, button);
     await expect(page.locator('#technology-viewer:modal')).toBeVisible();
     await page.keyboard.press('Escape');
     await expect(page.locator('#technology-viewer:modal')).toHaveCount(0);
+    await waitForVisibleMedia(page);
     await button.focus();
     await button.press('Enter');
     await expect(page.locator('#technology-viewer:modal')).toBeVisible();
@@ -336,12 +366,18 @@ test.describe('FAQ pointer-wheel input', () => {
       await page.evaluate(() => document.fonts.ready);
       const stack = page.locator('.faq-stack'), rows = stack.locator('details');
       for (const expanded of [false, true]) {
-        if (expanded) for (const row of await rows.all()) await row.locator('summary').click();
+        if (expanded) for (const row of await rows.all()) {
+          const summary = row.locator('summary');
+          await summary.scrollIntoViewIfNeeded();
+          await waitForVisibleMedia(page);
+          await summary.click();
+        }
         for (const row of await rows.all()) for (const delta of [-100, 100]) {
           await row.evaluate(element => {
             const box = element.getBoundingClientRect();
             scrollTo({ top: scrollY + box.top - innerHeight / 2, behavior: 'instant' });
           });
+          await waitForVisibleMedia(page);
           const box = (await row.boundingBox())!;
           await page.mouse.move(box.x + box.width / 2, box.y + 20);
           const before = await page.evaluate(() => scrollY);

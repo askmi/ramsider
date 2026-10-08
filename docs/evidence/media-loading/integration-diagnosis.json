@@ -1,0 +1,14 @@
+{
+  "previousFailureLog": "docs/evidence/media-loading/integration-final.log",
+  "selectionFailureLog": "docs/evidence/media-loading/integration-delivery-selection.log",
+  "verifiedLog": "docs/evidence/media-loading/integration-delivery.log",
+  "observedFailure": "First integration case timed out inside its global page.evaluate image readiness wait on both mobile profiles; desktop runs were interrupted.",
+  "confirmedCodeIssues": [
+    "Old scrollTo(0,y) inherited html smooth scrolling and immediately replaced each target after25ms without checking actual arrival or the visible media barrier.",
+    "Old decoder wait selected every artwork/tail/FAQ image with nonzero client rectangles, including lazy elements outside the current viewport or clipped by ancestors.",
+    "A lazy image can have layout rectangles while its request is not triggered; waiting its load event does not force loading."
+  ],
+  "limits": "The old timeout log does not identify the precise pending source URL. Closed FAQ slices with zero client rectangles were already skipped by the old code; do not attribute the failure to them without evidence.",
+  "repair": "Sequential instant scroll, two animation frames for visibility observers, actual overlay/inert readiness wait, decode only effectively visible media; record and require every marked source to be visited. Retain viewport, canvas geometry, overflow and every primary action; await expanded FAQ readiness.",
+  "result": "4/4 profiles passed: WebKit Pro, Pro Max, Chromium, Firefox. No runtime defect reproduced in corrected integration."
+}

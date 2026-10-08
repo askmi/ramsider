@@ -1,0 +1,16 @@
+{
+  "nativeDirectEvaluation": {
+    "complete": true,
+    "naturalWidth": 941
+  },
+  "nativeResponse": {
+    "status": 200,
+    "bytes": 248236
+  },
+  "matcher": {
+    "assertion": "toHaveJSProperty complete=true timeout1000",
+    "result": "stalled more than 50 seconds; diagnostic process stopped",
+    "cause": "Unknown; the native decoded image is present. Do not infer a product loading defect from this matcher failure."
+  },
+  "replacement": "expect.poll of isolated native-element evaluation; full native page screenshot and native FAQ interaction retained"
+}

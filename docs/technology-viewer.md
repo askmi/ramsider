@@ -4,11 +4,11 @@
 
 **2026-10-08 width correction:** user prioritizes full photograph width without distortion. The new proportional-width implementation is applied; final technical closure is recorded in CHG-0070 and [width evidence](#width-verification). The initial contained-height revision below is superseded where noted.
 
-There are **four HeatCore and two CyberMind** photographs. After window load, asynchronously fetch the first two of each group at low priority; opening starts the remaining two HeatCore photos. URL resources retain one in-flight transfer and one decoded DOM image. Initial photo/title/descriptions appear together only after complete transfer and decode; transitions keep the old complete frame until replacement is ready. Byte progress uses reliable Content-Length; otherwise the shared bar is indeterminate. Pending/error navigation stays locked, Close remains available, Retry reloads failed HTTP-cache entries. Successful images are reused across swipes/groups/reopening, including offline navigation after all six finish.
+There are **four HeatCore and two CyberMind** photographs. Latest CHG0071 preload revision: after window load asynchronously fetch all six at low priority, without blocking the landing; opening reuses existing requests/decoded resources and cold active selection uses auto priority. Main resources start asynchronously at high priority after first-block decode, regardless of scrolling. URL resources retain one in-flight transfer and one decoded DOM image. Initial photo/title/descriptions appear together only after complete transfer and decode; transitions keep the old complete frame until replacement is ready. Byte progress uses reliable Content-Length; otherwise the shared bar is indeterminate. Pending/error navigation stays locked, Close remains available, Retry reloads failed HTTP-cache entries. Successful images are reused across swipes/groups/reopening, including offline navigation after all six finish.
 
 The contour spans the content viewport width on phone, tablet and hover desktop, and the height between toolbar/footer. Unchanged metal artwork uses nine-slice borders (top31/right29/bottom28/left29 source pixels), preserving corner proportions and width-based thickness. The white cutout follows those borders. Photo, title and descriptions share one941×1672 plane at100% cutout width with proportional height. A flex native inner viewport vertically centers it when it fits and scrolls excess height when needed. No side fit bands and no distorted/cropped source composition; short screens access the bottom by scrolling. Metal/Close/pagination/group buttons remain fixed. During pending/error, inner scrolling and gestures freeze at the old complete frame; decoded commits reset top. Vertical pan and Arrow/Page/Home/End/Space scroll content; group switching uses Next/Previous buttons. Horizontal swipes/keys stop at endpoints, reverse and honor Arabic RTL. Header and pagination each have44px rows, source-ratio arrows and capped dots. The older narrow desktop portrait policy and height-containment are superseded.
 
-Landing uses the same status/scroll lock and actual-element decode helper for substantial visible artwork. Upcoming images load near the viewport; offscreen images never hold the hero. With JavaScript disabled, or an initial framework download/execution failure before hydration, native server-rendered artwork/text/FAQ remain readable; post-hydration runtime failures are not certified. See [acceptance plan](media-loading-plan.md) and [delivery evidence](evidence/media-loading/checks.md). Historical source mappings below remain; their old geometry/preload policies are superseded by this revision.
+Landing uses the same status/scroll lock and actual-element decode helper for substantial visible artwork. All marked main images warm in the background after first-block decode; offscreen work does not hide a ready viewport. Native document height stops downward entry before incomplete blocks, upward movement remains available, and the bottom progress/Retry strip preserves ready artwork. Only the initial no-ready-content state uses the full-page guard. With JavaScript disabled, or an initial framework download/execution failure before hydration, native server-rendered artwork/text/FAQ remain readable; post-hydration runtime failures are not certified. See [acceptance plan](media-loading-plan.md) and [delivery evidence](evidence/media-loading/checks.md). Historical source mappings below remain; their old geometry/preload policies are superseded by this revision.
 
 The customer rejected the composite frame. Only this viewer changes; existing CTAs and gallery actions remain. CHG-0062 now separates the photograph title as well.
 
@@ -70,7 +70,7 @@ The live CyberMind heading and Technology descriptor use **Open Sans Regular 400
 
 This section preserves the requested analysis before implementation (no runtime changes in that analysis stage). The subsequent width-priority implementation is recorded below. Prior technical approvals remain historical for their actual acceptance scopes; analysis audit PASS.
 
-All six original photographs are 941×1672 (aspect 0.5628). `app/globals.css` currently gives the photo/live-copy plane `width:min(100%,100cqh * 941 / 1672)`. It fits by height whenever the white cutout is wider than that ratio. The metal contour fills its target width; the photograph does not. This causes the reported white side bands, independently of download readiness.
+All six original photographs are 941×1672 (aspect 0.5628). At the reported comparison, `app/globals.css` gave the photo/live-copy plane `width:min(100%,100cqh * 941 / 1672)`. It fits by height whenever the white cutout is wider than that ratio. The metal contour fills its target width; the photograph does not. This causes the reported white side bands, independently of download readiness.
 
 The primary agent approved the contour-width/aspect checks without a separate image-width requirement. This specification and verification omission belongs to the agent. The user's screen reveals it; it is not caused by new photo inputs or the phone model.
 
@@ -119,6 +119,8 @@ Implemented option3 after the user reiterated “на всю ширину но �
 <a id="width-verification"></a>
 ## Full photo width without distortion — CHG-0070
 
+This width approval is historical for its tested preload policy. The later CHG0071 main/all-six priority correction is specified in the current section above and media-loading-plan.md.
+
 Raw artifacts named below remain in [the existing width evidence directory](evidence/technology-viewer/width-analysis/). This record and the preceding analysis were consolidated here under CHG-0073; prior verification verdicts are unchanged.
 
 2026-10-08. Production preview: http://127.0.0.1:3022/en. VERIFIED locally; primary technical approval and independent Stage1/3/4/5/6 PASS. Historical analysis, failed runs and previous approvals are preserved.
@@ -157,7 +159,9 @@ Eight assembled hero/technology/documents/FAQ crops are raw-pixel identical to t
 
 Read-only in-app preview observation after final cleanup:397×836 CSS px, DPR2; cutout and photograph both372.5234375px wide; rendered ratio0.562803928 versus source0.562799043. Actual preview directly inspected: no side bands or distortion. The browser screenshot is an emulated/content observation, not physical Safari toolbar proof.
 
-### Final measured production performance
+### Width-revision performance (historical preload policy)
+
+This approved width sample predates the all-six background preload and retained-main correction. Current measurements are in [the media plan](media-loading-plan.md#current-verification-and-performance).
 
 Cold Chromium402×874 DPR3. performance.mjs/performance.json/performance.log; measurements after final cleanup:
 

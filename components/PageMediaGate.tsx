@@ -5,12 +5,12 @@ import type { Locale } from '@/lib/i18n';
 import { decodeImageElement } from '@/lib/media-resource';
 import { LoadingStatus, useScrollLock } from './MediaLoading';
 
-function visible(image: HTMLImageElement) {
+/** Actual painted resource bounds, ignoring the gate's temporary scroll cap. */
+function bounds(image: HTMLImageElement, root: HTMLElement) {
   const box = image.getBoundingClientRect();
-  let top = Math.max(0, box.top), bottom = Math.min(innerHeight, box.bottom);
+  let top = box.top, bottom = box.bottom;
   let left = Math.max(0, box.left), right = Math.min(innerWidth, box.right);
-  if (bottom <= top || right <= left) return false;
-  for (let parent = image.parentElement; parent; parent = parent.parentElement) {
+  for (let parent = image.parentElement; parent && parent !== root; parent = parent.parentElement) {
     const css = getComputedStyle(parent);
     if (/(hidden|clip|scroll|auto)/.test(css.overflow + css.overflowY + css.overflowX)) {
       const clip = parent.getBoundingClientRect();
@@ -18,36 +18,63 @@ function visible(image: HTMLImageElement) {
       left = Math.max(left, clip.left); right = Math.min(right, clip.right);
     }
   }
-  return bottom > top && right > left;
+  return bottom > top && right > left ? { top: top + scrollY, bottom: bottom + scrollY } : null;
 }
 
 export function PageMediaGate({ locale, children }: { locale: Locale; children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
   const retryAction = useRef<() => void>(() => {});
-  const [state, setState] = useState({ activated: false, blocked: true, error: false });
-  useScrollLock(state.activated && state.blocked);
+  const [state, setState] = useState({ activated: false, blocked: true, initial: true, error: false });
+  useScrollLock(state.activated && state.blocked && state.initial);
   useEffect(() => {
     // The early head bootstrap opts into guarded loading. Without JavaScript,
     // or when an initial framework script failed, retain native static content.
     if (!document.documentElement.hasAttribute('data-media-js')) return;
     document.documentElement.setAttribute('data-media-hydrated', '');
-    const images = [...root.current!.querySelectorAll<HTMLImageElement>('img[data-media]')];
+    const shell = root.current!;
+    const images = [...shell.querySelectorAll<HTMLImageElement>('img[data-media]')];
     const loading = new Set<HTMLImageElement>();
     const failures = new Set<HTMLImageElement>();
     let alive = true, frame = 0, retryVersion = Date.now();
+    let shown = false, warming = false, cap: number | null = null;
+    const managed = new Map<HTMLElement, boolean>();
+    const controls = [...shell.querySelectorAll<HTMLElement>('a,button,input,textarea,select,summary,[tabindex]')];
     const refresh = () => {
       if (!alive) return;
+      // The first decoded block starts all remaining page artwork in the background.
+      if (!warming && images[0]?.hasAttribute('data-media-ready')) {
+        warming = true;
+        images.forEach(image => start(image));
+      }
+      const pending = images.filter(image => !image.hasAttribute('data-media-ready'))
+        .map(image => ({ image, box: bounds(image, shell) }))
+        .filter(item => item.box !== null)
+        .sort((a, b) => a.box!.top - b.box!.top);
+      const frontier = pending[0]?.box!.top ?? null;
+      const nextCap = frontier === null ? null : Math.max(0, Math.floor(frontier - shell.getBoundingClientRect().top - scrollY));
+      // A native document boundary stops momentum, wheel and programmatic jumps
+      // before missing pixels. Upward scrolling remains completely native.
+      if (cap !== nextCap) {
+        cap = nextCap;
+        shell.style.height = cap === null ? '' : `${cap}px`;
+        for (const control of controls) {
+          const clipped = frontier !== null && control.getBoundingClientRect().bottom + scrollY > frontier;
+          if (clipped && !managed.has(control)) { managed.set(control, control.inert); control.inert = true; }
+          if (!clipped && managed.has(control)) { control.inert = managed.get(control)!; managed.delete(control); }
+        }
+      }
       const suspended = !!document.querySelector('dialog[open]');
-      const current = suspended ? [] : images.filter(visible);
-      const pending = current.filter(image => !image.hasAttribute('data-media-ready'));
-      const next = { activated: true, blocked: pending.length > 0, error: pending.some(image => failures.has(image)) };
-      setState(previous => previous.activated && previous.blocked === next.blocked && previous.error === next.error ? previous : next);
-      pending.forEach(image => start(image));
+      const blocked = !suspended && frontier !== null && frontier <= scrollY + innerHeight + 1;
+      if (frontier === null || frontier >= shell.getBoundingClientRect().top + scrollY + innerHeight) shown = true;
+      const next = { activated: true, blocked, initial: !shown, error: blocked && failures.has(pending[0].image) };
+      setState(previous => previous.activated && previous.blocked === next.blocked && previous.initial === next.initial && previous.error === next.error ? previous : next);
+      if (!suspended && pending[0]) start(pending[0].image);
     };
     const schedule = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(refresh); };
     const start = (image: HTMLImageElement, retry = false) => {
       if (loading.has(image) || failures.has(image) || image.hasAttribute('data-media-ready')) return;
       loading.add(image);
+      image.fetchPriority = 'high';
       image.loading = 'eager';
       // On Firefox a decode immediately after src mutation can still reject
       // against the previous failed request. Wait for the replacement load.
@@ -81,13 +108,16 @@ export function PageMediaGate({ locale, children }: { locale: Locale; children: 
       });
       schedule();
     };
+    const resize = new ResizeObserver(schedule);
+    const main = shell.querySelector('main');
+    if (main) resize.observe(main);
     addEventListener('scroll', schedule, { passive: true });
     addEventListener('resize', schedule);
     refresh();
-    return () => { alive = false; observer.disconnect(); dialogs.disconnect(); cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); };
+    return () => { alive = false; observer.disconnect(); dialogs.disconnect(); resize.disconnect(); shell.style.height = ''; managed.forEach((inert, control) => { control.inert = inert; }); cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); };
   }, []);
-  return <div ref={root} className="page-media-shell" data-media-blocked={state.blocked ? '' : undefined}>
-    <div className="page-media-content" inert={state.activated && state.blocked}>{children}</div>
+  return <div ref={root} className="page-media-shell" data-media-blocked={state.blocked ? '' : undefined} data-media-initial={state.initial ? '' : undefined}>
+    <div className="page-media-content" inert={state.activated && state.blocked && state.initial}>{children}</div>
     {state.blocked && <div className="page-media-overlay"><LoadingStatus locale={locale} error={state.error} onRetry={() => retryAction.current()} /></div>}
   </div>;
 }

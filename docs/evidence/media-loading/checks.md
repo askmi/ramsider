@@ -1,3 +1,5 @@
+> Historical verification before the CHG-0071 retained-view reopening. Current loading policy and new evidence are in [the existing media plan](../../media-loading-plan.md#landing-retained-view-correction--chg-0071-2026-10-08); earlier approvals below retain their original scope/date.
+
 # Media readiness / founder complaint — delivery record, 2026-10-08
 
 Current stage: VERIFIED local delivery. Source, browser checks, native review, production measurements and final independent record audit passed. Earlier failures are preserved.

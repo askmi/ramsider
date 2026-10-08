@@ -24,7 +24,7 @@ export function decodeImageElement(image: HTMLImageElement): Promise<void> {
 }
 
 /** One original-byte transfer and one retained decoded image per URL, shared by all viewers. */
-export function loadImage(src: string, priority: 'low' | 'high' = 'low'): ImageResource {
+export function loadImage(src: string, priority: 'low' | 'auto' | 'high' = 'low'): ImageResource {
   const existing = images.get(src);
   if (existing) return existing;
   const listeners = new Set<(progress: ImageProgress) => void>();

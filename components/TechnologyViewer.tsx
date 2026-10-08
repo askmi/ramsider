@@ -107,7 +107,7 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
     setFailed(false);
     const token = ++requestToken.current;
     unsubscribe.current?.();
-    const resource = loadImage(technologyGroups[next.group].slides[next.slide].src, 'high');
+    const resource = loadImage(technologyGroups[next.group].slides[next.slide].src, 'auto');
     const update = (value: typeof resource.progress) => setProgress(value.total ? Math.round(value.loaded / value.total * 100) : null);
     update(resource.progress);
     unsubscribe.current = resource.subscribe(update);
@@ -137,7 +137,7 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
     const warm = () => {
       // Run after load dispatch; never compete with the initial page resources.
       timer = setTimeout(() => {
-        technologyGroups.forEach(group => group.slides.slice(0, 2).forEach(slide => { void loadImage(slide.src).ready.catch(() => {}); }));
+        technologyGroups.forEach(group => group.slides.forEach(slide => { void loadImage(slide.src).ready.catch(() => {}); }));
       }, 0);
     };
     if (document.readyState === 'complete') warm();

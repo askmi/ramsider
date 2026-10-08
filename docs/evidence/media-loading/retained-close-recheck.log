@@ -1,0 +1,29 @@
+
+Running 8 tests using 2 workers
+
+(node:70269) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:70270) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:110:1 › back-to-top appears on scroll, stays in the viewport, and restores top and focus (3.1s)
+  ✓  2 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:7:1 › technology artwork keeps its native proportions as Safari chrome changes the visible height (3.2s)
+(node:70330) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:70332) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:110:1 › back-to-top appears on scroll, stays in the viewport, and restores top and focus (1.7s)
+  ✓  4 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:7:1 › technology artwork keeps its native proportions as Safari chrome changes the visible height (1.9s)
+(node:70367) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:70388) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  6 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:7:1 › technology artwork keeps its native proportions as Safari chrome changes the visible height (2.3s)
+  ✓  5 [desktop-chromium] › tests/e2e/site.spec.ts:110:1 › back-to-top appears on scroll, stays in the viewport, and restores top and focus (2.7s)
+(node:70430) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:70432) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  8 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:7:1 › technology artwork keeps its native proportions as Safari chrome changes the visible height (2.4s)
+  ✓  7 [desktop-firefox] › tests/e2e/site.spec.ts:110:1 › back-to-top appears on scroll, stays in the viewport, and restores top and focus (2.8s)
+
+  8 passed (16.0s)

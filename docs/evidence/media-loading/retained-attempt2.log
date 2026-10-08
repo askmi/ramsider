@@ -1,0 +1,234 @@
+
+Running 20 tests using 4 workers
+
+(node:48389) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:48390) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:48391) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:48392) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   3 [desktop-chromium] › tests/e2e/media-loading.spec.ts:118:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll (5.6s)
+(node:48500) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [desktop-chromium] › tests/e2e/media-loading.spec.ts:157:1 › remaining landing artwork warms asynchronously after first block decode without scrolling (1.1s)
+  ✘   1 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:118:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll (8.6s)
+  ✘   4 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:118:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll (8.6s)
+  ✓   2 [desktop-firefox] › tests/e2e/media-loading.spec.ts:118:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll (5.3s)
+(node:48541) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:48540) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [desktop-firefox] › tests/e2e/media-loading.spec.ts:157:1 › remaining landing artwork warms asynchronously after first block decode without scrolling (1.3s)
+  ✓   8 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:157:1 › remaining landing artwork warms asynchronously after first block decode without scrolling (1.5s)
+  ✓   9 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:157:1 › remaining landing artwork warms asynchronously after first block decode without scrolling (1.6s)
+  -  11 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:251:1 › native desktop wheel stops at pending boundary and can reverse upward
+  -  13 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:270:1 › native mobile touch cannot cross missing block and can reverse while it is pending
+  -  12 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:251:1 › native desktop wheel stops at pending boundary and can reverse upward
+  -  15 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:270:1 › native mobile touch cannot cross missing block and can reverse while it is pending
+  ✘   6 [desktop-chromium] › tests/e2e/media-loading.spec.ts:251:1 › native desktop wheel stops at pending boundary and can reverse upward (5.8s)
+  ✓  14 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:300:1 › pending frontier follows viewport resize and expanded FAQ instead of exposing blank artwork (1.6s)
+  ✓  16 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:300:1 › pending frontier follows viewport resize and expanded FAQ instead of exposing blank artwork (1.5s)
+(node:48603) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  10 [desktop-firefox] › tests/e2e/media-loading.spec.ts:251:1 › native desktop wheel stops at pending boundary and can reverse upward (6.4s)
+(node:48621) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  -  18 [desktop-firefox] › tests/e2e/media-loading.spec.ts:270:1 › native mobile touch cannot cross missing block and can reverse while it is pending
+  ✘  17 [desktop-chromium] › tests/e2e/media-loading.spec.ts:270:1 › native mobile touch cannot cross missing block and can reverse while it is pending (6.6s)
+(node:48658) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  20 [desktop-chromium] › tests/e2e/media-loading.spec.ts:300:1 › pending frontier follows viewport resize and expanded FAQ instead of exposing blank artwork (3.6s)
+  ✘  19 [desktop-firefox] › tests/e2e/media-loading.spec.ts:300:1 › pending frontier follows viewport resize and expanded FAQ instead of exposing blank artwork (6.3s)
+
+
+  1) [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:118:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 3909
+    Received: 1517
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      127 |   // Let preceding resources decode, without entering the held block.
+      128 |   await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
+    > 129 |   await expect.poll(() => page.evaluate(() => scrollY)).toBe(Math.floor(frontier) - info.project.use.viewport!.height);
+          |                                                         ^
+      130 |   await expect(page.locator('.page-media-overlay')).toBeVisible();
+      131 |   await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
+      132 |   await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden');
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/media-loading.spec.ts:129:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/media-loading-pending-next-a0c8e-ll-and-allows-upward-scroll-iphone-17-pro-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/media-loading-pending-next-a0c8e-ll-and-allows-upward-scroll-iphone-17-pro-webkit/error-context.md
+
+  2) [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:118:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 4280
+    Received: 1661
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      127 |   // Let preceding resources decode, without entering the held block.
+      128 |   await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
+    > 129 |   await expect.poll(() => page.evaluate(() => scrollY)).toBe(Math.floor(frontier) - info.project.use.viewport!.height);
+          |                                                         ^
+      130 |   await expect(page.locator('.page-media-overlay')).toBeVisible();
+      131 |   await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
+      132 |   await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden');
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/media-loading.spec.ts:129:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/media-loading-pending-next-a0c8e-ll-and-allows-upward-scroll-iphone-17-pro-max-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/media-loading-pending-next-a0c8e-ll-and-allows-upward-scroll-iphone-17-pro-max-webkit/error-context.md
+
+  3) [desktop-chromium] › tests/e2e/media-loading.spec.ts:118:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 10298
+    Received: 7498
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      127 |   // Let preceding resources decode, without entering the held block.
+      128 |   await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
+    > 129 |   await expect.poll(() => page.evaluate(() => scrollY)).toBe(Math.floor(frontier) - info.project.use.viewport!.height);
+          |                                                         ^
+      130 |   await expect(page.locator('.page-media-overlay')).toBeVisible();
+      131 |   await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
+      132 |   await expect(page.locator('body')).not.toHaveCSS('overflow', 'hidden');
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/media-loading.spec.ts:129:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/media-loading-pending-next-a0c8e-ll-and-allows-upward-scroll-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/media-loading-pending-next-a0c8e-ll-and-allows-upward-scroll-desktop-chromium/error-context.md
+
+  4) [desktop-chromium] › tests/e2e/media-loading.spec.ts:251:1 › native desktop wheel stops at pending boundary and can reverse upward
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 0
+    Received:   0
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      261 |   expect(await page.evaluate(() => scrollY)).toBe(edge);
+      262 |   await page.mouse.wheel(0, -600);
+    > 263 |   await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(edge);
+          |                                                         ^
+      264 |   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+      265 |   await page.mouse.wheel(0, 10000);
+      266 |   await expect.poll(() => page.evaluate(() => scrollY)).toBe(edge);
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/media-loading.spec.ts:263:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/media-loading-native-deskt-7f100-dary-and-can-reverse-upward-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/media-loading-native-deskt-7f100-dary-and-can-reverse-upward-desktop-chromium/error-context.md
+
+  5) [desktop-chromium] › tests/e2e/media-loading.spec.ts:270:1 › native mobile touch cannot cross missing block and can reverse while it is pending
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 0
+    Received:   0
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      291 |   expect(await page.evaluate(() => scrollY)).toBe(edge);
+      292 |   await pan(180, 600);
+    > 293 |   await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(edge);
+          |                                                         ^
+      294 |   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+      295 |   await page.screenshot({ path: 'docs/evidence/media-loading/retained-native-touch-up.png' });
+      296 |   release();
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/media-loading.spec.ts:293:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/media-loading-native-mobil-4c6c3-reverse-while-it-is-pending-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/media-loading-native-mobil-4c6c3-reverse-while-it-is-pending-desktop-chromium/error-context.md
+
+  6) [desktop-firefox] › tests/e2e/media-loading.spec.ts:251:1 › native desktop wheel stops at pending boundary and can reverse upward
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 0
+    Received:   268
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      261 |   expect(await page.evaluate(() => scrollY)).toBe(edge);
+      262 |   await page.mouse.wheel(0, -600);
+    > 263 |   await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(edge);
+          |                                                         ^
+      264 |   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+      265 |   await page.mouse.wheel(0, 10000);
+      266 |   await expect.poll(() => page.evaluate(() => scrollY)).toBe(edge);
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/media-loading.spec.ts:263:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/media-loading-native-deskt-7f100-dary-and-can-reverse-upward-desktop-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/media-loading-native-deskt-7f100-dary-and-can-reverse-upward-desktop-firefox/error-context.md
+
+  7) [desktop-firefox] › tests/e2e/media-loading.spec.ts:300:1 › pending frontier follows viewport resize and expanded FAQ instead of exposing blank artwork
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.page-media-overlay')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('.page-media-overlay') with timeout 5000ms
+      - waiting for locator('.page-media-overlay')
+
+
+      304 |   await page.goto('/en');
+      305 |   await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
+    > 306 |   await expect(page.locator('.page-media-overlay')).toBeVisible();
+          |                                                     ^
+      307 |   const cap = () => page.locator('.page-media-shell').evaluate(element => Number.parseFloat((element as HTMLElement).style.height));
+      308 |   const before = await cap();
+      309 |   const first = page.locator('.faq-stack details').first();
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/media-loading.spec.ts:306:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/media-loading-pending-fron-4314c-d-of-exposing-blank-artwork-desktop-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/media-loading-pending-fron-4314c-d-of-exposing-blank-artwork-desktop-firefox/error-context.md
+
+  7 failed
+    [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:118:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll
+    [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:118:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll
+    [desktop-chromium] › tests/e2e/media-loading.spec.ts:118:1 › pending next block retains ready pixels, stops downward scroll and allows upward scroll
+    [desktop-chromium] › tests/e2e/media-loading.spec.ts:251:1 › native desktop wheel stops at pending boundary and can reverse upward
+    [desktop-chromium] › tests/e2e/media-loading.spec.ts:270:1 › native mobile touch cannot cross missing block and can reverse while it is pending
+    [desktop-firefox] › tests/e2e/media-loading.spec.ts:251:1 › native desktop wheel stops at pending boundary and can reverse upward
+    [desktop-firefox] › tests/e2e/media-loading.spec.ts:300:1 › pending frontier follows viewport resize and expanded FAQ instead of exposing blank artwork
+  5 skipped
+  8 passed (25.9s)

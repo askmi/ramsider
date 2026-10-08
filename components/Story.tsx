@@ -109,7 +109,7 @@ const docs: { key: Key; detail: string; x: number; y: number }[] = [
 function DocumentCards({ locale }: { locale: Locale }) {
   return <>
     {docs.map((doc) => <div className={`doc-card doc-card--${doc.key} source-panel`} key={doc.key} style={sourceStyle(doc.x, doc.y, 356)}>
-      <Image data-media className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized />
+      <Image data-media className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized loading="lazy" fetchPriority="high" />
       <strong>{textLines(t(locale, doc.key))}</strong>
       <small>{textLines(doc.detail)}</small>
       <button id={`document-${doc.key}`} type="button" aria-haspopup="dialog" popoverTarget={`doc-detail-${doc.key}`} aria-label={`${t(locale, 'docView')}: ${t(locale, doc.key).replaceAll('\n', ' ')}`}><span className="doc-action-label">{t(locale, 'docView')}</span><ActionArrow /></button>
@@ -143,8 +143,8 @@ function Faq({ locale }: { locale: Locale }) {
     } as React.CSSProperties}>
       <div className="faq-row-art" aria-hidden="true">
         {['top', 'middle', 'bottom'].map(part => <div className={`faq-art-${part}`} key={part}>
-          <Image data-media src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
-          {part === 'middle' && <Image data-media className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
+          <Image data-media src={`/art/faq-row-${index + 1}.webp`} fetchPriority="high" width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
+          {part === 'middle' && <Image data-media className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} fetchPriority="high" width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
         </div>)}
       </div>
       <details>
@@ -237,7 +237,7 @@ export function Story({ locale }: { locale: Locale }) {
           unoptimized
           preload={i === 0}
           loading={i === 0 ? 'eager' : 'lazy'}
-          fetchPriority={i === 0 ? 'high' : 'low'}
+          fetchPriority="high"
           placeholder={i === 0 ? 'empty' : artPreviews[file as keyof typeof artPreviews] as `data:image/${string}`}
         />)}
       </div>
@@ -279,7 +279,7 @@ export function Story({ locale }: { locale: Locale }) {
         aria-hidden="true"
         unoptimized
         loading="lazy"
-        fetchPriority="low"
+        fetchPriority="high"
       />
       {iconMap.icons.filter(icon => icon.render).map(icon => <Image
         key={icon.id}
@@ -303,8 +303,8 @@ export function Story({ locale }: { locale: Locale }) {
       <Faq locale={locale} />
       <section className="story-tail" aria-label={t(locale, 'account')}>
         <div className="tail-art" aria-hidden="true"><div className="tail-art-track">
-          <Image data-media src="/art/09-10.webp" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['09-10'] as `data:image/${string}`} />
-          <Image data-media src="/art/11.webp" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['11'] as `data:image/${string}`} />
+          <Image data-media src="/art/09-10.webp" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="high" placeholder={artPreviews['09-10'] as `data:image/${string}`} />
+          <Image data-media src="/art/11.webp" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="high" placeholder={artPreviews['11'] as `data:image/${string}`} />
         </div></div>
         {storyNodes.filter(node => node.y >= 28207).map((node, index) => <OverlayNode node={node} locale={locale} key={`${node.key}-${index}`} />)}
       <button id="account-personal" type="button" className="account-hit" style={sourceStyle(45, 28230, 850)} popoverTarget="unavailable-account" aria-label={t(locale, 'account')} />

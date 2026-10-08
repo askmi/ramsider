@@ -38,7 +38,7 @@ test('a partially transferred first photo stays hidden with true progress and lo
     await viewer.locator('.technology-viewer__stage').dispatchEvent('pointerup', { pointerType: 'touch', clientX: 100, clientY: 500 });
     expect(await page.evaluate(() => scrollY)).toBe(scroll);
     await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
-    await page.screenshot({ path: `docs/evidence/media-loading/${info.project.name}-pending.png` });
+    await page.screenshot({ path: `docs/evidence/technology-viewer/width-analysis/${info.project.name}-pending.png` });
     release();
     await expect(viewer).toHaveAttribute('aria-busy', 'false');
     const image = viewer.locator('.technology-viewer__stage img');
@@ -50,7 +50,7 @@ test('a partially transferred first photo stays hidden with true progress and lo
     });
     expect(delivered).toBe(createHash('sha256').update(bytes).digest('hex'));
     await expect(viewer.getByRole('heading', { name: 'HeatCore Technology' })).toBeVisible();
-    await page.screenshot({ path: `docs/evidence/media-loading/${info.project.name}-ready.png` });
+    await page.screenshot({ path: `docs/evidence/technology-viewer/width-analysis/${info.project.name}-ready.png` });
   } finally {
     release();
     server.closeAllConnections();
@@ -141,7 +141,7 @@ test('horizontal swipes stop at both ends and reverse through preceding photos',
   await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
 });
 
-test('contained artwork and controls adapt to short landscape, tablet and desktop', async ({ page }, info) => {
+test('full-width proportional artwork and controls adapt to short landscape, tablet and desktop', async ({ page }, info) => {
   await page.goto('/en');
   await openTechnology(page);
   const viewer = page.locator('#technology-viewer');
@@ -161,17 +161,19 @@ test('contained artwork and controls adapt to short landscape, tablet and deskto
     expect(bounds.cornerRatio).toBeCloseTo(29 / 31, 3);
     expect(bounds.rightArrowRatio).toBeCloseTo(28 / 45, 2);
     expect(bounds.downArrowRatio).toBeCloseTo(45 / 29, 2);
-    expect(bounds.photo.left).toBeGreaterThanOrEqual(bounds.stage.left - 1);
-    expect(bounds.photo.right).toBeLessThanOrEqual(bounds.stage.right + 1);
+    expect(bounds.photo.left).toBeCloseTo(bounds.stage.left, 1);
+    expect(bounds.photo.right).toBeCloseTo(bounds.stage.right, 1);
     expect(bounds.photo.top).toBeGreaterThanOrEqual(bounds.stage.top - 1);
-    expect(bounds.photo.bottom).toBeLessThanOrEqual(bounds.stage.bottom + 1);
+    // Height overflow remains reachable through the inner scroller; it is never compressed.
+    const reachable = await viewer.locator('.technology-viewer__scroll').evaluate(element => element.scrollHeight >= element.clientHeight && element.scrollWidth <= element.clientWidth);
+    expect(reachable).toBe(true);
     expect(bounds.headerBottom).toBeLessThanOrEqual(bounds.frame.top);
     expect(bounds.headerBottom).toBeLessThanOrEqual(bounds.dotsTop);
     expect(bounds.dotsBottom).toBeLessThanOrEqual(bounds.frame.top);
     expect(bounds.frame.bottom).toBeLessThanOrEqual(bounds.nextTop);
     expect(bounds.nextBottom).toBeLessThanOrEqual(height);
     expect(bounds.closeRight).toBeLessThanOrEqual(width);
-    await page.screenshot({ path: `docs/evidence/media-loading/${info.project.name}-${width}x${height}.png` });
+    await page.screenshot({ path: `docs/evidence/technology-viewer/width-analysis/${info.project.name}-${width}x${height}.png` });
   }
 });
 

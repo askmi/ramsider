@@ -1,0 +1,33 @@
+
+Running 12 tests using 2 workers
+
+(node:79251) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:79250) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [iphone-17-pro-webkit] › tests/e2e/media-accessibility.spec.ts:3:1 › loading status has readable contrast and respects reduced motion (1.5s)
+  ✓   2 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:66:1 › visible artwork remains hidden and page scroll locked until complete decode (1.6s)
+(node:79354) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [iphone-17-pro-webkit] › tests/e2e/technology-loading.spec.ts:7:1 › a partially transferred first photo stays hidden with true progress and locked navigation (1.3s)
+  ✓   4 [iphone-17-pro-max-webkit] › tests/e2e/media-accessibility.spec.ts:3:1 › loading status has readable contrast and respects reduced motion (730ms)
+(node:79374) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [iphone-17-pro-max-webkit] › tests/e2e/technology-loading.spec.ts:7:1 › a partially transferred first photo stays hidden with true progress and locked navigation (1.5s)
+  ✓   6 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:66:1 › visible artwork remains hidden and page scroll locked until complete decode (1.0s)
+(node:79400) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:79402) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [desktop-chromium] › tests/e2e/media-accessibility.spec.ts:3:1 › loading status has readable contrast and respects reduced motion (1.1s)
+  ✓   8 [desktop-chromium] › tests/e2e/media-loading.spec.ts:66:1 › visible artwork remains hidden and page scroll locked until complete decode (1.6s)
+(node:79492) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [desktop-chromium] › tests/e2e/technology-loading.spec.ts:7:1 › a partially transferred first photo stays hidden with true progress and locked navigation (1.5s)
+(node:79503) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [desktop-firefox] › tests/e2e/media-accessibility.spec.ts:3:1 › loading status has readable contrast and respects reduced motion (1.7s)
+  ✓  12 [desktop-firefox] › tests/e2e/technology-loading.spec.ts:7:1 › a partially transferred first photo stays hidden with true progress and locked navigation (912ms)
+  ✓  11 [desktop-firefox] › tests/e2e/media-loading.spec.ts:66:1 › visible artwork remains hidden and page scroll locked until complete decode (1.6s)
+
+  12 passed (15.9s)

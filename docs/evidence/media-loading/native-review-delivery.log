@@ -1,0 +1,1539 @@
+2026-10-07T22:35:31.683027Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-07T22:35:31.683144Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.159.0-alpha.12.1
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: low
+reasoning summaries: none
+session id: 01a11881-f15f-7e73-a1e1-afe7d5f4fc23
+--------
+user
+Review the actual current uncommitted changes in this Ramsider repository, including new media-resource/loading/page-gate code and the technology viewer. Use git diff and inspect relevant untracked source/test files. Do not edit files. Read docs/media-loading-plan.md for acceptance. The human explicitly requires first TWO photos of EACH technology group to load asynchronously AFTER main window load, remaining photos only when the viewer opens, retained successful resources; do not recommend reverting this authorized 2+2 policy to one photo. Its payload cost must be measured and reported. Review correctness of decode-before-visible, actual byte progress/indeterminate fallback, error and native corrupted-cache Retry, locks/focus/SSR hydration, bounded swipes, ratio and reuse; report actionable regressions in the actual final diff.
+2026-10-07T22:35:32.362168Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-07T22:35:32.362282Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+exec
+/bin/zsh -lc 'git status --short; git diff --stat; git diff -- docs/media-loading-plan.md; find . -name AGENTS.md -o -name AGENTS.override.md' in /Users/asmirnou/Projects/g/ramsider
+2026-10-07T22:35:41.457314Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11881-f15f-7e73-a1e1-afe7d5f4fc23 turn_id=01a11881-f31f-7e23-8d8d-8ac5923eb63d item_id="exec-33ef3525-d277-4036-bb45-88b01ed6ec60"
+ succeeded in 2450ms:
+ M .gitignore
+ M CHANGELOG.md
+ M LESSONS.md
+ M app/globals.css
+ M components/Story.tsx
+ M components/TechnologyViewer.tsx
+ M tests/e2e/technology-viewer.spec.ts
+?? components/MediaLoading.tsx
+?? components/PageMediaGate.tsx
+?? design/references/background_old.png
+?? docs/evidence/media-loading/
+?? docs/media-loading-plan.md
+?? lib/media-resource.ts
+?? tests/e2e/media-loading.spec.ts
+?? tests/e2e/technology-loading.spec.ts
+?? tools/__pycache__/
+ .gitignore                          |   3 +-
+ CHANGELOG.md                        |  32 ++++-
+ LESSONS.md                          |   7 ++
+ app/globals.css                     |  36 ++++--
+ components/Story.tsx                |  17 +--
+ components/TechnologyViewer.tsx     | 157 +++++++++++++----------
+ tests/e2e/technology-viewer.spec.ts | 239 ++++++++++++++++++------------------
+ 7 files changed, 283 insertions(+), 208 deletions(-)
+./.agents/skills/vercel-react-best-practices/AGENTS.md
+./.agents/skills/vercel-composition-patterns/AGENTS.md
+./AGENTS.md
+
+exec
+/bin/zsh -lc 'cat docs/media-loading-plan.md; cat lib/media-resource.ts; cat components/MediaLoading.tsx; cat components/PageMediaGate.tsx' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+# Media readiness and technology viewer — 2026-10-08
+
+## Request and acceptance map
+
+| Requirement | Implementation target | Evidence required |
+| --- | --- | --- |
+| No half-loaded image or orphan description text | Initial technology content stays absent until its retained image is downloaded and decoded; transitions retain the complete current frame until replacement is ready | Slow/partial response, actual pending screenshot, no title/descriptions before first decode, complete reveal |
+| White behind technology photo | Only frame cutout/stage uses #fff; outer matte stays black and metal asset is unchanged | Empty, pending, failed and ready screenshots |
+| Shared loading status and progress | One loading-status component, shared resource readiness helpers and scroll-lock hook; real streamed byte progress for technology images, indeterminate native-page progress where browser byte counts are unavailable | Partial byte percentage when Content-Length exists; indeterminate fallback; accessible labels and retry |
+| Freeze current view until required resource is ready | Viewer navigation disabled during pending target (close remains usable); page scroll/input locked only while visible significant artwork is pending | Wheel/touch/keys, repeated input, close/reopen, failure/retry |
+| Stage preloading | After main window load, first two photos of each group start asynchronously; opening starts all remaining photos; one retained promise/image per URL across opens/groups | Request order/count and identical decoded image/cache reuse |
+| Frame reaches screen edges without squashing | Full-width canvas and metal frame across phone viewport; artwork/title/descriptions share an exact 941×1672 inner composition contained in the white cutout | 390×664/732/844 and Pro/Max actual screenshots, source aspect assertion, frame x0/right edge; tablet/desktop/landscape controls |
+| Browse both directions and stop at ends | Clamp horizontal selection to first/last slide, no modulo wrap; arrows/keyboard/touch/dots obey readiness | Both endpoint swipes and reverse motion, AR direction, no group jump |
+
+The frame fills the browser content area available between existing top and bottom controls. On short windows the inner photo keeps its proportions with white unused space *inside* the metal frame; there is no black exterior side gutter. Browser-owned status/address bars cannot be covered by webpage CSS. This explicitly replaces CHG-0070's short-window narrow-canvas fit.
+
+## Resource inventory
+
+- Technology: four supplied HeatCore PNGs (02–05), two CyberMind PNGs (01–02), original bytes/resolution/color retained. User confirmed four on 2026-10-08; all source inputs are present. Loading policy is driven by group data.
+- Landing substantial artwork: main responsive WebP tiles, reused tail tiles, FAQ row art, document thumbnails, expression-wave layer. Keep native eager/preloaded first tile; decode the actual DOM image before revealing. Observe/load upcoming artwork near viewport; only required visible resources hold the view.
+- Small decoration: icons, connector/divider sprites, diamond, arrows/dots, SVG button surfaces. They retain existing delivery; do not make the entire long page wait for offscreen decoration. The metal frame is small and can paint while the photo loads.
+- No video content or remote document raster viewer currently exists; unavailable-action dialogs remain semantic text.
+
+## Work sequence and gates
+
+1. Inspect current code/assets and user images; create defect log and acceptance map. Independent read-only auditor checks scope.
+2. Implement shared readiness/progress/lock and main-page gate, then technology initial/transition loading and exact inner layout. Keep boundaries small and no new dependency.
+3. Inspect real Pro/Max and short-window WebKit pending/ready images; compare artwork color/bytes and proportions; fix and recapture.
+4. Test slow/error/retry/cache/preload order, input lock, endpoint swipes, close/focus, 11 locales including Arabic, tablet/desktop/landscape and assembled page scroll.
+5. Native Codex review on actual diff, type/lint/tests/production build, measured first view/scroll/payload; fix/refactor findings then rerun affected checks.
+6. Final independent audit, dated technical approval, CHANGELOG/MEMORY/LESSONS reconciliation and evidence report. Open the final local production preview for user review. No publication is requested in this delivery.
+export type ImageProgress = { loaded: number; total: number | null; ready: boolean; error: boolean };
+export type ImageResource = {
+  ready: Promise<HTMLImageElement>;
+  progress: ImageProgress;
+  subscribe: (listener: (progress: ImageProgress) => void) => () => void;
+};
+
+const images = new Map<string, ImageResource>();
+const decoded = new WeakMap<HTMLImageElement, Promise<void>>();
+
+/** Readiness belongs to the actual element that will paint, including native lazy images. */
+export function decodeImageElement(image: HTMLImageElement): Promise<void> {
+  const existing = decoded.get(image);
+  if (existing) return existing;
+  const ready = image.decode().then(() => {
+    if (!image.naturalWidth) throw new Error('Image has no decoded pixels');
+  }).catch(error => {
+    decoded.delete(image);
+    throw error;
+  });
+  decoded.set(image, ready);
+  return ready;
+}
+
+/** One original-byte transfer and one retained decoded image per URL, shared by all viewers. */
+export function loadImage(src: string, priority: 'low' | 'high' = 'low'): ImageResource {
+  const existing = images.get(src);
+  if (existing) return existing;
+  const listeners = new Set<(progress: ImageProgress) => void>();
+  const resource: ImageResource = {
+    progress: { loaded: 0, total: null, ready: false, error: false },
+    ready: Promise.resolve(null as unknown as HTMLImageElement),
+    subscribe(listener) {
+      listeners.add(listener);
+      listener(resource.progress);
+      return () => { listeners.delete(listener); };
+    },
+  };
+  const update = (patch: Partial<ImageProgress>) => {
+    resource.progress = { ...resource.progress, ...patch };
+    listeners.forEach(listener => listener(resource.progress));
+  };
+  resource.ready = (async () => {
+    let objectURL: string | undefined;
+    try {
+      const response = await fetch(src, { priority } as RequestInit);
+      if (!response.ok) throw new Error(`Image response ${response.status}`);
+      // Compressed transfers do not have a reliable decoded byte denominator.
+      const length = Number(response.headers.get('content-length'));
+      const total = !response.headers.get('content-encoding') && length > 0 ? length : null;
+      update({ total });
+      const chunks: Uint8Array<ArrayBuffer>[] = [];
+      const reader = response.body?.getReader();
+      if (reader) {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          chunks.push(new Uint8Array(value));
+          update({ loaded: resource.progress.loaded + value.byteLength });
+        }
+      } else {
+        chunks.push(new Uint8Array(await response.arrayBuffer()));
+        update({ loaded: chunks[0].byteLength });
+      }
+      if (total !== null && resource.progress.loaded !== total) throw new Error('Incomplete image transfer');
+      objectURL = URL.createObjectURL(new Blob(chunks, { type: response.headers.get('content-type') ?? 'application/octet-stream' }));
+      const image = new Image();
+      image.dataset.source = src;
+      image.src = objectURL;
+      await decodeImageElement(image);
+      update({ ready: true });
+      return image;
+    } catch (error) {
+      if (objectURL) URL.revokeObjectURL(objectURL);
+      images.delete(src);
+      update({ error: true });
+      throw error;
+    }
+  })();
+  // Prefetch callers may choose to observe progress without awaiting readiness.
+  void resource.ready.catch(() => {});
+  images.set(src, resource);
+  return resource;
+}
+'use client';
+
+import { useEffect } from 'react';
+import type { Locale } from '@/lib/i18n';
+
+const copy: Record<Locale, [string, string, string]> = {
+  en: ['Loading image…', 'The image could not load.', 'Retry'],
+  ru: ['Загрузка изображения…', 'Не удалось загрузить изображение.', 'Повторить'],
+  de: ['Bild wird geladen…', 'Das Bild konnte nicht geladen werden.', 'Erneut versuchen'],
+  fr: ['Chargement de l’image…', 'Impossible de charger l’image.', 'Réessayer'],
+  es: ['Cargando imagen…', 'No se pudo cargar la imagen.', 'Reintentar'],
+  it: ['Caricamento immagine…', 'Impossibile caricare l’immagine.', 'Riprova'],
+  tr: ['Görsel yükleniyor…', 'Görsel yüklenemedi.', 'Tekrar dene'],
+  ar: ['جارٍ تحميل الصورة…', 'تعذّر تحميل الصورة.', 'إعادة المحاولة'],
+  zh: ['正在加载图片…', '图片加载失败。', '重试'],
+  ja: ['画像を読み込み中…', '画像を読み込めませんでした。', '再試行'],
+  ko: ['이미지 로딩 중…', '이미지를 불러올 수 없습니다.', '다시 시도'],
+};
+
+export function LoadingStatus({ locale, progress = null, error = false, onRetry, className = '' }: {
+  locale: Locale; progress?: number | null; error?: boolean; onRetry?: () => void; className?: string;
+}) {
+  const value = progress === null ? null : Math.max(0, Math.min(100, Math.floor(progress)));
+  const [loading, failed, retry] = copy[locale];
+  return <div className={`media-loading ${className}`} role="status" aria-live="polite" dir={locale === 'ar' ? 'rtl' : undefined}>
+    <p>{error ? failed : loading}{!error && value !== null && <span aria-hidden="true"> {value}%</span>}</p>
+    {!error && <div className="media-loading__track" role="progressbar" aria-label={loading} aria-valuemin={0} aria-valuemax={100} {...(value !== null ? { 'aria-valuenow': value } : {})}>
+      <span className={value === null ? 'media-loading__bar is-indeterminate' : 'media-loading__bar'} style={value !== null ? { width: `${value}%` } : undefined} />
+    </div>}
+    {error && onRetry && <button type="button" onClick={onRetry}>{retry}</button>}
+  </div>;
+}
+
+let locks = 0;
+let restore: (() => void) | undefined;
+/** Multiple media views can own a lock without prematurely unlocking each other. */
+export function useScrollLock(active: boolean) {
+  useEffect(() => {
+    if (!active) return;
+    if (locks++ === 0) {
+      const roots = [document.documentElement, document.body];
+      const previous = roots.map(element => ({ overflow: element.style.overflow, overscroll: element.style.overscrollBehavior, scrollBehavior: element.style.scrollBehavior }));
+      // Cancel a smooth anchor/opener scroll already in flight before freezing the view.
+      window.scrollTo({ left: scrollX, top: scrollY, behavior: 'instant' });
+      roots.forEach(element => { element.style.overflow = 'hidden'; element.style.overscrollBehavior = 'none'; element.style.scrollBehavior = 'auto'; });
+      const keydown = (event: KeyboardEvent) => {
+        if (document.querySelector('dialog[open]') || (event.target as Element)?.closest('button,input,textarea,select,a')) return;
+        if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)) event.preventDefault();
+      };
+      const preventScroll = (event: Event) => {
+        if ((event.target as Element)?.closest?.('dialog[open]')) return;
+        event.preventDefault();
+      };
+      document.addEventListener('keydown', keydown);
+      document.addEventListener('wheel', preventScroll, { passive: false });
+      document.addEventListener('touchmove', preventScroll, { passive: false });
+      restore = () => {
+        roots.forEach((element, index) => { element.style.overflow = previous[index].overflow; element.style.overscrollBehavior = previous[index].overscroll; element.style.scrollBehavior = previous[index].scrollBehavior; });
+        document.removeEventListener('keydown', keydown);
+        document.removeEventListener('wheel', preventScroll);
+        document.removeEventListener('touchmove', preventScroll);
+      };
+    }
+    return () => { if (--locks === 0) { restore?.(); restore = undefined; } };
+  }, [active]);
+}
+'use client';
+
+import { useEffect, useRef, useState, type ReactNode } from 'react';
+import type { Locale } from '@/lib/i18n';
+import { decodeImageElement } from '@/lib/media-resource';
+import { LoadingStatus, useScrollLock } from './MediaLoading';
+
+function visible(image: HTMLImageElement) {
+  const box = image.getBoundingClientRect();
+  let top = Math.max(0, box.top), bottom = Math.min(innerHeight, box.bottom);
+  let left = Math.max(0, box.left), right = Math.min(innerWidth, box.right);
+  if (bottom <= top || right <= left) return false;
+  for (let parent = image.parentElement; parent; parent = parent.parentElement) {
+    const css = getComputedStyle(parent);
+    if (/(hidden|clip|scroll|auto)/.test(css.overflow + css.overflowY + css.overflowX)) {
+      const clip = parent.getBoundingClientRect();
+      top = Math.max(top, clip.top); bottom = Math.min(bottom, clip.bottom);
+      left = Math.max(left, clip.left); right = Math.min(right, clip.right);
+    }
+  }
+  return bottom > top && right > left;
+}
+
+export function PageMediaGate({ locale, children }: { locale: Locale; children: ReactNode }) {
+  const root = useRef<HTMLDivElement>(null);
+  const retryAction = useRef<() => void>(() => {});
+  const [state, setState] = useState({ blocked: true, error: false });
+  useScrollLock(state.blocked);
+  useEffect(() => {
+    const images = [...root.current!.querySelectorAll<HTMLImageElement>('img[data-media]')];
+    const loading = new Set<HTMLImageElement>();
+    const failures = new Set<HTMLImageElement>();
+    let alive = true, frame = 0, retryVersion = Date.now();
+    const refresh = () => {
+      if (!alive) return;
+      const suspended = !!document.querySelector('dialog[open]');
+      const current = suspended ? [] : images.filter(visible);
+      const pending = current.filter(image => !image.hasAttribute('data-media-ready'));
+      const next = { blocked: pending.length > 0, error: pending.some(image => failures.has(image)) };
+      setState(previous => previous.blocked === next.blocked && previous.error === next.error ? previous : next);
+      pending.forEach(start);
+    };
+    const schedule = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(refresh); };
+    const start = (image: HTMLImageElement) => {
+      if (loading.has(image) || failures.has(image) || image.hasAttribute('data-media-ready')) return;
+      loading.add(image);
+      image.loading = 'eager';
+      void decodeImageElement(image).then(() => {
+        if (alive) image.setAttribute('data-media-ready', '');
+      }).catch(() => { if (alive) failures.add(image); }).finally(() => { loading.delete(image); schedule(); });
+    };
+    const observer = new IntersectionObserver(entries => {
+      if (!document.querySelector('dialog[open]')) entries.forEach(entry => { if (entry.isIntersecting) start(entry.target as HTMLImageElement); });
+      schedule();
+    }, { rootMargin: '75% 0px' });
+    images.forEach(image => observer.observe(image));
+    const dialogs = new MutationObserver(schedule);
+    document.querySelectorAll('dialog').forEach(dialog => dialogs.observe(dialog, { attributes: true, attributeFilter: ['open'] }));
+    retryAction.current = () => {
+      failures.forEach(image => {
+        failures.delete(image);
+        // Some browsers retain a corrupt HTTP 200 in their image cache.
+        // Retry the same original asset bytes through a fresh cache key.
+        const src = new URL(image.getAttribute('src')!, document.baseURI);
+        src.searchParams.set('media-retry', String(++retryVersion));
+        image.src = src.href;
+        start(image);
+      });
+      schedule();
+    };
+    addEventListener('scroll', schedule, { passive: true });
+    addEventListener('resize', schedule);
+    refresh();
+    return () => { alive = false; observer.disconnect(); dialogs.disconnect(); cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); };
+  }, []);
+  return <div ref={root} className="page-media-shell" data-media-blocked={state.blocked ? '' : undefined}>
+    <div className="page-media-content" inert={state.blocked}>{children}</div>
+    {state.blocked && <div className="page-media-overlay"><LoadingStatus locale={locale} error={state.error} onRetry={() => retryAction.current()} /></div>}
+  </div>;
+}
+
+2026-10-07T22:35:44.987796Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11881-f15f-7e73-a1e1-afe7d5f4fc23 turn_id=01a11881-f31f-7e23-8d8d-8ac5923eb63d item_id="exec-136df6f1-0597-499a-abec-f1cfa08196bf"
+exec
+/bin/zsh -lc 'git diff -- components/TechnologyViewer.tsx components/Story.tsx app/globals.css; cat tests/e2e/media-loading.spec.ts; cat tests/e2e/technology-loading.spec.ts' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+diff --git a/app/globals.css b/app/globals.css
+index 6b0e544..8a03897 100644
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -151,9 +151,13 @@ html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.
+ /* Safari can sample document paint outside a modal's visual viewport. */
+ html:has(#technology-viewer[open]),body:has(#technology-viewer[open]){background:#000}
+ .dialog-controller:has(> #technology-viewer[open]) > :not(#technology-viewer),.dialog-controller:has(> #technology-viewer[open]) > :not(#technology-viewer) *{visibility:hidden}
+-.technology-viewer__canvas{position:relative;width:100%;height:100%;container-type:inline-size}
+-.technology-viewer__stage{position:absolute;left:8.68840187%;top:11.17917493%;width:82.62319625%;height:77.79038893%;overflow:hidden;touch-action:pinch-zoom;background-color:#000;background-size:100% 100%;background-position:center;background-repeat:no-repeat}
+-.technology-viewer__stage img{object-fit:fill;user-select:none;-webkit-user-drag:none}
++.technology-viewer__canvas{--frame-top:max(88px,calc(80px + env(safe-area-inset-top)));--frame-bottom:max(68px,calc(64px + env(safe-area-inset-bottom)));--frame-height:calc(100dvh - var(--frame-top) - var(--frame-bottom));position:relative;width:100%;height:100%;container-type:inline-size}
++.technology-viewer__stage{position:absolute;left:3.08182784%;top:calc(var(--frame-top) + var(--frame-height) * .019041769);width:93.83634431%;height:calc(var(--frame-height) * .963144963);overflow:hidden;touch-action:pinch-zoom;background:#fff;container-type:size;display:grid;place-items:center}
++.technology-viewer__content{position:relative;width:min(100%,calc(100cqh * 941 / 1672));aspect-ratio:941/1672}
++.technology-viewer__photo{position:absolute;inset:0}
++.technology-viewer__photo img{display:block;width:100%;height:100%;user-select:none;-webkit-user-drag:none}
++.technology-viewer[aria-busy=true] .technology-viewer__stage{touch-action:none}
++.technology-viewer__loading{position:absolute;z-index:5;left:4%;right:4%;bottom:3%;padding:16px;background:rgb(255 255 255 / .96);color:#241d15;border:1px solid #ad8c5a}
+ .technology-viewer__title{position:absolute;inset:0;margin:0;font-family:OpenSans,Arial,sans-serif;font-weight:400;line-height:1;direction:ltr;pointer-events:none}
+ .technology-viewer__title svg{display:block;width:100%;height:100%;font-family:inherit;font-weight:inherit}
+ .technology-viewer__descriptions{position:absolute;inset:0;pointer-events:none;font-family:OpenSans,Arial,sans-serif;font-weight:400;color:#000;direction:ltr}
+@@ -163,26 +167,40 @@ html:has(#technology-viewer[open]),body:has(#technology-viewer[open]){background
+ .technology-description__warm,.technology-description__number{-webkit-text-stroke:1.5px #fff;paint-order:stroke fill}
+ .technology-description__number{display:inline-block;width:40px;color:#975f41;direction:ltr}
+ .technology-description__status{color:#fff;font:400 10px/20px OpenSans,Arial,sans-serif;direction:ltr}
+-.technology-viewer__frame{position:absolute;left:5.97484%;top:9.64221%;width:88.05031%;height:80.71559%;pointer-events:none;object-fit:fill}
++.technology-viewer__frame{position:absolute;left:0;top:var(--frame-top);width:100%;height:var(--frame-height);pointer-events:none;object-fit:fill}
+ .technology-viewer__next-image,.technology-viewer__next-group{position:absolute;z-index:1;padding:0;border:0;background:transparent;color:#f4f1eb;font-family:OpenSans,Arial,sans-serif;font-weight:400;cursor:pointer}
+ .technology-viewer__next-image{left:52px;right:max(52px,calc(44px + 2% + env(safe-area-inset-right)));top:0;height:5.8%;min-height:44px;display:flex;align-items:flex-end;justify-content:center;gap:calc(17/954*100cqw);font-size:clamp(14px,calc(48/954*100cqw),26px);line-height:1.12}
+ .technology-viewer__next-image span{max-width:calc(100% - 24px);text-align:center}
+ .technology-viewer__next-image img{flex:none;align-self:flex-end;width:calc(28/954*100cqw);height:calc(45/1649*100dvh)}
+-.technology-viewer__next-group{left:15%;top:92.2%;width:70%;height:6.5%;min-height:44px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:calc(18/1649*100dvh);font-size:clamp(14px,calc(39/954*100cqw),23px);line-height:1.12}
++.technology-viewer__next-group{left:15%;bottom:env(safe-area-inset-bottom);width:70%;height:64px;min-height:44px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:calc(18/1649*100dvh);font-size:clamp(14px,calc(39/954*100cqw),23px);line-height:1.12}
+ .technology-viewer__next-group img{flex:none;width:calc(45/954*100cqw);height:calc(29/1649*100dvh)}
+ .technology-viewer__dots{position:absolute;z-index:2;top:max(44px,5.8%);left:50%;transform:translateX(-50%);display:flex;direction:ltr}
+ .technology-viewer__dots button{position:relative;flex:0 0 24px;width:24px;height:44px;padding:0;border:0;background:transparent;cursor:pointer}
+ .technology-viewer__dots img{position:absolute;top:max(2px,calc(7.58dvh - max(44px,5.8dvh) - 6px));left:50%;transform:translateX(-50%);display:block;width:calc(29/954*100cqw);height:auto}
+ .technology-viewer__notice{position:absolute;z-index:3;left:10%;right:10%;bottom:11%;margin:0;padding:12px;border:1px solid #dcb477;background:rgb(0 0 0 / .9);color:#fff;text-align:center;font-size:14px;line-height:1.35}
+ .technology-viewer__close{position:absolute;right:max(2%,env(safe-area-inset-right));top:max(1%,env(safe-area-inset-top));z-index:4;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;background:transparent;color:#fff;font-size:34px;font-weight:300;line-height:1;cursor:pointer}
+-.technology-viewer__previous-group{position:absolute;left:max(2%,env(safe-area-inset-left));top:min(92.2%,calc(99% - 44px - env(safe-area-inset-bottom)));z-index:2;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;background:transparent;cursor:pointer}
++.technology-viewer__previous-group{position:absolute;left:max(2%,env(safe-area-inset-left));bottom:max(20px,env(safe-area-inset-bottom));z-index:2;display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;background:transparent;cursor:pointer}
+ .technology-viewer__previous-group img{width:20px;height:auto;transform:rotate(180deg)}
+ .technology-viewer[data-group=CyberMind] .technology-viewer__next-group{left:max(15%,54px);right:15%;width:auto}
+ .technology-viewer__sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+ .technology-viewer :focus-visible{outline:2px solid #e7ba75;outline-offset:-3px}
+-/* Keep the full portrait artwork at one scale when browser chrome shortens the viewport. */
+-@media(max-width:699px) and (orientation:portrait){.technology-viewer__canvas{width:min(100vw,calc(100dvh * .4667))}.technology-viewer__frame{left:0;width:100%}.technology-viewer__stage{left:3.08182784%;width:93.83634431%}}
+-@media(min-width:700px){.technology-viewer__canvas{width:min(100vw,calc(100dvh * 954 / 1649))}}
++.technology-viewer button:disabled{cursor:default;opacity:.45}
++@media(min-width:700px) and (hover:hover){.technology-viewer__canvas{width:min(100vw,calc(100dvh * 954 / 1649))}}
++.page-media-shell,.page-media-content{display:contents}
++html:has(.page-media-shell[data-media-blocked]),body:has(.page-media-shell[data-media-blocked]){overflow:hidden}
++.dialog-controller:has(.page-media-shell[data-media-blocked])>.back-to-top{visibility:hidden}
++img[data-media]:not([data-media-ready]){visibility:hidden}
++.page-media-overlay{position:fixed;inset:0;z-index:900;display:grid;place-items:end center;padding:24px max(24px,env(safe-area-inset-right)) max(32px,env(safe-area-inset-bottom));background:#181512;color:#fff;touch-action:none}
++.page-media-overlay .media-loading{width:min(100%,420px)}
++.media-loading{font:400 14px/1.4 OpenSans,Arial,sans-serif;text-align:center}
++.media-loading p{margin:0 0 10px}
++.media-loading__track{height:4px;background:#d6d0c7;overflow:hidden;direction:ltr}
++.media-loading__bar{display:block;height:100%;background:#ac7e41}
++.media-loading__bar.is-indeterminate{width:35%;animation:media-progress 1.2s ease-in-out infinite}
++.media-loading button{margin-top:8px;min-height:44px;padding:8px 18px;border:1px solid #b38c53;background:#fff;color:#241d15;font:inherit;cursor:pointer}
++.media-loading button:focus-visible{outline:2px solid #8c5c25;outline-offset:3px}
++@keyframes media-progress{from{transform:translateX(-100%)}to{transform:translateX(385%)}}
++@media(prefers-reduced-motion:reduce){.media-loading__bar.is-indeterminate{animation:none;width:100%;opacity:.5}}
+ .key-powered,.key-groupTag,.key-groupInvest{color:#bd945d}
+ .key-group,.key-groupVision{color:#f3eee5}
+ .key-account,.key-businessAccount,.key-accountBody,.key-venueAccount{color:#f1e1cb!important}
+diff --git a/components/Story.tsx b/components/Story.tsx
+index 5ed001e..d94f941 100644
+--- a/components/Story.tsx
++++ b/components/Story.tsx
+@@ -15,6 +15,7 @@ import buttonMap from '@/lib/button-map.json';
+ import iconMap from '@/lib/icon-map.json';
+ import localizedButtonWidths from '@/lib/button-localized-widths.json';
+ import artPreviews from '@/lib/art-previews.json';
++import { PageMediaGate } from './PageMediaGate';
+
+ // Keep the complete FAQ/account artwork in one tile: no image edge through a card.
+ const artTiles = Array.from({ length: 12 }, (_, i) => ({
+@@ -108,7 +109,7 @@ const docs: { key: Key; detail: string; x: number; y: number }[] = [
+ function DocumentCards({ locale }: { locale: Locale }) {
+   return <>
+     {docs.map((doc) => <div className={`doc-card doc-card--${doc.key} source-panel`} key={doc.key} style={sourceStyle(doc.x, doc.y, 356)}>
+-      <Image className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized />
++      <Image data-media className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized />
+       <strong>{textLines(t(locale, doc.key))}</strong>
+       <small>{textLines(doc.detail)}</small>
+       <button id={`document-${doc.key}`} type="button" aria-haspopup="dialog" popoverTarget={`doc-detail-${doc.key}`} aria-label={`${t(locale, 'docView')}: ${t(locale, doc.key).replaceAll('\n', ' ')}`}><span className="doc-action-label">{t(locale, 'docView')}</span><ActionArrow /></button>
+@@ -142,8 +143,8 @@ function Faq({ locale }: { locale: Locale }) {
+     } as React.CSSProperties}>
+       <div className="faq-row-art" aria-hidden="true">
+         {['top', 'middle', 'bottom'].map(part => <div className={`faq-art-${part}`} key={part}>
+-          <Image src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
+-          {part === 'middle' && <Image className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
++          <Image data-media src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
++          {part === 'middle' && <Image data-media className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
+         </div>)}
+       </div>
+       <details>
+@@ -223,11 +224,12 @@ function Popovers({ locale }: { locale: Locale }) {
+ export function Story({ locale }: { locale: Locale }) {
+   return <DialogController>
+     <TechnologyViewer locale={locale} descriptions={technologyDescriptionCopy[locale]} cyberMindDescriptions={cyberMindCopy[locale]} />
+-    <main className="canvas" data-locale={locale}>
++    <PageMediaGate locale={locale}><main className="canvas" data-locale={locale}>
+       <div className="story-prefix-space" aria-hidden="true" />
+       <div className="art" aria-hidden="true">
+         {artTiles.filter(({ file }) => file !== '11').map(({ file, height }, i) => <Image
+           key={i}
++          data-media
+           src={`/art/${file}.webp`}
+           width={941}
+           height={height}
+@@ -267,6 +269,7 @@ export function Story({ locale }: { locale: Locale }) {
+         fetchPriority="low"
+       />)}
+       <Image
++        data-media
+         className="expression-waves-art"
+         src="/art/expression-waves.png"
+         width={701}
+@@ -300,8 +303,8 @@ export function Story({ locale }: { locale: Locale }) {
+       <Faq locale={locale} />
+       <section className="story-tail" aria-label={t(locale, 'account')}>
+         <div className="tail-art" aria-hidden="true"><div className="tail-art-track">
+-          <Image src="/art/09-10.webp" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['09-10'] as `data:image/${string}`} />
+-          <Image src="/art/11.webp" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['11'] as `data:image/${string}`} />
++          <Image data-media src="/art/09-10.webp" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['09-10'] as `data:image/${string}`} />
++          <Image data-media src="/art/11.webp" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="low" placeholder={artPreviews['11'] as `data:image/${string}`} />
+         </div></div>
+         {storyNodes.filter(node => node.y >= 28207).map((node, index) => <OverlayNode node={node} locale={locale} key={`${node.key}-${index}`} />)}
+       <button id="account-personal" type="button" className="account-hit" style={sourceStyle(45, 28230, 850)} popoverTarget="unavailable-account" aria-label={t(locale, 'account')} />
+@@ -323,7 +326,7 @@ export function Story({ locale }: { locale: Locale }) {
+       </div>)}
+       </section>
+       <LocaleSwitcher locale={locale} label={t(locale, 'language')} />
+-    </main>
++    </main></PageMediaGate>
+     <BackToTop label={t(locale, 'backToTop')} />
+     <Popovers locale={locale} />
+   </DialogController>;
+diff --git a/components/TechnologyViewer.tsx b/components/TechnologyViewer.tsx
+index 79b7c53..0fffacc 100644
+--- a/components/TechnologyViewer.tsx
++++ b/components/TechnologyViewer.tsx
+@@ -12,6 +12,8 @@ import type { CyberMindCopy } from '@/lib/cybermind-descriptions';
+
+ import { technologyGroups, technologyGroupCopy } from '@/lib/technology-gallery';
+ import type { TechnologySlideId } from '@/lib/technology-descriptions';
++import { loadImage } from '@/lib/media-resource';
++import { LoadingStatus, useScrollLock } from './MediaLoading';
+
+ type Selection = { group: number; slide: number };
+
+@@ -30,16 +32,16 @@ const copy: Record<Locale, ViewerCopy> = {
+   ko: { technology: '기술', details: '스와이프하여 상세 보기', horizontal: '좌우로 스와이프하여 이미지 보기', vertical: '아래로 스와이프하여 다음 기술 보기', close: '기술 갤러리 닫기', image: '이미지', nextImage: '다음 이미지 보기', nextGroup: '다음 기술', unavailable: '다음 기술은 곧 공개됩니다.', names: ['세 개의 히터', '액티브 에어 세일', '프로그래밍 가능한 열 프로필', '금과 질화 티타늄'] },
+ };
+
+-function TechnologyNavigation({ direction, label, accessibleLabel, onClick }: { direction: 'right' | 'down'; label: string; accessibleLabel: string; onClick: () => void }) {
+-  return <button className={`technology-viewer__next-${direction === 'right' ? 'image' : 'group'}`} type="button" onClick={onClick} aria-label={accessibleLabel}>
++function TechnologyNavigation({ direction, label, accessibleLabel, onClick, disabled }: { direction: 'right' | 'down'; label: string; accessibleLabel: string; onClick: () => void; disabled?: boolean }) {
++  return <button className={`technology-viewer__next-${direction === 'right' ? 'image' : 'group'}`} type="button" onClick={onClick} aria-label={accessibleLabel} disabled={disabled}>
+     <span>{label}</span>
+     <Image src={`/art/technology/arrow-${direction}.png`} width={direction === 'right' ? 28 : 45} height={direction === 'right' ? 45 : 29} alt="" aria-hidden="true" unoptimized />
+   </button>;
+ }
+
+-function TechnologyPagination({ index, labels, names, onSelect }: { index: number; labels: ViewerCopy; names: readonly string[]; onSelect: (index: number) => void }) {
++function TechnologyPagination({ index, labels, names, onSelect, disabled }: { index: number; labels: ViewerCopy; names: readonly string[]; onSelect: (index: number) => void; disabled: boolean }) {
+   return <div className="technology-viewer__dots" role="group" aria-label={labels.horizontal}>
+-    {names.map((name, slideIndex) => <button key={slideIndex} type="button" onClick={() => onSelect(slideIndex)} aria-label={`${labels.image} ${slideIndex + 1} / ${names.length}: ${name}`} aria-current={index === slideIndex ? 'true' : undefined}>
++    {names.map((name, slideIndex) => <button key={slideIndex} type="button" onClick={() => onSelect(slideIndex)} disabled={disabled} aria-label={`${labels.image} ${slideIndex + 1} / ${names.length}: ${name}`} aria-current={index === slideIndex ? 'true' : undefined}>
+       <Image src={index === slideIndex ? '/art/technology/dot-active.png' : '/art/technology/dot-inactive.png'} width={29} height={29} alt="" aria-hidden="true" unoptimized />
+     </button>)}
+   </div>;
+@@ -48,44 +50,73 @@ function TechnologyPagination({ index, labels, names, onSelect }: { index: numbe
+ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }: { locale: Locale; descriptions: TechnologyDescriptionCopy; cyberMindDescriptions: CyberMindCopy }) {
+   const dialog = useRef<HTMLDialogElement>(null);
+   const opener = useRef<HTMLElement | null>(null);
+-  const previousOverflow = useRef('');
++  const photo = useRef<HTMLDivElement>(null);
++  const asset = useRef<HTMLImageElement | null>(null);
+   const pointer = useRef<{ x: number; y: number } | null>(null);
+   const displayed = useRef<Selection>({ group: 0, slide: 0 });
+   const requested = useRef<Selection>({ group: 0, slide: 0 });
+   const remembered = useRef([0, 0]);
+   const requestToken = useRef(0);
+   const restoreGroupFocus = useRef(false);
++  const pending = useRef(false);
++  const unsubscribe = useRef<(() => void) | null>(null);
+   const [isOpen, setIsOpen] = useState(false);
+   const [selection, setSelection] = useState<Selection>({ group: 0, slide: 0 });
+   const [showUnavailable, setShowUnavailable] = useState(false);
++  const [hasAsset, setHasAsset] = useState(false);
++  const [loading, setLoading] = useState(false);
++  const [failed, setFailed] = useState(false);
++  const [progress, setProgress] = useState<number | null>(null);
++  useScrollLock(isOpen);
+   const labels = copy[locale];
+   const groupLabels = technologyGroupCopy[locale];
+   const group = technologyGroups[selection.group];
+   const slide = group.slides[selection.slide];
+   const names = selection.group === 0 ? labels.names : groupLabels.names;
+   useLayoutEffect(() => {
++    // A disabled navigation button can lose focus to the document in desktop browsers.
++    if (loading && dialog.current?.open) dialog.current.focus({ preventScroll: true });
++    if (asset.current && photo.current) {
++      asset.current.alt = `${group.title} — ${names[selection.slide]}`;
++      asset.current.draggable = false;
++      photo.current.replaceChildren(asset.current);
++    }
+     if (restoreGroupFocus.current && dialog.current?.open) {
+       restoreGroupFocus.current = false;
+-      dialog.current.focus();
+-    }
+-  }, [selection.group]);
+-  const images = useRef(new Map<string, { image: HTMLImageElement; ready: Promise<void> }>());
+-  const prepareImage = useCallback((src: string, priority: 'low' | 'high' = 'low') => {
+-    const cached = images.current.get(src);
+-    if (cached) {
+-      if (priority === 'high') cached.image.fetchPriority = 'high';
+-      return cached.ready;
++      dialog.current.focus({ preventScroll: true });
+     }
+-    const image = new window.Image();
+-    image.fetchPriority = priority;
+-    image.src = src;
+-    const ready = image.decode().catch(error => {
+-      // A failed warm-up must not prevent a later user action from retrying.
+-      if (images.current.get(src)?.image === image) images.current.delete(src);
+-      throw error;
++  }, [hasAsset, loading, group.title, names, selection.slide, selection.group]);
++
++  const select = useCallback((next: Selection) => {
++    setShowUnavailable(false);
++    requested.current = next;
++    pending.current = true;
++    setLoading(true);
++    setFailed(false);
++    const token = ++requestToken.current;
++    unsubscribe.current?.();
++    const resource = loadImage(technologyGroups[next.group].slides[next.slide].src, 'high');
++    const update = (value: typeof resource.progress) => setProgress(value.total ? Math.round(value.loaded / value.total * 100) : null);
++    update(resource.progress);
++    unsubscribe.current = resource.subscribe(update);
++    resource.ready.then(image => {
++      if (token !== requestToken.current || !dialog.current?.open) return;
++      const active = document.activeElement;
++      restoreGroupFocus.current = next.group !== displayed.current.group && active instanceof Element && !!active.closest('.technology-viewer__dots, .technology-viewer__previous-group');
++      displayed.current = next;
++      remembered.current[next.group] = next.slide;
++      asset.current = image;
++      setHasAsset(true);
++      setSelection(next);
++      pending.current = false;
++      setLoading(false);
++      unsubscribe.current?.();
++    }).catch(() => {
++      if (token !== requestToken.current || !dialog.current?.open) return;
++      setFailed(true);
++      // Keep navigation locked until retry or close; the current complete frame stays visible.
++      unsubscribe.current?.();
+     });
+-    images.current.set(src, { image, ready });
+-    return ready;
+   }, []);
+
+   useEffect(() => {
+@@ -93,7 +124,7 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+     const warm = () => {
+       // Run after load dispatch; never compete with the initial page resources.
+       timer = setTimeout(() => {
+-        technologyGroups.forEach(group => { void prepareImage(group.slides[0].src).catch(() => {}); });
++        technologyGroups.forEach(group => group.slides.slice(0, 2).forEach(slide => { void loadImage(slide.src).ready.catch(() => {}); }));
+       }, 0);
+     };
+     if (document.readyState === 'complete') warm();
+@@ -102,9 +133,9 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+       window.removeEventListener('load', warm);
+       clearTimeout(timer);
+     };
+-  }, [prepareImage]);
++  }, []);
+
+-  useEffect(() => {
++  useLayoutEffect(() => {
+     const dialogElement = dialog.current;
+     const open = (event: MouseEvent) => {
+       const target = event.target;
+@@ -118,62 +149,46 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+       requested.current = displayed.current;
+       remembered.current = [0, 0];
+       setSelection(displayed.current);
++      asset.current = null;
++      setHasAsset(false);
+       setShowUnavailable(false);
+       restoreGroupFocus.current = false;
+-      technologyGroups.forEach((group, groupIndex) => group.slides.forEach((slide, slideIndex) => {
+-        void prepareImage(slide.src, groupIndex === 0 && slideIndex === 0 ? 'high' : 'low').catch(() => {});
+-      }));
+       setIsOpen(true);
+       dialogElement.showModal();
+-      dialogElement.focus();
+-      previousOverflow.current = document.body.style.overflow;
+-      document.body.style.overflow = 'hidden';
++      dialogElement.focus({ preventScroll: true });
++      select(displayed.current);
++      technologyGroups.forEach(group => group.slides.forEach(slide => { void loadImage(slide.src).ready.catch(() => {}); }));
+     };
+     document.addEventListener('click', open);
+     return () => {
+       document.removeEventListener('click', open);
+-      if (dialogElement?.open) document.body.style.overflow = previousOverflow.current;
++      unsubscribe.current?.();
+     };
+-  }, [prepareImage]);
++  }, [select]);
+
+   const close = () => dialog.current?.close();
+-  const select = (next: Selection) => {
+-    setShowUnavailable(false);
+-    requested.current = next;
+-    const token = ++requestToken.current;
+-    prepareImage(technologyGroups[next.group].slides[next.slide].src, 'high').then(() => {
+-      if (token === requestToken.current && dialog.current?.open) {
+-        const active = document.activeElement;
+-        restoreGroupFocus.current = next.group !== displayed.current.group && active instanceof Element && !!active.closest('.technology-viewer__dots, .technology-viewer__previous-group');
+-        displayed.current = next;
+-        remembered.current[next.group] = next.slide;
+-        setSelection(next);
+-      }
+-    }).catch(() => {
+-      if (token === requestToken.current) requested.current = displayed.current;
+-    });
+-  };
+   const showSlide = (position: number, groupIndex = displayed.current.group) => {
+     const length = technologyGroups[groupIndex].slides.length;
+-    select({ group: groupIndex, slide: (position + length) % length });
++    if (pending.current || position < 0 || position >= length) return;
++    if (groupIndex === displayed.current.group && position === displayed.current.slide) return;
++    select({ group: groupIndex, slide: position });
+   };
+   const move = (delta: number) => {
+-    const current = requested.current.group === displayed.current.group ? requested.current : displayed.current;
++    if (pending.current) return;
++    setShowUnavailable(false);
++    const current = displayed.current;
+     showSlide(current.slide + delta, current.group);
+   };
+   const moveGroup = (delta: number) => {
++    if (pending.current) return;
+     const currentGroup = displayed.current.group;
+-    if (requested.current.group !== currentGroup) {
+-      // Repeated taps wait for the same target; reversing cancels that transition.
+-      if (Math.sign(delta) !== Math.sign(requested.current.group - currentGroup)) select(displayed.current);
+-      return;
+-    }
+     const nextGroup = currentGroup + delta;
+     if (nextGroup < 0) return;
+     if (nextGroup >= technologyGroups.length) { setShowUnavailable(true); return; }
+     select({ group: nextGroup, slide: remembered.current[nextGroup] });
+   };
+   const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
++    if (pending.current) return;
+     pointer.current = { x: event.clientX, y: event.clientY };
+     try { event.currentTarget.setPointerCapture(event.pointerId); } catch { /* Synthetic test events do not own a pointer. */ }
+   };
+@@ -192,16 +207,19 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+     ref={dialog}
+     id="technology-viewer"
+     className="technology-viewer"
+-    aria-labelledby={isOpen ? 'technology-viewer-title' : undefined}
+-    aria-label={isOpen ? undefined : 'HeatCore'}
++    aria-labelledby={isOpen && hasAsset ? 'technology-viewer-title' : undefined}
++    aria-label={isOpen && hasAsset ? undefined : group.title}
+     data-group={group.title}
++    aria-busy={loading}
+     aria-describedby="technology-viewer-instructions"
+     tabIndex={-1}
+     onClose={() => {
+       requestToken.current++;
+       restoreGroupFocus.current = false;
+       setIsOpen(false);
+-      document.body.style.overflow = previousOverflow.current;
++      pending.current = false;
++      unsubscribe.current?.();
++      setLoading(false);
+       opener.current?.focus();
+     }}
+     onKeyDown={event => {
+@@ -213,17 +231,20 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+   >
+     <div className="technology-viewer__canvas">
+       <div className="technology-viewer__stage" onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}>
+-        {isOpen && <Image key={slide.src} src={slide.src} alt={`${group.title} — ${names[selection.slide]}`} fill sizes="100vw" unoptimized priority={selection.slide === 0} draggable={false} />}
+-        {isOpen && <TechnologyTitle descriptor={labels.technology} brand={group.title} />}
+-        {isOpen && selection.group === 0 && <TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={names[selection.slide]} copy={descriptions} />}
+-        {isOpen && selection.group === 1 && <CyberMindDescriptions slide={slide.id as '01' | '02'} locale={locale} name={names[selection.slide]} copy={cyberMindDescriptions} />}
++        {isOpen && hasAsset && <div className="technology-viewer__content">
++          <div className="technology-viewer__photo" ref={photo} />
++          <TechnologyTitle descriptor={labels.technology} brand={group.title} />
++          {selection.group === 0 && <TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={names[selection.slide]} copy={descriptions} />}
++          {selection.group === 1 && <CyberMindDescriptions slide={slide.id as '01' | '02'} locale={locale} name={names[selection.slide]} copy={cyberMindDescriptions} />}
++        </div>}
++        {isOpen && loading && <LoadingStatus locale={locale} progress={progress} error={failed} onRetry={() => select(requested.current)} className="technology-viewer__loading" />}
+       </div>
+       {isOpen && <>
+         <Image className="technology-viewer__frame" src="/art/technology/frame-template.webp" width={941} height={1628} alt="" aria-hidden="true" unoptimized priority />
+-        <TechnologyNavigation direction="right" label={labels.details} accessibleLabel={labels.nextImage} onClick={() => move(1)} />
+-        <TechnologyPagination index={selection.slide} labels={labels} names={names} onSelect={position => showSlide(position)} />
+-        <TechnologyNavigation direction="down" label={labels.nextGroup} accessibleLabel={labels.nextGroup} onClick={() => moveGroup(1)} />
+-        {selection.group > 0 && <button className="technology-viewer__previous-group" type="button" onClick={() => moveGroup(-1)} aria-label={groupLabels.previous} title={groupLabels.previous}>
++        <TechnologyNavigation direction="right" label={labels.details} accessibleLabel={labels.nextImage} onClick={() => move(1)} disabled={loading || selection.slide === group.slides.length - 1} />
++        <TechnologyPagination index={selection.slide} labels={labels} names={names} onSelect={position => showSlide(position)} disabled={loading} />
++        <TechnologyNavigation direction="down" label={labels.nextGroup} accessibleLabel={labels.nextGroup} onClick={() => moveGroup(1)} disabled={loading} />
++        {selection.group > 0 && <button className="technology-viewer__previous-group" type="button" onClick={() => moveGroup(-1)} disabled={loading} aria-label={groupLabels.previous} title={groupLabels.previous}>
+           <Image src="/art/technology/arrow-down.png" width={45} height={29} alt="" aria-hidden="true" unoptimized />
+         </button>}
+       </>}
+import { expect, test } from '@playwright/test';
+
+test('visible artwork remains hidden and page scroll locked until complete decode', async ({ page }) => {
+  let release!: () => void;
+  const held = new Promise<void>(resolve => { release = resolve; });
+  await page.route('**/art/00.webp', async route => { await held; await route.continue(); });
+  await page.goto('/en', { waitUntil: 'domcontentloaded' });
+  const image = page.locator('img[data-media][src="/art/00.webp"]');
+  await expect(page.locator('.page-media-overlay')).toBeVisible();
+  await expect(page.locator('.page-media-overlay').getByRole('progressbar')).not.toHaveAttribute('aria-valuenow');
+  await expect(image).toBeHidden();
+  await expect(page.locator('.page-media-content')).toHaveAttribute('inert', '');
+  await page.keyboard.press('PageDown');
+  expect(await page.evaluate(() => {
+    const touch = new Event('touchmove', { bubbles: true, cancelable: true });
+    document.querySelector('.page-media-overlay')!.dispatchEvent(touch);
+    return touch.defaultPrevented;
+  })).toBe(true);
+  await expect(page.locator('body')).toHaveCSS('overflow', 'hidden');
+  await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
+  release();
+  await expect(image).toHaveAttribute('data-media-ready', '');
+  await expect(image).toBeVisible();
+  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+  await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
+});
+
+test('offscreen pending artwork does not block the hero but blocks when reached', async ({ page }) => {
+  let release!: () => void;
+  const held = new Promise<void>(resolve => { release = resolve; });
+  await page.route('**/art/04.webp', async route => { await held; await route.continue(); });
+  await page.goto('/en', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+  const image = page.locator('img[data-media][src="/art/04.webp"]');
+  await expect(image).not.toHaveAttribute('data-media-ready');
+  await page.evaluate(() => {
+    const image = document.querySelector('img[data-media][src="/art/04.webp"]')!;
+    scrollTo({ top: image.getBoundingClientRect().top + scrollY + 40, behavior: 'instant' });
+  });
+  await expect(page.locator('.page-media-overlay')).toBeVisible();
+  const scroll = await page.evaluate(() => scrollY);
+  await expect(page.locator('#back-to-top')).toBeHidden();
+  await page.keyboard.press('PageDown');
+  expect(await page.evaluate(() => {
+    const touch = new Event('touchmove', { bubbles: true, cancelable: true });
+    document.querySelector('.page-media-overlay')!.dispatchEvent(touch);
+    return touch.defaultPrevented;
+  })).toBe(true);
+  await expect(page.locator('body')).toHaveCSS('overflow', 'hidden');
+  await expect.poll(() => page.evaluate(() => scrollY)).toBe(scroll);
+  release();
+  await expect(image).toHaveAttribute('data-media-ready', '');
+  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+});
+
+test('failed visible image has an accessible retry and successful recovery', async ({ page }) => {
+  let attempts = 0;
+  await page.route(/\/art\/00\.webp(?:\?.*)?$/, async route => {
+    if (++attempts === 1) await route.fulfill({ status: 503, body: 'Unavailable' });
+    else await route.continue();
+  });
+  await page.goto('/en', { waitUntil: 'domcontentloaded' });
+  await expect(page.getByRole('button', { name: 'Retry', exact: true })).toBeVisible();
+  await expect(page.locator('img[data-media][src="/art/00.webp"]')).toBeHidden();
+  await page.getByRole('button', { name: 'Retry', exact: true }).click();
+  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+  await expect(page.locator('.art > img[data-media]').first()).toHaveAttribute('data-media-ready', '');
+  expect(attempts).toBe(2);
+});
+
+test('truncated visible image is never revealed as a partially decoded resource', async ({ page }) => {
+  let attempts = 0;
+  await page.route(/\/art\/00\.webp(?:\?.*)?$/, async route => {
+    if (++attempts === 1) {
+      const response = await route.fetch();
+      const original = await response.body();
+      await route.fulfill({ status: 200, contentType: 'image/webp', body: original.subarray(0, 64) });
+    } else await route.continue();
+  });
+  await page.goto('/en', { waitUntil: 'domcontentloaded' });
+  await expect(page.getByRole('button', { name: 'Retry', exact: true })).toBeVisible();
+  await expect(page.locator('img[data-media][src="/art/00.webp"]')).not.toHaveAttribute('data-media-ready');
+  await page.getByRole('button', { name: 'Retry', exact: true }).click();
+  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+  const image = page.locator('.art > img[data-media]').first();
+  await expect(image).toHaveAttribute('data-media-ready', '');
+  await expect(image).toHaveAttribute('src', /\/art\/00\.webp\?media-retry=\d+$/);
+  expect(attempts).toBe(2);
+});
+
+test('page gate suspends behind a native dialog and resumes missing page media after close', async ({ page }) => {
+  let release!: () => void;
+  const held = new Promise<void>(resolve => { release = resolve; });
+  await page.route('**/art/00.webp', async route => { await held; await route.continue(); });
+  await page.goto('/en', { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.page-media-overlay')).toBeVisible();
+  await page.evaluate(() => (document.querySelector('#unavailable-commerce') as HTMLDialogElement).showModal());
+  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+  await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
+  await page.locator('#close-unavailable-commerce').click();
+  await expect(page.locator('.page-media-overlay')).toBeVisible();
+  await expect(page.locator('.page-media-content')).toHaveAttribute('inert', '');
+  release();
+  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+});
+import { expect, test } from '@playwright/test';
+import { createServer } from 'node:http';
+import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+
+test('a partially transferred first photo stays hidden with true progress and locked navigation', async ({ page }, info) => {
+  const bytes = await readFile('public/art/technology/02.png');
+  let release!: () => void;
+  const gate = new Promise<void>(resolve => { release = resolve; });
+  const server = createServer(async (_request, response) => {
+    response.writeHead(200, { 'content-type': 'image/png', 'content-length': bytes.length, 'access-control-allow-origin': '*' });
+    response.write(bytes.subarray(0, Math.floor(bytes.length / 4)));
+    await gate;
+    response.end(bytes.subarray(Math.floor(bytes.length / 4)));
+  });
+  await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve));
+  const address = server.address();
+  if (!address || typeof address === 'string') throw new Error('No streaming server');
+  await page.route('**/art/technology/02.png', route => route.continue({ url: `http://127.0.0.1:${address.port}/photo.png` }));
+  try {
+    await page.goto('/en');
+    await page.locator('[data-technology-open]').first().click();
+    const viewer = page.locator('#technology-viewer');
+    await expect(viewer).toHaveAttribute('aria-busy', 'true');
+    await expect(viewer.locator('.technology-viewer__stage')).toHaveCSS('background-color', 'rgb(255, 255, 255)');
+    await expect(viewer.locator('.technology-viewer__stage img')).toHaveCount(0);
+    await expect(viewer.locator('.technology-viewer__title, .technology-viewer__descriptions')).toHaveCount(0);
+    await expect(viewer.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '25');
+    await expect(viewer.locator('.technology-viewer__next-image')).toBeDisabled();
+    await expect(viewer.locator('.technology-viewer__dots button').first()).toBeDisabled();
+    const scroll = await page.evaluate(() => scrollY);
+    await page.keyboard.press('ArrowRight');
+    await page.keyboard.press('ArrowDown');
+    if (!info.project.use.isMobile) await page.mouse.wheel(0, 800);
+    else expect(await page.evaluate(() => getComputedStyle(document.documentElement).overflow)).toBe('hidden');
+    await viewer.locator('.technology-viewer__stage').dispatchEvent('pointerdown', { pointerType: 'touch', clientX: 300, clientY: 500 });
+    await viewer.locator('.technology-viewer__stage').dispatchEvent('pointerup', { pointerType: 'touch', clientX: 100, clientY: 500 });
+    expect(await page.evaluate(() => scrollY)).toBe(scroll);
+    await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
+    await page.screenshot({ path: `docs/evidence/media-loading/${info.project.name}-pending.png` });
+    release();
+    await expect(viewer).toHaveAttribute('aria-busy', 'false');
+    const image = viewer.locator('.technology-viewer__stage img');
+    await expect(image).toHaveAttribute('data-source', '/art/technology/02.png');
+    const delivered = await image.evaluate(async (element: HTMLImageElement) => {
+      const buffer = await (await fetch(element.src)).arrayBuffer();
+      const digest = await crypto.subtle.digest('SHA-256', buffer);
+      return Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('');
+    });
+    expect(delivered).toBe(createHash('sha256').update(bytes).digest('hex'));
+    await expect(viewer.getByRole('heading', { name: 'HeatCore Technology' })).toBeVisible();
+    await page.screenshot({ path: `docs/evidence/media-loading/${info.project.name}-ready.png` });
+  } finally {
+    release();
+    server.closeAllConnections();
+    await new Promise<void>(resolve => server.close(() => resolve()));
+  }
+});
+
+test('invalid first image has white backing and retry; close never traps the user', async ({ page }) => {
+  let valid = false;
+  await page.route('**/art/technology/02.png', route => valid ? route.continue() : route.fulfill({ contentType: 'image/png', body: Buffer.from('not an image') }));
+  await page.goto('/en');
+  await page.locator('[data-technology-open]').first().click();
+  const viewer = page.locator('#technology-viewer');
+  await expect(viewer.getByRole('button', { name: 'Retry' })).toBeVisible();
+  await expect(viewer.locator('.technology-viewer__stage img')).toHaveCount(0);
+  await viewer.locator('.technology-viewer__close').click();
+  await expect(viewer).not.toBeVisible();
+  await page.locator('[data-technology-open]').first().click();
+  await expect(viewer.getByRole('button', { name: 'Retry' })).toBeVisible();
+  valid = true;
+  await viewer.getByRole('button', { name: 'Retry' }).click();
+  await expect(viewer).toHaveAttribute('aria-busy', 'false');
+  await expect(viewer.locator('.technology-viewer__stage img')).toHaveAttribute('data-source', '/art/technology/02.png');
+});
+
+test('horizontal swipes stop at both ends and reverse through preceding photos', async ({ page }) => {
+  await page.goto('/en');
+  await page.locator('[data-technology-open]').first().click();
+  const viewer = page.locator('#technology-viewer'), stage = viewer.locator('.technology-viewer__stage');
+  await expect(viewer).toHaveAttribute('aria-busy', 'false');
+  const swipe = async (from: number, to: number) => {
+    await stage.dispatchEvent('pointerdown', { pointerType: 'touch', clientX: from, clientY: 400 });
+    await stage.dispatchEvent('pointerup', { pointerType: 'touch', clientX: to, clientY: 400 });
+  };
+  await swipe(100, 300);
+  await expect(stage.locator('img')).toHaveAttribute('data-source', '/art/technology/02.png');
+  await viewer.locator('.technology-viewer__dots button').last().click();
+  await expect(stage.locator('img')).toHaveAttribute('data-source', '/art/technology/05.png');
+  await swipe(300, 100);
+  await expect(stage.locator('img')).toHaveAttribute('data-source', '/art/technology/05.png');
+  await swipe(100, 300);
+  await expect(stage.locator('img')).toHaveAttribute('data-source', '/art/technology/04.png');
+  await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
+});
+
+test('contained artwork and controls adapt to short landscape, tablet and desktop', async ({ page }, info) => {
+  await page.goto('/en');
+  await page.locator('[data-technology-open]').first().click();
+  const viewer = page.locator('#technology-viewer');
+  await expect(viewer).toHaveAttribute('aria-busy', 'false');
+  for (const [width, height] of [[390, 664], [844, 390], [768, 1024], [1440, 900]] as const) {
+    await page.setViewportSize({ width, height });
+    const bounds = await viewer.evaluate(element => {
+      const box = (selector: string) => element.querySelector(selector)!.getBoundingClientRect();
+      const photo = box('.technology-viewer__content'), stage = box('.technology-viewer__stage'), frame = box('.technology-viewer__frame');
+      const next = box('.technology-viewer__next-group'), top = box('.technology-viewer__next-image'), close = box('.technology-viewer__close');
+      return { ratio: photo.width / photo.height, photo: { left: photo.left, right: photo.right, top: photo.top, bottom: photo.bottom }, stage: { left: stage.left, right: stage.right, top: stage.top, bottom: stage.bottom }, frame: { top: frame.top, bottom: frame.bottom }, nextTop: next.top, nextBottom: next.bottom, headerBottom: top.bottom, closeRight: close.right };
+    });
+    expect(bounds.ratio).toBeCloseTo(941 / 1672, 3);
+    expect(bounds.photo.left).toBeGreaterThanOrEqual(bounds.stage.left - 1);
+    expect(bounds.photo.right).toBeLessThanOrEqual(bounds.stage.right + 1);
+    expect(bounds.photo.top).toBeGreaterThanOrEqual(bounds.stage.top - 1);
+    expect(bounds.photo.bottom).toBeLessThanOrEqual(bounds.stage.bottom + 1);
+    expect(bounds.headerBottom).toBeLessThanOrEqual(bounds.frame.top);
+    expect(bounds.frame.bottom).toBeLessThanOrEqual(bounds.nextTop);
+    expect(bounds.nextBottom).toBeLessThanOrEqual(height);
+    expect(bounds.closeRight).toBeLessThanOrEqual(width);
+    await page.screenshot({ path: `docs/evidence/media-loading/${info.project.name}-${width}x${height}.png` });
+  }
+});
+
+test('loading and retry fit every locale including Arabic at a short phone height', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 664 });
+  await page.route('**/art/technology/02.png', route => route.fulfill({ status: 503, body: 'Unavailable' }));
+  for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
+    await page.goto(`/${locale}`);
+    await page.locator('[data-technology-open]').first().click();
+    const loader = page.locator('.technology-viewer__loading');
+    await expect(loader.locator('button')).toBeVisible();
+    const fit = await loader.locator('p,button').evaluateAll(elements => elements.map(element => ({ width: element.scrollWidth, available: element.clientWidth })));
+    for (const item of fit) expect(item.width).toBeLessThanOrEqual(item.available + 1);
+    if (locale === 'ar') await expect(loader).toHaveAttribute('dir', 'rtl');
+    await page.locator('.technology-viewer__close').click();
+  }
+});
+
+2026-10-07T22:35:47.874417Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11881-f15f-7e73-a1e1-afe7d5f4fc23 turn_id=01a11881-f31f-7e23-8d8d-8ac5923eb63d item_id="exec-087e4239-3803-4c4a-94db-d0c916e6fca7"
+exec
+/bin/zsh -lc "nl -ba components/TechnologyViewer.tsx | sed -n '48,255p'; cat lib/technology-gallery.ts | head -75; nl -ba components/PageMediaGate.tsx | sed -n '1,130p'" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+    48	}
+    49
+    50	export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }: { locale: Locale; descriptions: TechnologyDescriptionCopy; cyberMindDescriptions: CyberMindCopy }) {
+    51	  const dialog = useRef<HTMLDialogElement>(null);
+    52	  const opener = useRef<HTMLElement | null>(null);
+    53	  const photo = useRef<HTMLDivElement>(null);
+    54	  const asset = useRef<HTMLImageElement | null>(null);
+    55	  const pointer = useRef<{ x: number; y: number } | null>(null);
+    56	  const displayed = useRef<Selection>({ group: 0, slide: 0 });
+    57	  const requested = useRef<Selection>({ group: 0, slide: 0 });
+    58	  const remembered = useRef([0, 0]);
+    59	  const requestToken = useRef(0);
+    60	  const restoreGroupFocus = useRef(false);
+    61	  const pending = useRef(false);
+    62	  const unsubscribe = useRef<(() => void) | null>(null);
+    63	  const [isOpen, setIsOpen] = useState(false);
+    64	  const [selection, setSelection] = useState<Selection>({ group: 0, slide: 0 });
+    65	  const [showUnavailable, setShowUnavailable] = useState(false);
+    66	  const [hasAsset, setHasAsset] = useState(false);
+    67	  const [loading, setLoading] = useState(false);
+    68	  const [failed, setFailed] = useState(false);
+    69	  const [progress, setProgress] = useState<number | null>(null);
+    70	  useScrollLock(isOpen);
+    71	  const labels = copy[locale];
+    72	  const groupLabels = technologyGroupCopy[locale];
+    73	  const group = technologyGroups[selection.group];
+    74	  const slide = group.slides[selection.slide];
+    75	  const names = selection.group === 0 ? labels.names : groupLabels.names;
+    76	  useLayoutEffect(() => {
+    77	    // A disabled navigation button can lose focus to the document in desktop browsers.
+    78	    if (loading && dialog.current?.open) dialog.current.focus({ preventScroll: true });
+    79	    if (asset.current && photo.current) {
+    80	      asset.current.alt = `${group.title} — ${names[selection.slide]}`;
+    81	      asset.current.draggable = false;
+    82	      photo.current.replaceChildren(asset.current);
+    83	    }
+    84	    if (restoreGroupFocus.current && dialog.current?.open) {
+    85	      restoreGroupFocus.current = false;
+    86	      dialog.current.focus({ preventScroll: true });
+    87	    }
+    88	  }, [hasAsset, loading, group.title, names, selection.slide, selection.group]);
+    89
+    90	  const select = useCallback((next: Selection) => {
+    91	    setShowUnavailable(false);
+    92	    requested.current = next;
+    93	    pending.current = true;
+    94	    setLoading(true);
+    95	    setFailed(false);
+    96	    const token = ++requestToken.current;
+    97	    unsubscribe.current?.();
+    98	    const resource = loadImage(technologyGroups[next.group].slides[next.slide].src, 'high');
+    99	    const update = (value: typeof resource.progress) => setProgress(value.total ? Math.round(value.loaded / value.total * 100) : null);
+   100	    update(resource.progress);
+   101	    unsubscribe.current = resource.subscribe(update);
+   102	    resource.ready.then(image => {
+   103	      if (token !== requestToken.current || !dialog.current?.open) return;
+   104	      const active = document.activeElement;
+   105	      restoreGroupFocus.current = next.group !== displayed.current.group && active instanceof Element && !!active.closest('.technology-viewer__dots, .technology-viewer__previous-group');
+   106	      displayed.current = next;
+   107	      remembered.current[next.group] = next.slide;
+   108	      asset.current = image;
+   109	      setHasAsset(true);
+   110	      setSelection(next);
+   111	      pending.current = false;
+   112	      setLoading(false);
+   113	      unsubscribe.current?.();
+   114	    }).catch(() => {
+   115	      if (token !== requestToken.current || !dialog.current?.open) return;
+   116	      setFailed(true);
+   117	      // Keep navigation locked until retry or close; the current complete frame stays visible.
+   118	      unsubscribe.current?.();
+   119	    });
+   120	  }, []);
+   121
+   122	  useEffect(() => {
+   123	    let timer: ReturnType<typeof setTimeout> | undefined;
+   124	    const warm = () => {
+   125	      // Run after load dispatch; never compete with the initial page resources.
+   126	      timer = setTimeout(() => {
+   127	        technologyGroups.forEach(group => group.slides.slice(0, 2).forEach(slide => { void loadImage(slide.src).ready.catch(() => {}); }));
+   128	      }, 0);
+   129	    };
+   130	    if (document.readyState === 'complete') warm();
+   131	    else window.addEventListener('load', warm, { once: true });
+   132	    return () => {
+   133	      window.removeEventListener('load', warm);
+   134	      clearTimeout(timer);
+   135	    };
+   136	  }, []);
+   137
+   138	  useLayoutEffect(() => {
+   139	    const dialogElement = dialog.current;
+   140	    const open = (event: MouseEvent) => {
+   141	      const target = event.target;
+   142	      if (!(target instanceof Element)) return;
+   143	      const trigger = target.closest<HTMLElement>('[data-technology-open]');
+   144	      if (!trigger || !dialogElement || dialogElement.open) return;
+   145	      event.preventDefault();
+   146	      opener.current = trigger;
+   147	      requestToken.current++;
+   148	      displayed.current = { group: 0, slide: 0 };
+   149	      requested.current = displayed.current;
+   150	      remembered.current = [0, 0];
+   151	      setSelection(displayed.current);
+   152	      asset.current = null;
+   153	      setHasAsset(false);
+   154	      setShowUnavailable(false);
+   155	      restoreGroupFocus.current = false;
+   156	      setIsOpen(true);
+   157	      dialogElement.showModal();
+   158	      dialogElement.focus({ preventScroll: true });
+   159	      select(displayed.current);
+   160	      technologyGroups.forEach(group => group.slides.forEach(slide => { void loadImage(slide.src).ready.catch(() => {}); }));
+   161	    };
+   162	    document.addEventListener('click', open);
+   163	    return () => {
+   164	      document.removeEventListener('click', open);
+   165	      unsubscribe.current?.();
+   166	    };
+   167	  }, [select]);
+   168
+   169	  const close = () => dialog.current?.close();
+   170	  const showSlide = (position: number, groupIndex = displayed.current.group) => {
+   171	    const length = technologyGroups[groupIndex].slides.length;
+   172	    if (pending.current || position < 0 || position >= length) return;
+   173	    if (groupIndex === displayed.current.group && position === displayed.current.slide) return;
+   174	    select({ group: groupIndex, slide: position });
+   175	  };
+   176	  const move = (delta: number) => {
+   177	    if (pending.current) return;
+   178	    setShowUnavailable(false);
+   179	    const current = displayed.current;
+   180	    showSlide(current.slide + delta, current.group);
+   181	  };
+   182	  const moveGroup = (delta: number) => {
+   183	    if (pending.current) return;
+   184	    const currentGroup = displayed.current.group;
+   185	    const nextGroup = currentGroup + delta;
+   186	    if (nextGroup < 0) return;
+   187	    if (nextGroup >= technologyGroups.length) { setShowUnavailable(true); return; }
+   188	    select({ group: nextGroup, slide: remembered.current[nextGroup] });
+   189	  };
+   190	  const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+   191	    if (pending.current) return;
+   192	    pointer.current = { x: event.clientX, y: event.clientY };
+   193	    try { event.currentTarget.setPointerCapture(event.pointerId); } catch { /* Synthetic test events do not own a pointer. */ }
+   194	  };
+   195	  const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
+   196	    const start = pointer.current;
+   197	    pointer.current = null;
+   198	    if (!start) return;
+   199	    const dx = event.clientX - start.x;
+   200	    const dy = event.clientY - start.y;
+   201	    if (Math.abs(dy) > 65 && Math.abs(dy) > Math.abs(dx) * 1.2) { moveGroup(dy > 0 ? 1 : -1); return; }
+   202	    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+   203	    move((dx < 0 ? 1 : -1) * (locale === 'ar' ? -1 : 1));
+   204	  };
+   205
+   206	  return <dialog
+   207	    ref={dialog}
+   208	    id="technology-viewer"
+   209	    className="technology-viewer"
+   210	    aria-labelledby={isOpen && hasAsset ? 'technology-viewer-title' : undefined}
+   211	    aria-label={isOpen && hasAsset ? undefined : group.title}
+   212	    data-group={group.title}
+   213	    aria-busy={loading}
+   214	    aria-describedby="technology-viewer-instructions"
+   215	    tabIndex={-1}
+   216	    onClose={() => {
+   217	      requestToken.current++;
+   218	      restoreGroupFocus.current = false;
+   219	      setIsOpen(false);
+   220	      pending.current = false;
+   221	      unsubscribe.current?.();
+   222	      setLoading(false);
+   223	      opener.current?.focus();
+   224	    }}
+   225	    onKeyDown={event => {
+   226	      if (event.key === 'ArrowDown') { event.preventDefault(); moveGroup(1); }
+   227	      if (event.key === 'ArrowUp') { event.preventDefault(); moveGroup(-1); }
+   228	      if (event.key === 'ArrowRight') { event.preventDefault(); move(locale === 'ar' ? -1 : 1); }
+   229	      if (event.key === 'ArrowLeft') { event.preventDefault(); move(locale === 'ar' ? 1 : -1); }
+   230	    }}
+   231	  >
+   232	    <div className="technology-viewer__canvas">
+   233	      <div className="technology-viewer__stage" onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}>
+   234	        {isOpen && hasAsset && <div className="technology-viewer__content">
+   235	          <div className="technology-viewer__photo" ref={photo} />
+   236	          <TechnologyTitle descriptor={labels.technology} brand={group.title} />
+   237	          {selection.group === 0 && <TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={names[selection.slide]} copy={descriptions} />}
+   238	          {selection.group === 1 && <CyberMindDescriptions slide={slide.id as '01' | '02'} locale={locale} name={names[selection.slide]} copy={cyberMindDescriptions} />}
+   239	        </div>}
+   240	        {isOpen && loading && <LoadingStatus locale={locale} progress={progress} error={failed} onRetry={() => select(requested.current)} className="technology-viewer__loading" />}
+   241	      </div>
+   242	      {isOpen && <>
+   243	        <Image className="technology-viewer__frame" src="/art/technology/frame-template.webp" width={941} height={1628} alt="" aria-hidden="true" unoptimized priority />
+   244	        <TechnologyNavigation direction="right" label={labels.details} accessibleLabel={labels.nextImage} onClick={() => move(1)} disabled={loading || selection.slide === group.slides.length - 1} />
+   245	        <TechnologyPagination index={selection.slide} labels={labels} names={names} onSelect={position => showSlide(position)} disabled={loading} />
+   246	        <TechnologyNavigation direction="down" label={labels.nextGroup} accessibleLabel={labels.nextGroup} onClick={() => moveGroup(1)} disabled={loading} />
+   247	        {selection.group > 0 && <button className="technology-viewer__previous-group" type="button" onClick={() => moveGroup(-1)} disabled={loading} aria-label={groupLabels.previous} title={groupLabels.previous}>
+   248	          <Image src="/art/technology/arrow-down.png" width={45} height={29} alt="" aria-hidden="true" unoptimized />
+   249	        </button>}
+   250	      </>}
+   251	      {showUnavailable && <p className="technology-viewer__notice" role="status">{labels.unavailable}</p>}
+   252	      <button className="technology-viewer__close" type="button" onClick={close} aria-label={labels.close}>×</button>
+   253	    </div>
+   254	    <p id="technology-viewer-instructions" className="technology-viewer__sr-only">{labels.horizontal}. {labels.vertical}. {selection.group > 0 && `${groupLabels.up}. `}{labels.image} {selection.slide + 1} / {group.slides.length}.</p>
+   255	  </dialog>;
+import type { Locale } from './i18n';
+
+export const technologyGroups = [
+  { title: 'HeatCore', slides: [
+    { id: '02', src: '/art/technology/02.png' },
+    { id: '03', src: '/art/technology/03.png' },
+    { id: '04', src: '/art/technology/04.png' },
+    { id: '05', src: '/art/technology/05.png' },
+  ] },
+  { title: 'CyberMind', slides: [
+    { id: '01', src: '/art/technology/cybermind/01.png' },
+    { id: '02', src: '/art/technology/cybermind/02.png' },
+  ] },
+] as const;
+
+type GroupCopy = { names: readonly [string, string]; previous: string; up: string };
+export const technologyGroupCopy: Record<Locale, GroupCopy> = {
+  en: { names: ['CyberMind core', 'Connected system'], previous: 'Previous technology', up: 'Swipe up for the previous technology' },
+  ru: { names: ['Ядро CyberMind', 'Подключённая система'], previous: 'Предыдущая технология', up: 'Свайп вверх — предыдущая технология' },
+  de: { names: ['CyberMind-Kern', 'Vernetztes System'], previous: 'Vorherige Technologie', up: 'Für die vorherige Technologie nach oben wischen' },
+  fr: { names: ['Cœur CyberMind', 'Système connecté'], previous: 'Technologie précédente', up: 'Balayez vers le haut pour la technologie précédente' },
+  es: { names: ['Núcleo CyberMind', 'Sistema conectado'], previous: 'Tecnología anterior', up: 'Desliza arriba para la tecnología anterior' },
+  it: { names: ['Nucleo CyberMind', 'Sistema connesso'], previous: 'Tecnologia precedente', up: 'Scorri su per la tecnologia precedente' },
+  tr: { names: ['CyberMind çekirdeği', 'Bağlantılı sistem'], previous: 'Önceki teknoloji', up: 'Önceki teknoloji için yukarı kaydırın' },
+  ar: { names: ['نواة CyberMind', 'النظام المتصل'], previous: 'التقنية السابقة', up: 'اسحب للأعلى للانتقال إلى التقنية السابقة' },
+  zh: { names: ['CyberMind 核心', '互联系统'], previous: '上一项技术', up: '向上滑动查看上一项技术' },
+  ja: { names: ['CyberMindコア', '接続されたシステム'], previous: '前の技術', up: '上にスワイプして前の技術を見る' },
+  ko: { names: ['CyberMind 코어', '연결된 시스템'], previous: '이전 기술', up: '위로 스와이프하여 이전 기술 보기' },
+};
+     1	'use client';
+     2
+     3	import { useEffect, useRef, useState, type ReactNode } from 'react';
+     4	import type { Locale } from '@/lib/i18n';
+     5	import { decodeImageElement } from '@/lib/media-resource';
+     6	import { LoadingStatus, useScrollLock } from './MediaLoading';
+     7
+     8	function visible(image: HTMLImageElement) {
+     9	  const box = image.getBoundingClientRect();
+    10	  let top = Math.max(0, box.top), bottom = Math.min(innerHeight, box.bottom);
+    11	  let left = Math.max(0, box.left), right = Math.min(innerWidth, box.right);
+    12	  if (bottom <= top || right <= left) return false;
+    13	  for (let parent = image.parentElement; parent; parent = parent.parentElement) {
+    14	    const css = getComputedStyle(parent);
+    15	    if (/(hidden|clip|scroll|auto)/.test(css.overflow + css.overflowY + css.overflowX)) {
+    16	      const clip = parent.getBoundingClientRect();
+    17	      top = Math.max(top, clip.top); bottom = Math.min(bottom, clip.bottom);
+    18	      left = Math.max(left, clip.left); right = Math.min(right, clip.right);
+    19	    }
+    20	  }
+    21	  return bottom > top && right > left;
+    22	}
+    23
+    24	export function PageMediaGate({ locale, children }: { locale: Locale; children: ReactNode }) {
+    25	  const root = useRef<HTMLDivElement>(null);
+    26	  const retryAction = useRef<() => void>(() => {});
+    27	  const [state, setState] = useState({ blocked: true, error: false });
+    28	  useScrollLock(state.blocked);
+    29	  useEffect(() => {
+    30	    const images = [...root.current!.querySelectorAll<HTMLImageElement>('img[data-media]')];
+    31	    const loading = new Set<HTMLImageElement>();
+    32	    const failures = new Set<HTMLImageElement>();
+    33	    let alive = true, frame = 0, retryVersion = Date.now();
+    34	    const refresh = () => {
+    35	      if (!alive) return;
+    36	      const suspended = !!document.querySelector('dialog[open]');
+    37	      const current = suspended ? [] : images.filter(visible);
+    38	      const pending = current.filter(image => !image.hasAttribute('data-media-ready'));
+    39	      const next = { blocked: pending.length > 0, error: pending.some(image => failures.has(image)) };
+    40	      setState(previous => previous.blocked === next.blocked && previous.error === next.error ? previous : next);
+    41	      pending.forEach(start);
+    42	    };
+    43	    const schedule = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(refresh); };
+    44	    const start = (image: HTMLImageElement) => {
+    45	      if (loading.has(image) || failures.has(image) || image.hasAttribute('data-media-ready')) return;
+    46	      loading.add(image);
+    47	      image.loading = 'eager';
+    48	      void decodeImageElement(image).then(() => {
+    49	        if (alive) image.setAttribute('data-media-ready', '');
+    50	      }).catch(() => { if (alive) failures.add(image); }).finally(() => { loading.delete(image); schedule(); });
+    51	    };
+    52	    const observer = new IntersectionObserver(entries => {
+    53	      if (!document.querySelector('dialog[open]')) entries.forEach(entry => { if (entry.isIntersecting) start(entry.target as HTMLImageElement); });
+    54	      schedule();
+    55	    }, { rootMargin: '75% 0px' });
+    56	    images.forEach(image => observer.observe(image));
+    57	    const dialogs = new MutationObserver(schedule);
+    58	    document.querySelectorAll('dialog').forEach(dialog => dialogs.observe(dialog, { attributes: true, attributeFilter: ['open'] }));
+    59	    retryAction.current = () => {
+    60	      failures.forEach(image => {
+    61	        failures.delete(image);
+    62	        // Some browsers retain a corrupt HTTP 200 in their image cache.
+    63	        // Retry the same original asset bytes through a fresh cache key.
+    64	        const src = new URL(image.getAttribute('src')!, document.baseURI);
+    65	        src.searchParams.set('media-retry', String(++retryVersion));
+    66	        image.src = src.href;
+    67	        start(image);
+    68	      });
+    69	      schedule();
+    70	    };
+    71	    addEventListener('scroll', schedule, { passive: true });
+    72	    addEventListener('resize', schedule);
+    73	    refresh();
+    74	    return () => { alive = false; observer.disconnect(); dialogs.disconnect(); cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); };
+    75	  }, []);
+    76	  return <div ref={root} className="page-media-shell" data-media-blocked={state.blocked ? '' : undefined}>
+    77	    <div className="page-media-content" inert={state.blocked}>{children}</div>
+    78	    {state.blocked && <div className="page-media-overlay"><LoadingStatus locale={locale} error={state.error} onRetry={() => retryAction.current()} /></div>}
+    79	  </div>;
+    80	}
+
+2026-10-07T22:35:52.195106Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11881-f15f-7e73-a1e1-afe7d5f4fc23 turn_id=01a11881-f31f-7e23-8d8d-8ac5923eb63d item_id="exec-75c516eb-d325-41b1-8749-7e5744e9c3c4"
+exec
+/bin/zsh -lc "rg -n 'payload|bytes|KiB|MiB|KB|MB|preload|retry' CHANGELOG.md docs/evidence/media-loading -g '*.md' | tail -45; nl -ba lib/media-resource.ts | sed -n '1,100p'; nl -ba components/MediaLoading.tsx | tail -55; cat package.json | head -50" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 55ms:
+CHANGELOG.md:132:| [CHG-0071](#chg-0071) | USER_REPORTED_DEFECT / CHANGE | Готовность raster view, прогресс, блокировка и staged preload | `OPEN` |
+CHANGELOG.md:208:- **Проверка:** Исторические [matrix.json](screenshots/actual/font-button-map/matrix.json):44 случая без clipping/overflow и [interactions.json](screenshots/actual/font-button-map/interactions.json): touch края. Новый проход: [770 состояний](screenshots/actual/button-locales/verified-matrix.json) — 14 CTA × 11 локалей × 375/402/440/768/1440, 0 переносов/нарушений текстовых полей/стрелок/границ canvas; Pro/Max, планшет/desktop немецкие screenshots, English source crop, Arabic arrow. 24/24 Playwright tests, typecheck/lint/build PASS; 11 locale hero+compare clicks/dialogs PASS. Production cold EN LCP184ms, CLS0, JS151807B; полный scroll pass p95 17.4ms, 0/162 frames>33ms. Script subsets ar/zh/ja/ko переносят по 3.8–10.1KB; их route-показатели с тёплым кэшем не являются отдельными cold-load измерениями. Standalone recalibrator строит 100 width values без зависимости от готовой страницы. Native review сначала выявил P2 bootstrap и P2 системные fallback fonts; оба исправлены, [финальный review](screenshots/actual/button-locales/review-fonts.log) без actionable findings. [Отчёт](docs/fix-localized-buttons.md).
+CHANGELOG.md:860:- **Решение и применение:** Первый тайл остался eager/preloaded/high priority; остальные фоновые тайлы теперь eager/low priority, чтобы браузер запрашивал всю ленту в фоне. Для каждого тайла добавлено маленькое inline WebP-превью (всего 7.9 КБ), поэтому до полной загрузки видны очертания своего изображения, а не плоская заливка. При обычной смене языка старый документ удерживается до декодирования текущих видимых тайлов (ограничение ожидания 3 с), а новый маршрут восстанавливает scroll из inline скрипта до первого кадра. Арт одинаков у всех локалей и использует те же URL; повторный запрос HTML ради прогрева после измерения удалён.
+CHANGELOG.md:934:- **Промежуточный дефект и исправление:** Первый вариант запрашивал все 11 тяжёлых PNG eager: на искусственной сети 4 Мбит/с/100 мс hero decode занял 38,3 с, LCP 50,3 с, дальний блок ещё 43,7 с. Это регрессия от решения агента оставить старую политику WebP-загрузки при 44+ МБ PNG; исходная проверка на localhost (LCP 112 мс, transfer 45,8 МБ) не выявляла сетевую цену. Последующие блоки переведены на native lazy loading, первый по-прежнему preload/eager/high. Повторный замер подтвердил остаточный риск: hero decode 13,659 с и дальний блок 33,880 с при 4 Мбит/с/100 мс.
+CHANGELOG.md:937:- **Проверки 2026-10-01:** Скрипт сверил все 22 PNG по RGBA и ICC; независимый аудитор повторил PIL-сравнение и дал scope/implementation/visual PASS, но review/performance/final integration gate FAIL. WebKit 402×874 и 440×956/DPR3: исходник, hero/стыки и собранные длинные кадры `screenshots/actual/png-color-2026-10-01/{pro,max}-assembled.png` просмотрены; визуальный subcheck собранной страницы PASS, линии нет. Браузерный PNG против color-managed AdobeRGB→sRGB имеет средние абсолютные ошибки ~[0.08,0.13,0.02] RGB. `npm run typecheck`, `npm run lint`, `npm run build`, `git diff --check` PASS; PNG loading 16/16 PASS; полный suite 77 PASS/18 SKIP/1 FAIL (Firefox test `decode()` до готового lazy image), после исправления один повторный Firefox 1/1 PASS. Native `codex review --uncommitted` дал P1 first-screen transfer и P2 cold fast-scroll blank; они открыты в CHG-0048. Активные PNG 46,600,036 байт (44.4 MiB) против старых ~2.9 MiB WebP; первая PNG 3,194,801 байт. 4 Мбит/с/100 мс: hero decode 13.659 с, дальний PNG 33.88 с после lazy-переключения. Показатель LCP, снятый после прокрутки, не является first-screen LCP и не заявляется. Измерения INP/Lighthouse не проводились. Превью :3020 перезапущено после final build; `/art/00.png` возвращает HTTP 200 `image/png` и 3,194,801 байт.
+CHANGELOG.md:947:- **Решение / ограничения:** Первый PNG уже preload/eager/high, дальние — native lazy; точность пикселей и границ сохранена. Без изменения пользовательского требования о тех же блоках и неизменных пикселях значительного уменьшения PNG или точного лёгкого preview пока не найдено. Нужен отдельный согласованный способ ускорить загрузку, затем повторить cold-mobile LCP/scroll/INP/CLS и Pro/Pro Max визуальную проверку. Текущий технический аппрув `NOT_APPROVED`; пользовательская приёмка `NOT_RECORDED`.
+CHANGELOG.md:967:- **Correction / mapping / checks:** `VERIFIED`. Updated the individual target Y in [Elements Mapping](docs/elements-mapping.md#designer-icon-mapping--chg-0049) **before** changing `lib/icon-map.json`. Restored feature I09–I12 to source Y 5155/5358/5571/5778, preserving the accepted layout. Lowered the seven visible technology icons from the rejected position by individual 3–13 source px (Light & Sound +13, Water Sensor +11, Touch & App +9, Poly Armor +8, Triple Heat +7, Flow Guard +4, Smart Core +3). No icon source bytes, X, sizes, connectors, dividers or text changed. Updated two focused Playwright specs to assert mobile-equivalent visual gaps at desktop widths. Real WebKit DPR3 Pro/Pro Max/Arabic screenshots and 22 locale/device geometry states are recorded in [correction evidence](screenshots/actual/designer-icon-kit/README.md): gaps remain positive, no horizontal overflow. Focused tests 8/8 PASS after the final build; full suite 78 PASS / 18 expected SKIP. First focused attempt failed four desktop assertions because the test applied absolute mobile gap bounds to a scaled desktop canvas; fixed the test scale and reran. First full suite lost the local preview and could not launch browsers. A Firefox test synchronization defect exposed during the second full suite is tracked and resolved separately as [CHG-0050](#chg-0050); final full suite passed. Final `npm run typecheck`, `npm run lint`, `npm run build` (14 static pages), and `git diff --check` PASS. No production artwork or JavaScript-loading strategy changed; prior LCP 144ms/CLS0 loopback sample is historical and no new performance score is claimed. Native review first found untracked evidence, which was force-added; later findings about separate logging and all-visible-tile loading were resolved under CHG-0050; final review found no actionable regression. Updated `LESSONS.md`, `MEMORY.md` and `docs/agent-evals.md` to prevent uniform shifts and preserve accepted elements; controlled Agent Eval remains `NOT_RUN`. Customer acceptance `NOT_RECORDED`.
+CHANGELOG.md:974:- **Correction / files / checks:** `APPLIED_UNVERIFIED` at that stage, pending the user's identification of the excluded icon. Compared the supplied crop with `background.png`, `background_text.png` source Y 7000–8100 and the previous Pro browser crop. Updated six target Y values in `docs/elements-mapping.md` **before** `lib/icon-map.json`: I01 +4, I03 +5, I04/I05 +6, I07/I08 +4 source px. I02 Smart Core, four feature icons, all labels, connectors, X/native sizes and source PNG bytes did not change; unused duplicate I06 tracks I05. The excluded Smart Core is a stated provisional inference from the smallest previous measured DOM gap, not user approval. Saved real production WebKit Pro, Pro Max and Arabic screenshots plus 22 locale/device measurements in [icon evidence](screenshots/actual/designer-icon-kit/README.md): no horizontal overflow, positive gaps (Pro 4.72–7.72, Max 5.16–8.42 CSS px). A top-to-footer 17-stop scroll on both mobile profiles found decoded artwork at every stop, zero failed art requests and no overflow. Independent discipline auditor directly viewed reference and browser crops and gave stage-1 scope, stage-3/4 visual/behavior, and stage-5 review/performance `PASS` **for this provisional six-icon candidate**; its final closeout verdict is `BLOCKED` only on the external six-of-seven selection. Focused Playwright 8/8, typecheck, lint, production build (14 static pages) and diff check PASS. `tests/e2e/technology-icons.spec.ts` minimum gap assertion changed from 6 to 4 CSS px to reflect the closer reference while still rejecting overlap. Native review found no actionable regression. Technical approval of the six-ID selection was withheld at that stage; the customer later accepted the current vertical distance as recorded in the integrated closeout below; no artwork/network payload changed, so previous loopback performance sample is historical rather than a new speed claim. Controlled [EVAL-MAP](docs/agent-evals.md#eval-map) `NOT_RUN`; customer acceptance `NOT_RECORDED` at that stage.
+CHANGELOG.md:981:- **Verification evidence:** Real production WebKit DPR 3 screenshots reviewed against the reference: [Pro DE](docs/evidence/icon-centering/pro-de.png), [Pro Max DE](docs/evidence/icon-centering/max-de.png), [Pro AR](docs/evidence/icon-centering/pro-ar.png), [Pro EN](docs/evidence/icon-centering/pro-en.png). [Geometry](docs/evidence/icon-centering/geometry.json) stores **154 icon/label pairs** (11 locales × seven icons × Pro/Pro Max): largest non-English center error 0.016 Pro-normalized CSS px, no translated-label overflow, present gaps 4.711–7.719 normalized CSS px. The 91 before/after pairs actually present in the baseline file retain their vertical gap within 0.005 normalized CSS px; the remaining Pro Max Y invariance follows directly from the X-only code change and current gap measurements, not invented before/after records. EN keeps its source X. Focused technology suite passed **8/8** across mobile WebKit and desktop Chromium/Firefox; final typecheck, lint, production build (14 static pages) and diff check passed. No image assets, network payload or loading strategy changed. Native review initially found the missing completed journal record and no functional regression; final native review found no actionable regression.
+CHANGELOG.md:1011:- **Решение / применение / файлы:** `VERIFIED`. [Карта EW-L/EW-R/EW-G](docs/expression-waves-map.md) → `tools/generate-expression-waves.mjs` извлекает только декор разницей `background_text.png` и `background.png` с явными масками текста/кнопки → `public/art/expression-waves.png` (700×400, 93 KB) → декоративный `<Image>` в `components/Story.tsx` на source x120/y14665, `app/globals.css` располагает его между фоном и живыми надписями. Текстовые DOM-узлы, локализованные ширины B08 и действие сравнения не менялись. `tests/e2e/expression-waves.spec.ts` проверяет все 11 локалей в четырёх браузерных профилях.
+CHANGELOG.md:1012:- **Проверка и история:** После первой генерации предварительный композит показал захваченный чёрный пиксель пунктуации; маска правой дуги сужена, повторный просмотр чистого композита не показал ghost text. Первый тестовый запуск в sandbox не смог запустить браузеры (EPERM/abort), повторный с локальным разрешением выявил слишком строгое новое условие центрирования B08: сам эталон смещает пилюлю на 5 source px. Тест уточнён под эталон; 4/4 PASS, 11 локалей × четыре профиля, включая RTL и кликабельный B08. Реальные WebKit DPR3 [Pro EN](docs/evidence/expression-waves/pro-en.png), [Max EN](docs/evidence/expression-waves/max-en.png), [Pro DE](docs/evidence/expression-waves/pro-de.png), [Pro AR](docs/evidence/expression-waves/pro-ar.png) и [контактный лист 11 локалей](docs/evidence/expression-waves/all-locales-contact.png) просмотрены рядом с [source crop](docs/evidence/expression-waves/reference-pro.png). Aligned Pro pixel diff 5.057%; видимые отличия преимущественно в браузерных шрифтах/кнопке и растеризации остального фона, дуги совпадают визуально. Typecheck, lint, production build (14 static pages), diff check PASS. Независимый аудитор дал scope/implementation/visual/behavior и review/performance `PASS`; финальный record gate подтверждается ниже. Первый нативный review выявил раннюю загрузку below-fold 93 KB картинки; `components/Story.tsx` переведён на `loading="lazy"`. Первый повторный lazy-тест отказал из-за снятого до scroll bounding box канваса; тест исправлен, финальный прогон 4/4 PASS ([лог](docs/evidence/expression-waves/test.log)). После быстрого перехода WebKit Pro/Max/DE/AR повторно сняты и просмотрены; [lazy-check](docs/evidence/expression-waves/lazy-check.json) подтверждает ноль запросов волн на старте и один запрос/декодирование у секции. Локальный production Chromium mobile 402×874/DPR3: TTFB 18.9ms, FCP/LCP 140ms, CLS 0, первый экран 15.70 MB transfer (существующий CHG-0048), JS 160.3 KB, слой волн на старте не загружается и позднее добавляет 95,443 transfer bytes; INP не измерен ([замер](docs/evidence/expression-waves/performance.json), loopback без throttling). Первый повторный review не нашёл UI-регресса, но указал на неточный промежуточный статус `OPEN`; индекс и запись были исправлены на `APPLIED_UNVERIFIED`. Следующий review нашёл старую фразу в CHG-0051 о статусе CHG-0049; она исправлена как историческая. Окончательный нативный review (`/private/tmp/ramsider-wave-review-clean2.log`) завершился без actionable замечаний. [Собранная страница](docs/evidence/expression-waves/assembly.json): 10 Pro/Max scroll-точек, без overflow и пустых видимых изображений. Технический аппрув и пользовательское решение — отдельной строкой ниже.
+CHANGELOG.md:1023:- **Проверка / история:** Первый кандидат на 600px поднимал код на 2 CSS px слишком высоко; второй оставлял Chromium 440px `JA` на +1.667 CSS px; третий выявил Chromium 600px до -1.75 CSS px и `JA` 550px +1.5 CSS px. Каждое отклонение устранялось и проверялось повторно, история замеров сохранена. На окончательной production-сборке [176 pixel-замеров](docs/evidence/locale-axis/verified-matrix.json) (11 локалей × 8 ширин 402/440/500/550/600/650/700/941 × WebKit/Chromium) дают расхождение видимых центров от -1.25 до +1 CSS px; ни одного за этим допуском. Реальные снимки DE/JA на Pro, Pro Max, 600/700/941px ([каталог evidence](docs/evidence/locale-axis/)) просмотрены рядом с пользовательским crop. Открытый IAB обновлён: фактические 756px/DPR2 и применённый CSS подтверждены; [22 замера этой ширины](docs/evidence/locale-axis/iab-width.json) (11 локалей × 2 движка) от -0.75 до +0.25 CSS px. [Playwright verified](docs/evidence/locale-axis/playwright-verified.log): 12 passed/12 profile-specific skips, выбор, touch, keyboard, RTL, scroll, responsive. Production build/TypeScript, lint, `git diff --check` `PASS`; живой `:3020` перезапущен на финальной сборке. [Local performance](docs/evidence/locale-axis/performance-verified.json): FCP/LCP 96–376ms, CLS 0–0.0018 при loopback без throttling, 8 JS resources и те же ~15.7MB mobile transfer, что до CSS-правки; отдельный CHG-0048 остаётся открытым. Первый native review выявил несвоевременно обновлённый статус записи — исправлено; третий выявил мобильный Chromium drift — исправлено. Последний [native review](docs/evidence/locale-axis/native-review-verified-tail.log) вновь высказал P2 о маске прежнего CHG-0052; независимый аудитор не подтвердил видимый изъян на целевом размере. Дополнительно сравнение source-композита и чистого фона [за спорной границей](docs/evidence/locale-axis/review-wave-mask-check.json) дало максимум 8/255 и ноль пикселей с delta >20 среди 3400, поэтому материал для исправления этой отдельной маски не выявлен. Review не заявлен как «ноль findings».
+CHANGELOG.md:1034:- **Проверка / история:** Первый кандидат с буквальным фоном locale был визуально плохо читаем поверх крупного hero-текста; второй затем третий кандидат с отдельным более плотным серым тоном улучшили читаемость, но независимый visual audit отверг отличие от прозрачности списка языков, а native review дал P2 за несовпадение CSS и теста со спецификацией. Финальный кандидат вернул точные параметры locale и оставил лишь светлую тень надписей. [Production build](docs/evidence/nav-menu/build.log) 14/14 статических страниц, [TypeScript](docs/evidence/nav-menu/typecheck.log), [lint](docs/evidence/nav-menu/lint.log), diff check `PASS`; [focused navigation run](docs/evidence/nav-menu/navigation-behavior.log) 7 passed / 1 intentional Firefox locale-matrix skip, Pro/Pro Max WebKit и desktop Chromium/Firefox; [финальная locale integration](docs/evidence/nav-menu/locale-integration.log) 21 passed / 19 expected profile skips; [preview smoke после перезапуска](docs/evidence/nav-menu/final-preview-smoke.log) 2 passed. Тест сравнивает computed фон, blur, рамку, радиус и тень с `locale-options`, а также click-away, scroll/inner scroll, Escape/focus, якорь, RTL и 11 локалей без горизонтального overflow. Реальные парные снимки меню `nav-*` и `locale-*` для EN/AR Pro/Max и desktop просмотрены; поверх первых пунктов виден крупный hero-текст, но foreground строки читаются. [Final native review](docs/evidence/nav-menu/native-review-final.log) без actionable regression. [Local performance](docs/evidence/nav-menu/performance.json): Chromium Pro 402×874/DPR3, loopback без throttling FCP/LCP160ms, CLS0, JS153881B, transfer15.70MB и открытие меню64.5ms; INP не измерен, тяжёлый фон остаётся открытым CHG-0048. Исходный список локалей не изменён.
+CHANGELOG.md:1045:- **Проверка / история:** Предыдущий сохранённый Pro/Max замер был +2.133/+2.134 CSS px вправо. После правки [WebKit geometry](docs/evidence/light-axis/geometry.json) даёт EN -0.008/-0.007, DE 0/-0.007, AR 0/-0.007 нормализованных CSS px на Pro/Max; вертикальный gap EN остался 5.141/5.139. Просмотрены [точечные](docs/evidence/light-axis/pro-en.png) и [собранные](docs/evidence/light-axis/assembled-pro-en.png) реальные EN Pro/Max WebKit снимки, а также DE/AR кропы; близкий пользовательский crop использован для качественного сравнения, численный pixel diff неприменим из-за неизвестного масштаба. [Тесты иконок](docs/evidence/light-axis/technology-tests.log) 8/8 на Pro/Max WebKit и desktop Chromium/Firefox, охвачены 11 локалей. [Build](docs/evidence/light-axis/build.log) 14 статических страниц, [typecheck](docs/evidence/light-axis/typecheck.log), [lint](docs/evidence/light-axis/lint.log), diff check `PASS`. [Native review](docs/evidence/light-axis/native-review.log) без actionable regression. [Local performance](docs/evidence/light-axis/performance.json): Chromium402/DPR3 loopback FCP/LCP124ms, CLS0, JS153881B, transfer15.70MB; INP не измерен, тяжёлый фон CHG-0048 остаётся открытым. Preview `:3020` перезапущен на исправленной сборке.
+CHANGELOG.md:1052:- **Было → должно быть:** Активные 22 PNG сохраняют Adobe RGB (1998), но передают десятки MB; `public/art/unused-webp/` содержит старые lossy VP8 без ICC. Требуются фрагменты той же геометрии с управляемым цветом, проверенным декодированным отклонением и быстрой загрузкой на мобильном.
+CHANGELOG.md:1054:- **Критерии:** Явно сопоставить исходные Adobe RGB цвета с sRGB результатом; сохранить корректный sRGB ICC и alpha, проверить decoded WebP против color-managed sRGB эталона (в том числе красно-оранжевые зоны, край и стыки), выбрать степень сжатия по измерениям, а не по фиксированной цели KB. Проверить реальные Pro 402×874 и Pro Max 440×956 WebKit DPR3 после `decode()`/paint, representative widths/RTL, байты и холодный первый экран/дальний scroll на ограниченной сети. Удалять только старый `unused-webp`, не менять пользовательские исходники. Технический аппрув текущего результата указан ниже; пользовательская приёмка `NOT_RECORDED`.
+CHANGELOG.md:1060:- **Проверки финального preview-варианта / промежуточный suite FAIL:** 8/8 focused WebKit Pro/Max прошли, в том числе удаление preview после full decode. `tools/check-art-browser.mjs` сравнил 10 пар реального Pro/Max WebKit с временными sRGB PNG; max mean absolute по каналам на экране 1.176/255, кадры осмотрены. `tools/check-art-assembly.mjs` зафиксировал 20 join-состояний, 0 overflow, два full-page assembled кадра; контактные листы всех стыков осмотрены. Один полный suite при шести параллельных браузерах дал 91 PASS/19 SKIP/2 FAIL: меню desktop и повторное открытие technology dialog Pro. Обе группы отдельно переиграны 4/4 PASS ([лог](docs/evidence/art-webp/retry-interactions.log)); вероятная причина — параллельная нагрузка, не доказанная как единственная. Выполняется полный повтор с двумя workers. Предыдущий результат FAIL сохранён как история, не считается PASS.
+CHANGELOG.md:1075:- **Решение / применение:** `tools/slice-background-png.py` теперь сохраняет резерв в `public/art/original-png/`, а не в рабочий `public/art/`; он сверяет каждый PNG с исходным crop по RGBA/ICC, с соответствующим активным WebP по размерам и записывает `manifest.json` с source SHA, координатами, размерами, byte count и output SHA. Созданы 22 PNG и `README.md`. Рабочий `components/Story.tsx` не менялся. Добавленный объём public/deployment: 46,308,888 PNG bytes плюс малая документация; отсутствие ссылки в runtime подтверждено статическим поиском, production network-check прошёл.
+CHANGELOG.md:1101:- **Сравнение кандидатов:** [Таблица default vs sharp](docs/evidence/art-webp/sharp-yuv-candidates.json) и новый [color report](docs/evidence/art-webp/color-metrics.json): 10/11 крупных tiles выбрали sharp, hero сохранил прежний q95 из-за ухудшения локального красного, некоторые FAQ остались обычными. Полный WebP набор 6,278,036 B против прежних 5,664,838 B (+613,198 B, 10.8%); hero 248,236 B практически неизменен. На сложных 03/04 sampled ΔE76 p99 снизился 8.254→6.760 и 7.467→5.968, RGB p99 max 12→10. `doc-emc` теперь lossless 7,360 B вместо 3,954 B, decoded ошибка 0 против прежних red/blue p99 29/255. q100 sharp на 00/01/03/04 проверен; 40–90% рост байтов давал малое дополнительное улучшение, поэтому не выбран. Первая чрезмерно строгая local-gate версия (33.79 MB) отвергнута и сохранена в истории выше.
+CHANGELOG.md:1102:- **Финальные проверки 2026-10-04:** Skill `quick_validate.py` PASS через временный адаптер к проектному `js-yaml`: PyYAML отсутствует, загрузка из PyPI недоступна; валидатор проверил YAML и структуру. [Color report](docs/evidence/art-webp/color-metrics.json): 22 embedded sRGB ICC, alpha от источника, visible RGB p99 max 10/255 на lossy main, все пять docs exact lossless; source-exact Adobe RGB reserve 22/22 SHA/ICC сохранён в `design/derived/original-png/`. [12 Pro/Max WebKit PNG/WebP пар](docs/evidence/art-webp/browser/comparison.json), включая исправленный документальный блок: max channel meanAbs 0.93/255, документы Pro [0.497,0.383,0.579], Max [0.537,0.414,0.618]; прямые [локальные красные source/browser crops](docs/evidence/art-webp/local-red/) для 00, 09-10, FAQ3 осмотрены без материального видимого расхождения. [20 стыков](docs/evidence/art-webp/browser/assembly.json), 0 overflow, Pro/Max contact и assembled кадры осмотрены. [Full browser suite](docs/evidence/art-webp/browser-tests-chg0058.log): 93 PASS/19 ожидаемых SKIP на Pro/Max WebKit, desktop Chromium/Firefox. [Build](docs/evidence/art-webp/build-chg0058.log) 14 static routes, [typecheck](docs/evidence/art-webp/typecheck-chg0058.log), [lint](docs/evidence/art-webp/lint-chg0058.log), diff check PASS. [Cold 4 Мбит/с sample](docs/evidence/art-webp/performance.json): hero paint 1983ms (прежде 2021ms), preview дальнего блока 35ms, full 6286ms (прежде 5599ms), FCP/LCP текста 336ms, CLS 0.000222, scroll p95 16.7ms/0 frames >33ms; это отдельные синтетические прогоны, не гарантия реальных пользователей. Дополнительные 613,198 B активных WebP — осознанная цена меньшей цветовой ошибки; запасные PNG вне public не увеличивают payload/deployment. Field INP/Lighthouse/P3/Photoshop ACE parity не измерены.
+CHANGELOG.md:1103:- **Native review история:** Первый [review](docs/evidence/art-webp/native-review-chg0058-final.log) нашёл P2 о 46.3MB резерве в `public/`; CHG-0057 reopened и резерв перемещён в `design/derived/`. Следующий [review](docs/evidence/art-webp/native-review-chg0058-final2.log) нашёл P2 зависимости PNG-генератора от существования активного WebP; сверка стала условной, оба сценария повторены. [Финальный native review](docs/evidence/art-webp/native-review-chg0058-final3.log) exit 0 без actionable findings. Два FAIL сохранены; независимый дисциплинарный аудитор подтвердил implementation, local-red visual, Pro/Max documents, behavior и performance/review gates; финальная независимая сверка журнала `PASS` 2026-10-04.
+CHANGELOG.md:1126:- **Дата / источник / статус:** 2026-10-06; USER_REQUEST / FEATURE + CUSTOMER_REJECTION; `VERIFIED` 2026-10-07: оригинальные PNG восстановлены и проверены по bytes/HTTP/browser; прежние rejected photo deliveries исторические.
+CHANGELOG.md:1147:- **Повторные проверки / 2026-10-06:** Pro/Max WebKit 10/10 after transparent-hitbox reposition and refreshed screenshots PASS; independent visual re-audit PASS. Финальная production [матрица](docs/evidence/technology-viewer/adaptation-controls.json) 26/26 across EN/AR 320/1440 and all 11 locales 375/768 checks top/dot/bottom clicks, 44px/full-rectangle separation, one active dot, frame decode, no overflow. После финальной CSS правки [затронутый suite](docs/evidence/technology-viewer/targeted-controls-final.log) 52/52 PASS (Pro/Max WebKit, desktop Chromium/Firefox); общий suite перед последней CSS-правкой [113 PASS/19 ожидаемых SKIP](docs/evidence/technology-viewer/full-controls.log). Typecheck/lint/build (14 static routes)/diff-check PASS. [Финальный synthetic local Pro performance](docs/evidence/technology-viewer/performance-controls.json): LCP96ms, CLS0, JS162381B, 0 запросов technology до открытия, open→ready175ms; frame240123B и две точки1704/1541B по transferSize; field INP/Lighthouse/P3 не измерены. Повторный uncommitted native review не нашёл дефекта просмотрщика, но отметил несвязанный untracked 43MB `design/references/background_old.png`; файл пользователя сохранён и исключается из scoped commit, затем будет выполнен commit-specific review. Независимый behavior/adaptation audit PASS; review/performance/final ждёт commit review. **Технический аппрув нового поведения:** `PENDING` до финального review и closeout. **Аппрув пользователя:** `NOT_RECORDED`.
+CHANGELOG.md:1158:- **Assembly recheck attempt / 2026-10-07:** Повторные два long-page checks в общем прогоне исчерпали30s при ожидании lazy art; причина исторического intermittent ожидания ещё не установлена, viewer tests прошли. Первый адресный retry с anchored grep обнаружил0 tests из-за полного Playwright title; это НЕ pass. Следующий retry использует substring grep, results будут добавлены.
+CHANGELOG.md:1165:- **Применение originals / 2026-10-07:** `tools/copy-technology-originals.py` побайтово копирует four clean941×1672 RGB PNG (по4,729,424 B, ICC отсутствует) в public/art/technology/02–05.png. Source/public SHA и bytes равны4/4. Старые photo WebP и lib/technology-previews.json удалены; viewer теперь PNG/unoptimized, import/style tiny preview сняты, predecode transitions используют PNG. Глобальным поиском найдены и обновлены все URL consumers в viewer/site specs и responsive matrix; новый HTTP identity regression check сверяет тело каждогоPNG с source и404старыхphotoWebP. Карта/evidence original-png/assets.json. Статус APPLIED_UNVERIFIED; browser/build/review/performance approval pending.
+CHANGELOG.md:1166:- **Проверка originals / 2026-10-07:** source/public/HTTP bytes+SHA совпадают4/4, actual PNG200/image/png и old photo WebP404. Первый sandboxHTTP check EPERM разрешён повтором с эскалацией; его ошибка не засчитана какpass. Portable all4×Pro/Max screenshots послеdecode осмотрены primary/auditor, visualPASS. Production browser24/24 и integration4/4 PASS; locale/width matrix26/26 PASS. Type/lint/build14 SSG/diff и native review no actionable findings PASS. Производительность original payload: фото18,917,696B total, перваяPNG transfer4,729,724B; локальные LCP168ms/CLS0/JS157,731B,0technology requests before open,decode144ms,scroll p95 17.6 ms / 0 >33 ms. [Evidence](docs/evidence/technology-viewer/original-png/checks.md). Technical approval pending final audit; user acceptance correction NOT_RECORDED.
+CHANGELOG.md:1167:- **Технический аппрув originals / 2026-10-07:** Codex primary verifier `APPROVED` по byte-identical source/public/HTTP4/4, PNG MIME и404удалённых photoWebP; portable all4×Pro/Max DPR3 декодированные screenshot images;24/24 viewer tests +4/4 integration +26/26 locale/width states; type/lint/build14SSG/diff + native review no actionable defects; честный original payload18,917,696B, initial0technology requests и local production LCP168ms/CLS0/JS157,731B/PNGdecode144ms. Independent discipline auditor scope, visual, behavior/adaptation, review/performance `PASS`; independent final staged record audit `PASS` on 2026-10-07. [Evidence](docs/evidence/technology-viewer/original-png/checks.md). Explicit user acceptance correction `NOT_RECORDED`; prior converted photos `REJECTED`. Actual originals delivered, no image optimization/conversion/color change. Missing next group remains honest placeholder.
+CHANGELOG.md:1230:- **Checks / 2026-10-07:** Fresh production3021 build14SSG/type/lint PASS; viewer40/40 + strengthened failure/retry4/4 + integration4/4 across Pro/Max WebKit and Chromium/Firefox. All4 acceptedPNG/master/HTTP/hash/RGB checks PASS. All8 final actuals show0changedRGB channels vs accepted CHG0063; independent visualStage3 PASS after directly viewing8. Lowpriority all4parallel post-load, no requests beforeload/earlyopen exception, decodedoffline swipes/reopen/cache4instances and failureeviction tested. Native review noactionable defect. Local LCP120/CLS0/JS159607(+209)/scrollp9516.7/0>33; synthetic4Mbps+100ms warmed LCP340/load3187/CLS0.000222/p9516.7 versus disabledwarmcontrol336/3177.5/sameCLS/16.8. Original18.9MB transfers complete~52.75sec duringcoldlongscroll; cache switch18–34mslocal/25–34msconstrained. This is a bandwidth tradeoff, not a guarantee allfiles finish before immediateopen. Evidence docs/evidence/technology-viewer/async-warm/checks.md. Native/screenshot proof retained; independent behavior/review/final record verdicts pending. ExistinguserIAB3021 refreshed and observed actualviewer. No new agentdefect/lesson/evalrun; prior optionalmodal loadingpolicy explicitly superseded by user.
+CHANGELOG.md:1283:- **Mapping / acceptance:** frame asset941×1628 has nonzeroalpha at x0 and940 (no hidden external margin); transparent openingx29:912/y31:1600. Set mobile canvas contourleft0,width100%; openingleft29/941=3.08182784%,width883/941=93.83634431%. Vertical frame/stage placement and navigation unchanged. Original PNG/frame/font bytes and warming unchanged; CSS-only change, raster pipeline N/A. PortraitPro402×874 andMax440×956 DPR3,13Pro390×664/732/844; screenshot/frame-boundary/reference-plane comparison, all4slides/swipe/dots/twoCTAs/close/focus/backing/RTL/overflow, retained centered tablet/desktop canvas, type/lint/build/native review/localproduction measurements. Scope auditor pending; statusOPEN, approvalPENDING, useracceptanceNOT_RECORDED.
+CHANGELOG.md:1287:- **Actual verification / 2026-10-07:** Production build/typecheck/lint/native review independentlyexit0 (14static routes; native no actionable regression).48/48viewer tests PASS (baseline edge regression failed as expected before fix);4/4dialog integration PASS. Source/public/HTTP PNG identity/mask checks remainPASS, source frame/PNG files unchanged in diff. Pro/Max eight screenshots captured; outside-frame controls have0changed RGBchannels versus0065. Primary viewed real Pro/Max and13Pro captures: metalouteredge atx0/rightviewport, photo flush with native cutout, no blackgap or crop; originalcomplete4renders/copy/labels retain source-space alignment. Secondary source-contour comparison MAE1.02Pro/1.49Max, p9923/33: Sharp resampling and rounded fractionalverticalcoordinates differ at thinlines; not an exact browserRGB fidelity claim. Numeric comparison supplements directly inspected source/reference/actual seam. Mobile390×664/732/844/openresizes/RTL plus retainedtablet/landscape checks PASS, no pageerrors/overflow; known0066landscape overlap retained. All assets bytes and4postload parallel requests unchanged. Scoped technical approvalprimary PENDING independent visual/behavior/performance audits; useracceptanceNOT_RECORDED.
+CHANGELOG.md:1295:- **Public check attempt / 2026-10-07:** First release script failed its default5s expectation on Pro slide03 while02 was still displayed;13Pro had already completed its four-slide pass. The script copied a short local-style readiness deadline and did not establish completion of asynchronous19MB warming before asserting a cached switch. Primary owns this missed public-network synchronization check. Failure retained in public-checks-attempt-1.log and not counted PASS. Browser runtime is unchanged; rerun observes actual PNG responses/body identity with a bounded resource barrier and logs progress before warm-switch assertions. Pending rerun determines whether there is any product defect; no hardware or network speed claim inferred. Existing resource/decode lesson and EVAL-VIEWER (controlled run NOT_RUN) applied.
+CHANGELOG.md:1301:- **Independent public release / 2026-10-07:** discipline_audit `PASS` after exact runtime SHA/Production6909034211 success, canonical public JSON/log and direct public13Pro/Pro/Max actual inspection. Contour touches both edges, native cutout/photo aligned; all12 received PNG bodies match accepted bytes/hashes, eight Pro/Max public comparisonsRGB0, noerrors and backing/close restore pass. Failed5s check remains historical evidence; rerun was resource-synchronized with no runtime edit. Scoped public release technically approved;0065physical and0066landscape limits remain.
+CHANGELOG.md:1310:- **Source mapping:** Both941×1672, no ICC tag (intended source profile unknown, no guessed profile), firstRGBA/allalpha255 and secondRGB. Inventory hashes/bytes in cybermind/source-inventory.json. Tight glyph-only masks boundx52:548/y125:277,25134/25169pixels; actual wall under removed letters must be locally reconstructed and is not provably original. Full resolution/channel/alpha and exact decoded pixels outside masks required. Native original frame/cutout and group1 PNGs unchanged. Live title sourceplane x46/baseline209/font112, CyberMind≈500sourcepx advance; subtitle x54/baseline267/font31/#975f41. Separate semantic title remains OpenSans400; no new descriptive text.
+CHANGELOG.md:1312:- **Acceptance:** Pro402×874/Max440×956 DPR3 actuals/sourcepairedcrops, title seam inspection and decoded RGB/alpha outside mask, four/two interactive dots, bothCTAs/down/up/keyboard/RTL/X/focus/cachedoffline/retry/race and portrait13Pro, tablet/desktop. First2 post-load lowpriority/noearlyrequests; remaining4 start onopen inparallel; early-open exception, no duplicate decoded Image/cache instances, reuse after close/groups. No changes to accepted group1 appearance/control geometry except new functional group action. Separate type/lint/build/native review, production firstview/bytes/scroll/cache and public proof. Existing lessons sourceframe/glyphmask/groovephase/original-only/delayedmedia/publicresourcebarrier consulted; EVAL-VIEWER controlledrun NOT_RUN. Physical0065 and landscape0066 remain independent open limitations.
+CHANGELOG.md:1317:- **Applied / 2026-10-07:** Added technology-gallery metadata and11locale names/up control, two-dimensional viewer selection/token/cache, down/up/remembered-group navigation, six-original staged warming, reusable live CyberMind title; group2 has no description/folio. Previous gold arrow uses existing down PNG rotated180,44px target; narrow320 next-group target separated via max54px inset. Tight source-preserving original PNG generator and native wall patches applied:01RGBA6305310B/02RGB4729424B,941×1672/noICC; outside glyph changedchannels0/alpha0 for both. Primary viewed native source/clean title crops; no lettering ghost visible, browser visual audit pending. Source masters and accepted HeatCore/frame bytes unchanged. Typecheck initialPASS, production build14staticPASS, fresh3021 server restarted; final tests/static/review pending. StatusAPPLIED_UNVERIFIED. Main sources/crop/mask inventory and generation prompt saved with evidence; source-hidden wall explicitly reconstructed.
+CHANGELOG.md:1354:- **Actual → expected:** Both CyberMind images currently show only the live title. Add all remaining reference text as Open Sans React content in source positions, while omitting the bottom-left photo folios `02 / 08` and `02 / 02`. Retain the existing upper slide indicators and original PNG bytes.
+CHANGELOG.md:1359:- **Applied / 2026-10-07:** New `lib/cybermind-descriptions.ts` holds all eleven locale copies; `components/CyberMindDescriptions.tsx` places semantic headings, paragraphs and five callouts on the native 941×1672 plane using the existing Open Sans text component. Viewer renders it only for the decoded CyberMind slide; Story passes current-locale copy. All clean PNG/frame bytes untouched; source icon/leader artwork remains in PNG. Excluded bottom-left folios; upper active indicators retained. PRODUCT tracks unverified claims. Typecheck/lint PASS; production build and visual/browser checks pending. Status `APPLIED_UNVERIFIED`.
+CHANGELOG.md:1387:## CHG-0071 — Partial raster views, shared loading progress and staged preload
+CHANGELOG.md:1391:- **Cause/responsibility:** AGENT: initial open inserts a new live `<Image>` and title/descriptions immediately, even though transition select awaits a separate preload image's decode. Warming did not certify initial paint; the code had no visible loading state and no interaction lock. The customer screenshot shows the uncovered progressive frame; exact device/network history is unknown. Prior delay checks covered transitions and hashes, not first-open partial bytes + composed text.
+CHANGELOG.md:1392:- **Missed check / behavior:** Exercise a cold first open while body bytes arrive in chunks and while decode is held; inspect a real screenshot, title absence, progress and blocked gestures. Record in LESSONS and [EVAL-VIEWER](docs/agent-evals.md#eval-viewer), controlled agent run NOT_RUN.
+CHANGELOG.md:1393:- **Solution/map:** `docs/media-loading-plan.md` defines full inventory and acceptance. Shared original-byte resource cache/decode readiness, loading status and scroll-lock; native first-page tile retains eager/preload, visible page media uses actual DOM decode barrier; technology uses retained decoded image so a newly inserted image cannot expose a partial photo. Cache failures evict/retry; pending target freezes navigation, Close remains usable.
+CHANGELOG.md:1397:- **Applied / 2026-10-08:** Shared `lib/media-resource.ts` streams original bytes, emits true byte progress when reliable, creates a Blob image, decodes and retains the same element for actual gallery paint. Failure evicts the URL cache; retry is explicit. Shared `MediaLoading.tsx` supplies all11locale status/retry, indeterminate fallback and ref-count scroll lock. `PageMediaGate.tsx` preserves native eager/preloaded hero and waits on actual visible DOM images; native byte progress is unavailable, so its bar is indeterminate. `Story.tsx` marks substantial tiles/tail/FAQ/doc/wave assets, near-viewport loading is75% margin; small decoration stays unchanged. `TechnologyViewer.tsx` guards initial and transition frames, keeps old complete frame during pending transitions, locks navigation, allows Close, warms2pergroup afterwindowload and remaining2onlyonopen. No public/source asset changed. Applied status APPLIED_UNVERIFIED pending final gates.
+CHANGELOG.md:1398:- **Recheck failure/fix / 2026-10-08:** Full mobile run first42/44 passed; two tests still asserted obsolete CyberMind wrap and were corrected to endpoint stop/reverse. Next47/48 passed; Pro Max partial-response check observed underlying scroll moving2653→3013 while locked. Primary had relied on overflow to stop new inputs and missed an already-running smooth opener scroll. Shared lock now cancels that scroll and temporarily sets auto behavior; modal focus uses preventScroll. Production rebuild/type/lint PASS and same Pro Max scenario passed3/3 repeats. Test hash computation now returns a browser SHA256 instead of transferring4.7million bytes into the harness. Final broader recheck pending.
+CHANGELOG.md:1399:- **Native review / 2026-10-08:** First native review returned P2 suggesting one warm photo pergroup because four originals cost about20MB. This conflicts with the user's explicit two-pergroup request; warming remains asynchronous afterload atlowpriority and measured payload/memory cost is reported. No unsupported claim that the larger preload is free. Final native review and independent review/performance audit pending.
+CHANGELOG.md:1400:- **Cross-browser failure routing / 2026-10-08:** First four-browser run112/116 PASS. Desktop disabled-dot focus escaped the dialog, so later ArrowUp did not reach viewer; layout focus now returns to the dialog during pending selection. Firefox cached a corrupt HTTP200 native image and same-URL Retry did not fetch fresh bytes; retries now use a fresh query cache key and test requires exactly a second request/decoded-ready. One rapid Firefox locale click did not open the viewer; initial listener now installs in layout effect before interactive paint, with recheck pending. Primary also found the separate BackToTop outside main's inert wrapper could still be keyboard activated during page loading; CSS now hides that control while page gate is active and the offscreen-pending test checks it. These are agent-owned missed focus/cache/global-control checks; prior partial passes are preserved, not final approval.
+     1	export type ImageProgress = { loaded: number; total: number | null; ready: boolean; error: boolean };
+     2	export type ImageResource = {
+     3	  ready: Promise<HTMLImageElement>;
+     4	  progress: ImageProgress;
+     5	  subscribe: (listener: (progress: ImageProgress) => void) => () => void;
+     6	};
+     7
+     8	const images = new Map<string, ImageResource>();
+     9	const decoded = new WeakMap<HTMLImageElement, Promise<void>>();
+    10
+    11	/** Readiness belongs to the actual element that will paint, including native lazy images. */
+    12	export function decodeImageElement(image: HTMLImageElement): Promise<void> {
+    13	  const existing = decoded.get(image);
+    14	  if (existing) return existing;
+    15	  const ready = image.decode().then(() => {
+    16	    if (!image.naturalWidth) throw new Error('Image has no decoded pixels');
+    17	  }).catch(error => {
+    18	    decoded.delete(image);
+    19	    throw error;
+    20	  });
+    21	  decoded.set(image, ready);
+    22	  return ready;
+    23	}
+    24
+    25	/** One original-byte transfer and one retained decoded image per URL, shared by all viewers. */
+    26	export function loadImage(src: string, priority: 'low' | 'high' = 'low'): ImageResource {
+    27	  const existing = images.get(src);
+    28	  if (existing) return existing;
+    29	  const listeners = new Set<(progress: ImageProgress) => void>();
+    30	  const resource: ImageResource = {
+    31	    progress: { loaded: 0, total: null, ready: false, error: false },
+    32	    ready: Promise.resolve(null as unknown as HTMLImageElement),
+    33	    subscribe(listener) {
+    34	      listeners.add(listener);
+    35	      listener(resource.progress);
+    36	      return () => { listeners.delete(listener); };
+    37	    },
+    38	  };
+    39	  const update = (patch: Partial<ImageProgress>) => {
+    40	    resource.progress = { ...resource.progress, ...patch };
+    41	    listeners.forEach(listener => listener(resource.progress));
+    42	  };
+    43	  resource.ready = (async () => {
+    44	    let objectURL: string | undefined;
+    45	    try {
+    46	      const response = await fetch(src, { priority } as RequestInit);
+    47	      if (!response.ok) throw new Error(`Image response ${response.status}`);
+    48	      // Compressed transfers do not have a reliable decoded byte denominator.
+    49	      const length = Number(response.headers.get('content-length'));
+    50	      const total = !response.headers.get('content-encoding') && length > 0 ? length : null;
+    51	      update({ total });
+    52	      const chunks: Uint8Array<ArrayBuffer>[] = [];
+    53	      const reader = response.body?.getReader();
+    54	      if (reader) {
+    55	        while (true) {
+    56	          const { done, value } = await reader.read();
+    57	          if (done) break;
+    58	          chunks.push(new Uint8Array(value));
+    59	          update({ loaded: resource.progress.loaded + value.byteLength });
+    60	        }
+    61	      } else {
+    62	        chunks.push(new Uint8Array(await response.arrayBuffer()));
+    63	        update({ loaded: chunks[0].byteLength });
+    64	      }
+    65	      if (total !== null && resource.progress.loaded !== total) throw new Error('Incomplete image transfer');
+    66	      objectURL = URL.createObjectURL(new Blob(chunks, { type: response.headers.get('content-type') ?? 'application/octet-stream' }));
+    67	      const image = new Image();
+    68	      image.dataset.source = src;
+    69	      image.src = objectURL;
+    70	      await decodeImageElement(image);
+    71	      update({ ready: true });
+    72	      return image;
+    73	    } catch (error) {
+    74	      if (objectURL) URL.revokeObjectURL(objectURL);
+    75	      images.delete(src);
+    76	      update({ error: true });
+    77	      throw error;
+    78	    }
+    79	  })();
+    80	  // Prefetch callers may choose to observe progress without awaiting readiness.
+    81	  void resource.ready.catch(() => {});
+    82	  images.set(src, resource);
+    83	  return resource;
+    84	}
+    12	  it: ['Caricamento immagine…', 'Impossibile caricare l’immagine.', 'Riprova'],
+    13	  tr: ['Görsel yükleniyor…', 'Görsel yüklenemedi.', 'Tekrar dene'],
+    14	  ar: ['جارٍ تحميل الصورة…', 'تعذّر تحميل الصورة.', 'إعادة المحاولة'],
+    15	  zh: ['正在加载图片…', '图片加载失败。', '重试'],
+    16	  ja: ['画像を読み込み中…', '画像を読み込めませんでした。', '再試行'],
+    17	  ko: ['이미지 로딩 중…', '이미지를 불러올 수 없습니다.', '다시 시도'],
+    18	};
+    19
+    20	export function LoadingStatus({ locale, progress = null, error = false, onRetry, className = '' }: {
+    21	  locale: Locale; progress?: number | null; error?: boolean; onRetry?: () => void; className?: string;
+    22	}) {
+    23	  const value = progress === null ? null : Math.max(0, Math.min(100, Math.floor(progress)));
+    24	  const [loading, failed, retry] = copy[locale];
+    25	  return <div className={`media-loading ${className}`} role="status" aria-live="polite" dir={locale === 'ar' ? 'rtl' : undefined}>
+    26	    <p>{error ? failed : loading}{!error && value !== null && <span aria-hidden="true"> {value}%</span>}</p>
+    27	    {!error && <div className="media-loading__track" role="progressbar" aria-label={loading} aria-valuemin={0} aria-valuemax={100} {...(value !== null ? { 'aria-valuenow': value } : {})}>
+    28	      <span className={value === null ? 'media-loading__bar is-indeterminate' : 'media-loading__bar'} style={value !== null ? { width: `${value}%` } : undefined} />
+    29	    </div>}
+    30	    {error && onRetry && <button type="button" onClick={onRetry}>{retry}</button>}
+    31	  </div>;
+    32	}
+    33
+    34	let locks = 0;
+    35	let restore: (() => void) | undefined;
+    36	/** Multiple media views can own a lock without prematurely unlocking each other. */
+    37	export function useScrollLock(active: boolean) {
+    38	  useEffect(() => {
+    39	    if (!active) return;
+    40	    if (locks++ === 0) {
+    41	      const roots = [document.documentElement, document.body];
+    42	      const previous = roots.map(element => ({ overflow: element.style.overflow, overscroll: element.style.overscrollBehavior, scrollBehavior: element.style.scrollBehavior }));
+    43	      // Cancel a smooth anchor/opener scroll already in flight before freezing the view.
+    44	      window.scrollTo({ left: scrollX, top: scrollY, behavior: 'instant' });
+    45	      roots.forEach(element => { element.style.overflow = 'hidden'; element.style.overscrollBehavior = 'none'; element.style.scrollBehavior = 'auto'; });
+    46	      const keydown = (event: KeyboardEvent) => {
+    47	        if (document.querySelector('dialog[open]') || (event.target as Element)?.closest('button,input,textarea,select,a')) return;
+    48	        if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)) event.preventDefault();
+    49	      };
+    50	      const preventScroll = (event: Event) => {
+    51	        if ((event.target as Element)?.closest?.('dialog[open]')) return;
+    52	        event.preventDefault();
+    53	      };
+    54	      document.addEventListener('keydown', keydown);
+    55	      document.addEventListener('wheel', preventScroll, { passive: false });
+    56	      document.addEventListener('touchmove', preventScroll, { passive: false });
+    57	      restore = () => {
+    58	        roots.forEach((element, index) => { element.style.overflow = previous[index].overflow; element.style.overscrollBehavior = previous[index].overscroll; element.style.scrollBehavior = previous[index].scrollBehavior; });
+    59	        document.removeEventListener('keydown', keydown);
+    60	        document.removeEventListener('wheel', preventScroll);
+    61	        document.removeEventListener('touchmove', preventScroll);
+    62	      };
+    63	    }
+    64	    return () => { if (--locks === 0) { restore?.(); restore = undefined; } };
+    65	  }, [active]);
+    66	}
+{
+  "name": "ramsider",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test:visual": "playwright test",
+    "test:visual:ui": "playwright test --ui",
+    "visual:diff": "node tools/visual-diff.mjs"
+  },
+  "devDependencies": {
+    "@playwright/cli": "^0.1.22",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.11",
+    "pixelmatch": "^7.2.0",
+    "pngjs": "^7.0.0",
+    "sharp": "^0.35.5",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "next": "^16.2.11",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  }
+}
+
+2026-10-07T22:36:03.008240Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11881-f15f-7e73-a1e1-afe7d5f4fc23 turn_id=01a11881-f31f-7e23-8d8d-8ac5923eb63d item_id="exec-1c7c964a-d34f-4208-a083-b1401d9d060d"
+codex
+The technology viewer’s Retry cannot reliably recover from a cached, corrupt HTTP 200 image. The authorized two-photos-per-group preload policy is not itself a finding.
+
+Review comment:
+
+- [P2] Bypass a corrupt cached response when retrying a technology photo — /Users/asmirnou/Projects/g/ramsider/components/TechnologyViewer.tsx:240-240
+  If a technology photo returns corrupt bytes with HTTP 200 and the browser caches that response, Retry calls `select(requested.current)`, which fetches the same URL again. Removing the failed entry from the in-memory resource map does not clear the browser cache, so the viewer can remain stuck on the error state. Retry needs a fresh cache key or an equivalent cache-bypassing request, as the page-image retry already uses.
+The technology viewer’s Retry cannot reliably recover from a cached, corrupt HTTP 200 image. The authorized two-photos-per-group preload policy is not itself a finding.
+
+Review comment:
+
+- [P2] Bypass a corrupt cached response when retrying a technology photo — /Users/asmirnou/Projects/g/ramsider/components/TechnologyViewer.tsx:240-240
+  If a technology photo returns corrupt bytes with HTTP 200 and the browser caches that response, Retry calls `select(requested.current)`, which fetches the same URL again. Removing the failed entry from the in-memory resource map does not clear the browser cache, so the viewer can remain stuck on the error state. Retry needs a fresh cache key or an equivalent cache-bypassing request, as the page-image retry already uses.

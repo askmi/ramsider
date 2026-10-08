@@ -1,0 +1,107 @@
+
+Running 4 tests using 2 workers
+
+(node:59963) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:59964) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions (30.7s)
+  ✘  2 [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions (30.7s)
+(node:60549) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:60551) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 [desktop-chromium] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions (21.5s)
+  ✘  4 [desktop-firefox] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions (19.9s)
+
+
+  1) [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.evaluate: Test timeout of 30000ms exceeded.
+
+       8 |   await page.goto('/en');
+       9 |   await page.locator('.art img').first().waitFor({ state: 'visible' });
+    > 10 |   await page.evaluate(async () => {
+         |              ^
+      11 |     await document.fonts.ready;
+      12 |     for (let y = 0; y < document.body.scrollHeight; y += innerHeight * 0.8) {
+      13 |       scrollTo(0, y);
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/site.spec.ts:10:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/site-responsive-viewport-artwork-and-primary-actions-iphone-17-pro-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/site-responsive-viewport-artwork-and-primary-actions-iphone-17-pro-webkit/error-context.md
+
+  2) [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.evaluate: Test timeout of 30000ms exceeded.
+
+       8 |   await page.goto('/en');
+       9 |   await page.locator('.art img').first().waitFor({ state: 'visible' });
+    > 10 |   await page.evaluate(async () => {
+         |              ^
+      11 |     await document.fonts.ready;
+      12 |     for (let y = 0; y < document.body.scrollHeight; y += innerHeight * 0.8) {
+      13 |       scrollTo(0, y);
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/site.spec.ts:10:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/site-responsive-viewport-artwork-and-primary-actions-iphone-17-pro-max-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/site-responsive-viewport-artwork-and-primary-actions-iphone-17-pro-max-webkit/error-context.md
+
+  3) [desktop-chromium] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions
+
+    Test was interrupted.
+
+    Error: page.evaluate: Test ended.
+
+       8 |   await page.goto('/en');
+       9 |   await page.locator('.art img').first().waitFor({ state: 'visible' });
+    > 10 |   await page.evaluate(async () => {
+         |              ^
+      11 |     await document.fonts.ready;
+      12 |     for (let y = 0; y < document.body.scrollHeight; y += innerHeight * 0.8) {
+      13 |       scrollTo(0, y);
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/site.spec.ts:10:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/site-responsive-viewport-artwork-and-primary-actions-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/site-responsive-viewport-artwork-and-primary-actions-desktop-chromium/error-context.md
+
+  4) [desktop-firefox] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions
+
+    Test was interrupted.
+
+    Error: page.evaluate: Test ended.
+
+       8 |   await page.goto('/en');
+       9 |   await page.locator('.art img').first().waitFor({ state: 'visible' });
+    > 10 |   await page.evaluate(async () => {
+         |              ^
+      11 |     await document.fonts.ready;
+      12 |     for (let y = 0; y < document.body.scrollHeight; y += innerHeight * 0.8) {
+      13 |       scrollTo(0, y);
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/site.spec.ts:10:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/site-responsive-viewport-artwork-and-primary-actions-desktop-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/site-responsive-viewport-artwork-and-primary-actions-desktop-firefox/error-context.md
+
+  2 failed
+    [iphone-17-pro-webkit] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions
+    [iphone-17-pro-max-webkit] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions
+  2 interrupted
+    [desktop-chromium] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions
+    [desktop-firefox] › tests/e2e/site.spec.ts:5:1 › responsive viewport, artwork, and primary actions

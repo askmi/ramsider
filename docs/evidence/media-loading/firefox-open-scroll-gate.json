@@ -1,0 +1,26 @@
+{
+  "beforeScroll": {
+    "at": 572,
+    "inert": false,
+    "gate": false,
+    "scrollY": 0,
+    "tileReady": false,
+    "viewerOpen": false
+  },
+  "afterScroll": {
+    "at": 1023,
+    "inert": true,
+    "gate": true,
+    "scrollY": 6510,
+    "tileReady": false,
+    "viewerOpen": false
+  },
+  "afterReadySingleClick": {
+    "at": 1299,
+    "inert": false,
+    "gate": false,
+    "scrollY": 6510,
+    "tileReady": true,
+    "viewerOpen": true
+  }
+}

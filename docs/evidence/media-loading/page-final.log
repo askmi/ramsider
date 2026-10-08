@@ -1,0 +1,26 @@
+
+Running 15 tests using 3 workers
+
+(node:39239) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:39238) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:39240) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [desktop-chromium] › tests/e2e/media-loading.spec.ts:3:1 › visible artwork remains hidden and page scroll locked until complete decode (1.4s)
+  ✓   4 [desktop-chromium] › tests/e2e/media-loading.spec.ts:28:1 › offscreen pending artwork does not block the hero but blocks when reached (1.3s)
+  ✓   1 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:3:1 › visible artwork remains hidden and page scroll locked until complete decode (2.6s)
+  ✓   3 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:3:1 › visible artwork remains hidden and page scroll locked until complete decode (3.2s)
+  ✓   5 [desktop-chromium] › tests/e2e/media-loading.spec.ts:55:1 › failed visible image has an accessible retry and successful recovery (843ms)
+  ✓   8 [desktop-chromium] › tests/e2e/media-loading.spec.ts:70:1 › truncated visible image is never revealed as a partially decoded resource (788ms)
+  ✓   6 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:28:1 › offscreen pending artwork does not block the hero but blocks when reached (2.1s)
+  ✓   9 [desktop-chromium] › tests/e2e/media-loading.spec.ts:86:1 › page gate suspends behind a native dialog and resumes missing page media after close (786ms)
+  ✓   7 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:28:1 › offscreen pending artwork does not block the hero but blocks when reached (2.0s)
+  ✓  10 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:55:1 › failed visible image has an accessible retry and successful recovery (1.1s)
+  ✓  11 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:55:1 › failed visible image has an accessible retry and successful recovery (1.4s)
+  ✓  12 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:70:1 › truncated visible image is never revealed as a partially decoded resource (978ms)
+  ✓  13 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:70:1 › truncated visible image is never revealed as a partially decoded resource (811ms)
+  ✓  14 [iphone-17-pro-webkit] › tests/e2e/media-loading.spec.ts:86:1 › page gate suspends behind a native dialog and resumes missing page media after close (722ms)
+  ✓  15 [iphone-17-pro-max-webkit] › tests/e2e/media-loading.spec.ts:86:1 › page gate suspends behind a native dialog and resumes missing page media after close (755ms)
+
+  15 passed (9.6s)

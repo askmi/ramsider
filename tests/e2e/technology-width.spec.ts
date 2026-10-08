@@ -15,7 +15,7 @@ test('every technology photo fills the frame width without distortion and its bo
   await page.evaluate(() => document.fonts.ready);
   const results = [];
   const baseline = info.project.use.viewport!;
-  for (const size of [baseline, { width: 390, height: 664 }, { width: 615, height: 849 }, { width: 844, height: 390 }, { width: 768, height: 1024 }, { width: 320, height: 568 }, { width: 390, height: 732 }, { width: 390, height: 844 }]) {
+  for (const size of [baseline, { width: 393, height: 852 }, { width: 390, height: 664 }, { width: 615, height: 849 }, { width: 844, height: 390 }, { width: 768, height: 1024 }, { width: 320, height: 568 }, { width: 390, height: 732 }, { width: 390, height: 844 }]) {
     await page.setViewportSize(size);
     for (let group = 0; group < 2; group++) {
       if (group === 0 && await viewer.getAttribute('data-group') === 'CyberMind') await viewer.locator('.technology-viewer__previous-group').click();
@@ -40,13 +40,18 @@ test('every technology photo fills the frame width without distortion and its bo
         expect(top.photo.width).toBeCloseTo(top.cutout.width, 1);
         expect(top.photo.left).toBeCloseTo(top.cutout.left, 1);
         expect(top.photo.width / top.photo.height).toBeCloseTo(941 / 1672, 4);
+        if (top.photo.height <= top.cutout.height + 1) {
+          expect(Math.abs(top.photo.top - top.cutout.top)).toBeLessThanOrEqual(1);
+          expect(Math.abs(top.photo.bottom - top.cutout.bottom)).toBeLessThanOrEqual(1);
+          expect(top.scroll.height - top.scroll.client).toBeLessThanOrEqual(1);
+        }
         for (const layer of [top.photo, top.title, top.copy]) {
           expect(layer.left).toBeCloseTo(top.plane.left, 1);
           expect(layer.top).toBeCloseTo(top.plane.top, 1);
           expect(layer.width).toBeCloseTo(top.plane.width, 1);
           expect(layer.height).toBeCloseTo(top.plane.height, 1);
         }
-        const capture = (size === baseline && info.project.use.isMobile) || (size.width === 390 && size.height === 664 && info.project.name === 'iphone-17-pro-webkit');
+        const capture = (size === baseline && info.project.use.isMobile) || (info.project.name === 'iphone-17-pro-webkit' && ((size.width === 390 && size.height === 664) || (size.width === 393 && size.height === 852)));
         if (capture) await page.screenshot({ path: `${evidence}/${info.project.name}-${size.width}x${size.height}-g${group}-s${slide}-top.png` });
         await page.keyboard.press('End');
         const bottom = await scroller.evaluate(element => ({ top: element.scrollTop, max: element.scrollHeight - element.clientHeight, width: element.scrollWidth, clientWidth: element.clientWidth, photoBottom: element.querySelector('img')!.getBoundingClientRect().bottom, viewportBottom: element.getBoundingClientRect().bottom, y: scrollY }));

@@ -5,6 +5,7 @@ import { waitForVisibleMedia } from './media';
 export async function openTechnology(page: Page, trigger: Locator = page.locator('[data-technology-open]').first()) {
   await trigger.scrollIntoViewIfNeeded();
   await waitForVisibleMedia(page);
+  await expect(page.locator('html')).toHaveAttribute('data-media-hydrated', '');
   await trigger.click();
   await expect(page.locator('#technology-viewer')).toBeVisible();
 }

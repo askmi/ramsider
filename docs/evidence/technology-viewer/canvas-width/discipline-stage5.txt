@@ -1,0 +1,9 @@
+**Stage 5 — PASS for CHG-0077 + CHG-0078.**
+
+- Current scoped diffs appear verbatim in [native-review-approved-header.log](docs/evidence/technology-viewer/canvas-width/native-review-approved-header.log); no actionable findings. Build generated 14 static pages; typecheck, lint and scoped diff validation passed.
+- [approved-performance.json](docs/evidence/technology-viewer/canvas-width/approved-performance.json) and its script confirm production3032 cold Chromium402/DPR3: useful **326.1/2247.2 ms**, LCP **364/2276 ms**, CLS **0**, unchanged JS **163,586 B**. Current local gallery scroll: **159 samples, p95 16.8 ms, zero >33 ms**.
+- [discipline-stage4.txt](docs/evidence/technology-viewer/canvas-width/discipline-stage4.txt) records independent runtime PASS; four final mobile captures match the approved preview.
+
+No material Stage 5 discrepancy remains. Reviewer fresh-browser launch was sandbox-blocked; separate runtime evidence covers affected behavior. Current throttled evidence measures initial page only; throttled gallery/main-scroll evidence is historical. No INP, Lighthouse, field or physical-chrome certification.
+
+**No Stage 6 approval issued.**

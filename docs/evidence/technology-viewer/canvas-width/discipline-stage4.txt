@@ -1,0 +1,8 @@
+**Stage 4 — PASS, scoped to CHG-0077 + CHG-0078.**
+
+- [approved-browser-tests.log](/Users/asmirnou/Projects/g/ramsider/docs/evidence/technology-viewer/canvas-width/approved-browser-tests.log): **11 passed, 5 explicit platform skips**. Inspected test assertions cover 13 sizes, all six proportional planes, bottom access, eleven locales, native desktop wheel and Chromium touch/pending/RTL.
+- [approved-checks.json](/Users/asmirnou/Projects/g/ramsider/docs/evidence/technology-viewer/compact-header/approved-checks.json) and `check.mjs`: independently rechecked **54 geometry cases**; 44px targets are disjoint and labels fit. Executed log records **11 keyboard/navigation/Close cycles passing**.
+- [viewer-behavior.log](/Users/asmirnou/Projects/g/ramsider/docs/evidence/technology-viewer/canvas-width/viewer-behavior.log): **12 passed** across four profiles for both entrypoints, bounded reversible RTL swipes and decoded offline/reopen behavior.
+- Inspected mobile, narrow, landscape, desktop and Arabic screenshots. Independently decoded all four final phone captures: exact approved-candidate pixels. [final.json](/Users/asmirnou/Projects/g/ramsider/docs/evidence/technology-viewer/canvas-width/final.json) confirms desktop main/dialog/photo share **941px, x249.5–1190.5**.
+
+No material missing check within this scoped emulation gate. Earlier Firefox failure remains preserved; subsequent native-wheel runs pass, and the lost screenshot is explicitly documented. Physical Safari/Telegram chrome remains unverified under CHG-0065. No Stage 5/6 or broad-site approval inferred.

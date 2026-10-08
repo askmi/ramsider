@@ -1,0 +1,25 @@
+
+Running 12 tests using 1 worker
+
+(node:3125) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (2.6s)
+  ✓   2 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (1.7s)
+  ✓   3 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:157:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (1.4s)
+(node:3191) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (1.2s)
+  ✓   5 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (1.4s)
+  ✓   6 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:157:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (1.2s)
+(node:3218) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (872ms)
+  ✓   8 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (1.8s)
+  ✓   9 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:157:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (1.1s)
+(node:3254) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (2.2s)
+  ✓  11 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (2.1s)
+  ✓  12 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:157:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (1.2s)
+
+  12 passed (23.0s)

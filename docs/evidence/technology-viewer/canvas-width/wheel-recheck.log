@@ -1,0 +1,11 @@
+
+Running 2 tests using 1 worker
+
+(node:3039) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop-chromium] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (2.8s)
+(node:3123) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop-firefox] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (4.6s)
+
+  2 passed (9.7s)

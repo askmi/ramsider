@@ -1,0 +1,7 @@
+**Stage 6 — FAIL, scoped to CHG-0077/0078.**
+
+Highest discrepancy: [LESSONS.md](/Users/asmirnou/Projects/g/ramsider/LESSONS.md) says EVAL-VIEWER was extended for the landing-width correction, but [EVAL-VIEWER](/Users/asmirnou/Projects/g/ramsider/docs/agent-evals.md:59) lacks both that acceptance check and the new archive-before-rerun prevention. Its actual addition covers only scope-record seeding.
+
+Otherwise, current statuses and dated technical approval match the examined Stage4/5 verdicts, final logs, metrics and screenshots. Independently decoded all four final mobile captures: identical to approved candidates. Desktop941px bounds and assembly images support scoped integration. Historical failures, missing screenshot, `NOT_RUN`, user-acceptance state and unrelated open defects remain explicit.
+
+**Responsible stage: 6.** Add the missing eval prevention, retain `NOT_RUN`, then re-audit records. No edits, delegation or browser runs performed.

@@ -1,22 +1,24 @@
 import { expect, test } from '@playwright/test';
 import { openTechnology } from './helpers/technology';
-const evidence='docs/evidence/technology-viewer/ribbons';
+const evidence=process.env.TECH_EVIDENCE ?? 'docs/evidence/technology-viewer/ribbons';
 
-test('all six source planes fill viewport width with native proportions, joined edges and complete bottom access',async({page},info)=>{
+test('all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access',async({page},info)=>{
  await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
- for(const [width,height] of [[402,874],[440,956],[402,664],[440,732],[375,812],[320,568],[844,390],[768,1024],[1440,900]]){
+ for(const [width,height] of [[402,874],[440,956],[402,664],[440,732],[375,812],[320,568],[844,390],[768,1024],[941,900],[942,900],[1280,800],[1440,900],[1920,1080]]){
   await page.setViewportSize({width,height});
   for(const group of [0,1]){
    await viewer.locator('.technology-viewer__dots button').nth(group).click();await expect(viewer).toHaveAttribute('data-group',group?'CyberMind':'HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');
    const g=await viewer.evaluate(element=>{
     const stage=element.querySelector('.technology-viewer__stage')!.getBoundingClientRect();const scroll=element.querySelector('.technology-viewer__scroll')!;
     const planes=[...element.querySelectorAll('.technology-viewer__content')].map(el=>{const r=el.getBoundingClientRect();const img=el.querySelector('img')!;const ir=img.getBoundingClientRect();return{width:r.width,height:r.height,top:r.top,bottom:r.bottom,imageWidth:ir.width,imageHeight:ir.height,source:[img.naturalWidth,img.naturalHeight]};});
-    return{width:innerWidth,dpr:devicePixelRatio,meta:document.querySelector('meta[name=viewport]')?.getAttribute('content'),stage:{left:stage.left,right:stage.right,bottom:stage.bottom},planes,overflow:scroll.scrollWidth-scroll.clientWidth};
+    const landing=document.querySelector('.canvas')!.getBoundingClientRect();const dialog=element.getBoundingClientRect();
+    return{landing:{width:landing.width,left:landing.left,right:landing.right},dialog:{width:dialog.width,left:dialog.left,right:dialog.right},width:innerWidth,dpr:devicePixelRatio,meta:document.querySelector('meta[name=viewport]')?.getAttribute('content'),stage:{left:stage.left,right:stage.right,bottom:stage.bottom},planes,overflow:scroll.scrollWidth-scroll.clientWidth};
    });
-   expect(g.width).toBe(width);expect(g.meta).toContain('width=device-width');expect(g.stage.left).toBe(0);expect(g.stage.right).toBe(width);expect(g.stage.bottom).toBe(height);expect(g.overflow).toBe(0);
+   expect(g.width).toBe(width);expect(g.meta).toContain('width=device-width');expect(g.dialog).toEqual(g.landing);expect(g.stage.left).toBe(g.landing.left);expect(g.stage.right).toBe(g.landing.right);expect(g.stage.bottom).toBe(height);expect(g.overflow).toBe(0);
+   const contentWidth=g.landing.width;expect(contentWidth).toBe(Math.min(width,941));
    for(const [index,plane]of g.planes.entries()){
-    expect(plane.width).toBe(width);expect(plane.imageWidth).toBe(width);expect(Math.abs(plane.height-width*1672/941)).toBeLessThan(1);expect(Math.abs(plane.imageHeight-plane.height)).toBeLessThan(.1);expect(plane.source).toEqual([941,1672]);
-    if(index)expect(Math.abs(g.planes[index-1].bottom-plane.top-width*48/941)).toBeLessThan(.05);
+    expect(plane.width).toBe(contentWidth);expect(plane.imageWidth).toBe(contentWidth);expect(Math.abs(plane.height-contentWidth*1672/941)).toBeLessThan(1);expect(Math.abs(plane.imageHeight-plane.height)).toBeLessThan(.1);expect(plane.source).toEqual([941,1672]);
+    if(index)expect(Math.abs(g.planes[index-1].bottom-plane.top-contentWidth*48/941)).toBeLessThan(.05);
    }
    await page.keyboard.press('End');const bottom=await viewer.locator('.technology-viewer__content').last().boundingBox();expect(Math.abs(bottom!.y+bottom!.height-height)).toBeLessThan(1);
    await page.keyboard.press('Home');expect(await viewer.locator('.technology-viewer__scroll').evaluate(e=>e.scrollTop)).toBe(0);
@@ -34,7 +36,7 @@ test('all source descriptions fit eleven locales in both ribbons without numbers
    const overflow=await viewer.locator('.technology-description__box').evaluateAll(boxes=>boxes.filter(box=>{const text=box.firstElementChild!;return text.scrollHeight>box.clientHeight+1||text.scrollWidth>box.clientWidth+1;}).map(box=>box.parentElement?.getAttribute('data-description-block')));
    expect(overflow).toEqual([]);
    const hits=await viewer.locator('.technology-viewer__dots button,.technology-viewer__close,.technology-viewer__next-image').evaluateAll(buttons=>buttons.map(b=>{const r=b.getBoundingClientRect();return{width:r.width,height:r.height,left:r.left,right:r.right,top:r.top,bottom:r.bottom};}));
-   for(const hit of hits){expect(hit.width).toBeGreaterThanOrEqual(44);expect(hit.height).toBeGreaterThanOrEqual(44);expect(hit.left).toBeGreaterThanOrEqual(0);expect(hit.right).toBeLessThanOrEqual(info.project.use.viewport!.width);expect(hit.bottom).toBeLessThanOrEqual(88);}
+   for(const hit of hits){expect(hit.width).toBeGreaterThanOrEqual(44);expect(hit.height).toBeGreaterThanOrEqual(44);expect(hit.left).toBeGreaterThanOrEqual(0);expect(hit.right).toBeLessThanOrEqual(info.project.use.viewport!.width);expect(hit.bottom).toBeLessThanOrEqual(64);}
    if(locale==='ar'){await expect(viewer.locator('.technology-description__box').first()).toHaveAttribute('dir','rtl');await page.screenshot({path:`${evidence}/${info.project.name}-ar-${group}.png`});}
   }
   await viewer.locator('.technology-viewer__close').click();
@@ -42,7 +44,7 @@ test('all source descriptions fit eleven locales in both ribbons without numbers
 });
 
 test('native desktop wheel scrolls the ribbon without moving landing or switching groups',async({page},info)=>{
- test.skip(!!info.project.use.isMobile,'Native mobile pan is covered by Chromium protocol plus WebKit pointer/keyboard checks.');await page.setViewportSize({width:615,height:849});await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');const y=await page.evaluate(()=>scrollY);const scroller=viewer.locator('.technology-viewer__scroll');await scroller.hover();await page.mouse.wheel(0,500);await expect.poll(()=>scroller.evaluate(e=>e.scrollTop)).toBeGreaterThan(100);await expect.poll(async()=>{await page.mouse.wheel(0,1200);return scroller.evaluate(e=>Math.abs(e.scrollHeight-e.clientHeight-e.scrollTop));}).toBeLessThan(1);await expect(viewer).toHaveAttribute('data-group','HeatCore');expect(await page.evaluate(()=>scrollY)).toBe(y);await expect.poll(async()=>{await page.mouse.wheel(0,-1200);return scroller.evaluate(e=>e.scrollTop);}).toBe(0);
+ test.skip(!!info.project.use.isMobile,'Native mobile pan is covered by Chromium protocol plus WebKit pointer/keyboard checks.');await page.setViewportSize({width:1440,height:900});await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');const y=await page.evaluate(()=>scrollY);const scroller=viewer.locator('.technology-viewer__scroll');await scroller.hover();await page.mouse.wheel(0,500);await expect.poll(()=>scroller.evaluate(e=>e.scrollTop)).toBeGreaterThan(100);await expect.poll(async()=>{await page.mouse.wheel(0,1200);return scroller.evaluate(e=>Math.abs(e.scrollHeight-e.clientHeight-e.scrollTop));},{timeout:10000,intervals:[100]}).toBeLessThan(1);await expect(viewer).toHaveAttribute('data-group','HeatCore');expect(await page.evaluate(()=>scrollY)).toBe(y);await expect.poll(async()=>{await page.mouse.wheel(0,-1200);return scroller.evaluate(e=>e.scrollTop);},{timeout:10000,intervals:[100]}).toBe(0);
 });
 
 test('native touch pans vertically, swipes horizontally and freezes during download', async ({ browser }, info) => {

@@ -137,6 +137,7 @@
 | [CHG-0076](#chg-0076) | USER_REQUEST / UI | Две вертикальные технические ленты без рамки и нумерации | `VERIFIED` |
 | [CHG-0078](#chg-0078) | USER_CORRECTION / DEFECT | Desktop viewer shares landing canvas width | `VERIFIED` |
 | [CHG-0079](#chg-0079) | DEFECT | Image touch/trackpad swipe between technology groups | `REOPENED` |
+| [CHG-0085](#chg-0085) | DEFECT | Center NobleCraft captions under material icons | `VERIFIED` |
 | [CHG-0084](#chg-0084) | DEFECT | Restore shared mobile-first gallery width cap | `VERIFIED` |
 | [CHG-0083](#chg-0083) | CHANGE | Center technology arrows beside labels; reuse chevron geometry | `VERIFIED` |
 | [CHG-0082](#chg-0082) | CHANGE | New NobleCraft/HeatCore discrete photos and reversed navigation axes | `VERIFIED` |
@@ -1852,3 +1853,11 @@
 - **CHG0084 VERIFIED/technicalAPPROVED2026-10-09 /root:** final3043build/typePASS; nativeCLIwidthcap/centering reviewclean; affectednavigation/keyboard6PASS onPro/MaxWebKit+desktopbeforeintrinsicIMGheightfix; final4actualWebKitgeometry casesPASS includingIMGheight at402×874/440×956DPR3 and1280×900/1280×1900DPR1, centered941pxdesktopcap/shortverticalcenter/overflowtop/sourceproportion. Viewedmobile/desktopcomposition andrecapturedvisiblePro rasterafterheightauto fix. Evidencecompactwidth-cap.json; rawcaptures/logs /tmpignored. DiffwhitespacePASS. Userrequestedminimumtokens: no broadperformance/matrixrerun; tinyCSSfixindependentauditnotapplicable. UseracceptanceNOT_RECORDED; commitpush explicitlyauthorized; preserve unrelated.gitignore/background_old.png.
 
 - FinalProactualIMGheight+ENARnavigation1PASS on3043 (cap-final-tests.log); actualuserIAB3043 nowEN/Noblephoto2, previewretained. Branchmain/exactupstreamorigin/main/git@github.com:askmi/ramsider.git confirmed; stageonly8relevantcode/test/recordfiles+compactgeometryreport, noscreenshots/rawlogs. Gitdeliveryauthorized.
+
+## CHG-0085 — Подписи под иконками NobleCraft
+- 2026-10-09 userattachedcrop: secondNoble bottomlabels shiftedleft relativetoicons. Expectedfivecaptions centeredoneachicon. Rootaddedcaptionboxes centeredongeometry butretainedsharedTextBlock text-align:start; checkedpresence/ownoverflow, missedactualtextalignment. ResponsibilityAGENT.
+- Solution: targetedmaterial-icon-* box text-align:center, noothertextlayoutchange. Pathsapp/globals.css plusrecords. Existingcaptionpositions/PNGgeometry preserved. VerificationactualENPro/Maxcroppedcaptions, computedcenter/style/sourcecoords, build/native scopedreview. UseracceptanceNOT_RECORDED; technicalapprovalPENDING.
+
+- **CHG0085 VERIFIED/technicalAPPROVED2026-10-09 /root:** build/typePASS, nativeCLIscopedreviewclean,diffwhitespacePASS; actualENPro402×874/Max440×956DPR3 secondNoblephoto bottomstrips viewed: fivecaptions visuallycentered, computedtext-align:center, boxcenterswithin3sourcepx oficons. Evidence /tmp/ramsider-caption-check.json,/tmp/ramsider-captions-{402,440}-strip.png,/tmp/ramsider-caption-{build,review}.log; actualIAB3044/en photo2 shown. OneCSSrule, no navigation/assetschanged, existinggeometrychecksreused; broadmatrix/performance waivedbudget. Trivialeditindependentauditnotapplicable. UseracceptanceNOT_RECORDED; noGitdispatchrequestedthisturn.
+
+- CHG0085 Gitdelivery2026-10-09 authorizedbyuser «комит пуш»: reusecurrent3044build/native scopedreview/actualProMaxcaptionstrips; runtimeunchanged. Branchmain/upstreamorigin/main/exactgit@github.com:askmi/ramsider.gitconfirmed; stagecaptionCSS+compactrecords only, preserve unrelated.gitignore/background_old.png; noscreenshots/rawlogs. UseracceptanceNOT_RECORDED (Gitauthorization separate).

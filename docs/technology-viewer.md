@@ -1,5 +1,11 @@
 # Technology viewer — separate layers, current revision 2026-10-09
 
+## Image swipe UX / CHG-0079 — 2026-10-09
+
+Touch now follows a separate single-contact start/move/end/cancel lifecycle rather than depending on pointerup after a browser pan. Rightward ≥45px with horizontal travel ≥1.2×vertical changes HeatCore→CyberMind; leftward returns, with endpoint bounds in every locale. Vertical-first motion, multiple contacts, canceled touch and mismatched identifiers cannot navigate. Mouse/pen use primary left-button pointer capture; select/close reset both gesture records. Native pan-y/pinch and complete decoded-group loading remain unchanged. The exact user's physical-browser failure is UNKNOWN; native Chromium baseline already handles pure rightward swipes.
+
+Evidence: [swipe browser captures](evidence/technology-viewer/swipe/visual.json), [native touch trace](evidence/technology-viewer/swipe/native-touch.json), [final trajectory checks](evidence/technology-viewer/swipe/trajectory-final.log). Pro402×874/Max440×956DPR3 four captures are decoded-pixel identical to the accepted compact-header candidate. WebKit Touch-event checks are synthetic image-targeted lifecycle coverage; real protocol touch/vertical/pending checks run in Chromium. Desktop Firefox Touch constructor is unavailable and mouse/pointer remains checked. Physical Safari/Telegram is unverified. Approval and complete checks live in CHANGELOG CHG0079.
+
 ## Landing width correction / CHG-0078 — 2026-10-09
 
 The site remains mobile first. The technical viewer uses the same centered `min(viewport width,941px)` canvas as the landing page on every pointer profile. Shared root `--page-max-width` is consumed by both main and native dialog; photos, semantic source coordinates and48sourcepx joins scale inside it. Full-screen black backdrop does not imply viewport-wide photos on a laptop. Earlier viewport-wide descriptions below are historical and superseded by this width contract. The approved64px+safearea header below and original source/loading policies are implemented. New production preview3032.

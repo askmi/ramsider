@@ -1,0 +1,99 @@
+
+Running 48 tests using 1 worker
+
+(node:22434) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:7:1 › technology PNGs preserve every original pixel outside the title mask (332ms)
+  ✓   2 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:44:1 › CyberMind PNGs retain native RGB, alpha and resolution outside title glyphs (167ms)
+  ✓   3 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:71:1 › all six photos warm after load without blocking the main page (1.8s)
+  ✓   4 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:96:1 › incomplete hero protects the main view before technology can be opened (1.2s)
+  ✓   5 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (1.2s)
+  ✓   6 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (1.4s)
+  ✓   7 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:164:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (1.4s)
+  ✓   8 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:183:1 › technology viewer hides landing paint beneath browser chrome and restores it on close (1.9s)
+  ✓   9 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access (3.8s)
+  ✓  10 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:30:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (5.8s)
+  -  11 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  -  12 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+(node:22682) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  13 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:7:1 › technology PNGs preserve every original pixel outside the title mask (287ms)
+  ✓  14 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:44:1 › CyberMind PNGs retain native RGB, alpha and resolution outside title glyphs (145ms)
+  ✓  15 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:71:1 › all six photos warm after load without blocking the main page (1.1s)
+  ✓  16 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:96:1 › incomplete hero protects the main view before technology can be opened (1.2s)
+  ✓  17 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (1.2s)
+  ✓  18 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (1.5s)
+  ✓  19 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:164:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (1.3s)
+  ✓  20 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:183:1 › technology viewer hides landing paint beneath browser chrome and restores it on close (1.8s)
+  ✓  21 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access (3.9s)
+  ✓  22 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:30:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (6.5s)
+  -  23 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  -  24 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+(node:23179) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  25 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:7:1 › technology PNGs preserve every original pixel outside the title mask (271ms)
+  ✓  26 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:44:1 › CyberMind PNGs retain native RGB, alpha and resolution outside title glyphs (145ms)
+  ✓  27 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:71:1 › all six photos warm after load without blocking the main page (1.5s)
+  ✓  28 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:96:1 › incomplete hero protects the main view before technology can be opened (528ms)
+  ✓  29 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (1.0s)
+  ✓  30 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (1.8s)
+  ✓  31 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:164:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (945ms)
+  ✓  32 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:183:1 › technology viewer hides landing paint beneath browser chrome and restores it on close (4.9s)
+  ✓  33 [desktop-chromium] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access (2.6s)
+  ✓  34 [desktop-chromium] › tests/e2e/technology-width.spec.ts:30:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (11.3s)
+  ✓  35 [desktop-chromium] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (2.0s)
+  ✓  36 [desktop-chromium] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download (7.1s)
+(node:23507) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  37 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:7:1 › technology PNGs preserve every original pixel outside the title mask (284ms)
+  ✓  38 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:44:1 › CyberMind PNGs retain native RGB, alpha and resolution outside title glyphs (153ms)
+  ✓  39 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:71:1 › all six photos warm after load without blocking the main page (1.8s)
+  ✓  40 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:96:1 › incomplete hero protects the main view before technology can be opened (579ms)
+  ✓  41 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:112:1 › both story controls open a complete ribbon with one title and two group controls (1.3s)
+  ✘  42 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (562ms)
+(node:23618) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  43 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:164:1 › all six post-load low-priority decoded images are reused offline across ribbons and reopening (1.6s)
+  ✓  44 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:183:1 › technology viewer hides landing paint beneath browser chrome and restores it on close (1.7s)
+  ✓  45 [desktop-firefox] › tests/e2e/technology-width.spec.ts:5:1 › all six source planes match the landing canvas width with native proportions, joined edges and complete bottom access (3.0s)
+  ✓  46 [desktop-firefox] › tests/e2e/technology-width.spec.ts:30:1 › all source descriptions fit eleven locales in both ribbons without numbers or horizontal overflow (6.8s)
+  ✓  47 [desktop-firefox] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (2.4s)
+  -  48 [desktop-firefox] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+
+
+  1) [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling
+
+    Error: locator.dispatchEvent: Touch is not defined
+    dispatchEvent/eventInit.touches<@debugger eval code:7755:33
+    dispatchEvent@debugger eval code:7753:78
+    @debugger eval code line 6939 > eval:2:26
+    @debugger eval code line 6939 > eval:4:36
+    @debugger eval code line 311 > eval:15:22
+    evaluate@debugger eval code:313:16
+    @debugger eval code:1:44
+    @debugger eval code:1:62
+
+    Call log:
+      - waiting for locator('#technology-viewer').locator('.technology-viewer__photo img').first()
+
+        at dispatchEvent/eventInit.touches<@debugger eval code:7755:33
+        at dispatchEvent@debugger eval code:7753:78
+        at @debugger eval code line 6939 > eval:2:26
+        at @debugger eval code line 6939 > eval:4:36
+        at @debugger eval code line 311 > eval:15:22
+        at evaluate@debugger eval code:313:16
+        at @debugger eval code:1:44
+        at @debugger eval code:1:62
+        at swipe (/Users/asmirnou/Projects/g/ramsider/tests/e2e/technology-viewer.spec.ts:147:17)
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/technology-viewer.spec.ts:152:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/technology-viewer-literal--c7d4c-f-vertical-or-RTL-scrolling-desktop-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/technology-viewer-literal--c7d4c-f-vertical-or-RTL-scrolling-desktop-firefox/error-context.md
+
+  1 failed
+    [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling
+  5 skipped
+  42 passed (1.7m)

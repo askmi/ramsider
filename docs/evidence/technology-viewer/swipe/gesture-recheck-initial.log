@@ -1,0 +1,66 @@
+
+Running 16 tests using 1 worker
+
+(node:24039) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (2.4s)
+  ✓   2 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:169:1 › image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag (828ms)
+  -   3 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  -   4 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+(node:24097) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (1.6s)
+  ✓   6 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:169:1 › image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag (870ms)
+  -   7 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  -   8 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+(node:24115) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (2.1s)
+  ✘  10 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:169:1 › image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag (5.7s)
+(node:24162) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  11 [desktop-chromium] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (2.0s)
+  ✓  12 [desktop-chromium] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download (7.2s)
+(node:24215) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  13 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (2.3s)
+  -  14 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:169:1 › image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag
+  ✓  15 [desktop-firefox] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (2.4s)
+  -  16 [desktop-firefox] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+
+
+  1) [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:169:1 › image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('#technology-viewer')
+    Expected: "CyberMind"
+    Received: "HeatCore"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('#technology-viewer') with timeout 5000ms
+      - waiting for locator('#technology-viewer')
+        14 × locator resolved to <dialog open="" tabindex="-1" aria-busy="false" data-group="HeatCore" id="technology-viewer" class="technology-viewer" aria-labelledby="technology-viewer-title" aria-describedby="technology-viewer-instructions">…</dialog>
+           - unexpected value "HeatCore"
+
+
+      186 |   // One actual mouse drag from the image, then a right-button drag cannot navigate.
+      187 |   await page.mouse.move(150,250); await page.mouse.down(); await page.mouse.move(270,250,{steps:6}); await page.mouse.up();
+    > 188 |   await expect(viewer).toHaveAttribute('data-group','CyberMind'); await expect(viewer).toHaveAttribute('aria-busy','false');
+          |                        ^
+      189 |   await page.mouse.move(270,250); await page.mouse.down({button:'right'}); await page.mouse.move(150,250,{steps:6}); await page.mouse.up({button:'right'});
+      190 |   await expect(viewer).toHaveAttribute('data-group','CyberMind');
+      191 | });
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/technology-viewer.spec.ts:188:24
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/technology-viewer-image-sw-37234-ories-and-retain-mouse-drag-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/technology-viewer-image-sw-37234-ories-and-retain-mouse-drag-desktop-chromium/error-context.md
+
+  1 failed
+    [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:169:1 › image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag
+  6 skipped
+  9 passed (31.8s)

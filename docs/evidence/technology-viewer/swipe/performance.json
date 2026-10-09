@@ -1,0 +1,422 @@
+{
+  "baseURL": "http://127.0.0.1:3033",
+  "assetBytes": [
+    {
+      "src": "/art/technology/02.png",
+      "bytes": 4729424
+    },
+    {
+      "src": "/art/technology/03.png",
+      "bytes": 4729424
+    },
+    {
+      "src": "/art/technology/cybermind/01.png",
+      "bytes": 6305310
+    },
+    {
+      "src": "/art/technology/cybermind/02.png",
+      "bytes": 4729424
+    },
+    {
+      "src": "/art/technology/04.png",
+      "bytes": 4729424
+    },
+    {
+      "src": "/art/technology/05.png",
+      "bytes": 4729424
+    }
+  ],
+  "results": [
+    {
+      "conditions": "Chromium mobile402x874 DPR3,unthrottled loopback,cold context",
+      "initial": {
+        "lcp": 340,
+        "lcpElement": {
+          "tag": "H1",
+          "className": "overlay title key-hero ",
+          "url": ""
+        },
+        "cls": 0,
+        "longTasks": [],
+        "useful": 289.2999999523163,
+        "ttfbMs": 16.299999952316284,
+        "fcpMs": 96,
+        "loadEnd": 132.79999995231628,
+        "mainResources": [
+          {
+            "url": "/art/00.webp",
+            "start": 22.100000143051147,
+            "end": 29.100000143051147,
+            "bytes": 248236
+          },
+          {
+            "url": "/art/feature-divider-control.png",
+            "start": 22.40000009536743,
+            "end": 35.700000047683716,
+            "bytes": 251
+          },
+          {
+            "url": "/art/feature-divider-draw.png",
+            "start": 22.40000009536743,
+            "end": 35.90000009536743,
+            "bytes": 319
+          },
+          {
+            "url": "/art/feature-divider-intensity.png",
+            "start": 22.40000009536743,
+            "end": 36.40000009536743,
+            "bytes": 426
+          },
+          {
+            "url": "/art/technology-connector-triple.png",
+            "start": 22.5,
+            "end": 37.5,
+            "bytes": 1607
+          },
+          {
+            "url": "/art/technology-connector-core.png",
+            "start": 22.5,
+            "end": 37.799999952316284,
+            "bytes": 1701
+          },
+          {
+            "url": "/art/technology-connector-touch.png",
+            "start": 22.5,
+            "end": 38.200000047683716,
+            "bytes": 16048
+          },
+          {
+            "url": "/art/technology-connector-water.png",
+            "start": 22.5,
+            "end": 38.10000014305115,
+            "bytes": 2402
+          },
+          {
+            "url": "/art/technology-connector-light.png",
+            "start": 22.5,
+            "end": 40.10000014305115,
+            "bytes": 6940
+          },
+          {
+            "url": "/art/technology-connector-armor.png",
+            "start": 22.600000143051147,
+            "end": 39.10000014305115,
+            "bytes": 8082
+          },
+          {
+            "url": "/art/icon-kit/01.png",
+            "start": 22.600000143051147,
+            "end": 39.90000009536743,
+            "bytes": 634
+          },
+          {
+            "url": "/art/technology-connector-flow.png",
+            "start": 22.600000143051147,
+            "end": 40.200000047683716,
+            "bytes": 18774
+          },
+          {
+            "url": "/art/icon-kit/02.png",
+            "start": 22.600000143051147,
+            "end": 40.10000014305115,
+            "bytes": 470
+          },
+          {
+            "url": "/art/icon-kit/03.png",
+            "start": 22.600000143051147,
+            "end": 40.700000047683716,
+            "bytes": 730
+          },
+          {
+            "url": "/art/icon-kit/04.png",
+            "start": 22.600000143051147,
+            "end": 41.10000014305115,
+            "bytes": 500
+          },
+          {
+            "url": "/art/icon-kit/05.png",
+            "start": 22.600000143051147,
+            "end": 42.200000047683716,
+            "bytes": 682
+          },
+          {
+            "url": "/art/icon-kit/07.png",
+            "start": 22.600000143051147,
+            "end": 42.40000009536743,
+            "bytes": 557
+          },
+          {
+            "url": "/art/icon-kit/08.png",
+            "start": 22.600000143051147,
+            "end": 42.5,
+            "bytes": 582
+          },
+          {
+            "url": "/art/icon-kit/09.png",
+            "start": 22.600000143051147,
+            "end": 43.10000014305115,
+            "bytes": 1188
+          },
+          {
+            "url": "/art/icon-kit/10.png",
+            "start": 22.700000047683716,
+            "end": 42.90000009536743,
+            "bytes": 2003
+          },
+          {
+            "url": "/art/icon-kit/11.png",
+            "start": 22.700000047683716,
+            "end": 43.200000047683716,
+            "bytes": 969
+          },
+          {
+            "url": "/art/icon-kit/12.png",
+            "start": 22.700000047683716,
+            "end": 43.299999952316284,
+            "bytes": 2059
+          },
+          {
+            "url": "/art/tech-ring.svg",
+            "start": 39,
+            "end": 46,
+            "bytes": 504
+          },
+          {
+            "url": "/art/01.webp",
+            "start": 93.10000014305115,
+            "end": 98.90000009536743,
+            "bytes": 390082
+          },
+          {
+            "url": "/art/02.webp",
+            "start": 93.20000004768372,
+            "end": 99.20000004768372,
+            "bytes": 416176
+          },
+          {
+            "url": "/art/03.webp",
+            "start": 93.20000004768372,
+            "end": 102.10000014305115,
+            "bytes": 823558
+          },
+          {
+            "url": "/art/05.webp",
+            "start": 287.10000014305115,
+            "end": 296.2999999523163,
+            "bytes": 594492
+          },
+          {
+            "url": "/art/06.webp",
+            "start": 287.10000014305115,
+            "end": 296.90000009536743,
+            "bytes": 608310
+          },
+          {
+            "url": "/art/04.webp",
+            "start": 287.10000014305115,
+            "end": 298.7999999523163,
+            "bytes": 880778
+          },
+          {
+            "url": "/art/07.webp",
+            "start": 287.2000000476837,
+            "end": 297.90000009536743,
+            "bytes": 694070
+          },
+          {
+            "url": "/art/08.webp",
+            "start": 287.2999999523163,
+            "end": 297.7999999523163,
+            "bytes": 601174
+          },
+          {
+            "url": "/art/09-10.webp",
+            "start": 287.2999999523163,
+            "end": 298.90000009536743,
+            "bytes": 756258
+          },
+          {
+            "url": "/art/doc-electrical.webp",
+            "start": 287.2999999523163,
+            "end": 300.10000014305115,
+            "bytes": 10618
+          },
+          {
+            "url": "/art/expression-waves.png",
+            "start": 287.2999999523163,
+            "end": 300.7999999523163,
+            "bytes": 100829
+          },
+          {
+            "url": "/art/doc-uae.webp",
+            "start": 287.2999999523163,
+            "end": 301.2000000476837,
+            "bytes": 5212
+          },
+          {
+            "url": "/art/doc-rohs.webp",
+            "start": 287.2999999523163,
+            "end": 301.2999999523163,
+            "bytes": 5826
+          },
+          {
+            "url": "/art/doc-emc.webp",
+            "start": 287.2999999523163,
+            "end": 301.5,
+            "bytes": 7360
+          },
+          {
+            "url": "/art/doc-telecom.webp",
+            "start": 287.40000009536743,
+            "end": 301.7000000476837,
+            "bytes": 3532
+          },
+          {
+            "url": "/art/faq-row-1.webp",
+            "start": 287.40000009536743,
+            "end": 301.7000000476837,
+            "bytes": 9950
+          },
+          {
+            "url": "/art/faq-row-2.webp",
+            "start": 287.40000009536743,
+            "end": 302.10000014305115,
+            "bytes": 7834
+          },
+          {
+            "url": "/art/faq-row-3.webp",
+            "start": 287.40000009536743,
+            "end": 302.60000014305115,
+            "bytes": 8988
+          },
+          {
+            "url": "/art/faq-row-4.webp",
+            "start": 287.5,
+            "end": 302.7999999523163,
+            "bytes": 12290
+          },
+          {
+            "url": "/art/faq-row-5.webp",
+            "start": 287.5,
+            "end": 302.7999999523163,
+            "bytes": 11720
+          },
+          {
+            "url": "/art/faq-row-6.webp",
+            "start": 287.5,
+            "end": 304.2999999523163,
+            "bytes": 11930
+          },
+          {
+            "url": "/art/11.webp",
+            "start": 287.60000014305115,
+            "end": 306.40000009536743,
+            "bytes": 169642
+          }
+        ],
+        "jsTransferBytes": 163821,
+        "transferBytes": 36939139
+      },
+      "coldReadyTimes": {
+        "firstPhotoTransferEnd": 199,
+        "completeHeatRibbonTransferEnd": 203.90000009536743,
+        "perPhoto": {
+          "/art/technology/02.png": 199,
+          "/art/technology/04.png": 194.5,
+          "/art/technology/03.png": 197.29999995231628,
+          "/art/technology/05.png": 203.90000009536743
+        }
+      },
+      "warm": [
+        {
+          "url": "/art/technology/02.png",
+          "start": 146,
+          "end": 199,
+          "bytes": 4729424
+        },
+        {
+          "url": "/art/technology/04.png",
+          "start": 146.10000014305115,
+          "end": 194.5,
+          "bytes": 4729424
+        },
+        {
+          "url": "/art/technology/03.png",
+          "start": 146.10000014305115,
+          "end": 197.29999995231628,
+          "bytes": 4729424
+        },
+        {
+          "url": "/art/technology/cybermind/02.png",
+          "start": 146.20000004768372,
+          "end": 202.20000004768372,
+          "bytes": 4729424
+        },
+        {
+          "url": "/art/technology/05.png",
+          "start": 146.20000004768372,
+          "end": 203.90000009536743,
+          "bytes": 4729424
+        },
+        {
+          "url": "/art/technology/cybermind/01.png",
+          "start": 146.20000004768372,
+          "end": 212.79999995231628,
+          "bytes": 6305310
+        }
+      ],
+      "all": [
+        {
+          "url": "/art/technology/02.png",
+          "start": 146,
+          "end": 199,
+          "bytes": 4729424
+        },
+        {
+          "url": "/art/technology/04.png",
+          "start": 146.10000014305115,
+          "end": 194.5,
+          "bytes": 4729424
+        },
+        {
+          "url": "/art/technology/03.png",
+          "start": 146.10000014305115,
+          "end": 197.29999995231628,
+          "bytes": 4729424
+        },
+        {
+          "url": "/art/technology/cybermind/02.png",
+          "start": 146.20000004768372,
+          "end": 202.20000004768372,
+          "bytes": 4729424
+        },
+        {
+          "url": "/art/technology/05.png",
+          "start": 146.20000004768372,
+          "end": 203.90000009536743,
+          "bytes": 4729424
+        },
+        {
+          "url": "/art/technology/cybermind/01.png",
+          "start": 146.20000004768372,
+          "end": 212.79999995231628,
+          "bytes": 6305310
+        }
+      ],
+      "cachedOpenMs": 63.200000047683716,
+      "innerScroll": {
+        "frames": 159,
+        "p95Ms": 16.700000000000273,
+        "over33Ms": 0,
+        "scrollRange": 2112
+      },
+      "scroll": {
+        "frames": 159,
+        "p95Ms": 16.800000000000182,
+        "over33Ms": 0
+      },
+      "errors": [],
+      "inp": "not measured; cachedOpen is a synthetic interaction latency, not INP"
+    }
+  ]
+}

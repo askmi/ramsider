@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import type { PointerEvent } from 'react';
+import type { PointerEvent, TouchEvent } from 'react';
 import type { Locale } from '@/lib/i18n';
 import { TechnologyTitle } from './TechnologyTitle';
 import { TechnologyDescriptions } from './TechnologyDescriptions';
@@ -46,7 +46,8 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
   const opener = useRef<HTMLElement | null>(null);
   const contentViewport = useRef<HTMLDivElement>(null);
   const lockedScroll = useRef(0);
-  const pointer = useRef<{ x: number; y: number } | null>(null);
+  const pointer = useRef<{ x: number; y: number; id: number } | null>(null);
+  const touch = useRef<{ x: number; y: number; id: number } | null>(null);
   const displayed = useRef(0);
   const requested = useRef(0);
   const requestToken = useRef(0);
@@ -80,6 +81,7 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
     requested.current = nextGroup;
     pending.current = true;
     pointer.current = null;
+    touch.current = null;
     const viewport = contentViewport.current;
     lockedScroll.current = viewport?.scrollTop ?? 0;
     viewport?.scrollTo({ top: lockedScroll.current, left: 0, behavior: 'instant' });
@@ -161,19 +163,47 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
     select(next);
   };
   const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
-    if (pending.current || (event.target as Element).closest('button')) return;
-    pointer.current = { x: event.clientX, y: event.clientY };
+    // Touch uses its own lifecycle: Safari may cancel pointer events during a pan.
+    if (event.pointerType === 'touch' || !event.isPrimary || event.button !== 0 || pending.current || (event.target as Element).closest('button')) return;
+    pointer.current = { x: event.clientX, y: event.clientY, id: event.pointerId };
     try { event.currentTarget.setPointerCapture(event.pointerId); } catch { /* Synthetic events do not own a pointer. */ }
   };
   const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
     const start = pointer.current;
+    if (!start || start.id !== event.pointerId) return;
     pointer.current = null;
-    if (!start || pending.current) return;
-    const dx = event.clientX - start.x;
-    const dy = event.clientY - start.y;
+    finishSwipe(start, event.clientX, event.clientY);
+  };
+  const finishSwipe = (start: { x: number; y: number }, x: number, y: number) => {
+    if (pending.current) return;
+    const dx = x - start.x;
+    const dy = y - start.y;
     if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
     // The requested physical direction is the same in every locale, including Arabic.
     moveGroup(dx > 0 ? 1 : -1);
+  };
+  const onTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+    touch.current = null;
+    if (pending.current || event.touches.length !== 1 || (event.target as Element).closest('button')) return;
+    const contact = event.touches[0];
+    touch.current = { x: contact.clientX, y: contact.clientY, id: contact.identifier };
+  };
+  const onTouchMove = (event: TouchEvent<HTMLDivElement>) => {
+    const start = touch.current;
+    if (!start) return;
+    const contact = Array.from(event.touches).find(item => item.identifier === start.id);
+    if (event.touches.length !== 1 || !contact) { touch.current = null; return; }
+    const dx = Math.abs(contact.clientX - start.x);
+    const dy = Math.abs(contact.clientY - start.y);
+    // Once a vertical scroll begins, bending the gesture must not change groups.
+    if (dy > 10 && dy >= dx) touch.current = null;
+  };
+  const onTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
+    const start = touch.current;
+    touch.current = null;
+    if (!start || event.touches.length) return;
+    const contact = Array.from(event.changedTouches).find(item => item.identifier === start.id);
+    if (contact) finishSwipe(start, contact.clientX, contact.clientY);
   };
 
   return <dialog ref={dialog} id="technology-viewer" className="technology-viewer"
@@ -185,6 +215,7 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
       setIsOpen(false);
       pending.current = false;
       pointer.current = null;
+      touch.current = null;
       clearSubscriptions();
       setLoading(false);
       opener.current?.focus({ preventScroll: true });
@@ -213,7 +244,8 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
       if (event.key === 'ArrowRight') { event.preventDefault(); moveGroup(1); }
       if (event.key === 'ArrowLeft') { event.preventDefault(); moveGroup(-1); }
     }}>
-    <div className="technology-viewer__canvas" onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}>
+    <div className="technology-viewer__canvas" onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}
+      onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onTouchCancel={() => { touch.current = null; }}>
       <div className="technology-viewer__stage">
         <div className="technology-viewer__scroll" ref={contentViewport} role="region" aria-label={labels.vertical} tabIndex={0} onScroll={event => {
           if (pending.current && event.currentTarget.scrollTop !== lockedScroll.current) event.currentTarget.scrollTop = lockedScroll.current;

@@ -1,0 +1,125 @@
+{
+  "screenshots": "/tmp/ramsider-discrete-qa",
+  "results": [
+    {
+      "width": 402,
+      "actual": 402,
+      "dpr": 3,
+      "geometry": [
+        {
+          "width": 402,
+          "height": 650.203125,
+          "ratioError": 0.0030386556854864466,
+          "blocks": []
+        },
+        {
+          "width": 402,
+          "height": 650.203125,
+          "ratioError": 0.0030386556854864466,
+          "blocks": []
+        },
+        {
+          "width": 402,
+          "height": 650.203125,
+          "ratioError": 0.0030386556854864466,
+          "blocks": []
+        },
+        {
+          "width": 402,
+          "height": 650.203125,
+          "ratioError": 0.0030386556854864466,
+          "blocks": []
+        },
+        {
+          "width": 402,
+          "height": 650.203125,
+          "ratioError": 0.0030386556854864466,
+          "blocks": []
+        },
+        {
+          "width": 402,
+          "height": 650.203125,
+          "ratioError": 0.0030386556854864466,
+          "blocks": []
+        }
+      ],
+      "errors": []
+    },
+    {
+      "width": 440,
+      "actual": 440,
+      "dpr": 3,
+      "geometry": [
+        {
+          "width": 440,
+          "height": 711.65625,
+          "ratioError": 0.012187832093559336,
+          "blocks": []
+        },
+        {
+          "width": 440,
+          "height": 711.65625,
+          "ratioError": 0.012187832093559336,
+          "blocks": []
+        },
+        {
+          "width": 440,
+          "height": 711.65625,
+          "ratioError": 0.012187832093559336,
+          "blocks": []
+        },
+        {
+          "width": 440,
+          "height": 711.65625,
+          "ratioError": 0.012187832093559336,
+          "blocks": []
+        },
+        {
+          "width": 440,
+          "height": 711.65625,
+          "ratioError": 0.012187832093559336,
+          "blocks": []
+        },
+        {
+          "width": 440,
+          "height": 711.65625,
+          "ratioError": 0.012187832093559336,
+          "blocks": []
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "nativeTouch": [
+    {
+      "name": "photo",
+      "group": "NobleCraft",
+      "photo": "1"
+    },
+    {
+      "name": "technology",
+      "group": "HeatCore",
+      "photo": "0"
+    }
+  ],
+  "verification": {
+    "preview": "http://127.0.0.1:3040/ru#technology",
+    "viewerPassed": 13,
+    "integrationPassed": 1,
+    "captionRegressionPassed": 3,
+    "sharedLoaderPriorPassed": 6,
+    "skipped": 2,
+    "skipReason": "duplicate native desktop case on mobile profiles",
+    "build": "PASS",
+    "type": "PASS via final production build",
+    "lint": "PASS; two pre-existing Telegram warnings",
+    "nativeReview": "3 P2 fixed; actual affected cases pass",
+    "screenshots": "/tmp/ramsider-discrete-qa; local ignored evidence",
+    "budgetWaivers": [
+      "full matrix",
+      "production performance campaign"
+    ],
+    "hardware": "physical Mac/Safari unverified"
+  },
+  "assetBytes": 10955504
+}

@@ -106,3 +106,7 @@ CHG0079 Mac-trackpad reopening extends [EVAL-VIEWER](#eval-viewer) with native h
 CHG0079/0080 acceptance extends EVAL-VIEWER with tinyvertical/zero Wheel lead-ins and canonical shared loader pixels across main/gallery/later-main, all locales, knownprogress/Retry/reducedmotion. Product checks pass; controlled agent run NOT_RUN.
 
 CHG0081 extends EVAL-VIEWER delivery acceptance: review staged artifact bytes/count/duplicates, retain raw proof outside tracked source, and commit compact reports. Controlled agent run NOT_RUN; discovery is not a cleanup pass.
+
+CHG0082 extends EVAL-VIEWER: discrete photos horizontal, technologies vertical, byte-exact new sources, full viewport width/source ratio, slim controls, adjacent text-box separation and all reference icon captions, edge-first keyboard/touch/wheel pan, updated integration consumers. Controlled agent run NOT_RUN; product verification is separate.
+
+CHG0083 extends EVAL-VIEWER with compact centered toolbar groups/shared directionalSVG geometry while preserving44pxbuttons/Close space/RTL. Product4scopedchecksPASS; controlledagent runNOT_RUN.

@@ -42,11 +42,11 @@ export function Divider({ y }: { y: number }) {
   return <line x1="56" x2="877" y1={y} y2={y} stroke="#8f8983" strokeWidth="1" aria-hidden="true" />;
 }
 
-export function TechnologyDescriptions({ slide, locale, name, copy }: { slide: TechnologySlideId; locale: Locale; name: string; copy: TechnologyDescriptionCopy }) {
+export function TechnologyDescriptions({ slide, locale, name, copy, cropTop = 0 }: { slide: TechnologySlideId; locale: Locale; name: string; copy: TechnologyDescriptionCopy; cropTop?: number }) {
   const common = { locale };
   const brown = '#975f41';
   return <section className="technology-viewer__descriptions" aria-label={name} data-slide={slide}>
-    <svg viewBox="0 0 941 1672" preserveAspectRatio="none" role="presentation">
+    <svg viewBox={`0 ${cropTop} 941 ${1672 - cropTop - (cropTop ? 48 : 0)}`} preserveAspectRatio="none" role="presentation">
       {slide === '02' && <>
         <TextBlock {...common} id="headline" x={56} y={332} height={128} kind="h3" size={50} line={58} text={copy.three} />
         <TextBlock {...common} id="upper-label" x={94} y={703} width={195} height={32} kind="h4" size={23} line={30} text={copy.upper} />
@@ -68,6 +68,7 @@ export function TechnologyDescriptions({ slide, locale, name, copy }: { slide: T
         <TextBlock {...common} id="body" y={1347} width={840} height={244} size={27.5} line={42} text={copy.sailsBody} />
       </>}
       {slide === '04' && <>
+        {!cropTop&&<>
         <TextBlock {...common} id="phone-brand" x={130} y={512} width={101} height={30} size={14} line={24} color="#fff" tracking={2} text="RAMSIDER" />
         <TextBlock {...common} id="phone-curve" x={130} y={588} width={142} height={32} size={14} line={24} color="#fff" text={copy.heatingCurve} />
         <TextBlock {...common} id="phone-upper" x={80} y={638} width={119} height={30} size={16} line={24} color="#00e4ed" text={copy.upperShort} />
@@ -77,6 +78,7 @@ export function TechnologyDescriptions({ slide, locale, name, copy }: { slide: T
         <TextBlock {...common} id="diagram-upper" x={866} y={849} width={70} height={30} size={16} line={24} tracking={1.4} text={copy.upperShort} />
         <TextBlock {...common} id="diagram-grill" x={866} y={948} width={70} height={30} size={16} line={24} tracking={1.4} text={copy.grill} />
         <TextBlock {...common} id="diagram-lower" x={866} y={1061} width={70} height={30} size={16} line={24} tracking={1.4} text={copy.lowerShort} />
+        </>}
         <TextBlock {...common} id="eyebrow" y={1238} height={42} size={26} line={34} tracking={2} color={brown} text={copy.profiles} />
         <TextBlock {...common} id="headline" x={52} y={1284} height={70} kind="h3" size={51} line={58} text={copy.power} />
         <Divider y={1371} />

@@ -18,7 +18,7 @@ test('main and gallery share loading appearance, RTL and reduced motion',async({
   });
  for(const locale of ['en','ar']){
   let release!:()=>void;const gate=new Promise<void>(resolve=>{release=resolve;});
-  const hold='**/art/technology/02.png';await page.route(hold,async route=>{await gate;await route.continue().catch(()=>{});});
+  const hold='**/art/technology/slides/noble-01.png';await page.route(hold,async route=>{await gate;await route.continue().catch(()=>{});});
   await page.goto(`/${locale}`);
   const main=page.locator('.page-media-overlay .media-loading');await expect(main).toBeVisible();
   const reference=await appearance(main);

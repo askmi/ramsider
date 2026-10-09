@@ -1,0 +1,43 @@
+
+Running 1 test using 1 worker
+
+(node:56102) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+WHEELTRACE -10 0 450.39999985694885 true
+WHEELTRACE -15 0 484.7000000476837 true
+  ✘  1 [desktop-chromium] › tests/e2e/technology-trackpad.spec.ts:24:1 › small wheel deltas accumulate; vertical movement and pinch do not switch groups (6.7s)
+
+
+  1) [desktop-chromium] › tests/e2e/technology-trackpad.spec.ts:24:1 › small wheel deltas accumulate; vertical movement and pinch do not switch groups
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('#technology-viewer')
+    Expected: "CyberMind"
+    Received: "HeatCore"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('#technology-viewer') with timeout 5000ms
+      - waiting for locator('#technology-viewer')
+        14 × locator resolved to <dialog open="" tabindex="-1" aria-busy="false" data-group="HeatCore" id="technology-viewer" class="technology-viewer" aria-labelledby="technology-viewer-title" aria-describedby="technology-viewer-instructions">…</dialog>
+           - unexpected value "HeatCore"
+
+
+      27 |  page.on('console',msg=>{if(msg.text().startsWith('WHEELTRACE'))console.log(msg.text());});
+      28 |  await page.mouse.wheel(-20,0);await expect(viewer).toHaveAttribute('data-group','HeatCore');
+    > 29 |  await page.mouse.wheel(-30,0);await expect(viewer).toHaveAttribute('data-group','CyberMind');await expect(viewer).toHaveAttribute('aria-busy','false');
+         |                                                     ^
+      30 |  await settleGesture(page);await page.mouse.wheel(30,300);await expect.poll(()=>scroller.evaluate(e=>e.scrollTop)).toBeGreaterThan(100);await expect(viewer).toHaveAttribute('data-group','CyberMind');
+      31 |  await settleGesture(page);await page.keyboard.down('Control');await page.mouse.wheel(120,0);await page.keyboard.up('Control');await expect(viewer).toHaveAttribute('data-group','CyberMind');
+      32 |  await viewer.locator('.technology-viewer__close').click();await openTechnology(page);await expect(viewer).toHaveAttribute('aria-busy','false');await scroller.hover();await page.mouse.wheel(-120,0);await expect(viewer).toHaveAttribute('data-group','CyberMind');
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/technology-trackpad.spec.ts:29:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../tmp/ramsider-trackpad-diagnostic/technology-trackpad-small--3ca58--pinch-do-not-switch-groups-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../tmp/ramsider-trackpad-diagnostic/technology-trackpad-small--3ca58--pinch-do-not-switch-groups-desktop-chromium/error-context.md
+
+  1 failed
+    [desktop-chromium] › tests/e2e/technology-trackpad.spec.ts:24:1 › small wheel deltas accumulate; vertical movement and pinch do not switch groups

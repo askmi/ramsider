@@ -48,6 +48,7 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
   const lockedScroll = useRef(0);
   const pointer = useRef<{ x: number; y: number; id: number } | null>(null);
   const touch = useRef<{ x: number; y: number; id: number } | null>(null);
+  const wheelGesture = useRef<{ lastAt: number; distance: number; verticalDistance: number; committed: boolean; axis: 'horizontal' | 'vertical' | null }>({ lastAt: 0, distance: 0, verticalDistance: 0, committed: false, axis: null });
   const displayed = useRef(0);
   const requested = useRef(0);
   const requestToken = useRef(0);
@@ -156,6 +157,43 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
     };
   }, [select, clearSubscriptions]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const viewport = contentViewport.current;
+    if (!viewport) return;
+    wheelGesture.current = { lastAt: 0, distance: 0, verticalDistance: 0, committed: false, axis: null };
+    const onWheel = (event: WheelEvent) => {
+      if (event.ctrlKey || (!event.deltaX && !event.deltaY)) return;
+      const now = performance.now();
+      const gesture = wheelGesture.current;
+      if (now - gesture.lastAt > 180) {
+        gesture.distance = 0; gesture.verticalDistance = 0; gesture.committed = false; gesture.axis = null;
+      }
+      gesture.lastAt = now;
+      const scale = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? viewport.clientWidth : 1;
+      gesture.distance += event.deltaX * scale;
+      gesture.verticalDistance += Math.abs(event.deltaY * scale);
+      // Trackpads can begin with a tiny cross-axis sample. Wait for real intent.
+      if (gesture.axis === null && Math.max(Math.abs(gesture.distance), gesture.verticalDistance) >= 12) {
+        if (Math.abs(gesture.distance) >= gesture.verticalDistance * 1.2) gesture.axis = 'horizontal';
+        else if (gesture.verticalDistance >= Math.abs(gesture.distance) * 1.2) gesture.axis = 'vertical';
+      }
+      if (gesture.axis === 'vertical') return; // Preserve native vertical scrolling for this burst.
+      if (event.deltaX && Math.abs(event.deltaX) >= Math.abs(event.deltaY) * 1.2) event.preventDefault();
+      if (gesture.axis !== 'horizontal') return;
+      event.preventDefault(); // Consume horizontal input, including browser history gestures.
+      if (pending.current) { gesture.committed = true; return; }
+      if (gesture.committed) return;
+      if (Math.abs(gesture.distance) < 45) return;
+      gesture.committed = true;
+      // Natural scrolling reports finger movement to the right as negative deltaX.
+      const next = displayed.current + (gesture.distance < 0 ? 1 : -1);
+      if (next >= 0 && next < technologyGroups.length) select(next);
+    };
+    viewport.addEventListener('wheel', onWheel, { passive: false });
+    return () => viewport.removeEventListener('wheel', onWheel);
+  }, [isOpen, select]);
+
   const moveGroup = (delta: number) => {
     if (pending.current) return;
     const next = displayed.current + delta;
@@ -260,7 +298,7 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
             </article>)}
           </div>}
         </div>
-        {isOpen && loading && <LoadingStatus locale={locale} progress={progress} error={failed} onRetry={() => select(requested.current)} className="technology-viewer__loading" />}
+        {isOpen && loading && <div className="technology-viewer__loading"><LoadingStatus locale={locale} progress={progress} error={failed} onRetry={() => select(requested.current)} /></div>}
       </div>
       {isOpen && <>
         <button className="technology-viewer__next-image" type="button" onClick={() => moveGroup(groupIndex === 0 ? 1 : -1)} disabled={loading} aria-label={groupIndex === 0 ? labels.nextGroup : groupLabels.previous}>

@@ -31,7 +31,7 @@ test('loading status has readable contrast and respects reduced motion', async (
     expect(contrast(colors.bar, colors.track)).toBeGreaterThanOrEqual(3);
     expect(colors.animation).toBe('none');
     expect(colors.opacity).toBe('1');
-    await page.screenshot({ path: `docs/evidence/media-loading/${info.project.name}-reduced-motion.png` });
+    await page.screenshot({ path: `${process.env.LOADING_EVIDENCE ?? 'docs/evidence/media-loading'}/${info.project.name}-reduced-motion.png` });
   } finally {
     await page.evaluate(() => (window as Window & { releaseMediaDecode?: () => void }).releaseMediaDecode?.());
   }

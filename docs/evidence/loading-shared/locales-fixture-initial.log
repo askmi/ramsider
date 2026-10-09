@@ -1,0 +1,20 @@
+SyntaxError: /Users/asmirnou/Projects/g/ramsider/tests/e2e/media-loading.spec.ts: Unexpected token, expected "," (310:68)
+
+  308 |   await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(edge);
+  309 |   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+> 310 |   await page.screenshot({ path: '${process.env.LOADING_EVIDENCE ?? 'docs/evidence/media-loading'}/retained-native-touch-up.png' });
+      |                                                                     ^
+  311 |   release();
+  312 |   await context.close();
+  313 | });
+
+   at media-loading.spec.ts:310
+
+  308 |   await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(edge);
+  309 |   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+> 310 |   await page.screenshot({ path: '${process.env.LOADING_EVIDENCE ?? 'docs/evidence/media-loading'}/retained-native-touch-up.png' });
+      |                                                                    ^
+  311 |   release();
+  312 |   await context.close();
+  313 | });
+    at eval (<anonymous>:1:1)

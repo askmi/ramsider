@@ -1,0 +1,42 @@
+
+Running 28 tests using 1 worker
+
+(node:59610) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [iphone-17-pro-webkit] › tests/e2e/technology-trackpad.spec.ts:7:1 › native horizontal trackpad wheel switches groups once per gesture in English and Arabic (2.9s)
+  ✓   2 [iphone-17-pro-webkit] › tests/e2e/technology-trackpad.spec.ts:25:1 › small wheel deltas accumulate; vertical movement and pinch do not switch groups (1.3s)
+  ✓   3 [iphone-17-pro-webkit] › tests/e2e/technology-trackpad.spec.ts:37:2 › horizontal wheel is locked while the next group loads and old pixels remain (1.1s)
+  ✓   4 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (2.0s)
+  ✓   5 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:169:1 › image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag (910ms)
+  -   6 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  -   7 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+(node:59856) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   8 [iphone-17-pro-max-webkit] › tests/e2e/technology-trackpad.spec.ts:7:1 › native horizontal trackpad wheel switches groups once per gesture in English and Arabic (2.0s)
+  ✓   9 [iphone-17-pro-max-webkit] › tests/e2e/technology-trackpad.spec.ts:25:1 › small wheel deltas accumulate; vertical movement and pinch do not switch groups (1.2s)
+  ✓  10 [iphone-17-pro-max-webkit] › tests/e2e/technology-trackpad.spec.ts:37:2 › horizontal wheel is locked while the next group loads and old pixels remain (938ms)
+  ✓  11 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (1.5s)
+  ✓  12 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:169:1 › image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag (878ms)
+  -  13 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  -  14 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+(node:59932) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  15 [desktop-chromium] › tests/e2e/technology-trackpad.spec.ts:7:1 › native horizontal trackpad wheel switches groups once per gesture in English and Arabic (3.4s)
+  ✓  16 [desktop-chromium] › tests/e2e/technology-trackpad.spec.ts:25:1 › small wheel deltas accumulate; vertical movement and pinch do not switch groups (1.8s)
+  ✓  17 [desktop-chromium] › tests/e2e/technology-trackpad.spec.ts:37:2 › horizontal wheel is locked while the next group loads and old pixels remain (1.3s)
+  ✓  18 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (2.2s)
+  ✓  19 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:169:1 › image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag (1.0s)
+  ✓  20 [desktop-chromium] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (2.2s)
+  ✓  21 [desktop-chromium] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download (6.5s)
+(node:60203) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  22 [desktop-firefox] › tests/e2e/technology-trackpad.spec.ts:7:1 › native horizontal trackpad wheel switches groups once per gesture in English and Arabic (3.8s)
+  ✓  23 [desktop-firefox] › tests/e2e/technology-trackpad.spec.ts:25:1 › small wheel deltas accumulate; vertical movement and pinch do not switch groups (1.1s)
+  ✓  24 [desktop-firefox] › tests/e2e/technology-trackpad.spec.ts:37:2 › horizontal wheel is locked while the next group loads and old pixels remain (768ms)
+  ✓  25 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (1.6s)
+  -  26 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:169:1 › image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag
+  ✓  27 [desktop-firefox] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (2.6s)
+  -  28 [desktop-firefox] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+
+  6 skipped
+  22 passed (47.2s)

@@ -1,4 +1,14 @@
+## Current noisy-start and shared loading correction — 2026-10-09
+
+Preview3036 supersedes3035. Wheel axis stays undecided until12CSSpx accumulated movement with1.2dominance; zero samples ignored. Retain45pxgroup threshold,180msquiet/inertia, genuinevertical-first/nativevertical, pinch/pending/RTL. Native tinyvertical lead-in regression now passes allengines; physicalusertraceUNKNOWN. LoadingStatus owns canonical maininitial dark/white/gold appearance; gallery wrapper positions only. Main/gallery/latermain share widthmax420,24pxsides/32pxbottomsafearea. Knownprogress/Retry and11locale accessibility verified; evidence in loading-shared/ and trackpad-noise/. Earlier3035 approval below is historical.
+
 # Technology viewer — separate layers, current revision 2026-10-09
+
+## Mac trackpad correction / CHG-0079 reopened — 2026-10-09
+
+User clarifies that the original missed swipe is a Mac trackpad. Previous Touch-only fix did not address Wheel. Baseline3033 native desktopWebKit image-targeted horizontalwheel retainsHeatCore; final3035 has a nonpassive listener only on the photo scroll viewport. Natural finger-right corresponds to negative deltaX→next; positive→previous, identically inRTL. Accumulate45CSSpx horizontal delta (line16px/pageviewport normalization), require1.2axis dominance, commitonce until180msquiet including inertia, latch vertical-first motion untilquiet, preserve ctrlWheelpinch and nativeverticalpan. Pending wheel is consumed without navigation; nativeloading freezesvertical and retainsdecodedpixels. Listener resets onopen/cleanup and doesnotresetinertialock ongroupcommit.
+
+[Final browser checks](evidence/technology-viewer/trackpad/browser-tests-final.log):22PASS/6existingAPI-SKIP, including12desktopwheelcases acrossWebKit/Chromium/Firefox,EN/AR,threshold/inertia/vertical-first/pinch/pending/reopen plus affectedTouch. [Pro/Max comparison](evidence/technology-viewer/trackpad/final/visual.json):all4currentgroups identicalacceptedcandidate, correct402/440DPR3,0errors. Native reviewP2vertical-first/testtiming fixed, finalreviewclean; production/static results and datedtechnicalapproval recorded inCHANGELOG. PhysicalMacgesture hardware and OSnatural-scrollpreferences notcertified by protocol input. Preview3035 supersedes3033forcurrentlocalfix. Earlierparagraph below describes historicalTouch-only scope.
 
 ## Image swipe UX / CHG-0079 — 2026-10-09
 

@@ -1,0 +1,154 @@
+{
+  "preview": "http://127.0.0.1:3043/ru#technology",
+  "checks": [
+    {
+      "width": 402,
+      "height": 874,
+      "geometry": {
+        "main": {
+          "x": 0,
+          "y": -2498,
+          "width": 402,
+          "height": 13724.71875
+        },
+        "viewer": {
+          "x": 0,
+          "y": 0,
+          "width": 402,
+          "height": 874
+        },
+        "photo": {
+          "x": 0,
+          "y": 111.890625,
+          "width": 402,
+          "height": 650.203125
+        },
+        "stage": {
+          "x": 0,
+          "y": 48,
+          "width": 402,
+          "height": 778
+        },
+        "image": {
+          "x": 0,
+          "y": 111.890625,
+          "width": 402,
+          "height": 650.203125
+        }
+      }
+    },
+    {
+      "width": 440,
+      "height": 956,
+      "geometry": {
+        "main": {
+          "x": 0,
+          "y": -2735,
+          "width": 440,
+          "height": 15022.109375
+        },
+        "viewer": {
+          "x": 0,
+          "y": 0,
+          "width": 440,
+          "height": 956
+        },
+        "photo": {
+          "x": 0,
+          "y": 122.171875,
+          "width": 440,
+          "height": 711.65625
+        },
+        "stage": {
+          "x": 0,
+          "y": 48,
+          "width": 440,
+          "height": 860
+        },
+        "image": {
+          "x": 0,
+          "y": 122.171875,
+          "width": 440,
+          "height": 711.65625
+        }
+      }
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "geometry": {
+        "main": {
+          "x": 169.5,
+          "y": -6420,
+          "width": 941,
+          "height": 32126.984375
+        },
+        "viewer": {
+          "x": 169.5,
+          "y": 0,
+          "width": 941,
+          "height": 900
+        },
+        "photo": {
+          "x": 169.5,
+          "y": 48,
+          "width": 941,
+          "height": 1522
+        },
+        "stage": {
+          "x": 169.5,
+          "y": 48,
+          "width": 941,
+          "height": 804
+        },
+        "image": {
+          "x": 169.5,
+          "y": 48,
+          "width": 941,
+          "height": 1522
+        }
+      }
+    },
+    {
+      "width": 1280,
+      "height": 1900,
+      "geometry": {
+        "main": {
+          "x": 169.5,
+          "y": -5920,
+          "width": 941,
+          "height": 32126.984375
+        },
+        "viewer": {
+          "x": 169.5,
+          "y": 0,
+          "width": 941,
+          "height": 1900
+        },
+        "photo": {
+          "x": 169.5,
+          "y": 189,
+          "width": 941,
+          "height": 1522
+        },
+        "stage": {
+          "x": 169.5,
+          "y": 48,
+          "width": 941,
+          "height": 1804
+        },
+        "image": {
+          "x": 169.5,
+          "y": 189,
+          "width": 941,
+          "height": 1522
+        }
+      }
+    }
+  ],
+  "build": "PASS",
+  "navigationTests": "6 PASS before final intrinsic image-height correction; final actual image/frame geometry checks4PASS",
+  "nativeReview": "width cap/vertical centering scope clean",
+  "screenshots": "/tmp/ramsider-cap-{402-874,440-956,1280-900,1280-1900}.png (local ignored)",
+  "finalProNavigationAndImageGeometry": "1 PASS, EN/AR on3043"
+}

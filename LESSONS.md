@@ -367,3 +367,7 @@ This is the repository's **error-prevention memory**, separate from current proj
 - CHG0082 audit reopening: when reusing text overlays, inventory embedded raster labels on every clean source, not only the first/last montage slides. Inspect every actual photo at useful size. Root missed Heat profile labels; independent auditor caught duplication. EVAL-VIEWER controlled NOT_RUN.
 
 - CHG0083: group toolbar arrows with their intrinsic-width label rather than a stretch1fr column; use one icon geometry for directional variants. Root’s edge-anchored grid/Unicode arrows required user correction. Acceptance: labelcenter atviewportcenter, compact neighbors,44pxhitareas and sameSVGpath. Controlled EVAL-VIEWER NOT_RUN.
+
+- CHG0084: full-width mobile artwork means full width inside the shared page container, preserving its desktop cap. Never replace --page-max-width with none without explicit desktop-layout authorization. Compare gallery width AND centering against maincanvas atdesktop, plus402/440geometry. Root removedcap and wrote viewport-onlytest; user caught regression. EVAL-VIEWER controlledNOT_RUN.
+
+- CHG0084 centeringfollow-up: in an auto-sized aspect-ratio flex item, prefer intrinsic imageheight:auto over percentageheight; verify actualIMGheight and visiblepixels independently fromarticlebounds. ProWebKitblankimage caught in screenshots; intrinsicheight fixed. ControlledEVAL-VIEWERNOT_RUN.

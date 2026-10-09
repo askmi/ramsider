@@ -110,3 +110,5 @@ CHG0081 extends EVAL-VIEWER delivery acceptance: review staged artifact bytes/co
 CHG0082 extends EVAL-VIEWER: discrete photos horizontal, technologies vertical, byte-exact new sources, full viewport width/source ratio, slim controls, adjacent text-box separation and all reference icon captions, edge-first keyboard/touch/wheel pan, updated integration consumers. Controlled agent run NOT_RUN; product verification is separate.
 
 CHG0083 extends EVAL-VIEWER with compact centered toolbar groups/shared directionalSVG geometry while preserving44pxbuttons/Close space/RTL. Product4scopedchecksPASS; controlledagent runNOT_RUN.
+
+CHG0084 acceptance: gallery/photo width and centering match maincanvas atdesktop, preserve sharedpagecap and402/440ratio. Controlledagent runNOT_RUN.

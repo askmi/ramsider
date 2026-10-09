@@ -137,6 +137,7 @@
 | [CHG-0076](#chg-0076) | USER_REQUEST / UI | Две вертикальные технические ленты без рамки и нумерации | `VERIFIED` |
 | [CHG-0078](#chg-0078) | USER_CORRECTION / DEFECT | Desktop viewer shares landing canvas width | `VERIFIED` |
 | [CHG-0079](#chg-0079) | DEFECT | Image touch/trackpad swipe between technology groups | `REOPENED` |
+| [CHG-0084](#chg-0084) | DEFECT | Restore shared mobile-first gallery width cap | `VERIFIED` |
 | [CHG-0083](#chg-0083) | CHANGE | Center technology arrows beside labels; reuse chevron geometry | `VERIFIED` |
 | [CHG-0082](#chg-0082) | CHANGE | New NobleCraft/HeatCore discrete photos and reversed navigation axes | `VERIFIED` |
 | [CHG-0081](#chg-0081) | DEFECT | Excess QA artifacts committed to Git | `VERIFIED` |
@@ -1838,3 +1839,16 @@
 - **CHG0083 VERIFIED/technicalAPPROVED2026-10-09 /root:** production3041build/typePASS, nativeCLIscopedreview clean, gitdiffwhitespacePASS. ActualWebKitPro402×874/Max440×956DPR3 screenshots viewed; RU/AR4casesPASS: bothlabelcentersviewportcenter±1px, arrowbuttons44px, bars48px, zero gridgap and identicalSVGpath rotated. Close remainsright withreserved44pxspace. Evidence /tmp/ramsider-arrow-check.json,/tmp/ramsider-arrows-{402,440}-{ru,ar}.png,/tmp/ramsider-arrow-{build,review}.log; currentIAB3041 screenshot /tmp/ramsider-arrows-current.png. Priorbehavior checks reused (navigationhandlers unchanged); broadmatrix/performance waiveduserbudget. UseracceptanceNOT_RECORDED, noGitdispatch.
 
 - Gitdelivery2026-10-09 authorizedbyuser «комит пуш»: CHG0082/0083 verifiedresults reused (final3041build/native scopedreview/ProMaxscreenshots/RUARchecks; gallerytargeted/nativeTouchwheelkeyboard evidence). Commitrelevantcode,newdesignrefs/publicassets/tests/compactrecords; exclude screenshots/rawlogs, unrelated.gitignore Telegramrule andbackground_old.png. Branchmain/destinationorigin/main/git@github.com:askmi/ramsider.git confirmed; stagedwhitespace/artifactinventory checks beforecommit. UseracceptanceNOT_RECORDED (Git authorization separate).
+
+## CHG-0084 — Общий лимит ширины галереи
+- 2026-10-09 usercorrection: desktopphotos must use samewidthconstraint asmain. Root interpretedfullwidthphoto as uncapped browserwidth, replaced941pxcap withnone inCHG0082 and encodedwrongexpectation intest. Missed desktopcomparisonagainstmaincanvas despitemobilefirststandingrequirement. ResponsibilityAGENT; currentuser clarifies desktop contract.
+- Expected/fix: centeredviewer uses shared--page-max-width941px, photo fillsviewer proportionally; phones402/440 unchanged. OneCSSproperty restored, testcompares photo/frame againstactualmaincanvas insteadofviewport. Pathsapp/globals.css,tests/e2e/technology-viewer.spec.ts,currenttopic/memory/lessons/eval/journal. Noassetconversion/crop; geometryskillapplied.
+- Plannedverification: actualPro/Max/desktopwidth+centering/ratio screenshots, targetedENARcase/build/native scopedreview; broadmatrix/performancewaiver retained. TechnicalapprovalPENDING,useracceptanceNOT_RECORDED. Userexplicitlyauthorizesimmediatecommitpushorigin/main.
+
+- CHG0084 scopefollow-up: userrequiresverticalcentering whenphotoheight<availableinnerheight. Flexcolumn viewport+nonshrinkingarticle withauto blockmargins centersshortphoto; overheightphoto auto marginsresolve0 preservingtopedge/nativepan. Samegeometryfix, noassetchange. Include fittingcenter andoverflowtop assertions/screenshots in finalcheck.
+
+- Finalvisualcheck caughtProWebKit blankraster despitedecodedphoto/framegeometryPASS; missedactualIMGgeometry undernewflexparent. Max/desktoppainted. KeepnativePNGheightauto (same941:1522ratio) insteadofpercentheight underauto-sizedflexarticle; verifyimageboxheight explicitly and recapturebeforeapproval. Earliergeometry-onlyPASS insufficient. Rootresponsibility: chosepercentagechildheight innewflexcontext.
+
+- **CHG0084 VERIFIED/technicalAPPROVED2026-10-09 /root:** final3043build/typePASS; nativeCLIwidthcap/centering reviewclean; affectednavigation/keyboard6PASS onPro/MaxWebKit+desktopbeforeintrinsicIMGheightfix; final4actualWebKitgeometry casesPASS includingIMGheight at402×874/440×956DPR3 and1280×900/1280×1900DPR1, centered941pxdesktopcap/shortverticalcenter/overflowtop/sourceproportion. Viewedmobile/desktopcomposition andrecapturedvisiblePro rasterafterheightauto fix. Evidencecompactwidth-cap.json; rawcaptures/logs /tmpignored. DiffwhitespacePASS. Userrequestedminimumtokens: no broadperformance/matrixrerun; tinyCSSfixindependentauditnotapplicable. UseracceptanceNOT_RECORDED; commitpush explicitlyauthorized; preserve unrelated.gitignore/background_old.png.
+
+- FinalProactualIMGheight+ENARnavigation1PASS on3043 (cap-final-tests.log); actualuserIAB3043 nowEN/Noblephoto2, previewretained. Branchmain/exactupstreamorigin/main/git@github.com:askmi/ramsider.git confirmed; stageonly8relevantcode/test/recordfiles+compactgeometryreport, noscreenshots/rawlogs. Gitdeliveryauthorized.

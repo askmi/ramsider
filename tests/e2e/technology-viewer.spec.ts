@@ -13,7 +13,7 @@ test('photos move horizontally; technologies move vertically; source ratio and t
   await page.goto(`/${locale}`);await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
   await expect(viewer).toHaveAttribute('data-group','NobleCraft');await expect(viewer.locator('article')).toHaveCount(1);
   const check=async()=>{
-   const box=await viewer.locator('.technology-viewer__content').boundingBox();expect(box!.width).toBeCloseTo(info.project.use.viewport!.width,0);expect(Math.abs(box!.height-box!.width*1522/941)).toBeLessThan(1);
+   const box=await viewer.locator('.technology-viewer__content').boundingBox();const image=await viewer.locator(".technology-viewer__photo img").boundingBox();expect(image!.height).toBeCloseTo(box!.height,0);const canvas=await page.locator(".canvas").boundingBox();expect(box!.width).toBeCloseTo(canvas!.width,0);const frame=await viewer.boundingBox();expect(frame!.x).toBeCloseTo(canvas!.x,0);expect(Math.abs(box!.height-box!.width*1522/941)).toBeLessThan(1);
    await expect(viewer.locator('.technology-viewer__toolbar--top')).toHaveCSS('height','48px');await expect(viewer.locator('.technology-viewer__toolbar--bottom')).toHaveCSS('height','48px');
   };
   await check();await page.keyboard.press('ArrowRight');await expect(viewer).toHaveAttribute('data-photo-index','1');await expect(viewer).toHaveAttribute('aria-busy','false');

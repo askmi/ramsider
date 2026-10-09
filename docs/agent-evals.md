@@ -114,3 +114,5 @@ CHG0083 extends EVAL-VIEWER with compact centered toolbar groups/shared directio
 CHG0084 acceptance: gallery/photo width and centering match maincanvas atdesktop, preserve sharedpagecap and402/440ratio. Controlledagent runNOT_RUN.
 
 CHG0085 addsiconcaptionglyphalignment acceptance: centertext AND boxesvsactualicons, inspectreadablebottomstrips. ProductPro/MaxPASS; controlledagentNOT_RUN.
+
+CHG0086 extendsEVAL-VIEWER: native32pxTouchfourdirections, fittingvs/talltouch-action + resize, cancel/multitouch/bounds/pending, overflowpan + horizontalnext. ProductchecksPASS; controlledagentrunNOT_RUN.

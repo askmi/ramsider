@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-10",
+  "preview": "http://127.0.0.1:3045/en#technology",
+  "nativeTouch": "four32pxdirections, cancellation, multitouch, verticaloverflow, horizontaloverflow navigation, resize action: PASS",
+  "browserTests": 6,
+  "build": "PASS",
+  "nativeReview": "No actionable scoped findings",
+  "geometry": [
+    {
+      "width": 402,
+      "height": 874,
+      "geometry": {
+        "main": {
+          "x": 0,
+          "y": -2498,
+          "width": 402,
+          "height": 13724.71875
+        },
+        "viewer": {
+          "x": 0,
+          "y": 0,
+          "width": 402,
+          "height": 874
+        },
+        "photo": {
+          "x": 0,
+          "y": 111.890625,
+          "width": 402,
+          "height": 650.203125
+        },
+        "stage": {
+          "x": 0,
+          "y": 48,
+          "width": 402,
+          "height": 778
+        },
+        "image": {
+          "x": 0,
+          "y": 111.890625,
+          "width": 402,
+          "height": 650.203125
+        }
+      }
+    },
+    {
+      "width": 440,
+      "height": 956,
+      "geometry": {
+        "main": {
+          "x": 0,
+          "y": -2735,
+          "width": 440,
+          "height": 15022.109375
+        },
+        "viewer": {
+          "x": 0,
+          "y": 0,
+          "width": 440,
+          "height": 956
+        },
+        "photo": {
+          "x": 0,
+          "y": 122.171875,
+          "width": 440,
+          "height": 711.65625
+        },
+        "stage": {
+          "x": 0,
+          "y": 48,
+          "width": 440,
+          "height": 860
+        },
+        "image": {
+          "x": 0,
+          "y": 122.171875,
+          "width": 440,
+          "height": 711.65625
+        }
+      }
+    }
+  ],
+  "physicalHardware": "unverified",
+  "rawEvidence": "/tmp/ramsider-swipe-*.log, /tmp/ramsider-swipe-qa-* (local ignored)"
+}

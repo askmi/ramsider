@@ -373,3 +373,5 @@ This is the repository's **error-prevention memory**, separate from current proj
 - CHG0084 centeringfollow-up: in an auto-sized aspect-ratio flex item, prefer intrinsic imageheight:auto over percentageheight; verify actualIMGheight and visiblepixels independently fromarticlebounds. ProWebKitblankimage caught in screenshots; intrinsicheight fixed. ControlledEVAL-VIEWERNOT_RUN.
 
 - CHG0085: centeredlabelbox does not center its glyphs when sharedtextalignment is start. For icon captions, assert text-align:center AND labelboxcenter vs actualicon; inspect bottomstrip atreadablescale. Rootcheckedcaptionpresence butmissedalignment. ControlledEVAL-VIEWERNOT_RUN.
+
+- CHG0086: fittingphoto must reserve verticalfinger gesture beforebrowserpan begins; cancelinglate touchmove is insufficient on someengines. Set touch-action from actualoverflowbeforecontact, recalcresize. Test light32pxnativeTouch in all4directions, bounds/cancel/multitouch, nativeverticaloverflow andhorizontalnavigation. Rootkeptpan-y everywhere andrightwardnext meantleftswipeonfirstphoto no-op; nativechecksnowPASS, physicalSafariunverified. ControlledEVAL-VIEWERNOT_RUN.

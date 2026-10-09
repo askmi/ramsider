@@ -67,6 +67,12 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
   select(next);
  },[select]);
  useLayoutEffect(()=>{viewport.current?.scrollTo({top:0,left:0,behavior:'instant'});},[image]);
+ useLayoutEffect(()=>{
+  const v=viewport.current;if(!open||!image||!v)return;
+  const update=()=>v.style.setProperty('--technology-touch-action',v.scrollHeight>v.clientHeight+1?'pan-y pinch-zoom':'pinch-zoom');
+  update();const observer=new ResizeObserver(update);observer.observe(v);if(v.firstElementChild)observer.observe(v.firstElementChild);
+  return()=>observer.disconnect();
+ },[open,image]);
  useLayoutEffect(()=>{if(loading&&dialog.current?.open)dialog.current.focus({preventScroll:true});},[loading]);
  useEffect(()=>{
   const warm=()=>technologyGroups.forEach(g=>g.slides.forEach(s=>{void loadImage(s.src).ready.catch(()=>{});}));
@@ -84,8 +90,8 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
   const v=viewport.current;return{x,y,id,axis:null,up:!v||v.scrollTop<=1,down:!v||v.scrollTop>=v.scrollHeight-v.clientHeight-1};
  },[]);
  const finish=useCallback((c:Contact,x:number,y:number)=>{
-  const dx=x-c.x,dy=y-c.y;if(c.axis!=='vertical'&&Math.abs(dx)>=45&&Math.abs(dx)>=Math.abs(dy)*1.2)move('horizontal',dx>0?1:-1);
-  else if(c.axis!=='horizontal'&&Math.abs(dy)>=45&&Math.abs(dy)>=Math.abs(dx)*1.2&&((dy<0&&c.down)||(dy>0&&c.up)))move('vertical',dy<0?1:-1);
+  const dx=x-c.x,dy=y-c.y;if(c.axis!=='vertical'&&Math.abs(dx)>=24&&Math.abs(dx)>=Math.abs(dy)*1.2)move('horizontal',dx<0?1:-1);
+  else if(c.axis!=='horizontal'&&Math.abs(dy)>=24&&Math.abs(dy)>=Math.abs(dx)*1.2&&((dy<0&&c.down)||(dy>0&&c.up)))move('vertical',dy<0?1:-1);
  },[move]);
  useEffect(()=>{
   if(!open||!viewport.current)return;const v=viewport.current;
@@ -107,7 +113,7 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
   const onMove=(e:globalThis.TouchEvent)=>{
    const c=contact.current;if(!c)return;if(e.touches.length!==1){contact.current=null;return;}const t=e.touches[0];if(t.identifier!==c.id){contact.current=null;return;}
    const dx=t.clientX-c.x,dy=t.clientY-c.y;
-   if(!c.axis&&Math.max(Math.abs(dx),Math.abs(dy))>=12){if(Math.abs(dx)>=Math.abs(dy)*1.2)c.axis='horizontal';else if(Math.abs(dy)>=Math.abs(dx)*1.2)c.axis='vertical';}
+   if(!c.axis&&Math.max(Math.abs(dx),Math.abs(dy))>=8){if(Math.abs(dx)>=Math.abs(dy)*1.2)c.axis='horizontal';else if(Math.abs(dy)>=Math.abs(dx)*1.2)c.axis='vertical';}
    if(c.axis==='horizontal'||(c.axis==='vertical'&&((dy<0&&c.down)||(dy>0&&c.up))))e.preventDefault();
   };
   const onEnd=(e:globalThis.TouchEvent)=>{const c=contact.current;contact.current=null;if(!c||e.touches.length)return;const t=Array.from(e.changedTouches).find(t=>t.identifier===c.id);if(t)finish(c,t.clientX,t.clientY);};

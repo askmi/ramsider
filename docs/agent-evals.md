@@ -100,3 +100,7 @@ Start with EVAL-FAQ, EVAL-MAP and EVAL-CAUSE (including its small-doc negative c
 - **Run status:** Controlled independent agent run NOT_RUN. Current real Git ref/ancestry checks validate this correction, not future agent behavior.
 
 CHG-0079 extends [EVAL-VIEWER](#eval-viewer): require actual IMG-targeted Touch lifecycle, pointercancel followed by touchend, vertical-first curves, pinch/cancel/identifier checks and reset on select/close; preserve right-next direction and native scroll. Distinguish WebKit synthetic Touch from Chromium protocol touch and physical iOS. Test drag coordinates inside centered canvas; set TECH_EVIDENCE before runs. Controlled agent execution remains NOT_RUN; product browser results are separate.
+
+CHG0079 Mac-trackpad reopening extends [EVAL-VIEWER](#eval-viewer) with native horizontal Wheel on image, reversible natural-scroll directions, nonpassive cancellation, accumulated CSS deltas, onecommit/inertia until180msquiet, vertical-first axis lock, ctrlWheelpinch/pending/reopen. Check actual driverdelta units atDPR2 and use deterministic browserclock forburst tests. Earlier Touch-only approval cannot certify trackpad; controlledagent runNOT_RUN.
+
+CHG0079/0080 acceptance extends EVAL-VIEWER with tinyvertical/zero Wheel lead-ins and canonical shared loader pixels across main/gallery/later-main, all locales, knownprogress/Retry/reducedmotion. Product checks pass; controlled agent run NOT_RUN.

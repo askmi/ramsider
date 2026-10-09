@@ -1,0 +1,146 @@
+[
+  {
+    "name": "right",
+    "expected": "CyberMind",
+    "group": "CyberMind",
+    "scroll": 0,
+    "events": [
+      {
+        "type": "pointerdown",
+        "target": "IMG"
+      },
+      {
+        "type": "touchstart",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "pointerup",
+        "target": "IMG"
+      },
+      {
+        "type": "touchend",
+        "target": "IMG"
+      }
+    ]
+  },
+  {
+    "name": "left",
+    "expected": "HeatCore",
+    "group": "HeatCore",
+    "scroll": 0,
+    "events": [
+      {
+        "type": "pointerdown",
+        "target": "IMG"
+      },
+      {
+        "type": "touchstart",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "pointerup",
+        "target": "IMG"
+      },
+      {
+        "type": "touchend",
+        "target": "IMG"
+      }
+    ]
+  },
+  {
+    "name": "vertical",
+    "expected": "HeatCore",
+    "group": "HeatCore",
+    "scroll": 637,
+    "events": [
+      {
+        "type": "pointerdown",
+        "target": "IMG"
+      },
+      {
+        "type": "touchstart",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "pointercancel",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "touchend",
+        "target": "IMG"
+      }
+    ]
+  },
+  {
+    "name": "diagonal",
+    "expected": "CyberMind",
+    "group": "CyberMind",
+    "scroll": 0,
+    "events": [
+      {
+        "type": "pointerdown",
+        "target": "IMG"
+      },
+      {
+        "type": "touchstart",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "pointerup",
+        "target": "IMG"
+      },
+      {
+        "type": "touchend",
+        "target": "IMG"
+      }
+    ]
+  }
+]

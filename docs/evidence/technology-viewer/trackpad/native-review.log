@@ -1,0 +1,1637 @@
+2026-10-09T08:40:14.110047Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-09T08:40:14.110107Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+OpenAI Codex v0.159.0-alpha.12.1
+--------
+workdir: /Users/asmirnou/Projects/g/ramsider
+model: gpt-6.1-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: high
+reasoning summaries: none
+session id: 01a11fd1-edf7-7591-97e7-26b2e2547b3c
+--------
+user
+current changes
+2026-10-09T08:40:15.227312Z  WARN codex_skills::interface: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-10-09T08:40:15.227339Z  WARN codex_skills::interface: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-10-09T08:40:19.070045Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+2026-10-09T08:40:23.844985Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+exec
+/bin/zsh -lc 'git status --short; git branch --show-current; pwd; find .. -name AGENTS.md -o -name AGENTS.override.md' in /Users/asmirnou/Projects/g/ramsider
+2026-10-09T08:40:27.017904Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11fd1-edf7-7591-97e7-26b2e2547b3c turn_id=01a11fd1-ee8d-7663-a767-b1cdf495b154 item_id="exec-3839f532-9785-49c8-9b13-4a0c1f54dbcc"
+ succeeded in 1523ms:
+ M .gitignore
+ M CHANGELOG.md
+ M components/TechnologyViewer.tsx
+?? design/references/background_old.png
+?? docs/evidence/technology-viewer/trackpad/
+?? tests/e2e/technology-trackpad.spec.ts
+?? tools/__pycache__/
+main
+/Users/asmirnou/Projects/g/ramsider
+../ramsider/.agents/skills/vercel-react-best-practices/AGENTS.md
+../ramsider/.agents/skills/vercel-composition-patterns/AGENTS.md
+../ramsider/AGENTS.md
+
+exec
+/bin/zsh -lc 'cat AGENTS.md; cat MEMORY.md; cat CONTEXT_INDEX.md; git diff --stat; git diff -- components/TechnologyViewer.tsx .gitignore; cat tests/e2e/technology-trackpad.spec.ts' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 26ms:
+# Ramsider UNO — project rules
+
+Build the new product site from `design/references/`. **Design and implement for iPhone 17 Pro first, then verify iPhone 17 Pro Max; adapt responsively to every other screen size.** The real mobile page must match the supplied reference while loading quickly and working accessibly. One user request should produce one complete delivery: perform as many internal inspect → implement → verify → fix cycles as needed, then code review, performance work, and final re-verification. Visual slices are internal work units; finish and integrate the whole requested page or feature before delivery. Do not hand the user a first draft to find ordinary defects. “Done” means every applicable gate has passed with evidence, not that code compiles or that zero bugs have been assumed.
+
+These are the mandatory rules. [docs/discipline.md](docs/discipline.md) defines stage gates and failure routing; [CONTEXT_INDEX.md](CONTEXT_INDEX.md) routes to other details. For substantive project work, read the short [MEMORY.md](MEMORY.md) for current state, then only the topic files relevant to the task. `PROMPT.txt` and `SUMMARY.txt` are source records for unresolved questions; current user instructions and current assets take precedence over their examples or suggestions.
+
+## Mandatory change and defect log
+
+[CHANGELOG.md](CHANGELOG.md) is the authoritative record of **every logical project change and every discovered defect**, including code, assets, content, mappings, tests, documentation, configuration, user corrections and agent-discovered regressions. The agent maintains it **without a user reminder or a separate permission request**: create/update the entry at discovery, record the solution and changed files when applied, then append verification and approval before delivery. Search relevant IDs when resuming work; do not wait until the final answer to reconstruct the history.
+
+Use the journal's required fields and lifecycle. Record what was wrong/missing/different, expected result, reference/request, cause, solution, intermediate mapping/specification and how it was applied, changed paths, checks and evidence. Every claimed fix needs a dated **technical approval**, naming the verifier and its evidence (and independent auditor when applicable). `APPLIED_UNVERIFIED` is not `VERIFIED`; blocked/skipped checks cannot supply approval. Explicit user approval is a separate field: never invent it or require it for routine authorized fixes. Reopen a failed fix under the same ID and preserve the previous verdict and failure history. Track remaining defects as open entries, even when outside the current task.
+
+For every defect, explain the agent's observable mistaken decision/action, the missed check, responsibility with evidence, and a concrete behavior change. Distinguish genuinely changed/missing inputs from agent failures; do not blame the user merely because an input was absent. Unknown causes stay explicit. Link repeatable causes to LESSONS and an Agent Eval case with its actual run status; a fixed UI does not prove improved agent behavior. Before similar work or a fresh rebuild, retrieve those lessons and turn prevention into acceptance checks. Repository memory improves instructions/context, not model weights.
+
+Small edits may use a short entry, but cannot omit logging or proportionate verification. Group related edits under one logical ID; do not log every tool call. A delivery is incomplete if its journal records or required technical approval are missing. MEMORY describes current state; LESSONS explains reusable prevention; neither replaces CHANGELOG.
+
+## Work in stages
+
+1. **Understand before coding.** Check repository state, [MEMORY.md](MEMORY.md), relevant lessons, and the requested scope. Inspect `design/references/background.png` first, then `background_text.png`, then relevant fonts, button artwork, and source layers. Crop the 941 × 32,127 reference into legible sections. Map content, controls, art layers, section boundaries, and the source-to-CSS viewport scale; set observable acceptance checks and identify unverified product facts. Use [DESIGN.md](DESIGN.md) and [PRODUCT.md](PRODUCT.md). **Exit:** the target slice, assets, behavior, and comparison method are understood; unresolved inputs are explicit.
+2. **Implement one visual slice.** Build for the Pro baseline first, using the clean background as artwork and semantic HTML/CSS for text and controls. Keep text translatable and controls usable; no inert CTA or invented checkout. Reproduce reference copy in the local build while tracking unverified factual claims for publication. Use Next.js + React + strict TypeScript with the framework's own build toolchain; choose each route's rendering mode and Server/Client boundaries from its data and interaction needs. Do not revive the deleted app. Use [ARCHITECTURE.md](ARCHITECTURE.md). **Exit:** the slice renders and its required behavior works; continue through all slices in the requested scope.
+3. **Verify the actual pixels.** Open the running page in a real browser at the iPhone 17 Pro viewport, then verify Pro Max. Confirm the page's actual CSS layout width matches each test profile (the viewport meta tag must be correct). Wait for fonts/images and capture screenshots. Compare the Pro image to the calibrated reference crop; inspect Pro Max as a responsive target unless it has its own reference. The verifier must see screenshots, not only DOM/CSS measurements. Fix material differences and capture again. Use a tolerant pixel diff as a second signal when aligned. Use [docs/visual-qa.md](docs/visual-qa.md). **Exit:** no material mismatch remains in the supported target composition; otherwise keep iterating or report a concrete external blocker without saying “done.”
+4. **Check behavior and adaptation.** Test relevant clicks, hover, scroll, navigation, forms, menus, animation states, keyboard access, Arabic RTL, mobile safe areas, and representative tablet/desktop widths. Check overflow, clipping, crops, wraps, spacing, and tile seams. Use [docs/mobile.md](docs/mobile.md). **Exit:** required states work at the sizes they support.
+5. **Review and optimize.** For code changes, run Codex's native `/review` on the actual diff before delivery (CLI equivalent when needed), examine every actionable finding, fix it, and rerun affected checks. Run available type, lint, test, and production-build checks. Review component boundaries, duplication, accessibility, and unused code. Measure first render, LCP/INP/CLS where measurable, network bytes, JavaScript, layout shifts, and scroll smoothness in a production build. Reassess static, request-time server, and client rendering against measured latency, freshness, and client cost; change strategy where it improves the result. Fix meaningful problems, then repeat affected visual/browser checks. Use [QUALITY.md](QUALITY.md) and [PERFORMANCE.md](PERFORMANCE.md). **Exit:** no known material code, visual, accessibility, or speed regression remains; report if `/review` was unavailable rather than counting a manual pass as its result.
+6. **Learn and report evidence.** Complete the affected [CHANGELOG.md](CHANGELOG.md) entries with actual checks, technical approval and remaining open IDs. Refresh [MEMORY.md](MEMORY.md) when verified state, decisions, or blockers changed; record repeatable errors in [LESSONS.md](LESSONS.md). Use [docs/definition-of-done.md](docs/definition-of-done.md). State tested viewports, screenshot comparisons, interactions, build checks, performance measurements, remaining differences, and checks that could not run. Never claim pixel fidelity, WCAG compliance, a 95+ Lighthouse score, or completion without the corresponding evidence.
+
+**Do not mark a failed gate passed or delegate ordinary QA to the user.** Route the failure back to the stage that can fix it, repeat that stage, and rerun downstream checks the fix could affect. A blocked external dependency must not stop independent work. For UI work, the implement → browser screenshot → compare → fix → recheck loop is mandatory after each completed visual slice and after later appearance changes; repeat it on the assembled page. Work autonomously through all feasible checks; resolve routine choices from the repository and references, and seek only irreducible external facts or access while continuing independent work. For a small non-UI task, apply only relevant stages.
+
+For substantive project work, start one independent, non-editing **discipline auditor** alongside scope inspection. Reuse it at each applicable stage gate: scope before implementation; each completed UI slice's rendering and visual evidence; behavior/adaptation; code review and performance; and final integration, memory, and delivery evidence. Give it acceptance checks, changed files, browser images, command results, and any other agents' findings as relevant. Wait for its evidence-based pass/fail/blocked finding before closing a gate. Fix failures and re-audit affected gates; the main agent owns implementation and required checks. Use the project [auditor profile](.codex/agents/discipline_auditor.toml) when available and [supervision protocol](docs/supervision.md); if the profile cannot be selected, give a subagent the same non-editing assignment. Do not spawn it for a trivial edit. The auditor supplements real QA and native `/review`; it cannot certify missing evidence.
+
+## Standing constraints
+
+- Git: work on `main`. Create or switch to another working branch only on the user’s explicit command; do not infer authorization from the configured upstream, skill defaults or an old checkout. Check the current branch and exact destination before commit/push; push to `origin/main` for this project.
+
+- Working-context efficiency: throughout coding and QA, read only affected code and stage docs; inspect the long reference and screenshots through relevant crops at useful resolution. Keep full-size images, raw image data, long logs, and unrelated file dumps out of model context. Reuse recorded findings, bound tool output, and rerun only checks affected by a change. Never skip required QA to save tokens; stop once all applicable gates pass.
+- Primary devices: **iPhone 17 Pro (402 × 874 CSS px, DPR 3)** is the baseline; **iPhone 17 Pro Max (440 × 956 CSS px, DPR 3)** is the second required mobile target. These are emulation screen sizes, not fixed-height CSS requirements; Safari's visible area changes with browser chrome. Build mobile-first for these devices. All other phones, tablets, and desktops receive responsive adaptation, with no horizontal overflow or broken content. Preserve the supplied composition rather than substituting a generic design. See [docs/mobile.md](docs/mobile.md).
+- Locales: English, Russian, German, French, Spanish, Italian, Turkish, Arabic, Chinese, Japanese, and Korean. Use translation keys. Arabic needs correct RTL layout and behavior.
+- Accessibility: semantic content, keyboard and screen reader support, labels, visible focus, usable touch targets, WCAG AA contrast, and reduced-motion support. Verify affected behavior.
+- Product truth: the render is the visual/content target, not proof of prices, certifications, health claims, stock, or backend behavior. Preserve its visible narrative in the local rebuild; track unverified facts and confirm them before publication or functioning commerce. See [PRODUCT.md](PRODUCT.md).
+- Performance: the first viewport must become useful quickly. The two reference PNGs are each about 44 MB; never serve either as one production background. Derive responsive, compressed sections/tiles from the clean artwork, load the visible segment eagerly and later segments near the viewport, and avoid seams or blank gaps. Never lazy-load the LCP asset. Aim for 95+ mobile Lighthouse only with measured evidence.
+- Artwork color: **always load [artwork-color-pipeline](.agents/skills/artwork-color-pipeline/SKILL.md)** before adding or replacing Photoshop/raster references, cropping or resizing them for the site, converting PNG/PSD exports to WebP/AVIF, or changing how those raster assets are delivered. Apply its source-profile, decoded-color, alpha, browser and speed checks before delivery. CSS-only photo sizing/object-fit/fullscreen adaptation also loads its geometry contract; it does not require raster conversion. Ordinary text and vector-only edits do not trigger it.
+- Tooling: prefer native Codex capabilities when they provide the required evidence; use additional skills/tools for project-specific workflow or capabilities the native route lacks. Read the project [implementer skill](.agents/skills/pixel-perfect-ui-implementer/SKILL.md) when building UI and the [testing skill](.agents/skills/pixel-perfect-ui-testing/SKILL.md) when verifying it. Use the Codex browser for quick exploratory inspection when available; use the configured Playwright WebKit/DPR 3 profiles for required mobile screenshots and repeatable checks. `/review` is a native Codex command, not an installable skill. Load each skill when its stage needs it, not both up front. Broad design-generation skills must not replace the approved render. The requested Codex model and modes are session settings: check availability before claiming they are active. See [TOOLS.md](TOOLS.md) for other skills and limitations.
+- Self-improvement: after **every user correction and meaningful self-detected failure**, find the root cause, fix and recheck it, then decide whether the prevention generalizes. If repeatable, update [LESSONS.md](LESSONS.md) with **problem → cause → prevention** and consult the relevant lesson before similar work; do not promote one-off feedback into a global rule. Keep [MEMORY.md](MEMORY.md) current with verified project state and decisions, without duplicating the task transcript. Preserve user edits and design sources.
+
+If a required check is blocked, explain the concrete reason and do not present it as passed. Do not stop at the first implementation when the remaining stages can be completed.
+# Ramsider project memory
+
+Durable handoff for work in this repository, across chats and context compactions. Read this short file at the start of substantive project work; follow [AGENTS.md](AGENTS.md) for rules and [CONTEXT_INDEX.md](CONTEXT_INDEX.md) for topic details. [LESSONS.md](LESSONS.md) stores reusable mistakes separately. This file records **state and decisions**, not a transcript or a second instruction set.
+
+The mandatory [CHANGELOG.md](CHANGELOG.md) now records logical changes and defects with stable IDs, solution/mapping traceability, checks and dated technical approval. Agents update it autonomously at discovery, application and verification; user approval remains separate. It backfills this session’s font/button, Business and FAQ work and retains open residuals. CHG-0023 adds explicit responsibility, missed checks and behavior/eval links: agent implementation/verification failures are distinguished from new inputs (Business). Before similar work or a fresh rebuild, retrieve these causes and prevention checks. Agent Eval has a documented current-code protocol; the browser suite now defines 16 cases (four cover wheel input), but no controlled agent-run baseline has been executed and no model-weight training is claimed.
+
+## Image swipe UX — 2026-10-09
+
+CHG0079 touch handling separates single-contact Touch lifecycle from primary left-button mouse/pen pointers. Rightward-next/leftward-back ≥45px/1.2axis stays unchanged in all locales; vertical-first/pinch/cancel/id mismatch are ignored and select/close reset gesture state. Native Chromium IMG touch + Pro/Max WebKit image Touch regression and screenshot comparison passed; four group images identical to accepted compact header,0errors. Exact reported physical-browser failure UNKNOWN (pure rightward baseline already passesChromium); physical Safari/Telegram unverified. Initial test fixture errors and32historical evidence overwrites repaired/preserved; current docs/evidence/technology-viewer/swipe holds captures/logs. Native finalreview clean/type/lint/buildPASS(twoexistingtelegramwarnings). Local production useful289.3ms,LCP340,CLS0,JS163821B(+235B),innerscrollp9516.7/mainscroll16.8ms0>33; syntheticcachedopen63.2msnotINP,no newthrottled/field claim. Independent scope/visual/behavior/review-performancePASS; rootdatedtechnicalapproval recorded; freshread-only swipe_records_audit finalrecordsPASS after priorauditorfinalturn stalled(causeUNKNOWN). Preview3033/ru#technology; user2026-10-09 «commit push» authorized verifiedCHG0079 dispatch to origin/main; Git commit/remote refs are authoritative for SHA. Previous0071/0065/0035 residuals unaffected; preserve unrelated files and workmain.
+
+## Current width correction and compact header — 2026-10-09
+
+Baseline CHG0076 was accepted, committed506e69f1100de4f2981cb1552455550e351faa01 and pushed/remote-hash verified origin/main. New user correction0078: technical viewing on laptops must keep exactly the centered landing canvas width, min(viewport,941px), shared CSS variable; mobile-first policy extends to dialogs. CHG0078 VERIFIED scoped CSS correction, width-only before/after Pro/Max4group captures pixel-identical before the separately approved header change; desktop1440 bounds941px x249.5 equal main. Dated primarytechnicalapproval andindependentStages1/3/4/5PASS in CHANGELOG; User now requests commit/push of these verified changes to origin/main; Git commit and remote refs are authoritative for the dispatched SHA. Preview3032/en#technology (3030/3031old builds superseded).
+
+CHG0077 user approved «да в одну строку лучше» and CHG0077 VERIFIED header is applied:88→64px+safearea,18pxnav/16px narrow, dots in same row onleft,44disjointtargets. Final liveheader54labelgeometry+11keyboardcyclesPASS, allfourmobilecapturespixel-identicaltoapprovedcandidate; finalwidthsuite11PASS/5platformskips. Actual site header now64px. Finalnative review/type/lint/build14SSG PASS; finalcold useful326.1/2247.2ms,LCP364/2276,CLS0,JS163586B,localgalleryp9516.8ms0>33. IndependentStage6 firstFAIL(missingEVALprevention) repaired; finalrecordre-auditPASS, datedroottechnicalAPPROVED, scopedStages1–6complete. CHG0071 retainedmain pending paintREOPENED,0065physicalchromeunverified,0035faviconOPEN remain separate. Preserve unrelated .gitignore/background_old/tools cache.
+
+## Historical completed ribbon delivery — 2026-10-08
+
+CHG-0075 cleanup VERIFIED: cancelled expanding-frame previews archived with matching hashes; they are not current requirements. CHG-0076 VERIFIED /2026-10-08: two full-width vertical ribbons implemented:4HeatCore+2CyberMind, no metal/bottomcontrols/numbering, one title/group, unchanged local descriptions, two topgroupdots, literal rightward next/leftwardprevious swipe in every locale. Six originalPNG post-windowload low-priority warm/cache policy preserved; complete groups commit after all own images decode. Pending keeps old group, locks scroll/navigation, Close/Retry usable. Pro402×874/Max440×956DPR3 body/join/bottom screenshots checked; final assembled hero/technology/documents/FAQ recaptured after paint settlement,0pageerrors. All67applicable ribbon cases PASS (65final+2Firefoxrechecks),5explicit API skips; build14static/type/lint/native review clean. Reviewer fresh browsers sandbox blocked; primary real browser evidence present. Isolated useful351/2248ms,LCP388/2280,CLS0,JS163586B,scrollp95≤16.8ms0>33; cachedopen63/156.5ms synthetic, notINP. Unchanged originals29.95MB, cold4Mbps warm finishes74.54s. Independent ribbon_audit scope/visual/behavior PASS and fresh ribbon_closeout_audit review/performance PASS; corrected ribbon_final_records final record/integration audit PASS; primary dated technical APPROVED. Current production preview http://127.0.0.1:3030/en.
+
+CHG-0071 REOPENED: earlier retained-main approval is historical. Artificially held04.webp WebKit check intermittently loses main artwork; reproduced in exact untouchedHEAD baseline (47source/config byte matches, framework webpack build), baselineProPASS/MaxFAIL,currentProFAIL/MaxPASS. Exact cause UNKNOWN; no main-loading fix in0076. Immediate main assembly capture also showed transient missing art, settled capture after ten animationframes is correct; this is not proof of fixing the held-resource failure. Preserve failed evidence and state the residual; do not call broader147PASS/10SKIP/7FAIL run a full pass. Historical11media evidence PNGs restored byte-identicalHEAD; current failures preserved in docs/evidence/technology-viewer/ribbons. CHG0065physical chrome/CHG0035favicon remain unverified. Work on main; preserve unrelated .gitignore/background_old/tools cache. User accepted preview («отлично») and explicitly authorized commit/push of relevant CHG0076 changes on main to origin/main; unrelated local files remain excluded.
+
+## Git branch rule — 2026-10-08
+
+User requires work on main and no branch creation or switch to another working branch without an explicit command. CHG0074 verified: current checkout is main (d877369 includes the branch policy commit), fast-forwarded without losing history; original local and remote codex/technology-viewer-controls removed. origin/main confirmed at0a0996624724e78c602cbe7e77aa1e6950c68d31 after atomic push/delete. Earlier dual-target push authorization is superseded; origin/main is the delivery target.
+
+## Documentation and photo skill — 2026-10-08
+
+CHG-0073 VERIFIED / 2026-10-08: reuse the existing topic document for diagnosis, plans and verification; do not create a Markdown file for each correction. Viewer width analysis/results now reside in docs/technology-viewer.md; raw evidence remains in place. Existing artwork-color-pipeline covers CSS photo geometry as well as raster transforms, with separate photo-width/aspect/content checks and mandatory implementer/testing routing. All3 schema checks and78 local links PASS; independent instruction/scenario audit PASS. Historical-filename migration error repaired; independent final record re-audit PASS, primary technical APPROVED. Controlled EVAL-VIEWER NOT_RUN.
+
+## Historical viewer geometry and media approvals — 2026-10-08
+
+The latest direction above supersedes the frame/per-slide geometry and prior CHG0071 approval below. Previous preview ports and push authorizations describe historical deliveries, not this task.
+
+CHG-0070 white-band follow-up VERIFIED /2026-10-08: nine-slice frame height now caps at full-width proportional photo height plus borders, centered in the available control gap. All6 slides at393×852/402×874/440×956 show no fit bands, zero inner scroll and ≤0.015625CSSpx edge gap; short390×664 retains166px reachable overflow. Final serialized affected suite115PASS/5platform skips; native review clean, build/type/lint PASS. Independent scope/visual/behavior/review-performance/final-record PASS; dated primary technical approval recorded. Evidence in docs/evidence/technology-viewer/width-analysis/vertical-bands; previous parallel failures preserved. Current production preview3024; commit/push authorized to origin/main.
+
+- **CHG-0070 VERIFIED / 2026-10-08:** full photo width without distortion is implemented. [Width analysis](docs/technology-viewer.md#width-analysis)/[checks](docs/technology-viewer.md#width-verification): viewport-wide frame on all pointer profiles; proportional941×1672 photo/title/copy fill the cutout width, native vertical scroll on height overflow, fixed controls, explicit group buttons, bounded horizontal/RTL, pending scroll freeze and decoded-commit top reset. Final production affected119PASS/5 platform-specific skips plus assembly/focus8/8PASS, final build14static/type/lint/native-review clean; cold useful264.2ms local/2023.1ms at4Mbps4xCPU, LCP296/2068,CLS0,JS164317B, inner p9516.7ms0/159 >33. Independent aspect_analysis_audit Stage1/3 and width_closeout_audit Stage4/5 PASS. Stage6 stale plan paragraph failed, was repaired, and width_closeout_audit final record re-audit PASS; primary technical APPROVED. Prior contain approvals historical; failed integration consumer/readiness runs preserved and repaired. CHG0071 retained-view correction VERIFIED /2026-10-08 after reopening the landing blackout: ready view retained, downward stop before unfinished next block, progressbar and native upward movement preserved. Earlier0071 approval historical;0072/0066 unchanged. Four HeatCore + two CyberMind originals, clean title masks and semantic OpenSans title/descriptions remain unchanged. Current0071 retained-view implementation VERIFIED; independent retained_closeout Stage3/4/5/6 PASS and dated primary final technical approval recorded. Main native cap stops before unfinished pixels, retains ready view/progress and permits upward scroll. All163 applicable final-suite cases have passing evidence across final159PASS and8/8targeted rechecks;5platformskips explicit. Native review/type/lint/build PASS. Isolated cold useful276.6/2245.2ms,LCP312/2280,CLS0;innerscrollp9516.7/mainscroll16.8ms0>33 normal/throttled. Current0071 policy: all6 gallery photos after windowload atlowpriority, main assets asynchronously afterfirsthero decode athighpriority, coldselectedgalleryauto; successful retained transfer/decoded DOM image perURL. Initial/transition photo and copy reveal together after complete download/decode; progress/error/retry and loading locks are shared with substantial landing artwork. Failed URLs bypass corrupt HTTPcache. Latest policy supersedes prior firsttwo/group0071, firstone/group0068 and allfourpostload0064 warm policies.
+- Phone metal frame spans viewport width; its height is capped at proportional photo height plus borders and centered between controls; unchanged source uses nine-slice31/29/28/29 with exact fractional paint widths, preserving corners instead of stretching the whole source rectangle. Inner white cutout contains one width-filling proportional941×1672 photo/text composition with vertical overflow scrolling; previous height-containment fit bands and centered narrow hover-desktop canvas are superseded. Short-window narrow-canvas side gutters from the first0070 fix are superseded. Header/pagination occupy separate44px rows; source-ratio arrows and capped dots adapt through landscape/tablet/desktop. Horizontal endpoints stop, reverse navigation works, group transitions remember selection.
+- Main remains SSG/server children inside a client DOM-readiness wrapper. An early head JS marker protects the first paint; without JS or after initial framework download/execution failure before hydration, native static image/text/FAQ fallback remains usable. Arbitrary post-hydration runtime errors are not certified. Actual retained image decode, reliable byte progress or explicit indeterminate bar, touch/keyboard/scroll/focus locks and recoverable503/corrupt200 are acceptance checks.
+- Historical preceding media-readiness approval evidence under [media readiness](docs/evidence/media-loading/checks.md); [current mapping](docs/technology-viewer.md), [plan](docs/media-loading-plan.md). Final acceptance-complete.log160/160 PASS across Pro/Max WebKit and desktop Chromium/Firefox;14SSGbuild/type/lint PASS, latestnative-review-final.log clean. At that preceding approval, Pro/Max assembly screenshots matched the recorded SHA values; current width-revision assembly comparisons are recorded separately above. Independent final_audit scope/visual/behavior/review/performance/final record gates PASS. Native HTTPcache, metal stretch, bootstrap failures, contrast and legacy timing/fixture failures were repaired and rechecked; failed runs remain historical. Final cold useful first view268.3ms local /2007.1ms at4Mbps100ms4xCPU, LCP304/2044ms, CLS0, JS163821B, localscrollp9516.7ms0/159>33. Four originals20.5MB finish~44.3s after throttled navigation; allsix30.0MB~66.0s after opening at46.4s. Synthetic cached-open122/146ms is notINP; noLighthouse/field claim.
+- Existing physical iOS Telegram/Safari toolbar symptom0065 remains APPLIED_UNVERIFIED; WebKit height emulation cannot certify recipient browser chrome. Missing favicon0035 remains OPEN. Local preview3022 remains available. On2026-10-08 user authorized commit/push to origin/main and the existing configured branch; no new branch. Git commit/remote refs are authoritative for the dispatched SHA; this commit/push step does not certify the public deployment. Historical production and asset approval evidence stays under technology-viewer subfolders. User acceptance NOT_RECORDED; controlled EVAL-VIEWER NOT_RUN.
+
+## Latest artwork state — 2026-10-05
+
+- 2026-10-05 CHG-0059 replaces the reconstructed comparison ornament with the designer's exact 701×401 transparent `design/references/01_Compare_Overlay.png`; the live copy remains `public/art/expression-waves.png` and the generator now copies the master byte-for-byte. The source has no ICC tag, so its intended color space is unconfirmed. Pro/Max and Arabic WebKit compositions, all 11 locale controls, and lazy loading were checked; see [map](docs/expression-waves-map.md), [journal](CHANGELOG.md#chg-0059), and [evidence](docs/evidence/compare-overlay/).
+
+- CHG-0058 adds the project [artwork-color-pipeline skill](.agents/skills/artwork-color-pipeline/SKILL.md), explicitly triggered from AGENTS.md for new/replaced Photoshop/raster references and format/delivery changes. The converter now compares default and sharp-YUV WebP using visible/local/p99/ΔE76 measurements; `doc-emc` is lossless after its 29/255 p99 red/blue error was caught. Quality/browser/performance evidence is recorded under `docs/evidence/art-webp/`; no P3 or Photoshop ACE exact-parity claim.
+- CHG-0057 adds a future-use reserve of 22 exact-source Adobe RGB PNG crops in `design/derived/original-png/` (46,308,888 bytes). `tools/slice-background-png.py` regenerates them and `manifest.json` records source/output hashes and crop boxes. The reserve is outside `public/`, so it adds no deployment assets; the live page still requests WebP only. Pro/Pro Max production WebKit request logs show zero reserve PNG requests. Format switching has not been implemented.
+- CHG-0056 replaces the temporary 22 active PNG crops with WebP derived from the **current user-modified** Adobe RGB reference through an explicit LittleCMS Adobe RGB→sRGB conversion. Every full WebP carries sRGB ICC and exact source alpha; q95 is used where measured color shift stays within thresholds, with all five document thumbnails lossless after CHG-0058. The old `public/art/unused-webp/` archive and superseded active PNG crops were removed; `design/references/background.png` and the user's untracked `background_old.png` were preserved. `tools/convert-art-webp.py` regenerates the files and [color metrics](docs/evidence/art-webp/color-metrics.json); the method and alternatives are in [art color pipeline](docs/art-color-pipeline.md).
+- The 22 full WebPs total 6.278 MB after CHG-0058 measured quality selection (formerly 5.665 MB), plus about 60 KB of below-fold previews inlined through `lib/art-previews.json`, versus 50.12 MB for fresh sRGB PNG equivalents. Next Image removes each preview after the full image decodes so source transparency remains visible. The hero is about 248 KB versus the former 3.19 MB PNG. Pro/Pro Max WebKit screenshot comparisons to temporary color-managed PNGs, full suite 93 PASS/19 expected SKIP, type/lint/build and cold 4 Mbps measurements are recorded in CHG-0056; native review and independent scope/visual/behavior/performance audits passed; CHG-0056 is technically VERIFIED. The first final journal audit found stale approval wording, which was corrected; the independent final re-audit passed on 2026-10-04. The first preview fills a distant cold jump in about 35 ms while full distant artwork takes roughly 6.3 s on that synthetic connection after the quality pass; no Lighthouse/INP claim. This replaces the older current-artwork bullets below where they describe active PNG delivery. CHG-0047/0048 historical failed PNG speed tradeoff remains in the journal.
+
+## Current state — checked 2026-10-01
+
+- The new product site is implemented in `app/`, `components/`, and `lib/` with Next.js 16, React 19, and strict TypeScript. The eleven locale routes are statically prerendered. `Story` is a Server Component; small interactive boundaries are Client Components. The current production artwork is the color-managed WebP pipeline in CHG-0056; the prior PNG delivery, archived WebPs, and CHG-0048 speed problem are historical. The full reference PNGs are never served directly.
+- The source artwork and copy are the 941 × 32,127 references in `design/references/`; [DESIGN.md](DESIGN.md) and [PRODUCT.md](PRODUCT.md) hold source and product context. The Pro composition uses a 402 px CSS viewport with DPR 3. Final WebKit Pro and Pro Max screenshots are under `screenshots/actual/` after `npm run test:visual`; that suite also tests desktop Chromium and Firefox. Reference comparisons are made from aligned crops; Pro Max has no direct reference. The discipline auditor passed the visual and behavior/adaptation gates after technology-anchor, fine-print, CTA, and account corrections.
+- The [typography and button map](docs/elements-mapping.md) was applied on 2026-09-30 after inspecting Preview and all 45 theme/design combinations. `lib/button-map.json` assigns all 14 story CTAs stable IDs; ten pill surfaces are generated from supplied text-free SVGs by `tools/generate-buttons.py`. Source corners, arrows, strokes and gradients are preserved while straight widths are calibrated. After the user reported German text wrapping, [CHG-0004](CHANGELOG.md#chg-0004) was reopened and verified: ten pill widths are measured per non-English locale into `lib/button-localized-widths.json`, with one-line text and proportionate SVGs. Arabic/Chinese/Japanese/Korean button fonts use bundled Noto subsets in both page and calibrator. Static Open Sans Light/Regular, package button Open Sans Regular, and BankGothic have explicit roles. Document/project/play/custom controls have distinct treatments. See [localized fix evidence](docs/fix-localized-buttons.md) and [original implementation](docs/font-button-implementation-2026-09-30.md).
+- [CHG-0030](CHANGELOG.md#chg-0030) originally corrected the two non-English technology ovals B03/B07 by moving both text lines up 16 source px while leaving English at source coordinates. Russian Pro/Max WebKit crops and painted-glyph tests passed; 110/110 locale/width states fit and RU pointer/keyboard dialogs passed. The later English correction below supersedes only that English-coordinate decision. See [orbit correction](docs/fix-orbit-centering.md).
+- On 2026-10-01 the user reopened CHG-0030 for English: the previous English exclusion left B03/B07 text visibly low. An EN-only 12-source-px shift now centers both visible lines while preserving rings and non-EN styles; Pro/Pro Max before/after WebKit images and 8/8 focused EN/RU interaction and ink tests pass, plus 2/2 EN production WebKit checks on refreshed `:3020`. Type/lint/build pass and independent visual/behavior audit passes. Native review/final gate remain pending under the user's short timebox; CHG-0030 remains OPEN until then.
+- [CHG-0034](CHANGELOG.md#chg-0034) constrains all six Confidence Document cards: translated title/detail text wraps inside a shrinkable grid column, long RU/DE/FR/ES headings use local size adjustments, and footer labels and arrows share a centered action row. EN source composition and RU/AR Pro/Pro Max screenshots were checked; production WebKit matrix covers 330/330 card/locale/width states with zero overflow. RU/AR document dialog actions pass in mobile/desktop browsers, and the full production suite passes 49 tests with 15 expected skips. Scoped native review of this fix has no remaining actionable finding; independent scope, visual, behavior and review/performance gates passed.
+- The font/button visual and behavior gates passed independent audit. Pro comparisons cover all eight page bands and all 14 CTAs; Pro Max is responsive evidence. Tight pill crop differences remain 8.50–12.93% (threshold 0.15), mainly rim/glyph rendering; no pixel-perfect claim. The prior FAQ “tint difference” disposition was wrong: duplicated source/CSS surfaces and vertical drift were material defects, subsequently reopened for correction; see [FAQ fix](docs/fix-faq-accordion.md). Source decorative feature pictograms remain outside the font/button correction. English assets cannot establish native-script editorial accuracy or BankGothic embedding rights.
+- Latest typecheck, lint, production build and **24/24 browser tests** passed on Pro/Pro Max WebKit and desktop Chromium/Firefox. The localized-button matrix covers 14 CTAs × 11 locales × 375/402/440/768/1440 CSS px: 770/770 states with exactly one visual text line, adequate internal margins/arrow clearance and no canvas overflow. Hero and comparison CTA dialog interactions passed in all 11 locales. Earlier checks covered all 24 modal actions per primary device, expanded pill hit areas, Arabic, keyboard focus containment/restoration and Escape. Native reviews found and prompted fixes for standalone calibration and system font fallback; final native review found no actionable defect. Its sandbox could not run fresh WebKit, so main-session production browser evidence supplies that check. See [localized fix evidence](docs/fix-localized-buttons.md) and [implementation verification](docs/font-button-implementation-2026-09-30.md).
+- Latest production FAQ-flow check: Chromium402×874 DPR3,4×CPU, unthrottled loopback. Cold FCP/LCP244ms, CLS0;1,188,991B transferred (151,430B JS,256,343B fonts); warm LCP60ms. Normal-CPU162-frame scroll p95 17.6ms, none >33ms. No INP/Lighthouse claim. See [FAQ background evidence](docs/fix-faq-background.md).
+- CHG-0026/0027: closed FAQ remains source-aligned with −; independently open rows show ×. Answers now grow the document, shifting all suffix artwork/text/targets together without a nested scroller or extra client JS. The prior expanded-side-gutter/central-gradient background was rejected by the user: it changed gaps/corners. CHG-0027 was reopened and is now technically approved after correction: full-width row crops preserve corners/gaps and the native card surface, extending only an opened row’s middle. Pro/Max/Arabic visual audit,16 locale/width cases and16 browser tests passed; final native review found no actionable defect and auditor closeout passed. CHG-0026 retains technical approval; CHG-0027’s earlier approval was superseded; the new background fix passed independent final audit; user acceptance remains NOT_RECORDED. The source-scaled grid splits at Y27147/Y28207. See [current FAQ background correction](docs/fix-faq-background.md) and the [historical flow fix](docs/fix-faq-flow.md). The outer artwork seam CHG-0014 and cursor investigation CHG-0025 remain open; feature pictograms CHG-0015 were subsequently corrected in CHG-0044/0045 and remain `APPLIED_UNVERIFIED` pending native review.
+- The implemented site is committed on `main`; `5727804` was the latest site commit before the right-edge artwork correction. Preserve user files and unrelated changes. No project Codex hooks are configured; stage auditing uses the profile and [docs/supervision.md](docs/supervision.md).
+- CHG-0041 corrects the intermittent white line along the right edge of the long background. The source PNG's x=940 column is transparent at Y221–1896, 2854–3264, 5043–11469 and had been flattened to white in WebP. Only derived tiles `00.webp`–`04.webp` were regenerated with neighboring opaque pixels; source references, CSS and layout geometry remain unchanged. Pro/Max WebKit and desktop Chromium screenshots and nine scroll positions per profile show no white edge; four changed tile joins were inspected. The independent visual/adaptation audit passed; user acceptance is `NOT_RECORDED`. See [journal](CHANGELOG.md#chg-0041) and [lesson](LESSONS.md#check-the-outer-pixels-of-derived-artwork).
+- CHG-0042 addresses blank artwork during fast scroll/cold load and mid-page locale transitions. Production tests on Pro/Pro Max WebKit and desktop Chromium pass 12/12 focused image/locale/stalled-resource cases; the switcher regression passes 14 applicable cases. The first new RU/AR frame retains y=6500 and decoded shared artwork. A local Chromium 402×874/DPR3 sample measured LCP160ms, CLS0, 2.82MB resources, 12/12 art images loaded and scroll p95 16.8ms/0 frames over33ms; no Lighthouse or INP claim. Native `/review` was blocked by automatic approval review because it would export the private uncommitted diff; that gate remains unpassed. See [journal](CHANGELOG.md#chg-0042) and [lesson](LESSONS.md#test-fast-travel-and-cold-reload-before-approving-long-artwork-delivery).
+- CHG-0028 adds a user-requested back-to-top control absent from the original render. A small client component appears after scrolling, stays at the lower-right safe area, adapts visually over light/dark artwork, returns keyboard/touch users to the top, and has labels in all 11 locales. Final 20/20 browser checks, Pro/Pro Max and responsive screenshots, production build/type/lint, native follow-up review, and independent visual/behavior/performance gates pass. The final journal audit found stale pending wording; it was corrected before delivery. See [feature record](docs/back-to-top.md) and `screenshots/actual/back-to-top/`. This addition does not claim a render pixel match because the source has no corresponding control.
+- CHG-0043 is the later user correction to that supplemental button's position: its phone-only 72px bottom minimum was removed. Pro/Pro Max production WebKit now measure a 20px bottom gap in emulation, with safe-area handling retained for real devices; focused behavior tests pass 3/3. Native review of this latest one-line CSS correction is blocked by automatic approval review, so CHG-0043 remains `APPLIED_UNVERIFIED`.
+- CHG-0044 replaces the four wrong Unicode feature marks (control, draw, intensity, session) and restores three source dividers using transparent pixel extractions from `background_text.png` over `background.png`. The source reconstruction misses zero changed pixels in those bands; Pro/Pro Max/Arabic/desktop screenshots and 44 locale/width states passed, as did 3 focused tests and type/lint/build. Native review remains blocked by automatic approval review, so this change is `APPLIED_UNVERIFIED`; see [source map](docs/feature-icon-map.md).
+- CHG-0045 subsequently replaces the seven wrong technology glyphs and their straight CSS connectors with source-derived gold forms, bent routes and terminal dots. Pro aligned source and browser crops, Pro Max, Arabic and desktop were inspected; 3 new and 6 existing browser tests, 44/44 locale/width states, source reconstruction and type/lint/build passed. One local Chromium run measured LCP124ms, CLS0 and 63KB transferred for the seven images; no INP/Lighthouse claim. Native review remains blocked by automatic approval review, so CHG-0045 and umbrella CHG-0015 are `APPLIED_UNVERIFIED`. See [technology map](docs/technology-icon-map.md) and saved evidence in `screenshots/actual/technology-icons/`.
+- On 2026-10-03 CHG-0049 supersedes only the icon **shapes** in CHG-0044/0045 with the designer's `design/assets/ICON_Kit/` PNGs. [Elements Mapping](docs/elements-mapping.md) maps 12 files to 11 unique rendered icons (I06 duplicates I05); `lib/icon-map.json` drives the live IDs. The original three dividers and seven connector paths are separate derived layers. A uniform 28-source-px lift and the next individual placement were rejected by the customer as too high. The six-icon target, initially provisional, lowers I01/I03/I04/I05/I07/I08 another 4–6 source px; I02 Smart Core is held unchanged because the customer asked for six of seven visible icons without specifying which to exclude. A later correction centers all seven technology icons over their translated label axes outside English, keeping Y, English X, connectors and I09–I12 fixed; [154-pair Pro/Pro Max evidence](docs/evidence/icon-centering/geometry.json) and DE/AR/EN screenshots show no translated center drift. The customer later explicitly accepted the current vertical distance, resolving the earlier six-of-seven selection blocker for the visible result; the integrated correction is technically VERIFIED. Older technical passes remain historical for rejected positions. CHG-0048 was still open at that stage; CHG-0056 resolved it on 2026-10-04.
+- CHG-0055 corrects the remaining **English** Light & Sound center: I05 now uses target X706 instead of original X711 in the 941px source coordinate system, placing its 28px box center on the text axis720. Non-English `localizedX736`, Y/size/PNG and all other icons stay unchanged. Production WebKit Pro/Max EN/DE/AR geometry is within 0.008 normalized CSS px of the label axis; eight focused browser tests, assembled-section screenshots, build/type/lint and native review pass. See [journal](CHANGELOG.md#chg-0055) and [evidence](docs/evidence/light-axis/).
+- CHG-0050: Firefox locale-switcher test twice failed because it called `decode()` during a changing lazy-image request. It now polls for **all visible tiles** to be loaded; the final full suite passed 78/18, and its strengthened scenario passed 4/4 browser profiles. The test sync defect and prevention are recorded separately from the icon correction.
+- CHG-0051: The Freedom of Choice subtitle alone now uses warm dark brown `#41342d` for stronger readability. Production WebKit Pro/Pro Max screenshots and 22 locale×device checks showed the expected color without overflow; type/lint/build passed. The later CHG-0049 acceptance and horizontal correction are verified separately from this subtitle change.
+- CHG-0052 restores the source luminous arcs and glints around the PRO/GOLD comparison block as a masked 700×400 transparent layer derived from `background_text.png` while keeping text and B08 live and translated. It is lazy-loaded near the section: zero wave requests on the first viewport and one decoded request after a fast jump. Real WebKit Pro/Max/DE/AR crops and an 11-locale contact sheet were inspected; the 4-profile browser spec checks all locale centers, overflow and Arabic B08 behavior. Build/type/lint, 10-stop assembled scroll and final native review pass; the independent stage gates passed. [Map](docs/expression-waves-map.md), [evidence](docs/evidence/expression-waves/), [journal](CHANGELOG.md#chg-0052). CHG-0048 was still open at that stage; CHG-0056 resolved it on 2026-10-04.
+
+CHG-0024 originally restored scroll chaining; CHG-0027 subsequently removes the nested FAQ scroller entirely. Wheel injection uses desktop input mode for WebKit because mobile WebKit does not support it; actual mobile screenshots/interaction checks remain separate. Historical [scroll evidence](docs/fix-faq-scroll.md) is retained.
+
+## Approved supplemental render correction
+
+- `design/references/fix_RAMSIDER_BUSINESS.png` supplements the main render with **RAMSIDER Business** above the second account card subtitle. Implemented as translation key `businessAccount` / `#business-account-title`, using Open Sans Regular and the adjacent account-heading style; the branded name is invariant across locales. The card's accessible name includes it. Pro/Pro Max and Arabic crops, 15 locale/width/action checks, type/lint/build and focused native review passed. See [fix record](docs/fix-ramsider-business.md). This newer screenshot takes precedence only for this addition; source renders remain intact.
+- On 2026-10-01 the customer corrected the [current switcher specification](design/references/locale-switcher/README.md) (CHG-0046): the bare flag + uppercase two-letter code + chevron belongs to the header and scrolls away with it. Flag and code are 1.5× smaller than the rejected first implementation, the chevron slightly smaller, and code/chevron remain black. The old scroll contrast map and handler were removed. The existing light translucent 11-language dropdown and its selection logic remain. Corrected Pro/Pro Max WebKit and desktop production checks passed 14 applicable tests, with 18 profile-specific skips; native review found no actionable regression. The active `:3020` preview was restarted and checked. The earlier 20 PASS result applies only to the rejected fixed version. The old PNGs remain in `design/archive/locale-switcher-2026-09-30/` as historical source. The original product art and copy are still governed by the main references. Platform emoji appearance varies. An unrelated missing favicon remains open as CHG-0035.
+- CHG-0053 is verified: only the closed switcher's two-letter code is optically aligned to the flag. The smooth formula includes a small mobile compensation (0.4px, JA 0.8px), a 500–700px midline adjustment, and a separate JA correction. The final 176-state WebKit/Chromium matrix across 11 locales and eight widths measures painted-center offsets within -1.25..+1 CSS px; another 22 checks at the user's actual 756px/DPR2 IAB width measure -0.75..+0.25 CSS px. Locale tests pass 12 applicable checks with 12 intended skips; production `:3020` serves the final CSS. Native review raised an unrelated, source-disproven CHG-0052 mask concern; independent auditor passed all CHG-0053 gates. See [journal](CHANGELOG.md#chg-0053). The dropdown remains as specified in CHG-0036.
+- CHG-0054 makes the navigation dropdown use the locale dropdown's exact light translucent glass, gold rim, blur and shadow; a faint link text shadow keeps it readable over the hero. Outside pointer input and page scroll close the menu; internal list scroll, Escape, hash links, keyboard focus and locale-menu exclusivity remain functional. Pro/Pro Max WebKit, desktop Chromium/Firefox, Arabic and all 11 navigation translations were checked; `:3020` was rebuilt/restarted and smoke-tested. See [journal](CHANGELOG.md#chg-0054) and [evidence](docs/evidence/nav-menu/). The locale dropdown itself was not changed.
+- [CHG-0036](CHANGELOG.md#chg-0036) remains the current dropdown design: light `rgb(250 247 242 / .45)` panel, dark names, fine gold rim, 112px width, no checkmark and highlighted current row. The earlier graphite panel and [CHG-0037](CHANGELOG.md#chg-0037) capsule alignment/scrolled relocation are historical closed-control states, superseded by CHG-0046. The old [follow-up report](docs/locale-switcher-follow-up-2026-10-01.md) retains its original dropdown evidence. Separate favicon CHG-0035 and absolute scroll restoration CHG-0038 remain open.
+- On 2026-10-01, the user's active `:3020` production preview was found serving an older CSS build despite the verified CHG-0036/0037 source. It was rebuilt and restarted; fresh live screenshots show the translucent gold-rimmed menu and desktop header centers within 1.5 CSS px. Addressed preview tests passed (3 applicable, 3 profile skips). The repeated report and root cause are appended to CHG-0036/0037; see the preview freshness lesson in [LESSONS.md](LESSONS.md). The `:3020` server remains the current preview; a later source change requires another build and restart.
+
+## Demo video
+
+On 2026-10-01 CHG-0039 produced an 89.50-second Playwright site demo at [`deliverables/ramsider-uno-demo.mp4`](deliverables/ramsider-uno-demo.mp4). It shows top-to-bottom scroll, 40/40 distinct planned controls, RU then EN copy, final back-to-top, an original English arena-style synthetic narration, crowd mix, and selectable English captions. Browser action audit and full MP4 decode pass; Pro Max shows no overflow. This is a recording of the current site, not user approval of CHG-0036. CHG-0039 remains `APPLIED_UNVERIFIED`: model-side audio audition is unavailable and native review was rejected by automatic approval review because `--uncommitted` could send the whole repository diff externally. See [script and evidence](docs/demo-video-script.md) and [journal](CHANGELOG.md#chg-0039).
+
+## Open dependencies
+
+The render does not supply confirmed prices, certificates/files, film media, FAQ answers, account/configurator/checkout services, or final action destinations. Local controls open explanatory modal dialogs instead of fabricated checkout or documents. All translated copy and product claims need product approval before publication. See [PRODUCT.md](PRODUCT.md) for specific claims and flows.
+
+## Update rule
+
+Update this file when a **verified** project state, durable decision, or external dependency changes, including during long work before context is lost. Replace stale entries instead of appending a running diary. Date material changes and link to the code, command, screenshot, or document that supports them. Check volatile claims against the current files; current user instructions and evidence win over stale memory. Label assumptions and unverified facts explicitly; keep secrets, private data, generated logs, and temporary task notes out. When a repeatable error or user correction yields a prevention rule, update [LESSONS.md](LESSONS.md) instead. Reconcile any affected topic document so the sources do not contradict each other.
+# Context index
+
+`AGENTS.md` contains the enforceable stage sequence and exit checks. Open only the files for the current stage or question. Do not load the whole index at every step.
+
+For substantive project work, start with the short [MEMORY.md](MEMORY.md) to see verified current state and open dependencies. Search [LESSONS.md](LESSONS.md) for the task's failure mode or area before a similar fix; it is the project's reusable error memory, not a general task log.
+
+[CHANGELOG.md](CHANGELOG.md) is the required change/defect register: search the relevant IDs at discovery/resumption, update during implementation and verification, and close only with technical approval. Read its short rules/template when first using it; retrieve individual records rather than loading the whole journal. MEMORY is current state; LESSONS is reusable prevention; CHANGELOG is history and approval.
+
+**Context budget:** `AGENTS.md` is the always-loaded contract; `MEMORY.md` is a brief state check for substantive work. Open one stage's details when that stage begins, and search a specific section of a large file when possible. During implementation, keep large images/logs on disk and inspect only relevant crops or excerpts; retain small evidence records so later steps do not repeat discovery. Do not preload `PROMPT.txt`, `SUMMARY.txt`, the whole skills catalog, or every document for an ordinary implementation task. The critical browser screenshot → compare → fix → recheck sequence is intentionally repeated at the rule, execution, and final-gate levels.
+
+| Stage in `AGENTS.md` | Read | Purpose |
+| --- | --- | --- |
+| Every project change | [CHANGELOG.md](CHANGELOG.md) | Defect/change IDs, source → solution → application → verification → approval, reopen history |
+| All UI tasks | [docs/discipline.md](docs/discipline.md) | Internal loops, gate evidence, failure routing, final integration |
+| 1. Understand | [PRODUCT.md](PRODUCT.md), [DESIGN.md](DESIGN.md) | Proposition, audiences, factual dependencies, assets, reference interpretation |
+| 1. Understand current render | [docs/reference-map.md](docs/reference-map.md) | Observed sections and controls in the supplied long image |
+| 2. Implement | [ARCHITECTURE.md](ARCHITECTURE.md) | Stack choice, components, translations, motion |
+| 3. Verify pixels | [docs/visual-qa.md](docs/visual-qa.md) | Source-to-viewport calibration, browser capture, visual and pixel comparison, acceptance record |
+| 4. Check adaptation | [docs/mobile.md](docs/mobile.md), [docs/interaction-qa.md](docs/interaction-qa.md) | Viewports, safe areas, RTL, scrolling, interaction states |
+| 5. Review and optimize | [QUALITY.md](QUALITY.md), [PERFORMANCE.md](PERFORMANCE.md) | Code/a11y review, image delivery, production measurements |
+| 6. Report | [docs/definition-of-done.md](docs/definition-of-done.md) | Completion evidence and limitations |
+| As needed | [TOOLS.md](TOOLS.md), [LESSONS.md](LESSONS.md) | Tool availability and recurring corrections |
+
+[docs/source-coverage.md](docs/source-coverage.md) audits the complete source line ranges, resolves conflicting examples, records what was corrected, and tracks remaining dependencies. Use it when changing these rules, not on every section implementation.
+
+[docs/agent-evals.md](docs/agent-evals.md) holds regression scenarios for changes to AI instructions and skills. Use it during a harness review or to register a repeatable failure as a case; ordinary page work retrieves only its relevant case/lesson. For a fresh rebuild, read current AGENTS/MEMORY plus relevant CHANGELOG causes, LESSONS and source/mapping artifacts before defining acceptance checks. Keep eval expected answers and held-out grading fixtures outside the evaluated agent's workspace.
+
+[docs/supervision.md](docs/supervision.md) defines the independent auditor's checkpoint handoff for substantive project work. The main agent opens it when starting that workflow; the auditor reads only the current gate's relevant sources and artifacts.
+
+`PROMPT.txt` is the original long brief. `SUMMARY.txt` is a later question-by-question synthesis. They are source records. Where their suggestions differ, `AGENTS.md` and explicit current user direction decide the workflow. Historical app code in Git is not the rebuild specification.
+ .gitignore                      |  3 ++-
+ CHANGELOG.md                    |  7 ++++++-
+ components/TechnologyViewer.tsx | 31 +++++++++++++++++++++++++++++++
+ 3 files changed, 39 insertions(+), 2 deletions(-)
+diff --git a/.gitignore b/.gitignore
+index c9e723c..7a66f72 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -33,6 +33,7 @@ yarn-error.log*
+
+ # env files (can opt-in for committing if needed)
+ .env*
++/integrations/telegram/
+
+ # vercel
+ .vercel
+@@ -50,4 +51,4 @@ next-env.d.ts
+ /screenshots/diff/
+
+ *.psb
+-/deliverables/
+\ No newline at end of file
++/deliverables/
+diff --git a/components/TechnologyViewer.tsx b/components/TechnologyViewer.tsx
+index b3300bf..6a9fafc 100644
+--- a/components/TechnologyViewer.tsx
++++ b/components/TechnologyViewer.tsx
+@@ -48,6 +48,7 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+   const lockedScroll = useRef(0);
+   const pointer = useRef<{ x: number; y: number; id: number } | null>(null);
+   const touch = useRef<{ x: number; y: number; id: number } | null>(null);
++  const wheelGesture = useRef({ lastAt: 0, distance: 0, committed: false });
+   const displayed = useRef(0);
+   const requested = useRef(0);
+   const requestToken = useRef(0);
+@@ -156,6 +157,36 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+     };
+   }, [select, clearSubscriptions]);
+
++  useEffect(() => {
++    if (!isOpen) return;
++    const viewport = contentViewport.current;
++    if (!viewport) return;
++    wheelGesture.current = { lastAt: 0, distance: 0, committed: false };
++    const onWheel = (event: WheelEvent) => {
++      if (event.ctrlKey) return; // Trackpad pinch belongs to the browser.
++      const now = performance.now();
++      const gesture = wheelGesture.current;
++      if (now - gesture.lastAt > 180) { gesture.distance = 0; gesture.committed = false; }
++      gesture.lastAt = now;
++      if (!event.deltaX || Math.abs(event.deltaX) < Math.abs(event.deltaY) * 1.2) {
++        gesture.distance = 0;
++        return; // Preserve native vertical scrolling.
++      }
++      event.preventDefault(); // Consume horizontal input, including browser history gestures.
++      if (pending.current) { gesture.committed = true; return; }
++      if (gesture.committed) return;
++      const scale = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? viewport.clientWidth : 1;
++      gesture.distance += event.deltaX * scale;
++      if (Math.abs(gesture.distance) < 45) return;
++      gesture.committed = true;
++      // Natural scrolling reports finger movement to the right as negative deltaX.
++      const next = displayed.current + (gesture.distance < 0 ? 1 : -1);
++      if (next >= 0 && next < technologyGroups.length) select(next);
++    };
++    viewport.addEventListener('wheel', onWheel, { passive: false });
++    return () => viewport.removeEventListener('wheel', onWheel);
++  }, [isOpen, select]);
++
+   const moveGroup = (delta: number) => {
+     if (pending.current) return;
+     const next = displayed.current + delta;
+import {expect,test} from '@playwright/test';
+import {openTechnology} from './helpers/technology';
+
+test.use({viewport:{width:1440,height:900},isMobile:false,hasTouch:false,deviceScaleFactor:2});
+async function settleGesture(page: import('@playwright/test').Page) { await page.waitForTimeout(220); }
+
+test('native horizontal trackpad wheel switches groups once per gesture in English and Arabic',async({page},info)=>{
+ for(const locale of ['en','ar']){
+  await page.goto(`/${locale}`);await openTechnology(page);
+  const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
+  await viewer.locator('.technology-viewer__photo img').first().hover({position:{x:100,y:300}});
+  const y=await page.evaluate(()=>scrollY);
+  await page.mouse.wheel(-120,0);await expect(viewer).toHaveAttribute('data-group','CyberMind');await expect(viewer).toHaveAttribute('aria-busy','false');
+  // Reversing within the same wheel burst must not undo the committed change.
+  await page.mouse.wheel(120,0);await expect(viewer).toHaveAttribute('data-group','CyberMind');
+  await settleGesture(page);await page.mouse.wheel(120,0);await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');
+  await settleGesture(page);await page.mouse.wheel(120,0);await expect(viewer).toHaveAttribute('data-group','HeatCore');
+  expect(await page.evaluate(()=>scrollY)).toBe(y);
+  await page.screenshot({path:`${process.env.TECH_EVIDENCE ?? 'docs/evidence/technology-viewer/trackpad'}/${info.project.name}-${locale}.png`});
+  await page.keyboard.press('Escape');
+ }
+});
+
+test('small wheel deltas accumulate; vertical movement and pinch do not switch groups',async({page})=>{
+ await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');const scroller=viewer.locator('.technology-viewer__scroll');await scroller.hover();
+ await page.mouse.wheel(-20,0);await expect(viewer).toHaveAttribute('data-group','HeatCore');
+ await page.mouse.wheel(-30,0);await expect(viewer).toHaveAttribute('data-group','CyberMind');await expect(viewer).toHaveAttribute('aria-busy','false');
+ await settleGesture(page);await page.mouse.wheel(30,300);await expect.poll(()=>scroller.evaluate(e=>e.scrollTop)).toBeGreaterThan(100);await expect(viewer).toHaveAttribute('data-group','CyberMind');
+ await settleGesture(page);await page.keyboard.down('Control');await page.mouse.wheel(120,0);await page.keyboard.up('Control');await expect(viewer).toHaveAttribute('data-group','CyberMind');
+ await viewer.locator('.technology-viewer__close').click();await openTechnology(page);await expect(viewer).toHaveAttribute('aria-busy','false');await scroller.hover();await page.mouse.wheel(-120,0);await expect(viewer).toHaveAttribute('data-group','CyberMind');
+});
+
+2026-10-09T08:40:33.578659Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11fd1-edf7-7591-97e7-26b2e2547b3c turn_id=01a11fd1-ee8d-7663-a767-b1cdf495b154 item_id="exec-f86265e8-2190-4366-ae1e-cee1cecb1a76"
+exec
+/bin/zsh -lc "cat components/TechnologyViewer.tsx; cat playwright.config.ts; cat package.json; git diff -- CHANGELOG.md; find docs/evidence/technology-viewer/trackpad tools/__pycache__ -type f; rg -n 'wheel|trackpad|swipe' LESSONS.md; cat QUALITY.md; cat .agents/skills/playwright/SKILL.md" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 117ms:
+'use client';
+
+import Image from 'next/image';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import type { PointerEvent, TouchEvent } from 'react';
+import type { Locale } from '@/lib/i18n';
+import { TechnologyTitle } from './TechnologyTitle';
+import { TechnologyDescriptions } from './TechnologyDescriptions';
+import { CyberMindDescriptions } from './CyberMindDescriptions';
+import type { TechnologyDescriptionCopy } from '@/lib/technology-descriptions';
+import type { CyberMindCopy } from '@/lib/cybermind-descriptions';
+
+import { technologyGroups, technologyGroupCopy } from '@/lib/technology-gallery';
+import type { TechnologySlideId } from '@/lib/technology-descriptions';
+import { loadImage } from '@/lib/media-resource';
+import { LoadingStatus, useScrollLock } from './MediaLoading';
+
+type ViewerCopy = { technology: string; horizontal: string; vertical: string; close: string; nextGroup: string; names: readonly [string, string, string, string] };
+const copy: Record<Locale, ViewerCopy> = {
+  en: { technology: 'Technology', horizontal: 'Swipe right for the next technology, left to return', vertical: 'Scroll vertically through the technology ribbon', close: 'Close technology viewer', nextGroup: 'Next Technology', names: ['Three heaters', 'Active air sails', 'Programmable heat profiles', 'Gold and titanium nitride'] },
+  ru: { technology: 'Технология', horizontal: 'Свайп вправо — следующая технология, влево — обратно', vertical: 'Прокручивайте ленту технологии по вертикали', close: 'Закрыть просмотр технологий', nextGroup: 'Следующая технология', names: ['Три нагревателя', 'Активные воздушные паруса', 'Программируемые профили нагрева', 'Золото и нитрид титана'] },
+  de: { technology: 'Technologie', horizontal: 'Nach rechts zur nächsten Technologie wischen, nach links zurück', vertical: 'Vertikal durch das Technologieband scrollen', close: 'Technologieansicht schließen', nextGroup: 'Nächste Technologie', names: ['Drei Heizelemente', 'Aktive Luftsegel', 'Programmierbare Wärmeprofile', 'Gold und Titannitrid'] },
+  fr: { technology: 'Technologie', horizontal: 'Balayez à droite pour la technologie suivante, à gauche pour revenir', vertical: 'Faites défiler verticalement le ruban technologique', close: 'Fermer la galerie', nextGroup: 'Technologie suivante', names: ['Trois éléments chauffants', 'Volets d’air actifs', 'Profils de chauffe programmables', 'Or et nitrure de titane'] },
+  es: { technology: 'Tecnología', horizontal: 'Desliza a la derecha para la siguiente tecnología y a la izquierda para volver', vertical: 'Desplázate verticalmente por la cinta tecnológica', close: 'Cerrar la galería', nextGroup: 'Siguiente tecnología', names: ['Tres calentadores', 'Aletas de aire activas', 'Perfiles de calor programables', 'Oro y nitruro de titanio'] },
+  it: { technology: 'Tecnologia', horizontal: 'Scorri a destra per la tecnologia successiva e a sinistra per tornare', vertical: 'Scorri in verticale il nastro della tecnologia', close: 'Chiudi la galleria', nextGroup: 'Tecnologia successiva', names: ['Tre riscaldatori', 'Alette d’aria attive', 'Profili di calore programmabili', 'Oro e nitruro di titanio'] },
+  tr: { technology: 'Teknoloji', horizontal: 'Sonraki teknoloji için sağa, geri dönmek için sola kaydırın', vertical: 'Teknoloji şeridini dikey kaydırın', close: 'Teknoloji görünümünü kapat', nextGroup: 'Sonraki teknoloji', names: ['Üç ısıtıcı', 'Aktif hava kanatları', 'Programlanabilir ısı profilleri', 'Altın ve titanyum nitrür'] },
+  ar: { technology: 'تقنية', horizontal: 'اسحب إلى اليمين للتقنية التالية وإلى اليسار للعودة', vertical: 'مرّر شريط التقنية عمودياً', close: 'إغلاق معرض التقنيات', nextGroup: 'التقنية التالية', names: ['ثلاثة سخانات', 'زعانف هوائية نشطة', 'ملفات حرارة قابلة للبرمجة', 'الذهب ونتريد التيتانيوم'] },
+  zh: { technology: '技术', horizontal: '向右滑动查看下一项技术，向左滑动返回', vertical: '上下滚动查看技术长图', close: '关闭技术图库', nextGroup: '下一项技术', names: ['三个加热器', '主动导流翼', '可编程加热曲线', '黄金与氮化钛'] },
+  ja: { technology: 'テクノロジー', horizontal: '右にスワイプして次の技術へ、左にスワイプして戻る', vertical: '縦にスクロールして技術の画像を見る', close: '技術ギャラリーを閉じる', nextGroup: '次の技術', names: ['3つのヒーター', 'アクティブエアセイル', 'プログラム可能な加熱プロファイル', '金と窒化チタン'] },
+  ko: { technology: '기술', horizontal: '오른쪽으로 스와이프하여 다음 기술로, 왼쪽으로 돌아가기', vertical: '기술 이미지 띠를 세로로 스크롤하세요', close: '기술 갤러리 닫기', nextGroup: '다음 기술', names: ['세 개의 히터', '액티브 에어 세일', '프로그래밍 가능한 열 프로필', '금과 질화 티타늄'] },
+};
+
+/** Mount the already decoded resource itself, rather than another not-yet-decoded IMG. */
+function RetainedPhoto({ image, name }: { image: HTMLImageElement; name: string }) {
+  const host = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    image.setAttribute('alt', name);
+    image.setAttribute('draggable', 'false');
+    host.current?.replaceChildren(image);
+  }, [image, name]);
+  return <div className="technology-viewer__photo" ref={host} />;
+}
+
+export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }: { locale: Locale; descriptions: TechnologyDescriptionCopy; cyberMindDescriptions: CyberMindCopy }) {
+  const dialog = useRef<HTMLDialogElement>(null);
+  const opener = useRef<HTMLElement | null>(null);
+  const contentViewport = useRef<HTMLDivElement>(null);
+  const lockedScroll = useRef(0);
+  const pointer = useRef<{ x: number; y: number; id: number } | null>(null);
+  const touch = useRef<{ x: number; y: number; id: number } | null>(null);
+  const wheelGesture = useRef({ lastAt: 0, distance: 0, committed: false });
+  const displayed = useRef(0);
+  const requested = useRef(0);
+  const requestToken = useRef(0);
+  const pending = useRef(false);
+  const unsubscribe = useRef<(() => void)[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [groupIndex, setGroupIndex] = useState(0);
+  const [photos, setPhotos] = useState<HTMLImageElement[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const [progress, setProgress] = useState<number | null>(null);
+  useScrollLock(isOpen);
+  const labels = copy[locale];
+  const groupLabels = technologyGroupCopy[locale];
+  const group = technologyGroups[groupIndex];
+  const names = groupIndex === 0 ? labels.names : groupLabels.names;
+  const clearSubscriptions = useCallback(() => {
+    unsubscribe.current.forEach(stop => stop());
+    unsubscribe.current = [];
+  }, []);
+
+  useLayoutEffect(() => {
+    // Keep focus inside the dialog while disabled controls wait for a complete ribbon.
+    if (loading && dialog.current?.open) dialog.current.focus({ preventScroll: true });
+  }, [loading]);
+  useLayoutEffect(() => {
+    contentViewport.current?.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [photos]);
+
+  const select = useCallback((nextGroup: number) => {
+    requested.current = nextGroup;
+    pending.current = true;
+    pointer.current = null;
+    touch.current = null;
+    const viewport = contentViewport.current;
+    lockedScroll.current = viewport?.scrollTop ?? 0;
+    viewport?.scrollTo({ top: lockedScroll.current, left: 0, behavior: 'instant' });
+    setLoading(true);
+    setFailed(false);
+    const token = ++requestToken.current;
+    clearSubscriptions();
+    // Parallel group readiness; background warming still requests all six at low priority.
+    const resources = technologyGroups[nextGroup].slides.map(slide => loadImage(slide.src, 'auto'));
+    const update = () => {
+      if (token !== requestToken.current) return;
+      const total = resources.reduce((sum, resource) => sum + (resource.progress.total ?? 0), 0);
+      const known = resources.every(resource => resource.progress.total !== null);
+      const loaded = resources.reduce((sum, resource) => sum + resource.progress.loaded, 0);
+      setProgress(known && total > 0 ? Math.round(loaded / total * 100) : null);
+    };
+    unsubscribe.current = resources.map(resource => resource.subscribe(update));
+    Promise.all(resources.map(resource => resource.ready)).then(images => {
+      if (token !== requestToken.current || !dialog.current?.open) return;
+      displayed.current = nextGroup;
+      setGroupIndex(nextGroup);
+      setPhotos(images);
+      pending.current = false;
+      setLoading(false);
+      clearSubscriptions();
+    }).catch(() => {
+      if (token !== requestToken.current || !dialog.current?.open) return;
+      setFailed(true);
+      clearSubscriptions();
+      // Keep the previous complete ribbon visible, frozen until Retry or Close.
+    });
+  }, [clearSubscriptions]);
+
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const warm = () => {
+      timer = setTimeout(() => {
+        technologyGroups.forEach(group => group.slides.forEach(slide => { void loadImage(slide.src).ready.catch(() => {}); }));
+      }, 0);
+    };
+    if (document.readyState === 'complete') warm();
+    else window.addEventListener('load', warm, { once: true });
+    return () => {
+      window.removeEventListener('load', warm);
+      clearTimeout(timer);
+    };
+  }, []);
+
+  useLayoutEffect(() => {
+    const dialogElement = dialog.current;
+    const open = (event: MouseEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const trigger = target.closest<HTMLElement>('[data-technology-open]');
+      if (!trigger || !dialogElement || dialogElement.open) return;
+      event.preventDefault();
+      opener.current = trigger;
+      displayed.current = 0;
+      requested.current = 0;
+      setGroupIndex(0);
+      setPhotos([]);
+      setIsOpen(true);
+      dialogElement.showModal();
+      dialogElement.focus({ preventScroll: true });
+      select(0);
+      technologyGroups.forEach(group => group.slides.forEach(slide => { void loadImage(slide.src).ready.catch(() => {}); }));
+    };
+    document.addEventListener('click', open);
+    return () => {
+      document.removeEventListener('click', open);
+      clearSubscriptions();
+    };
+  }, [select, clearSubscriptions]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const viewport = contentViewport.current;
+    if (!viewport) return;
+    wheelGesture.current = { lastAt: 0, distance: 0, committed: false };
+    const onWheel = (event: WheelEvent) => {
+      if (event.ctrlKey) return; // Trackpad pinch belongs to the browser.
+      const now = performance.now();
+      const gesture = wheelGesture.current;
+      if (now - gesture.lastAt > 180) { gesture.distance = 0; gesture.committed = false; }
+      gesture.lastAt = now;
+      if (!event.deltaX || Math.abs(event.deltaX) < Math.abs(event.deltaY) * 1.2) {
+        gesture.distance = 0;
+        return; // Preserve native vertical scrolling.
+      }
+      event.preventDefault(); // Consume horizontal input, including browser history gestures.
+      if (pending.current) { gesture.committed = true; return; }
+      if (gesture.committed) return;
+      const scale = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? viewport.clientWidth : 1;
+      gesture.distance += event.deltaX * scale;
+      if (Math.abs(gesture.distance) < 45) return;
+      gesture.committed = true;
+      // Natural scrolling reports finger movement to the right as negative deltaX.
+      const next = displayed.current + (gesture.distance < 0 ? 1 : -1);
+      if (next >= 0 && next < technologyGroups.length) select(next);
+    };
+    viewport.addEventListener('wheel', onWheel, { passive: false });
+    return () => viewport.removeEventListener('wheel', onWheel);
+  }, [isOpen, select]);
+
+  const moveGroup = (delta: number) => {
+    if (pending.current) return;
+    const next = displayed.current + delta;
+    if (next < 0 || next >= technologyGroups.length) return;
+    select(next);
+  };
+  const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    // Touch uses its own lifecycle: Safari may cancel pointer events during a pan.
+    if (event.pointerType === 'touch' || !event.isPrimary || event.button !== 0 || pending.current || (event.target as Element).closest('button')) return;
+    pointer.current = { x: event.clientX, y: event.clientY, id: event.pointerId };
+    try { event.currentTarget.setPointerCapture(event.pointerId); } catch { /* Synthetic events do not own a pointer. */ }
+  };
+  const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
+    const start = pointer.current;
+    if (!start || start.id !== event.pointerId) return;
+    pointer.current = null;
+    finishSwipe(start, event.clientX, event.clientY);
+  };
+  const finishSwipe = (start: { x: number; y: number }, x: number, y: number) => {
+    if (pending.current) return;
+    const dx = x - start.x;
+    const dy = y - start.y;
+    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+    // The requested physical direction is the same in every locale, including Arabic.
+    moveGroup(dx > 0 ? 1 : -1);
+  };
+  const onTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+    touch.current = null;
+    if (pending.current || event.touches.length !== 1 || (event.target as Element).closest('button')) return;
+    const contact = event.touches[0];
+    touch.current = { x: contact.clientX, y: contact.clientY, id: contact.identifier };
+  };
+  const onTouchMove = (event: TouchEvent<HTMLDivElement>) => {
+    const start = touch.current;
+    if (!start) return;
+    const contact = Array.from(event.touches).find(item => item.identifier === start.id);
+    if (event.touches.length !== 1 || !contact) { touch.current = null; return; }
+    const dx = Math.abs(contact.clientX - start.x);
+    const dy = Math.abs(contact.clientY - start.y);
+    // Once a vertical scroll begins, bending the gesture must not change groups.
+    if (dy > 10 && dy >= dx) touch.current = null;
+  };
+  const onTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
+    const start = touch.current;
+    touch.current = null;
+    if (!start || event.touches.length) return;
+    const contact = Array.from(event.changedTouches).find(item => item.identifier === start.id);
+    if (contact) finishSwipe(start, contact.clientX, contact.clientY);
+  };
+
+  return <dialog ref={dialog} id="technology-viewer" className="technology-viewer"
+    aria-labelledby={isOpen && photos.length ? 'technology-viewer-title' : undefined}
+    aria-label={isOpen && photos.length ? undefined : `${group.title} ${labels.technology}`}
+    data-group={group.title} aria-busy={loading} aria-describedby="technology-viewer-instructions" tabIndex={-1}
+    onClose={() => {
+      requestToken.current++;
+      setIsOpen(false);
+      pending.current = false;
+      pointer.current = null;
+      touch.current = null;
+      clearSubscriptions();
+      setLoading(false);
+      opener.current?.focus({ preventScroll: true });
+    }}
+    onKeyDown={event => {
+      if (event.key === 'Tab') {
+        const controls = Array.from(event.currentTarget.querySelectorAll<HTMLElement>('button:not(:disabled), [tabindex="0"]'))
+          .filter(element => element.getClientRects().length > 0);
+        const index = controls.indexOf(document.activeElement as HTMLElement);
+        if (index < 0 || (event.shiftKey ? index === 0 : index === controls.length - 1)) {
+          event.preventDefault();
+          (event.shiftKey ? controls.at(-1) : controls[0])?.focus({ preventScroll: true });
+        }
+        return;
+      }
+      const viewport = contentViewport.current;
+      if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '].includes(event.key)) {
+        if (event.key === ' ' && (event.target as Element).closest('button')) return;
+        event.preventDefault();
+        if (!viewport || pending.current) return;
+        const direction = ['ArrowUp', 'PageUp', 'Home'].includes(event.key) || (event.key === ' ' && event.shiftKey) ? -1 : 1;
+        const distance = event.key.startsWith('Arrow') ? 40 : viewport.clientHeight * .9;
+        const top = event.key === 'Home' ? 0 : event.key === 'End' ? viewport.scrollHeight : viewport.scrollTop + direction * distance;
+        viewport.scrollTo({ top, behavior: 'instant' });
+      }
+      if (event.key === 'ArrowRight') { event.preventDefault(); moveGroup(1); }
+      if (event.key === 'ArrowLeft') { event.preventDefault(); moveGroup(-1); }
+    }}>
+    <div className="technology-viewer__canvas" onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerCancel={() => { pointer.current = null; }}
+      onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onTouchCancel={() => { touch.current = null; }}>
+      <div className="technology-viewer__stage">
+        <div className="technology-viewer__scroll" ref={contentViewport} role="region" aria-label={labels.vertical} tabIndex={0} onScroll={event => {
+          if (pending.current && event.currentTarget.scrollTop !== lockedScroll.current) event.currentTarget.scrollTop = lockedScroll.current;
+        }}>
+          {isOpen && photos.length > 0 && <div className="technology-viewer__ribbon">
+            {group.slides.map((slide, index) => <article key={slide.src} className="technology-viewer__content" style={{ zIndex: group.slides.length - index }} data-photo={slide.src}>
+              <RetainedPhoto image={photos[index]} name={`${group.title} — ${names[index]}`} />
+              {index === 0 && <TechnologyTitle descriptor={labels.technology} brand={group.title} />}
+              {groupIndex === 0
+                ? <TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={names[index]} copy={descriptions} />
+                : <CyberMindDescriptions slide={slide.id as '01' | '02'} locale={locale} name={names[index]} copy={cyberMindDescriptions} />}
+            </article>)}
+          </div>}
+        </div>
+        {isOpen && loading && <LoadingStatus locale={locale} progress={progress} error={failed} onRetry={() => select(requested.current)} className="technology-viewer__loading" />}
+      </div>
+      {isOpen && <>
+        <button className="technology-viewer__next-image" type="button" onClick={() => moveGroup(groupIndex === 0 ? 1 : -1)} disabled={loading} aria-label={groupIndex === 0 ? labels.nextGroup : groupLabels.previous}>
+          <span>{groupIndex === 0 ? labels.nextGroup : groupLabels.previous}</span>
+          <Image className={groupIndex === 1 ? 'is-previous' : undefined} src="/art/technology/arrow-right.png" width={28} height={45} alt="" aria-hidden="true" unoptimized />
+        </button>
+        <div className="technology-viewer__dots" role="group" aria-label={labels.horizontal}>
+          {technologyGroups.map((item, index) => <button key={item.title} type="button" onClick={() => { if (!pending.current && index !== displayed.current) select(index); }} disabled={loading} aria-label={`${item.title} ${labels.technology}`} aria-current={groupIndex === index ? 'true' : undefined}>
+            <Image src={groupIndex === index ? '/art/technology/dot-active.png' : '/art/technology/dot-inactive.png'} width={29} height={29} alt="" aria-hidden="true" unoptimized />
+          </button>)}
+        </div>
+      </>}
+      <button className="technology-viewer__close" type="button" onClick={() => dialog.current?.close()} aria-label={labels.close}>×</button>
+    </div>
+    <p id="technology-viewer-instructions" className="technology-viewer__sr-only">{labels.horizontal}. {labels.vertical}.</p>
+  </dialog>;
+}
+cat: playwright.config.ts: No such file or directory
+{
+  "name": "ramsider",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test:visual": "playwright test",
+    "test:visual:ui": "playwright test --ui",
+    "visual:diff": "node tools/visual-diff.mjs"
+  },
+  "devDependencies": {
+    "@playwright/cli": "^0.1.22",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.11",
+    "pixelmatch": "^7.2.0",
+    "pngjs": "^7.0.0",
+    "sharp": "^0.35.5",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "next": "^16.2.11",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  }
+}
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 500f674..190f069 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -136,7 +136,7 @@
+ | [CHG-0075](#chg-0075) | USER_REQUEST / CLEANUP | Отмена временного эксперимента с рамкой, восстановление контекста | `VERIFIED` |
+ | [CHG-0076](#chg-0076) | USER_REQUEST / UI | Две вертикальные технические ленты без рамки и нумерации | `VERIFIED` |
+ | [CHG-0078](#chg-0078) | USER_CORRECTION / DEFECT | Desktop viewer shares landing canvas width | `VERIFIED` |
+-| [CHG-0079](#chg-0079) | DEFECT | Image touch swipe between technology groups | `VERIFIED` |
++| [CHG-0079](#chg-0079) | DEFECT | Image touch/trackpad swipe between technology groups | `REOPENED` |
+ | [CHG-0077](#chg-0077) | USER_CORRECTION / UI | Approved single-row compact technology header | `VERIFIED` |
+ | [CHG-0062](#chg-0062) | USER_REQUEST / FEATURE | Декомпозиция заголовка HeatCore Technology без потери качества рендера | `VERIFIED` |
+ | [CHG-0061](#chg-0061) | USER_REQUEST / FEATURE + CUSTOMER_REJECTION | Полноэкранный просмотрщик HeatCore и точная рамка | `VERIFIED` (2026-10-07 original PNG) |
+@@ -1751,3 +1751,8 @@
+ - Git dispatch authorization — 2026-10-09: user «commit push» explicitly authorizes committing verifiedCHG0079 runtime/tests/docs/evidence on main and pushing origin/main. Preserve unrelated.gitignore,background_old.png,tools/__pycache__. Recent completed checks cover unchanged runtime; scoped diff/whitespace and branch/destination verification before dispatch. Git commit/remote refs supply the finalSHA; user acceptance of physicaldevice symptom remains NOT_RECORDED.
+ - Dispatch whitespace check caught tool-generated trailing spaces/extra EOF blanks in newly staged evidence logs. Normalized whitespace/LF only, retaining verdicts, numbers and failure history. No runtime/tests/screenshots changed; root technical approval for this formatting follows successful staged diff check.
+ - Dispatch formatting technical approval — APPROVED, 2026-10-09, /root: staged git diff --check PASS after log-only normalization; existing runtime approvals/checks remain valid. Branch main, destination origin/main, explicit relevant paths only. Commit SHA and remote match are verified from Git after dispatch.
++
++- **CHG0079 REOPENED — 2026-10-09, user correction:** exact input is Mac trackpad horizontal movement, not a touchscreen. Prior scoped approval remains historical; it did not verify/fix the reported trackpad gesture. Current viewer has Touch/pointer handlers but no horizontal wheel listener; overflow-x:hidden drops horizontal wheel input. Responsibility AGENT: root narrowed investigation to mobile Touch/pointer and only tested vertical desktop wheel, missing horizontal native wheel despite desktop scope. User clarification identifies the omitted modality; it is not user fault.
++- Expected / implementation plan: handle dominant horizontal native Wheel input on image viewport; preserve natural physical right-next/left-previous (`deltaX<0` next), native vertical pan, ctrl+wheel pinch, loading/error locks and endpoint bounds. Accumulate small deltas; consume one transition per gesture, ignoring its inertia until quiet. Use a non-passive native listener to prevent browser history navigation only for horizontal gallery input. RTL uses same physical directions; select/close reset touch/pointer and a new wheel gesture starts after a quiet interval. No artwork/CSS/loading changes.
++- Acceptance: reproduce native page.mouse.wheel on untouched3033, then test both directions/image target in WebKit desktop+Chromium+Firefox, EN/AR, multi-event inertia, small-delta threshold, vertical/pinch/no-navigation, pending lock/close/reopen and Pro/Max unchanged pixels; type/lint/build/native review and proportional production measurement. Current status REOPENED; newtechnicalapproval PENDING; useracceptanceNOT_RECORDED. No newcommit/push authorization inferred.
++- Reproduction PASS as defect evidence: unchanged production3033 desktopWebKit1440×900DPR2, actual image-targeted page.mouse.wheel(-120,0) retains HeatCore instead of CyberMind; baseline.log+baseline-failed.png preserve failure. Independent swipe_records_audit Stage1 PASS. Native nonpassive listener applied with45px accumulation,180msquiet/inertia lock,dominance,ctrlpinch/vertical preservation,pending and endpoint bounds; noCSS/assets. Current status APPLIED_UNVERIFIED until newproductionchecks.
+docs/evidence/technology-viewer/trackpad/lint.log
+docs/evidence/technology-viewer/trackpad/typecheck.log
+docs/evidence/technology-viewer/trackpad/baseline.log
+docs/evidence/technology-viewer/trackpad/baseline-failed.png
+docs/evidence/technology-viewer/trackpad/native-review.log
+docs/evidence/technology-viewer/trackpad/build.log
+tools/__pycache__/convert-art-webp.cpython-314.pyc
+145:- **Problem:** Hovering FAQ cards trapped wheel/trackpad scrolling even with all answers closed (CHG-0024).
+146:- **Cause:** The agent used `overscroll-behavior:contain` to confine the answer viewport; previous QA tested visibility and programmatic scrolling but omitted real wheel propagation at boundaries.
+147:- **Prevention:** Keep native scroll chaining for ordinary nested content. Test wheel down/up over closed items, within expanded content, and at both boundaries with distinct gestures. Account for browser gesture latching; programmatic scrollIntoView is not a wheel test. Keep mobile screenshots/touch states distinct from desktop wheel injection when automation does not support mobile wheel. Link EVAL-FAQ; a passing site test alone is not an agent-eval result.
+153:- **Prevention:** Specify and test 0/1/2/all-open states, close one while preserving others, and keyboard activation. Test each row’s own icon. Let answers grow the document and verify downstream artwork, text and targets move by the same delta; do not merely hide an unwanted scrollbar. Check real wheel input over closed and expanded rows. Link EVAL-FAQ; site tests do not count as an agent-run eval.
+247:- **Problem:** CHG-0061 briefly painted a black stage after a swipe because the DOM source changed before the next image decoded; an Arabic browser screenshot exposed it even though the test had seen the expected `src`.
+309:- **Follow-up / CHG-0071:** Adding a visible-media input gate changes assumptions in all old scroll-dependent browser checks, including FAQ wheel and offscreen CTA tests. Wait for visibility observers and the actual gate before testing user input; preserve the explicit pending-lock checks separately. Error fixtures must remain failed until explicit Retry even if the browser automatically retries. Framework builds rewrite generated route types: serialize build before TypeScript verification. Controlled EVAL-VIEWER NOT_RUN.
+331:- **Problem → cause → prevention:** The agent applied an opaque, bidirectional initial guard to later main-page images. Its tests approved hidden content and blocked input instead of the requested retained view. Keep the initial guard separate from subsequent readiness: cap native document height before unfinished artwork, keep completed pixels and controls available, show a bottom loading strip only at the reached frontier, and allow upward native scrolling. Prefetch all main artwork after actual hero DOM decode with high priority; warm all six gallery photos separately at low priority without affecting the main gate. Test held/corrupt optional gallery resources, native wheel/touch reversal, programmatic jumps, clipped focus targets, FAQ/resize frontier changes and unchanged ready pixels before/after decode. Await actual DOM readiness before measuring full-page height; load is not decode readiness. Extract comparison regions from full viewport screenshots in the same coordinate system. Serialize speed measurements away from browser suites, preserve failed attempts and historical screenshot files. Follow the auditor profile’s one-named-gate checkpoint with bounded artifacts; earlier resumed multi-gate turns produced no finding (delay cause unknown), while fresh sequential checkpoints supplied actual verdicts. Product regression passes do not execute the controlled [EVAL-VIEWER](docs/agent-evals.md#eval-viewer); its status remains NOT_RUN.
+338:- **Problem → cause → prevention:** A new Firefox fixture rejected0.5CSSpx despite the defined<1px contract and expected one giant wheel event to reach the bottom. Assert the documented tolerance, repeat bounded real wheel events until an observed endpoint, and never replace wheel verification with programmatic scrolling. Inspect actual pixels before dismissing differences as rounding.
+348:- **Problem → cause → prevention:** Laptop viewer expanded to100vw while the main canvas stopped at941px. Agent inherited viewport-wide acceptance and missed comparing real landing bounds. Mobile-first galleries use the current main canvas cap unless a user explicitly requests another width. Share the cap, compare dialog/photo left/right/width to actual landing below and above its breakpoint, and inspect mobile pixel preservation plus desktop native wheel/bottom. Full-window matte does not authorize enlarging photo planes. EVAL-VIEWER extended; controlled run NOT_RUN.
+349:- **Evidence retention follow-up:** Root launched another runner before copying its failed wheel screenshot; shared test-results was cleared. Archive failure artifacts before the next runner, use separate output directories for independent runs, and retain failure logs even if a screenshot is lost. The failed screenshot here is unavailable, not certified retained.
+# Quality review after implementation
+
+Read during stage 5 of [docs/discipline.md](docs/discipline.md). “Clean code” means the page remains understandable and changeable without undermining reference fidelity. Do a deliberate review/refactor pass **after** implementation and browser QA; then repeat visual and interaction checks touched by the refactor.
+
+For code changes, invoke Codex's native `/review` on the changed diff before delivery; in the CLI use its equivalent review command. Read the findings, fix actionable defects, and rerun the checks each fix could affect. Record an unavailable review as blocked and perform the code review below without claiming `/review` ran. `/review` is a Codex command, not a separate project skill; its clean result alone does not pass the visual, behavior, accessibility, or performance gates.
+
+## Code review questions
+
+- Does each section have one clear responsibility? Are component boundaries aligned with the visible composition and behavior?
+- Is reuse justified by repetition? Are there duplicate chunks, oversized components, tiny unnecessary wrappers, boolean-prop mazes, or deeply coupled state?
+- Are state and browser APIs limited to the interactive components that need them? Are Server/Client boundaries correct, with no unnecessary hydration?
+- Is each route's static, request-time server, or client rendering choice justified by actual content freshness and behavior? Did an accidental request API or fetch turn stable content dynamic, or did a broad `use client` boundary inflate the bundle?
+- Are data fetching, caching/revalidation, streaming/loading, and error states correct for the installed Next.js version? Are requests parallel where independent, private data isolated, and server-to-client props small?
+- Does server code read from its actual data source instead of making an unnecessary HTTP call to this app's own route handler?
+- Are props/types strict and clear? Can a human developer understand naming, file organization, and data flow without reverse engineering generated patterns?
+- Are design tokens, asset paths, translations, and responsive rules consistent? Is obsolete code removed?
+- Are dependency and animation-library additions necessary for observable behavior?
+- Are metadata, route semantics, and production behavior complete without one-off wrappers, duplicate data pipelines, or framework features added without a measured need?
+
+## Accessibility and behavior review
+
+Use semantic `section`, `article`, `nav`, heading, link, and button elements. Check labels and accessible names, keyboard order, focus visibility, screen reader meaning, touch targets, reduced motion, and WCAG AA contrast (4.5:1 for normal text where applicable). Verify Arabic RTL layout and interaction direction. Test loading, disabled, empty, and error states when the implemented feature has them. Do not substitute a painted button for a real control.
+
+## Checks and exit
+
+Run strict TypeScript, lint, meaningful relevant tests, and a production build when the scaffold provides them. Inspect browser console errors. A clean build is necessary but cannot prove the rendered page matches the Photoshop target. Finish with the affected real-browser screenshot comparison and interaction checks. Do not add tests that merely mirror trivial implementation details; keep Playwright focused on user-visible behavior and visual evidence.
+---
+name: "playwright"
+description: "Run repeatable Ramsider browser checks with @playwright/test on the configured iPhone WebKit and desktop profiles. Use the project-local Playwright CLI for scripted exploration when needed; the Codex browser covers quick one-off inspection."
+---
+
+
+# Playwright CLI Skill
+
+Use the installed `@playwright/test` runner for repeatable visual and interaction checks required by `AGENTS.md`. For terminal-driven exploration, prefer the bundled `playwright-cli` wrapper so the CLI works even when it is not globally installed. In the Codex desktop app, the built-in browser is sufficient for a quick one-off inspect/click/screenshot pass; use this CLI when its scripted terminal workflow adds value.
+
+## Prerequisite check (required)
+
+Before proposing commands, check whether `npx` is available (the wrapper depends on it):
+
+```bash
+command -v npx >/dev/null 2>&1
+```
+
+If it is not available, pause and ask the user to install Node.js/npm (which provides `npx`). Provide these steps verbatim:
+
+```bash
+# Verify Node/npm are installed
+node --version
+npm --version
+
+# If missing, install Node.js/npm, then:
+npm install -g @playwright/cli@latest
+playwright-cli --help
+```
+
+Once `npx` is present, proceed with the wrapper script. A global install of `playwright-cli` is optional.
+
+## Skill path (set once)
+
+```bash
+export PWCLI=".agents/skills/playwright/scripts/playwright_cli.sh"
+```
+
+Run from the Ramsider repository root; this skill and its wrapper are project-local.
+
+## Quick start
+
+Use the wrapper script:
+
+```bash
+"$PWCLI" open https://playwright.dev --headed
+"$PWCLI" snapshot
+"$PWCLI" click e15
+"$PWCLI" type "Playwright"
+"$PWCLI" press Enter
+"$PWCLI" screenshot
+```
+
+If the user prefers a global install, this is also valid:
+
+```bash
+npm install -g @playwright/cli@latest
+playwright-cli --help
+```
+
+## Core workflow
+
+1. Open the page.
+2. Snapshot to get stable element refs.
+3. Interact using refs from the latest snapshot.
+4. Re-snapshot after navigation or significant DOM changes.
+5. Capture artifacts (screenshot, pdf, traces) when useful.
+
+Minimal loop:
+
+```bash
+"$PWCLI" open https://example.com
+"$PWCLI" snapshot
+"$PWCLI" click e3
+"$PWCLI" snapshot
+```
+
+## When to snapshot again
+
+Snapshot again after:
+
+- navigation
+- clicking elements that change the UI substantially
+- opening/closing modals or menus
+- tab switches
+
+Refs can go stale. When a command fails due to a missing ref, snapshot again.
+
+## Recommended patterns
+
+### Form fill and submit
+
+```bash
+"$PWCLI" open https://example.com/form
+"$PWCLI" snapshot
+"$PWCLI" fill e1 "user@example.com"
+"$PWCLI" fill e2 "password123"
+"$PWCLI" click e3
+"$PWCLI" snapshot
+```
+
+### Debug a UI flow with traces
+
+```bash
+"$PWCLI" open https://example.com --headed
+"$PWCLI" tracing-start
+# ...interactions...
+"$PWCLI" tracing-stop
+```
+
+### Multi-tab work
+
+```bash
+"$PWCLI" tab-new https://example.com
+"$PWCLI" tab-list
+"$PWCLI" tab-select 0
+"$PWCLI" snapshot
+```
+
+## Wrapper script
+
+The wrapper script uses `npx --package @playwright/cli playwright-cli` so the CLI can run without a global install:
+
+```bash
+"$PWCLI" --help
+```
+
+Prefer the wrapper unless the repository already standardizes on a global install.
+
+## References
+
+Open only what you need:
+
+- CLI command reference: `references/cli.md`
+- Practical workflows and troubleshooting: `references/workflows.md`
+
+## Guardrails
+
+- Always snapshot before referencing element ids like `e12`.
+- Re-snapshot when refs seem stale.
+- Prefer explicit commands over `eval` and `run-code` unless needed.
+- When you do not have a fresh snapshot, use placeholder refs like `eX` and say why; do not bypass refs with `run-code`.
+- Use `--headed` when a visual check will help.
+- Keep exploratory CLI captures under `output/playwright/`; use the screenshot paths in `docs/visual-qa.md` for repeatable reference comparisons.
+- For repeatable Ramsider QA, use `@playwright/test` and the iPhone 17 Pro/Pro Max projects in `playwright.config.mjs`.
+
+2026-10-09T08:40:39.312234Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11fd1-edf7-7591-97e7-26b2e2547b3c turn_id=01a11fd1-ee8d-7663-a767-b1cdf495b154 item_id="exec-39e76de9-84a5-4d04-8134-6c693128af2f"
+exec
+/bin/zsh -lc "cat playwright.config.mjs; cat tests/e2e/helpers/technology.ts; cat docs/evidence/technology-viewer/trackpad/native-review.log | tail -35; rg -n 'vertical.first|vertical-first|trackpad|deltaX' tests/e2e/technology-* docs/interaction-qa.md; command -v npx; ls -d node_modules; lsof -nP -iTCP -sTCP:LISTEN | grep -E '(303|3000|304)'" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 101ms:
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  testDir: './tests/e2e',
+  outputDir: './test-results',
+  reporter: [['list'], ['html', { open: 'never' }]],
+  use: {
+    baseURL: process.env.BASE_URL ?? 'http://127.0.0.1:3000',
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+  },
+  projects: [
+    {
+      name: 'iphone-17-pro-webkit',
+      use: { browserName: 'webkit', viewport: { width: 402, height: 874 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true },
+    },
+    {
+      name: 'iphone-17-pro-max-webkit',
+      use: { browserName: 'webkit', viewport: { width: 440, height: 956 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true },
+    },
+    {
+      name: 'desktop-chromium',
+      use: { browserName: 'chromium', viewport: { width: 1440, height: 900 } },
+    },
+    {
+      name: 'desktop-firefox',
+      use: { browserName: 'firefox', viewport: { width: 1440, height: 900 } },
+    },
+  ],
+});
+import { expect, type Locator, type Page } from '@playwright/test';
+import { waitForVisibleMedia } from './media';
+
+/** Auto-scroll can expose pending page art: finish that barrier before activating a control. */
+export async function openTechnology(page: Page, trigger: Locator = page.locator('[data-technology-open]').first()) {
+  await trigger.scrollIntoViewIfNeeded();
+  await waitForVisibleMedia(page);
+  await expect(page.locator('html')).toHaveAttribute('data-media-hydrated', '');
+  await trigger.click();
+  await expect(page.locator('#technology-viewer')).toBeVisible();
+}
+```bash
+"$PWCLI" tab-new https://example.com
+"$PWCLI" tab-list
+"$PWCLI" tab-select 0
+"$PWCLI" snapshot
+```
+
+## Wrapper script
+
+The wrapper script uses `npx --package @playwright/cli playwright-cli` so the CLI can run without a global install:
+
+```bash
+"$PWCLI" --help
+```
+
+Prefer the wrapper unless the repository already standardizes on a global install.
+
+## References
+
+Open only what you need:
+
+- CLI command reference: `references/cli.md`
+- Practical workflows and troubleshooting: `references/workflows.md`
+
+## Guardrails
+
+- Always snapshot before referencing element ids like `e12`.
+- Re-snapshot when refs seem stale.
+- Prefer explicit commands over `eval` and `run-code` unless needed.
+- When you do not have a fresh snapshot, use placeholder refs like `eX` and say why; do not bypass refs with `run-code`.
+- Use `--headed` when a visual check will help.
+- Keep exploratory CLI captures under `output/playwright/`; use the screenshot paths in `docs/visual-qa.md` for repeatable reference comparisons.
+- For repeatable Ramsider QA, use `@playwright/test` and the iPhone 17 Pro/Pro Max projects in `playwright.config.mjs`.
+
+2026-10-09T08:40:39.312234Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11fd1-edf7-7591-97e7-26b2e2547b3c turn_id=01a11fd1-ee8d-7663-a767-b1cdf495b154 item_id="exec-39e76de9-84a5-4d04-8134-6c693128af2f"
+tests/e2e/technology-trackpad.spec.ts:7:test('native horizontal trackpad wheel switches groups once per gesture in English and Arabic',async({page},info)=>{
+tests/e2e/technology-trackpad.spec.ts:19:  await page.screenshot({path:`${process.env.TECH_EVIDENCE ?? 'docs/evidence/technology-viewer/trackpad'}/${info.project.name}-${locale}.png`});
+tests/e2e/technology-viewer.spec.ts:169:test('image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag', async ({page,browserName}) => {
+/opt/homebrew/bin/npx
+node_modules
+node       1373 asmirnou   12u  IPv6  0x90e4fcc52486b01      0t0  TCP *:3031 (LISTEN)
+jetbrains  1758 asmirnou  580u  IPv6 0xcf304ad04e1060f2      0t0  TCP 127.0.0.1:52829 (LISTEN)
+node       9949 asmirnou   12u  IPv6 0xbaf2224ff641e2fb      0t0  TCP *:3032 (LISTEN)
+node      22087 asmirnou   12u  IPv6 0x1f960ec30980bf48      0t0  TCP *:3033 (LISTEN)
+node      34254 asmirnou   12u  IPv4 0x43ccf2dc1c51b7e4      0t0  TCP 127.0.0.1:3030 (LISTEN)
+node      51259 asmirnou   12u  IPv6 0xaecae98b4f6105c6      0t0  TCP *:3030 (LISTEN)
+node      54574 asmirnou   12u  IPv6 0x5361577a38cd8aaa      0t0  TCP *:3034 (LISTEN)
+idea      96277 asmirnou  502u  IPv6 0x1d4050668eb1eef2      0t0  TCP 127.0.0.1:30001 (LISTEN)
+cef_serve 96342 asmirnou   53u  IPv4 0x702d5361eb121e55      0t0  TCP 127.0.0.1:30000 (LISTEN)
+
+2026-10-09T08:40:58.510187Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11fd1-edf7-7591-97e7-26b2e2547b3c turn_id=01a11fd1-ee8d-7663-a767-b1cdf495b154 item_id="exec-2b397bbf-712a-4d97-85ca-96427c3715cc"
+exec
+/bin/zsh -lc 'TECH_EVIDENCE=/private/tmp/ramsider-review-trackpad BASE_URL=http://127.0.0.1:3034 npx playwright test tests/e2e/technology-trackpad.spec.ts --project=desktop-chromium --project=iphone-17-pro-webkit --workers=1 --reporter=list --output=/private/tmp/ramsider-review-test-results' in /Users/asmirnou/Projects/g/ramsider
+exec
+/bin/zsh -lc "nl -ba components/TechnologyViewer.tsx | sed -n '158,193p'; sed -n '160,235p' tests/e2e/technology-viewer.spec.ts; ls -lh design/references/background_old.png; cat docs/evidence/technology-viewer/trackpad/build.log | tail -25; git diff --cached --stat; git status --short" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 17ms:
+   158	  }, [select, clearSubscriptions]);
+   159
+   160	  useEffect(() => {
+   161	    if (!isOpen) return;
+   162	    const viewport = contentViewport.current;
+   163	    if (!viewport) return;
+   164	    wheelGesture.current = { lastAt: 0, distance: 0, committed: false };
+   165	    const onWheel = (event: WheelEvent) => {
+   166	      if (event.ctrlKey) return; // Trackpad pinch belongs to the browser.
+   167	      const now = performance.now();
+   168	      const gesture = wheelGesture.current;
+   169	      if (now - gesture.lastAt > 180) { gesture.distance = 0; gesture.committed = false; }
+   170	      gesture.lastAt = now;
+   171	      if (!event.deltaX || Math.abs(event.deltaX) < Math.abs(event.deltaY) * 1.2) {
+   172	        gesture.distance = 0;
+   173	        return; // Preserve native vertical scrolling.
+   174	      }
+   175	      event.preventDefault(); // Consume horizontal input, including browser history gestures.
+   176	      if (pending.current) { gesture.committed = true; return; }
+   177	      if (gesture.committed) return;
+   178	      const scale = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? viewport.clientWidth : 1;
+   179	      gesture.distance += event.deltaX * scale;
+   180	      if (Math.abs(gesture.distance) < 45) return;
+   181	      gesture.committed = true;
+   182	      // Natural scrolling reports finger movement to the right as negative deltaX.
+   183	      const next = displayed.current + (gesture.distance < 0 ? 1 : -1);
+   184	      if (next >= 0 && next < technologyGroups.length) select(next);
+   185	    };
+   186	    viewport.addEventListener('wheel', onWheel, { passive: false });
+   187	    return () => viewport.removeEventListener('wheel', onWheel);
+   188	  }, [isOpen, select]);
+   189
+   190	  const moveGroup = (delta: number) => {
+   191	    if (pending.current) return;
+   192	    const next = displayed.current + delta;
+   193	    if (next < 0 || next >= technologyGroups.length) return;
+  await swipe(100);await expect(viewer).toHaveAttribute('data-group','CyberMind');
+  await swipe(-100);await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');
+  await page.keyboard.press('End');await expect.poll(()=>viewer.locator('.technology-viewer__scroll').evaluate(e=>e.scrollTop)).toBeGreaterThan(500);
+  await expect(viewer).toHaveAttribute('data-group','HeatCore');await viewer.locator('.technology-viewer__next-image').click();await expect(viewer).toHaveAttribute('data-group','CyberMind');await expect(viewer).toHaveAttribute('aria-busy','false');
+  expect(await viewer.locator('.technology-viewer__scroll').evaluate(e=>e.scrollTop)).toBe(0);
+  await viewer.locator('.technology-viewer__close').click();
+ }
+});
+
+test('image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag', async ({page,browserName}) => {
+  test.skip(browserName==='firefox','Desktop Firefox has no Touch constructor; image mouse navigation is covered separately.');
+  await page.goto('/en'); await openTechnology(page);
+  const viewer=page.locator('#technology-viewer'); await expect(viewer).toHaveAttribute('aria-busy','false');
+  const image=viewer.locator('.technology-viewer__photo img').first();
+  const start={identifier:1,clientX:150,clientY:250};
+  const end={...start,clientX:270};
+  const begin=()=>image.dispatchEvent('touchstart',{touches:[start],changedTouches:[start]});
+  const finish=()=>image.dispatchEvent('touchend',{touches:[],changedTouches:[end]});
+  await begin(); await image.dispatchEvent('touchmove',{touches:[{...start,clientY:300}]}); await finish();
+  await expect(viewer).toHaveAttribute('data-group','HeatCore');
+  await begin(); await image.dispatchEvent('touchstart',{touches:[start,{...start,identifier:2}],changedTouches:[{...start,identifier:2}]}); await finish();
+  await expect(viewer).toHaveAttribute('data-group','HeatCore');
+  await begin(); await image.dispatchEvent('touchcancel',{touches:[],changedTouches:[start]}); await finish();
+  await expect(viewer).toHaveAttribute('data-group','HeatCore');
+  await begin(); await image.dispatchEvent('touchend',{touches:[],changedTouches:[{...start,identifier:2,clientX:270}]});
+  await expect(viewer).toHaveAttribute('data-group','HeatCore');
+  // One actual mouse drag from the image, then a right-button drag cannot navigate.
+  const bounds=await viewer.boundingBox(); const x=bounds!.x+100;
+  await page.mouse.move(x,250); await page.mouse.down(); await page.mouse.move(x+120,250,{steps:6}); await page.mouse.up();
+  await expect(viewer).toHaveAttribute('data-group','CyberMind'); await expect(viewer).toHaveAttribute('aria-busy','false');
+  await page.mouse.move(x+120,250); await page.mouse.down({button:'right'}); await page.mouse.move(x,250,{steps:6}); await page.mouse.up({button:'right'});
+  await expect(viewer).toHaveAttribute('data-group','CyberMind');
+});
+
+test('all six post-load low-priority decoded images are reused offline across ribbons and reopening',async({page,context})=>{
+ await page.addInitScript(()=>{
+  const images:HTMLImageElement[]=[];const fetches:{url:string;priority?:string}[]=[];
+  Object.assign(window,{__technologyWarmImages:images,__technologyFetches:fetches});
+  const nativeFetch=window.fetch;window.fetch=(input,init)=>{const url=String(input);if(/\/technology\/(?:cybermind\/0[12]|0[2-5])\.png$/.test(url))fetches.push({url,priority:(init as RequestInit & {priority?:string})?.priority});return nativeFetch(input,init);};
+  window.Image=new Proxy(window.Image,{construct(target,args){const image=Reflect.construct(target,args) as HTMLImageElement;images.push(image);return image;}});
+ });
+ await page.goto('/en');
+ await expect.poll(()=>page.evaluate(()=>(window as unknown as {__technologyWarmImages:HTMLImageElement[]}).__technologyWarmImages.filter(i=>i.dataset.source&&i.complete&&i.naturalWidth===941).length)).toBe(6);
+ const timings=await page.evaluate(()=>({load:(performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming).loadEventStart,starts:performance.getEntriesByType('resource').filter(e=>/\/technology\/(?:cybermind\/0[12]|0[2-5])\.png$/.test(e.name)).map(e=>e.startTime),fetches:(window as unknown as {__technologyFetches:{priority:string}[]}).__technologyFetches}));
+ expect(timings.starts).toHaveLength(6);expect(timings.starts.every(t=>t>=timings.load)).toBe(true);expect(timings.fetches.map(f=>f.priority)).toEqual(Array(6).fill('low'));
+ await openTechnology(page);await expect(page.locator('#technology-viewer')).toHaveAttribute('aria-busy','false');await context.setOffline(true);
+ for(const group of [1,0,1,0]){
+  await page.locator('.technology-viewer__dots button').nth(group).click();await expect(page.locator('#technology-viewer')).toHaveAttribute('data-group',group?'CyberMind':'HeatCore');await expect(page.locator('#technology-viewer')).toHaveAttribute('aria-busy','false');
+  expect(await page.locator('.technology-viewer__photo img').evaluateAll(elements=>elements.every(image=>(window as unknown as {__technologyWarmImages:HTMLImageElement[]}).__technologyWarmImages.includes(image as HTMLImageElement)))).toBe(true);
+ }
+ await page.locator('.technology-viewer__close').click();await openTechnology(page);await expect(page.locator('#technology-viewer')).toHaveAttribute('aria-busy','false');await expect(page.locator('.technology-viewer__photo img')).toHaveCount(4);
+ expect(await page.evaluate(()=>(window as unknown as {__technologyFetches:unknown[]}).__technologyFetches.length)).toBe(6);await context.setOffline(false);
+});
+test('technology viewer hides landing paint beneath browser chrome and restores it on close', async ({ page }, testInfo) => {
+  await page.goto('/en');
+  // Expanded FAQ icons explicitly set visibility:visible and must also be hidden.
+  await page.locator('#faq-preorder').click();
+  const opener = page.locator('[data-technology-open]').first();
+  await opener.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(100);
+  const original = await page.evaluate(() => ({ root: getComputedStyle(document.documentElement).backgroundColor, body: getComputedStyle(document.body).backgroundColor, height: document.documentElement.scrollHeight, y: scrollY }));
+  await openTechnology(page, opener);
+  const viewer = page.locator('#technology-viewer');
+  await expect(viewer).toBeVisible();
+  await expect(viewer).toHaveAttribute('aria-busy', 'false');
+  await expect(page.locator('html')).toHaveCSS('background-color', 'rgb(0, 0, 0)');
+  await expect(page.locator('body')).toHaveCSS('background-color', 'rgb(0, 0, 0)');
+  const paint = await page.locator('.dialog-controller > :not(#technology-viewer), .dialog-controller > :not(#technology-viewer) *').evaluateAll(elements => elements.filter(element => {
+    const style = getComputedStyle(element);
+    return style.display !== 'none' && style.visibility === 'visible' && element.getBoundingClientRect().width > 0 && element.getBoundingClientRect().height > 0;
+  }).map(element => element.tagName));
+  expect(paint).toEqual([]);
+  await viewer.locator('img').evaluateAll(async images => { await document.fonts.ready; await Promise.all(images.map(image => (image as HTMLImageElement).decode())); });
+  await page.screenshot({ path: `screenshots/actual/technology-viewer/${testInfo.project.name}-isolated-landing.png` });
+  // Isolate the document plane to simulate the browser sampling outside modal paint.
+  // This is a backing check, not an emulated screenshot of physical Safari chrome.
+-rw-r--r--@ 1 asmirnou  staff    43M Sep 29 01:55 design/references/background_old.png
+  Creating an optimized production build ...
+✓ Compiled successfully in 1234ms
+  Running TypeScript ...
+  Finished TypeScript in 2.3s ...
+  Collecting page data using 5 workers ...
+  Generating static pages using 5 workers (0/14) ...
+  Generating static pages using 5 workers (3/14)
+  Generating static pages using 5 workers (6/14)
+  Generating static pages using 5 workers (10/14)
+✓ Generating static pages using 5 workers (14/14) in 457ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+└ ● /[locale]
+  ├ /en
+  ├ /ru
+  ├ /de
+  └ [+8 more paths]
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+
+ M .gitignore
+ M CHANGELOG.md
+ M components/TechnologyViewer.tsx
+?? design/references/background_old.png
+?? docs/evidence/technology-viewer/trackpad/
+?? tests/e2e/technology-trackpad.spec.ts
+?? tools/__pycache__/
+
+2026-10-09T08:41:09.766481Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11fd1-edf7-7591-97e7-26b2e2547b3c turn_id=01a11fd1-ee8d-7663-a767-b1cdf495b154 item_id="exec-87fbb7e0-f993-4426-b0f4-5ef5a734bec5"
+2026-10-09T08:41:11.601917Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11fd1-edf7-7591-97e7-26b2e2547b3c turn_id=01a11fd1-ee8d-7663-a767-b1cdf495b154 item_id="exec-441587c3-1d24-4350-8eff-7345c2280183"
+ exited 1 in 3972ms:
+
+Running 4 tests using 1 worker
+
+(node:54703) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [iphone-17-pro-webkit] › tests/e2e/technology-trackpad.spec.ts:7:1 › native horizontal trackpad wheel switches groups once per gesture in English and Arabic (0ms)
+(node:54717) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [iphone-17-pro-webkit] › tests/e2e/technology-trackpad.spec.ts:24:1 › small wheel deltas accumulate; vertical movement and pinch do not switch groups (0ms)
+(node:54737) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 [desktop-chromium] › tests/e2e/technology-trackpad.spec.ts:7:1 › native horizontal trackpad wheel switches groups once per gesture in English and Arabic (1ms)
+(node:54761) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  4 [desktop-chromium] › tests/e2e/technology-trackpad.spec.ts:24:1 › small wheel deltas accumulate; vertical movement and pinch do not switch groups (0ms)
+
+
+  1) [iphone-17-pro-webkit] › tests/e2e/technology-trackpad.spec.ts:7:1 › native horizontal trackpad wheel switches groups once per gesture in English and Arabic
+
+    Error: browserType.launch: Target page, context or browser has been closed
+    Browser logs:
+
+    <launching> /Users/asmirnou/Library/Caches/ms-playwright/webkit-2359/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=54705
+    [pid=54705][err] /Users/asmirnou/Library/Caches/ms-playwright/webkit-2359/pw_run.sh: line 7: 54713 Abort trap: 6           DYLD_FRAMEWORK_PATH="$DYLIB_PATH" DYLD_LIBRARY_PATH="$DYLIB_PATH" "$PLAYWRIGHT" "$@"
+    Call log:
+      - <launching> /Users/asmirnou/Library/Caches/ms-playwright/webkit-2359/pw_run.sh --inspector-pipe --headless --no-startup-window
+      - <launched> pid=54705
+      - [pid=54705][err] /Users/asmirnou/Library/Caches/ms-playwright/webkit-2359/pw_run.sh: line 7: 54713 Abort trap: 6           DYLD_FRAMEWORK_PATH="$DYLIB_PATH" DYLD_LIBRARY_PATH="$DYLIB_PATH" "$PLAYWRIGHT" "$@"
+      - [pid=54705] <gracefully close start>
+      - [pid=54705] <kill>
+      - [pid=54705] <will force kill>
+      - [pid=54705] exception while trying to kill process: Error: kill ESRCH
+      - [pid=54705] <process did exit: exitCode=134, signal=null>
+      - [pid=54705] starting temporary directories cleanup
+      - [pid=54705] finished temporary directories cleanup
+      - [pid=54705] <gracefully close end>
+
+
+    Error Context: ../../../../../private/tmp/ramsider-review-test-results/technology-trackpad-native-be5f0-sture-in-English-and-Arabic-iphone-17-pro-webkit/error-context.md
+
+  2) [iphone-17-pro-webkit] › tests/e2e/technology-trackpad.spec.ts:24:1 › small wheel deltas accumulate; vertical movement and pinch do not switch groups
+
+    Error: browserType.launch: Target page, context or browser has been closed
+    Browser logs:
+
+    <launching> /Users/asmirnou/Library/Caches/ms-playwright/webkit-2359/pw_run.sh --inspector-pipe --headless --no-startup-window
+    <launched> pid=54719
+    [pid=54719][err] /Users/asmirnou/Library/Caches/ms-playwright/webkit-2359/pw_run.sh: line 7: 54725 Abort trap: 6           DYLD_FRAMEWORK_PATH="$DYLIB_PATH" DYLD_LIBRARY_PATH="$DYLIB_PATH" "$PLAYWRIGHT" "$@"
+    Call log:
+      - <launching> /Users/asmirnou/Library/Caches/ms-playwright/webkit-2359/pw_run.sh --inspector-pipe --headless --no-startup-window
+      - <launched> pid=54719
+      - [pid=54719][err] /Users/asmirnou/Library/Caches/ms-playwright/webkit-2359/pw_run.sh: line 7: 54725 Abort trap: 6           DYLD_FRAMEWORK_PATH="$DYLIB_PATH" DYLD_LIBRARY_PATH="$DYLIB_PATH" "$PLAYWRIGHT" "$@"
+      - [pid=54719] <gracefully close start>
+      - [pid=54719] <kill>
+      - [pid=54719] <will force kill>
+      - [pid=54719] exception while trying to kill process: Error: kill ESRCH
+      - [pid=54719] <process did exit: exitCode=134, signal=null>
+      - [pid=54719] starting temporary directories cleanup
+      - [pid=54719] finished temporary directories cleanup
+      - [pid=54719] <gracefully close end>
+
+
+    Error Context: ../../../../../private/tmp/ramsider-review-test-results/technology-trackpad-small--3ca58--pinch-do-not-switch-groups-iphone-17-pro-webkit/error-context.md
+
+  3) [desktop-chromium] › tests/e2e/technology-trackpad.spec.ts:7:1 › native horizontal trackpad wheel switches groups once per gesture in English and Arabic
+
+    Error: browserType.launch: Target page, context or browser has been closed
+    Browser logs:
+
+    <launching> /Users/asmirnou/Library/Caches/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-mac-arm64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/zz/rg7fqt550kq6vr4fn6b2h7vw0000gn/T/playwright_chromiumdev_profile-QK4Z8N --remote-debugging-pipe --no-startup-window
+    <launched> pid=54742
+    [pid=54742][err] [1009/124110.275669:ERROR:base/power_monitor/thermal_state_observer_mac.mm:140] ThermalStateObserverMac unable to register to power notifications. Result: 9
+    [pid=54742][err] [1009/124110.280596:ERROR:net/dns/dns_config_service_posix.cc:138] DNS config watch failed to start.
+    [pid=54742][err] [1009/124110.282193:WARNING:net/dns/dns_config_service_posix.cc:197] Failed to read DnsConfig.
+    [pid=54742][err] [1009/124110.282764:FATAL:base/apple/mach_port_rendezvous_mac.cc:159] Check failed: kr == KERN_SUCCESS. bootstrap_check_in org.chromium.Chromium.MachPortRendezvousServer.54742: Permission denied (1100)
+    Call log:
+      - <launching> /Users/asmirnou/Library/Caches/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-mac-arm64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/zz/rg7fqt550kq6vr4fn6b2h7vw0000gn/T/playwright_chromiumdev_profile-QK4Z8N --remote-debugging-pipe --no-startup-window
+      - <launched> pid=54742
+      - [pid=54742][err] [1009/124110.275669:ERROR:base/power_monitor/thermal_state_observer_mac.mm:140] ThermalStateObserverMac unable to register to power notifications. Result: 9
+      - [pid=54742][err] [1009/124110.280596:ERROR:net/dns/dns_config_service_posix.cc:138] DNS config watch failed to start.
+      - [pid=54742][err] [1009/124110.282193:WARNING:net/dns/dns_config_service_posix.cc:197] Failed to read DnsConfig.
+      - [pid=54742][err] [1009/124110.282764:FATAL:base/apple/mach_port_rendezvous_mac.cc:159] Check failed: kr == KERN_SUCCESS. bootstrap_check_in org.chromium.Chromium.MachPortRendezvousServer.54742: Permission denied (1100)
+      - [pid=54742] <gracefully close start>
+      - [pid=54742] <kill>
+      - [pid=54742] <will force kill>
+      - [pid=54742] exception while trying to kill process: Error: kill EPERM
+      - [pid=54742] <process did exit: exitCode=null, signal=SIGTRAP>
+      - [pid=54742] starting temporary directories cleanup
+      - [pid=54742] finished temporary directories cleanup
+      - [pid=54742] <gracefully close end>
+
+
+    Error Context: ../../../../../private/tmp/ramsider-review-test-results/technology-trackpad-native-be5f0-sture-in-English-and-Arabic-desktop-chromium/error-context.md
+
+  4) [desktop-chromium] › tests/e2e/technology-trackpad.spec.ts:24:1 › small wheel deltas accumulate; vertical movement and pinch do not switch groups
+
+    Error: browserType.launch: Target page, context or browser has been closed
+    Browser logs:
+
+    <launching> /Users/asmirnou/Library/Caches/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-mac-arm64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/zz/rg7fqt550kq6vr4fn6b2h7vw0000gn/T/playwright_chromiumdev_profile-epPAD5 --remote-debugging-pipe --no-startup-window
+    <launched> pid=54778
+    [pid=54778][err] [1009/124111.172354:ERROR:base/power_monitor/thermal_state_observer_mac.mm:140] ThermalStateObserverMac unable to register to power notifications. Result: 9
+    [pid=54778][err] [1009/124111.174135:ERROR:net/dns/dns_config_service_posix.cc:138] DNS config watch failed to start.
+    [pid=54778][err] [1009/124111.174814:WARNING:net/dns/dns_config_service_posix.cc:197] Failed to read DnsConfig.
+    [pid=54778][err] [1009/124111.175001:FATAL:base/apple/mach_port_rendezvous_mac.cc:159] Check failed: kr == KERN_SUCCESS. bootstrap_check_in org.chromium.Chromium.MachPortRendezvousServer.54778: Permission denied (1100)
+    Call log:
+      - <launching> /Users/asmirnou/Library/Caches/ms-playwright/chromium_headless_shell-1243/chrome-headless-shell-mac-arm64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,Translate,AutoDeElevate,OptimizationHints,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/var/folders/zz/rg7fqt550kq6vr4fn6b2h7vw0000gn/T/playwright_chromiumdev_profile-epPAD5 --remote-debugging-pipe --no-startup-window
+      - <launched> pid=54778
+      - [pid=54778][err] [1009/124111.172354:ERROR:base/power_monitor/thermal_state_observer_mac.mm:140] ThermalStateObserverMac unable to register to power notifications. Result: 9
+      - [pid=54778][err] [1009/124111.174135:ERROR:net/dns/dns_config_service_posix.cc:138] DNS config watch failed to start.
+      - [pid=54778][err] [1009/124111.174814:WARNING:net/dns/dns_config_service_posix.cc:197] Failed to read DnsConfig.
+      - [pid=54778][err] [1009/124111.175001:FATAL:base/apple/mach_port_rendezvous_mac.cc:159] Check failed: kr == KERN_SUCCESS. bootstrap_check_in org.chromium.Chromium.MachPortRendezvousServer.54778: Permission denied (1100)
+      - [pid=54778] <gracefully close start>
+      - [pid=54778] <kill>
+      - [pid=54778] <will force kill>
+      - [pid=54778] exception while trying to kill process: Error: kill EPERM
+      - [pid=54778] <process did exit: exitCode=null, signal=SIGTRAP>
+      - [pid=54778] starting temporary directories cleanup
+      - [pid=54778] finished temporary directories cleanup
+      - [pid=54778] <gracefully close end>
+
+
+    Error Context: ../../../../../private/tmp/ramsider-review-test-results/technology-trackpad-small--3ca58--pinch-do-not-switch-groups-desktop-chromium/error-context.md
+
+  4 failed
+    [iphone-17-pro-webkit] › tests/e2e/technology-trackpad.spec.ts:7:1 › native horizontal trackpad wheel switches groups once per gesture in English and Arabic
+    [iphone-17-pro-webkit] › tests/e2e/technology-trackpad.spec.ts:24:1 › small wheel deltas accumulate; vertical movement and pinch do not switch groups
+    [desktop-chromium] › tests/e2e/technology-trackpad.spec.ts:7:1 › native horizontal trackpad wheel switches groups once per gesture in English and Arabic
+    [desktop-chromium] › tests/e2e/technology-trackpad.spec.ts:24:1 › small wheel deltas accumulate; vertical movement and pinch do not switch groups
+
+exec
+/bin/zsh -lc "nl -ba AGENTS.md | sed -n '25,58p'; rg -n 'vertical|gesture|trackpad' docs/interaction-qa.md docs/mobile.md; ls node_modules/.cache 2>/dev/null; git diff --numstat; file tools/__pycache__/* design/references/background_old.png" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 95ms:
+    25
+    26	**Do not mark a failed gate passed or delegate ordinary QA to the user.** Route the failure back to the stage that can fix it, repeat that stage, and rerun downstream checks the fix could affect. A blocked external dependency must not stop independent work. For UI work, the implement → browser screenshot → compare → fix → recheck loop is mandatory after each completed visual slice and after later appearance changes; repeat it on the assembled page. Work autonomously through all feasible checks; resolve routine choices from the repository and references, and seek only irreducible external facts or access while continuing independent work. For a small non-UI task, apply only relevant stages.
+    27
+    28	For substantive project work, start one independent, non-editing **discipline auditor** alongside scope inspection. Reuse it at each applicable stage gate: scope before implementation; each completed UI slice's rendering and visual evidence; behavior/adaptation; code review and performance; and final integration, memory, and delivery evidence. Give it acceptance checks, changed files, browser images, command results, and any other agents' findings as relevant. Wait for its evidence-based pass/fail/blocked finding before closing a gate. Fix failures and re-audit affected gates; the main agent owns implementation and required checks. Use the project [auditor profile](.codex/agents/discipline_auditor.toml) when available and [supervision protocol](docs/supervision.md); if the profile cannot be selected, give a subagent the same non-editing assignment. Do not spawn it for a trivial edit. The auditor supplements real QA and native `/review`; it cannot certify missing evidence.
+    29
+    30	## Standing constraints
+    31
+    32	- Git: work on `main`. Create or switch to another working branch only on the user’s explicit command; do not infer authorization from the configured upstream, skill defaults or an old checkout. Check the current branch and exact destination before commit/push; push to `origin/main` for this project.
+    33
+    34	- Working-context efficiency: throughout coding and QA, read only affected code and stage docs; inspect the long reference and screenshots through relevant crops at useful resolution. Keep full-size images, raw image data, long logs, and unrelated file dumps out of model context. Reuse recorded findings, bound tool output, and rerun only checks affected by a change. Never skip required QA to save tokens; stop once all applicable gates pass.
+    35	- Primary devices: **iPhone 17 Pro (402 × 874 CSS px, DPR 3)** is the baseline; **iPhone 17 Pro Max (440 × 956 CSS px, DPR 3)** is the second required mobile target. These are emulation screen sizes, not fixed-height CSS requirements; Safari's visible area changes with browser chrome. Build mobile-first for these devices. All other phones, tablets, and desktops receive responsive adaptation, with no horizontal overflow or broken content. Preserve the supplied composition rather than substituting a generic design. See [docs/mobile.md](docs/mobile.md).
+    36	- Locales: English, Russian, German, French, Spanish, Italian, Turkish, Arabic, Chinese, Japanese, and Korean. Use translation keys. Arabic needs correct RTL layout and behavior.
+    37	- Accessibility: semantic content, keyboard and screen reader support, labels, visible focus, usable touch targets, WCAG AA contrast, and reduced-motion support. Verify affected behavior.
+    38	- Product truth: the render is the visual/content target, not proof of prices, certifications, health claims, stock, or backend behavior. Preserve its visible narrative in the local rebuild; track unverified facts and confirm them before publication or functioning commerce. See [PRODUCT.md](PRODUCT.md).
+    39	- Performance: the first viewport must become useful quickly. The two reference PNGs are each about 44 MB; never serve either as one production background. Derive responsive, compressed sections/tiles from the clean artwork, load the visible segment eagerly and later segments near the viewport, and avoid seams or blank gaps. Never lazy-load the LCP asset. Aim for 95+ mobile Lighthouse only with measured evidence.
+    40	- Artwork color: **always load [artwork-color-pipeline](.agents/skills/artwork-color-pipeline/SKILL.md)** before adding or replacing Photoshop/raster references, cropping or resizing them for the site, converting PNG/PSD exports to WebP/AVIF, or changing how those raster assets are delivered. Apply its source-profile, decoded-color, alpha, browser and speed checks before delivery. CSS-only photo sizing/object-fit/fullscreen adaptation also loads its geometry contract; it does not require raster conversion. Ordinary text and vector-only edits do not trigger it.
+    41	- Tooling: prefer native Codex capabilities when they provide the required evidence; use additional skills/tools for project-specific workflow or capabilities the native route lacks. Read the project [implementer skill](.agents/skills/pixel-perfect-ui-implementer/SKILL.md) when building UI and the [testing skill](.agents/skills/pixel-perfect-ui-testing/SKILL.md) when verifying it. Use the Codex browser for quick exploratory inspection when available; use the configured Playwright WebKit/DPR 3 profiles for required mobile screenshots and repeatable checks. `/review` is a native Codex command, not an installable skill. Load each skill when its stage needs it, not both up front. Broad design-generation skills must not replace the approved render. The requested Codex model and modes are session settings: check availability before claiming they are active. See [TOOLS.md](TOOLS.md) for other skills and limitations.
+    42	- Self-improvement: after **every user correction and meaningful self-detected failure**, find the root cause, fix and recheck it, then decide whether the prevention generalizes. If repeatable, update [LESSONS.md](LESSONS.md) with **problem → cause → prevention** and consult the relevant lesson before similar work; do not promote one-off feedback into a global rule. Keep [MEMORY.md](MEMORY.md) current with verified project state and decisions, without duplicating the task transcript. Preserve user edits and design sources.
+    43
+    44	If a required check is blocked, explain the concrete reason and do not present it as passed. Do not stop at the first implementation when the remaining stages can be completed.
+2	1	.gitignore
+6	1	CHANGELOG.md
+31	0	components/TechnologyViewer.tsx
+tools/__pycache__/convert-art-webp.cpython-314.pyc: data
+design/references/background_old.png:               PNG image data, 941 x 32127, 8-bit/color RGBA, non-interlaced
+
+2026-10-09T08:41:28.546390Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11fd1-edf7-7591-97e7-26b2e2547b3c turn_id=01a11fd1-ee8d-7663-a767-b1cdf495b154 item_id="exec-d63aeb74-98c6-4d0d-ab31-a54e48374e6a"
+exec
+/bin/zsh -lc "node --input-type=module <<'NODE'
+import fs from 'node:fs';
+const source=fs.readFileSync('components/TechnologyViewer.tsx','utf8');
+const body=source.split('const onWheel = (event: WheelEvent) => {')[1].split('\\n    };')[0];
+let clock=1000; const wheelGesture={current:{lastAt:0,distance:0,committed:false}}, pending={current:false}, displayed={current:0}, transitions=[];
+const handler=new Function('performance','wheelGesture','pending','viewport','displayed','technologyGroups','select','event',body);
+function wheel(deltaX,deltaY,dt=30){clock+=dt;handler({now:()=>clock},wheelGesture,pending,{clientWidth:941},displayed,[{},{}],next=>{transitions.push(next);displayed.current=next;},{deltaX,deltaY,deltaMode:0,ctrlKey:false,preventDefault(){}});}
+wheel(0,120); wheel(-60,0); console.log(JSON.stringify({scenario:'vertical then horizontal within 30 ms',transitions}));
+wheelGesture.current={lastAt:0,distance:0,committed:false};displayed.current=0;transitions.length=0;
+wheel(-120,0);wheel(120,0,220);console.log(JSON.stringify({scenario:'test reversal after readiness assertion takes >180 ms',transitions}));
+NODE
+npm run typecheck; npx eslint components/TechnologyViewer.tsx tests/e2e/technology-trackpad.spec.ts" in /Users/asmirnou/Projects/g/ramsider
+2026-10-09T08:41:55.171990Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11fd1-edf7-7591-97e7-26b2e2547b3c turn_id=01a11fd1-ee8d-7663-a767-b1cdf495b154 item_id="exec-2c4db661-e504-42d1-9b53-73a474259efb"
+ succeeded in 4243ms:
+{"scenario":"vertical then horizontal within 30 ms","transitions":[1]}
+{"scenario":"test reversal after readiness assertion takes >180 ms","transitions":[1,0]}
+
+> typecheck
+> tsc --noEmit
+
+
+exec
+/bin/zsh -lc "nl -ba tests/e2e/technology-trackpad.spec.ts | sed -n '7,30p'; git diff --check; git status --short; find docs/evidence/technology-viewer/trackpad -type f -maxdepth 1 -print" in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 18ms:
+     7	test('native horizontal trackpad wheel switches groups once per gesture in English and Arabic',async({page},info)=>{
+     8	 for(const locale of ['en','ar']){
+     9	  await page.goto(`/${locale}`);await openTechnology(page);
+    10	  const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
+    11	  await viewer.locator('.technology-viewer__photo img').first().hover({position:{x:100,y:300}});
+    12	  const y=await page.evaluate(()=>scrollY);
+    13	  await page.mouse.wheel(-120,0);await expect(viewer).toHaveAttribute('data-group','CyberMind');await expect(viewer).toHaveAttribute('aria-busy','false');
+    14	  // Reversing within the same wheel burst must not undo the committed change.
+    15	  await page.mouse.wheel(120,0);await expect(viewer).toHaveAttribute('data-group','CyberMind');
+    16	  await settleGesture(page);await page.mouse.wheel(120,0);await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');
+    17	  await settleGesture(page);await page.mouse.wheel(120,0);await expect(viewer).toHaveAttribute('data-group','HeatCore');
+    18	  expect(await page.evaluate(()=>scrollY)).toBe(y);
+    19	  await page.screenshot({path:`${process.env.TECH_EVIDENCE ?? 'docs/evidence/technology-viewer/trackpad'}/${info.project.name}-${locale}.png`});
+    20	  await page.keyboard.press('Escape');
+    21	 }
+    22	});
+    23
+    24	test('small wheel deltas accumulate; vertical movement and pinch do not switch groups',async({page})=>{
+    25	 await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');const scroller=viewer.locator('.technology-viewer__scroll');await scroller.hover();
+    26	 await page.mouse.wheel(-20,0);await expect(viewer).toHaveAttribute('data-group','HeatCore');
+    27	 await page.mouse.wheel(-30,0);await expect(viewer).toHaveAttribute('data-group','CyberMind');await expect(viewer).toHaveAttribute('aria-busy','false');
+    28	 await settleGesture(page);await page.mouse.wheel(30,300);await expect.poll(()=>scroller.evaluate(e=>e.scrollTop)).toBeGreaterThan(100);await expect(viewer).toHaveAttribute('data-group','CyberMind');
+    29	 await settleGesture(page);await page.keyboard.down('Control');await page.mouse.wheel(120,0);await page.keyboard.up('Control');await expect(viewer).toHaveAttribute('data-group','CyberMind');
+    30	 await viewer.locator('.technology-viewer__close').click();await openTechnology(page);await expect(viewer).toHaveAttribute('aria-busy','false');await scroller.hover();await page.mouse.wheel(-120,0);await expect(viewer).toHaveAttribute('data-group','CyberMind');
+ M .gitignore
+ M CHANGELOG.md
+ M components/TechnologyViewer.tsx
+?? design/references/background_old.png
+?? docs/evidence/technology-viewer/trackpad/
+?? tests/e2e/technology-trackpad.spec.ts
+?? tools/__pycache__/
+docs/evidence/technology-viewer/trackpad/iphone-17-pro-max-webkit-en.png
+docs/evidence/technology-viewer/trackpad/iphone-17-pro-webkit-en.png
+docs/evidence/technology-viewer/trackpad/lint.log
+docs/evidence/technology-viewer/trackpad/iphone-17-pro-max-webkit-ar.png
+docs/evidence/technology-viewer/trackpad/native-touch-scrolled.png
+docs/evidence/technology-viewer/trackpad/native-touch-pending.png
+docs/evidence/technology-viewer/trackpad/typecheck.log
+docs/evidence/technology-viewer/trackpad/iphone-17-pro-webkit-ar.png
+docs/evidence/technology-viewer/trackpad/assembly-440.png
+docs/evidence/technology-viewer/trackpad/visual.json
+docs/evidence/technology-viewer/trackpad/native-touch.json
+docs/evidence/technology-viewer/trackpad/baseline.log
+docs/evidence/technology-viewer/trackpad/desktop-firefox-en.png
+docs/evidence/technology-viewer/trackpad/after-402-1.png
+docs/evidence/technology-viewer/trackpad/native-touch-ready.png
+docs/evidence/technology-viewer/trackpad/baseline-failed.png
+docs/evidence/technology-viewer/trackpad/after-402-0.png
+docs/evidence/technology-viewer/trackpad/desktop-chromium-ar.png
+docs/evidence/technology-viewer/trackpad/native-touch-arabic.png
+docs/evidence/technology-viewer/trackpad/after-440-1.png
+docs/evidence/technology-viewer/trackpad/desktop-firefox-ar.png
+docs/evidence/technology-viewer/trackpad/after-440-0.png
+docs/evidence/technology-viewer/trackpad/native-review.log
+docs/evidence/technology-viewer/trackpad/assembly-402.png
+docs/evidence/technology-viewer/trackpad/browser-tests.log
+docs/evidence/technology-viewer/trackpad/desktop-chromium-en.png
+docs/evidence/technology-viewer/trackpad/build.log
+
+2026-10-09T08:42:09.051343Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11fd1-edf7-7591-97e7-26b2e2547b3c turn_id=01a11fd1-ee8d-7663-a767-b1cdf495b154 item_id="exec-4184cf61-4aba-4d62-a91d-1d926fb95ee8"
+exec
+/bin/zsh -lc 'tail -22 docs/evidence/technology-viewer/trackpad/browser-tests.log; cat docs/evidence/technology-viewer/trackpad/visual.json; cat docs/evidence/technology-viewer/trackpad/native-touch.json; git diff -- components/TechnologyViewer.tsx | tail -42' in /Users/asmirnou/Projects/g/ramsider
+ succeeded in 0ms:
+           - unexpected value "HeatCore"
+
+
+      25 |  await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');const scroller=viewer.locator('.technology-viewer__scroll');await scroller.hover();
+      26 |  await page.mouse.wheel(-20,0);await expect(viewer).toHaveAttribute('data-group','HeatCore');
+    > 27 |  await page.mouse.wheel(-30,0);await expect(viewer).toHaveAttribute('data-group','CyberMind');await expect(viewer).toHaveAttribute('aria-busy','false');
+         |                                                     ^
+      28 |  await settleGesture(page);await page.mouse.wheel(30,300);await expect.poll(()=>scroller.evaluate(e=>e.scrollTop)).toBeGreaterThan(100);await expect(viewer).toHaveAttribute('data-group','CyberMind');
+      29 |  await settleGesture(page);await page.keyboard.down('Control');await page.mouse.wheel(120,0);await page.keyboard.up('Control');await expect(viewer).toHaveAttribute('data-group','CyberMind');
+      30 |  await viewer.locator('.technology-viewer__close').click();await openTechnology(page);await expect(viewer).toHaveAttribute('aria-busy','false');await scroller.hover();await page.mouse.wheel(-120,0);await expect(viewer).toHaveAttribute('data-group','CyberMind');
+        at /Users/asmirnou/Projects/g/ramsider/tests/e2e/technology-trackpad.spec.ts:27:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../tmp/ramsider-trackpad-final/technology-trackpad-small--3ca58--pinch-do-not-switch-groups-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../tmp/ramsider-trackpad-final/technology-trackpad-small--3ca58--pinch-do-not-switch-groups-desktop-chromium/error-context.md
+
+  1 failed
+    [desktop-chromium] › tests/e2e/technology-trackpad.spec.ts:24:1 › small wheel deltas accumulate; vertical movement and pinch do not switch groups
+  6 skipped
+  17 passed (50.9s)
+[
+  {
+    "width": 402,
+    "innerWidth": 402,
+    "dpr": 3,
+    "comparisons": [
+      {
+        "group": 0,
+        "identical": true
+      },
+      {
+        "group": 1,
+        "identical": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "width": 440,
+    "innerWidth": 440,
+    "dpr": 3,
+    "comparisons": [
+      {
+        "group": 0,
+        "identical": true
+      },
+      {
+        "group": 1,
+        "identical": true
+      }
+    ],
+    "errors": []
+  }
+][
+  {
+    "name": "right",
+    "expected": "CyberMind",
+    "group": "CyberMind",
+    "scroll": 0,
+    "events": [
+      {
+        "type": "pointerdown",
+        "target": "IMG"
+      },
+      {
+        "type": "touchstart",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "pointerup",
+        "target": "IMG"
+      },
+      {
+        "type": "touchend",
+        "target": "IMG"
+      }
+    ]
+  },
+  {
+    "name": "left",
+    "expected": "HeatCore",
+    "group": "HeatCore",
+    "scroll": 0,
+    "events": [
+      {
+        "type": "pointerdown",
+        "target": "IMG"
+      },
+      {
+        "type": "touchstart",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "pointerup",
+        "target": "IMG"
+      },
+      {
+        "type": "touchend",
+        "target": "IMG"
+      }
+    ]
+  },
+  {
+    "name": "vertical",
+    "expected": "HeatCore",
+    "group": "HeatCore",
+    "scroll": 615,
+    "events": [
+      {
+        "type": "pointerdown",
+        "target": "IMG"
+      },
+      {
+        "type": "touchstart",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "pointercancel",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "touchend",
+        "target": "IMG"
+      }
+    ]
+  },
+  {
+    "name": "diagonal",
+    "expected": "CyberMind",
+    "group": "CyberMind",
+    "scroll": 0,
+    "events": [
+      {
+        "type": "pointerdown",
+        "target": "IMG"
+      },
+      {
+        "type": "touchstart",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "touchmove",
+        "target": "IMG"
+      },
+      {
+        "type": "pointerup",
+        "target": "IMG"
+      },
+      {
+        "type": "touchend",
+        "target": "IMG"
+      }
+    ]
+  }
+]   const touch = useRef<{ x: number; y: number; id: number } | null>(null);
++  const wheelGesture = useRef({ lastAt: 0, distance: 0, committed: false });
+   const displayed = useRef(0);
+   const requested = useRef(0);
+   const requestToken = useRef(0);
+@@ -156,6 +157,36 @@ export function TechnologyViewer({ locale, descriptions, cyberMindDescriptions }
+     };
+   }, [select, clearSubscriptions]);
+
++  useEffect(() => {
++    if (!isOpen) return;
++    const viewport = contentViewport.current;
++    if (!viewport) return;
++    wheelGesture.current = { lastAt: 0, distance: 0, committed: false };
++    const onWheel = (event: WheelEvent) => {
++      if (event.ctrlKey) return; // Trackpad pinch belongs to the browser.
++      const now = performance.now();
++      const gesture = wheelGesture.current;
++      if (now - gesture.lastAt > 180) { gesture.distance = 0; gesture.committed = false; }
++      gesture.lastAt = now;
++      if (!event.deltaX || Math.abs(event.deltaX) < Math.abs(event.deltaY) * 1.2) {
++        gesture.distance = 0;
++        return; // Preserve native vertical scrolling.
++      }
++      event.preventDefault(); // Consume horizontal input, including browser history gestures.
++      if (pending.current) { gesture.committed = true; return; }
++      if (gesture.committed) return;
++      const scale = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? viewport.clientWidth : 1;
++      gesture.distance += event.deltaX * scale;
++      if (Math.abs(gesture.distance) < 45) return;
++      gesture.committed = true;
++      // Natural scrolling reports finger movement to the right as negative deltaX.
++      const next = displayed.current + (gesture.distance < 0 ? 1 : -1);
++      if (next >= 0 && next < technologyGroups.length) select(next);
++    };
++    viewport.addEventListener('wheel', onWheel, { passive: false });
++    return () => viewport.removeEventListener('wheel', onWheel);
++  }, [isOpen, select]);
++
+   const moveGroup = (delta: number) => {
+     if (pending.current) return;
+     const next = displayed.current + delta;
+
+2026-10-09T08:42:15.526713Z  WARN codex_analytics::reducer: dropping turn tool count update: missing turn state thread_id=01a11fd1-edf7-7591-97e7-26b2e2547b3c turn_id=01a11fd1-ee8d-7663-a767-b1cdf495b154 item_id="exec-a72c3121-66a3-40cb-af2d-b78c1ea19638"
+codex
+The wheel handler can interrupt vertical-first scrolling, and the new tests depend on uncontrolled timing. Typecheck and focused lint passed; browser execution was blocked by sandbox launch restrictions.
+
+Full review comments:
+
+- [P2] Latch vertical wheel gestures until the quiet interval — /Users/asmirnou/Projects/g/ramsider/components/TechnologyViewer.tsx:171-173
+  When a trackpad gesture starts vertically and then bends horizontally, this branch clears the distance but leaves navigation enabled. For example, `(deltaX: 0, deltaY: 120)` followed 30 ms later by `(-60, 0)` switches to CyberMind and resets the ribbon position, interrupting the ongoing vertical scroll. Unlike `onTouchMove`, the wheel handler does not reject vertical-first trajectories. Track the gesture's axis and suppress navigation until the quiet interval ends.
+
+- [P2] Control elapsed time in wheel-burst tests — /Users/asmirnou/Projects/g/ramsider/tests/e2e/technology-trackpad.spec.ts:26-27
+  On a slow browser or busy runner, the assertion between these wheel events can take longer than the handler's 180 ms quiet interval, so the second event starts a new gesture and never reaches the accumulated threshold. The reversal test has the same problem because it waits for image readiness before sending its supposedly same-burst reversal. These tests can therefore fail with correct behavior; send burst events under controlled timing and assert afterward.
+The wheel handler can interrupt vertical-first scrolling, and the new tests depend on uncontrolled timing. Typecheck and focused lint passed; browser execution was blocked by sandbox launch restrictions.
+
+Full review comments:
+
+- [P2] Latch vertical wheel gestures until the quiet interval — /Users/asmirnou/Projects/g/ramsider/components/TechnologyViewer.tsx:171-173
+  When a trackpad gesture starts vertically and then bends horizontally, this branch clears the distance but leaves navigation enabled. For example, `(deltaX: 0, deltaY: 120)` followed 30 ms later by `(-60, 0)` switches to CyberMind and resets the ribbon position, interrupting the ongoing vertical scroll. Unlike `onTouchMove`, the wheel handler does not reject vertical-first trajectories. Track the gesture's axis and suppress navigation until the quiet interval ends.
+
+- [P2] Control elapsed time in wheel-burst tests — /Users/asmirnou/Projects/g/ramsider/tests/e2e/technology-trackpad.spec.ts:26-27
+  On a slow browser or busy runner, the assertion between these wheel events can take longer than the handler's 180 ms quiet interval, so the second event starts a new gesture and never reaches the accumulated threshold. The reversal test has the same problem because it waits for image readiness before sending its supposedly same-burst reversal. These tests can therefore fail with correct behavior; send burst events under controlled timing and assert afterward.

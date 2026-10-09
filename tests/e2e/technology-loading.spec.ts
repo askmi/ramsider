@@ -38,7 +38,7 @@ test('a partial first group resource prevents the whole ribbon revealing and rep
     await viewer.locator('.technology-viewer__stage').dispatchEvent('pointerup', { pointerType: 'touch', clientX: 100, clientY: 500 });
     expect(await page.evaluate(() => scrollY)).toBe(scroll);
     await expect(viewer).toHaveAttribute('data-group', 'HeatCore');
-    await page.screenshot({ path: `docs/evidence/technology-viewer/ribbons/${info.project.name}-pending.png` });
+    await page.screenshot({ path: `${process.env.TECH_EVIDENCE ?? 'docs/evidence/technology-viewer/ribbons'}/${info.project.name}-pending.png` });
     release();
     await expect(viewer).toHaveAttribute('aria-busy', 'false');
     const image = viewer.locator('.technology-viewer__stage img').first();
@@ -50,7 +50,7 @@ test('a partial first group resource prevents the whole ribbon revealing and rep
     });
     expect(delivered).toBe(createHash('sha256').update(bytes).digest('hex'));
     await expect(viewer.getByRole('heading', { name: 'HeatCore Technology' })).toBeVisible();
-    await page.screenshot({ path: `docs/evidence/technology-viewer/ribbons/${info.project.name}-ready.png` });
+    await page.screenshot({ path: `${process.env.TECH_EVIDENCE ?? 'docs/evidence/technology-viewer/ribbons'}/${info.project.name}-ready.png` });
   } finally {
     release();
     server.closeAllConnections();
@@ -133,7 +133,7 @@ test('a delayed next group retains the complete old ribbon, freezes scroll, and 
   await expect(viewer.locator('.technology-viewer__title')).toHaveCount(1);await expect(viewer.locator('.technology-viewer__dots button[aria-current=true]')).toHaveAttribute('aria-label','HeatCore Technology');
   await expect(viewer.getByRole('progressbar')).toBeVisible();await page.keyboard.press('ArrowRight');await page.keyboard.press('End');
   await scroller.evaluate(e=>e.scrollTop+=100);await expect.poll(()=>scroller.evaluate(e=>e.scrollTop)).toBe(y);
-  await page.screenshot({path:`docs/evidence/technology-viewer/ribbons/${info.project.name}-retained-pending.png`});
+  await page.screenshot({path:`${process.env.TECH_EVIDENCE ?? 'docs/evidence/technology-viewer/ribbons'}/${info.project.name}-retained-pending.png`});
   release();await expect(viewer).toHaveAttribute('aria-busy','false');await expect(viewer).toHaveAttribute('data-group','CyberMind');await expect(viewer.locator('.technology-viewer__photo img')).toHaveCount(2);expect(await scroller.evaluate(e=>e.scrollTop)).toBe(0);
  }finally{release();}
 });

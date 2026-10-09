@@ -1,0 +1,30 @@
+
+Running 16 tests using 1 worker
+
+(node:98017) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (2.4s)
+  ✓   2 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:169:1 › image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag (877ms)
+  -   3 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  -   4 [iphone-17-pro-webkit] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+(node:98056) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (2.0s)
+  ✓   6 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:169:1 › image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag (935ms)
+  -   7 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups
+  -   8 [iphone-17-pro-max-webkit] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+(node:98091) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (2.0s)
+  ✓  10 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:169:1 › image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag (824ms)
+  ✓  11 [desktop-chromium] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (2.0s)
+  ✓  12 [desktop-chromium] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download (6.4s)
+(node:98211) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  13 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:140:1 › literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling (2.6s)
+  -  14 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:169:1 › image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag
+  ✓  15 [desktop-firefox] › tests/e2e/technology-width.spec.ts:46:1 › native desktop wheel scrolls the ribbon without moving landing or switching groups (2.4s)
+  -  16 [desktop-firefox] › tests/e2e/technology-width.spec.ts:50:1 › native touch pans vertically, swipes horizontally and freezes during download
+
+  6 skipped
+  10 passed (26.7s)

@@ -20,7 +20,7 @@ test('without JavaScript the native page artwork, text and FAQ remain usable', a
   // read the native element through Playwright's isolated evaluation instead.
   await expect.poll(() => hero.evaluate(image => ({ complete: (image as HTMLImageElement).complete, width: (image as HTMLImageElement).naturalWidth }))).toEqual({ complete: true, width: 941 });
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
-  await page.screenshot({ path: `docs/evidence/media-loading/nojs-${testInfo.project.name}.png` });
+  await page.screenshot({ path: `${process.env.LOADING_EVIDENCE ?? 'docs/evidence/media-loading'}/nojs-${testInfo.project.name}.png` });
   const faq = page.locator('.faq-stack details').first();
   await faq.locator('summary').click();
   await expect(faq).toHaveAttribute('open', '');
@@ -88,7 +88,7 @@ for (const failure of ['synchronous', 'rejection'] as const) {
     await expect(hero).toBeVisible();
     await expect(hero).toHaveJSProperty('naturalWidth', 941);
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
-    await page.screenshot({ path: `docs/evidence/media-loading/bootstrap-${failure}-${info.project.name}.png` });
+    await page.screenshot({ path: `${process.env.LOADING_EVIDENCE ?? 'docs/evidence/media-loading'}/bootstrap-${failure}-${info.project.name}.png` });
     const faq = page.locator('.faq-stack details').first();
     await faq.locator('summary').click();
     await expect(faq).toHaveAttribute('open', '');
@@ -146,7 +146,7 @@ test('pending next block retains ready pixels, stops downward scroll and allows 
   await page.evaluate(() => document.fonts.ready);
   const viewport = info.project.use.viewport!;
   const crop = { left: 0, top: 0, width: viewport.width, height: viewport.height - 200 };
-  const pending = await sharp(await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-pending.png`, scale: 'device' })).resize({ width: viewport.width }).extract(crop).raw().toBuffer();
+  const pending = await sharp(await page.screenshot({ path: `${process.env.LOADING_EVIDENCE ?? 'docs/evidence/media-loading'}/retained-${info.project.name}-pending.png`, scale: 'device' })).resize({ width: viewport.width }).extract(crop).raw().toBuffer();
   await page.keyboard.press('Home');
   await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
@@ -157,7 +157,7 @@ test('pending next block retains ready pixels, stops downward scroll and allows 
   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
   expect(await page.evaluate(() => scrollY)).toBe(scroll);
   await expect.poll(async () => {
-    const ready = await sharp(await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-ready.png`, scale: 'device' })).resize({ width: viewport.width }).extract(crop).raw().toBuffer();
+    const ready = await sharp(await page.screenshot({ path: `${process.env.LOADING_EVIDENCE ?? 'docs/evidence/media-loading'}/retained-${info.project.name}-ready.png`, scale: 'device' })).resize({ width: viewport.width }).extract(crop).raw().toBuffer();
     return ready.equals(pending);
   }).toBe(true);
   await page.evaluate(() => scrollTo({ top: scrollY + 200, behavior: 'instant' }));
@@ -307,7 +307,7 @@ test('native mobile touch cannot cross missing block and can reverse while it is
   await pan(180, 600);
   await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(edge);
   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
-  await page.screenshot({ path: 'docs/evidence/media-loading/retained-native-touch-up.png' });
+  await page.screenshot({ path: `${process.env.LOADING_EVIDENCE ?? 'docs/evidence/media-loading'}/retained-native-touch-up.png` });
   release();
   await context.close();
 });
@@ -333,7 +333,7 @@ test('pending frontier follows viewport resize and expanded FAQ instead of expos
   expect(await page.evaluate(() => scrollY + innerHeight)).toBe(frontier);
   await expect(first.locator('summary')).not.toHaveAttribute('inert');
   await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
-  await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-faq-resize.png` });
+  await page.screenshot({ path: `${process.env.LOADING_EVIDENCE ?? 'docs/evidence/media-loading'}/retained-${info.project.name}-faq-resize.png` });
   release();
   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
 });
@@ -354,9 +354,13 @@ test('retained loading strip fits all eleven locales including Arabic', async ({
     await expect(status).toBeVisible();
     await expect(page.locator('.page-media-content')).not.toHaveAttribute('inert');
     expect(await status.evaluate(element => element.scrollWidth <= element.clientWidth && element.getBoundingClientRect().right <= innerWidth)).toBe(true);
+    await expect(status).toHaveCSS('background-color', 'rgb(24, 21, 18)');
+    await expect(status).toHaveCSS('color', 'rgb(255, 255, 255)');
+    await expect(status).toHaveCSS('padding', '0px');
+    expect(await status.evaluate(element => element.getBoundingClientRect().width)).toBe(Math.min(info.project.use.viewport!.width-48,420));
     if (locale === 'ar') {
       await expect(status).toHaveAttribute('dir', 'rtl');
-      await page.screenshot({ path: `docs/evidence/media-loading/retained-${info.project.name}-arabic.png` });
+      await page.screenshot({ path: `${process.env.LOADING_EVIDENCE ?? 'docs/evidence/media-loading'}/retained-${info.project.name}-arabic.png` });
     }
   }
   release();

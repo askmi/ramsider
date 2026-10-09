@@ -44,3 +44,20 @@ test('native trackpad uses the new horizontal axis, and vertical input changes a
 test("keyboard pans a tall photo before changing technologies",async({page})=>{
  await page.setViewportSize({width:1024,height:650});await page.goto("/en");await openTechnology(page);const viewer=page.locator("#technology-viewer"),scroll=viewer.locator(".technology-viewer__scroll");await expect(viewer).toHaveAttribute("aria-busy","false");await scroll.focus();await page.keyboard.press("ArrowDown");await expect.poll(()=>scroll.evaluate(e=>e.scrollTop)).toBeGreaterThan(0);await expect(viewer).toHaveAttribute("data-group","NobleCraft");await scroll.evaluate(e=>{e.scrollTop=e.scrollHeight});await page.keyboard.press("ArrowDown");await expect(viewer).toHaveAttribute("data-group","HeatCore");
 });
+
+test('native light touch swipes navigate both axes; tall photos retain vertical pan',async({browser,baseURL},info)=>{
+ test.skip(info.project.name!=='desktop-chromium','native Chromium touch driver');
+ const context=await browser.newContext({viewport:{width:402,height:874},isMobile:true,hasTouch:true,deviceScaleFactor:3}),page=await context.newPage(),client=await context.newCDPSession(page);
+ await page.goto(`${baseURL}/en`);await openTechnology(page);const viewer=page.locator('#technology-viewer'),scroll=viewer.locator('.technology-viewer__scroll');await expect(viewer).toHaveAttribute('aria-busy','false');
+ const swipe=async(dx:number,dy:number,cancel=false)=>{for(let i=0;i<=4;i++)await client.send('Input.dispatchTouchEvent',{type:i?'touchMove':'touchStart',touchPoints:[{x:200+dx*i/4,y:350+dy*i/4}]});await client.send('Input.dispatchTouchEvent',{type:cancel?'touchCancel':'touchEnd',touchPoints:[]});};
+ await expect(scroll).toHaveCSS('touch-action','pinch-zoom');
+ await swipe(-32,0);await expect(viewer).toHaveAttribute('data-photo-index','1');await expect(viewer).toHaveAttribute('aria-busy','false');
+ await swipe(32,0);await expect(viewer).toHaveAttribute('data-photo-index','0');await expect(viewer).toHaveAttribute('aria-busy','false');
+ await swipe(0,-32);await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');
+ await swipe(0,32);await expect(viewer).toHaveAttribute('data-group','NobleCraft');await expect(viewer).toHaveAttribute('aria-busy','false');
+ await swipe(-32,0,true);await expect(viewer).toHaveAttribute('data-photo-index','0');
+ await client.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:180,y:350},{x:220,y:350}]});await client.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:148,y:350},{x:188,y:350}]});await client.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await expect(viewer).toHaveAttribute('data-photo-index','0');
+ await page.setViewportSize({width:1024,height:650});await expect(scroll).toHaveCSS('touch-action','pan-y pinch-zoom');await swipe(0,-120);await expect.poll(()=>scroll.evaluate(e=>e.scrollTop)).toBeGreaterThan(0);await expect(viewer).toHaveAttribute('data-group','NobleCraft');
+ await swipe(-32,0);await expect(viewer).toHaveAttribute('data-photo-index','1');await expect(viewer).toHaveAttribute('aria-busy','false');
+ await page.setViewportSize({width:1024,height:1800});await expect(scroll).toHaveCSS('touch-action','pinch-zoom');await context.close();
+});

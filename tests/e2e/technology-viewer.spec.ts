@@ -137,11 +137,23 @@ test('both story controls open a complete ribbon with one title and two group co
   }
 });
 
-test('literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling',async({page})=>{
+test('literal rightward group swipes are reversible, bounded, and independent of vertical or RTL scrolling',async({page,browserName})=>{
  for(const locale of ['en','ar']){
   await page.goto(`/${locale}`);await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
   const canvas=viewer.locator('.technology-viewer__canvas');
-  const swipe=async(dx:number,dy=0)=>{await canvas.dispatchEvent('pointerdown',{pointerType:'touch',clientX:150,clientY:250});await canvas.dispatchEvent('pointerup',{pointerType:'touch',clientX:150+dx,clientY:250+dy});};
+  const swipe=async(dx:number,dy=0)=>{
+    if(browserName==='firefox'){
+      await canvas.dispatchEvent('pointerdown',{pointerType:'mouse',pointerId:1,isPrimary:true,button:0,clientX:150,clientY:250});
+      await canvas.dispatchEvent('pointerup',{pointerType:'mouse',pointerId:1,isPrimary:true,button:0,clientX:150+dx,clientY:250+dy});
+      return;
+    }
+    const image=viewer.locator('.technology-viewer__photo img').first();
+    const contact={identifier:1,clientX:150,clientY:250};
+    await image.dispatchEvent('touchstart',{touches:[contact],changedTouches:[contact]});
+    await canvas.dispatchEvent('pointercancel',{pointerType:'touch'});
+    await image.dispatchEvent('touchmove',{touches:[{...contact,clientX:150+dx,clientY:250+dy}]});
+    await image.dispatchEvent('touchend',{touches:[],changedTouches:[{...contact,clientX:150+dx,clientY:250+dy}]});
+  };
   await swipe(-100);await expect(viewer).toHaveAttribute('data-group','HeatCore');
   await swipe(100,200);await expect(viewer).toHaveAttribute('data-group','HeatCore');
   await swipe(100);await expect(viewer).toHaveAttribute('data-group','CyberMind');await expect(viewer).toHaveAttribute('aria-busy','false');
@@ -152,6 +164,31 @@ test('literal rightward group swipes are reversible, bounded, and independent of
   expect(await viewer.locator('.technology-viewer__scroll').evaluate(e=>e.scrollTop)).toBe(0);
   await viewer.locator('.technology-viewer__close').click();
  }
+});
+
+test('image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag', async ({page,browserName}) => {
+  test.skip(browserName==='firefox','Desktop Firefox has no Touch constructor; image mouse navigation is covered separately.');
+  await page.goto('/en'); await openTechnology(page);
+  const viewer=page.locator('#technology-viewer'); await expect(viewer).toHaveAttribute('aria-busy','false');
+  const image=viewer.locator('.technology-viewer__photo img').first();
+  const start={identifier:1,clientX:150,clientY:250};
+  const end={...start,clientX:270};
+  const begin=()=>image.dispatchEvent('touchstart',{touches:[start],changedTouches:[start]});
+  const finish=()=>image.dispatchEvent('touchend',{touches:[],changedTouches:[end]});
+  await begin(); await image.dispatchEvent('touchmove',{touches:[{...start,clientY:300}]}); await finish();
+  await expect(viewer).toHaveAttribute('data-group','HeatCore');
+  await begin(); await image.dispatchEvent('touchstart',{touches:[start,{...start,identifier:2}],changedTouches:[{...start,identifier:2}]}); await finish();
+  await expect(viewer).toHaveAttribute('data-group','HeatCore');
+  await begin(); await image.dispatchEvent('touchcancel',{touches:[],changedTouches:[start]}); await finish();
+  await expect(viewer).toHaveAttribute('data-group','HeatCore');
+  await begin(); await image.dispatchEvent('touchend',{touches:[],changedTouches:[{...start,identifier:2,clientX:270}]});
+  await expect(viewer).toHaveAttribute('data-group','HeatCore');
+  // One actual mouse drag from the image, then a right-button drag cannot navigate.
+  const bounds=await viewer.boundingBox(); const x=bounds!.x+100;
+  await page.mouse.move(x,250); await page.mouse.down(); await page.mouse.move(x+120,250,{steps:6}); await page.mouse.up();
+  await expect(viewer).toHaveAttribute('data-group','CyberMind'); await expect(viewer).toHaveAttribute('aria-busy','false');
+  await page.mouse.move(x+120,250); await page.mouse.down({button:'right'}); await page.mouse.move(x,250,{steps:6}); await page.mouse.up({button:'right'});
+  await expect(viewer).toHaveAttribute('data-group','CyberMind');
 });
 
 test('all six post-load low-priority decoded images are reused offline across ribbons and reopening',async({page,context})=>{

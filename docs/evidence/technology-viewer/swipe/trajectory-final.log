@@ -1,0 +1,18 @@
+
+Running 4 tests using 1 worker
+
+(node:24552) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [iphone-17-pro-webkit] › tests/e2e/technology-viewer.spec.ts:169:1 › image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag (1.4s)
+(node:24580) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [iphone-17-pro-max-webkit] › tests/e2e/technology-viewer.spec.ts:169:1 › image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag (918ms)
+(node:24610) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [desktop-chromium] › tests/e2e/technology-viewer.spec.ts:169:1 › image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag (1.5s)
+(node:24628) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  -  4 [desktop-firefox] › tests/e2e/technology-viewer.spec.ts:169:1 › image swipes ignore pinch, cancelled touch and vertical-first trajectories, and retain mouse drag
+
+  1 skipped
+  3 passed (7.9s)

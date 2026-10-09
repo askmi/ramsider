@@ -1,5 +1,0 @@
-
-> typecheck
-> tsc --noEmit
-
-.next/types/validator.ts(5,56): error TS2307: Cannot find module './routes.js' or its corresponding type declarations.

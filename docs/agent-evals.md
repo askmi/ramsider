@@ -112,3 +112,5 @@ CHG0082 extends EVAL-VIEWER: discrete photos horizontal, technologies vertical, 
 CHG0083 extends EVAL-VIEWER with compact centered toolbar groups/shared directionalSVG geometry while preserving44pxbuttons/Close space/RTL. Product4scopedchecksPASS; controlledagent runNOT_RUN.
 
 CHG0084 acceptance: gallery/photo width and centering match maincanvas atdesktop, preserve sharedpagecap and402/440ratio. Controlledagent runNOT_RUN.
+
+CHG0085 addsiconcaptionglyphalignment acceptance: centertext AND boxesvsactualicons, inspectreadablebottomstrips. ProductPro/MaxPASS; controlledagentNOT_RUN.

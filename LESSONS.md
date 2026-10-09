@@ -371,3 +371,5 @@ This is the repository's **error-prevention memory**, separate from current proj
 - CHG0084: full-width mobile artwork means full width inside the shared page container, preserving its desktop cap. Never replace --page-max-width with none without explicit desktop-layout authorization. Compare gallery width AND centering against maincanvas atdesktop, plus402/440geometry. Root removedcap and wrote viewport-onlytest; user caught regression. EVAL-VIEWER controlledNOT_RUN.
 
 - CHG0084 centeringfollow-up: in an auto-sized aspect-ratio flex item, prefer intrinsic imageheight:auto over percentageheight; verify actualIMGheight and visiblepixels independently fromarticlebounds. ProWebKitblankimage caught in screenshots; intrinsicheight fixed. ControlledEVAL-VIEWERNOT_RUN.
+
+- CHG0085: centeredlabelbox does not center its glyphs when sharedtextalignment is start. For icon captions, assert text-align:center AND labelboxcenter vs actualicon; inspect bottomstrip atreadablescale. Rootcheckedcaptionpresence butmissedalignment. ControlledEVAL-VIEWERNOT_RUN.

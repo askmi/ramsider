@@ -287,3 +287,5 @@ html:lang(en) .overlay:not(.key-touch) .technology-label-line:not(:first-child){
 .technology-viewer__chevron--left{transform:rotate(180deg)}
 .technology-viewer__chevron--up{transform:rotate(-90deg)}
 .technology-viewer__chevron--down{transform:rotate(90deg)}
+
+[data-description-block^="material-icon-"] .technology-description__box{text-align:center}

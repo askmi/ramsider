@@ -104,3 +104,5 @@ CHG-0079 extends [EVAL-VIEWER](#eval-viewer): require actual IMG-targeted Touch 
 CHG0079 Mac-trackpad reopening extends [EVAL-VIEWER](#eval-viewer) with native horizontal Wheel on image, reversible natural-scroll directions, nonpassive cancellation, accumulated CSS deltas, onecommit/inertia until180msquiet, vertical-first axis lock, ctrlWheelpinch/pending/reopen. Check actual driverdelta units atDPR2 and use deterministic browserclock forburst tests. Earlier Touch-only approval cannot certify trackpad; controlledagent runNOT_RUN.
 
 CHG0079/0080 acceptance extends EVAL-VIEWER with tinyvertical/zero Wheel lead-ins and canonical shared loader pixels across main/gallery/later-main, all locales, knownprogress/Retry/reducedmotion. Product checks pass; controlled agent run NOT_RUN.
+
+CHG0081 extends EVAL-VIEWER delivery acceptance: review staged artifact bytes/count/duplicates, retain raw proof outside tracked source, and commit compact reports. Controlled agent run NOT_RUN; discovery is not a cleanup pass.

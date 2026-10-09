@@ -51,3 +51,16 @@ next-env.d.ts
 
 *.psb
 /deliverables/
+
+# QA artifacts stay local; track compact reports and required test fixtures only.
+/screenshots/
+/output/playwright/
+/docs/evidence/**
+!/docs/evidence/**/
+!/docs/evidence/**/*.md
+!/docs/evidence/**/*.json
+!/docs/evidence/**/discipline-stage*.txt
+!/docs/evidence/technology-viewer/live-title/mask-*.png
+!/docs/evidence/technology-viewer/cybermind/mask-*.png
+**/__pycache__/
+*.py[cod]

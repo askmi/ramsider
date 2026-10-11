@@ -47,3 +47,5 @@ tech_05/24,25,28 describe oval-touch/app control, three adjustable heating syste
 
 ## MoodEngine / AquaSense reference claims — CHG0096, 2026-10-11
 tech06/29,32 describe two stereo speakers, onboard processing/amplification, programmable light/display scenes, app/UNO control and evolving online scenarios. tech07/34,35 describe two rear water/temperature sensors, real-time onboard processing, heating limits and guidance outside an unspecified allowed range. These are local reference copy with translations; engineering, safety behavior, ranges/backend and publication approval remain unverified. Raster device/appUI is illustrative; no operating controls/backend invented.
+
+2026-10-11 CHG0097 reference claims (local reproduction; unverified for publication): QuickCell removable6,400mAh battery, fastswap/orangetab/rearcompartment, integratedcharge/powercontroller, usewhilecharging, upto1.5hactive/2.5hlessintensive; PolyArmor impact-resistantpolycarbonate, lighter/durable/wear-resistant insteadofglass. Sources tech09/42+43 andtech10/46 are visualcopytargets, not engineering/safety certifications. No checkout/backend added.

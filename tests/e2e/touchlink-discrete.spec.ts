@@ -9,7 +9,7 @@ test('TouchLink three source-aligned slides, fifth group and all locale columns'
  test.skip(!info.project.name.startsWith('iphone-17-pro'),'mobile source comparison matrix');
  test.setTimeout(180000);
  const results=[];const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await mkdir(artifacts,{recursive:true});
- expect(technologyGroups.map(g=>g.title)).toEqual(['NobleCraft','HeatCore','CapsuleCode','CyberMind','TouchLink','MoodEngine','AquaSense','AirShield']);
+ expect(technologyGroups.map(g=>g.title)).toEqual(['NobleCraft','HeatCore','CapsuleCode','CyberMind','TouchLink','MoodEngine','AquaSense','AirShield','QuickCell','PolyArmor']);
  for(const locale of (info.project.name==='iphone-17-pro-webkit'?locales:['en','ar'] as const)){
   await page.goto(`/${locale}`);await openTechnology(page);const v=page.locator('#technology-viewer');const ready=()=>expect(v).toHaveAttribute('aria-busy','false');await ready();
   for(let i=0;i<4;i++){await v.locator('footer button').last().click();await ready();}await expect(v).toHaveAttribute('data-group','TouchLink');
@@ -21,7 +21,7 @@ test('TouchLink three source-aligned slides, fifth group and all locale columns'
    if(['en','ar','de'].includes(locale)){await page.screenshot({path:`${artifacts}/${info.project.name}-${locale}-${i+1}.png`});await v.locator('article').screenshot({path:`${artifacts}/${info.project.name}-${locale}-${i+1}-article.png`});}results.push({locale,photo:i,...data});
   }
   await expect(v.locator('header button').nth(1)).toBeDisabled();await expect(v).toHaveAttribute('data-photo-index','2');
-  for(const name of ['MoodEngine','AquaSense','AirShield']){await v.locator('footer button').last().click();await ready();await expect(v).toHaveAttribute('data-group',name)}await expect(v.locator('footer button').last()).toBeDisabled();for(const name of ['AquaSense','MoodEngine','TouchLink']){await v.locator('footer button').first().click();await ready();await expect(v).toHaveAttribute('data-group',name)}await expect(v).toHaveAttribute('data-photo-index','0');await v.locator('footer button').first().click();await ready();await expect(v).toHaveAttribute('data-group','CyberMind');await page.keyboard.press('Escape');await expect(v).not.toBeVisible();
+  for(const name of ['MoodEngine','AquaSense','AirShield','QuickCell','PolyArmor']){await v.locator('footer button').last().click();await ready();await expect(v).toHaveAttribute('data-group',name)}await expect(v.locator('footer button').last()).toBeDisabled();for(const name of ['QuickCell','AirShield','AquaSense','MoodEngine','TouchLink']){await v.locator('footer button').first().click();await ready();await expect(v).toHaveAttribute('data-group',name)}await expect(v).toHaveAttribute('data-photo-index','0');await v.locator('footer button').first().click();await ready();await expect(v).toHaveAttribute('data-group','CyberMind');await page.keyboard.press('Escape');await expect(v).not.toBeVisible();
  }
  expect(errors).toEqual([]);await writeFile(`${artifacts}/${info.project.name}-geometry.json`,JSON.stringify({results,errors},null,2));
 });

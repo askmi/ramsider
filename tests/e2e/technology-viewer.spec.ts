@@ -50,13 +50,13 @@ test('CapsuleCode translations fit in every locale and Arabic direction is prese
  }
 });
 
-test('AirShield always last: source geometry, icon axes, OpenSans and every locale',async({page},info)=>{
+test('AirShield eighth: source geometry, icon axes, OpenSans and every locale',async({page},info)=>{
  const matrix=info.project.name==='iphone-17-pro-webkit'?locales:['en'] as const;
  for(const locale of matrix){
   await page.goto(`/${locale}`);await openTechnology(page);const v=page.locator('#technology-viewer');
   const ready=()=>expect(v).toHaveAttribute('aria-busy','false');await ready();
   for(let i=0;i<7;i++){await v.locator('footer button').last().click();await ready();}
-  await expect(v).toHaveAttribute('data-group','AirShield');await expect(v.locator('footer button').last()).toBeDisabled();
+  await expect(v).toHaveAttribute('data-group','AirShield');await expect(v.locator('footer button').last()).toBeEnabled();
   for(let i=0;i<2;i++){
    if(i){await v.locator('header button').nth(1).click();await ready();}
    await page.evaluate(()=>document.fonts.ready);
@@ -138,8 +138,9 @@ test('native light touch swipes navigate both axes; tall photos retain controlle
  for(const name of ['MoodEngine','AquaSense','AirShield']){await swipe(0,-32);await expect(viewer).toHaveAttribute('data-group',name);await expect(viewer).toHaveAttribute('aria-busy','false');}await expect(viewer).toHaveAttribute('aria-busy','false');
  await swipe(-32,0);await expect(viewer).toHaveAttribute('data-photo-index','1');await expect(viewer).toHaveAttribute('aria-busy','false');
  await swipe(32,0);await expect(viewer).toHaveAttribute('data-photo-index','0');await expect(viewer).toHaveAttribute('aria-busy','false');
- await swipe(0,-32);await expect(viewer).toHaveAttribute('data-group','AirShield');
- for(const name of ['AquaSense','MoodEngine','TouchLink']){await swipe(0,32);await expect(viewer).toHaveAttribute('data-group',name);await expect(viewer).toHaveAttribute('aria-busy','false');}await expect(viewer).toHaveAttribute('aria-busy','false');
+ for(const name of ['QuickCell','PolyArmor']){await swipe(0,-32);await expect(viewer).toHaveAttribute('data-group',name);await expect(viewer).toHaveAttribute('aria-busy','false');if(name==='QuickCell'){await swipe(-32,0);await expect(viewer).toHaveAttribute('data-photo-index','1');await expect(viewer).toHaveAttribute('aria-busy','false');await swipe(32,0);await expect(viewer).toHaveAttribute('data-photo-index','0');await expect(viewer).toHaveAttribute('aria-busy','false');}}
+ await swipe(0,-32);await expect(viewer).toHaveAttribute('data-group','PolyArmor');
+ for(const name of ['QuickCell','AirShield','AquaSense','MoodEngine','TouchLink']){await swipe(0,32);await expect(viewer).toHaveAttribute('data-group',name);await expect(viewer).toHaveAttribute('aria-busy','false');}await expect(viewer).toHaveAttribute('aria-busy','false');
  await swipe(0,32);await expect(viewer).toHaveAttribute('data-group','CyberMind');await expect(viewer).toHaveAttribute('aria-busy','false');
  await swipe(0,32);await expect(viewer).toHaveAttribute('data-group','CapsuleCode');await expect(viewer).toHaveAttribute('aria-busy','false');
  await swipe(0,32);await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');

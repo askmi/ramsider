@@ -6,7 +6,7 @@ import {mkdir,writeFile} from 'node:fs/promises';
 const artifacts='screenshots/technology-mood-aqua';
 test('MoodEngine and AquaSense: native PNG, live copy, locale columns and group transitions',async({page},info)=>{
  test.skip(!info.project.name.startsWith('iphone-17-pro'),'mobile comparison matrix');test.setTimeout(180000);await mkdir(artifacts,{recursive:true});
- expect(technologyGroups.map(g=>g.title)).toEqual(['NobleCraft','HeatCore','CapsuleCode','CyberMind','TouchLink','MoodEngine','AquaSense','AirShield']);
+ expect(technologyGroups.map(g=>g.title)).toEqual(['NobleCraft','HeatCore','CapsuleCode','CyberMind','TouchLink','MoodEngine','AquaSense','AirShield','QuickCell','PolyArmor']);
  const results=[],errors:string[]=[],paths:string[]=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(/\/(mood|aqua)-/.test(r.url()))paths.push(new URL(r.url()).pathname)});
  for(const locale of (info.project.name==='iphone-17-pro-webkit'?locales:['en','ar'] as const)){
   await page.goto(`/${locale}`);await openTechnology(page);const v=page.locator('#technology-viewer'),ready=()=>expect(v).toHaveAttribute('aria-busy','false');await ready();
@@ -22,7 +22,7 @@ test('MoodEngine and AquaSense: native PNG, live copy, locale columns and group 
    }
    await expect(v.locator('header button').nth(1)).toBeDisabled();await v.locator('.technology-viewer__scroll').evaluate(e=>e.scrollTop=e.scrollHeight);await v.locator('footer button').last().click();await ready();await page.waitForTimeout(200);expect(await v.locator('.technology-viewer__scroll').evaluate(e=>e.scrollTop)).toBe(0);
   }
-  await expect(v).toHaveAttribute('data-group','AirShield');await expect(v.locator('footer button').last()).toBeDisabled();for(const name of ['AquaSense','MoodEngine','TouchLink']){await v.locator('footer button').first().click();await ready();await expect(v).toHaveAttribute('data-group',name);await expect(v).toHaveAttribute('data-photo-index','0')}
+  for(const name of ['AirShield','QuickCell','PolyArmor']){if(name!=='AirShield'){await v.locator('footer button').last().click();await ready()}await expect(v).toHaveAttribute('data-group',name)}await expect(v.locator('footer button').last()).toBeDisabled();for(const name of ['QuickCell','AirShield','AquaSense','MoodEngine','TouchLink']){await v.locator('footer button').first().click();await ready();await expect(v).toHaveAttribute('data-group',name);await expect(v).toHaveAttribute('data-photo-index','0')}
   await page.keyboard.press('Escape');await expect(v).not.toBeVisible();
  }
  expect(errors).toEqual([]);expect(paths.length).toBeGreaterThan(0);expect(paths.every(p=>p.endsWith('.png'))).toBe(true);await writeFile(`${artifacts}/${info.project.name}-geometry.json`,JSON.stringify({results,errors,requestedPaths:[...new Set(paths)]},null,2));

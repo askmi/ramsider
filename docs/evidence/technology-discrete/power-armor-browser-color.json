@@ -1,0 +1,84 @@
+{
+  "http": [
+    {
+      "source": "design/references/tech_09/41.png",
+      "output": "public/art/technology/slides/quick-01.png",
+      "status": 200,
+      "mime": "image/png",
+      "sourceHashUnchanged": true,
+      "httpHashExact": true,
+      "width": 941,
+      "height": 1522
+    },
+    {
+      "source": "design/references/tech_09/44.png",
+      "output": "public/art/technology/slides/quick-02.png",
+      "status": 200,
+      "mime": "image/png",
+      "sourceHashUnchanged": true,
+      "httpHashExact": true,
+      "width": 941,
+      "height": 1522
+    },
+    {
+      "source": "design/references/tech_10/45.png",
+      "output": "public/art/technology/slides/poly-01.png",
+      "status": 200,
+      "mime": "image/png",
+      "sourceHashUnchanged": true,
+      "httpHashExact": true,
+      "width": 941,
+      "height": 1522
+    }
+  ],
+  "paint": [
+    {
+      "width": 402,
+      "dpr": 3,
+      "output": "public/art/technology/slides/quick-01.png",
+      "sourceWidth": 941,
+      "comparison": "unchanged source body rows195..1522 vs deliveredPNG",
+      "changedChannels": 0
+    },
+    {
+      "width": 402,
+      "dpr": 3,
+      "output": "public/art/technology/slides/quick-02.png",
+      "sourceWidth": 941,
+      "comparison": "unchanged source body rows195..1522 vs deliveredPNG",
+      "changedChannels": 0
+    },
+    {
+      "width": 402,
+      "dpr": 3,
+      "output": "public/art/technology/slides/poly-01.png",
+      "sourceWidth": 941,
+      "comparison": "unchanged source body rows195..1522 vs deliveredPNG",
+      "changedChannels": 0
+    },
+    {
+      "width": 440,
+      "dpr": 3,
+      "output": "public/art/technology/slides/quick-01.png",
+      "sourceWidth": 941,
+      "comparison": "unchanged source body rows195..1522 vs deliveredPNG",
+      "changedChannels": 0
+    },
+    {
+      "width": 440,
+      "dpr": 3,
+      "output": "public/art/technology/slides/quick-02.png",
+      "sourceWidth": 941,
+      "comparison": "unchanged source body rows195..1522 vs deliveredPNG",
+      "changedChannels": 0
+    },
+    {
+      "width": 440,
+      "dpr": 3,
+      "output": "public/art/technology/slides/poly-01.png",
+      "sourceWidth": 941,
+      "comparison": "unchanged source body rows195..1522 vs deliveredPNG",
+      "changedChannels": 0
+    }
+  ]
+}

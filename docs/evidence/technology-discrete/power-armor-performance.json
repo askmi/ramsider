@@ -1,0 +1,68 @@
+[
+  {
+    "conditions": "cold Chromium402 DPR3 loopback",
+    "initial": {
+      "lcp": 280,
+      "cls": 0,
+      "useful": 249.5,
+      "jsBytes": 210263,
+      "networkBytes": 47698986,
+      "earlyNewTechnologyRequests": 3
+    },
+    "assets": [
+      {
+        "path": "/art/technology/slides/quick-01.png",
+        "bytes": 1651967,
+        "duration": 77.20000000298023
+      },
+      {
+        "path": "/art/technology/slides/quick-02.png",
+        "bytes": 2072994,
+        "duration": 82.59999999403954
+      },
+      {
+        "path": "/art/technology/slides/poly-01.png",
+        "bytes": 1460540,
+        "duration": 81.09999999403954
+      }
+    ],
+    "nativeScroll": {
+      "samples": 199,
+      "p95": 16.799999999999727,
+      "over33": 0
+    },
+    "inp": "unmeasured",
+    "lighthouse": "unmeasured"
+  },
+  {
+    "conditions": "cold Chromium402 DPR3 4Mbps100ms4xCPU",
+    "initial": {
+      "lcp": 2356,
+      "cls": 0,
+      "useful": 2326.2000000029802,
+      "jsBytes": 210263,
+      "networkBytes": 7030788,
+      "earlyNewTechnologyRequests": 0
+    },
+    "assets": [
+      {
+        "path": "/art/technology/slides/quick-01.png",
+        "bytes": 1651967,
+        "duration": 79988
+      },
+      {
+        "path": "/art/technology/slides/quick-02.png",
+        "bytes": 2072994,
+        "duration": 81617.40000000596
+      },
+      {
+        "path": "/art/technology/slides/poly-01.png",
+        "bytes": 1460540,
+        "duration": 80536.89999999106
+      }
+    ],
+    "nativeScroll": null,
+    "inp": "unmeasured",
+    "lighthouse": "unmeasured"
+  }
+]

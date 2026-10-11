@@ -1,0 +1,341 @@
+{
+  "id": "CHG0097",
+  "date": "2026-10-11",
+  "status": "VERIFIED",
+  "order": [
+    "NobleCraft",
+    "HeatCore",
+    "CapsuleCode",
+    "CyberMind",
+    "TouchLink",
+    "MoodEngine",
+    "AquaSense",
+    "AirShield",
+    "QuickCell",
+    "PolyArmor"
+  ],
+  "newSlides": 3,
+  "assets": [
+    {
+      "source": "design/references/tech_09/41.png",
+      "reference": "design/references/tech_09/42.png",
+      "output": "public/art/technology/slides/quick-01.png",
+      "width": 941,
+      "height": 1522,
+      "channels": 4,
+      "icc": "absent; native untagged interpretation retained; intended profile UNKNOWN",
+      "template": "tech_09/41.png",
+      "maskedPixels": 21484,
+      "outsideChanged": 0,
+      "alphaExact": true,
+      "decodedExact": true,
+      "sourceSha256": "1df4247305fddc1721f9c5488cbc274b11dd533d8e7e3370599d8a663aac148c",
+      "sha256": "5369907d347e4e8d8efb91fa2002fc7b85ff8152b1caffd31b2f44879652ebc0",
+      "bytes": 1651967
+    },
+    {
+      "source": "design/references/tech_09/44.png",
+      "reference": "design/references/tech_09/43.png",
+      "output": "public/art/technology/slides/quick-02.png",
+      "width": 941,
+      "height": 1522,
+      "channels": 4,
+      "icc": "absent; native untagged interpretation retained; intended profile UNKNOWN",
+      "template": "tech_09/41.png",
+      "maskedPixels": 21484,
+      "outsideChanged": 0,
+      "alphaExact": true,
+      "decodedExact": true,
+      "sourceSha256": "8e7eaee033f5713cc4232983c139e9c8aa031f3da532e7fbcfd21d60414ee648",
+      "sha256": "ac409b01f16f0b94c2a9f664acdfbda128fdd272ce9474fb45e8637d7217ae26",
+      "bytes": 2072994
+    },
+    {
+      "source": "design/references/tech_10/45.png",
+      "reference": "design/references/tech_10/46.png",
+      "output": "public/art/technology/slides/poly-01.png",
+      "width": 941,
+      "height": 1522,
+      "channels": 4,
+      "icc": "absent; native untagged interpretation retained; intended profile UNKNOWN",
+      "template": "tech_10/45.png",
+      "maskedPixels": 21683,
+      "outsideChanged": 0,
+      "alphaExact": true,
+      "decodedExact": true,
+      "sourceSha256": "6eaea178592f00ff921e08d46204d6b5d5378cb1a5be19ff725b506999463607",
+      "sha256": "27f230547b62996b7a171bd7ed9f470caf9ad4379c68d9ddd27e4f53ad495952",
+      "bytes": 1460540
+    }
+  ],
+  "scopeInventory": [
+    {
+      "p": "design/references/tech_09/41.png",
+      "width": 941,
+      "height": 1522,
+      "channels": 4,
+      "icc": false,
+      "sha256": "1df4247305fddc1721f9c5488cbc274b11dd533d8e7e3370599d8a663aac148c",
+      "previousReencodedHash": "cd1bec5ad913ec627e8aed5a243116c832d21d1ddbd1414eccd96439282c34d4",
+      "hashMethod": "original file bytes (earlier scope hash mistakenly used sharp re-encoding)"
+    },
+    {
+      "p": "design/references/tech_09/42.png",
+      "width": 941,
+      "height": 1522,
+      "channels": 4,
+      "icc": false,
+      "sha256": "62f86cbf5bcbd848b9079a5fef82154afbbf14a1f398acc207f9e471699be479",
+      "previousReencodedHash": "3fd9e3159a60d8eb3782f984b98011b0734c6e42f3ac21da1e8108a2ccba7c47",
+      "hashMethod": "original file bytes (earlier scope hash mistakenly used sharp re-encoding)"
+    },
+    {
+      "p": "design/references/tech_09/43.png",
+      "width": 941,
+      "height": 1522,
+      "channels": 4,
+      "icc": false,
+      "sha256": "8ffbeca47523c64e784df8bcbaafe02d1ed63c7f39a4e316e9f3bb873cafb0bc",
+      "previousReencodedHash": "79f1df6021dd394adec1776fd93373e2a0e0c53642f38990f29770024a11eac2",
+      "hashMethod": "original file bytes (earlier scope hash mistakenly used sharp re-encoding)"
+    },
+    {
+      "p": "design/references/tech_09/44.png",
+      "width": 941,
+      "height": 1522,
+      "channels": 4,
+      "icc": false,
+      "sha256": "8e7eaee033f5713cc4232983c139e9c8aa031f3da532e7fbcfd21d60414ee648",
+      "previousReencodedHash": "045087c044f228c3940bb7839f7ea8c1fbe7e758bc3d8f516d29f23f3392b4cb",
+      "hashMethod": "original file bytes (earlier scope hash mistakenly used sharp re-encoding)"
+    },
+    {
+      "p": "design/references/tech_10/45.png",
+      "width": 941,
+      "height": 1522,
+      "channels": 4,
+      "icc": false,
+      "sha256": "6eaea178592f00ff921e08d46204d6b5d5378cb1a5be19ff725b506999463607",
+      "previousReencodedHash": "23d8a40a4bb98556ae945153087f9c7e5c5e7787f825dc38b3ead4460f08dc0c",
+      "hashMethod": "original file bytes (earlier scope hash mistakenly used sharp re-encoding)"
+    },
+    {
+      "p": "design/references/tech_10/46.png",
+      "width": 941,
+      "height": 1522,
+      "channels": 4,
+      "icc": false,
+      "sha256": "43a6b1e6b33f428c773227f02456df473abc6f964c200bc5966f59c1fbcd7844",
+      "previousReencodedHash": "fe8d946e4d87a23fd3f75aee70f78c1bdd3fad99478019e95f27dc52997e296b",
+      "hashMethod": "original file bytes (earlier scope hash mistakenly used sharp re-encoding)"
+    }
+  ],
+  "totalPngBytes": 5185501,
+  "browser": {
+    "profiles": [
+      "402×874 DPR3 WebKit",
+      "440×956 DPR3 WebKit"
+    ],
+    "locales": "all11Pro+ENARMax",
+    "newAndEdge": "5PASS5explicitSKIP /tmp/tech910-browser.log",
+    "previousAdjacency": "23PASS7explicitSKIP /tmp/tech910-adjacency.log",
+    "nativeEdge": "2PASS1explicitSKIP /tmp/tech910-native.log",
+    "nativeViewer": "2PASS /tmp/tech910-native-viewer.log",
+    "widths": [
+      "402×650",
+      "375×812",
+      "768×1024",
+      "1440×900"
+    ],
+    "screenshots": "screenshots/technology-power-armor/",
+    "actual": "/tmp/tech910-actual.png",
+    "arabic": "/tmp/tech910-ar.png",
+    "reference": "/tmp/tech910-reference.png",
+    "adaptation": "/tmp/tech910-adaptation.png",
+    "assembly": "/tmp/tech910-assembled.png"
+  },
+  "comparison": [
+    {
+      "profile": "iphone-17-pro-webkit",
+      "kind": "quick",
+      "slide": 1,
+      "width": 1206,
+      "height": 1950,
+      "trimTop": 3,
+      "trimBottom": 3,
+      "sourceWidth": 941,
+      "mismatchPercent": 4.78300803673938
+    },
+    {
+      "profile": "iphone-17-pro-webkit",
+      "kind": "quick",
+      "slide": 2,
+      "width": 1206,
+      "height": 1950,
+      "trimTop": 3,
+      "trimBottom": 3,
+      "sourceWidth": 941,
+      "mismatchPercent": 5.99621550367819
+    },
+    {
+      "profile": "iphone-17-pro-webkit",
+      "kind": "poly",
+      "slide": 1,
+      "width": 1206,
+      "height": 1950,
+      "trimTop": 3,
+      "trimBottom": 3,
+      "sourceWidth": 941,
+      "mismatchPercent": 4.177190968235744
+    },
+    {
+      "profile": "iphone-17-pro-max-webkit",
+      "kind": "quick",
+      "slide": 1,
+      "width": 1320,
+      "height": 2134,
+      "trimTop": 1,
+      "trimBottom": 1,
+      "sourceWidth": 941,
+      "mismatchPercent": 4.590362386754139
+    },
+    {
+      "profile": "iphone-17-pro-max-webkit",
+      "kind": "quick",
+      "slide": 2,
+      "width": 1320,
+      "height": 2134,
+      "trimTop": 1,
+      "trimBottom": 1,
+      "sourceWidth": 941,
+      "mismatchPercent": 5.892157280395331
+    },
+    {
+      "profile": "iphone-17-pro-max-webkit",
+      "kind": "poly",
+      "slide": 1,
+      "width": 1320,
+      "height": 2134,
+      "trimTop": 1,
+      "trimBottom": 1,
+      "sourceWidth": 941,
+      "mismatchPercent": 4.093571611144245
+    }
+  ],
+  "color": "power-armor-browser-color.json:3HTTP image/png200/SHA exact+6browser sourcebodypaint0changedchannels",
+  "build": {
+    "type": "PASS",
+    "lint": "0errors/2preexistingTelegramwarnings",
+    "production": "PASS14SSG",
+    "logs": [
+      "/tmp/tech910-type.log",
+      "/tmp/tech910-lint.log",
+      "/tmp/tech910-build.log"
+    ],
+    "finalTypeLintLogs": [
+      "/tmp/tech910-type-final.log",
+      "/tmp/tech910-lint-final.log"
+    ]
+  },
+  "nativeReview": {
+    "tool": "codex review",
+    "initial": "P2oldnativefixtureAirShieldterminal /tmp/tech910-review.log; corrected and native2PASS",
+    "final": "PASS/no new regression",
+    "log": "/tmp/tech910-review-final.log",
+    "exitCode": 0,
+    "reviewerTests": "not rerun by reviewer; root actual native suite2PASS independently"
+  },
+  "performance": [
+    {
+      "conditions": "cold Chromium402 DPR3 loopback",
+      "initial": {
+        "lcp": 280,
+        "cls": 0,
+        "useful": 249.5,
+        "jsBytes": 210263,
+        "networkBytes": 47698986,
+        "earlyNewTechnologyRequests": 3
+      },
+      "assets": [
+        {
+          "path": "/art/technology/slides/quick-01.png",
+          "bytes": 1651967,
+          "duration": 77.20000000298023
+        },
+        {
+          "path": "/art/technology/slides/quick-02.png",
+          "bytes": 2072994,
+          "duration": 82.59999999403954
+        },
+        {
+          "path": "/art/technology/slides/poly-01.png",
+          "bytes": 1460540,
+          "duration": 81.09999999403954
+        }
+      ],
+      "nativeScroll": {
+        "samples": 199,
+        "p95": 16.799999999999727,
+        "over33": 0
+      },
+      "inp": "unmeasured",
+      "lighthouse": "unmeasured"
+    },
+    {
+      "conditions": "cold Chromium402 DPR3 4Mbps100ms4xCPU",
+      "initial": {
+        "lcp": 2356,
+        "cls": 0,
+        "useful": 2326.2000000029802,
+        "jsBytes": 210263,
+        "networkBytes": 7030788,
+        "earlyNewTechnologyRequests": 0
+      },
+      "assets": [
+        {
+          "path": "/art/technology/slides/quick-01.png",
+          "bytes": 1651967,
+          "duration": 79988
+        },
+        {
+          "path": "/art/technology/slides/quick-02.png",
+          "bytes": 2072994,
+          "duration": 81617.40000000596
+        },
+        {
+          "path": "/art/technology/slides/poly-01.png",
+          "bytes": 1460540,
+          "duration": 80536.89999999106
+        }
+      ],
+      "nativeScroll": null,
+      "inp": "unmeasured",
+      "lighthouse": "unmeasured"
+    }
+  ],
+  "rendering": "Existing staticSSG routes/client interactiveviewer unchanged; measured firstview and+6451BtransferredJS, PNGwarmcost accepted useroriginalformat; no newnetwork/backend/dependencies",
+  "independent": {
+    "scope": "PASS tech67_final_audit",
+    "raster": "PASS after arc repair tech67_final_audit",
+    "visual": "PASS tech67_final_audit",
+    "behavior": "PASS tech67_final_audit",
+    "reviewPerformance": "PASS tech67_final_audit",
+    "finalRecords": "PASS2026-10-11 tech67_final_audit"
+  },
+  "technicalApproval": {
+    "date": "2026-10-11",
+    "verifier": "/root",
+    "status": "APPROVED",
+    "evidence": "actual EN/ARPro-Max/source/adaptation/assembly screenshot comparison; new/adjacency/native behavior; source hash/exterior/alpha/PNGHTTP/nativepaint; native finalreview exit0; type/lint/build/production performance; independent scope/Stages2–5PASS"
+  },
+  "limits": [
+    "PhysicalSafariTelegram unverified",
+    "INP/Lighthouse unmeasured",
+    "SourceICC absent/intendedprofileUNKNOWN",
+    "OpenSans/rasterreferenceglyphs and titlemaskreconstruction differ,noidentityclaim",
+    "Reference battery/runtime/charging/material/safety claims unverified",
+    "ExistingCHG0071/0065/0035 untouched"
+  ],
+  "userAcceptance": "NOT_RECORDED",
+  "git": "2026-10-11 user authorized commit/push from main to origin/main; actual result reported in chat"
+}

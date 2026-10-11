@@ -26,7 +26,7 @@ test('native tall-photo swipes scroll to an edge, then a new gesture changes tec
   await edge(true);await swipe(-32,0,true);await expect(v).toHaveAttribute('data-group','NobleCraft');
   await driver.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:180,y:280},{x:220,y:280}]});await driver.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:160,y:250},{x:240,y:250}]});await driver.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await expect(v).toHaveAttribute('data-group','NobleCraft');
   await edge(false);await swipe(0,-32);await ready();await expect(v).toHaveAttribute('data-photo-index','1');
-  for(let i=0;i<7;i++){await v.locator('footer button').last().click();await ready();}await edge(true);await swipe(-32);await expect(v).toHaveAttribute('data-group','AirShield');
+  for(let i=0;i<9;i++){await v.locator('footer button').last().click();await ready();}await edge(true);await swipe(-32);await expect(v).toHaveAttribute('data-group','PolyArmor');
   await page.keyboard.press('Escape');await expect(v).not.toBeVisible();await context.close();
  }
 });
@@ -44,8 +44,8 @@ test('WebKit tall-photo edge snapshots, cancellation and reduced-motion pan',asy
  await s.evaluate(e=>e.scrollTop=e.scrollHeight-e.clientHeight-20);await swipe(-64);await expect(v).toHaveAttribute('data-group','HeatCore');
  await swipe(-32);await expect(v).toHaveAttribute('data-group','CapsuleCode');await expect(v).toHaveAttribute('aria-busy','false');
  await page.waitForTimeout(200);expect(await s.evaluate(e=>e.scrollTop)).toBe(0);
- for(const group of ['CyberMind','TouchLink','MoodEngine','AquaSense','AirShield']){await s.evaluate(e=>e.scrollTop=e.scrollHeight);await swipe(-32);await expect(v).toHaveAttribute('data-group',group);await expect(v).toHaveAttribute('aria-busy','false');await page.waitForTimeout(200);expect(await s.evaluate(e=>e.scrollTop)).toBe(0);}
- for(let i=0;i<5;i++){await v.locator('footer button').first().click();await expect(v).toHaveAttribute('aria-busy','false');}
+ for(const group of ['CyberMind','TouchLink','MoodEngine','AquaSense','AirShield','QuickCell','PolyArmor']){await s.evaluate(e=>e.scrollTop=e.scrollHeight);await swipe(-32);await expect(v).toHaveAttribute('data-group',group);await expect(v).toHaveAttribute('aria-busy','false');await page.waitForTimeout(200);expect(await s.evaluate(e=>e.scrollTop)).toBe(0);}
+ for(let i=0;i<7;i++){await v.locator('footer button').first().click();await expect(v).toHaveAttribute('aria-busy','false');}
  await page.screenshot({path:`/tmp/reset-${info.project.name}.png`});
  await swipe(32,true);await expect(v).toHaveAttribute('data-group','CapsuleCode');await swipe(32);await expect(v).toHaveAttribute('data-group','HeatCore');await expect(v).toHaveAttribute('aria-busy','false');
  await swipe(-40);await expect(v).toHaveAttribute('data-group','HeatCore');const top=await s.evaluate(e=>e.scrollTop);expect(top).toBeGreaterThan(0);await page.waitForTimeout(200);expect(await s.evaluate(e=>e.scrollTop)).toBe(top);

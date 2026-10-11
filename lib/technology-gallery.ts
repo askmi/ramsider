@@ -1,6 +1,6 @@
 import type { Locale } from './i18n';
 
-// AirShield is registered separately and always closes the gallery.
+// The original eight groups retain their source order.
 const technologiesBeforeAirShield = [
   { title: 'NobleCraft', slides: [
     { id: '01', src: '/art/technology/slides/noble-01.png' },
@@ -41,7 +41,13 @@ const airShield = { title: 'AirShield', number: 8, slides: [
     { id: '02', src: '/art/technology/slides/air-02.png' },
   ] } as const;
 
-export const technologyGroups = [...technologiesBeforeAirShield, airShield] as const;
+export const technologyGroups = [...technologiesBeforeAirShield, airShield,
+  {title:'QuickCell',number:9,slides:[
+    {id:'01',src:'/art/technology/slides/quick-01.png'},
+    {id:'02',src:'/art/technology/slides/quick-02.png'},
+  ]},
+  {title:'PolyArmor',number:10,slides:[{id:'01',src:'/art/technology/slides/poly-01.png'}]},
+] as const;
 
 type GroupCopy = { previous: string };
 export const technologyGroupCopy: Record<Locale, GroupCopy> = {

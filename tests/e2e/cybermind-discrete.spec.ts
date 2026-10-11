@@ -4,8 +4,8 @@ import {locales} from '../../lib/i18n';
 import {technologyGroups} from '../../lib/technology-gallery';
 import {writeFile} from 'node:fs/promises';
 
-test('CyberMind fourth and AirShield last: live source-aligned text in every locale',async({page},info)=>{
- const results=[];expect(technologyGroups.map(g=>g.title)).toEqual(['NobleCraft','HeatCore','CapsuleCode','CyberMind','TouchLink','MoodEngine','AquaSense','AirShield']);expect(technologyGroups.at(-1)?.title).toBe('AirShield');
+test('CyberMind fourth and AirShield eighth: live source-aligned text in every locale',async({page},info)=>{
+ const results=[];expect(technologyGroups.map(g=>g.title)).toEqual(['NobleCraft','HeatCore','CapsuleCode','CyberMind','TouchLink','MoodEngine','AquaSense','AirShield','QuickCell','PolyArmor']);expect(technologyGroups.at(-1)?.title).toBe('PolyArmor');
  for(const locale of (info.project.name==='iphone-17-pro-webkit'?locales:['en'] as const)){
   await page.goto(`/${locale}`);await openTechnology(page);const v=page.locator('#technology-viewer');const ready=()=>expect(v).toHaveAttribute('aria-busy','false');await ready();
   for(let i=0;i<3;i++){await v.locator('footer button').last().click();await ready();}await expect(v).toHaveAttribute('data-group','CyberMind');
@@ -16,7 +16,7 @@ test('CyberMind fourth and AirShield last: live source-aligned text in every loc
    await expect(v.locator('[data-description-block="cyber-body"] > div')).toHaveAttribute('dir',locale==='ar'?'rtl':'ltr');
    if(['en','ar','de'].includes(locale)){await page.screenshot({path:`/tmp/cyber-${info.project.name}-${locale}-${i+1}.png`});await v.locator('article').screenshot({path:`/tmp/cyber-${info.project.name}-${locale}-${i+1}-article.png`});}results.push({locale,photo:i,...data});
   }
-  await v.locator('footer button').last().click();await ready();await expect(v).toHaveAttribute('data-group','TouchLink');for(const name of ['MoodEngine','AquaSense','AirShield']){await v.locator('footer button').last().click();await ready();await expect(v).toHaveAttribute('data-group',name)}await expect(v.locator('footer button').last()).toBeDisabled();for(const name of ['AquaSense','MoodEngine','TouchLink']){await v.locator('footer button').first().click();await ready();await expect(v).toHaveAttribute('data-group',name)}await v.locator('footer button').first().click();await ready();await expect(v).toHaveAttribute('data-group','CyberMind');await expect(v).toHaveAttribute('data-photo-index','0');await v.locator('footer button').first().click();await ready();await expect(v).toHaveAttribute('data-group','CapsuleCode');await page.keyboard.press('Escape');await expect(v).not.toBeVisible();
+  await v.locator('footer button').last().click();await ready();await expect(v).toHaveAttribute('data-group','TouchLink');for(const name of ['MoodEngine','AquaSense','AirShield','QuickCell','PolyArmor']){await v.locator('footer button').last().click();await ready();await expect(v).toHaveAttribute('data-group',name)}await expect(v.locator('footer button').last()).toBeDisabled();for(const name of ['QuickCell','AirShield','AquaSense','MoodEngine','TouchLink']){await v.locator('footer button').first().click();await ready();await expect(v).toHaveAttribute('data-group',name)}await v.locator('footer button').first().click();await ready();await expect(v).toHaveAttribute('data-group','CyberMind');await expect(v).toHaveAttribute('data-photo-index','0');await v.locator('footer button').first().click();await ready();await expect(v).toHaveAttribute('data-group','CapsuleCode');await page.keyboard.press('Escape');await expect(v).not.toBeVisible();
  }
  await writeFile(`/tmp/cyber-${info.project.name}-geometry.json`,JSON.stringify(results,null,2));
 });

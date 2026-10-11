@@ -295,3 +295,9 @@ html:lang(en) .overlay:not(.key-touch) .technology-label-line:not(:first-child){
 [data-technology-open][data-pointer-return]:focus{outline:none}
 
 .technology-viewer__airshield [data-description-block^="air-icon-"] .technology-description__box{text-align:center}
+
+.technology-viewer__mood-aqua [data-description-block^="mood-caption-"] .technology-description__box,
+.technology-viewer__mood-aqua [data-description-block="aqua-core"] .technology-description__box{text-align:center}
+
+.technology-viewer__mood-aqua .technology-description__warm{-webkit-text-stroke:0}
+.technology-viewer__mood-aqua [data-description-block="mood-aqua-descriptor"] .technology-description__box{text-align:left}

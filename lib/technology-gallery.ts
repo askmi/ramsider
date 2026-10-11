@@ -1,6 +1,7 @@
 import type { Locale } from './i18n';
 
-export const technologyGroups = [
+// AirShield is registered separately and always closes the gallery.
+const technologiesBeforeAirShield = [
   { title: 'NobleCraft', slides: [
     { id: '01', src: '/art/technology/slides/noble-01.png' },
     { id: '02', src: '/art/technology/slides/noble-02.png' },
@@ -16,11 +17,31 @@ export const technologyGroups = [
     { id: '02', src: '/art/technology/slides/capsule-02.png' },
     { id: '03', src: '/art/technology/slides/capsule-03.png' },
   ] },
-  { title: 'AirShield', slides: [
-    { id: '01', src: '/art/technology/slides/air-01.png' },
-    { id: '02', src: '/art/technology/slides/air-02.png' },
+  { title: 'CyberMind', number: 4, slides: [
+    { id: '01', src: '/art/technology/slides/cyber-01.png' },
+    { id: '02', src: '/art/technology/slides/cyber-02.png' },
+  ] },
+  { title: 'TouchLink', number: 5, slides: [
+    { id: '01', src: '/art/technology/slides/touch-01.png' },
+    { id: '02', src: '/art/technology/slides/touch-02.png' },
+    { id: '03', src: '/art/technology/slides/touch-03.png' },
+  ] },
+  { title: 'MoodEngine', number: 6, slides: [
+    { id: '01', src: '/art/technology/slides/mood-01.png' },
+    { id: '02', src: '/art/technology/slides/mood-02.png' },
+  ] },
+  { title: 'AquaSense', number: 7, slides: [
+    { id: '01', src: '/art/technology/slides/aqua-01.png' },
+    { id: '02', src: '/art/technology/slides/aqua-02.png' },
   ] },
 ] as const;
+
+const airShield = { title: 'AirShield', number: 8, slides: [
+    { id: '01', src: '/art/technology/slides/air-01.png' },
+    { id: '02', src: '/art/technology/slides/air-02.png' },
+  ] } as const;
+
+export const technologyGroups = [...technologiesBeforeAirShield, airShield] as const;
 
 type GroupCopy = { previous: string };
 export const technologyGroupCopy: Record<Locale, GroupCopy> = {

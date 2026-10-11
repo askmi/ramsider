@@ -50,12 +50,12 @@ test('CapsuleCode translations fit in every locale and Arabic direction is prese
  }
 });
 
-test('AirShield fourth group: source geometry, icon axes, OpenSans and every locale',async({page},info)=>{
+test('AirShield always last: source geometry, icon axes, OpenSans and every locale',async({page},info)=>{
  const matrix=info.project.name==='iphone-17-pro-webkit'?locales:['en'] as const;
  for(const locale of matrix){
   await page.goto(`/${locale}`);await openTechnology(page);const v=page.locator('#technology-viewer');
   const ready=()=>expect(v).toHaveAttribute('aria-busy','false');await ready();
-  for(let i=0;i<3;i++){await v.locator('footer button').last().click();await ready();}
+  for(let i=0;i<7;i++){await v.locator('footer button').last().click();await ready();}
   await expect(v).toHaveAttribute('data-group','AirShield');await expect(v.locator('footer button').last()).toBeDisabled();
   for(let i=0;i<2;i++){
    if(i){await v.locator('header button').nth(1).click();await ready();}
@@ -73,7 +73,7 @@ test('AirShield fourth group: source geometry, icon axes, OpenSans and every loc
    if(['en','ar','de'].includes(locale)){await page.screenshot({path:`/tmp/tech04-${info.project.name}-${locale}-${i+1}.png`});await v.locator('article').screenshot({path:`/tmp/tech04-${info.project.name}-${locale}-${i+1}-article.png`});}
   }
   await page.keyboard.press('ArrowRight');await expect(v).toHaveAttribute('data-photo-index','1');
-  await v.locator('footer button').first().click();await ready();await expect(v).toHaveAttribute('data-group','CapsuleCode');
+  await v.locator('footer button').first().click();await ready();await expect(v).toHaveAttribute('data-group','AquaSense');
   await v.locator('footer button').last().click();await ready();await expect(v).toHaveAttribute('data-photo-index','0');
   await page.keyboard.press('Escape');await expect(v).not.toBeVisible();
  }
@@ -114,7 +114,7 @@ test('native trackpad uses the new horizontal axis, and vertical input changes a
  const context=await browser.newContext({viewport:{width:402,height:874}}),page=await context.newPage();await page.goto(`${baseURL}/en`);await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');await viewer.locator('.technology-viewer__photo img').hover({position:{x:200,y:250}});
  await page.clock.install();await page.clock.pauseAt((await page.evaluate(()=>Date.now()))+1000);
  await page.mouse.wheel(0,2);await page.mouse.wheel(-120,4);await expect(viewer).toHaveAttribute('data-photo-index','1');await expect(viewer).toHaveAttribute('aria-busy','false');await expect(viewer).toHaveAttribute('data-group','NobleCraft');
- await page.clock.runFor(220);await page.mouse.wheel(0,120);await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');await page.clock.resume();await context.close();
+ await page.clock.runFor(220);await page.mouse.wheel(0,120);await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');await page.clock.runFor(32);await page.mouse.wheel(0,120);await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer).toHaveAttribute('data-photo-index','0');await page.clock.resume();await context.close();
 });
 
 test("keyboard pans a tall photo before changing technologies",async({page})=>{
@@ -133,10 +133,14 @@ test('native light touch swipes navigate both axes; tall photos retain controlle
  await swipe(0,-32);await expect(viewer).toHaveAttribute('data-group','CapsuleCode');await expect(viewer).toHaveAttribute('aria-busy','false');
  await swipe(-32,0);await expect(viewer).toHaveAttribute('data-photo-index','1');await expect(viewer).toHaveAttribute('aria-busy','false');
  await swipe(32,0);await expect(viewer).toHaveAttribute('data-photo-index','0');await expect(viewer).toHaveAttribute('aria-busy','false');
- await swipe(0,-32);await expect(viewer).toHaveAttribute('data-group','AirShield');await expect(viewer).toHaveAttribute('aria-busy','false');
+ await swipe(0,-32);await expect(viewer).toHaveAttribute('data-group','CyberMind');await expect(viewer).toHaveAttribute('aria-busy','false');
+ await swipe(0,-32);await expect(viewer).toHaveAttribute('data-group','TouchLink');await expect(viewer).toHaveAttribute('aria-busy','false');
+ for(const name of ['MoodEngine','AquaSense','AirShield']){await swipe(0,-32);await expect(viewer).toHaveAttribute('data-group',name);await expect(viewer).toHaveAttribute('aria-busy','false');}await expect(viewer).toHaveAttribute('aria-busy','false');
  await swipe(-32,0);await expect(viewer).toHaveAttribute('data-photo-index','1');await expect(viewer).toHaveAttribute('aria-busy','false');
  await swipe(32,0);await expect(viewer).toHaveAttribute('data-photo-index','0');await expect(viewer).toHaveAttribute('aria-busy','false');
  await swipe(0,-32);await expect(viewer).toHaveAttribute('data-group','AirShield');
+ for(const name of ['AquaSense','MoodEngine','TouchLink']){await swipe(0,32);await expect(viewer).toHaveAttribute('data-group',name);await expect(viewer).toHaveAttribute('aria-busy','false');}await expect(viewer).toHaveAttribute('aria-busy','false');
+ await swipe(0,32);await expect(viewer).toHaveAttribute('data-group','CyberMind');await expect(viewer).toHaveAttribute('aria-busy','false');
  await swipe(0,32);await expect(viewer).toHaveAttribute('data-group','CapsuleCode');await expect(viewer).toHaveAttribute('aria-busy','false');
  await swipe(0,32);await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');
  await swipe(0,32);await expect(viewer).toHaveAttribute('data-group','NobleCraft');await expect(viewer).toHaveAttribute('aria-busy','false');

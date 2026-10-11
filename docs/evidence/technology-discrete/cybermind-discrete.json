@@ -1,0 +1,239 @@
+{
+  "date": "2026-10-11",
+  "change": "CHG0092",
+  "status": "VERIFIED",
+  "preview": "http://127.0.0.1:3056/en#technology",
+  "order": [
+    "NobleCraft",
+    "HeatCore",
+    "CapsuleCode",
+    "CyberMind",
+    "AirShield"
+  ],
+  "assetEvidence": "cybermind-discrete-assets.json",
+  "tests": {
+    "passed": 39,
+    "skipped": 17,
+    "skips": "explicit browser API/profile restrictions",
+    "log": "screenshots/technology-cybermind/cyber-tests-final.log"
+  },
+  "visual": [
+    {
+      "width": 402,
+      "photo": 1,
+      "comparison": "Same WebKit source-text reference control; OpenSans differs from raster typography",
+      "differentPercent": 5.1633872220356976
+    },
+    {
+      "width": 402,
+      "photo": 2,
+      "comparison": "Same WebKit source-text reference control; OpenSans differs from raster typography",
+      "differentPercent": 5.621899025662417
+    },
+    {
+      "width": 440,
+      "photo": 1,
+      "comparison": "Same WebKit source-text reference control; OpenSans differs from raster typography",
+      "differentPercent": 5.019081262058791
+    },
+    {
+      "width": 440,
+      "photo": 2,
+      "comparison": "Same WebKit source-text reference control; OpenSans differs from raster typography",
+      "differentPercent": 5.579389399614119
+    }
+  ],
+  "performance": [
+    {
+      "conditions": "cold Chromium402 DPR3 loopback",
+      "initial": {
+        "lcp": 276,
+        "cls": 0,
+        "useful": 246.89999999850988,
+        "ttfb": 7.399999998509884,
+        "fcp": 60,
+        "jsBytes": 187282,
+        "transferredBytes": 30592725,
+        "galleryStarts": [
+          101.79999999701977,
+          101.89999999850988,
+          102,
+          102.19999999552965,
+          102.29999999701977,
+          102.39999999850988,
+          102.5,
+          102.59999999403954,
+          102.69999999552965,
+          102.79999999701977,
+          102.89999999850988,
+          103.09999999403954,
+          103.19999999552965
+        ],
+        "loadEnd": 88.19999999552965
+      },
+      "adaptation": [
+        {
+          "width": 375,
+          "article": 375,
+          "img": 375,
+          "height": 606.53125,
+          "expected": 606.5356004250797,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "article": 375,
+          "img": 375,
+          "height": 606.53125,
+          "expected": 606.5356004250797,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "article": 768,
+          "img": 768,
+          "height": 1242.171875,
+          "expected": 1242.1849096705632,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "article": 768,
+          "img": 768,
+          "height": 1242.171875,
+          "expected": 1242.1849096705632,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "article": 941,
+          "img": 941,
+          "height": 1522,
+          "expected": 1522,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "article": 941,
+          "img": 941,
+          "height": 1522,
+          "expected": 1522,
+          "overflow": false
+        }
+      ],
+      "scroll": {
+        "p95": 16.800000000000182,
+        "over33": 0
+      },
+      "mainScroll": {
+        "p95": 16.700000000000728,
+        "over33": 0
+      },
+      "cachedGroupMs": 33,
+      "errors": [],
+      "inp": "not measured; cachedGroupMs synthetic"
+    },
+    {
+      "conditions": "cold Chromium402 DPR3 4Mbps100ms4xCPU",
+      "initial": {
+        "lcp": 2324,
+        "cls": 0,
+        "useful": 2295.60000000149,
+        "ttfb": 7.300000004470348,
+        "fcp": 408,
+        "jsBytes": 187282,
+        "transferredBytes": 7007711,
+        "galleryStarts": [],
+        "loadEnd": 14553.89999999851
+      },
+      "adaptation": [],
+      "scroll": null,
+      "mainScroll": null,
+      "cachedGroupMs": null,
+      "errors": [],
+      "inp": "not measured; cachedGroupMs synthetic"
+    }
+  ],
+  "nativeTouch": {
+    "nativeInput": "Chromium CDP touch,75 moves at16ms plus400ms inertia",
+    "frames": 251,
+    "p95": 16.700000000000728,
+    "over33": 0,
+    "scrollTop": 150,
+    "group": "CyberMind"
+  },
+  "integration": [
+    {
+      "width": 402,
+      "states": [
+        {
+          "id": "hero-title",
+          "scroll": 0
+        },
+        {
+          "id": "technology",
+          "scroll": 2408
+        },
+        {
+          "id": "documents",
+          "scroll": 9429
+        },
+        {
+          "id": "faq",
+          "scroll": 11104
+        },
+        {
+          "id": "final",
+          "scroll": 12851
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "width": 440,
+      "states": [
+        {
+          "id": "hero-title",
+          "scroll": 0
+        },
+        {
+          "id": "technology",
+          "scroll": 2636
+        },
+        {
+          "id": "documents",
+          "scroll": 10320
+        },
+        {
+          "id": "faq",
+          "scroll": 12154
+        },
+        {
+          "id": "final",
+          "scroll": 14066
+        }
+      ],
+      "overflow": false
+    }
+  ],
+  "checks": {
+    "typecheck": "PASS",
+    "build": "PASS 14 static locale routes",
+    "lint": "PASS 0errors 2existing Telegram warnings",
+    "nativeReview": "initial and Arabic delta clean"
+  },
+  "limitations": [
+    "OpenSans typography differs from baked reference; no pixel identity claim",
+    "physical Safari/Telegram,INP,Lighthouse not measured",
+    "product claims unverified; no publication authorization",
+    "controlled EVAL-MAP NOT_RUN"
+  ],
+  "artifacts": "screenshots/technology-cybermind/",
+  "auditor": "closeout_audit scope/visual/Stage4/Stage5 PASS; records_audit Stage6 PASS",
+  "technicalApproval": {
+    "date": "2026-10-11",
+    "verifier": "/root",
+    "verdict": "APPROVED"
+  },
+  "userAcceptance": "NOT_RECORDED"
+}

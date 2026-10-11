@@ -1,0 +1,313 @@
+{
+  "id": "CHG0096",
+  "date": "2026-10-11",
+  "status": "VERIFIED",
+  "order": [
+    "NobleCraft",
+    "HeatCore",
+    "CapsuleCode",
+    "CyberMind",
+    "TouchLink",
+    "MoodEngine",
+    "AquaSense",
+    "AirShield"
+  ],
+  "newSlideCount": 4,
+  "sources": [
+    {
+      "source": "design/references/tech_06/30.png",
+      "reference": "design/references/tech_06/29.png",
+      "width": 941,
+      "height": 1522,
+      "sourceSha256": "58a6fa87a58e06008bfa2b32de4bd50d4e1615d3999109ccf139bd39e14e4f4f",
+      "output": "public/art/technology/slides/mood-01.png",
+      "outsideChanged": 0,
+      "alphaExact": true,
+      "decodedExact": true
+    },
+    {
+      "source": "design/references/tech_06/31.png",
+      "reference": "design/references/tech_06/32.png",
+      "width": 941,
+      "height": 1522,
+      "sourceSha256": "2a75a603d589f2ac6f2ab65dd4edb0ad3ee1d7523898525b3bd57f95b84de2b5",
+      "output": "public/art/technology/slides/mood-02.png",
+      "outsideChanged": 0,
+      "alphaExact": true,
+      "decodedExact": true
+    },
+    {
+      "source": "design/references/tech_07/33.png",
+      "reference": "design/references/tech_07/34.png",
+      "width": 940,
+      "height": 1522,
+      "sourceSha256": "d5be2de4f0e3c052cd13699d4319b34a0e9f37fd43466462c1af3207c7c4e8e3",
+      "output": "public/art/technology/slides/aqua-01.png",
+      "outsideChanged": 0,
+      "alphaExact": true,
+      "decodedExact": true
+    },
+    {
+      "source": "design/references/tech_07/36.png",
+      "reference": "design/references/tech_07/35.png",
+      "width": 941,
+      "height": 1522,
+      "sourceSha256": "3938de89598d1cda98b96c7cde6a41d259ee91bde8e3d568ef6a843abb5963fc",
+      "output": "public/art/technology/slides/aqua-02.png",
+      "outsideChanged": 0,
+      "alphaExact": true,
+      "decodedExact": true
+    }
+  ],
+  "totalPngBytes": 6879107,
+  "format": "PNG only, original dimensions/profile interpretation, title-glyph mask exception; no transformation by framework",
+  "browser": {
+    "profiles": [
+      "402×874 DPR3 WebKit",
+      "440×956 DPR3 WebKit"
+    ],
+    "localeMatrix": "11Pro+EN/ARMax",
+    "finalNewAndEdge": "5PASS/5explicitduplicate/nativeAPI SKIP /tmp/tech67-recheck.log",
+    "previousUnaffectedAdjacency": "20PASS10SKIP with 2 historical canceled-back fixture failures corrected and final2profile recheck PASS",
+    "nativeInput": "4PASS /tmp/tech67-native.log EN/AR tall edge/pinch/cancel/bounds/inertia/reduce-motion/trackpad/light-touch",
+    "widths": [
+      "402×650",
+      "375×812",
+      "768×1024",
+      "1440×900"
+    ],
+    "errors": 0,
+    "screenshots": "screenshots/technology-mood-aqua/",
+    "compositeActual": "/tmp/tech67-actual-final.png",
+    "reference": "/tmp/tech67-reference-four.png",
+    "arabic": "/tmp/tech67-ar-final.png",
+    "adaptation": "/tmp/tech67-adaptation.png",
+    "assembly": "/tmp/tech67-assembled.png",
+    "lastAppearanceRecheck": {
+      "log": "/tmp/tech67-glass-browser.log",
+      "scope": "Aqua1EN/ARPro/Max4captures",
+      "result": "PASS/native940ratio;glassedge viewed",
+      "closeup": "/tmp/tech67-glass-final.png",
+      "byteDelta": -107,
+      "other3AssetHashesUnchanged": true
+    }
+  },
+  "comparison": [
+    {
+      "profile": "iphone-17-pro-webkit",
+      "kind": "mood",
+      "slide": 1,
+      "sourceWidth": 941,
+      "width": 1206,
+      "height": 1950,
+      "trimTop": 3,
+      "trimBottom": 3,
+      "mismatchPercent": 4.934685546625845
+    },
+    {
+      "profile": "iphone-17-pro-webkit",
+      "kind": "mood",
+      "slide": 2,
+      "sourceWidth": 941,
+      "width": 1206,
+      "height": 1950,
+      "trimTop": 3,
+      "trimBottom": 3,
+      "mismatchPercent": 6.944125526215078
+    },
+    {
+      "profile": "iphone-17-pro-webkit",
+      "kind": "aqua",
+      "slide": 1,
+      "sourceWidth": 940,
+      "width": 1206,
+      "height": 1952,
+      "trimTop": 2,
+      "trimBottom": 2,
+      "mismatchPercent": 4.061871312834733,
+      "finalGlassCorrection": true
+    },
+    {
+      "profile": "iphone-17-pro-webkit",
+      "kind": "aqua",
+      "slide": 2,
+      "sourceWidth": 941,
+      "width": 1206,
+      "height": 1950,
+      "trimTop": 3,
+      "trimBottom": 3,
+      "mismatchPercent": 6.398009950248756
+    },
+    {
+      "profile": "iphone-17-pro-max-webkit",
+      "kind": "mood",
+      "slide": 1,
+      "sourceWidth": 941,
+      "width": 1320,
+      "height": 2134,
+      "trimTop": 1,
+      "trimBottom": 1,
+      "mismatchPercent": 4.808795546846156
+    },
+    {
+      "profile": "iphone-17-pro-max-webkit",
+      "kind": "mood",
+      "slide": 2,
+      "sourceWidth": 941,
+      "width": 1320,
+      "height": 2134,
+      "trimTop": 1,
+      "trimBottom": 1,
+      "mismatchPercent": 6.793722132288206
+    },
+    {
+      "profile": "iphone-17-pro-max-webkit",
+      "kind": "aqua",
+      "slide": 1,
+      "sourceWidth": 940,
+      "width": 1320,
+      "height": 2138,
+      "trimTop": 2,
+      "trimBottom": 2,
+      "mismatchPercent": 4.090767355500751,
+      "finalGlassCorrection": true
+    },
+    {
+      "profile": "iphone-17-pro-max-webkit",
+      "kind": "aqua",
+      "slide": 2,
+      "sourceWidth": 941,
+      "width": 1320,
+      "height": 2134,
+      "trimTop": 1,
+      "trimBottom": 1,
+      "mismatchPercent": 6.223871801425691
+    }
+  ],
+  "paint": "mood-aqua-browser-color.json:final4HTTP PNG200/hash exact and8paintedsourcebody comparisons0channels",
+  "build": {
+    "type": "PASS",
+    "lint": "0errors/2existingTelegramwarnings",
+    "production": "PASS14SSG",
+    "logs": [
+      "/tmp/tech67-build-final.log",
+      "/tmp/tech67-type-final.log",
+      "/tmp/tech67-lint-final.log"
+    ]
+  },
+  "nativeReview": {
+    "tool": "codex review",
+    "initial": "3P2 fixed, then Aqua1glassP2 fixed",
+    "layoutDeltaLog": "/tmp/tech67-review-final.log",
+    "finalGlassLog": "/tmp/tech67-review-glass.log",
+    "final": "PASS/no actionable regressions",
+    "exitCode": 0,
+    "evidence": "native reviewer saw latest4ENARProMaxcaptures; independent decoding/exterioralpha/hash check"
+  },
+  "performance": [
+    {
+      "conditions": "cold Chromium402 DPR3 loopback",
+      "initial": {
+        "lcp": 580,
+        "cls": 0,
+        "useful": 551.6000000014901,
+        "jsBytes": 203812,
+        "networkBytes": 42506201,
+        "earlyNewTechnologyRequests": 4
+      },
+      "assets": [
+        {
+          "path": "/art/technology/slides/mood-01.png",
+          "bytes": 1595952,
+          "duration": 90.79999999701977
+        },
+        {
+          "path": "/art/technology/slides/mood-02.png",
+          "bytes": 1831099,
+          "duration": 91.39999999850988
+        },
+        {
+          "path": "/art/technology/slides/aqua-01.png",
+          "bytes": 1891053,
+          "duration": 93.10000000149012
+        },
+        {
+          "path": "/art/technology/slides/aqua-02.png",
+          "bytes": 1561110,
+          "duration": 92.20000000298023
+        }
+      ],
+      "nativeScroll": {
+        "samples": 199,
+        "p95": 16.799999999999727,
+        "over33": 0
+      },
+      "inp": "unmeasured",
+      "lighthouse": "unmeasured"
+    },
+    {
+      "conditions": "cold Chromium402 DPR3 4Mbps100ms4xCPU",
+      "initial": {
+        "lcp": 2348,
+        "cls": 0,
+        "useful": 2324.3000000044703,
+        "jsBytes": 203812,
+        "networkBytes": 7024297,
+        "earlyNewTechnologyRequests": 0
+      },
+      "assets": [
+        {
+          "path": "/art/technology/slides/mood-01.png",
+          "bytes": 1595952,
+          "duration": 64059.40000000596
+        },
+        {
+          "path": "/art/technology/slides/aqua-02.png",
+          "bytes": 1561110,
+          "duration": 64863.39999999851
+        },
+        {
+          "path": "/art/technology/slides/mood-02.png",
+          "bytes": 1831099,
+          "duration": 66471.39999999851
+        },
+        {
+          "path": "/art/technology/slides/aqua-01.png",
+          "bytes": 1891053,
+          "duration": 66959.69999999553
+        }
+      ],
+      "nativeScroll": null,
+      "inp": "unmeasured",
+      "lighthouse": "unmeasured"
+    }
+  ],
+  "rendering": "Existing static routes/client interactive viewer preserved; useful first render measured, +9935B transferred JS vs TouchLink baseline; originalPNG warm payload accepted, no codec optimization",
+  "independent": {
+    "scope": "PASS — png_correction_audit",
+    "raster": "PASS after corrections — tech67_final_audit",
+    "visual": "PASS — tech67_final_audit",
+    "behavior": "PASS — tech67_final_audit",
+    "reviewPerformance": "PASS — tech67_final_audit",
+    "finalRecords": "PASS — tech67_final_audit",
+    "date": "2026-10-11",
+    "evidence": "Replacement read-only auditor examined actual reference/EN Pro-Max/Arabic/glass/adaptation/assembly images, affected code/tests, asset and browser manifests, test/build/type/lint/native review/performance logs, journal/memory/lessons/eval/product records; consolidated Stages2–5 and Stage6 PASS. Prior auditor final turn interrupted after stalled response; earlier scope/raster findings preserved."
+  },
+  "limits": [
+    "Physical Safari/Telegram unverified",
+    "INP and Lighthouse unmeasured",
+    "Source ICC absent/intended profile UNKNOWN",
+    "OpenSans vs raster reference metrics and masked-background reconstruction differ; no pixelidentity claim",
+    "Product referenceclaims unverified; no commerce/backend introduced",
+    "Existing CHG0071/0065/0035 untouched"
+  ],
+  "userAcceptance": "NOT_RECORDED",
+  "git": "2026-10-11 user authorized commit/push to origin/main; final result reported in chat",
+  "performanceNote": "Measured on final code build before isolated masked-glass-only PNG correction: same JS/geometry/codec/loading policy; Aqua1now107Bsmaller,other3PNGhashesunchanged. Samples preserved rather than inventing a fresh timing.",
+  "technicalApproval": {
+    "date": "2026-10-11",
+    "verifier": "/root",
+    "status": "APPROVED",
+    "evidence": "actual EN/AR Pro/Max screenshots/reference comparisons, native final review, raster HTTP/decoded/paint checks, new/adjacency/native behavior checks, type/lint/build and measured production evidence"
+  }
+}

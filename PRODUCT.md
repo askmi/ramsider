@@ -41,3 +41,9 @@ The supplied HeatCore TEXT renders assert independently controlled upper/grill/l
 ## CyberMind description claims — CHG-0069, 2026-10-07
 
 The CyberMind text reference asserts 16+ system inputs, water/temperature/system monitoring in real time, onboard coordination of heating/light/sound, RAMSIDER app data exchange, direct core operation without a phone, and supported software updates adding functions/control logic. These statements are transcribed design copy for local visual fidelity; no engineering specification, backend or app behavior verifies them. Confirm before treating them as approved publication facts. Source/copy map: [CyberMind descriptions](docs/technology-cybermind-description-map.md).
+
+## TouchLink design claims — CHG-0095, 2026-10-11
+tech_05/24,25,28 describe oval-touch/app control, three adjustable heating systems, remote start/pause, light and sound scenarios, custom linear heating algorithms, community profiles and supported Wi-Fi/device/profile updates. These are local reference copy and translations; engineering, app/backend functionality and publication approval remain unverified. Phone/device UI is original illustrative artwork, not live controls.
+
+## MoodEngine / AquaSense reference claims — CHG0096, 2026-10-11
+tech06/29,32 describe two stereo speakers, onboard processing/amplification, programmable light/display scenes, app/UNO control and evolving online scenarios. tech07/34,35 describe two rear water/temperature sensors, real-time onboard processing, heating limits and guidance outside an unspecified allowed range. These are local reference copy with translations; engineering, safety behavior, ranges/backend and publication approval remain unverified. Raster device/appUI is illustrative; no operating controls/backend invented.

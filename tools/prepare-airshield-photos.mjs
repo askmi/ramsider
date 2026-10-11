@@ -7,7 +7,7 @@ const evidence='docs/evidence/technology-discrete';
 await mkdir(evidence,{recursive:true});
 const items=[];
 for(let n=0;n<2;n++){
- const source=`design/references/tech_04/0${[1,4][n]}.png`,output=`public/art/technology/slides/air-0${n+1}.png`;
+ const source=`design/references/tech_08/0${[1,4][n]}.png`,output=`public/art/technology/slides/air-0${n+1}.png`;
  const {data,info}=await sharp(source).raw().toBuffer({resolveWithObject:true});
  const {width,height,channels}=info,clean=Buffer.from(data),mask=Buffer.alloc(width*height);
  for(let y=20;y<174;y++)for(let x=45;x<460;x++){

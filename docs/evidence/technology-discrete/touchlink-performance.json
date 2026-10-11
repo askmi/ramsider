@@ -1,0 +1,68 @@
+[
+  {
+    "conditions": "cold Chromium402 DPR3 loopback",
+    "initial": {
+      "lcp": 316,
+      "cls": 0,
+      "useful": 282.5,
+      "jsBytes": 193877,
+      "networkBytes": 35615805,
+      "earlyTouchRequests": 3
+    },
+    "assets": [
+      {
+        "path": "/art/technology/slides/touch-01.png",
+        "bytes": 1681705,
+        "duration": 59.600000001490116
+      },
+      {
+        "path": "/art/technology/slides/touch-02.png",
+        "bytes": 1634801,
+        "duration": 73.60000000149012
+      },
+      {
+        "path": "/art/technology/slides/touch-03.png",
+        "bytes": 1699070,
+        "duration": 76.89999999850988
+      }
+    ],
+    "nativeScroll": {
+      "samples": 199,
+      "p95": 16.700000000000728,
+      "over33": 0
+    },
+    "inp": "unmeasured",
+    "lighthouse": "unmeasured"
+  },
+  {
+    "conditions": "cold Chromium402 DPR3 4Mbps100ms4xCPU",
+    "initial": {
+      "lcp": 2412,
+      "cls": 0,
+      "useful": 2354.39999999851,
+      "jsBytes": 193877,
+      "networkBytes": 7014315,
+      "earlyTouchRequests": 0
+    },
+    "assets": [
+      {
+        "path": "/art/technology/slides/touch-01.png",
+        "bytes": 1681705,
+        "duration": 46136.39999999851
+      },
+      {
+        "path": "/art/technology/slides/touch-02.png",
+        "bytes": 1634801,
+        "duration": 52208.29999999702
+      },
+      {
+        "path": "/art/technology/slides/touch-03.png",
+        "bytes": 1699070,
+        "duration": 56476.39999999851
+      }
+    ],
+    "nativeScroll": null,
+    "inp": "unmeasured",
+    "lighthouse": "unmeasured"
+  }
+]

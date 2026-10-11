@@ -1,0 +1,23 @@
+{
+  "change": "CHG0093",
+  "date": "2026-10-11",
+  "status": "VERIFIED",
+  "verifier": "/root",
+  "technicalApproval": "APPROVED",
+  "finalTests": {
+    "passed": 4,
+    "explicitProfileSkips": 8
+  },
+  "intermediateFullSuite": {
+    "passed": 35,
+    "explicitProfileSkips": 17
+  },
+  "build": "PASS",
+  "type": "PASS",
+  "lint": "0errors2existingwarnings",
+  "nativeReview": "initialP1/deltaP2resolved; finalclean",
+  "evidence": "screenshots/technology-scroll-reset",
+  "independentAuditor": "N/A small behavior fix",
+  "physicalSafari": "unverified",
+  "controlledEVAL-VIEWER": "NOT_RUN"
+}

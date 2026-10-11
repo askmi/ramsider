@@ -1,0 +1,78 @@
+[
+  {
+    "conditions": "cold Chromium402 DPR3 loopback",
+    "initial": {
+      "lcp": 580,
+      "cls": 0,
+      "useful": 551.6000000014901,
+      "jsBytes": 203812,
+      "networkBytes": 42506201,
+      "earlyNewTechnologyRequests": 4
+    },
+    "assets": [
+      {
+        "path": "/art/technology/slides/mood-01.png",
+        "bytes": 1595952,
+        "duration": 90.79999999701977
+      },
+      {
+        "path": "/art/technology/slides/mood-02.png",
+        "bytes": 1831099,
+        "duration": 91.39999999850988
+      },
+      {
+        "path": "/art/technology/slides/aqua-01.png",
+        "bytes": 1891053,
+        "duration": 93.10000000149012
+      },
+      {
+        "path": "/art/technology/slides/aqua-02.png",
+        "bytes": 1561110,
+        "duration": 92.20000000298023
+      }
+    ],
+    "nativeScroll": {
+      "samples": 199,
+      "p95": 16.799999999999727,
+      "over33": 0
+    },
+    "inp": "unmeasured",
+    "lighthouse": "unmeasured"
+  },
+  {
+    "conditions": "cold Chromium402 DPR3 4Mbps100ms4xCPU",
+    "initial": {
+      "lcp": 2348,
+      "cls": 0,
+      "useful": 2324.3000000044703,
+      "jsBytes": 203812,
+      "networkBytes": 7024297,
+      "earlyNewTechnologyRequests": 0
+    },
+    "assets": [
+      {
+        "path": "/art/technology/slides/mood-01.png",
+        "bytes": 1595952,
+        "duration": 64059.40000000596
+      },
+      {
+        "path": "/art/technology/slides/aqua-02.png",
+        "bytes": 1561110,
+        "duration": 64863.39999999851
+      },
+      {
+        "path": "/art/technology/slides/mood-02.png",
+        "bytes": 1831099,
+        "duration": 66471.39999999851
+      },
+      {
+        "path": "/art/technology/slides/aqua-01.png",
+        "bytes": 1891053,
+        "duration": 66959.69999999553
+      }
+    ],
+    "nativeScroll": null,
+    "inp": "unmeasured",
+    "lighthouse": "unmeasured"
+  }
+]

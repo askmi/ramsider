@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-11",
+  "results": [
+    {
+      "slide": 1,
+      "preparedVsPreviousDecodedExact": true,
+      "pngSignature": "89504e470d0a1a0a",
+      "httpStatus": 200,
+      "httpMime": "image/png",
+      "httpHash": "0e572cd2a485f8190cc5cf45051df5f2f7bdb028af97d52b1a219d72244c1c52",
+      "obsoleteWebpStatus": 404,
+      "bytes": 1681705
+    },
+    {
+      "slide": 2,
+      "preparedVsPreviousDecodedExact": true,
+      "pngSignature": "89504e470d0a1a0a",
+      "httpStatus": 200,
+      "httpMime": "image/png",
+      "httpHash": "45147b941d61c6e01311c3f9da6508aee9e5f53f27dc0131fb781592f666628e",
+      "obsoleteWebpStatus": 404,
+      "bytes": 1634801
+    },
+    {
+      "slide": 3,
+      "preparedVsPreviousDecodedExact": true,
+      "pngSignature": "89504e470d0a1a0a",
+      "httpStatus": 200,
+      "httpMime": "image/png",
+      "httpHash": "523a95ccee133db0e482227bf351ee3411e67b29f491c95688386c7bee41e84e",
+      "obsoleteWebpStatus": 404,
+      "bytes": 1699070
+    }
+  ],
+  "totalBytes": 5015576,
+  "originalSourceHashesUnchanged": true,
+  "screenshotComparison": [
+    {
+      "profile": "iphone-17-pro-webkit",
+      "slide": 1,
+      "width": 1206,
+      "height": 1956,
+      "sameDimensions": true,
+      "changedChannels": 0
+    },
+    {
+      "profile": "iphone-17-pro-webkit",
+      "slide": 2,
+      "width": 1206,
+      "height": 1956,
+      "sameDimensions": true,
+      "changedChannels": 0
+    },
+    {
+      "profile": "iphone-17-pro-webkit",
+      "slide": 3,
+      "width": 1206,
+      "height": 1956,
+      "sameDimensions": true,
+      "changedChannels": 0
+    },
+    {
+      "profile": "iphone-17-pro-max-webkit",
+      "slide": 1,
+      "width": 1320,
+      "height": 2136,
+      "sameDimensions": true,
+      "changedChannels": 0
+    },
+    {
+      "profile": "iphone-17-pro-max-webkit",
+      "slide": 2,
+      "width": 1320,
+      "height": 2136,
+      "sameDimensions": true,
+      "changedChannels": 0
+    },
+    {
+      "profile": "iphone-17-pro-max-webkit",
+      "slide": 3,
+      "width": 1320,
+      "height": 2136,
+      "sameDimensions": true,
+      "changedChannels": 0
+    }
+  ],
+  "browser": {
+    "tests": "3PASS/1explicit duplicate-adaptation SKIP",
+    "profiles": [
+      "402×874 DPR3 WebKit",
+      "440×956 DPR3 WebKit"
+    ],
+    "locales": "11 on Pro, EN/AR on Max",
+    "adaptation": [
+      "402×650",
+      "375×812",
+      "768×1024",
+      "1440×900"
+    ],
+    "screenshots": "screenshots/technology-touchlink/",
+    "nativeSourceBodyPaint": "6PASS/0changedChannels",
+    "navigation": "photos/group/back/top reset/Escape/keyboard/bottomaccess",
+    "originalReferenceComparison": "Actual six article screenshots byte-identical to preceding capture; same calibrated comparisons touchlink-comparison.json apply"
+  },
+  "static": {
+    "build": "PASS",
+    "typecheck": "PASS",
+    "lint": "0errors/2existingTelegramwarnings",
+    "nativeReview": "PASS/no actionable regressions; reviewer browser unavailable, main real WebKit checks passed"
+  },
+  "performanceEvidence": "touchlink-performance.json",
+  "limits": [
+    "physical Safari/Telegram unmeasured",
+    "INP/Lighthouse unmeasured",
+    "untagged source ICC intended profile UNKNOWN",
+    "OpenSans rasterized text differs from composite source reference"
+  ],
+  "nativeReviewInvocation": {
+    "tool": "codex review",
+    "mode": "custom scope prompt, actual uncommitted diff and untracked generator/checker inspected",
+    "command": "codex review 'Read-only review of current tech_05 PNG correction only: tools/prepare-touchlink-discrete.mjs, tools/check-touchlink-browser-color.mjs, lib/technology-gallery.ts TouchLink URLs. Ignore unrelated earlier dirty changes. No agents or edits. Verify source PNG preservation, native RGBA/alpha outside established live-title mask, no stale WebP consumers, browser checker correctness. Report actionable regressions only.'",
+    "exitCode": 0,
+    "log": "/tmp/touch-png-review.log",
+    "verdict": "No actionable regressions found",
+    "reviewerBrowser": "Launch blocked; main actual WebKit evidence passed"
+  },
+  "technicalApproval": {
+    "date": "2026-10-11",
+    "verifier": "/root",
+    "scope": "PNG format correction only",
+    "status": "APPROVED"
+  },
+  "independentAudit": {
+    "date": "2026-10-11",
+    "auditor": "/root/png_correction_audit",
+    "scope": "PASS",
+    "stages2to5": "PASS",
+    "finalStage6": "PASS after stale MEMORY approval wording repaired",
+    "scopeLimit": "PNG format correction only; broader addition closeout remains separate"
+  }
+}

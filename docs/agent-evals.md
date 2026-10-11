@@ -124,3 +124,13 @@ CHG0088 extends EVAL-MAP acceptance with confirmed OpenSans reuse before raster 
 CHG0089 links EVAL-MAP to RTL narrative column boundaries beside product art: acceptance requires actual Arabic screenshot without artwork overlap, in addition to box overflow checks. Controlled agent evaluation NOT_RUN; UI verification is not proof of behavioral improvement.
 
 CHG0090 extends EVAL-VIEWER prevention with native endpoint/new-contact tests, diagonal pan, overshoot reversal and preserving active work across usage/status questions. Product test evidence is separate from controlled agent evaluation; this extension is **NOT_RUN**.
+
+CHG0092 extends EVAL-MAP acceptance: diagram callout bounds must clear connector artwork in RTL; DOM overflow alone is insufficient. Current-code39PASS17explicitSKIP and Arabic screenshots verify this fix; controlled agent run remains NOT_RUN.
+
+CHG0093 extends EVAL-VIEWER: bottom-edge transitions across every group must keep destination scroll0 after200ms; keyed scroller remount must reattach native touch/wheel listeners and preserve pending frame/focus. Controlled agent run NOT_RUN.
+
+- 2026-10-11 CHG0095 extends EVAL-MAP: per-slide native title inventory (including clean26), finite channel-normalized codec comparisons, actual OpenSans glyph placement. Controlled agent-run status NOT_RUN; current-code browser checks separately recorded in touchlink evidence.
+
+- 2026-10-11 CHG0095 user correction extends EVAL-MAP/EVAL-VIEWER original-only acceptance: source-format contract must override smaller-codec selection even when decoded pixels match. Check generator/output signature, source hashes, HTTP MIME/body hash and actual requested PNG URLs; established title-mask exception is explicit. Controlled agent-run NOT_RUN.
+
+- 2026-10-11 CHG0096 extends EVAL-MAP/VIEWER: originalPNG locked, native940ratio retained; light-sourceglyphmask must spare darkhose, directionalvsrelaxedrepair verifiednative+actual; externalcloudcallout cannot beclassified as deviceUI withoutclean/referencecomparison; checktext-to-art clearances includingicons/statusdots/RTLdescriptor; groupaddition needsforward/backward/canceledgesture checks and blob-retained sourceidentity viaarticle/request. Controlled agent run NOT_RUN.

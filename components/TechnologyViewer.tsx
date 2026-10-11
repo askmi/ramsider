@@ -45,10 +45,12 @@ function RetainedPhoto({ image, name }: { image: HTMLImageElement; name: string 
 const photoLabels:Record<Locale,readonly[string,string]>={en:['Previous photo','Next Photo'],ru:['Предыдущее фото','Следующее фото'],de:['Vorheriges Foto','Nächstes Foto'],fr:['Photo précédente','Photo suivante'],es:['Foto anterior','Siguiente foto'],it:['Foto precedente','Foto successiva'],tr:['Önceki fotoğraf','Sonraki fotoğraf'],ar:['الصورة السابقة','الصورة التالية'],zh:['上一张照片','下一张照片'],ja:['前の写真','次の写真'],ko:['이전 사진','다음 사진']};
 
 type Position={group:number;photo:number};
-type Contact={x:number;y:number;id:number;up:boolean;down:boolean;axis:'horizontal'|'vertical'|null};
+type Contact={x:number;y:number;id:number;up:boolean;down:boolean;axis:'horizontal'|'vertical'|null;lastY:number;at:number;velocity:number;navigation:number|null};
 export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptions:TechnologyDescriptionCopy}){
  const dialog=useRef<HTMLDialogElement>(null),viewport=useRef<HTMLDivElement>(null),opener=useRef<HTMLElement|null>(null);
- const keyboardFocus=useRef(false);
+ const keyboardFocus=useRef(false),inertia=useRef<number|null>(null);
+ const stopInertia=useCallback(()=>{if(inertia.current!==null)cancelAnimationFrame(inertia.current);inertia.current=null;},[]);
+ useEffect(()=>stopInertia,[stopInertia]);
  const displayed=useRef<Position>({group:0,photo:0}),requested=useRef<Position>({group:0,photo:0}),pending=useRef(false),token=useRef(0),subscription=useRef<(()=>void)|null>(null),locked=useRef(0);
  const contact=useRef<Contact|null>(null),pointer=useRef<Contact|null>(null);
  const wheel=useRef({at:0,x:0,y:0,axis:null as 'horizontal'|'vertical'|null,committed:false,pan:false});
@@ -56,7 +58,7 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
  const labels=copy[locale],photos=photoLabels[locale],group=technologyGroups[position.group],slide=group.slides[position.photo];
  useScrollLock(open);
  const select=useCallback((next:Position)=>{
-  requested.current=next;pending.current=true;contact.current=null;pointer.current=null;locked.current=viewport.current?.scrollTop??0;
+  stopInertia();requested.current=next;pending.current=true;contact.current=null;pointer.current=null;locked.current=viewport.current?.scrollTop??0;
   setLoading(true);setFailed(false);setProgress(null);subscription.current?.();const revision=++token.current;
   const resource=loadImage(technologyGroups[next.group].slides[next.photo].src,'auto');
   subscription.current=resource.subscribe(value=>{if(revision===token.current)setProgress(value.total?Math.round(value.loaded/value.total*100):null);});
@@ -64,7 +66,7 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
    if(revision!==token.current||!dialog.current?.open)return;
    displayed.current=next;setPosition(next);setImage(photo);pending.current=false;setLoading(false);subscription.current?.();subscription.current=null;
   }).catch(()=>{if(revision===token.current&&dialog.current?.open){setFailed(true);subscription.current?.();subscription.current=null;}});
- },[]);
+ },[stopInertia]);
  const move=useCallback((axis:'horizontal'|'vertical',delta:number)=>{
   if(pending.current)return;const current=displayed.current;
   const next=axis==='horizontal'?{...current,photo:current.photo+delta}:{group:current.group+delta,photo:0};
@@ -72,12 +74,6 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
   select(next);
  },[select]);
  useLayoutEffect(()=>{viewport.current?.scrollTo({top:0,left:0,behavior:'instant'});},[image]);
- useLayoutEffect(()=>{
-  const v=viewport.current;if(!open||!image||!v)return;
-  const update=()=>v.style.setProperty('--technology-touch-action',v.scrollHeight>v.clientHeight+1?'pan-y pinch-zoom':'pinch-zoom');
-  update();const observer=new ResizeObserver(update);observer.observe(v);if(v.firstElementChild)observer.observe(v.firstElementChild);
-  return()=>observer.disconnect();
- },[open,image]);
  useLayoutEffect(()=>{if(loading&&dialog.current?.open)dialog.current.focus({preventScroll:true});},[loading]);
  useEffect(()=>{
   const warm=()=>technologyGroups.forEach(g=>g.slides.forEach(s=>{void loadImage(s.src).ready.catch(()=>{});}));
@@ -94,17 +90,32 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
   document.addEventListener('keydown',key,true);document.addEventListener('pointerdown',pointer,true);document.addEventListener('click',activate);return()=>{document.removeEventListener('keydown',key,true);document.removeEventListener('pointerdown',pointer,true);document.removeEventListener('click',activate);subscription.current?.();};
  },[select]);
  const start=useCallback((x:number,y:number,id:number):Contact=>{
-  const v=viewport.current;return{x,y,id,axis:null,up:!v||v.scrollTop<=1,down:!v||v.scrollTop>=v.scrollHeight-v.clientHeight-1};
+  const v=viewport.current;return{x,y,id,axis:null,lastY:y,at:performance.now(),velocity:0,navigation:null,up:!v||v.scrollTop<=1,down:!v||v.scrollTop>=v.scrollHeight-v.clientHeight-1};
  },[]);
  const finish=useCallback((c:Contact,x:number,y:number)=>{
   const dx=x-c.x,dy=y-c.y;if(c.axis!=='vertical'&&Math.abs(dx)>=24&&Math.abs(dx)>=Math.abs(dy)*1.2)move('horizontal',dx<0?1:-1);
-  else if(c.axis!=='horizontal'&&Math.abs(dy)>=24&&Math.abs(dy)>=Math.abs(dx)*1.2&&((dy<0&&c.down)||(dy>0&&c.up)))move('vertical',dy<0?1:-1);
+  else if(c.axis!=='horizontal'&&Math.abs(dy)>=24&&Math.abs(dy)>=Math.abs(dx)*1.2){
+   const direction=c.navigation??(dy<0&&c.down?1:dy>0&&c.up?-1:0);
+   if(direction===(dy<0?1:-1))move('vertical',direction);
+  }
  },[move]);
+ const coast=useCallback((velocity:number)=>{
+  stopInertia();if(Math.abs(velocity)<.05||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  let at=performance.now();
+  const frame=(now:number)=>{
+   const v=viewport.current;if(!v||pending.current||!dialog.current?.open){inertia.current=null;return;}
+   const dt=Math.min(now-at,32);at=now;const previous=v.scrollTop,max=Math.max(0,v.scrollHeight-v.clientHeight);
+   v.scrollTop=Math.max(0,Math.min(max,previous+velocity*dt));velocity*=Math.exp(-dt/180);
+   if(Math.abs(velocity)<.02||v.scrollTop<=0||v.scrollTop>=max||v.scrollTop===previous){inertia.current=null;return;}
+   inertia.current=requestAnimationFrame(frame);
+  };
+  inertia.current=requestAnimationFrame(frame);
+ },[stopInertia]);
  useEffect(()=>{
   if(!open||!viewport.current)return;const v=viewport.current;
   wheel.current={at:0,x:0,y:0,axis:null,committed:false,pan:false};
   const onWheel=(event:WheelEvent)=>{
-   if(event.ctrlKey||(!event.deltaX&&!event.deltaY))return;
+   stopInertia();if(event.ctrlKey||(!event.deltaX&&!event.deltaY))return;
    if(pending.current){event.preventDefault();wheel.current.at=performance.now();wheel.current.committed=true;return;}
    const now=performance.now();if(now-wheel.current.at>180)wheel.current={at:now,x:0,y:0,axis:null,committed:false,pan:false};
    const g=wheel.current;g.at=now;const scale=event.deltaMode===1?16:event.deltaMode===2?v.clientHeight:1;g.x+=event.deltaX*scale;g.y+=event.deltaY*scale;
@@ -116,22 +127,33 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
    if(!g.axis||g.committed)return;const distance=g.axis==='horizontal'?g.x:g.y;if(Math.abs(distance)<45)return;
    g.committed=true;move(g.axis,g.axis==='horizontal'?(distance<0?1:-1):(distance>0?1:-1));
   };
-  const onStart=(e:globalThis.TouchEvent)=>{contact.current=e.touches.length===1&&!pending.current?start(e.touches[0].clientX,e.touches[0].clientY,e.touches[0].identifier):null;};
+  const onStart=(e:globalThis.TouchEvent)=>{stopInertia();contact.current=e.touches.length===1&&!pending.current?start(e.touches[0].clientX,e.touches[0].clientY,e.touches[0].identifier):null;};
   const onMove=(e:globalThis.TouchEvent)=>{
    const c=contact.current;if(!c)return;if(e.touches.length!==1){contact.current=null;return;}const t=e.touches[0];if(t.identifier!==c.id){contact.current=null;return;}
    const dx=t.clientX-c.x,dy=t.clientY-c.y;
-   if(!c.axis&&Math.max(Math.abs(dx),Math.abs(dy))>=8){if(Math.abs(dx)>=Math.abs(dy)*1.2)c.axis='horizontal';else if(Math.abs(dy)>=Math.abs(dx)*1.2)c.axis='vertical';}
-   if(c.axis==='horizontal'||(c.axis==='vertical'&&((dy<0&&c.down)||(dy>0&&c.up))))e.preventDefault();
+   if(!c.axis&&Math.max(Math.abs(dx),Math.abs(dy))>=8){if(Math.abs(dx)>=Math.abs(dy)*1.2)c.axis='horizontal';else if(Math.abs(dy)>=8){c.axis='vertical';c.navigation=dy<0&&c.down?1:dy>0&&c.up?-1:0;}}
+   if(c.axis)e.preventDefault();
+   if(c.axis==='vertical'&&c.navigation===0){
+    const now=performance.now(),dt=now-c.at;
+    if(dt>0)c.velocity=Math.max(-2.5,Math.min(2.5,(c.lastY-t.clientY)/dt));
+    v.scrollTop=Math.max(0,Math.min(v.scrollHeight-v.clientHeight,v.scrollTop+c.lastY-t.clientY));
+    c.lastY=t.clientY;c.at=now;
+   }
   };
-  const onEnd=(e:globalThis.TouchEvent)=>{const c=contact.current;contact.current=null;if(!c||e.touches.length)return;const t=Array.from(e.changedTouches).find(t=>t.identifier===c.id);if(t)finish(c,t.clientX,t.clientY);};
+  const onEnd=(e:globalThis.TouchEvent)=>{const c=contact.current;contact.current=null;if(!c||e.touches.length)return;const t=Array.from(e.changedTouches).find(t=>t.identifier===c.id);if(t){
+   const pan=c.axis==='vertical'&&c.navigation===0;
+   finish(c,t.clientX,t.clientY);
+   if(pan&&performance.now()-c.at<80)coast(c.velocity);
+  }};
   const cancel=()=>{contact.current=null;};
   v.addEventListener('wheel',onWheel,{passive:false});v.addEventListener('touchstart',onStart,{passive:true});v.addEventListener('touchmove',onMove,{passive:false});v.addEventListener('touchend',onEnd);v.addEventListener('touchcancel',cancel);
   return()=>{v.removeEventListener('wheel',onWheel);v.removeEventListener('touchstart',onStart);v.removeEventListener('touchmove',onMove);v.removeEventListener('touchend',onEnd);v.removeEventListener('touchcancel',cancel);};
- },[open,move,start,finish]);
- const pointerDown=(e:PointerEvent<HTMLDivElement>)=>{if(e.pointerType==='touch'||!e.isPrimary||e.button!==0||pending.current)return;pointer.current=start(e.clientX,e.clientY,e.pointerId);try{e.currentTarget.setPointerCapture(e.pointerId);}catch{}};
+ },[open,move,start,finish,coast,stopInertia]);
+ const pointerDown=(e:PointerEvent<HTMLDivElement>)=>{if(e.pointerType==='touch'||!e.isPrimary||e.button!==0||pending.current)return;stopInertia();pointer.current=start(e.clientX,e.clientY,e.pointerId);try{e.currentTarget.setPointerCapture(e.pointerId);}catch{}};
  return <dialog ref={dialog} id="technology-viewer" className="technology-viewer" data-group={group.title} data-photo-index={position.photo} aria-busy={loading} aria-labelledby="technology-viewer-title" tabIndex={-1}
- onClose={()=>{token.current++;pending.current=false;contact.current=null;pointer.current=null;subscription.current?.();subscription.current=null;setOpen(false);setLoading(false);opener.current?.toggleAttribute("data-pointer-return",!keyboardFocus.current);opener.current?.focus({preventScroll:true});}}
+ onClose={()=>{stopInertia();token.current++;pending.current=false;contact.current=null;pointer.current=null;subscription.current?.();subscription.current=null;setOpen(false);setLoading(false);opener.current?.toggleAttribute("data-pointer-return",!keyboardFocus.current);opener.current?.focus({preventScroll:true});}}
  onKeyDown={e=>{
+  stopInertia();
   if(e.key==='Tab'){const controls=Array.from(e.currentTarget.querySelectorAll<HTMLElement>('button:not(:disabled),[tabindex="0"]'));const index=controls.indexOf(document.activeElement as HTMLElement);if(index<0||(e.shiftKey?index===0:index===controls.length-1)){e.preventDefault();(e.shiftKey?controls.at(-1):controls[0])?.focus();}return;}
   const axes:Record<string,readonly['horizontal'|'vertical',number]>={ArrowRight:['horizontal',1],ArrowLeft:['horizontal',-1],ArrowDown:['vertical',1],ArrowUp:['vertical',-1]};if(axes[e.key]){e.preventDefault();const [axis,direction]=axes[e.key],v=viewport.current;if(axis==='vertical'&&v&&(direction>0?v.scrollTop+v.clientHeight<v.scrollHeight-1:v.scrollTop>1)){v.scrollBy({top:direction*80,behavior:'instant'});return;}move(axis,direction);}
  }}>

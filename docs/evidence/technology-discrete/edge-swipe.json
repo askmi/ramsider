@@ -1,0 +1,209 @@
+{
+  "change": "CHG-0090",
+  "date": "2026-10-11",
+  "preview": "http://127.0.0.1:3054/en#technology",
+  "status": "VERIFIED",
+  "contract": "Start-edge snapshot and fixed intent; contact that reaches edge pans only; new outward contact changes bounded technology and resets photo0; incremental pan permits immediate overshoot reversal.",
+  "tests": {
+    "result": "35 passed,17 explicit browser-API/profile skips",
+    "log": "/tmp/edge-closeout-tests.log",
+    "native": "Chromium CDP402/440/1024 en/ar; diagonal, reversal, edges, bounds, pinch, inertia interruption/reduced-motion",
+    "webkit": "Pro402x874/Max440x956 DPR3 real screenshots; endpoint contact lifecycle synthetic, not physical Safari"
+  },
+  "visual": {
+    "geometry": [
+      {
+        "width": 402,
+        "actualWidth": 402,
+        "dpr": 3,
+        "overflow": false
+      },
+      {
+        "width": 440,
+        "actualWidth": 440,
+        "dpr": 3,
+        "overflow": false
+      }
+    ],
+    "comparisons": [
+      {
+        "w": 402,
+        "i": 0,
+        "comparison": "INVALID legacy blank-raster baseline; source inspection required"
+      },
+      {
+        "w": 402,
+        "i": 1,
+        "differentPixels": 0
+      },
+      {
+        "w": 402,
+        "i": 2,
+        "differentPixels": 0
+      },
+      {
+        "w": 402,
+        "i": 3,
+        "differentPixels": 0
+      },
+      {
+        "w": 440,
+        "i": 0,
+        "differentPixels": 0
+      },
+      {
+        "w": 440,
+        "i": 1,
+        "differentPixels": 0
+      },
+      {
+        "w": 440,
+        "i": 2,
+        "differentPixels": 0
+      },
+      {
+        "w": 440,
+        "i": 3,
+        "differentPixels": 0
+      }
+    ],
+    "screenshots": "/tmp/edge-approved-{402,440}-{0,1,2,3}.png",
+    "audit": "Stage3 PASS, auditor viewed all8 plus Noble source",
+    "integration": "/tmp/edge-final-integration.json"
+  },
+  "performance": [
+    {
+      "conditions": "cold Chromium402 DPR3 loopback",
+      "initial": {
+        "lcp": 520,
+        "cls": 0,
+        "useful": 409.5,
+        "ttfb": 62.399999998509884,
+        "fcp": 148,
+        "jsBytes": 180958,
+        "transferredBytes": 27713879,
+        "galleryStarts": [
+          230.19999999552965,
+          230.29999999701977,
+          230.29999999701977,
+          230.39999999850988,
+          230.39999999850988,
+          230.5,
+          230.5,
+          230.5,
+          230.59999999403954,
+          230.59999999403954,
+          230.59999999403954
+        ],
+        "loadEnd": 230.59999999403954
+      },
+      "adaptation": [
+        {
+          "width": 375,
+          "article": 375,
+          "img": 375,
+          "height": 606.53125,
+          "expected": 606.5356004250797,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "article": 375,
+          "img": 375,
+          "height": 606.53125,
+          "expected": 606.5356004250797,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "article": 768,
+          "img": 768,
+          "height": 1242.171875,
+          "expected": 1242.1849096705632,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "article": 768,
+          "img": 768,
+          "height": 1242.171875,
+          "expected": 1242.1849096705632,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "article": 941,
+          "img": 941,
+          "height": 1522,
+          "expected": 1522,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "article": 941,
+          "img": 941,
+          "height": 1522,
+          "expected": 1522,
+          "overflow": false
+        }
+      ],
+      "scroll": {
+        "p95": 16.700000000000728,
+        "over33": 0
+      },
+      "mainScroll": {
+        "p95": 16.799999999999272,
+        "over33": 0
+      },
+      "cachedGroupMs": 41,
+      "errors": [],
+      "inp": "not measured; cachedGroupMs synthetic"
+    },
+    {
+      "conditions": "cold Chromium402 DPR3 4Mbps100ms4xCPU",
+      "initial": {
+        "lcp": 2360,
+        "cls": 0,
+        "useful": 2327,
+        "ttfb": 25.5,
+        "fcp": 440,
+        "jsBytes": 180958,
+        "transferredBytes": 7001397,
+        "galleryStarts": [],
+        "loadEnd": 14555.5
+      },
+      "adaptation": [],
+      "scroll": null,
+      "mainScroll": null,
+      "cachedGroupMs": null,
+      "errors": [],
+      "inp": "not measured; cachedGroupMs synthetic"
+    }
+  ],
+  "nativeTouchSmoothness": {
+    "nativeInput": "Chromium CDP touch,75 moves at16ms plus400ms inertia",
+    "frames": 250,
+    "p95": 16.700000000000728,
+    "over33": 0,
+    "scrollTop": 150,
+    "group": "HeatCore"
+  },
+  "static": {
+    "build": "/tmp/edge-build-approved.log PASS14SSG",
+    "type": "/tmp/edge-closeout-type.log PASS",
+    "lint": "/tmp/edge-closeout-lint.log 0errors2existingTelegramwarnings",
+    "review": "/tmp/edge-review-approved.log clean after3P2fixes"
+  },
+  "limits": [
+    "Physical Safari/Telegram not tested",
+    "INP/Lighthouse not measured",
+    "Performance samples not isolated benchmarks; browser suite overlapped",
+    "First legacy402Noble blank invalid excluded; root causeUNKNOWN",
+    "Raw /tmp artifacts are local and ephemeral; compact results retained here"
+  ],
+  "approval": "2026-10-11 /root APPROVED; independent tech03_closeout_audit scope/Stages3-6PASS",
+  "userApproval": "NOT_RECORDED",
+  "git": "User2026-10-11 authorized commit/push to origin/main; unrelated .gitignore/background_old.png excluded",
+  "retainedRawArtifacts": "screenshots/technology-edge/ (ignored Git)",
+  "previewObserved": "IAB3054 HeatCore open, marked deliverable"
+}

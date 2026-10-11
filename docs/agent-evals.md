@@ -122,3 +122,5 @@ CHG0087: assertpointer-return outline absent andkeyboard-return focus visible in
 CHG0088 extends EVAL-MAP acceptance with confirmed OpenSans reuse before raster font inference; afterfontchanges recapture wraps and captionaxes. ProductchecksPASS; controlledagent runNOT_RUN.
 
 CHG0089 links EVAL-MAP to RTL narrative column boundaries beside product art: acceptance requires actual Arabic screenshot without artwork overlap, in addition to box overflow checks. Controlled agent evaluation NOT_RUN; UI verification is not proof of behavioral improvement.
+
+CHG0090 extends EVAL-VIEWER prevention with native endpoint/new-contact tests, diagonal pan, overshoot reversal and preserving active work across usage/status questions. Product test evidence is separate from controlled agent evaluation; this extension is **NOT_RUN**.

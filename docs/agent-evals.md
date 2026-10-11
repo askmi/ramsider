@@ -116,3 +116,9 @@ CHG0084 acceptance: gallery/photo width and centering match maincanvas atdesktop
 CHG0085 addsiconcaptionglyphalignment acceptance: centertext AND boxesvsactualicons, inspectreadablebottomstrips. ProductPro/MaxPASS; controlledagentNOT_RUN.
 
 CHG0086 extendsEVAL-VIEWER: native32pxTouchfourdirections, fittingvs/talltouch-action + resize, cancel/multitouch/bounds/pending, overflowpan + horizontalnext. ProductchecksPASS; controlledagentrunNOT_RUN.
+
+CHG0087: assertpointer-return outline absent andkeyboard-return focus visible inWebKit; actualpostclosecaptures required. Product2PASS; controlledagentNOT_RUN.
+
+CHG0088 extends EVAL-MAP acceptance with confirmed OpenSans reuse before raster font inference; afterfontchanges recapture wraps and captionaxes. ProductchecksPASS; controlledagent runNOT_RUN.
+
+CHG0089 links EVAL-MAP to RTL narrative column boundaries beside product art: acceptance requires actual Arabic screenshot without artwork overlap, in addition to box overflow checks. Controlled agent evaluation NOT_RUN; UI verification is not proof of behavioral improvement.

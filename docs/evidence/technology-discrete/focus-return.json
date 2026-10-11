@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-11",
+  "preview": "http://127.0.0.1:3046/en#technology",
+  "profiles": [
+    "iphone-17-pro-webkit",
+    "iphone-17-pro-max-webkit"
+  ],
+  "testsPassed": 2,
+  "checks": [
+    "pointerclose: openerfocused,outline:none",
+    "keyboardEnter/Escape: openerfocused,outline:solid"
+  ],
+  "build": "PASS",
+  "nativeReview": "No actionable scoped findings",
+  "screenshots": "/tmp/ramsider-focus-iphone-17-{pro,pro-max}-webkit.png (local ignored)"
+}

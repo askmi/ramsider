@@ -11,6 +11,15 @@ export const technologyGroups = [
     { id: '04', src: '/art/technology/slides/heat-04.png' },
     { id: '05', src: '/art/technology/slides/heat-05.png' },
   ] },
+  { title: 'CapsuleCode', slides: [
+    { id: '01', src: '/art/technology/slides/capsule-01.png' },
+    { id: '02', src: '/art/technology/slides/capsule-02.png' },
+    { id: '03', src: '/art/technology/slides/capsule-03.png' },
+  ] },
+  { title: 'AirShield', slides: [
+    { id: '01', src: '/art/technology/slides/air-01.png' },
+    { id: '02', src: '/art/technology/slides/air-02.png' },
+  ] },
 ] as const;
 
 type GroupCopy = { previous: string };

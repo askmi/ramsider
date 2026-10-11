@@ -1,4 +1,6 @@
- 'use client';
+'use client';
+import {AirShieldDescriptions} from './AirShieldDescriptions';
+import {airShieldCopy} from '@/lib/airshield-descriptions';
 import {useCallback,useEffect,useLayoutEffect,useRef,useState,type PointerEvent} from 'react';
 import type {Locale} from '@/lib/i18n';
 import type {TechnologyDescriptionCopy,TechnologySlideId} from '@/lib/technology-descriptions';
@@ -8,6 +10,8 @@ import {LoadingStatus,useScrollLock} from './MediaLoading';
 import {TechnologyDescriptions} from './TechnologyDescriptions';
 import {NobleCraftDescriptions} from './NobleCraftDescriptions';
 import {nobleCraftCopy} from '@/lib/noblecraft-descriptions';
+import {CapsuleCodeDescriptions} from './CapsuleCodeDescriptions';
+import {capsuleCodeCopy} from '@/lib/capsulecode-descriptions';
 type ViewerCopy = { technology: string; close: string; nextGroup: string; names: readonly [string, string, string, string] };
 const copy: Record<Locale, ViewerCopy> = {
   en: { technology: 'Technology', close: 'Close technology viewer', nextGroup: 'Next Technology', names: ['Three heaters', 'Active air sails', 'Programmable heat profiles', 'Gold and titanium nitride'] },
@@ -44,6 +48,7 @@ type Position={group:number;photo:number};
 type Contact={x:number;y:number;id:number;up:boolean;down:boolean;axis:'horizontal'|'vertical'|null};
 export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptions:TechnologyDescriptionCopy}){
  const dialog=useRef<HTMLDialogElement>(null),viewport=useRef<HTMLDivElement>(null),opener=useRef<HTMLElement|null>(null);
+ const keyboardFocus=useRef(false);
  const displayed=useRef<Position>({group:0,photo:0}),requested=useRef<Position>({group:0,photo:0}),pending=useRef(false),token=useRef(0),subscription=useRef<(()=>void)|null>(null),locked=useRef(0);
  const contact=useRef<Contact|null>(null),pointer=useRef<Contact|null>(null);
  const wheel=useRef({at:0,x:0,y:0,axis:null as 'horizontal'|'vertical'|null,committed:false,pan:false});
@@ -84,7 +89,9 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
    const trigger=event.target instanceof Element?event.target.closest<HTMLElement>('[data-technology-open]'):null;
    if(!trigger||dialog.current?.open)return;event.preventDefault();opener.current=trigger;displayed.current={group:0,photo:0};setPosition(displayed.current);setImage(null);setOpen(true);dialog.current?.showModal();select(displayed.current);
   };
-  document.addEventListener('click',activate);return()=>{document.removeEventListener('click',activate);subscription.current?.();};
+  const key=()=>{keyboardFocus.current=true;opener.current?.removeAttribute('data-pointer-return');};
+  const pointer=()=>{keyboardFocus.current=false;};
+  document.addEventListener('keydown',key,true);document.addEventListener('pointerdown',pointer,true);document.addEventListener('click',activate);return()=>{document.removeEventListener('keydown',key,true);document.removeEventListener('pointerdown',pointer,true);document.removeEventListener('click',activate);subscription.current?.();};
  },[select]);
  const start=useCallback((x:number,y:number,id:number):Contact=>{
   const v=viewport.current;return{x,y,id,axis:null,up:!v||v.scrollTop<=1,down:!v||v.scrollTop>=v.scrollHeight-v.clientHeight-1};
@@ -123,7 +130,7 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
  },[open,move,start,finish]);
  const pointerDown=(e:PointerEvent<HTMLDivElement>)=>{if(e.pointerType==='touch'||!e.isPrimary||e.button!==0||pending.current)return;pointer.current=start(e.clientX,e.clientY,e.pointerId);try{e.currentTarget.setPointerCapture(e.pointerId);}catch{}};
  return <dialog ref={dialog} id="technology-viewer" className="technology-viewer" data-group={group.title} data-photo-index={position.photo} aria-busy={loading} aria-labelledby="technology-viewer-title" tabIndex={-1}
- onClose={()=>{token.current++;pending.current=false;contact.current=null;pointer.current=null;subscription.current?.();subscription.current=null;setOpen(false);setLoading(false);opener.current?.focus({preventScroll:true});}}
+ onClose={()=>{token.current++;pending.current=false;contact.current=null;pointer.current=null;subscription.current?.();subscription.current=null;setOpen(false);setLoading(false);opener.current?.toggleAttribute("data-pointer-return",!keyboardFocus.current);opener.current?.focus({preventScroll:true});}}
  onKeyDown={e=>{
   if(e.key==='Tab'){const controls=Array.from(e.currentTarget.querySelectorAll<HTMLElement>('button:not(:disabled),[tabindex="0"]'));const index=controls.indexOf(document.activeElement as HTMLElement);if(index<0||(e.shiftKey?index===0:index===controls.length-1)){e.preventDefault();(e.shiftKey?controls.at(-1):controls[0])?.focus();}return;}
   const axes:Record<string,readonly['horizontal'|'vertical',number]>={ArrowRight:['horizontal',1],ArrowLeft:['horizontal',-1],ArrowDown:['vertical',1],ArrowUp:['vertical',-1]};if(axes[e.key]){e.preventDefault();const [axis,direction]=axes[e.key],v=viewport.current;if(axis==='vertical'&&v&&(direction>0?v.scrollTop+v.clientHeight<v.scrollHeight-1:v.scrollTop>1)){v.scrollBy({top:direction*80,behavior:'instant'});return;}move(axis,direction);}
@@ -140,9 +147,9 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
  <div ref={viewport} className="technology-viewer__scroll" tabIndex={0} role="region" aria-label={`${photos[0]} / ${photos[1]}; ${technologyGroupCopy[locale].previous} / ${labels.nextGroup}`}
  onScroll={e=>{if(pending.current&&e.currentTarget.scrollTop!==locked.current)e.currentTarget.scrollTop=locked.current;}}
  onPointerDown={pointerDown} onPointerUp={e=>{const c=pointer.current;pointer.current=null;if(c?.id===e.pointerId)finish(c,e.clientX,e.clientY);}} onPointerCancel={()=>{pointer.current=null;}}>
- {open&&image&&<article className="technology-viewer__content" data-photo={slide.src}>
- <RetainedPhoto image={image} name={`${group.title} — ${position.group===1?labels.names[position.photo]:nobleName(locale,position.photo)}`}/>
- {position.group===1?<TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={labels.names[position.photo]} copy={descriptions} cropTop={102}/>:<NobleCraftDescriptions slide={position.photo} locale={locale}/>}
+ {open&&image&&<article className="technology-viewer__content" data-photo={slide.src} style={{aspectRatio:`${image.naturalWidth}/${image.naturalHeight}`}}>
+ <RetainedPhoto image={image} name={`${group.title} — ${position.group===3?airShieldCopy[locale][position.photo].headline.replaceAll('\n',' '):position.group===1?labels.names[position.photo]:position.group===2?capsuleCodeCopy[locale][position.photo].headline.replaceAll('\n',' '):nobleName(locale,position.photo)}`}/>
+ {position.group===3?<AirShieldDescriptions slide={position.photo} locale={locale} descriptor={labels.technology}/>:position.group===2?<CapsuleCodeDescriptions slide={position.photo} locale={locale} descriptor={labels.technology}/>:position.group===1?<TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={labels.names[position.photo]} copy={descriptions} cropTop={102}/>:<NobleCraftDescriptions slide={position.photo} locale={locale}/>}
  </article>}
  </div>
  {open&&loading&&<div className="technology-viewer__loading"><LoadingStatus locale={locale} progress={progress} error={failed} onRetry={()=>select(requested.current)}/></div>}

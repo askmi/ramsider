@@ -375,3 +375,9 @@ This is the repository's **error-prevention memory**, separate from current proj
 - CHG0085: centeredlabelbox does not center its glyphs when sharedtextalignment is start. For icon captions, assert text-align:center AND labelboxcenter vs actualicon; inspect bottomstrip atreadablescale. Rootcheckedcaptionpresence butmissedalignment. ControlledEVAL-VIEWERNOT_RUN.
 
 - CHG0086: fittingphoto must reserve verticalfinger gesture beforebrowserpan begins; cancelinglate touchmove is insufficient on someengines. Set touch-action from actualoverflowbeforecontact, recalcresize. Test light32pxnativeTouch in all4directions, bounds/cancel/multitouch, nativeverticaloverflow andhorizontalnavigation. Rootkeptpan-y everywhere andrightwardnext meantleftswipeonfirstphoto no-op; nativechecksnowPASS, physicalSafariunverified. ControlledEVAL-VIEWERNOT_RUN.
+
+- CHG0087: aftermodal programmaticfocusrestore, Safari can showfocus-visible followingpointerclose. Trackinputmodality, suppressonlypointer-return outline andclear onkeydown; retainfocusrestore andkeyboardindicator. Testbothpointercloseappearance andkeyboardEscape/Tab. Rootcheckedfocusdestination butmissedpointerappearance. EVAL-VIEWERcontrolledNOT_RUN.
+
+- CHG0088: root inferred Arial from new photo glyphs despite established OpenSans; user corrected it. Reuse confirmed typography map for analogous sections before visual inference, and verify final font family plus recaptured wraps/caption axes. EVAL-MAP controlled NOT_RUN.
+
+- CHG0089 RTL column placement: full-width SVG text boxes beside product art allowed Arabic right alignment over the product despite zero DOM overflow. Bound eyebrow/headline/body to the actual art-free column for every locale and inspect RTL screenshots; overflow-only checks cannot approve composition. EVAL-MAP controlledNOT_RUN.

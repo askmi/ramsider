@@ -1,0 +1,253 @@
+{
+  "id": "CHG0089",
+  "date": "2026-10-11",
+  "status": "VERIFIED",
+  "preview": "http://127.0.0.1:3051/en#technology",
+  "assets": [
+    {
+      "source": "design/references/tech_04/01.png",
+      "output": "public/art/technology/slides/air-01.png",
+      "width": 941,
+      "height": 1522,
+      "channels": 4,
+      "icc": "absent; native untagged channels retained",
+      "maskedPixels": 20846,
+      "outsideChanged": 0,
+      "alphaExact": true,
+      "decodedExact": true,
+      "bytes": 1704824,
+      "sha256": "4f970d4571fc7c341930e18a86c4966c7dd55d8165d6118209a8b3e1a65de910"
+    },
+    {
+      "source": "design/references/tech_04/04.png",
+      "output": "public/art/technology/slides/air-02.png",
+      "width": 941,
+      "height": 1522,
+      "channels": 4,
+      "icc": "absent; native untagged channels retained",
+      "maskedPixels": 20877,
+      "outsideChanged": 0,
+      "alphaExact": true,
+      "decodedExact": true,
+      "bytes": 1895073,
+      "sha256": "3ce6dc8bb4c70abd77bf973dc6f57b79b318aaf47a831dccbd7d8f3ea9f01eb5"
+    }
+  ],
+  "copy": "React OpenSans,11 locales; original clean01/text02 andclean04/text03; nativeicons onlysecond,axes137.5/469.5/801.5",
+  "tests": {
+    "fullGallery": "31PASS9explicitAPI/duplicateSKIP beforeRTLcolumnfix",
+    "finalAffected": "4PASS; Pro11locales plusMaxChromiumFirefox",
+    "build": "14SSGPASS",
+    "type": "PASS",
+    "lint": "0errors2preexistingTelegramwarnings",
+    "nativeReview": "initialP2RTLfixed; finaldelta clean"
+  },
+  "visualDiff": [
+    {
+      "slide": 1,
+      "width": 1206,
+      "height": 1956,
+      "threshold": 0.18,
+      "differentPercent": 3.508997276738326,
+      "method": "same WebKit geometry; intercepted reference-composite PNG, live overlay hidden"
+    },
+    {
+      "slide": 2,
+      "width": 1206,
+      "height": 1956,
+      "threshold": 0.18,
+      "differentPercent": 3.039166810799445,
+      "method": "same WebKit geometry; intercepted reference-composite PNG, live overlay hidden"
+    }
+  ],
+  "performance": [
+    {
+      "conditions": "cold Chromium402 DPR3 loopback",
+      "initial": {
+        "lcp": 316,
+        "cls": 0,
+        "useful": 287.1000000014901,
+        "ttfb": 9.700000002980232,
+        "fcp": 100,
+        "jsBytes": 180666,
+        "transferredBytes": 27713592,
+        "galleryStarts": [
+          142,
+          142.20000000298023,
+          142.29999999701977,
+          142.39999999850988,
+          142.5,
+          142.60000000149012,
+          142.70000000298023,
+          142.79999999701977,
+          142.79999999701977,
+          142.89999999850988,
+          143.10000000149012
+        ],
+        "loadEnd": 124
+      },
+      "adaptation": [
+        {
+          "width": 375,
+          "article": 375,
+          "img": 375,
+          "height": 606.53125,
+          "expected": 606.5356004250797,
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "article": 375,
+          "img": 375,
+          "height": 606.53125,
+          "expected": 606.5356004250797,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "article": 768,
+          "img": 768,
+          "height": 1242.171875,
+          "expected": 1242.1849096705632,
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "article": 768,
+          "img": 768,
+          "height": 1242.171875,
+          "expected": 1242.1849096705632,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "article": 941,
+          "img": 941,
+          "height": 1522,
+          "expected": 1522,
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "article": 941,
+          "img": 941,
+          "height": 1522,
+          "expected": 1522,
+          "overflow": false
+        }
+      ],
+      "scroll": {
+        "p95": 16.800000000000182,
+        "over33": 0
+      },
+      "mainScroll": {
+        "p95": 16.799999999999272,
+        "over33": 0
+      },
+      "cachedGroupMs": 33,
+      "errors": [],
+      "inp": "not measured; cachedGroupMs synthetic"
+    },
+    {
+      "conditions": "cold Chromium402 DPR3 4Mbps100ms4xCPU",
+      "initial": {
+        "lcp": 2316,
+        "cls": 0,
+        "useful": 2280.1999999955297,
+        "ttfb": 6.600000001490116,
+        "fcp": 420,
+        "jsBytes": 180666,
+        "transferredBytes": 7001110,
+        "galleryStarts": [],
+        "loadEnd": 14541.79999999702
+      },
+      "adaptation": [],
+      "scroll": null,
+      "mainScroll": null,
+      "cachedGroupMs": null,
+      "errors": [],
+      "inp": "not measured; cachedGroupMs synthetic"
+    }
+  ],
+  "integration": [
+    {
+      "width": 402,
+      "states": [
+        {
+          "id": "hero-title",
+          "scroll": 0
+        },
+        {
+          "id": "technology",
+          "scroll": 2408
+        },
+        {
+          "id": "documents",
+          "scroll": 9429
+        },
+        {
+          "id": "faq",
+          "scroll": 11104
+        },
+        {
+          "id": "final",
+          "scroll": 12851
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "width": 440,
+      "states": [
+        {
+          "id": "hero-title",
+          "scroll": 0
+        },
+        {
+          "id": "technology",
+          "scroll": 2636
+        },
+        {
+          "id": "documents",
+          "scroll": 10320
+        },
+        {
+          "id": "faq",
+          "scroll": 12154
+        },
+        {
+          "id": "final",
+          "scroll": 14066
+        }
+      ],
+      "overflow": false
+    }
+  ],
+  "defect": {
+    "mistake": "second heading boxes830wide let RTL align overtiltedproduct",
+    "fix": "bound secondallnarrativeblocks520; recaptureRTL",
+    "responsibility": "AGENT",
+    "eval": "EVAL-MAP controlledNOT_RUN"
+  },
+  "limits": [
+    "No pixelidentity claim; OpenSans differs fromrastertype",
+    "physicalSafariTelegram/INP/Lighthouse unmeasured",
+    "Productmembrane/leak/purge/tilt claims unverified",
+    "Existing residualsCHG0071/0065/0035 retained"
+  ],
+  "artifacts": "/tmp/tech04-* actual browsercaptures,controls,diffs,logs; ephemeral: preserve beforeworkspacecleanup",
+  "audits": {
+    "scope": "PASS",
+    "initialStage3": "FAIL RTLcolumn; preserved; repaired520width",
+    "Stage3Reaudit": "PASS",
+    "Stage4": "PASS",
+    "Stage5": "PASS",
+    "Stage6Records": "PASS"
+  },
+  "technicalApproval": {
+    "date": "2026-10-11",
+    "verifier": "/root",
+    "independentAuditor": "tech03_closeout_audit",
+    "evidence": "actualfinalmobile/locale/adaptation/assembledscreenshots, test/build/type/lint/native reviews/performance/assetroundtrip"
+  }
+}

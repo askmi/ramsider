@@ -1,0 +1,19 @@
+{
+  "conditions": "production Chromium402x874DPR3 cold4Mbps100ms4xCPU; transitionloopback1xCPU",
+  "first": {
+    "lcp": 2532,
+    "cls": 0,
+    "usefulMs": 2867.2000000029802,
+    "jsBytes": 210689
+  },
+  "motion": {
+    "frameCount": 55,
+    "p95Ms": 16.700000000000273,
+    "framesOver33": 0,
+    "cls": 0,
+    "remainingSnapshots": 0
+  },
+  "rapidReverseCloseReopen": "PASS",
+  "INP": "NOT_MEASURED",
+  "physicalSafari": "NOT_VERIFIED"
+}

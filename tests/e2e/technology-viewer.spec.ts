@@ -1,14 +1,14 @@
 import {expect,test} from '@playwright/test';
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
-import {openTechnology} from './helpers/technology';
+import {openTechnology,settleTechnology} from './helpers/technology';
 import {airShieldCopy} from '../../lib/airshield-descriptions';
 import {capsuleCodeCopy} from '../../lib/capsulecode-descriptions';
 import {locales} from '../../lib/i18n';
 
 test('CapsuleCode third group: three proportional photos, exact icon axes, reversible navigation',async({page},info)=>{
  await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');
- const ready=()=>expect(viewer).toHaveAttribute('aria-busy','false');await ready();
+ const ready=async()=>{await expect(viewer).toHaveAttribute('aria-busy','false');await expect(viewer.locator('.technology-viewer__snapshot')).toHaveCount(0);};await ready();
  for(let i=0;i<2;i++){await viewer.locator('footer button').last().click();await ready();}
  await expect(viewer).toHaveAttribute('data-group','CapsuleCode');
  await expect(viewer.locator('footer button').last()).toBeEnabled();
@@ -43,6 +43,7 @@ test('CapsuleCode translations fit in every locale and Arabic direction is prese
   for(let i=0;i<3;i++){
    if(i){await v.locator('header button').nth(1).click();await expect(v).toHaveAttribute('aria-busy','false');}
    await page.evaluate(()=>document.fonts.ready);
+   await expect(v.locator('.technology-viewer__snapshot')).toHaveCount(0);
    expect(await v.locator('.technology-viewer__capsule .technology-description__box').evaluateAll(boxes=>boxes.filter(e=>e.firstElementChild!.scrollHeight>e.clientHeight+1||e.firstElementChild!.scrollWidth>e.clientWidth+1).length)).toBe(0);
    await expect(v.locator('[data-description-block="capsule-body"] > div')).toHaveAttribute('dir',locale==='ar'?'rtl':'ltr');
    if(locale==='ar'||locale==='de')await page.screenshot({path:`/tmp/tech03-${locale}-${i+1}.png`});
@@ -54,7 +55,7 @@ test('AirShield eighth: source geometry, icon axes, OpenSans and every locale',a
  const matrix=info.project.name==='iphone-17-pro-webkit'?locales:['en'] as const;
  for(const locale of matrix){
   await page.goto(`/${locale}`);await openTechnology(page);const v=page.locator('#technology-viewer');
-  const ready=()=>expect(v).toHaveAttribute('aria-busy','false');await ready();
+  const ready=()=>settleTechnology(v);await ready();
   for(let i=0;i<7;i++){await v.locator('footer button').last().click();await ready();}
   await expect(v).toHaveAttribute('data-group','AirShield');await expect(v.locator('footer button').last()).toBeEnabled();
   for(let i=0;i<2;i++){
@@ -89,6 +90,7 @@ test('photos move horizontally; technologies move vertically; source ratio and t
   await page.goto(`/${locale}`);await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
   await expect(viewer).toHaveAttribute('data-group','NobleCraft');await expect(viewer.locator('article')).toHaveCount(1);
   const check=async()=>{
+   await expect(viewer.locator('.technology-viewer__snapshot')).toHaveCount(0);
    const box=await viewer.locator('.technology-viewer__content').boundingBox();const image=await viewer.locator(".technology-viewer__photo img").boundingBox();expect(image!.height).toBeCloseTo(box!.height,0);const canvas=await page.locator(".canvas").boundingBox();expect(box!.width).toBeCloseTo(canvas!.width,0);const frame=await viewer.boundingBox();expect(frame!.x).toBeCloseTo(canvas!.x,0);expect(Math.abs(box!.height-box!.width*1522/941)).toBeLessThan(1);
    await expect(viewer.locator('.technology-viewer__toolbar--top')).toHaveCSS('height','48px');await expect(viewer.locator('.technology-viewer__toolbar--bottom')).toHaveCSS('height','48px');
   };

@@ -1,13 +1,14 @@
 import {test,expect} from '@playwright/test';
-import {openTechnology} from './helpers/technology';
+import {openTechnology,settleTechnology} from './helpers/technology';
 import {locales} from '../../lib/i18n';
 import {technologyGroups} from '../../lib/technology-gallery';
 import {writeFile} from 'node:fs/promises';
 
 test('CyberMind fourth and AirShield eighth: live source-aligned text in every locale',async({page},info)=>{
+ test.setTimeout(120000); // Eleven locales now include real settled transition barriers.
  const results=[];expect(technologyGroups.map(g=>g.title)).toEqual(['NobleCraft','HeatCore','CapsuleCode','CyberMind','TouchLink','MoodEngine','AquaSense','AirShield','QuickCell','PolyArmor']);expect(technologyGroups.at(-1)?.title).toBe('PolyArmor');
  for(const locale of (info.project.name==='iphone-17-pro-webkit'?locales:['en'] as const)){
-  await page.goto(`/${locale}`);await openTechnology(page);const v=page.locator('#technology-viewer');const ready=()=>expect(v).toHaveAttribute('aria-busy','false');await ready();
+  await page.goto(`/${locale}`);await openTechnology(page);const v=page.locator('#technology-viewer');const ready=()=>settleTechnology(v);await ready();
   for(let i=0;i<3;i++){await v.locator('footer button').last().click();await ready();}await expect(v).toHaveAttribute('data-group','CyberMind');
   for(let i=0;i<2;i++){
    if(i){await v.locator('header button').nth(1).click();await ready();}await page.evaluate(()=>document.fonts.ready);await page.evaluate(()=>new Promise(async r=>{for(let n=0;n<10;n++)await new Promise(done=>requestAnimationFrame(done));r(null)}));

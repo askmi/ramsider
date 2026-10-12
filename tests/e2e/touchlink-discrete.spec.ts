@@ -1,5 +1,5 @@
 import {test,expect} from '@playwright/test';
-import {openTechnology} from './helpers/technology';
+import {openTechnology,settleTechnology} from './helpers/technology';
 import {locales} from '../../lib/i18n';
 import {technologyGroups} from '../../lib/technology-gallery';
 import {writeFile,mkdir} from 'node:fs/promises';
@@ -11,7 +11,7 @@ test('TouchLink three source-aligned slides, fifth group and all locale columns'
  const results=[];const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await mkdir(artifacts,{recursive:true});
  expect(technologyGroups.map(g=>g.title)).toEqual(['NobleCraft','HeatCore','CapsuleCode','CyberMind','TouchLink','MoodEngine','AquaSense','AirShield','QuickCell','PolyArmor']);
  for(const locale of (info.project.name==='iphone-17-pro-webkit'?locales:['en','ar'] as const)){
-  await page.goto(`/${locale}`);await openTechnology(page);const v=page.locator('#technology-viewer');const ready=()=>expect(v).toHaveAttribute('aria-busy','false');await ready();
+  await page.goto(`/${locale}`);await openTechnology(page);const v=page.locator('#technology-viewer');const ready=()=>settleTechnology(v);await ready();
   for(let i=0;i<4;i++){await v.locator('footer button').last().click();await ready();}await expect(v).toHaveAttribute('data-group','TouchLink');
   for(let i=0;i<3;i++){
    if(i){await v.locator('header button').nth(1).click();await ready();}await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(100);
@@ -28,7 +28,7 @@ test('TouchLink three source-aligned slides, fifth group and all locale columns'
 
 test('TouchLink adapts to phone tablet desktop; keyboard and assembled page',async({page},info)=>{
  test.skip(info.project.name!=='iphone-17-pro-webkit','one focused adaptation matrix');
- await page.goto('/en');await openTechnology(page);const v=page.locator('#technology-viewer');const ready=()=>expect(v).toHaveAttribute('aria-busy','false');await ready();for(let i=0;i<4;i++){await v.locator('footer button').last().click();await ready()}
+ await page.goto('/en');await openTechnology(page);const v=page.locator('#technology-viewer');const ready=()=>settleTechnology(v);await ready();for(let i=0;i<4;i++){await v.locator('footer button').last().click();await ready()}
  const results=[];
  for(const size of [{width:402,height:650},{width:375,height:812},{width:768,height:1024},{width:1440,height:900}]){
   await page.setViewportSize(size);

@@ -1,5 +1,5 @@
 import {test,expect} from '@playwright/test';
-import {openTechnology} from './helpers/technology';
+import {openTechnology,settleTechnology} from './helpers/technology';
 import {locales} from '../../lib/i18n';
 import {technologyGroups} from '../../lib/technology-gallery';
 import {mkdir,writeFile} from 'node:fs/promises';
@@ -9,7 +9,7 @@ test('MoodEngine and AquaSense: native PNG, live copy, locale columns and group 
  expect(technologyGroups.map(g=>g.title)).toEqual(['NobleCraft','HeatCore','CapsuleCode','CyberMind','TouchLink','MoodEngine','AquaSense','AirShield','QuickCell','PolyArmor']);
  const results=[],errors:string[]=[],paths:string[]=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(/\/(mood|aqua)-/.test(r.url()))paths.push(new URL(r.url()).pathname)});
  for(const locale of (info.project.name==='iphone-17-pro-webkit'?locales:['en','ar'] as const)){
-  await page.goto(`/${locale}`);await openTechnology(page);const v=page.locator('#technology-viewer'),ready=()=>expect(v).toHaveAttribute('aria-busy','false');await ready();
+  await page.goto(`/${locale}`);await openTechnology(page);const v=page.locator('#technology-viewer'),ready=()=>settleTechnology(v);await ready();
   for(let i=0;i<5;i++){await v.locator('footer button').last().click();await ready()}
   for(const [kind,name] of [['mood','MoodEngine'],['aqua','AquaSense']] as const){
    await expect(v).toHaveAttribute('data-group',name);
@@ -28,7 +28,7 @@ test('MoodEngine and AquaSense: native PNG, live copy, locale columns and group 
  expect(errors).toEqual([]);expect(paths.length).toBeGreaterThan(0);expect(paths.every(p=>p.endsWith('.png'))).toBe(true);await writeFile(`${artifacts}/${info.project.name}-geometry.json`,JSON.stringify({results,errors,requestedPaths:[...new Set(paths)]},null,2));
 });
 test('four new slides adapt, retain bottom access and keyboard; assembled page',async({page},info)=>{
- test.skip(info.project.name!=='iphone-17-pro-webkit','one adaptation matrix');await mkdir(artifacts,{recursive:true});await page.goto('/en');await openTechnology(page);const v=page.locator('#technology-viewer'),ready=()=>expect(v).toHaveAttribute('aria-busy','false');await ready();for(let i=0;i<5;i++){await v.locator('footer button').last().click();await ready()}
+ test.skip(info.project.name!=='iphone-17-pro-webkit','one adaptation matrix');await mkdir(artifacts,{recursive:true});await page.goto('/en');await openTechnology(page);const v=page.locator('#technology-viewer'),ready=()=>settleTechnology(v);await ready();for(let i=0;i<5;i++){await v.locator('footer button').last().click();await ready()}
  const results=[];
  for(const size of [{width:402,height:650},{width:375,height:812},{width:768,height:1024},{width:1440,height:900}]){
   await page.setViewportSize(size);

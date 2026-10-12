@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-13",
+  "change": "CHG-0106",
+  "runtime_files": [
+    "app/globals.css"
+  ],
+  "effect": "140ms ease-out opacity0.94\u21921, explicit reduced-motion:none",
+  "unchanged": "runtimeJS, markup, text, icons, source PNGs, geometry, gesture thresholds, loading, Safari code",
+  "browser": "6 WebKit Pro/Max PASS;2native touch/trackpad PASS; temporal/readiness/RTL/adaptation PASS; settled4imagecomparisons0channels",
+  "static": "type/build14SSG PASS;lint0errors2existingwarnings; native reviewexit0/noactionable, ownreviewerWebKit launch blocked\u2014not actualrootbrowsergate failure",
+  "performance_file": "performance.json",
+  "browser_file": "browser.json",
+  "technical_approval": {
+    "date": "2026-10-13",
+    "verifier": "/root",
+    "verdict": "APPROVED",
+    "independent_stages": "icons_final_audit scope re-audit/Stages2\u20135 PASS",
+    "final_records": "icons_final_audit PASS2026-10-13; exact records checked"
+  },
+  "initial_scope": "FAIL awaiting concrete journal/lowerbound before implementation; corrected to .94\u21921 and re-audited PASS",
+  "user_acceptance": "NOT_RECORDED, minimal change authorized",
+  "limitations": [
+    "physical Safari/Telegram not re-certified",
+    "INP/Lighthouse unmeasured",
+    "controlled Agent Eval NOT_RUN",
+    "CHG0105 beta production-domain mismatch OPEN"
+  ],
+  "publication": "No commit/push requested or performed",
+  "preview": "production http://127.0.0.1:3068/en#technology refreshed, NobleCraft open",
+  "locales": "existing ProWebKit translationsfit1PASS, all11locales\u00d73photos",
+  "total_existing_browser_checks_passed": 9
+}

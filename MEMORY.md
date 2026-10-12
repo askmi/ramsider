@@ -143,3 +143,9 @@ CHG0099 APPLIED_UNVERIFIED/nativechromeBLOCKED: root reuses existing00.webp/shar
 CHG0099 independent safari_audit final scopedStages3–5/recordsStage6PASS; nativeSafarigateBLOCKED independentlysimctl exit72, candidateAPPLIED_UNVERIFIED; pageonlyapproval doesnotcertifysystemstatusbar.
 
 CHG0099 userauthorizedfastpush2026-10-12 toorigin/main; dispatchingSafari-onlyscope, unrelatedCHG0098pendingedits remainlocal. NativechromeverificationstillBLOCKED. RecordedQA/performance measuredworkingcheckoutwithpendingpreload, notcleancommitbuild.
+
+
+## Secret incident — 2026-10-12
+CHG0101: user reports GitGuardian; exact supplied timestamp found in historical docs/evidence/media-loading/retained-native-review.log, plus a second private native-review diagnostic log. Both already absent current tree but exposed through history. Cleanup rewrites only affected main descendants and four application checkpoint trees; original current product tree and unrelated branch identities/dirty work preserved. Pattern guards for index/commit messages/outgoing history and raw-log prevention added; raw diagnostics remain local only, no secret values in summaries. GitGuardian incident type/provider revocation and GitHub cached views remain unconfirmed. Follow CHG0101 for final remote/evidence status. Never display/commit/publish secrets without explicit user approval.
+
+CHG0101 applied technical gate independently PASS: main now rewritten e25d65e, product tree unchanged, all refs scanned3804objects0findings,7tests/native correctedreviewPASS, hooksactive,11unrelateddirtyfiles intact. Overallincident BLOCKED: GitGuardian credential identification/revocation/cached views unconfirmed; reflogs0/backuprefs0 but2diagnosticblobs remain unreachable locally. Auto-review rejected broad gitgc--prune=now due unrelated recovery-data loss; explicit approval needed for broad pruning, no bypass. Temporary incident clones removed. Remote rewrite pending exactsecuritycommit.

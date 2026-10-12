@@ -64,3 +64,6 @@ next-env.d.ts
 !/docs/evidence/technology-viewer/cybermind/mask-*.png
 **/__pycache__/
 *.py[cod]
+
+# Raw process logs can contain private runtime metadata and credentials.
+*.log

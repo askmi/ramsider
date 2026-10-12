@@ -29,6 +29,8 @@ For substantive project work, start one independent, non-editing **discipline au
 
 ## Standing constraints
 
+- Secrets: never display, commit, or publish secrets without the user's explicit approval. Capture raw process logs only in ignored local storage; retain sanitized summaries in Git. Before committing run `python3 tools/check-secrets.py`; before pushing run `python3 tools/check-secrets.py --history`. Install the repository guards with `git config core.hooksPath .githooks`; they are pattern checks, not proof that arbitrary credentials are absent. On exposure, remove affected history and verify revocation separately; deleting the current file is insufficient.
+
 - Git: work on `main`. Create or switch to another working branch only on the user’s explicit command; do not infer authorization from the configured upstream, skill defaults or an old checkout. Check the current branch and exact destination before commit/push; push to `origin/main` for this project.
 
 - Working-context efficiency: throughout coding and QA, read only affected code and stage docs; inspect the long reference and screenshots through relevant crops at useful resolution. Keep full-size images, raw image data, long logs, and unrelated file dumps out of model context. Reuse recorded findings, bound tool output, and rerun only checks affected by a change. Never skip required QA to save tokens; stop once all applicable gates pass.

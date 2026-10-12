@@ -1,0 +1,52 @@
+{
+  "incident": "CHG-0101",
+  "date": "2026-10-12",
+  "source": "User reports GitGuardian; credential type unconfirmed",
+  "removed_paths": [
+    "docs/evidence/media-loading/retained-native-review.log",
+    "docs/evidence/technology-viewer/cybermind/native-review-final.log"
+  ],
+  "first_changed_commit": "44fdf2ab8751733b6d13fdf9a27c789eff95dbf5",
+  "rewritten_commits": 23,
+  "rewritten_checkpoint_trees": 4,
+  "main_original_product_tree_preserved": true,
+  "other_branch_identities_preserved": true,
+  "unrelated_dirty_files_byte_preserved": 11,
+  "candidate_history_scan": {
+    "objects": 3804,
+    "findings": [],
+    "exit_code": 0
+  },
+  "guard_tests": {
+    "unittest": 7,
+    "actual_git_rejections": [
+      "pre-commit credential rejection PASS",
+      "commit-msg rejection PASS",
+      "pre-commit raw log rejection PASS",
+      "history new raw log rejection PASS",
+      "actual pre-push rejection PASS"
+    ]
+  },
+  "native_review": "PASS: first three findings fixed; fourth focused delta review exit0, no actionable findings",
+  "remote_rewrite": "PENDING",
+  "reflog_object_removal": {
+    "reflogs_expired": true,
+    "refs_original": 0,
+    "unreachable_diagnostic_blobs": 2,
+    "pruning": "BLOCKED: auto-review rejected broad irreversible deletion of unrelated recovery objects"
+  },
+  "external_blockers": [
+    "GitGuardian incident metadata unavailable",
+    "Credential revocation not confirmed",
+    "GitHub cache/PR/fork copies cannot be certified by branch rewrite"
+  ],
+  "technical_approval": "2026-10-12 /root and independent secret_audit APPROVED for reachable-history cleanup and reviewed guards; scoped pre-push records re-audit PASS; full incident BLOCKED",
+  "agent_eval": "EVAL-SECRET-PUBLICATION controlled independent run NOT_RUN",
+  "local_history_scan": {
+    "objects": 3804,
+    "findings": [],
+    "exit_code": 0
+  },
+  "github_public_forks": 0,
+  "github_all_state_pull_requests": 0
+}

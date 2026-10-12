@@ -1,7 +1,14 @@
 import type { ReactNode } from 'react';
+import type { Viewport } from 'next';
 import { notFound } from 'next/navigation';
 import { locales, type Locale } from '@/lib/i18n';
 import '../globals.css';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+};
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));

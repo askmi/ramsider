@@ -7,7 +7,7 @@
 @font-face{font-family:NotoButtonSC;src:url('/fonts/button-fallback/noto-zh-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
 @font-face{font-family:NotoButtonJP;src:url('/fonts/button-fallback/noto-ja-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
 @font-face{font-family:NotoButtonKR;src:url('/fonts/button-fallback/noto-ko-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
-:root{--page-max-width:941px;color-scheme:light;font-family:OpenSans,Arial,sans-serif;color:#292018;background:#d3b79f}
+:root{--page-max-width:941px;color-scheme:light;font-family:OpenSans,Arial,sans-serif;color:#292018;background:#c4b9b7 url('/art/00.webp') center top/min(100vw,var(--page-max-width)) auto no-repeat}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;min-width:280px}
@@ -15,7 +15,9 @@ button,a{font:inherit}
 button{cursor:pointer}
 a{color:inherit}
 :focus-visible{outline:3px solid #815013;outline-offset:3px}
-.canvas{position:relative;container-type:inline-size;display:grid;grid-template-rows:auto auto auto;width:100%;max-width:var(--page-max-width);margin-inline:auto;overflow:clip;isolation:isolate;background:#d8bb9f}
+.canvas{--hero-safe-top:env(safe-area-inset-top,0px);position:relative;container-type:inline-size;display:grid;grid-template-rows:auto auto auto;width:100%;max-width:var(--page-max-width);margin-inline:auto;overflow:clip;isolation:isolate;background:#d8bb9f}
+/* Keep hero controls/copy clear of the sensor area while artwork fills the viewport. */
+.canvas>:is(.masthead,.locale-switcher,.key-intro,.key-hero,.key-expression,.key-reserve){translate:0 var(--hero-safe-top)}
 .art{position:absolute;inset:0 0 auto;height:calc(27147/941*100cqw);overflow:hidden;z-index:0;pointer-events:none}
 .art img,.tail-art img{display:block;width:100%;height:auto;background-size:100% 100%;background-repeat:no-repeat}
 .art img:not(:first-child),.tail-art-track img{margin-top:calc(-2/941*100cqw)}
@@ -226,7 +228,7 @@ html[data-media-js] .page-media-overlay{display:grid}
 .back-to-top:hover{background:#211b17e0}
 .back-to-top:active{transform:translateY(1px)}
 .back-to-top:focus-visible{outline:3px solid #211b17;outline-offset:3px;box-shadow:0 0 0 9px #fff}
-.locale-switcher{--locale-top:max(4px,env(safe-area-inset-top),calc(80/941*100cqw - 22px));position:absolute;z-index:21;top:var(--locale-top);left:calc(475/941*100%);width:max(64px,calc(160/941*100%));height:44px;direction:ltr}
+.locale-switcher{--locale-top:max(4px,calc(80/941*100cqw - 22px));position:absolute;z-index:21;top:var(--locale-top);left:calc(475/941*100%);width:max(64px,calc(160/941*100%));height:44px;direction:ltr}
 .locale-toggle{display:grid;place-items:center;width:100%;height:44px;border:0;background:none;padding:0;color:#000;touch-action:manipulation}
 .locale-toggle-face{display:flex;align-items:center;justify-content:center;gap:calc(8/941*min(100vw,941px));width:100%;height:44px;background:transparent;border:0;box-shadow:none}
 .locale-toggle .locale-flag{font-size:clamp(10px,calc(25.3/941*100cqw),25.3px);width:calc(25.3/941*100cqw)}

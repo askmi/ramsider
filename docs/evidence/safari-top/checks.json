@@ -1,0 +1,370 @@
+{
+  "states": [
+    {
+      "name": "pro",
+      "zero": {
+        "width": 402,
+        "dpr": 3,
+        "overflow": false,
+        "meta": "width=device-width, initial-scale=1, viewport-fit=cover",
+        "root": "url(\"http://127.0.0.1:3060/art/00.webp\")",
+        "heroRequests": 1,
+        "baselineChangedBytes": 0,
+        "baselineChangedChannelPercent": 0
+      },
+      "inset": {
+        "menu": {
+          "x": 323.390625,
+          "y": 71.1875,
+          "width": 44,
+          "height": 44,
+          "bottom": 115.1875
+        },
+        "locale": {
+          "x": 202.921875,
+          "y": 71.171875,
+          "width": 68.34375,
+          "height": 44,
+          "bottom": 115.171875
+        },
+        "wordmark": {
+          "x": 34.171875,
+          "y": 85.484375,
+          "width": 100.3125,
+          "height": 14.09375,
+          "bottom": 99.578125
+        },
+        "intro": {
+          "x": 34.171875,
+          "y": 152.984375,
+          "width": 217.859375,
+          "height": 16.140625,
+          "bottom": 169.125
+        },
+        "reserve": {
+          "x": 35.453125,
+          "y": 277.296875,
+          "width": 88.84375,
+          "height": 29.890625,
+          "bottom": 307.1875
+        },
+        "hero": {
+          "x": 0,
+          "y": 0,
+          "width": 402,
+          "height": 1196.171875,
+          "bottom": 1196.171875
+        },
+        "overflow": false
+      },
+      "errors": []
+    },
+    {
+      "name": "max",
+      "zero": {
+        "width": 440,
+        "dpr": 3,
+        "overflow": false,
+        "meta": "width=device-width, initial-scale=1, viewport-fit=cover",
+        "root": "url(\"http://127.0.0.1:3060/art/00.webp\")",
+        "heroRequests": 1,
+        "baselineChangedBytes": 0,
+        "baselineChangedChannelPercent": 0
+      },
+      "inset": {
+        "menu": {
+          "x": 358.109375,
+          "y": 74.40625,
+          "width": 44,
+          "height": 44,
+          "bottom": 118.40625
+        },
+        "locale": {
+          "x": 222.09375,
+          "y": 74.40625,
+          "width": 74.8125,
+          "height": 44,
+          "bottom": 118.40625
+        },
+        "wordmark": {
+          "x": 37.40625,
+          "y": 87.984375,
+          "width": 109.796875,
+          "height": 15.421875,
+          "bottom": 103.40625
+        },
+        "intro": {
+          "x": 37.40625,
+          "y": 161.859375,
+          "width": 238.46875,
+          "height": 17.65625,
+          "bottom": 179.515625
+        },
+        "reserve": {
+          "x": 38.796875,
+          "y": 297.921875,
+          "width": 97.25,
+          "height": 32.71875,
+          "bottom": 330.640625
+        },
+        "hero": {
+          "x": 0,
+          "y": 0,
+          "width": 440,
+          "height": 1309.234375,
+          "bottom": 1309.234375
+        },
+        "overflow": false
+      },
+      "errors": []
+    },
+    {
+      "name": "narrow",
+      "zero": {
+        "width": 375,
+        "dpr": 3,
+        "overflow": false,
+        "meta": "width=device-width, initial-scale=1, viewport-fit=cover",
+        "root": "url(\"http://127.0.0.1:3060/art/00.webp\")",
+        "heroRequests": 1
+      },
+      "inset": {
+        "menu": {
+          "x": 298.703125,
+          "y": 68.890625,
+          "width": 44,
+          "height": 44,
+          "bottom": 112.890625
+        },
+        "locale": {
+          "x": 189.28125,
+          "y": 68.875,
+          "width": 64,
+          "height": 44,
+          "bottom": 112.875
+        },
+        "wordmark": {
+          "x": 31.875,
+          "y": 83.703125,
+          "width": 93.578125,
+          "height": 13.140625,
+          "bottom": 96.84375
+        },
+        "intro": {
+          "x": 31.875,
+          "y": 146.671875,
+          "width": 203.234375,
+          "height": 15.046875,
+          "bottom": 161.71875
+        },
+        "reserve": {
+          "x": 33.0625,
+          "y": 262.625,
+          "width": 82.875,
+          "height": 27.890625,
+          "bottom": 290.515625
+        },
+        "hero": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 1115.828125,
+          "bottom": 1115.828125
+        },
+        "overflow": false
+      },
+      "errors": []
+    },
+    {
+      "name": "tablet",
+      "zero": {
+        "width": 768,
+        "dpr": 3,
+        "overflow": false,
+        "meta": "width=device-width, initial-scale=1, viewport-fit=cover",
+        "root": "url(\"http://127.0.0.1:3060/art/00.webp\")",
+        "heroRequests": 1
+      },
+      "inset": {
+        "menu": {
+          "x": 657.875,
+          "y": 102.296875,
+          "width": 44,
+          "height": 44,
+          "bottom": 146.296875
+        },
+        "locale": {
+          "x": 387.671875,
+          "y": 102.28125,
+          "width": 130.578125,
+          "height": 44,
+          "bottom": 146.28125
+        },
+        "wordmark": {
+          "x": 65.28125,
+          "y": 109.59375,
+          "width": 191.640625,
+          "height": 26.921875,
+          "bottom": 136.515625
+        },
+        "intro": {
+          "x": 65.28125,
+          "y": 238.546875,
+          "width": 416.234375,
+          "height": 30.859375,
+          "bottom": 269.40625
+        },
+        "reserve": {
+          "x": 67.734375,
+          "y": 476.046875,
+          "width": 169.75,
+          "height": 57.125,
+          "bottom": 533.171875
+        },
+        "hero": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 2285.21875,
+          "bottom": 2285.21875
+        },
+        "overflow": false
+      },
+      "errors": []
+    },
+    {
+      "name": "desktop",
+      "zero": {
+        "width": 1440,
+        "dpr": 3,
+        "overflow": false,
+        "meta": "width=device-width, initial-scale=1, viewport-fit=cover",
+        "root": "url(\"http://127.0.0.1:3060/art/00.webp\")",
+        "heroRequests": 1
+      },
+      "inset": {
+        "menu": {
+          "x": 1065.46875,
+          "y": 117,
+          "width": 44,
+          "height": 44,
+          "bottom": 161
+        },
+        "locale": {
+          "x": 724.484375,
+          "y": 117,
+          "width": 160,
+          "height": 44,
+          "bottom": 161
+        },
+        "wordmark": {
+          "x": 329.484375,
+          "y": 121,
+          "width": 234.796875,
+          "height": 33,
+          "bottom": 154
+        },
+        "intro": {
+          "x": 329.484375,
+          "y": 279,
+          "width": 510,
+          "height": 37.8125,
+          "bottom": 316.8125
+        },
+        "reserve": {
+          "x": 332.5,
+          "y": 570,
+          "width": 208,
+          "height": 70,
+          "bottom": 640
+        },
+        "hero": {
+          "x": 249.5,
+          "y": 0,
+          "width": 941,
+          "height": 2800,
+          "bottom": 2800
+        },
+        "overflow": false
+      },
+      "errors": []
+    },
+    {
+      "locale": "en",
+      "syntheticInset59": "PASS",
+      "overflow": false
+    },
+    {
+      "locale": "ru",
+      "syntheticInset59": "PASS",
+      "overflow": false
+    },
+    {
+      "locale": "de",
+      "syntheticInset59": "PASS",
+      "overflow": false
+    },
+    {
+      "locale": "fr",
+      "syntheticInset59": "PASS",
+      "overflow": false
+    },
+    {
+      "locale": "es",
+      "syntheticInset59": "PASS",
+      "overflow": false
+    },
+    {
+      "locale": "it",
+      "syntheticInset59": "PASS",
+      "overflow": false
+    },
+    {
+      "locale": "tr",
+      "syntheticInset59": "PASS",
+      "overflow": false
+    },
+    {
+      "locale": "ar",
+      "syntheticInset59": "PASS",
+      "overflow": false
+    },
+    {
+      "locale": "zh",
+      "syntheticInset59": "PASS",
+      "overflow": false
+    },
+    {
+      "locale": "ja",
+      "syntheticInset59": "PASS",
+      "overflow": false
+    },
+    {
+      "locale": "ko",
+      "syntheticInset59": "PASS",
+      "overflow": false
+    }
+  ],
+  "nativeChrome": "BLOCKED: iOS simulator unavailable; Playwright has no Safari chrome",
+  "modal": {
+    "root": "rgb(0, 0, 0)",
+    "image": "none"
+  },
+  "performance": {
+    "lcp": 244,
+    "cls": 0,
+    "heroRequests": [
+      {
+        "bytes": 248536,
+        "duration": 5.300000011920929
+      }
+    ],
+    "js": 210687,
+    "sampleAtMs": 1114.300000011921
+  },
+  "control": "Current production3060 with reversible original CSS, zero inset; prior3057 invalidated by .next rebuild; original before capture not evidence",
+  "keyboard": "EN/AR settled Enter/ArrowDown/End/Home/ArrowUp/Escape/focus PASS /private/tmp/safari-top-keyboard-settled.log",
+  "review": "native codex review focused actualdiff CLEAN exit0 /private/tmp/safari-top-review.log",
+  "static": "build/type PASS; lint0errors2existingTelegramwarnings",
+  "historicalFailures": "locale suite4PASS9SKIP3FAIL; keyboard settled direct PASS; route abort preload access-control failures linked CHG0098, full suite not PASS"
+}

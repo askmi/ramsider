@@ -136,3 +136,10 @@ Update this file when a **verified** project state, durable decision, or externa
 CHG0081 VERIFIED:1329 generated QA files/~1.6GB removed from tracking and ignored; all preserved locally. Compact Markdown/JSON/discipline reports and6required maskfixtures remaintracked; design/public/runtime/testcode untouched. PriorGitblobs stillremainin history; no rewrite/forcepush. fbbb8e4 was pushedorigin/main; cleanup dispatch follows.
 
 LastCHG0096glass-only delta: firstAqua x<210usesverticalsourcephase, noharmonicblur; other3PNGhashesunchanged, first−107B. FinalchangedAqua1ENARProMax4captures/type/ratio andsourceHTTP/paintrecheckPASS; noJS/layout/codec/loadingpolicychange, measuredfinal-codeperformance retainedwiththisexplicit−107Bdelta. Nativefinalreview confirmscontinuityand exactexterior/alpha.
+
+## Safari initial backing candidate — 2026-10-12
+CHG0099 APPLIED_UNVERIFIED/nativechromeBLOCKED: root reuses existing00.webp/shared941cap/topaverage#c4b9b7; explicitcoverviewport, real topinset translates header+hero copy/CTA only, art y0, modalblack removesrootimage. WebKitPro/MaxDPR3 and375/768/1440 actualscreens/source inspected; zero-inset same-build originalCSScontrols0changedchannels; synthetic59 controls safe/all11locales overflow0, ENARsettledkeyboard/menu/locale/scrollreturn/modalPASS. Build/type/nativefocusedreviewPASS,lint2existingwarnings. Earlierlocale4PASS9SKIP3FAIL retained; settledkeyboardPASS, routeabortpreloadreports linkedCHG0098. PhysicalSafari initial/scroll/return unavailable (noXcode/simctl), iOSversionUNKNOWN; candidate notcertifiedactualchrome. docs/evidence/safari-top; currentproductionpreview3060/en replaces3057staleafterbuild; noGitdispatch.
+
+CHG0099 independent safari_audit final scopedStages3–5/recordsStage6PASS; nativeSafarigateBLOCKED independentlysimctl exit72, candidateAPPLIED_UNVERIFIED; pageonlyapproval doesnotcertifysystemstatusbar.
+
+CHG0099 userauthorizedfastpush2026-10-12 toorigin/main; dispatchingSafari-onlyscope, unrelatedCHG0098pendingedits remainlocal. NativechromeverificationstillBLOCKED. RecordedQA/performance measuredworkingcheckoutwithpendingpreload, notcleancommitbuild.

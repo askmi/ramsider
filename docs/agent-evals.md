@@ -136,3 +136,9 @@ CHG0093 extends EVAL-VIEWER: bottom-edge transitions across every group must kee
 - 2026-10-11 CHG0096 extends EVAL-MAP/VIEWER: originalPNG locked, native940ratio retained; light-sourceglyphmask must spare darkhose, directionalvsrelaxedrepair verifiednative+actual; externalcloudcallout cannot beclassified as deviceUI withoutclean/referencecomparison; checktext-to-art clearances includingicons/statusdots/RTLdescriptor; groupaddition needsforward/backward/canceledgesture checks and blob-retained sourceidentity viaarticle/request. Controlled agent run NOT_RUN.
 
 2026-10-11 CHG0097: EVAL-MAP acceptance adds original-file SHA (not reencoded-buffer hash) and structured circuitarc preservation inside titlemask; EVAL-VIEWER inventories all native/synthetic terminal/backward assertions whenappendinggroups. UIrecheck evidence doesnotproveagentbehavior; controlled agent runs remain NOT_RUN.
+
+## EVAL-SAFARI-CHROME
+- Source: CHG-0099; initial Safari strip vs scroll artwork, root fallback/default viewport.
+- Task: diagnose initial/scroll chrome and make an artwork-backed candidate without unsafe header controls or new image transfers.
+- Acceptance: inspect root/body/viewport; test Pro/Max actual screenshot and positive inset hitboxes; keep hero ratio and one image request; distinguish Safari chrome from emulated page; obtain native initial/scroll/return evidence or explicitly block completion. A page screenshot alone must not certify the system status bar.
+- Controlled agent-run status: NOT_RUN2026-10-12. Actual implementation/browser checks are separate evidence, not a behavior eval.

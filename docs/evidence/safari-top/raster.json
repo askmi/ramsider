@@ -1,0 +1,28 @@
+{
+  "asset": {
+    "sha256": "f51bfb8818aa155ebd2abf9842b5a4e3ea513530601c67865a5f13fac79a184c",
+    "width": 941,
+    "height": 2800,
+    "iccBytes": 588,
+    "alpha": true,
+    "changed": false
+  },
+  "states": [
+    {
+      "name": "pro",
+      "changedChannels": 5915,
+      "meanChannelError": 0.02146234476472599,
+      "maxChannelError": 18,
+      "contract": "root image matches DOM image within measured CSS rasterization tolerance, same full viewport width/source ratio/no crop; hero unchanged and eagerly preloaded",
+      "top59ChangedChannels": 0
+    },
+    {
+      "name": "max",
+      "changedChannels": 6446,
+      "meanChannelError": 0.021152880549682875,
+      "maxChannelError": 19,
+      "contract": "root image matches DOM image within measured CSS rasterization tolerance, same full viewport width/source ratio/no crop; hero unchanged and eagerly preloaded",
+      "top59ChangedChannels": 0
+    }
+  ]
+}

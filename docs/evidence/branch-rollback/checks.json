@@ -40,10 +40,24 @@
     "safari_system_statusbar": "ACCEPTED",
     "archive_beta_push_and_main_rollback": "AUTHORIZED"
   },
-  "publication": "PENDING origin/beta exact commit push and deployment; final SHA provided by branch history, do not infer from archive merge SHA",
+  "publication": {
+    "archive_pushed_sha": "e639c7ed26b821bada8c4160eb4b39455b6e100e",
+    "origin_beta_exact_verified": true,
+    "origin_main_exact": "9b50d95ecc675865feba53ed87d51a44757d9b41",
+    "method": "normal push, no force/history rewrite",
+    "deployment": {
+      "sha": "e639c7ed26b821bada8c4160eb4b39455b6e100e",
+      "ramsider": "success https://vercel.com/askmi-6282s-projects/ramsider/3Dwav7fqjE5AmBt2wmbFL7WXU7yP",
+      "ramsider-beta": "success https://vercel.com/askmi-6282s-projects/ramsider-beta/EtPqtnWSFDAuJvS5JWshJbKd3SU9",
+      "evidence": "latest GitHub deployment-specific provider contexts",
+      "limitation": "production-domain assignment not verified"
+    },
+    "followup": "record-only correction; final branch tip determined by Git/remote"
+  },
   "limitations": [
     "physical Safari chrome not re-certified",
     "controlled Agent Eval NOT_RUN",
     "known unrelated open defects remain"
-  ]
+  ],
+  "record_audit_history": "FAIL initialindex/currentapproval mismatch; corrected. icons_final_audit finalrecords PASS2026-10-12; independent remote/GitHub exactarchive bothprovidersSUCCESS confirmed."
 }

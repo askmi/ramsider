@@ -158,21 +158,27 @@ html:has(#technology-viewer[open]),body:has(#technology-viewer[open]){background
 .technology-viewer__stage{position:absolute;inset:var(--toolbar-height) 0 var(--bottom-height);overflow:hidden;touch-action:pan-y pinch-zoom;background:#181512}
 .technology-viewer__scroll{display:flex;flex-direction:column;width:100%;height:100%;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;touch-action:pinch-zoom;scrollbar-width:none}
 .technology-viewer__scroll::-webkit-scrollbar{display:none}
-.technology-viewer__content{position:relative;flex:none;margin-block:auto;width:100%;aspect-ratio:941/1522;direction:ltr}
+.technology-viewer__content{position:relative;flex:none;margin-block:auto;width:100%;direction:ltr}
+.technology-viewer__illustration{position:relative;width:100%;flex:none}
 .technology-viewer__photo{position:absolute;inset:0}
 .technology-viewer__photo img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
 .technology-viewer[aria-busy=true] .technology-viewer__scroll{overflow-y:hidden;touch-action:none}
 .technology-viewer__loading{position:absolute;z-index:10;left:max(24px,env(safe-area-inset-left));right:max(24px,env(safe-area-inset-right));bottom:max(32px,env(safe-area-inset-bottom));display:flex;justify-content:center}
 .technology-viewer__title{position:absolute;inset:0;margin:0;font-family:OpenSans,Arial,sans-serif;font-weight:400;line-height:1;direction:ltr;pointer-events:none}
 .technology-viewer__title svg{display:block;width:100%;height:100%;font-family:inherit;font-weight:inherit}
-.technology-viewer__descriptions{position:absolute;inset:0;pointer-events:none;font-family:OpenSans,Arial,sans-serif;font-weight:400;color:#000;direction:ltr}
-.technology-viewer__descriptions svg{display:block;width:100%;height:100%;font-family:inherit}
-.technology-description__box{width:100%;height:100%;font-family:OpenSans,Arial,sans-serif;text-align:start}
-.technology-description__copy{margin:0;font-family:inherit;font-weight:400;white-space:pre-line;overflow-wrap:break-word}
-.technology-viewer__capsule,.technology-viewer__capsule svg,.technology-viewer__capsule .technology-description__box{font-family:OpenSans,Arial,sans-serif}
-.technology-viewer__capsule [data-description-block^="capsule-icon-"] .technology-description__box{text-align:center}
-.technology-description__warm{-webkit-text-stroke:1.5px #fff;paint-order:stroke fill}
-.technology-description__status{color:#fff;font:400 10px/20px OpenSans,Arial,sans-serif;direction:ltr}
+/* Fixed reading sizes; image coordinates never scale explanatory copy. */
+.technology-viewer__art-title{position:absolute;inset:0;pointer-events:none;color:#000;font-family:OpenSans,Arial,sans-serif}
+.technology-viewer__art-title svg{display:block;width:100%;height:100%;fill:currentColor}
+.technology-viewer__art-title span{position:absolute;inset-inline-start:calc(54/941*100%);top:calc(131/941*100cqw);font-size:16px;line-height:1.5;color:#75472d;background:#f4eee6;box-shadow:0 0 0 2px #f4eee6;max-width:80%;text-align:start}
+.technology-viewer__descriptions{--technology-reading-font-size:16px;position:relative;background:#f4eee6;color:#241d15;font-family:OpenSans,Arial,sans-serif;direction:ltr;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.technology-reading{max-width:720px;margin-inline:auto;padding:24px;display:flex;flex-direction:column;gap:16px}
+/* The default remains 16px; even an explicit emergency override cannot go below 14px. */
+.technology-description__copy{margin:0;font-family:inherit;font-size:max(14px,var(--technology-reading-font-size,16px));line-height:1.5;white-space:normal;overflow-wrap:anywhere;text-align:start}
+.technology-reading h3.technology-description__copy{font-size:24px;line-height:1.35;font-weight:400}
+.technology-reading h4.technology-description__copy{font-weight:700}
+.technology-description__eyebrow{color:#75472d}
+.technology-reading__feature{display:flex;flex-direction:column;gap:8px;padding-block:16px;border-block-start:1px solid #d5c7b6}
+.technology-reading__divider{width:100%;margin:0;border:0;border-block-start:1px solid #c4b4a1}
 .technology-viewer__toolbar{position:absolute;inset-inline:0;z-index:4;display:grid;align-items:center;grid-template-columns:44px minmax(0,max-content) 44px;justify-content:center;min-height:48px;direction:ltr;background:#000;color:#f4f1eb;font:400 16px/1.1 OpenSans,Arial,sans-serif}
 .technology-viewer__toolbar--top{top:0;padding-top:env(safe-area-inset-top);padding-inline:44px}
 .technology-viewer__toolbar--bottom{bottom:0;padding-bottom:env(safe-area-inset-bottom)}
@@ -307,3 +313,9 @@ html:lang(en) .overlay:not(.key-touch) .technology-label-line:not(:first-child){
 .technology-viewer__power-armor [data-description-block="power-armor-descriptor"] .technology-description__box{text-align:left}
 .technology-viewer__power-armor [data-description-block^="quick-caption-"] .technology-description__box{text-align:center}
 .technology-viewer__power-armor [data-description-block="power-armor-eyebrow"] .technology-description__box{-webkit-text-stroke:0}
+
+/* Companion patches remove moved pictograms; the native photo stays intact. */
+.technology-viewer__icon-patch{position:absolute;inset:0;display:block;width:100%;height:auto;pointer-events:none;user-select:none}
+.technology-reading__icon-row{display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;align-items:center;padding-block:12px;border-block-start:1px solid #d5c7b6}
+.technology-reading__icon-row img{display:block;width:48px;height:48px;object-fit:contain;user-select:none}
+.technology-reading__icon-copy{display:flex;flex-direction:column;gap:8px;min-width:0}

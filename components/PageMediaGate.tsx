@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import type { Locale } from '@/lib/i18n';
-import { decodeImageElement } from '@/lib/media-resource';
+import { decodeImageElement, PAGE_ARTWORK_WARMING_EVENT, PAGE_ARTWORK_WARMING_ATTRIBUTE } from '@/lib/media-resource';
 import { LoadingStatus, useScrollLock } from './MediaLoading';
 
 /** Actual painted resource bounds, ignoring the gate's temporary scroll cap. */
@@ -45,6 +45,8 @@ export function PageMediaGate({ locale, children }: { locale: Locale; children: 
       if (!warming && images[0]?.hasAttribute('data-media-ready')) {
         warming = true;
         images.forEach(image => start(image));
+        document.documentElement.setAttribute(PAGE_ARTWORK_WARMING_ATTRIBUTE, '');
+        window.dispatchEvent(new Event(PAGE_ARTWORK_WARMING_EVENT));
       }
       const pending = images.filter(image => !image.hasAttribute('data-media-ready'))
         .map(image => ({ image, box: bounds(image, shell) }))
@@ -114,7 +116,7 @@ export function PageMediaGate({ locale, children }: { locale: Locale; children: 
     addEventListener('scroll', schedule, { passive: true });
     addEventListener('resize', schedule);
     refresh();
-    return () => { alive = false; observer.disconnect(); dialogs.disconnect(); resize.disconnect(); shell.style.height = ''; managed.forEach((inert, control) => { control.inert = inert; }); cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); };
+    return () => { alive = false; if (warming) document.documentElement.removeAttribute(PAGE_ARTWORK_WARMING_ATTRIBUTE); observer.disconnect(); dialogs.disconnect(); resize.disconnect(); shell.style.height = ''; managed.forEach((inert, control) => { control.inert = inert; }); cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); };
   }, []);
   return <div ref={root} className="page-media-shell" data-media-blocked={state.blocked ? '' : undefined} data-media-initial={state.initial ? '' : undefined}>
     <div className="page-media-content" inert={state.activated && state.blocked && state.initial}>{children}</div>

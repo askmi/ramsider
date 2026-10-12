@@ -1,0 +1,407 @@
+{
+  "change": "CHG-0103",
+  "date": "2026-10-12",
+  "scope": "All23 technology slides readable semantic flow beneath preserved native artwork",
+  "status": "VERIFIED scoped readability/icon-pair page; physicalSafari unverified",
+  "preferredBodyFontCSSpx": 16,
+  "emergencyMinimumCSSpx": 14,
+  "lineHeightCSSpx": 24,
+  "headingCSSpx": 24,
+  "automaticShrinking": false,
+  "spacingCompaction": false,
+  "floorCheck": "8px override clamps14px; removal restores16px",
+  "viewports": [
+    [
+      402,
+      874,
+      3
+    ],
+    [
+      440,
+      956,
+      3
+    ],
+    [
+      375,
+      812,
+      3
+    ],
+    [
+      402,
+      560,
+      3
+    ],
+    [
+      768,
+      1024,
+      3
+    ],
+    [
+      1440,
+      900,
+      3
+    ]
+  ],
+  "locales": "All11 onPro; EN/AR onMax",
+  "readingCases": {
+    "Pro": 253,
+    "ProMax": 46
+  },
+  "browserTests": {
+    "finalReading": {
+      "passed": 3,
+      "skipped": 1,
+      "skipReason": "duplicate Max adaptation matrix"
+    },
+    "behavior": {
+      "initialPassed": 26,
+      "initialFailed": 2,
+      "skipped": 11,
+      "correctedRerunPassed": 2,
+      "failureCause": "stale fitting-height fixture premise, pan then edge navigation corrected"
+    },
+    "affectedDiscrete": {
+      "passed": 11,
+      "skipped": 3,
+      "skipReason": "duplicate Max adaptation matrix"
+    }
+  },
+  "contrast": {
+    "body": 14.44137550535203,
+    "eyebrowAndLiveDescriptor": 6.758894583339725,
+    "descriptorCheck": "Every live descriptor >=4.5 on opaque reading surface",
+    "claim": "Affected text roles only, not blanket WCAG certification"
+  },
+  "pixels": {
+    "sourceWidth": 941,
+    "CSSScalePro": 0.42720510095642933,
+    "CSSScaleMax": 0.4675876726886291,
+    "AquaFirstSourceWidth": 940,
+    "rasterChanges": false,
+    "defaultArtRatio": "actual native image ratio maintained; full-width and bottom content reachable",
+    "textPixelEquivalence": "NOT_CLAIMED: intentional recomposition",
+    "references": [
+      "design/references/background.png",
+      "design/references/background_text.png",
+      "design/references/tech_04/21.png",
+      "design/references/tech_08/03.png"
+    ],
+    "screenshots": "screenshots/technology-readability (ignored)"
+  },
+  "integration": [
+    {
+      "width": 402,
+      "dpr": 3,
+      "heroChangedChannels": 0,
+      "consolePageErrors": []
+    },
+    {
+      "width": 440,
+      "dpr": 3,
+      "heroChangedChannels": 0,
+      "consolePageErrors": []
+    }
+  ],
+  "performance": [
+    {
+      "conditions": "cold Chromium Pro DPR3 loopback1xCPU",
+      "initial": {
+        "lcp": 428,
+        "cls": 0,
+        "useful": 380.20000000298023,
+        "ttfb": 37.20000000298023,
+        "fcp": 180,
+        "jsBytes": 207739,
+        "transferredBytes": 16042562,
+        "hero": [
+          {
+            "start": 44.5,
+            "bytes": 248536,
+            "duration": 9.300000011920929
+          }
+        ]
+      },
+      "readingScroll": {
+        "p95": 16.799999999999727,
+        "over33": 0,
+        "samples": 99
+      },
+      "mainScroll": {
+        "p95": 16.700000000000273,
+        "over33": 0,
+        "samples": 99
+      },
+      "cachedTransitionMs": 33.86620799999946,
+      "errors": [],
+      "INP": "NOT_MEASURED: transition latency is synthetic",
+      "Lighthouse": "NOT_RUN",
+      "physicalSafari": "NOT_AVAILABLE"
+    },
+    {
+      "conditions": "cold Chromium Pro DPR3 4Mbps100ms4xCPU",
+      "initial": {
+        "lcp": 2352,
+        "cls": 0,
+        "useful": 2313,
+        "ttfb": 17.100000008940697,
+        "fcp": 372,
+        "jsBytes": 207739,
+        "transferredBytes": 797351,
+        "hero": [
+          {
+            "start": 119.79999999701977,
+            "bytes": 248536,
+            "duration": 2159.2000000029802
+          }
+        ]
+      },
+      "readingScroll": null,
+      "mainScroll": null,
+      "cachedTransitionMs": null,
+      "errors": [],
+      "INP": "NOT_MEASURED: transition latency is synthetic",
+      "Lighthouse": "NOT_RUN",
+      "physicalSafari": "NOT_AVAILABLE"
+    }
+  ],
+  "nativeReview": "Final focused native Codex review actual diff: no actionable findings; reviewer browser launch unavailable; root browser checks executed separately",
+  "build": "14 static/SSG routes and TypeScript PASS",
+  "lint": "0 errors,2 pre-existing Telegram unused-variable warnings",
+  "independentAudit": {
+    "scope": "PASS",
+    "visual": "PASS after descriptor recheck",
+    "behavior": "PASS after settled200%end/Close/floor recheck",
+    "reviewPerformance": "PASS",
+    "finalRecords": "PASS 2026-10-12 readability_records after native-ratio contract correction; earlier FAIL preserved in CHANGELOG"
+  },
+  "technicalApproval": {
+    "date": "2026-10-12",
+    "verifier": "/root",
+    "result": "APPROVED for scoped page implementation and evidence; independent final records PASS"
+  },
+  "explicitUserVisualApproval": "NOT_RECORDED",
+  "limitations": [
+    "PhysicalSafari/Telegram unavailable; no native chrome certification",
+    "INP not measured; cached transition is synthetic",
+    "Lighthouse not run",
+    "Unverified reference product claims and source-profile intent retained"
+  ],
+  "remainingExistingIDs": [
+    "CHG-0035",
+    "CHG-0065",
+    "CHG-0071",
+    "CHG-0098",
+    "CHG-0099",
+    "CHG-0101"
+  ],
+  "reopened": {
+    "date": "2026-10-12",
+    "observation": "Live CapsuleCode2 icons remain at art bottom; captions follow separate narrative panel. User asks where icons went.",
+    "responsibility": "AGENT: preserved artwork and copy separately without icon/caption relationship check",
+    "repairStatus": "OPEN; diagnosis only; no runtime changes"
+  },
+  "iconRepair": {
+    "date": "2026-10-12",
+    "status": "VERIFIED scoped readability/icon-pair page",
+    "userAuthorization": "\u0434\u0430 \u0438\u0441\u043f\u0440\u0430\u0432\u043b\u044f\u0439",
+    "mapping": "lib/technology-icon-map.json",
+    "assets": "docs/evidence/technology-discrete/reading-icons-assets.json",
+    "icons": 41,
+    "photos": 9,
+    "deliveryBytes": 635821,
+    "frameCSSpx": 48,
+    "gapCSSpx": 16,
+    "preferredBodyCSSpx": 16,
+    "minimumCSSpx": 14,
+    "sourceUnchanged": true,
+    "checks": {
+      "cropDecodedRGBA": 0,
+      "alphaOutsidePatchMask": 0,
+      "type": "PASS",
+      "productionBuild": "PASS 14 static/SSG routes",
+      "nativeGesturesFinal": "2 PASS desktop Chromium native trackpad/light touch",
+      "nativeActualCompanions": "PASS: actual mounted nodes marked by their completed decode invocation, including each patch and row icon",
+      "browser": "5 PASS / 1 explicit duplicate Max adaptation SKIP",
+      "localeSlideCases": 299,
+      "iconLocaleCases": 533,
+      "coverage": "All23slides \u00d711Prolocales; EN/ARMax; all41pairs",
+      "fontFloor": "8px override clamps14px; removal restores16px",
+      "adaptation": "375\u00d7812 /402\u00d7560 /768 /1440 /synthetic200%AR; no overflow; nativefullphoto ratio; reachablebottom",
+      "atomicFailure": "Retainedcompleteframe \u2192 companionfailure \u2192 Retrydecodedcommit; ClosePASS bothdevices",
+      "nativeReview": "FinalnativeCLIclean exit0; accepted readiness/lint P2fixed; prior verdicts historical",
+      "lint": "0 errors /2existingTelegramwarnings",
+      "integration": "First settled hero0changedchannels Pro/Max; final5mainstates/openClose seen; pageerrors[]; initialProblankcapture retained and CHG0071 stays OPEN"
+    },
+    "limitations": [
+      "Underlying masked texture is reconstructed; no pixel identity claim",
+      "Physical Safari/Telegram/native zoom/INP/Lighthouse not certified",
+      "Independent controlled agent eval NOT_RUN"
+    ],
+    "preview": "http://127.0.0.1:3068/en#technology",
+    "decodedPatchBytes": 7604692,
+    "performance": [
+      {
+        "pairedFirstMs": 57.29320800000005,
+        "pairedRepeatedMs": 34.76208399999996,
+        "readingAssetRequests": [
+          {
+            "name": "cyber-02-cyber-callout-0.png",
+            "bytes": 13003
+          },
+          {
+            "name": "cyber-02-patch.png",
+            "bytes": 34517
+          },
+          {
+            "name": "cyber-02-cyber-callout-1.png",
+            "bytes": 12549
+          },
+          {
+            "name": "cyber-02-cyber-callout-2.png",
+            "bytes": 11911
+          },
+          {
+            "name": "cyber-02-cyber-callout-3.png",
+            "bytes": 10767
+          },
+          {
+            "name": "cyber-02-cyber-callout-4.png",
+            "bytes": 12570
+          }
+        ]
+      },
+      {
+        "conditions": "cold Chromium Pro DPR3 loopback1xCPU",
+        "initial": {
+          "lcp": 260,
+          "cls": 0,
+          "useful": 232.30000001192093,
+          "ttfb": 7.700000002980232,
+          "fcp": 92,
+          "jsBytes": 210089,
+          "readingIconFirstViewRequests": 0,
+          "transferredBytes": 46238300,
+          "hero": [
+            {
+              "start": 13.200000002980232,
+              "bytes": 248536,
+              "duration": 5.200000002980232
+            }
+          ]
+        },
+        "readingScroll": {
+          "p95": 16.700000000000273,
+          "over33": 0,
+          "samples": 99
+        },
+        "mainScroll": {
+          "p95": 16.799999999999727,
+          "over33": 0,
+          "samples": 99
+        },
+        "cachedTransitionMs": 34.76208399999996,
+        "errors": [],
+        "INP": "NOT_MEASURED: transition latency is synthetic",
+        "Lighthouse": "NOT_RUN",
+        "physicalSafari": "NOT_AVAILABLE"
+      },
+      {
+        "conditions": "cold Chromium Pro DPR3 4Mbps100ms4xCPU",
+        "initial": {
+          "lcp": 2352,
+          "cls": 0,
+          "useful": 2315.7999999970198,
+          "ttfb": 10.100000008940697,
+          "fcp": 344,
+          "jsBytes": 210089,
+          "readingIconFirstViewRequests": 0,
+          "transferredBytes": 797482,
+          "hero": [
+            {
+              "start": 120.1000000089407,
+              "bytes": 248536,
+              "duration": 2165
+            }
+          ]
+        },
+        "readingScroll": null,
+        "mainScroll": null,
+        "cachedTransitionMs": null,
+        "errors": [],
+        "INP": "NOT_MEASURED: transition latency is synthetic",
+        "Lighthouse": "NOT_RUN",
+        "physicalSafari": "NOT_AVAILABLE"
+      }
+    ],
+    "integration": [
+      {
+        "width": 402,
+        "dpr": 3,
+        "heroChangedChannels": 0,
+        "consolePageErrors": []
+      },
+      {
+        "width": 440,
+        "dpr": 3,
+        "heroChangedChannels": 0,
+        "consolePageErrors": []
+      }
+    ],
+    "independentGates": {
+      "scope": "PASS prior readability_records",
+      "implementation": "PASS icons_final_audit",
+      "visual": "PASS icons_final_audit",
+      "behavior": "PASS icons_final_audit",
+      "reviewPerformance": "PASS icons_final_audit",
+      "finalRecords": "PASS icons_final_audit2026-10-12"
+    },
+    "technicalApproval": {
+      "date": "2026-10-12",
+      "verifier": "/root",
+      "result": "APPROVED scoped page implementation, native-image composition, pairing, behavior, static/build/native-review/performance",
+      "independentAuditor": "icons_final_audit",
+      "independentEvidence": "Directly viewed41removedlocations\u00d7bothdevices, six9photooverviews, nativeMoodfoot/originalcrops, EN/ARrows/assembledpage; actualcommandlogs/metrics reviewed; independently verified9sources againstHEAD/hashes,41exactRGBAcrops/patchdimensions/alpha/635821B/7604692decodedB; failures[]",
+      "limitations": "PhysicalSafariTelegram/nativezoom/INP/Lighthouse/sourceprofile/productfacts/controlledagenteval remainunverified; maskedtextureUNKNOWN; CHG0071OPEN",
+      "finalRecords": "PASS icons_final_audit2026-10-12: index/header/currentapproval/memory/contract/evidence/preview/diff coherent; prior failures and limits retained"
+    },
+    "userResultApproval": "NOT_RECORDED; repair authorized by direct request",
+    "remainingOpenIDs": [
+      "CHG-0035",
+      "CHG-0065",
+      "CHG-0071",
+      "CHG-0098",
+      "CHG-0099",
+      "CHG-0101"
+    ],
+    "nativeReview": {
+      "verifier": "Native Codex CLI on actual working diff",
+      "finalExitCode": 0,
+      "finalResult": "Clean actual component/context/viewer delta: DOM setAttribute resolves immutability errors while retaining awaited decoded elements. Lint0errors2preexistingwarnings/type/scopeddiffPASS. BrowserQA separately executed.",
+      "priorFindings": [
+        {
+          "priority": "P2",
+          "result": "FIXED",
+          "issue": "Actual mounted companion IMG elements were recreated from decoded blob URLs",
+          "solution": "Mount actual retained HTMLImageElement resources using layout effects; decode-instance assertionsPASS"
+        },
+        {
+          "priority": "P2",
+          "result": "FIXED",
+          "issue": "Direct DOM prop assignments triggered2immutabilitylint errors",
+          "solution": "Use explicit DOM attribute methods; final lintPASS"
+        }
+      ],
+      "rawLogs": "Ignored/private only; no raw process metadata published"
+    },
+    "screenshots": {
+      "finalProMaxPhotos": "after-iphone-17-pro[-max]-webkit-en-*-*-top.png",
+      "allPairsENAR": "icons-iphone-17-pro[-max]-webkit-{en,ar}-*.png",
+      "nativeOldLocations": "/private/tmp/icons-clean-{pro,max}-removed-{0,1,2,3}.png",
+      "hardware": "/private/tmp/icons-clean-{pro,max}-mood-hardware.png",
+      "assembled": "/private/tmp/icons-settled-assembly-{402,440}.png",
+      "preview": "screenshots/technology-readability/icons-live-preview.png",
+      "photoMontageDelta": "All6finalnine-photo montage comparisons pixel-identical to repaired native-detail stage; art sourcePNG untouched"
+    }
+  },
+  "priorReadableCopyEvidenceNotice": "Fields outside iconRepair retain historical pre-icon-repair page verification. Current icon repair gates and approval are recorded in iconRepair."
+}

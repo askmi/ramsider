@@ -28,7 +28,14 @@
     ]
   },
   "native_review": "PASS: first three findings fixed; fourth focused delta review exit0, no actionable findings",
-  "remote_rewrite": "PENDING",
+  "remote_rewrite": {
+    "status": "REMOTE_EXACT_SHA_VERIFIED",
+    "commit": "fd2b07174fcd41e4d3387d08199f413e8033a299",
+    "old_tip": "0a6718b3950e9d48c2b70c64bca185a9974b3000",
+    "destination": "origin/main",
+    "history_scan_objects": 3825,
+    "history_scan_findings": []
+  },
   "reflog_object_removal": {
     "reflogs_expired": true,
     "refs_original": 0,
@@ -40,7 +47,7 @@
     "Credential revocation not confirmed",
     "GitHub cache/PR/fork copies cannot be certified by branch rewrite"
   ],
-  "technical_approval": "2026-10-12 /root and independent secret_audit APPROVED for reachable-history cleanup and reviewed guards; scoped pre-push records re-audit PASS; full incident BLOCKED",
+  "technical_approval": "2026-10-12 /root and independent secret_audit APPROVED scoped published-main reachable-history cleanup, reviewed guards, exact remote SHA and both provider deployments; final delivery gate PASS. Full incident BLOCKED.",
   "agent_eval": "EVAL-SECRET-PUBLICATION controlled independent run NOT_RUN",
   "local_history_scan": {
     "objects": 3804,
@@ -48,5 +55,47 @@
     "exit_code": 0
   },
   "github_public_forks": 0,
-  "github_all_state_pull_requests": 0
+  "github_all_state_pull_requests": 0,
+  "other_remote_branch_identities_preserved": true,
+  "old_exposure_commit_accessible_via_github_sha": true,
+  "deployments": {
+    "sha": "fd2b07174fcd41e4d3387d08199f413e8033a299",
+    "deployments": [
+      {
+        "context": "Vercel \u2013 ramsider-beta",
+        "state": "success",
+        "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/Cw25nowQE4VZQxNbNqQXuze6SXQr",
+        "updated_at": "2026-10-12T12:28:53Z",
+        "description": "Deployment has completed"
+      },
+      {
+        "context": "Vercel \u2013 ramsider",
+        "state": "success",
+        "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/MoLpFsTTazGtcSxtgDz7Y44XFjUQ",
+        "updated_at": "2026-10-12T12:28:53Z",
+        "description": "Deployment has completed"
+      }
+    ]
+  },
+  "incident_status": "BLOCKED: revocation/incident metadata, GitHub cached old SHA and local broad-prune approval",
+  "final_independent_scan": {
+    "objects": 3825,
+    "findings": [],
+    "exit_code": 0
+  },
+  "custom_security_tooling": {
+    "status": "REMOVED_AT_USER_REQUEST",
+    "superseding_change": "CHG-0102",
+    "removed": [
+      "tools/check-secrets.py",
+      "tools/secret-log-baseline.json",
+      "tests/test_secret_guard.py",
+      ".githooks/pre-commit",
+      ".githooks/commit-msg",
+      ".githooks/pre-push"
+    ],
+    "local_hooks_setting": "unset",
+    "earlier_guard_test_results": "historical only; suite no longer present",
+    "removal_verification": "2026-10-12 /root APPROVED: exact six-file removal, hook setting absent, operational references clean, six existing Python tools preserved, 25 ref history cleanup intact, whitespace and native focused review PASS"
+  }
 }

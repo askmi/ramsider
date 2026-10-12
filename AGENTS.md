@@ -29,7 +29,7 @@ For substantive project work, start one independent, non-editing **discipline au
 
 ## Standing constraints
 
-- Secrets: never display, commit, or publish secrets without the user's explicit approval. Capture raw process logs only in ignored local storage; retain sanitized summaries in Git. Before committing run `python3 tools/check-secrets.py`; before pushing run `python3 tools/check-secrets.py --history`. Install the repository guards with `git config core.hooksPath .githooks`; they are pattern checks, not proof that arbitrary credentials are absent. On exposure, remove affected history and verify revocation separately; deleting the current file is insufficient.
+- Secrets: **NEVER reveal, log, commit, push, or share secrets without the user's explicit approval.** This includes API keys, passwords, access tokens, cookies, session credentials and private runtime metadata. Never copy their values into chat, tool output, published files, PRs or external services; use redacted metadata when investigating. Keep raw process logs in ignored local storage and commit sanitized summaries only. Inspect the exact staged files before publishing; deleting an exposed file does not remove its Git history. Verify credential revocation separately. Do not add a custom security scanner, Python tests, hook suite or baseline unless the user requests it.
 
 - Git: work on `main`. Create or switch to another working branch only on the user’s explicit command; do not infer authorization from the configured upstream, skill defaults or an old checkout. Check the current branch and exact destination before commit/push; push to `origin/main` for this project.
 

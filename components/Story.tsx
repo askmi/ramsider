@@ -156,7 +156,10 @@ function Faq({ locale }: { locale: Locale }) {
 
 function Menus({ locale }: { locale: Locale }) {
   return <header className="masthead">
-    <Link id="home-link" className="wordmark" href={`/${locale}`} aria-label={`RAMSIDER ${t(locale, 'home')}`}>RAMSIDER</Link>
+    <Link id="home-link" className="wordmark" href={`/${locale}`} aria-label={`RAMSIDER ${t(locale, 'home')}`}>
+      <Image className="wordmark-icon" src="/art/brand-mark-white.png" width={32} height={32} alt="" aria-hidden="true" unoptimized loading="eager" />
+      RAMSIDER
+    </Link>
     <MenuShell label={t(locale, 'menu')}>
       <nav aria-label={t(locale, 'menu')}>
         {(['moment', 'technology', 'choice', 'expressions', 'pro', 'gold', 'set', 'order', 'documents', 'hospitality', 'faq', 'final'] as const).map((id) => <a id={`navigation-${id}`} key={id} href={`#${id}`}>{t(locale, ({ moment: 'moment', technology: 'complexity', choice: 'choice', expressions: 'expressions', pro: 'pro', gold: 'gold', set: 'set', order: 'order', documents: 'documented', hospitality: 'hospitality', faq: 'faqTitle', final: 'final' } as const)[id])}</a>)}

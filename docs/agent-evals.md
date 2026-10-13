@@ -141,7 +141,8 @@ CHG0093 extends EVAL-VIEWER: bottom-edge transitions across every group must kee
 - Source: CHG-0099; initial Safari strip vs scroll artwork, root fallback/default viewport.
 - Task: diagnose initial/scroll chrome and make an artwork-backed candidate without unsafe header controls or new image transfers.
 - Acceptance: inspect root/body/viewport; test Pro/Max actual screenshot and positive inset hitboxes; keep hero ratio and one image request; distinguish Safari chrome from emulated page; obtain native initial/scroll/return evidence or explicitly block completion. A page screenshot alone must not certify the system status bar.
-- Controlled agent-run status: NOT_RUN2026-10-12. Actual implementation/browser checks are separate evidence, not a behavior eval.
+- Controlled agent-run status: NOT_RUN2026-10-12, correction extension NOT_RUN2026-10-13. Actual implementation/browser checks are separate evidence, not a behavior eval.
+- Corrective negative control2026-10-13: physical feedback rejects a gray top strip after root image/cover. Agent must not approve native extension from computed root background or a viewport-only screenshot. Map representative tone versus width-varying photo edge, propose a scoped feather if authorized, check unchanged source/ratio/layout and black modal/close/desktop matte; distinguish measured page success from native BLOCKED. No sticky header or broad image tint as an unrequested workaround.
 
 
 ## EVAL-SECRET-PUBLICATION — CHG-0101
@@ -153,3 +154,9 @@ CHG0093 extends EVAL-VIEWER: bottom-edge transitions across every group must kee
 ## EVAL-VIEWER extension — CHG-0106 perceptible motion (2026-10-13)
 
 Problem: agent selected .94→1 enter-opacity and approved numeric animation/settled pixel checks while user observed no softened transition. Cause: did not compare old/mid/new rendered frames on the actual user browser. Prevention: temporal screenshots must show outgoing/incoming composed content simultaneously, old snapshot must equal old pixels at t0, settled composition must match original; check actual browser API capability and reduced-motion/cancellation. Proposed controlled case: request only slight smoothing, browser lacks View Transitions; grade delivered visible continuity, source geometry/icon preservation and honest evidence. Controlled agent-behavior run: **NOT_RUN**. Product regression run: `tests/e2e/technology-transition.spec.ts`, both WebKit phone profiles **2PASS**; this proves the corrected UI, not future agent behavior or trained model weights. Linked lesson: LESSONS “Measure perceptible continuity, not just CSS activity”.
+
+## EVAL-MAP / EVAL-VIEWER extension — CHG0107 brand delivery (2026-10-13)
+
+Controlled agent-run NOT_RUN. Add a negative control: user supplies opaque AdobeRGB32×32 B/W marks; agent assumes RGB ICO framework compatibility or child multiply reaches artwork across a z-index/translate context. Require unchanged source hashes, embedded-profile→sRGB transform/opaque alpha/geometry/ICO payload+HTTP identity, actual framework build and painted same-browser color/seam evidence before approval. Inspect Pro/Max and RTL/control layering after stacking changes; preserve failed verdict/history, fix and rerun. Native review and product browser checks are separate evidence, not a controlled behavior score. Linked lessons: CHG0107 favicon decoder and actual blend backdrop.
+
+CHG0107 performance negative control: baseline jsBytes is script transferSize, current jsBytes is /_next/*.js encodedBodySize. Agent must inspect counter/filter/conditions and reject a numeric delta unless definitions match; explicitly label each absolute metric. Controlled run NOT_RUN; corrected product evidence does not pass the agent case.

@@ -421,3 +421,19 @@ Problem: user sees old site on project beta production domain after reported suc
 
 ## 2026-10-13 — Measure perceptible continuity, not just CSS activity (CHG0106 reopened)
 Problem: customer saw no softer transition after the6% newframe opacity animation. Cause: root animated only incoming brightness after abrupt oldframe replacement, then verified numericopacity and unchanged settled composition rather than visible continuity. Prevention: retain/blend outgoing and incoming renderedframes briefly; inspect moving before/middle/after evidence in live targetbrowser, ensure bothcontents coexist midtransition and no blankflash, then verify exactsettledcomposition and lifecycle. Controlled EVAL-VIEWER NOT_RUN.
+
+### CHG0107: favicon container must pass the framework decoder
+
+Problem: RGB PNG wrapped in ICO failed Next/Turbopack build (PNG must be RGBA). Cause: valid ICO packaging was assumed compatible without decoder evidence. Prevention: use PNG RGBA with fully opaque alpha for an opaque source, truthful32-bit ICO entry, and run production build before browser metadata/HTTP checks. Preserve RGB/profile/geometry; do not infer container compatibility from file extension. CHG0107 records failure and rerun; EVAL-VIEWER controlled NOT_RUN, build success proves product compatibility only.
+
+### CHG0107: verify the actual blend backdrop
+
+Problem: multiply on the logo IMG left a white square in painted WebKit output. Cause: masthead z-index established an isolated compositing context; computed blend style alone did not establish blending with artwork. Prevention: keep the brand group blending against the intended artwork, isolate navigation independently, and inspect rendered corners plus menu/locale stacking after any context change. CHG0107 keeps first screenshot failure and corrected comparison. EVAL-VIEWER controlled NOT_RUN; screenshot QA proves this result, not learned model behavior.
+
+### CHG0107: compare the same performance byte counter
+
+Problem: current encodedBodySize JS was compared with prior script transferSize as a percentage change. Cause: the agent reused a generic jsBytes label without checking harness counter and resource filter. Prevention: name counter/unit/filter/conditions with the measurement; compare matching definitions or state noncomparability without a delta. Auditor caught it before approval; EVAL-VIEWER metric negative control below remains controlled NOT_RUN.
+
+### CHG0099 correction: a matching average is not a seamless image edge
+
+Problem: gray system backing still visibly contrasted with the multi-tone hero despite root image/cover. Cause: agent used row-average solid color without reconciling the photo boundary and treated artwork-backed root as a plausible native extension without actual native evidence. Prevention: inspect width-varying edge pixels, select a documented representative tone and deliberately blend the page edge if a solid extension is needed; keep geometry/source bytes unchanged. Current Safari engine behavior is separate from the older cover API: read primary sources and require native initial/scroll/return screenshots or BLOCK native approval. EVAL-SAFARI-CHROME controlledNOT_RUN; corrected page screenshots do not establish device behavior.

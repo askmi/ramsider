@@ -7,19 +7,21 @@
 @font-face{font-family:NotoButtonSC;src:url('/fonts/button-fallback/noto-zh-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
 @font-face{font-family:NotoButtonJP;src:url('/fonts/button-fallback/noto-ja-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
 @font-face{font-family:NotoButtonKR;src:url('/fonts/button-fallback/noto-ko-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
-:root{--page-max-width:941px;color-scheme:light;font-family:OpenSans,Arial,sans-serif;color:#292018;background:#c4b9b7 url('/art/00.webp') center top/min(100vw,var(--page-max-width)) auto no-repeat}
+:root{--page-max-width:941px;--hero-chrome-bg:#c4b7b4;color-scheme:light;font-family:OpenSans,Arial,sans-serif;color:#292018;background:var(--hero-chrome-bg) url('/art/00.webp') center top/min(100vw,var(--page-max-width)) auto no-repeat}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;min-width:280px}
+body{margin:0;min-width:280px;background-color:var(--hero-chrome-bg)}
 button,a{font:inherit}
 button{cursor:pointer}
 a{color:inherit}
 :focus-visible{outline:3px solid #815013;outline-offset:3px}
 .canvas{--hero-safe-top:env(safe-area-inset-top,0px);position:relative;container-type:inline-size;display:grid;grid-template-rows:auto auto auto;width:100%;max-width:var(--page-max-width);margin-inline:auto;overflow:clip;isolation:isolate;background:#d8bb9f}
 /* Keep hero controls/copy clear of the sensor area while artwork fills the viewport. */
-.canvas>:is(.masthead,.locale-switcher,.key-intro,.key-hero,.key-expression,.key-reserve){translate:0 var(--hero-safe-top)}
+.canvas>:is(.locale-switcher,.key-intro,.key-hero,.key-expression,.key-reserve){translate:0 var(--hero-safe-top)}
 .art{position:absolute;inset:0 0 auto;height:calc(27147/941*100cqw);overflow:hidden;z-index:0;pointer-events:none}
 .art img,.tail-art img{display:block;width:100%;height:auto;background-size:100% 100%;background-repeat:no-repeat}
+/* Safari may extend a solid page color rather than the hero image into its UI. */
+@media(max-width:941px){.art::before{content:"";position:absolute;z-index:1;inset:0 0 auto;height:clamp(32px,calc(120/941*100cqw),56px);background:linear-gradient(to bottom,var(--hero-chrome-bg) 4px,transparent);pointer-events:none}}
 .art img:not(:first-child),.tail-art-track img{margin-top:calc(-2/941*100cqw)}
 .story-prefix-space{grid-row:1;height:calc(27147/941*100cqw)}
 .story-tail{grid-row:3;position:relative;height:calc(3920/941*100cqw);--source-offset:calc(28207/941*100cqw)}
@@ -68,9 +70,10 @@ html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.
 .canvas:is([data-locale="ar"],[data-locale="zh"],[data-locale="ja"],[data-locale="ko"]) .story-button:not(.button-pill) .button-label{font-family:OpenSans,var(--button-script-font),Arial,sans-serif}
 .film-play{position:absolute;z-index:4;aspect-ratio:1;height:auto;background:#f4dca812;border:2px solid #f6dea0;border-radius:50%;box-shadow:0 0 8px #fff4ca80;color:#fff2cc;display:grid;place-items:center;border-width:1px}
 .film-play svg{width:80%;height:80%;margin-left:.1em}
-.masthead{position:absolute;z-index:9;top:calc(62/941*100cqw);left:calc(80/941*100%);width:calc(780/941*100%);display:flex;justify-content:space-between;align-items:flex-start}
-.wordmark{font-family:OpenSans,Arial,sans-serif;font-size:calc(33/941*100cqw);letter-spacing:.28em;text-decoration:none;line-height:1}
-.menu{position:relative}
+.masthead{position:absolute;top:calc(62/941*100cqw + var(--hero-safe-top));left:calc(80/941*100%);width:calc(780/941*100%);display:flex;justify-content:space-between;align-items:flex-start}
+.wordmark{position:relative;z-index:9;mix-blend-mode:multiply;display:inline-flex;align-items:center;gap:.55em;min-height:44px;margin-top:calc((1em - 44px)/2);white-space:nowrap;direction:ltr;font-family:OpenSans,Arial,sans-serif;font-size:calc(33/941*100cqw);letter-spacing:.28em;text-decoration:none;line-height:1}
+.wordmark-icon{width:clamp(18px,calc(48/941*100cqw),32px);height:auto;flex:none}
+.menu{position:relative;z-index:9}
 .menu summary{display:flex;flex-direction:column;justify-content:center;gap:7px;width:44px;height:44px;list-style:none;cursor:pointer;margin-top:calc(18/941*min(100vw,941px) - 22px);align-items:flex-end}
 .menu summary::-webkit-details-marker{display:none}
 .menu summary span{height:2px;width:26px;background:#26221f;display:block}

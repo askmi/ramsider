@@ -56,9 +56,6 @@ type Position={group:number;photo:number};
 type Contact={x:number;y:number;id:number;up:boolean;down:boolean;axis:'horizontal'|'vertical'|null;lastY:number;at:number;velocity:number;navigation:number|null};
 export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptions:TechnologyDescriptionCopy}){
  const dialog=useRef<HTMLDialogElement>(null),viewport=useRef<HTMLDivElement>(null),opener=useRef<HTMLElement|null>(null);
- const outgoing=useRef<HTMLDivElement>(null),blend=useRef<Animation|null>(null);
- const clearBlend=useCallback(()=>{blend.current?.cancel();blend.current=null;outgoing.current?.replaceChildren();},[]);
- useEffect(()=>clearBlend,[clearBlend]);
  const keyboardFocus=useRef(false),inertia=useRef<number|null>(null);
  const stopInertia=useCallback(()=>{if(inertia.current!==null)cancelAnimationFrame(inertia.current);inertia.current=null;},[]);
  useEffect(()=>stopInertia,[stopInertia]);
@@ -69,46 +66,23 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
  const labels=copy[locale],photos=photoLabels[locale],group=technologyGroups[position.group],slide=group.slides[position.photo];
  useScrollLock(open);
  const select=useCallback((next:Position)=>{
-  stopInertia();clearBlend();requested.current=next;pending.current=true;contact.current=null;pointer.current=null;locked.current=viewport.current?.scrollTop??0;
+  stopInertia();requested.current=next;pending.current=true;contact.current=null;pointer.current=null;locked.current=viewport.current?.scrollTop??0;
   setLoading(true);setFailed(false);setProgress(null);subscription.current?.();const revision=++token.current;
   const resource=loadImage(technologyGroups[next.group].slides[next.photo].src,'auto');
   subscription.current=resource.subscribe(value=>{if(revision===token.current)setProgress(value.total?Math.round(value.loaded/value.total*100):null);});
-  resource.ready.then(async photo=>{
+  resource.ready.then(photo=>{
    if(revision!==token.current||!dialog.current?.open)return;
-   const old=viewport.current?.querySelector('article'),host=outgoing.current;
-   let snapshot:HTMLDivElement|null=null;
-   if(old&&host&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
-    // Preserve the whole rendered plane, including fitted text and its current scroll position.
-    const rect=old.getBoundingClientRect(),stage=host.getBoundingClientRect();
-    const plane=document.createElement('div');
-    plane.className=old.className;
-    plane.style.cssText=`position:absolute;margin:0;left:${rect.left-stage.left}px;top:${rect.top-stage.top}px;width:${rect.width}px;height:${rect.height}px`;
-    plane.append(...Array.from(old.childNodes,node=>node.cloneNode(true)));
-    plane.querySelectorAll('[id],[tabindex]').forEach(node=>{node.removeAttribute('id');node.removeAttribute('tabindex');});
-    snapshot=document.createElement('div');snapshot.className='technology-viewer__snapshot';snapshot.append(plane);
-    try{await Promise.all(Array.from(snapshot.querySelectorAll('img'),img=>img.decode()));}catch{snapshot=null;}
-   }
-   if(revision!==token.current||!dialog.current?.open)return;
-   if(snapshot)outgoing.current?.replaceChildren(snapshot);
    if(document.activeElement===viewport.current)dialog.current.focus({preventScroll:true});
    displayed.current=next;setPosition(next);setImage(photo);pending.current=false;setLoading(false);subscription.current?.();subscription.current=null;
   }).catch(()=>{if(revision===token.current&&dialog.current?.open){setFailed(true);subscription.current?.();subscription.current=null;}});
- },[stopInertia,clearBlend]);
+ },[stopInertia]);
  const move=useCallback((axis:'horizontal'|'vertical',delta:number)=>{
   if(pending.current)return;const current=displayed.current;
   const next=axis==='horizontal'?{...current,photo:current.photo+delta}:{group:current.group+delta,photo:0};
   if(next.group<0||next.group>=technologyGroups.length||next.photo<0||next.photo>=technologyGroups[next.group].slides.length)return;
   select(next);
  },[select]);
- useLayoutEffect(()=>{
-  viewport.current?.scrollTo({top:0,left:0,behavior:'instant'});
-  const snapshot=outgoing.current?.firstElementChild;
-  if(!snapshot)return;
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches){clearBlend();return;}
-  const animation=snapshot.animate([{opacity:1},{opacity:0}],{duration:180,easing:'ease-out',fill:'forwards'});
-  blend.current=animation;
-  void animation.finished.then(()=>{if(blend.current===animation)clearBlend();},()=>{});
- },[image,clearBlend]);
+ useLayoutEffect(()=>{viewport.current?.scrollTo({top:0,left:0,behavior:'instant'});},[image]);
  useLayoutEffect(()=>{if(loading&&dialog.current?.open)dialog.current.focus({preventScroll:true});},[loading]);
  useEffect(()=>{
   const warm=()=>technologyGroups.forEach(g=>g.slides.forEach(s=>{void loadImage(s.src).ready.catch(()=>{});}));
@@ -185,7 +159,7 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
  },[open,slide.src,move,start,finish,coast,stopInertia]);
  const pointerDown=(e:PointerEvent<HTMLDivElement>)=>{if(e.pointerType==='touch'||!e.isPrimary||e.button!==0||pending.current)return;stopInertia();pointer.current=start(e.clientX,e.clientY,e.pointerId);try{e.currentTarget.setPointerCapture(e.pointerId);}catch{}};
  return <dialog ref={dialog} id="technology-viewer" className="technology-viewer" data-group={group.title} data-photo-index={position.photo} aria-busy={loading} aria-labelledby="technology-viewer-title" tabIndex={-1}
- onClose={()=>{stopInertia();clearBlend();token.current++;pending.current=false;contact.current=null;pointer.current=null;subscription.current?.();subscription.current=null;setOpen(false);setLoading(false);opener.current?.toggleAttribute("data-pointer-return",!keyboardFocus.current);opener.current?.focus({preventScroll:true});}}
+ onClose={()=>{stopInertia();token.current++;pending.current=false;contact.current=null;pointer.current=null;subscription.current?.();subscription.current=null;setOpen(false);setLoading(false);opener.current?.toggleAttribute("data-pointer-return",!keyboardFocus.current);opener.current?.focus({preventScroll:true});}}
  onKeyDown={e=>{
   stopInertia();
   if(e.key==='Tab'){const controls=Array.from(e.currentTarget.querySelectorAll<HTMLElement>('button:not(:disabled),[tabindex="0"]'));const index=controls.indexOf(document.activeElement as HTMLElement);if(index<0||(e.shiftKey?index===0:index===controls.length-1)){e.preventDefault();(e.shiftKey?controls.at(-1):controls[0])?.focus();}return;}
@@ -208,7 +182,6 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
  {group.title==='QuickCell'||group.title==='PolyArmor'?<PowerArmorDescriptions kind={group.title==='QuickCell'?'quick':'poly'} slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='MoodEngine'||group.title==='AquaSense'?<MoodAquaDescriptions kind={group.title==='MoodEngine'?'mood':'aqua'} slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='TouchLink'?<TouchLinkDescriptions slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='AirShield'?<AirShieldDescriptions slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='CapsuleCode'?<CapsuleCodeDescriptions slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='HeatCore'?<TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={labels.names[position.photo]} copy={descriptions} cropTop={102}/>:group.title==='CyberMind'?<CyberMindDescriptions slide={slide.id as '01'|'02'} locale={locale} name={group.title} copy={cyberMindCopy[locale]} descriptor={labels.technology}/>:<NobleCraftDescriptions slide={position.photo} locale={locale}/>}
  </article>}
  </div>
- <div ref={outgoing} className="technology-viewer__outgoing" aria-hidden="true" inert/>
  {open&&loading&&<div className="technology-viewer__loading"><LoadingStatus locale={locale} progress={progress} error={failed} onRetry={()=>select(requested.current)}/></div>}
  </div>
  <footer className="technology-viewer__toolbar technology-viewer__toolbar--bottom">

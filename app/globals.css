@@ -162,8 +162,6 @@ html:has(#technology-viewer[open]),body:has(#technology-viewer[open]){background
 .technology-viewer__scroll{display:flex;flex-direction:column;width:100%;height:100%;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;touch-action:pinch-zoom;scrollbar-width:none}
 .technology-viewer__scroll::-webkit-scrollbar{display:none}
 .technology-viewer__content{position:relative;flex:none;margin-block:auto;width:100%;aspect-ratio:941/1522;direction:ltr}
-.technology-viewer__outgoing{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.technology-viewer__snapshot{position:absolute;inset:0;background:#181512}
 .technology-viewer__photo{position:absolute;inset:0}
 .technology-viewer__photo img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
 .technology-viewer[aria-busy=true] .technology-viewer__scroll{overflow-y:hidden;touch-action:none}

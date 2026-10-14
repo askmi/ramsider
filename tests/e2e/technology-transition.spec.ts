@@ -1,37 +1,53 @@
 import {expect,test} from '@playwright/test';
-import sharp from 'sharp';
 import {openTechnology} from './helpers/technology';
 
-// Inspect the rendered transition itself: settled screenshots alone missed CHG0106.
-test('photo and technology changes blend complete painted frames without moving the old frame',async({page},info)=>{
- test.skip(!info.project.name.includes('webkit'),'mobile painted-frame regression');
+type NavigationProbe={ready:string[];cloneDecodes:number;clickAt:number;commitMs:number|null;loadingFrames:number;sampleUntil:number};
+declare global {interface Window {navigationProbe?:NavigationProbe}}
+
+// A ready destination must not wait on preparation of an outgoing frame.
+test('warm photos switch without clone decoding or a painted loading flash',async({page},info)=>{
+ test.skip(!info.project.name.includes('webkit'),'mobile navigation regression');
  await page.addInitScript(()=>{
-  const original=Element.prototype.animate;
-  Element.prototype.animate=function(...args){
-   const animation=original.apply(this,args);
-   if(this.classList.contains('technology-viewer__snapshot')){animation.pause();animation.currentTime=0;}
-   return animation;
+  const w=window;
+  const probe:NavigationProbe=w.navigationProbe={ready:[],cloneDecodes:0,clickAt:0,commitMs:null,loadingFrames:0,sampleUntil:0};
+  const original=HTMLImageElement.prototype.decode;
+  HTMLImageElement.prototype.decode=async function(){
+   await original.call(this);
+   if(!this.isConnected&&this.hasAttribute('alt')){
+    probe.cloneDecodes++;
+    await new Promise(resolve=>setTimeout(resolve,120));
+   }
+   if(this.dataset.source&&!probe.ready.includes(this.dataset.source))probe.ready.push(this.dataset.source);
   };
+  document.addEventListener('click',event=>{
+   const button=(event.target as Element)?.closest('button');
+   if(button?.getAttribute('aria-label')!=='Next Slide')return;
+   probe.clickAt=performance.now();probe.sampleUntil=probe.clickAt+300;
+   const sample=()=>{
+    if(document.querySelector('#technology-viewer .technology-viewer__loading'))probe.loadingFrames++;
+    if(performance.now()<probe.sampleUntil)requestAnimationFrame(sample);
+   };
+   requestAnimationFrame(sample);
+  },true);
+  new MutationObserver(()=>{
+   const viewer=document.querySelector('#technology-viewer');
+   if(probe.clickAt&&probe.commitMs===null&&viewer?.getAttribute('data-photo-index')==='1'&&viewer.getAttribute('aria-busy')==='false')probe.commitMs=performance.now()-probe.clickAt;
+  }).observe(document,{subtree:true,attributes:true,childList:true});
  });
  await page.goto('/en');await openTechnology(page);
- const viewer=page.locator('#technology-viewer'),stage=viewer.locator('.technology-viewer__stage');
- await expect(viewer).toHaveAttribute('aria-busy','false');await page.evaluate(()=>document.fonts.ready);
- for(const kind of ['photo','technology']){
-  const old=await stage.screenshot();
-  await (kind==='photo'?viewer.locator('header button').nth(1):viewer.locator('footer button').last()).click();
-  await expect(viewer).toHaveAttribute('aria-busy','false');
-  const painting=viewer.locator('.technology-viewer__snapshot');await expect(painting).toHaveCount(1);
-  const zero=await stage.screenshot();
-  expect((await sharp(zero).raw().toBuffer()).equals(await sharp(old).raw().toBuffer())).toBe(true);
-  await painting.evaluate(e=>{e.getAnimations()[0].currentTime=90;});
-  const middle=await stage.screenshot({path:info.outputPath(`${kind}-middle.png`)});
-  const state=await painting.evaluate(e=>({opacity:Number(getComputedStyle(e).opacity),decoded:[...e.querySelectorAll('img')].every(i=>i.complete&&i.naturalWidth>0),hidden:e.parentElement!.getAttribute('aria-hidden'),inert:(e.parentElement as HTMLElement).inert}));
-  expect(state.opacity).toBeGreaterThan(0);expect(state.opacity).toBeLessThan(1);
-  expect(state.decoded).toBe(true);expect(state.hidden).toBe('true');expect(state.inert).toBe(true);
-  await painting.evaluate(e=>{e.getAnimations()[0].currentTime=180;});
-  const next=await stage.screenshot();
-  expect((await sharp(middle).raw().toBuffer()).equals(await sharp(old).raw().toBuffer())).toBe(false);
-  expect((await sharp(middle).raw().toBuffer()).equals(await sharp(next).raw().toBuffer())).toBe(false);
-  await painting.evaluate(e=>e.getAnimations()[0].finish());await expect(painting).toHaveCount(0);
- }
+ const viewer=page.locator('#technology-viewer');
+ await expect(viewer).toHaveAttribute('aria-busy','false');
+ await page.waitForFunction(()=>window.navigationProbe!.ready.includes('/art/technology/slides/noble-02.png'));
+ await viewer.getByRole('button',{name:'Next Slide',exact:true}).click();
+ await expect(viewer).toHaveAttribute('data-photo-index','1');
+ await expect(viewer).toHaveAttribute('aria-busy','false');
+ await page.waitForFunction(()=>{const p=window.navigationProbe!;return p.clickAt>0&&performance.now()>p.sampleUntil;});
+ const probe=await page.evaluate(()=>window.navigationProbe!);
+ expect(probe.commitMs).not.toBeNull();
+ expect(probe.commitMs!).toBeLessThan(100);
+ expect(probe.loadingFrames).toBe(0);
+ expect(probe.cloneDecodes).toBe(0);
+ await expect(viewer.locator('.technology-viewer__photo img')).toHaveCount(1);
+ expect(await viewer.locator('.technology-viewer__photo img').evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0)).toBe(true);
+ await page.screenshot({path:info.outputPath('warm-navigation.png')});
 });

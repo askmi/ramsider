@@ -1,0 +1,429 @@
+{
+  "date": "2026-10-14",
+  "change": "CHG0106 investigation only",
+  "status": "REOPENED; no fix; bounded diagnosis",
+  "video": {
+    "filename": "IMG_5758.MP4",
+    "sha256": "46032a248d7e1a851c8c3482ed59cfbe0d0b1e9c07fc48979b0eea7ab5455e97",
+    "duration": 19.133333333333333,
+    "width": 592,
+    "height": 1280,
+    "observation": "Near13.0s photo disappears on darkstage, live text and Loading image100% remain; then mixed and settled image",
+    "timingLimit": "~30fps requested browser seeks, rounded labels; approximate timestamps not frame-accurate native trace",
+    "originalUnmodified": true
+  },
+  "versions": {
+    "before": "9b50d95",
+    "crossfade": "520fdc4",
+    "current": "d79f37a"
+  },
+  "builds": "3 isolated exactGit source snapshots, same Next16.2.11 webpack production build; all success. Shared unmodified art/public; live3068 and repo runtime never changed",
+  "artTreeAll3": "33ddf33dc09392f4c4e3a178a804a73f21913f91",
+  "geometry": [
+    {
+      "version": "before",
+      "sha": "9b50d95",
+      "profile": "pro",
+      "width": 402,
+      "height": 874,
+      "safeTop": 0,
+      "safeBottom": 0,
+      "geometry": {
+        "photo": "/art/technology/slides/heat-05.png",
+        "image": {
+          "x": 0,
+          "y": 111.890625,
+          "width": 402,
+          "height": 650.203125
+        },
+        "natural": [
+          941,
+          1522
+        ],
+        "stage": {
+          "x": 0,
+          "y": 48,
+          "width": 402,
+          "height": 778
+        },
+        "scrollHeight": 778,
+        "clientHeight": 778,
+        "maxScroll": 0,
+        "scrollTop": 0
+      },
+      "warmReverseMissingDecodedImageSamples": 0,
+      "warmReverseLoadingSamples": 0
+    },
+    {
+      "version": "crossfade",
+      "sha": "520fdc4",
+      "profile": "pro",
+      "width": 402,
+      "height": 874,
+      "safeTop": 0,
+      "safeBottom": 0,
+      "geometry": {
+        "photo": "/art/technology/slides/heat-05.png",
+        "image": {
+          "x": 0,
+          "y": 111.890625,
+          "width": 402,
+          "height": 650.203125
+        },
+        "natural": [
+          941,
+          1522
+        ],
+        "stage": {
+          "x": 0,
+          "y": 48,
+          "width": 402,
+          "height": 778
+        },
+        "scrollHeight": 778,
+        "clientHeight": 778,
+        "maxScroll": 0,
+        "scrollTop": 0
+      },
+      "warmReverseMissingDecodedImageSamples": 0,
+      "warmReverseLoadingSamples": 0
+    },
+    {
+      "version": "current",
+      "sha": "d79f37a",
+      "profile": "pro",
+      "width": 402,
+      "height": 874,
+      "safeTop": 0,
+      "safeBottom": 0,
+      "geometry": {
+        "photo": "/art/technology/slides/heat-05.png",
+        "image": {
+          "x": 0,
+          "y": 111.890625,
+          "width": 402,
+          "height": 650.203125
+        },
+        "natural": [
+          941,
+          1522
+        ],
+        "stage": {
+          "x": 0,
+          "y": 48,
+          "width": 402,
+          "height": 778
+        },
+        "scrollHeight": 778,
+        "clientHeight": 778,
+        "maxScroll": 0,
+        "scrollTop": 0
+      },
+      "warmReverseMissingDecodedImageSamples": 0,
+      "warmReverseLoadingSamples": 0
+    },
+    {
+      "version": "before",
+      "sha": "9b50d95",
+      "profile": "short-model",
+      "width": 393,
+      "height": 784,
+      "safeTop": 47,
+      "safeBottom": 34,
+      "geometry": {
+        "photo": "/art/technology/slides/heat-05.png",
+        "image": {
+          "x": 0,
+          "y": 95,
+          "width": 393,
+          "height": 635.640625
+        },
+        "natural": [
+          941,
+          1522
+        ],
+        "stage": {
+          "x": 0,
+          "y": 95,
+          "width": 393,
+          "height": 607
+        },
+        "scrollHeight": 636,
+        "clientHeight": 607,
+        "maxScroll": 29,
+        "scrollTop": 0
+      },
+      "warmReverseMissingDecodedImageSamples": 0,
+      "warmReverseLoadingSamples": 0
+    },
+    {
+      "version": "crossfade",
+      "sha": "520fdc4",
+      "profile": "short-model",
+      "width": 393,
+      "height": 784,
+      "safeTop": 47,
+      "safeBottom": 34,
+      "geometry": {
+        "photo": "/art/technology/slides/heat-05.png",
+        "image": {
+          "x": 0,
+          "y": 95,
+          "width": 393,
+          "height": 635.640625
+        },
+        "natural": [
+          941,
+          1522
+        ],
+        "stage": {
+          "x": 0,
+          "y": 95,
+          "width": 393,
+          "height": 607
+        },
+        "scrollHeight": 636,
+        "clientHeight": 607,
+        "maxScroll": 29,
+        "scrollTop": 0
+      },
+      "warmReverseMissingDecodedImageSamples": 0,
+      "warmReverseLoadingSamples": 0
+    },
+    {
+      "version": "current",
+      "sha": "d79f37a",
+      "profile": "short-model",
+      "width": 393,
+      "height": 784,
+      "safeTop": 47,
+      "safeBottom": 34,
+      "geometry": {
+        "photo": "/art/technology/slides/heat-05.png",
+        "image": {
+          "x": 0,
+          "y": 95,
+          "width": 393,
+          "height": 635.640625
+        },
+        "natural": [
+          941,
+          1522
+        ],
+        "stage": {
+          "x": 0,
+          "y": 95,
+          "width": 393,
+          "height": 607
+        },
+        "scrollHeight": 636,
+        "clientHeight": 607,
+        "maxScroll": 29,
+        "scrollTop": 0
+      },
+      "warmReverseMissingDecodedImageSamples": 0,
+      "warmReverseLoadingSamples": 0
+    },
+    {
+      "version": "before",
+      "sha": "9b50d95",
+      "profile": "max",
+      "width": 440,
+      "height": 956,
+      "safeTop": 0,
+      "safeBottom": 0,
+      "geometry": {
+        "photo": "/art/technology/slides/heat-05.png",
+        "image": {
+          "x": 0,
+          "y": 122.171875,
+          "width": 440,
+          "height": 711.65625
+        },
+        "natural": [
+          941,
+          1522
+        ],
+        "stage": {
+          "x": 0,
+          "y": 48,
+          "width": 440,
+          "height": 860
+        },
+        "scrollHeight": 860,
+        "clientHeight": 860,
+        "maxScroll": 0,
+        "scrollTop": 0
+      },
+      "warmReverseMissingDecodedImageSamples": 0,
+      "warmReverseLoadingSamples": 0
+    },
+    {
+      "version": "crossfade",
+      "sha": "520fdc4",
+      "profile": "max",
+      "width": 440,
+      "height": 956,
+      "safeTop": 0,
+      "safeBottom": 0,
+      "geometry": {
+        "photo": "/art/technology/slides/heat-05.png",
+        "image": {
+          "x": 0,
+          "y": 122.171875,
+          "width": 440,
+          "height": 711.65625
+        },
+        "natural": [
+          941,
+          1522
+        ],
+        "stage": {
+          "x": 0,
+          "y": 48,
+          "width": 440,
+          "height": 860
+        },
+        "scrollHeight": 860,
+        "clientHeight": 860,
+        "maxScroll": 0,
+        "scrollTop": 0
+      },
+      "warmReverseMissingDecodedImageSamples": 0,
+      "warmReverseLoadingSamples": 0
+    },
+    {
+      "version": "current",
+      "sha": "d79f37a",
+      "profile": "max",
+      "width": 440,
+      "height": 956,
+      "safeTop": 0,
+      "safeBottom": 0,
+      "geometry": {
+        "photo": "/art/technology/slides/heat-05.png",
+        "image": {
+          "x": 0,
+          "y": 122.171875,
+          "width": 440,
+          "height": 711.65625
+        },
+        "natural": [
+          941,
+          1522
+        ],
+        "stage": {
+          "x": 0,
+          "y": 48,
+          "width": 440,
+          "height": 860
+        },
+        "scrollHeight": 860,
+        "clientHeight": 860,
+        "maxScroll": 0,
+        "scrollTop": 0
+      },
+      "warmReverseMissingDecodedImageSamples": 0,
+      "warmReverseLoadingSamples": 0
+    }
+  ],
+  "settledScreens": "Short-model and Max entireviewport pixels identical parent→520 and parent→d79; root/auditor inspected images",
+  "controlledDecodeDelay": [
+    {
+      "version": "before",
+      "sha": "9b50d95",
+      "model": "120ms delay ONLY on detached clone decode; next slide already loaded",
+      "stateChanges": [
+        {
+          "afterClickMs": 1,
+          "photoIndex": "3",
+          "busy": "true"
+        },
+        {
+          "afterClickMs": 3,
+          "photoIndex": "2",
+          "busy": "false"
+        }
+      ],
+      "cloneDecodeMs": [],
+      "loadingRafSamples": 0,
+      "missingDecodedLiveImageSamples": 0
+    },
+    {
+      "version": "crossfade",
+      "sha": "520fdc4",
+      "model": "120ms delay ONLY on detached clone decode; next slide already loaded",
+      "stateChanges": [
+        {
+          "afterClickMs": 2,
+          "photoIndex": "3",
+          "busy": "true"
+        },
+        {
+          "afterClickMs": 127,
+          "photoIndex": "2",
+          "busy": "false"
+        }
+      ],
+      "cloneDecodeMs": [
+        121
+      ],
+      "loadingRafSamples": 7,
+      "missingDecodedLiveImageSamples": 0
+    },
+    {
+      "version": "current",
+      "sha": "d79f37a",
+      "model": "120ms delay ONLY on detached clone decode; next slide already loaded",
+      "stateChanges": [
+        {
+          "afterClickMs": 1,
+          "photoIndex": "3",
+          "busy": "true"
+        },
+        {
+          "afterClickMs": 125,
+          "photoIndex": "2",
+          "busy": "false"
+        }
+      ],
+      "cloneDecodeMs": [
+        121
+      ],
+      "loadingRafSamples": 7,
+      "missingDecodedLiveImageSamples": 0
+    }
+  ],
+  "codeCauses": {
+    "loadingHud": "520 introduces awaiting decoded cloned outgoing IMG while pending/loading true even when requested slide.ready is already complete; controlled delay reproduces spinner only after520",
+    "opacityAndReset": "180ms ease-out blends whole text+photo; old/new copy overlaps. Instant top0 reset and gesture thresholds were already present in parent; opacity does not interpolate scroll coordinates",
+    "scroll": "Unchanged fullwidth941x1522photo vs100dvh minus bars/safeinsets: synthetic393x784/47+34 yields635.64photo vs607stage/max29 onall3; fullPro/Max profiles fit. Customers exact CSSgeometry/yesterdaycontext unknown"
+  },
+  "publicSiteRead": {
+    "url": "https://ramsider-main.vercel.app/en",
+    "http": 200,
+    "hasBrandAsset": true,
+    "viewerChunk": "/_next/static/chunks/3srl1_xqtj8t8.js",
+    "snapshot180CloneDecode": true,
+    "recordedCommit": "UNKNOWN; live code fingerprint does not prove recorded exact SHA"
+  },
+  "hardwareBlankFrameCause": "NOT_PROVEN: observed physical video, not reproduced in native desktop WebKit. Controlled decoder delay alone preserves painted old photo; GPU/cache/pressure/Safari engine explanations remain hypotheses",
+  "memoryCalculation": {
+    "23SourceRgbaBytesEstimate": 131750408,
+    "originalPngBytes": 40661298,
+    "notMeasuredBrowserMemory": true,
+    "notProofOfMemoryPressure": true
+  },
+  "scope": "No application/source/asset/test edits, commit, push or fix. Investigation records only. Customer explicitly accepted Safari gradient; preserve it",
+  "technicalApproval": "2026-10-14 /root APPROVED bounded diagnosis only; independent icons_final_audit scope/evidence/final-records PASS. CHG0106 REOPENED, native blank cause unresolved, no fix approval",
+  "controlledAgentEval": "NOT_RUN",
+  "screenshotPaths": [
+    "screenshots/iphone-slider-investigation/native-flash-evidence.png",
+    "screenshots/iphone-slider-investigation/video-overview.png",
+    "screenshots/iphone-slider-investigation/before-short-model-heat4-top.png",
+    "screenshots/iphone-slider-investigation/current-short-model-heat4-top.png",
+    "screenshots/iphone-slider-investigation/current-short-model-heat4-bottom.png",
+    "screenshots/iphone-slider-investigation/current-max-heat4-top.png"
+  ],
+  "temporaryServers": "Owned isolated servers3132/3133/3134 stopped after checks; original live3068 untouched"
+}

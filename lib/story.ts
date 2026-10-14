@@ -24,7 +24,7 @@ export const storyNodes: StoryNode[] = [
   n('reserve', 80, 500, 210, 29, 'button', undefined, undefined, 'commerce', 'hero-reserve'),
   n('fire', 78, 2048, 450, 58, 'title', undefined, undefined, undefined, 'fire'),
   n('fireBody', 78, 2207, 450, 30, 'body'),
-  n('learn', 78, 2310, 220, 28, 'button', undefined, '#moment', undefined, 'fire-learn'),
+  n('learn', 78, 2310, 220, 28, 'button', undefined, undefined, undefined, 'fire-learn'),
   n('moment', 78, 3412, 490, 57, 'title', undefined, undefined, undefined, 'moment'),
   n('momentBody', 78, 3560, 520, 30, 'body'),
   n('feeling', 78, 4842, 650, 57, 'title', undefined, undefined, undefined, 'feeling'),

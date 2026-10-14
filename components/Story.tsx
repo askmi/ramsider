@@ -15,6 +15,7 @@ import iconMap from '@/lib/icon-map.json';
 import localizedButtonWidths from '@/lib/button-localized-widths.json';
 import artPreviews from '@/lib/art-previews.json';
 import { PageMediaGate } from './PageMediaGate';
+import { CharcoalRibbon } from './CharcoalRibbon';
 
 // Keep the complete FAQ/account artwork in one tile: no image edge through a card.
 const artTiles = Array.from({ length: 12 }, (_, i) => ({
@@ -82,6 +83,7 @@ function OverlayNode({ node, locale }: { node: StoryNode; locale: Locale }) {
       {appearance.kind === 'outline' && <ActionArrow />}
     </>;
     if (node.target) return <Link {...buttonProps} href={node.target}>{content}</Link>;
+    if (node.id === 'fire-learn') return <button {...buttonProps} type="button" aria-haspopup="dialog" aria-controls="charcoal-viewer" data-charcoal-open>{content}</button>;
     return <button {...buttonProps} type="button" aria-haspopup="dialog" {...(node.unavailable === 'technology' ? { 'data-technology-open': true } : { popoverTarget: `unavailable-${node.unavailable ?? 'commerce'}` })}>{content}</button>;
   }
   if (node.key === 'hero') return <h1 {...props}>{textLines(text)}</h1>;
@@ -226,6 +228,7 @@ function Popovers({ locale }: { locale: Locale }) {
 export function Story({ locale }: { locale: Locale }) {
   return <DialogController>
     <TechnologyViewer locale={locale} descriptions={technologyDescriptionCopy[locale]} />
+    <CharcoalRibbon locale={locale} />
     <PageMediaGate locale={locale}><main className="canvas" data-locale={locale}>
       <div className="story-prefix-space" aria-hidden="true" />
       <div className="art" aria-hidden="true">

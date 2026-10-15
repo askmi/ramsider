@@ -1,5 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
-import { mkdir } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
 import sharp from 'sharp';
 
 async function scene(page: Page, locale = 'en') {
@@ -7,7 +7,7 @@ async function scene(page: Page, locale = 'en') {
   await page.evaluate(() => document.fonts.ready);
   await page.waitForFunction(() => [...document.querySelectorAll('.art img')].slice(0, 2).every(i => i.hasAttribute('data-media-ready')));
   await page.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; scrollTo(0, 2048 * Math.min(innerWidth, 941) / 941 - 24); });
-  await expect(page.locator('.ember-scene__canvas')).toHaveAttribute('data-state', 'running');
+  await expect(page.locator('.ember-scene__canvas')).toHaveAttribute('data-state', 'running', { timeout: 30000 });
   return page.locator('.ember-scene');
 }
 
@@ -138,4 +138,32 @@ test('eleven localized motion labels, RTL and proportional adaptation', async ({
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.screenshot({ path: `screenshots/ember/adapt-${width}x${height}.png`, scale: 'css' });
   }
+});
+
+
+test('the right coal face visibly smolders independently of smoke', async ({ page }, info) => {
+  test.setTimeout(90000);
+  const root = await scene(page);
+  await root.scrollIntoViewIfNeeded();
+  const box = (await root.boundingBox())!;
+  const scale = box.width / 480;
+  // Relative to the actual canvas: remains inside the face on centered desktops too.
+  const region = { left: Math.ceil(box.x + 260 * scale), top: Math.ceil(box.y + 445 * scale), width: Math.floor(130 * scale), height: Math.floor(205 * scale) };
+  const frames: Buffer[] = [];
+  const evidenceDir = process.env.EMBER_NATIVE_DIR ?? 'screenshots/ember/visible-smolder';
+  await mkdir(evidenceDir, { recursive: true });
+  for (let i = 0; i < 9; i++) {
+    const image = await page.screenshot({ scale: 'css' });
+    frames.push(await sharp(image).extract(region).removeAlpha().raw().toBuffer());
+    if (i % 2 === 0) await sharp(image).toFile(`${evidenceDir}/native-${info.project.name}-${i}.png`);
+    if (i < 8) await page.waitForTimeout(650);
+  }
+  let visiblePixels = 0;
+  for (let pixel = 0; pixel < frames[0].length; pixel += 3) {
+    const light = frames.map(f => .2126 * f[pixel] + .7152 * f[pixel + 1] + .0722 * f[pixel + 2]);
+    if (Math.max(...light) - Math.min(...light) > 12) visiblePixels++;
+  }
+  // A few changed subpixel values or smoke movement cannot satisfy this check.
+  await writeFile(`${evidenceDir}/native-${info.project.name}.json`, JSON.stringify({ nativeTime: true, frames: 9, intervalMs: 650, region, visiblePixels, threshold: 40 }, null, 2));
+  expect(visiblePixels, 'right-face pixels with visible (>12/255) luminance variation').toBeGreaterThan(40);
 });

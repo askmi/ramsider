@@ -3,7 +3,9 @@ import { mkdir, writeFile } from 'node:fs/promises';
 
 const phase=process.argv[2]??'after';
 if(!['before','after'].includes(phase))throw Error('Use before or after');
-const dir='screenshots/ember/glow-correction';
+const dir=process.env.EMBER_DIR??'screenshots/ember/glow-correction';
+const evidencePrefix=process.env.EMBER_PREFIX??'glow';
+const times=process.env.EMBER_TIMES?.split(',').map(Number)??[13.7,16.1,18.5];
 await mkdir(dir,{recursive:true});
 const browser=await webkit.launch();
 const results=[];
@@ -25,14 +27,14 @@ for(const [name,width,height] of [['pro',402,874],['max',440,956]]){
       return gl;
     };
   });
-  await page.goto('http://127.0.0.1:3072/en',{waitUntil:'load'});
+  await page.goto(`${process.env.BASE_URL??'http://127.0.0.1:3072'}/en`,{waitUntil:'load'});
   await page.evaluate(()=>document.fonts.ready);
   await page.waitForFunction(()=>[...document.querySelectorAll('.art img')].slice(0,2).every(i=>i.hasAttribute('data-media-ready')));
   await page.evaluate(()=>{document.documentElement.style.scrollBehavior='auto';scrollTo(0,2048*Math.min(innerWidth,941)/941-24);});
   await page.waitForFunction(()=>document.querySelector('.ember-scene__canvas')?.dataset.state==='running');
   await page.waitForTimeout(400);
   const box=await page.locator('.ember-scene').boundingBox();
-  for(const time of [13.7,16.1,18.5]){
+  for(const time of times){
     await page.evaluate(t=>{window.__emberSampleTime=t;},time);
     await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
     await page.screenshot({path:`${dir}/${phase}-${name}-${time}.png`,scale:'css'});
@@ -41,10 +43,10 @@ for(const [name,width,height] of [['pro',402,874],['max',440,956]]){
   await page.waitForFunction(()=>document.querySelector('.ember-scene')?.dataset.motion==='reduced');
   await page.waitForTimeout(350);
   await page.screenshot({path:`${dir}/${phase}-${name}-static.png`,scale:'css'});
-  results.push({name,width,height,dpr:3,box,scrollY:await page.evaluate(()=>scrollY),times:[13.7,16.1,18.5],errors});
+  results.push({name,width,height,dpr:3,box,scrollY:await page.evaluate(()=>scrollY),times,errors});
   await context.close();
 }
 await browser.close();
 await mkdir('docs/evidence/ember',{recursive:true});
-await writeFile(`docs/evidence/ember/glow-${phase}.json`,JSON.stringify({method:'real WebKit with fixed uTime uniform, native rendering',results},null,2)+'\n');
+await writeFile(`docs/evidence/ember/${evidencePrefix}-${phase}.json`,JSON.stringify({method:'real WebKit with fixed uTime uniform, native rendering',results},null,2)+'\n');
 console.log(JSON.stringify(results.map(({name,errors})=>({name,errors}))));

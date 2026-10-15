@@ -1,0 +1,69 @@
+{
+  "method": "Actual CSS-scale right face only, no smoke; per-pixel luminance range across six shader phases. First sequence tile static source.",
+  "result": [
+    {
+      "phase": "before",
+      "name": "pro",
+      "cssRegion": {
+        "left": 223,
+        "top": 349,
+        "width": 55,
+        "height": 87
+      },
+      "pixels": 4785,
+      "pixelsWithLuminanceRangeAbove12": 0,
+      "p99LuminanceRange": 6.842400000000001,
+      "coalOnlyMotionPass": false,
+      "largestPositiveLuminanceVsStatic": 9.5288,
+      "brightPixelsAbove20AcrossSamples": 0
+    },
+    {
+      "phase": "before",
+      "name": "max",
+      "cssRegion": {
+        "left": 244,
+        "top": 379,
+        "width": 60,
+        "height": 95
+      },
+      "pixels": 5700,
+      "pixelsWithLuminanceRangeAbove12": 0,
+      "p99LuminanceRange": 6.702000000000005,
+      "coalOnlyMotionPass": false,
+      "largestPositiveLuminanceVsStatic": 10.307,
+      "brightPixelsAbove20AcrossSamples": 0
+    },
+    {
+      "phase": "after",
+      "name": "pro",
+      "cssRegion": {
+        "left": 223,
+        "top": 349,
+        "width": 55,
+        "height": 87
+      },
+      "pixels": 4785,
+      "pixelsWithLuminanceRangeAbove12": 1471,
+      "p99LuminanceRange": 58.535,
+      "coalOnlyMotionPass": true,
+      "largestPositiveLuminanceVsStatic": 15.607399999999998,
+      "brightPixelsAbove20AcrossSamples": 0
+    },
+    {
+      "phase": "after",
+      "name": "max",
+      "cssRegion": {
+        "left": 244,
+        "top": 379,
+        "width": 60,
+        "height": 95
+      },
+      "pixels": 5700,
+      "pixelsWithLuminanceRangeAbove12": 1753,
+      "p99LuminanceRange": 58.82380000000002,
+      "coalOnlyMotionPass": true,
+      "largestPositiveLuminanceVsStatic": 16.322599999999998,
+      "brightPixelsAbove20AcrossSamples": 0
+    }
+  ]
+}

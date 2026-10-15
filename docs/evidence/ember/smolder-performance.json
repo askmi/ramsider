@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-15",
+  "production": "3076",
+  "initialConditions": "cold Chromium402x874 DPR3,4Mbps/100ms/4xCPU",
+  "initial": {
+    "usefulMs": 2364,
+    "lcp": 2396,
+    "cls": 0,
+    "jsEncodedBytes": 209656,
+    "maskRequests": 0
+  },
+  "motionConditions": "warm loopback Chromium native CPU",
+  "motion": {
+    "frames": 179,
+    "p95Ms": 16.800000000000182,
+    "over33Ms": 2,
+    "shaderElapsedSeconds": 3.065999999999999,
+    "canvas": [
+      410,
+      649
+    ]
+  },
+  "INP": "not measured",
+  "Lighthouse": "not measured",
+  "physicalIPhone": "not tested"
+}

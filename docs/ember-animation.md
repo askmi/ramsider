@@ -1,3 +1,7 @@
+# Current correction — visible smolder, 2026-10-15
+
+CHG0110 reopened correction now scoped technically APPROVED /root 2026-10-15: previous opacity limits suppressed perceptible fire. Previous approvals below are historical. Acceptance: independent coal/right-face temporal luminance evidence at actual Pro402/Max440 scale, visible localized crack brightening/cooling, hottestphase retains black plate detail; geometry and one-point smoke unchanged. Whole-canvas motion or time counters alone cannot pass. Compare old weak baseline and corrected output, include native-time images plus fixed-time full-cycle samples.
+
 # Beta procedural ember — CHG0110
 
 ## Current preview after user correction — 2026-10-15

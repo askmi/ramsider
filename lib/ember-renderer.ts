@@ -81,10 +81,13 @@ void main() {
   float flicker = .5 + .5*sin(uTime*2.7 + field*13.0);
   float heat = smoothstep(.10, .91, breath * .75 + flicker * .25);
   float lowerRight = smoothstep(245.0,320.0,p.x) * smoothstep(450.0,580.0,p.y);
-  float restraint = mix(1.0,.45,lowerRight);
+  float restraint = mix(1.0,.85,lowerRight);
   float cracks = smoothstep(.25,.70,mask.r);
   outColor = over(outColor, vec3(.88,.12,.008), mask.g * .008*heat*restraint);
-  outColor = over(outColor, mix(vec3(.70,.045,.004),vec3(.95,.24,.018),heat), cracks*.12*heat*restraint);
+  // The photo already contains bright embers. Cooling and rekindling that baked light
+  // makes the cracks breathe without covering the black facets with orange bloom.
+  outColor = over(outColor, vec3(.12,.012,.002), cracks*.65*(1.0-heat)*restraint);
+  outColor = over(outColor, vec3(1.0,.26,.012), cracks*.20*heat*restraint);
 
   // Small discontinuous accents follow existing top/edge fissures; never outline the cube.
   float accent = fissure(p,vec2(203,353),vec2(217,349),.5);

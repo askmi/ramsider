@@ -1,0 +1,126 @@
+{
+  "method": "Paired equal-uTime real browser screenshots before/after; independent unchanged regions",
+  "results": [
+    {
+      "profile": "pro",
+      "time": 13.7,
+      "changedChannels": {
+        "smoke": 0,
+        "hotLowerRight": 0,
+        "platform": 0
+      },
+      "maxSmokeChannelDifference": 0
+    },
+    {
+      "profile": "pro",
+      "time": 14.7,
+      "changedChannels": {
+        "smoke": 3,
+        "hotLowerRight": 0,
+        "platform": 0
+      },
+      "maxSmokeChannelDifference": 1
+    },
+    {
+      "profile": "pro",
+      "time": 15.7,
+      "changedChannels": {
+        "smoke": 0,
+        "hotLowerRight": 0,
+        "platform": 0
+      },
+      "maxSmokeChannelDifference": 0
+    },
+    {
+      "profile": "pro",
+      "time": 16.7,
+      "changedChannels": {
+        "smoke": 0,
+        "hotLowerRight": 0,
+        "platform": 0
+      },
+      "maxSmokeChannelDifference": 0
+    },
+    {
+      "profile": "pro",
+      "time": 17.7,
+      "changedChannels": {
+        "smoke": 1,
+        "hotLowerRight": 0,
+        "platform": 0
+      },
+      "maxSmokeChannelDifference": 1
+    },
+    {
+      "profile": "pro",
+      "time": 18.7,
+      "changedChannels": {
+        "smoke": 0,
+        "hotLowerRight": 0,
+        "platform": 0
+      },
+      "maxSmokeChannelDifference": 0
+    },
+    {
+      "profile": "max",
+      "time": 13.7,
+      "changedChannels": {
+        "smoke": 0,
+        "hotLowerRight": 0,
+        "platform": 0
+      },
+      "maxSmokeChannelDifference": 0
+    },
+    {
+      "profile": "max",
+      "time": 14.7,
+      "changedChannels": {
+        "smoke": 0,
+        "hotLowerRight": 0,
+        "platform": 0
+      },
+      "maxSmokeChannelDifference": 0
+    },
+    {
+      "profile": "max",
+      "time": 15.7,
+      "changedChannels": {
+        "smoke": 3,
+        "hotLowerRight": 0,
+        "platform": 0
+      },
+      "maxSmokeChannelDifference": 1
+    },
+    {
+      "profile": "max",
+      "time": 16.7,
+      "changedChannels": {
+        "smoke": 0,
+        "hotLowerRight": 0,
+        "platform": 0
+      },
+      "maxSmokeChannelDifference": 0
+    },
+    {
+      "profile": "max",
+      "time": 17.7,
+      "changedChannels": {
+        "smoke": 0,
+        "hotLowerRight": 0,
+        "platform": 0
+      },
+      "maxSmokeChannelDifference": 0
+    },
+    {
+      "profile": "max",
+      "time": 18.7,
+      "changedChannels": {
+        "smoke": 0,
+        "hotLowerRight": 0,
+        "platform": 0
+      },
+      "maxSmokeChannelDifference": 0
+    }
+  ],
+  "note": "Lower-right and platform exactly unchanged; sparse smoke-channel differences at most1/255, cause unverified renderer rounding, not exact identity claim."
+}

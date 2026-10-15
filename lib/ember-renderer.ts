@@ -1,3 +1,5 @@
+import fissurePaths from './ember-fissures.json';
+
 // Loaded near the ember only. A single transparent quad; no photographic texture or scene engine.
 const vertexSource = `
 attribute vec2 aPosition;
@@ -6,6 +8,22 @@ void main() {
   vUv = vec2((aPosition.x + 1.0) * .5, (1.0 - aPosition.y) * .5);
   gl_Position = vec4(aPosition, 0.0, 1.0);
 }`;
+
+// Build one bounded shader block per mapped fissure; arc distance remains continuous
+// across its segments, so a highlight travels rather than each segment blinking in place.
+const fissureSource = fissurePaths.map(({ points, phase }) => {
+  const lengths = points.slice(1).map(([x, y], i) => Math.hypot(x - points[i][0], y - points[i][1]));
+  const total = lengths.reduce((a, b) => a + b, 0);
+  let offset = 0;
+  const segments = lengths.map((length, i) => {
+    const a = points[i], b = points[i + 1];
+    const expression = `accent = max(accent, fissure(p, vec2(${a[0]}.0,${a[1]}.0), vec2(${b[0]}.0,${b[1]}.0), ${offset.toFixed(4)}, ${total.toFixed(4)}, ${phase.toFixed(4)}));`;
+    offset += length;
+    return expression;
+  });
+  const xs = points.map(p => p[0]), ys = points.map(p => p[1]);
+  return `if (p.x > ${(Math.min(...xs) - 6).toFixed(1)} && p.x < ${(Math.max(...xs) + 6).toFixed(1)} && p.y > ${(Math.min(...ys) - 6).toFixed(1)} && p.y < ${(Math.max(...ys) + 6).toFixed(1)}) { ${segments.join('\n')} }`;
+}).join('\n');
 
 const fragmentSource = `
 #ifdef GL_FRAGMENT_PRECISION_HIGH
@@ -55,12 +73,17 @@ float plume(vec2 p, float origin, float seed) {
   float stem = (1.0 - smoothstep(.08,.26,rise)) * .20;
   return envelope * (filament + stem);
 }
-float fissure(vec2 p, vec2 a, vec2 b, float phase) {
+float fissure(vec2 p, vec2 a, vec2 b, float offset, float total, float phase) {
   vec2 segment = b - a;
   float t = clamp(dot(p-a, segment) / dot(segment, segment), 0.0, 1.0);
   vec2 distance = p - a - segment*t;
-  float pulse = .5 + .5*sin(uTime*.93 + phase);
-  return exp(-dot(distance, distance)*2.8) * (.12 + .88*pulse*pulse*pulse);
+  float along = offset + t*length(segment);
+  float wave = max(0.0, sin(along*.10 - uTime*1.7 + phase));
+  float packet = wave*wave*wave;
+  float flicker = .72 + .28*sin(uTime*3.7 + phase)*sin(uTime*3.7 + phase);
+  float ends = smoothstep(0.0,3.0,along) * smoothstep(0.0,3.0,total-along);
+  float d2 = dot(distance,distance);
+  return (.82*exp(-d2/.9) + .055*exp(-d2/6.0))*packet*flicker*ends;
 }
 void main() {
   vec2 p = vUv * vec2(480.0, 760.0);
@@ -89,20 +112,10 @@ void main() {
   outColor = over(outColor, vec3(.12,.012,.002), cracks*.65*(1.0-heat)*restraint);
   outColor = over(outColor, vec3(1.0,.26,.012), cracks*.20*heat*restraint);
 
-  // Small discontinuous accents follow existing top/edge fissures; never outline the cube.
-  float accent = fissure(p,vec2(203,353),vec2(217,349),.5);
-  accent = max(accent,fissure(p,vec2(217,349),vec2(227,352),.5));
-  accent = max(accent,fissure(p,vec2(227,352),vec2(235,345),.5));
-  accent = max(accent,fissure(p,vec2(269,352),vec2(279,345),2.3));
-  accent = max(accent,fissure(p,vec2(279,345),vec2(289,347),2.3));
-  accent = max(accent,fissure(p,vec2(289,347),vec2(300,339),2.3));
-  accent = max(accent,fissure(p,vec2(271,382),vec2(270,401),4.2));
-  accent = max(accent,fissure(p,vec2(270,401),vec2(266,413),4.2));
-  accent = max(accent,fissure(p,vec2(127,383),vec2(136,391),1.6));
-  accent = max(accent,fissure(p,vec2(136,391),vec2(138,408),1.6));
-  accent = max(accent,fissure(p,vec2(136,447),vec2(150,453),3.4));
-  accent = max(accent,fissure(p,vec2(150,453),vec2(162,445),3.4));
-  outColor = over(outColor,vec3(.88,.16,.012),accent*.16*mask.b);
+  // Local traveling glints trace real dark fissures on all three visible faces.
+  float accent = 0.0;
+  ${fissureSource}
+  outColor = over(outColor,vec3(1.0,.42,.055),accent*mask.b);
 
   // Reflection is intentionally subdued and spatially bounded to the pedestal below the coal.
   vec2 reflection = (p - vec2(297.0, 665.0)) / vec2(65.0, 14.0);

@@ -167,3 +167,65 @@ test('the right coal face visibly smolders independently of smoke', async ({ pag
   await writeFile(`${evidenceDir}/native-${info.project.name}.json`, JSON.stringify({ nativeTime: true, frames: 9, intervalMs: 650, region, visiblePixels, threshold: 40 }, null, 2));
   expect(visiblePixels, 'right-face pixels with visible (>12/255) luminance variation').toBeGreaterThan(40);
 });
+
+// Independent source-space regions/probes: none includes the smoke above y335.
+const faceRegions = {
+  top: { x:195,y:338,w:115,h:35,min:5, probes:[[207,352],[214,350],[222,351],[229,350],[233,347]] },
+  left: { x:145,y:437,w:69,h:115,min:12, probes:[[146,457],[155,457],[165,454],[174,450],[183,447],[189,443]] },
+  junction: { x:230,y:378,w:55,h:72,min:5, probes:[[239,384],[247,388],[258,390],[269,393],[277,396]] },
+  right: { x:330,y:400,w:45,h:55,min:5, probes:[[350,413],[353,421],[356,432],[360,443]] },
+};
+
+test('all three faces and their junctions have visible traveling crack glints', async ({ page }, info) => {
+  test.setTimeout(90000);
+  const root = await scene(page);
+  await root.scrollIntoViewIfNeeded();
+  const box = (await root.boundingBox())!, scale = box.width / 480;
+  const width = page.viewportSize()!.width;
+  const dir = process.env.EMBER_FACES_DIR ?? 'screenshots/ember/three-faces/native';
+  await mkdir(dir, { recursive:true });
+  const frames: Buffer[] = [];
+  for (let i=0;i<11;i++) {
+    const image = await page.screenshot({ scale:'css' });
+    frames.push(await sharp(image).removeAlpha().raw().toBuffer());
+    await sharp(image).toFile(`${dir}/${info.project.name}-${i}.png`);
+    if(i<10) await page.waitForTimeout(450);
+  }
+  await page.emulateMedia({ reducedMotion:'reduce' });
+  await expect(root).toHaveAttribute('data-motion','reduced');
+  await page.waitForTimeout(350);
+  const image = await page.screenshot({ scale:'css' });
+  await sharp(image).toFile(`${dir}/${info.project.name}-static.png`);
+  const original = await sharp(image).removeAlpha().raw().toBuffer();
+  const results: Record<string,unknown> = {};
+  const luminance = (f:Buffer,i:number) => .2126*f[i]+.7152*f[i+1]+.0722*f[i+2];
+  for(const [name,a] of Object.entries(faceRegions)) {
+    const region={left:Math.ceil(box.x+a.x*scale),top:Math.ceil(box.y+a.y*scale),width:Math.floor(a.w*scale),height:Math.floor(a.h*scale)};
+    let moving=0,warm=0;
+    for(let y=region.top;y<region.top+region.height;y++)for(let x=region.left;x<region.left+region.width;x++){
+      const i=(y*width+x)*3, light=frames.map(f=>luminance(f,i));
+      if(Math.max(...light)-Math.min(...light)>12)moving++;
+      if(frames.some(f=>f[i]-original[i]>20&&luminance(f,i)-luminance(original,i)>10))warm++;
+    }
+    const peaks=frames.map(f=>{
+      const scores=a.probes.map(([x,y])=>{
+        const px=Math.round(box.x+x*scale),py=Math.round(box.y+y*scale);
+        let value=0;
+        for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){
+          const i=((py+dy)*width+px+dx)*3;
+          if(f[i]-original[i]>12)value+=Math.max(0,luminance(f,i)-luminance(original,i));
+        }
+        return value;
+      });
+      const score=Math.max(...scores);
+      return {index:score>8?scores.indexOf(score):-1,score};
+    });
+    const indices=peaks.filter(p=>p.index>=0).map(p=>p.index);
+    const travelSpan=indices.length?Math.max(...indices)-Math.min(...indices):0;
+    results[name]={region,moving,warm,minimum:a.min,peaks,travelSpan};
+    expect.soft(moving,`${name}: temporal pixels`).toBeGreaterThanOrEqual(a.min);
+    expect.soft(warm,`${name}: warm glints above static source`).toBeGreaterThanOrEqual(a.min);
+    expect.soft(travelSpan,`${name}: brightest glint moves along independent path probes`).toBeGreaterThanOrEqual(2);
+  }
+  await writeFile(`${dir}/${info.project.name}.json`,JSON.stringify({nativeTime:true,frames:11,intervalMs:450,box,scale,results},null,2));
+});

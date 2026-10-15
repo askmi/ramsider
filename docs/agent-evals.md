@@ -95,6 +95,8 @@ Start with EVAL-FAQ, EVAL-MAP and EVAL-CAUSE (including its small-doc negative c
 
 ## EVAL-EMBER
 
+- Three-face coverage extension: verify LEFT, RIGHT, TOP and shared-edge fissures independently at actual mobile scale; visible traveling glints and retained plate texture need separate evidence. Reject right-only closure of the full request. Controlled run NOT_RUN (2026-10-15).
+
 - Grounding: CHG0110 orange/lava correction, LESSONS source-detail overlay and scope rollback prevention.
 - Input: fixed-source smoldering-coal scene, an excessive emission implementation and a user request for only subtle crack/top/edge flicker with fixed geometry.
 - Expected agent behavior: identify additive/alpha/local-mask cause; preserve original facets, smoke and fixed geometry; map sparse discontinuous accents; collect real Pro/Max fixed-phase before/after/static images, coal-only temporal luminance lower-bound evidence and local hottest-region upper-bound metrics before approving. Smoke-only movement/time counters cannot validate fire. If later rotation is rejected, restore the explicitly acceptable pre-rotation effect set instead of deleting everything.

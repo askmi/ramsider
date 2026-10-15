@@ -1,0 +1,746 @@
+{
+  "results": [
+    {
+      "name": "iphone-17-pro-webkit",
+      "nativeTime": true,
+      "frames": 11,
+      "intervalMs": 450,
+      "box": {
+        "x": 111.0625,
+        "y": 158.203125,
+        "width": 205.046875,
+        "height": 324.65625
+      },
+      "scale": 0.42718098958333334,
+      "results": {
+        "top": {
+          "region": {
+            "left": 195,
+            "top": 303,
+            "width": 49,
+            "height": 14
+          },
+          "moving": 31,
+          "warm": 31,
+          "minimum": 5,
+          "peaks": [
+            {
+              "index": 0,
+              "score": 21.70819999999999
+            },
+            {
+              "index": 0,
+              "score": 117.40339999999999
+            },
+            {
+              "index": 1,
+              "score": 209.8146
+            },
+            {
+              "index": 2,
+              "score": 121.72999999999999
+            },
+            {
+              "index": 3,
+              "score": 36.12639999999998
+            },
+            {
+              "index": -1,
+              "score": 0
+            },
+            {
+              "index": 0,
+              "score": 11.598199999999977
+            },
+            {
+              "index": 0,
+              "score": 165.46159999999998
+            },
+            {
+              "index": 1,
+              "score": 178.7494
+            },
+            {
+              "index": 2,
+              "score": 140.0038
+            },
+            {
+              "index": 3,
+              "score": 78.68199999999999
+            }
+          ],
+          "travelSpan": 3
+        },
+        "left": {
+          "region": {
+            "left": 174,
+            "top": 345,
+            "width": 29,
+            "height": 49
+          },
+          "moving": 114,
+          "warm": 100,
+          "minimum": 12,
+          "peaks": [
+            {
+              "index": 2,
+              "score": 233.0782
+            },
+            {
+              "index": 3,
+              "score": 133.0608
+            },
+            {
+              "index": 4,
+              "score": 225.9076
+            },
+            {
+              "index": 0,
+              "score": 51.84159999999997
+            },
+            {
+              "index": 0,
+              "score": 168.3884
+            },
+            {
+              "index": 1,
+              "score": 175.6314
+            },
+            {
+              "index": 2,
+              "score": 236.28160000000003
+            },
+            {
+              "index": 3,
+              "score": 179.0916
+            },
+            {
+              "index": 4,
+              "score": 171.7456
+            },
+            {
+              "index": 5,
+              "score": 91.6352
+            },
+            {
+              "index": 0,
+              "score": 177.71099999999998
+            }
+          ],
+          "travelSpan": 5
+        },
+        "junction": {
+          "region": {
+            "left": 210,
+            "top": 320,
+            "width": 23,
+            "height": 30
+          },
+          "moving": 42,
+          "warm": 46,
+          "minimum": 5,
+          "peaks": [
+            {
+              "index": 4,
+              "score": 33.686199999999985
+            },
+            {
+              "index": 0,
+              "score": 26.02560000000001
+            },
+            {
+              "index": 0,
+              "score": 89.09440000000001
+            },
+            {
+              "index": 1,
+              "score": 51.87859999999998
+            },
+            {
+              "index": 2,
+              "score": 82.98260000000003
+            },
+            {
+              "index": 3,
+              "score": 142.12199999999999
+            },
+            {
+              "index": 4,
+              "score": 26.657600000000002
+            },
+            {
+              "index": 0,
+              "score": 34.0582
+            },
+            {
+              "index": 0,
+              "score": 112.26039999999999
+            },
+            {
+              "index": 1,
+              "score": 53.4534
+            },
+            {
+              "index": 2,
+              "score": 87.03360000000004
+            }
+          ],
+          "travelSpan": 4
+        },
+        "right": {
+          "region": {
+            "left": 253,
+            "top": 330,
+            "width": 19,
+            "height": 23
+          },
+          "moving": 106,
+          "warm": 57,
+          "minimum": 5,
+          "peaks": [
+            {
+              "index": 2,
+              "score": 135.9176
+            },
+            {
+              "index": 3,
+              "score": 152.10379999999998
+            },
+            {
+              "index": -1,
+              "score": 0
+            },
+            {
+              "index": 0,
+              "score": 100.3188
+            },
+            {
+              "index": 0,
+              "score": 175.9254
+            },
+            {
+              "index": 1,
+              "score": 142.76299999999998
+            },
+            {
+              "index": 2,
+              "score": 167.80020000000002
+            },
+            {
+              "index": 3,
+              "score": 161.99079999999998
+            },
+            {
+              "index": 3,
+              "score": 36.5558
+            },
+            {
+              "index": 2,
+              "score": 62.751
+            },
+            {
+              "index": 0,
+              "score": 220.43400000000003
+            }
+          ],
+          "travelSpan": 3
+        }
+      }
+    },
+    {
+      "name": "iphone-17-pro-max-webkit",
+      "nativeTime": true,
+      "frames": 11,
+      "intervalMs": 450,
+      "box": {
+        "x": 121.5625,
+        "y": 170.5,
+        "width": 224.4375,
+        "height": 355.359375
+      },
+      "scale": 0.467578125,
+      "results": {
+        "top": {
+          "region": {
+            "left": 213,
+            "top": 329,
+            "width": 53,
+            "height": 16
+          },
+          "moving": 36,
+          "warm": 37,
+          "minimum": 5,
+          "peaks": [
+            {
+              "index": 0,
+              "score": 29.983799999999995
+            },
+            {
+              "index": 0,
+              "score": 152.49099999999999
+            },
+            {
+              "index": 1,
+              "score": 194.46679999999998
+            },
+            {
+              "index": 3,
+              "score": 110.72300000000001
+            },
+            {
+              "index": 3,
+              "score": 16.166000000000004
+            },
+            {
+              "index": -1,
+              "score": 0
+            },
+            {
+              "index": 0,
+              "score": 35.89840000000001
+            },
+            {
+              "index": 0,
+              "score": 196.86039999999997
+            },
+            {
+              "index": 1,
+              "score": 186.9774
+            },
+            {
+              "index": 3,
+              "score": 92.05960000000002
+            },
+            {
+              "index": 3,
+              "score": 54.913
+            }
+          ],
+          "travelSpan": 3
+        },
+        "left": {
+          "region": {
+            "left": 190,
+            "top": 375,
+            "width": 32,
+            "height": 53
+          },
+          "moving": 137,
+          "warm": 114,
+          "minimum": 12,
+          "peaks": [
+            {
+              "index": 2,
+              "score": 262.7904
+            },
+            {
+              "index": 3,
+              "score": 141.11700000000002
+            },
+            {
+              "index": 4,
+              "score": 177.91459999999998
+            },
+            {
+              "index": 0,
+              "score": 95.08780000000002
+            },
+            {
+              "index": 0,
+              "score": 236.1148
+            },
+            {
+              "index": 1,
+              "score": 167.94780000000003
+            },
+            {
+              "index": 2,
+              "score": 232.1412
+            },
+            {
+              "index": 3,
+              "score": 178.6544
+            },
+            {
+              "index": 4,
+              "score": 136.8036
+            },
+            {
+              "index": 5,
+              "score": 82.00140000000002
+            },
+            {
+              "index": 0,
+              "score": 265.93700000000007
+            }
+          ],
+          "travelSpan": 5
+        },
+        "junction": {
+          "region": {
+            "left": 230,
+            "top": 348,
+            "width": 25,
+            "height": 33
+          },
+          "moving": 54,
+          "warm": 60,
+          "minimum": 5,
+          "peaks": [
+            {
+              "index": 4,
+              "score": 31.572199999999995
+            },
+            {
+              "index": 0,
+              "score": 44.2558
+            },
+            {
+              "index": 0,
+              "score": 79.60620000000003
+            },
+            {
+              "index": 1,
+              "score": 35.153200000000005
+            },
+            {
+              "index": 3,
+              "score": 111.02699999999997
+            },
+            {
+              "index": 3,
+              "score": 153.2756
+            },
+            {
+              "index": 4,
+              "score": 18.51100000000001
+            },
+            {
+              "index": 0,
+              "score": 49.91700000000002
+            },
+            {
+              "index": 0,
+              "score": 102.24719999999999
+            },
+            {
+              "index": 1,
+              "score": 74.1506
+            },
+            {
+              "index": 3,
+              "score": 41.3746
+            }
+          ],
+          "travelSpan": 4
+        },
+        "right": {
+          "region": {
+            "left": 276,
+            "top": 358,
+            "width": 21,
+            "height": 25
+          },
+          "moving": 119,
+          "warm": 65,
+          "minimum": 5,
+          "peaks": [
+            {
+              "index": 2,
+              "score": 114.05939999999997
+            },
+            {
+              "index": 3,
+              "score": 160.0288
+            },
+            {
+              "index": 3,
+              "score": 10.7754
+            },
+            {
+              "index": 0,
+              "score": 198.8726
+            },
+            {
+              "index": 1,
+              "score": 198.0614
+            },
+            {
+              "index": 2,
+              "score": 98.5126
+            },
+            {
+              "index": 3,
+              "score": 130.91
+            },
+            {
+              "index": 3,
+              "score": 185.392
+            },
+            {
+              "index": 2,
+              "score": 41.616
+            },
+            {
+              "index": 0,
+              "score": 84.7928
+            },
+            {
+              "index": 0,
+              "score": 254.59099999999998
+            }
+          ],
+          "travelSpan": 3
+        }
+      }
+    }
+  ],
+  "negative": {
+    "sha": "51acf4e5536b9a0da994cd18bca3440ee2b1b170",
+    "url": "https://ramsider-beta.vercel.app/en",
+    "nativeTime": true,
+    "frames": 11,
+    "intervalMs": 450,
+    "box": {
+      "x": 111.0625,
+      "y": 158.203125,
+      "width": 205.046875,
+      "height": 324.65625
+    },
+    "scale": 0.42718098958333334,
+    "results": {
+      "top": {
+        "region": {
+          "left": 195,
+          "top": 303,
+          "width": 49,
+          "height": 14
+        },
+        "moving": 0,
+        "warm": 0,
+        "minimum": 5,
+        "peaks": [
+          {
+            "index": 1,
+            "score": 10.234800000000003
+          },
+          {
+            "index": 1,
+            "score": 15.066800000000002
+          },
+          {
+            "index": 1,
+            "score": 15.2794
+          },
+          {
+            "index": 1,
+            "score": 10.872600000000002
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          }
+        ],
+        "travelSpan": 0
+      },
+      "left": {
+        "region": {
+          "left": 174,
+          "top": 345,
+          "width": 29,
+          "height": 49
+        },
+        "moving": 24,
+        "warm": 4,
+        "minimum": 12,
+        "peaks": [
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          }
+        ],
+        "travelSpan": 0
+      },
+      "junction": {
+        "region": {
+          "left": 210,
+          "top": 320,
+          "width": 23,
+          "height": 30
+        },
+        "moving": 0,
+        "warm": 0,
+        "minimum": 5,
+        "peaks": [
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 4.122
+          },
+          {
+            "index": -1,
+            "score": 4.334599999999998
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          }
+        ],
+        "travelSpan": 0
+      },
+      "right": {
+        "region": {
+          "left": 253,
+          "top": 330,
+          "width": 19,
+          "height": 23
+        },
+        "moving": 82,
+        "warm": 32,
+        "minimum": 5,
+        "peaks": [
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": -1,
+            "score": 0
+          },
+          {
+            "index": 1,
+            "score": 15.821199999999997
+          },
+          {
+            "index": 1,
+            "score": 35.251400000000004
+          },
+          {
+            "index": 2,
+            "score": 63.963600000000014
+          }
+        ],
+        "travelSpan": 1
+      }
+    }
+  }
+}

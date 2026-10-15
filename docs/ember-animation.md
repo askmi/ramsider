@@ -1,4 +1,10 @@
-# Current correction — visible smolder, 2026-10-15
+# Current reopening — three faces and shared edges
+
+2026-10-15: CHG0110 three-face correction technically VERIFIED /root; independent Stages1–5 PASS. The right-face-only correction below does not fulfill the earlier request for LEFT, RIGHT, TOP and shared edge fissures. Current work must map visible source cracks and make glints travel locally along them; verify each region separately at actual Pro/Max scale against old baseline, then inspect hottest/static frames for preserved black texture. No continuous cube outline. One-point smoke, static coal/platform and pause/reduced-motion stay supported. Independent ember_faces_audit owns read-only stage audits. Dated approval/evidence are in CHG0110; independent final records PASS; publication remains pending.
+
+Mapped candidate: `lib/ember-fissures.json` defines 10 discontinuous paths in existing overlay coordinates (source offset260/2360). Three top paths, upper/vertical junction paths, three interior left paths plus upper-left path, and an upper-right path. Source-alignment guide `/tmp/ember-fissure-map.png` uses cyan top, green left, yellow junction, magenta right; actual source artwork is unmodified. Glints will travel along cumulative path distance (continuous at segment joins), with independent per-path phase, a narrow warm core and faint local halo. Only a short portion lights at once, avoiding a drawn wireframe. Independent temporal ROIs in overlay coords: top x195..310/y333..373; left x145..214/y437..552; junction x230..285/y378..450; right x330..375/y400..455. Verify each separately, require >12/255 luminance variation in several CSS pixels (top/junction >=5, left>=12, right>=5) and track at least one bright maximum shifting along each mapped path. Compare peak appearance/static source; keep the previously verified right lower smolder. Baseline fixed phases and native runs must reject missing top/left/junction travel rather than credit right or smoke motion. Native-time Pro/Max positive controls and published-old negative control passed their intended verdicts; actual image inspection and independent audit confirmed travel and texture preservation.
+
+## Historical right-face correction — visible smolder, 2026-10-15
 
 CHG0110 reopened correction now scoped technically APPROVED /root 2026-10-15: previous opacity limits suppressed perceptible fire. Previous approvals below are historical. Acceptance: independent coal/right-face temporal luminance evidence at actual Pro402/Max440 scale, visible localized crack brightening/cooling, hottestphase retains black plate detail; geometry and one-point smoke unchanged. Whole-canvas motion or time counters alone cannot pass. Compare old weak baseline and corrected output, include native-time images plus fixed-time full-cycle samples.
 
@@ -12,7 +18,7 @@ User requests black smoke from one point. Use one plume at local(235,335), sourc
 
 Verified2026-10-15/root scopedtechnicalAPPROVED: actualPro/Max3phases and currentIAB viewed,6pairedimages0changedchannels belowY2720; affectedmobile2PASS/type/build/eslint/diffPASS/nativefocusedreview+finalstemreview clean. Weak continuousstem keeps the base connected through noisevariation. Evidence `smoke-after.json`, `smoke-regression.json`, `smoke-performance.json`; currentpreview `screenshots/ember/smoke-point/current-preview.png`. Smallshader-onlycorrection independentauditorN/A. Geometry/glow/source unchanged; overallbeta stillPREVIEW/no push.
 
-### Active correction: subtle glow, no orange wash
+### Historical intensity correction: subtle glow, no orange wash
 
 The user reports excessive flowing orange on the lower-right face. Keep original photograph/geometry, smoke and sparks. Change shader only: coreopacity ≤.12 (lower-right≤.054), halo≤.008, restrained red/orange hue (green≤.24), static spatial heat field plus temporal brightness variation. Original charred facets must remain legible at the hottest phase; no broad molten-looking patch. Compare real fixed-time Pro/Max before/after/static frames, including lower-right local metrics and at least3after phases. Previous preview approval is superseded for glow intensity. Current geometry is480×760 at sourcex260/y2360;3D section below is rejected history.
 
@@ -26,7 +32,7 @@ Restored shader is recovered exactly from the initial native review's captured s
 
 2026-10-15, experimental beta only. User authorized replacing beta's product snapshot with current main, then a realistic procedural ember and a preview. Main b7beda90088257552892bcc94a0d503b2d230bed is unchanged; beta merge d8fd92d preserves both histories and its tree exactly matched main before implementation. Pre-existing main publication records are preserved in the named `pre-ember-main-publication-records-20261015` Git stash; do not apply them to beta or discard them.
 
-## Historical initial2D scope and source map (superseded by current expanded3D scope)
+## Historical initial 2D scope and source map
 
 The fixed original coal, pedestal, graph, copy and Learn More stay in their original positions on the 941px plane. Inspected clean then text reference crops at source y2310–3510 (`screenshots/ember/reference-clean.png`, `reference-text.png`). Coal occupies approximately x368–650/y2686–3010. One decorative transparent canvas covers x260–740/y2360–3120, with source-proportional CSS and physical left anchoring in RTL. No audio or narrative copy. One subdued pause/play icon sits at the canvas's bottom-right (source near x696/y3076), on empty pedestal space; actual hit area44×44CSSpx, visible focus, labels in all11 locales. It appears only after a usable renderer exists; reduced-motion leaves static art and hides the unnecessary control. The existing HTML CTA and charcoal viewer must remain accessible.
 

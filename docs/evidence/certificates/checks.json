@@ -1,0 +1,144 @@
+{
+  "date": "2026-10-16",
+  "base": "b7beda90088257552892bcc94a0d503b2d230bed",
+  "branch": "main",
+  "preview": "http://127.0.0.1:3081/en#documents",
+  "tests": {
+    "mobileCore": {
+      "passed": 5,
+      "skipped": 1,
+      "hasFailure": false
+    },
+    "desktop": {
+      "passed": 13,
+      "skipped": 1,
+      "hasFailure": false
+    },
+    "finalMobile": {
+      "passed": 9,
+      "skipped": 1,
+      "hasFailure": false
+    },
+    "finalAllEngines": {
+      "passed": 13,
+      "skipped": 11,
+      "hasFailure": false,
+      "skipReason": "Locale/fault/noJS matrices run once; worker+focus run two engines; six-doc and HTTP/error/reopen coverage runs all four profiles"
+    }
+  },
+  "static": {
+    "typecheck": "PASS",
+    "lint": "PASS,2pre-existingTelegramwarnings",
+    "build": "PASS,11localizedSSG routes",
+    "testDiscovery": "PASS:24 tests in isolated temporary test root with no .next directory"
+  },
+  "visual": {
+    "viewports": [
+      [
+        402,
+        874,
+        3
+      ],
+      [
+        440,
+        956,
+        3
+      ]
+    ],
+    "sourceCrop": {
+      "x": 0,
+      "y": 22960,
+      "width": 941,
+      "height": 1150
+    },
+    "baseline": "Pristine main isolated git-archive build3082; all data-media ready before source-position scroll",
+    "pixelmatch": {
+      "threshold": 0.1,
+      "proDifferentPixels": 0,
+      "maxDifferentPixels": 0
+    },
+    "sheets": "ready and assembled sheets resampled to CSS width; original DPR3 screenshots retained under screenshots/certificates",
+    "savedEvidence": "landing-pro/max native DPR3; ready-pro/max six-document sheets; loading/error native DPR3; ar-pro; assembled-pro/max CSS-width sheets"
+  },
+  "review": {
+    "initial": "4 findings in tests fixed",
+    "finalFull": "3 P2 worker/focus/discovery fixed",
+    "focusedNative": "PASS; actual uncommitted diff; no remaining actionable defects; source/stored-evidence review, no additional browser/build claimed",
+    "rawLogs": "Ignored /tmp/ramsider-certificates/native-review*.log"
+  },
+  "auditor": {
+    "scope": "PASS",
+    "visual": "PASS",
+    "behavior": "PASS, including reopened worker/focus/discovery gate",
+    "performanceReview": "PASS",
+    "final": "PASS,2026-10-16,certificate_audit; durable assembled images and complete records examined"
+  },
+  "dependencies": {
+    "open": "CHG0112",
+    "pdfjsAdvisory": false,
+    "existing": [
+      {
+        "name": "@next/eslint-plugin-next",
+        "severity": "high",
+        "isDirect": false
+      },
+      {
+        "name": "braces",
+        "severity": "high",
+        "isDirect": false
+      },
+      {
+        "name": "eslint-config-next",
+        "severity": "high",
+        "isDirect": true
+      },
+      {
+        "name": "fast-glob",
+        "severity": "high",
+        "isDirect": false
+      },
+      {
+        "name": "micromatch",
+        "severity": "high",
+        "isDirect": false
+      },
+      {
+        "name": "next",
+        "severity": "critical",
+        "isDirect": true
+      },
+      {
+        "name": "postcss",
+        "severity": "high",
+        "isDirect": false
+      },
+      {
+        "name": "sharp",
+        "severity": "high",
+        "isDirect": false
+      },
+      {
+        "name": "source-map-js",
+        "severity": "high",
+        "isDirect": false
+      }
+    ]
+  },
+  "limitations": [
+    "Originals unmodified; no issuer registry verification",
+    "Physical Safari/Telegram chrome untested",
+    "INP, field metrics and Lighthouse unmeasured",
+    "Controlled EVAL-MAP/EVAL-VIEWER NOT_RUN"
+  ],
+  "technicalApproval": {
+    "date": "2026-10-16",
+    "verifier": "/root",
+    "result": "APPROVED",
+    "scope": "CHG0111 runtime/document integration; final independent records audit PASS"
+  },
+  "performanceConditions": {
+    "cold": "4Mbps100ms4xCPU Chromium viewport402x874DPR3; final isolated from other browser QA",
+    "open": "Warm landing loopback1xCPU,2888ms full bundle firstpaint; not cold mobile or INP",
+    "scroll": "WebKit scripted rAFscroll119frames/device p9518ms0over33; not nativeTouch"
+  }
+}

@@ -78,11 +78,11 @@ test('responsive viewport, artwork, and primary actions', async ({ page }, testI
   const firstDocument = page.locator('.doc-card').first();
   await firstDocument.scrollIntoViewIfNeeded();
   const cardBox = await firstDocument.boundingBox();
-  const buttonBox = await firstDocument.getByRole('button').boundingBox();
+  const buttonBox = await firstDocument.getByRole('link').boundingBox();
   expect(buttonBox!.height).toBeGreaterThan(cardBox!.height - 4);
-  await firstDocument.getByRole('button').click({ position: { x: cardBox!.width / 2, y: 8 } });
-  await expect(page.locator('#doc-detail-electrical')).toBeVisible();
-  await expect(page.locator('#doc-detail-electrical')).toContainText('IEC 60335-1');
+  await firstDocument.getByRole('link').click({ position: { x: cardBox!.width / 2, y: 8 } });
+  await expect(page.locator('#certificate-viewer')).toBeVisible();
+  await expect(page.locator('#certificate-viewer')).toContainText('Electrical Safety');
   await page.keyboard.press('Escape');
   await page.locator('.project-hit').first().click();
   await expect(page.locator('#project-detail-1')).toBeVisible();

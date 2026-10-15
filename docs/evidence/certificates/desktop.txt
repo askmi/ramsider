@@ -1,0 +1,16 @@
+  ✓   1 [desktop-chromium] › tests/e2e/document-cards.spec.ts:4:3 › document cards open independently in ru (6.3s)
+  ✓   3 [desktop-chromium] › tests/e2e/document-cards.spec.ts:4:3 › document cards open independently in ar (4.0s)
+  ✓   4 [desktop-chromium] › tests/e2e/loading-shared.spec.ts:11:1 › main and gallery share loading appearance, RTL and reduced motion (3.2s)
+  ✓   2 [desktop-chromium] › tests/e2e/certificates.spec.ts:21:1 › six exact destinations defer all PDF code and render complete documents (15.9s)
+  ✓   6 [desktop-chromium] › tests/e2e/certificates.spec.ts:59:1 › failure retry cancellation rapid reopen and keyboard containment (5.7s)
+  ✓   7 [desktop-chromium] › tests/e2e/certificates.spec.ts:111:1 › six original PDF links remain usable without JavaScript (443ms)
+  ✓   5 [desktop-chromium] › tests/e2e/site.spec.ts:7:1 › responsive viewport, artwork, and primary actions (11.7s)
+  ✓   9 [desktop-firefox] › tests/e2e/document-cards.spec.ts:4:3 › document cards open independently in ru (5.0s)
+  ✓  10 [desktop-firefox] › tests/e2e/document-cards.spec.ts:4:3 › document cards open independently in ar (2.7s)
+  ✓  11 [desktop-firefox] › tests/e2e/loading-shared.spec.ts:11:1 › main and gallery share loading appearance, RTL and reduced motion (3.2s)
+  ✓  12 [desktop-firefox] › tests/e2e/site.spec.ts:7:1 › responsive viewport, artwork, and primary actions (7.0s)
+  ✓   8 [desktop-firefox] › tests/e2e/certificates.spec.ts:21:1 › six exact destinations defer all PDF code and render complete documents (24.7s)
+  ✓  13 [desktop-firefox] › tests/e2e/certificates.spec.ts:59:1 › failure retry cancellation rapid reopen and keyboard containment (3.2s)
+  -  14 [desktop-firefox] › tests/e2e/certificates.spec.ts:111:1 › six original PDF links remain usable without JavaScript
+  1 skipped
+  13 passed (55.0s)

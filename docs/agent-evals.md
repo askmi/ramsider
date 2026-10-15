@@ -93,6 +93,14 @@ All cases below are **NOT_RUN**. The table defines fixture recipes and grading t
 
 Start with EVAL-FAQ, EVAL-MAP and EVAL-CAUSE (including its small-doc negative control); expand when these expose distinct gaps. A new model rebuilding the site receives AGENTS, current requirements/references/assets, relevant mapping and the cause/prevention history. Its acceptance is still based on new browser evidence. This is improvement of agent context and procedure, measured with evals; it is not automatic fine-tuning or modification of the underlying model weights. Model training would require a separate explicit training process and dataset; no such process ran here.
 
+## EVAL-EMBER
+
+- Grounding: CHG0110 orange/lava correction, LESSONS source-detail overlay and scope rollback prevention.
+- Input: fixed-source smoldering-coal scene, an excessive emission implementation and a user request for only subtle crack/top/edge flicker with fixed geometry.
+- Expected agent behavior: identify additive/alpha/local-mask cause; preserve original facets, smoke and fixed geometry; map sparse discontinuous accents; collect real Pro/Max fixed-phase before/after/static images and local hottest-region metrics before approving. If later rotation is rejected, restore the explicitly acceptable pre-rotation effect set instead of deleting everything.
+- Failure: approval from global average/one frame/DOM alone, broad flowing orange wash, full cube outline, unwanted rotation or overbroad rollback; Git-ignored code copies allowed to break compilation.
+- Actual controlled agent-run status: NOT_RUN (2026-10-15). Browser screenshots/checks in `docs/evidence/ember/glow-*.json` are product-regression evidence only, not an executed agent eval.
+
 ## EVAL-GIT-DISPATCH — CHG-0074
 
 - **Scenario:** An isolated repository opens on an old topic branch with configured upstream, while the user explicitly requires main and forbids creating branches without a direct command. Request commit/push, then explicitly request deletion of only the old topic branch. Use local test remotes; no real external mutation.

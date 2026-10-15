@@ -1,0 +1,322 @@
+[
+  {
+    "conditions": "cold production Chromium402×874/DPR3 loopback, tech+charcoal warming enabled",
+    "initial": {
+      "lcp": 416,
+      "cls": 0,
+      "useful": 350.69999998807907,
+      "jsEncodedBodyBytes": 208974,
+      "loadEventStart": 162.19999998807907
+    },
+    "assets": [
+      {
+        "path": "/art/charcoal/1-0.png",
+        "start": 182.0999999642372,
+        "end": 356.89999997615814,
+        "encodedBodyBytes": 909288,
+        "duration": 174.80000001192093
+      },
+      {
+        "path": "/art/charcoal/1-1.png",
+        "start": 182.19999998807907,
+        "end": 368.69999998807907,
+        "encodedBodyBytes": 814354,
+        "duration": 186.5
+      },
+      {
+        "path": "/art/charcoal/1-2.png",
+        "start": 182.19999998807907,
+        "end": 415.5,
+        "encodedBodyBytes": 601009,
+        "duration": 233.30000001192093
+      },
+      {
+        "path": "/art/charcoal/2-0.png",
+        "start": 182.39999997615814,
+        "end": 420.69999998807907,
+        "encodedBodyBytes": 918572,
+        "duration": 238.30000001192093
+      },
+      {
+        "path": "/art/charcoal/2-1.png",
+        "start": 182.39999997615814,
+        "end": 421.30000001192093,
+        "encodedBodyBytes": 1035047,
+        "duration": 238.9000000357628
+      },
+      {
+        "path": "/art/charcoal/2-2.png",
+        "start": 182.5999999642372,
+        "end": 419.19999998807907,
+        "encodedBodyBytes": 609000,
+        "duration": 236.60000002384186
+      },
+      {
+        "path": "/art/charcoal/3-0.png",
+        "start": 182.69999998807907,
+        "end": 435.69999998807907,
+        "encodedBodyBytes": 1139499,
+        "duration": 253
+      },
+      {
+        "path": "/art/charcoal/3-1.png",
+        "start": 182.80000001192093,
+        "end": 429.39999997615814,
+        "encodedBodyBytes": 764124,
+        "duration": 246.5999999642372
+      },
+      {
+        "path": "/art/charcoal/3-2.png",
+        "start": 182.89999997615814,
+        "end": 423.5999999642372,
+        "encodedBodyBytes": 326800,
+        "duration": 240.69999998807907
+      },
+      {
+        "path": "/art/charcoal/4-0.png",
+        "start": 183,
+        "end": 443.39999997615814,
+        "encodedBodyBytes": 1123277,
+        "duration": 260.39999997615814
+      },
+      {
+        "path": "/art/charcoal/4-1.png",
+        "start": 183.0999999642372,
+        "end": 442,
+        "encodedBodyBytes": 1023047,
+        "duration": 258.9000000357628
+      },
+      {
+        "path": "/art/charcoal/4-2.png",
+        "start": 183.30000001192093,
+        "end": 437.69999998807907,
+        "encodedBodyBytes": 504246,
+        "duration": 254.39999997615814
+      }
+    ],
+    "warmCompleted": 443.39999997615814,
+    "warmOpenAutomationWallMs": 534.8000000119209,
+    "nativeScroll": [
+      {
+        "scroll": 453,
+        "close": {
+          "x": 346,
+          "y": 12,
+          "width": 44,
+          "height": 44,
+          "top": 12,
+          "right": 390,
+          "bottom": 56,
+          "left": 346
+        }
+      },
+      {
+        "scroll": 943,
+        "close": {
+          "x": 346,
+          "y": 12,
+          "width": 44,
+          "height": 44,
+          "top": 12,
+          "right": 390,
+          "bottom": 56,
+          "left": 346
+        }
+      },
+      {
+        "scroll": 1430,
+        "close": {
+          "x": 346,
+          "y": 12,
+          "width": 44,
+          "height": 44,
+          "top": 12,
+          "right": 390,
+          "bottom": 56,
+          "left": 346
+        }
+      },
+      {
+        "scroll": 1918,
+        "close": {
+          "x": 346,
+          "y": 12,
+          "width": 44,
+          "height": 44,
+          "top": 12,
+          "right": 390,
+          "bottom": 56,
+          "left": 346
+        }
+      }
+    ],
+    "frames": {
+      "samples": 119,
+      "p95": 16.799999999999727,
+      "over33": 0
+    },
+    "inp": "not measured; automation wall timing is not INP",
+    "lighthouse": "not run",
+    "physicalSafari": "not available"
+  },
+  {
+    "conditions": "cold production Chromium402×874/DPR3 4Mbps100ms4xCPU, tech+charcoal warming enabled",
+    "initial": {
+      "lcp": 2388,
+      "cls": 0,
+      "useful": 2331.7999999523163,
+      "jsEncodedBodyBytes": 208974,
+      "loadEventStart": 14646.5
+    },
+    "assets": [
+      {
+        "path": "/art/charcoal/1-0.png",
+        "start": 14653.299999952316,
+        "end": 94026,
+        "encodedBodyBytes": 909288,
+        "duration": 79372.70000004768
+      },
+      {
+        "path": "/art/charcoal/1-1.png",
+        "start": 14653.299999952316,
+        "end": 100247.29999995232,
+        "encodedBodyBytes": 814354,
+        "duration": 85594
+      },
+      {
+        "path": "/art/charcoal/1-2.png",
+        "start": 14653.399999976158,
+        "end": 101262.29999995232,
+        "encodedBodyBytes": 601009,
+        "duration": 86608.89999997616
+      },
+      {
+        "path": "/art/charcoal/2-0.png",
+        "start": 14653.399999976158,
+        "end": 109553.39999997616,
+        "encodedBodyBytes": 918572,
+        "duration": 94900
+      },
+      {
+        "path": "/art/charcoal/2-1.png",
+        "start": 14653.5,
+        "end": 111771.19999998808,
+        "encodedBodyBytes": 1035047,
+        "duration": 97117.69999998808
+      },
+      {
+        "path": "/art/charcoal/2-2.png",
+        "start": 14654.199999988079,
+        "end": 107511.09999996424,
+        "encodedBodyBytes": 609000,
+        "duration": 92856.89999997616
+      },
+      {
+        "path": "/art/charcoal/3-2.png",
+        "start": 14654.199999988079,
+        "end": 108489.39999997616,
+        "encodedBodyBytes": 326800,
+        "duration": 93835.19999998808
+      },
+      {
+        "path": "/art/charcoal/3-1.png",
+        "start": 14654.199999988079,
+        "end": 110459.09999996424,
+        "encodedBodyBytes": 764124,
+        "duration": 95804.89999997616
+      },
+      {
+        "path": "/art/charcoal/3-0.png",
+        "start": 14654.199999988079,
+        "end": 113036.29999995232,
+        "encodedBodyBytes": 1139499,
+        "duration": 98382.09999996424
+      },
+      {
+        "path": "/art/charcoal/4-0.png",
+        "start": 14654.299999952316,
+        "end": 115685.79999995232,
+        "encodedBodyBytes": 1123277,
+        "duration": 101031.5
+      },
+      {
+        "path": "/art/charcoal/4-2.png",
+        "start": 14654.399999976158,
+        "end": 113933.79999995232,
+        "encodedBodyBytes": 504246,
+        "duration": 99279.39999997616
+      },
+      {
+        "path": "/art/charcoal/4-1.png",
+        "start": 14654.399999976158,
+        "end": 115650.19999998808,
+        "encodedBodyBytes": 1023047,
+        "duration": 100995.80000001192
+      }
+    ],
+    "warmCompleted": 115685.79999995232,
+    "warmOpenAutomationWallMs": 412.0999999642372,
+    "nativeScroll": [
+      {
+        "scroll": 452,
+        "close": {
+          "x": 346,
+          "y": 12,
+          "width": 44,
+          "height": 44,
+          "top": 12,
+          "right": 390,
+          "bottom": 56,
+          "left": 346
+        }
+      },
+      {
+        "scroll": 957,
+        "close": {
+          "x": 346,
+          "y": 12,
+          "width": 44,
+          "height": 44,
+          "top": 12,
+          "right": 390,
+          "bottom": 56,
+          "left": 346
+        }
+      },
+      {
+        "scroll": 1482,
+        "close": {
+          "x": 346,
+          "y": 12,
+          "width": 44,
+          "height": 44,
+          "top": 12,
+          "right": 390,
+          "bottom": 56,
+          "left": 346
+        }
+      },
+      {
+        "scroll": 1987,
+        "close": {
+          "x": 346,
+          "y": 12,
+          "width": 44,
+          "height": 44,
+          "top": 12,
+          "right": 390,
+          "bottom": 56,
+          "left": 346
+        }
+      }
+    ],
+    "frames": {
+      "samples": 119,
+      "p95": 16.80000000000291,
+      "over33": 0
+    },
+    "inp": "not measured; automation wall timing is not INP",
+    "lighthouse": "not run",
+    "physicalSafari": "not available"
+  }
+]

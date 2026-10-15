@@ -1,0 +1,134 @@
+{
+  "id": "CHG0109",
+  "date": "2026-10-15",
+  "scope": "Remove footer/rule, crop visible fourthplane1960 and smooth page into unified background at viewport edges",
+  "pageStatus": "VERIFIED: technical approval2026-10-15 /root",
+  "nativeSafariStatus": "BLOCKED: simctl utility/Xcode and physical iPhone unavailable; content viewport evidence is not native toolbar evidence",
+  "browser": {
+    "feature": {
+      "command": "BASE_URL=http://127.0.0.1:3071 npx playwright test tests/e2e/charcoal.spec.ts --workers=1",
+      "pass": 19,
+      "skip": 5,
+      "exit": 0,
+      "notes": "Includes four profiles; 11 locales on both phones;280pxDE Retry; rapid reopen/End; native modal Close/focus/scroll return."
+    },
+    "integration": {
+      "command": "BASE_URL=http://127.0.0.1:3071 npx playwright test tests/e2e/charcoal.spec.ts tests/e2e/site.spec.ts --workers=1",
+      "pass": 51,
+      "skip": 5,
+      "exit": 0,
+      "notes": "19feature+32site. Final subsequent CSS change restricted clipping within charcoal only; final19feature repeated; site32 retained as unchanged main evidence."
+    }
+  },
+  "visual": {
+    "profiles": [
+      {
+        "name": "pro",
+        "width": 402,
+        "height": 874,
+        "dpr": 3
+      },
+      {
+        "name": "max",
+        "width": 440,
+        "height": 956,
+        "dpr": 3
+      },
+      {
+        "name": "short",
+        "width": 402,
+        "height": 600,
+        "dpr": 3
+      },
+      {
+        "name": "compact",
+        "width": 375,
+        "height": 812,
+        "dpr": 3
+      },
+      {
+        "name": "tablet",
+        "width": 768,
+        "height": 1024,
+        "dpr": 3
+      },
+      {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900,
+        "dpr": 3
+      }
+    ],
+    "edgeStates": 24,
+    "uncoveredEdgeMaxRGBError": 0,
+    "noHiddenTail": true,
+    "sourceJoinPairs": 6,
+    "reference": "reference.json: user right contentcrop591x1060\u2192402x721, existing approved newer Title Case retained",
+    "nativeRatios": "all12 within1CSSpx",
+    "pngs": "12exactHEAD, preservation.json",
+    "firstPartialPaintCases": 72,
+    "maxPerRowMismatch": 0.0431266846361186,
+    "perRowLimit": 0.08
+  },
+  "contrast": {
+    "cases": 10,
+    "minimum": 7.538827707616016,
+    "allNonempty": true
+  },
+  "static": {
+    "typecheck": {
+      "exit": 0
+    },
+    "lint": {
+      "exit": 0,
+      "errors": 0,
+      "existingWarnings": 2,
+      "paths": [
+        "integrations/telegram/controller.mjs"
+      ]
+    },
+    "productionBuild": {
+      "exit": 0,
+      "rendering": "Static/SSG rendering retained; build generated15pages"
+    },
+    "whitespace": {
+      "exit": 0
+    }
+  },
+  "nativeReview": {
+    "finalExit": 0,
+    "result": "No actionable introduced defects found in scoped runtime/tests/check tools",
+    "earlierFindings": [
+      "P2 shared artwork host clipped translated Retry; fixed image-only crop",
+      "P2 clip-path retained scroll overflow; fixed visibleHeight container"
+    ]
+  },
+  "audit": {
+    "scope": "PASS after initial missing-journal FAIL corrected",
+    "implementationVisualBehavior": "PASS after fractional join FAIL corrected",
+    "reviewPerformance": "PASS2026-10-15 /root/learnmore_auditor",
+    "records": "PASS2026-10-15 /root/learnmore_auditor after correcting local ignored PNG wording"
+  },
+  "performance": {
+    "source": "performance.json",
+    "conditions": "cold production Chromium402x874/DPR3 4Mbps100ms4xCPU; isolated after other browser checks",
+    "lcpMs": 2388,
+    "usefulMs": 2331.8,
+    "cls": 0,
+    "jsEncodedBodyBytes": 208974,
+    "scrollSamples": 119,
+    "scrollP95Ms": 16.8,
+    "scrollFramesOver33": 0,
+    "pngWarmCompleteFromNavigationMs": 115685.8,
+    "pngPayloadBytes": 9768263,
+    "note": "Single samples; unchanged concurrent tech/charcoal post-load warming; automation opening timing is not INP"
+  },
+  "limits": [
+    "Physical Safari/Telegram chrome after unverified",
+    "INP and Lighthouse not measured",
+    "Supplied product/medical facts not independently verified",
+    "EVAL-VIEWER and EVAL-SAFARI-CHROME controlled runs NOT_RUN"
+  ],
+  "publication": "User explicitly authorized push to origin/main2026-10-15; both expected Vercel project results pending. No external messages authorized. Physical Safari after remains blocked.",
+  "overallStatus": "APPLIED_UNVERIFIED: native Safari chrome after BLOCKED"
+}

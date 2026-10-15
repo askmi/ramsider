@@ -8,11 +8,14 @@ import { readFile, writeFile } from 'node:fs/promises';
 // under an otherwise small whole-image error percentage.
 const browser = await webkit.launch();
 const results = [];
+const baseURL = process.env.BASE_URL ?? 'http://127.0.0.1:3070';
+const evidenceDir = process.env.CHARCOAL_EVIDENCE_DIR ?? 'docs/evidence/charcoal';
+const screenshotDir = process.env.CHARCOAL_SCREENSHOT_DIR ?? 'screenshots/charcoal';
 for (const [width, height] of [[402,874],[440,956],[375,812],[402,600],[768,1024],[1440,900]]) {
   const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
   const page = await context.newPage();
   page.setDefaultTimeout(120000);
-  await page.goto('http://127.0.0.1:3070/en');
+  await page.goto(`${baseURL}/en`);
   await page.locator('#fire-learn').scrollIntoViewIfNeeded();
   await page.waitForFunction(() => !document.querySelector('.page-media-overlay'));
   await page.locator('#fire-learn').click();
@@ -20,6 +23,7 @@ for (const [width, height] of [[402,874],[440,956],[375,812],[402,600],[768,1024
   await page.evaluate(() => document.fonts.ready);
   const scroll = page.locator('.charcoal-viewer__scroll');
   const report = { width, height, cases: [] };
+  // The fixed decorative edge feather is checked separately; compare untouched interior art here.
   for (let block = 1; block <= 4; block++) {
     const section = page.locator(`.charcoal-section--${block}`);
     const reference = await context.newPage();
@@ -32,17 +36,17 @@ for (const [width, height] of [[402,874],[440,956],[375,812],[402,600],[768,1024
       await scroll.evaluate((e, delta) => e.scrollTop += delta, target - height + 140);
       await page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));
       const rect = await section.locator('.charcoal-art-host').evaluate(e => e.getBoundingClientRect().toJSON());
-      const masks = await page.locator('.charcoal-copy h2,.charcoal-copy p,.charcoal-footer,.charcoal-viewer__close').evaluateAll(es => es.map(e => e.getBoundingClientRect().toJSON()));
+      const masks = await page.locator('.charcoal-copy h2,.charcoal-copy p,.charcoal-viewer__close').evaluateAll(es => es.map(e => e.getBoundingClientRect().toJSON()));
       await reference.locator('img').evaluate((e, rect) => { e.style.top = `${rect.top}px`; e.style.left = `${rect.left}px`; e.style.width = `${rect.width}px`; }, rect);
       await reference.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));
-      const actual = await page.screenshot({ path: `screenshots/charcoal/tile-${width}x${height}-${block}-${part}.png` });
+      const actual = await page.screenshot({ path: `${screenshotDir}/tile-${width}x${height}-${block}-${part}.png` });
       const expected = await reference.screenshot();
       const a = await sharp(actual).ensureAlpha().raw().toBuffer();
       const b = await sharp(expected).ensureAlpha().raw().toBuffer();
       const diff = Buffer.alloc(a.length);
       pixelmatch(a,b,diff,width*3,height*3,{ threshold: .12 });
       let compared = 0, different = 0, maxRowMismatch = 0;
-      for (let y = Math.max(0,Math.ceil((rect.top+2)*3)); y < Math.min(height*3,Math.floor((rect.bottom-2)*3)); y++) {
+      for (let y = Math.max(80*3,Math.ceil((rect.top+2)*3)); y < Math.min((height-80)*3,Math.floor((rect.bottom-2)*3)); y++) {
         let row = 0, bad = 0;
         for (let x = Math.ceil((rect.left+2)*3); x < Math.floor((rect.right-2)*3); x++) {
           if (masks.some(r => x/3 > r.left-3 && x/3 < r.right+3 && y/3 > r.top-3 && y/3 < r.bottom+3)) continue;
@@ -55,7 +59,7 @@ for (const [width, height] of [[402,874],[440,956],[375,812],[402,600],[768,1024
       const result = { block, part, compared, different, maxRowMismatch };
       report.cases.push(result);
       if (compared < 500 || maxRowMismatch > .08) {
-        await sharp(diff,{raw:{width:width*3,height:height*3,channels:4}}).png().toFile(`screenshots/charcoal/tile-failed-diff-${width}-${block}-${part}.png`);
+        await sharp(diff,{raw:{width:width*3,height:height*3,channels:4}}).png().toFile(`${screenshotDir}/tile-failed-diff-${width}-${block}-${part}.png`);
         throw new Error(`Tile paint/row seam failed ${JSON.stringify({width,height,...result})}`);
       }
     }
@@ -65,4 +69,4 @@ for (const [width, height] of [[402,874],[440,956],[375,812],[402,600],[768,1024
   console.log({width,height,cases:report.cases.length,maxRowMismatch:Math.max(...report.cases.map(r=>r.maxRowMismatch))});
 }
 await browser.close();
-await writeFile('docs/evidence/charcoal/tiles-rendered.json',JSON.stringify(results,null,2)+'\n');
+await writeFile(`${evidenceDir}/tiles-rendered.json`,JSON.stringify(results,null,2)+'\n');

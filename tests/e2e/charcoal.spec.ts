@@ -72,7 +72,9 @@ test('four blocks, fixed close, focus and scroll restoration, and full bottom ac
     }
   }
   await scroll.evaluate(e => e.scrollTop = e.scrollHeight);
-  await expect(modal.locator('footer')).toBeInViewport();
+  expect(await scroll.evaluate(e => Math.abs(e.querySelector('article')!.getBoundingClientRect().bottom - e.getBoundingClientRect().bottom)), 'Hidden raster tail must not extend scrollable height').toBeLessThan(1);
+  await expect(modal.locator('footer')).toHaveCount(0);
+  await expect(modal.locator('p').last()).toBeInViewport({ ratio: 1 });
   await page.screenshot({ path: `screenshots/charcoal/final-${info.project.name}-bottom.png`, scale: 'css' });
   await close.click();
   await expect(modal).not.toBeVisible();
@@ -132,7 +134,7 @@ test('all locales, Arabic RTL, smaller height and representative responsive widt
       await open(page);
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
       await page.locator('.charcoal-viewer__scroll').evaluate(e => e.scrollTop = e.scrollHeight);
-      await expect(page.locator('.charcoal-footer')).toBeInViewport();
+      await expect(page.locator('.charcoal-section--4 p')).toBeInViewport({ ratio: 1 });
       await page.screenshot({ path: `screenshots/charcoal/adaptation-${width}x${height}-bottom.png`, scale: 'css' });
       await page.locator('.charcoal-viewer__scroll').evaluate(e => e.scrollTop = 0);
       await page.screenshot({ path: `screenshots/charcoal/adaptation-${width}x${height}-top.png`, scale: 'css' });
@@ -197,5 +199,26 @@ test('rapid native close and reopen keeps content and first keyboard input usabl
     await expect.poll(() => scroll.evaluate(e => e.scrollTop)).toBeGreaterThan(0);
   }
   await page.keyboard.press('Escape');
+  await expect(page.locator(dialogSelector)).not.toBeVisible();
+});
+
+test('narrow translated last-tile Retry stays fully usable', async ({ page }, info) => {
+  test.skip(info.project.name !== 'iphone-17-pro-webkit', 'One narrow translated mobile regression.');
+  await page.setViewportSize({ width: 280, height: 600 });
+  let failed = true;
+  await page.route('**/art/charcoal/3-2.png', route => failed ? route.abort() : route.continue());
+  await page.goto('/de');
+  await page.locator('#fire-learn').scrollIntoViewIfNeeded();
+  await page.waitForFunction(() => !document.querySelector('.page-media-overlay'));
+  await page.locator('#fire-learn').click();
+  const retry = page.getByRole('button', { name: 'Erneut versuchen', exact: true });
+  await retry.scrollIntoViewIfNeeded();
+  await expect(retry).toBeInViewport({ ratio: 1 });
+  await page.screenshot({ path: 'screenshots/charcoal/footer-correction/narrow-retry.png', scale: 'css' });
+  failed = false;
+  await retry.click();
+  await expect(page.locator('.charcoal-section--3 img[data-charcoal-ready=true]')).toHaveCount(3);
+  await expect(retry).toHaveCount(0);
+  await page.locator('.charcoal-viewer__close').click();
   await expect(page.locator(dialogSelector)).not.toBeVisible();
 });

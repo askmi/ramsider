@@ -4,7 +4,7 @@ export const charcoalSections = [
   { key: 'leaves', top: 0, height: 2250, copyTop: 1350 },
   { key: 'warning', top: 2250, height: 2250, copyTop: 1500 },
   { key: 'water', top: 4500, height: 1900, copyTop: 1215 },
-  { key: 'removed', top: 6400, height: 2150, copyTop: 1165 },
+  { key: 'removed', top: 6400, height: 1960, copyTop: 1165 },
 ] as const;
 type SectionKey = typeof charcoalSections[number]['key'];
 type Copy = Record<SectionKey, { title: string; body: string }>;

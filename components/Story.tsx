@@ -57,7 +57,7 @@ function OverlayNode({ node, locale }: { node: StoryNode; locale: Locale }) {
   const props = {
     id: node.id,
     className: `overlay ${node.style ?? 'body'} key-${node.key} ${node.align ? `align-${node.align}` : ''}${/[\u0600-\u06ff\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/u.test(text) ? ' script-fallback' : ''}`,
-    style: sourceStyle(node.x, node.y, node.w, node.size),
+    style: { ...sourceStyle(node.x, node.y, node.w, node.size), ...(node.key === 'fire' ? { fontSize: 'var(--editorial-heading-size)' } : {}) },
   };
 
   if (node.style === 'button') {

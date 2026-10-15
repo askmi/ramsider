@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { flushSync } from 'react-dom';
 import { useScrollLock } from './MediaLoading';
 import { charcoalTiles } from '@/lib/charcoal-assets';
 import { loadImage } from '@/lib/media-resource';
@@ -32,9 +33,10 @@ export function CharcoalViewer({ children, closeLabel }: { children: ReactNode; 
       opener.current = trigger;
       savedScroll.current = window.scrollY;
       keyboard.current = event.detail === 0;
-      if (scroller.current) scroller.current.scrollTop = 0;
-      setOpen(true);
+      // Native modal visibility and first keyboard input require committed content.
+      flushSync(() => setOpen(true));
       dialog.current?.showModal();
+      scroller.current?.scrollTo({ top: 0, behavior: 'instant' });
     };
     const key = () => { keyboard.current = true; opener.current?.removeAttribute('data-pointer-return'); };
     const pointer = () => { keyboard.current = false; };
@@ -62,6 +64,8 @@ export function CharcoalViewer({ children, closeLabel }: { children: ReactNode; 
     if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
   }} onClose={() => {
+    // A queued close event may arrive after this native dialog has reopened.
+    if (dialog.current?.open) return;
     setOpen(false);
     if (!keyboard.current) opener.current?.setAttribute('data-pointer-return', '');
     opener.current?.focus({ preventScroll: true });

@@ -25,3 +25,10 @@ The reference width is 941 px. Record section coordinates from that width before
 The references govern shape, placement, crop, typography, and color. New hover, focus, empty, error, and motion states should extend that visual language without generic gradients, unrelated colors, or arbitrary font substitutions. Preserve polished editorial restraint and deliberate hierarchy. Exact design requirements should be verified in a browser screenshot, not inferred from CSS values. The matching reference screenshot is the target; a prior implementation screenshot is only a regression baseline.
 
 For hover, focus, empty, and motion states absent from the reference, extend the existing Ramsider visual language from neighboring controls and sections. Do not introduce a separate design system or visual direction.
+
+
+## Heading typography contract — CHG0108, 2026-10-15
+
+Apply PRODUCT.md's authored English Title Case (minor words such as `to`/`the` lowercase within phrases), natural translated case, and official brand/acronym exceptions. Raster capitals are not the editorial casing authority. Store correct case in translation keys; never implement this with CSS `text-transform:capitalize/uppercase` or a generic runtime title-case function.
+
+For all four charcoal headings, use the shared `--editorial-heading-size` responsive token anchored to the landing `#fire`:58/941 of the actual canvas width, OpenSans400, line-height1.2. Measured baseline at402px is24.777895px, at440px27.120085px; at desktop, both canvases cap941px. Preserve the existing main heading geometry. Validate actual computed font size for every h2 against #fire at each named width, then inspect real screenshots for wrap, rhythm, body/footer reflow and contrast. Source/native-image scale equality cannot establish text-size equality across941/1080 source planes.

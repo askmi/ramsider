@@ -7,7 +7,7 @@
 @font-face{font-family:NotoButtonSC;src:url('/fonts/button-fallback/noto-zh-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
 @font-face{font-family:NotoButtonJP;src:url('/fonts/button-fallback/noto-ja-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
 @font-face{font-family:NotoButtonKR;src:url('/fonts/button-fallback/noto-ko-buttons.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
-:root{--page-max-width:941px;--hero-chrome-bg:#c4b7b4;color-scheme:light;font-family:OpenSans,Arial,sans-serif;color:#292018;background:var(--hero-chrome-bg) url('/art/00.webp') center top/min(100vw,var(--page-max-width)) auto no-repeat}
+:root{--page-max-width:941px;--editorial-heading-size:calc(58/941*100cqw);--hero-chrome-bg:#c4b7b4;color-scheme:light;font-family:OpenSans,Arial,sans-serif;color:#292018;background:var(--hero-chrome-bg) url('/art/00.webp') center top/min(100vw,var(--page-max-width)) auto no-repeat}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;min-width:280px;background-color:var(--hero-chrome-bg)}
@@ -326,8 +326,8 @@ html:lang(en) .overlay:not(.key-touch) .technology-label-line:not(:first-child){
 .charcoal-tile{position:absolute;inset-inline:0;width:100%}
 .charcoal-art-host{position:relative;grid-area:section;align-self:start;width:100%;z-index:auto;pointer-events:none}
 .charcoal-copy{grid-area:section;align-self:start;padding-block-end:calc(125/1080*100cqw);padding-block-start:calc(var(--copy-top)/1080*100cqw);margin-inline:calc(68/1080*100cqw);position:relative;z-index:1}
-.charcoal-copy h2{margin:0;font-size:max(17px,calc(47/1080*100cqw));line-height:1.35;font-weight:700;color:#60340f;white-space:pre-line;overflow-wrap:break-word}
-.charcoal-section--1 h2{font-size:max(28px,calc(82/1080*100cqw));line-height:1.24;font-weight:400;color:#241c18}
+.charcoal-copy h2{margin:0;font-size:var(--editorial-heading-size);line-height:1.2;font-weight:400;color:#402008;white-space:pre-line;overflow-wrap:break-word}
+.charcoal-section--1 h2{color:#241c18}
 .charcoal-copy p{margin:calc(65/1080*100cqw) 0 0;font-size:max(16px,calc(44/1080*100cqw));line-height:1.5;font-weight:400;overflow-wrap:break-word}
 .charcoal-section--1 .charcoal-copy p{margin-block-start:calc(66/1080*100cqw)}
 .charcoal-section--4 .charcoal-copy{padding-block-end:max(24px,env(safe-area-inset-bottom))}

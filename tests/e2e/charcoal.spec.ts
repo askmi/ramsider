@@ -25,6 +25,16 @@ test('four blocks, fixed close, focus and scroll restoration, and full bottom ac
   await expect(modal.locator('section')).toHaveCount(4);
   await expect(modal.locator('h2')).toHaveCount(4);
   await expect(modal.locator('p')).toHaveCount(4);
+  await expect(modal.locator('h2')).toHaveText(['What Charcoal\nLeaves Behind.', 'No Color. No Warning.', 'Water Does Not Make It Safe.', 'Why We Removed Fire.']);
+  const headingType = await page.locator('#fire').evaluate(e => { const s = getComputedStyle(e); return { size: parseFloat(s.fontSize), weight: s.fontWeight, line: parseFloat(s.lineHeight) }; });
+  expect(headingType.size).toBeCloseTo(Math.min(viewport.width, 941) * 58 / 941, 2);
+  for (const title of await modal.locator('h2').all()) {
+    const actual = await title.evaluate(e => { const s = getComputedStyle(e); return { size: parseFloat(s.fontSize), weight: s.fontWeight, line: parseFloat(s.lineHeight), transform: s.textTransform }; });
+    expect(actual.size).toBeCloseTo(headingType.size, 2);
+    expect(actual.line).toBeCloseTo(headingType.line, 2);
+    expect(actual.weight).toBe('400');
+    expect(actual.transform).toBe('none');
+  }
   await expect(modal).toContainText('It does not make inhalation risk-free.');
   const close = modal.getByRole('button', { name: 'Close', exact: true });
   const initialClose = (await close.boundingBox())!;
@@ -72,6 +82,7 @@ test('four blocks, fixed close, focus and scroll restoration, and full bottom ac
   await page.keyboard.press('Enter');
   await expect(modal).toBeVisible();
   await expect.poll(() => scroll.evaluate(e => e.scrollTop)).toBe(0);
+  expect(await scroll.locator('article').count(), 'Native visible dialog must already contain its reading content').toBe(1);
   await scroll.focus();
   await page.keyboard.press('End');
   await expect.poll(() => scroll.evaluate(e => e.scrollTop)).toBeGreaterThan(0);
@@ -96,11 +107,17 @@ test('all locales, Arabic RTL, smaller height and representative responsive widt
     const result = await page.locator('.charcoal-ribbon').evaluate(e => ({
       width: e.getBoundingClientRect().width, overflow: e.scrollWidth,
       direction: getComputedStyle(e).direction,
+      referenceSize: parseFloat(getComputedStyle(document.querySelector('#fire')!).fontSize),
+      headings: [...e.querySelectorAll('h2')].map(h => ({ text: h.textContent!, size: parseFloat(getComputedStyle(h).fontSize) })),
       texts: [...e.querySelectorAll('h2,p')].map(t => ({ text: t.textContent, size: parseFloat(getComputedStyle(t).fontSize), font: getComputedStyle(t).fontFamily, rect: t.getBoundingClientRect().toJSON() })),
       sections: [...e.querySelectorAll('section')].map(section => ({ section: section.getBoundingClientRect().toJSON(), p: section.querySelector('p')!.getBoundingClientRect().toJSON() })),
     }));
     expect(result.overflow).toBeLessThanOrEqual(result.width + 1);
     expect(result.direction).toBe(locale === 'ar' ? 'rtl' : 'ltr');
+    for (const title of result.headings) {
+      expect(title.size).toBeCloseTo(result.referenceSize, 2);
+      if (/\p{Lu}/u.test(title.text)) expect(title.text).not.toBe(title.text.toLocaleUpperCase(locale));
+    }
     for (const text of result.texts) { expect(text.text).toBeTruthy(); expect(text.font).toContain('OpenSans'); expect(text.size).toBeGreaterThanOrEqual(16); expect(text.rect.x).toBeGreaterThanOrEqual(0); expect(text.rect.right).toBeLessThanOrEqual(result.width + 1); }
     for (const section of result.sections) expect(section.p.bottom).toBeLessThanOrEqual(section.section.bottom);
     if (['ar', 'ru', 'de', 'fr'].includes(locale)) {
@@ -161,4 +178,24 @@ test('failed image retries through shared loader; close stays usable while pendi
   await expect(page.locator('.charcoal-section--1 img[data-charcoal-ready=true]')).toHaveCount(3);
   await expect(page.getByText('The image could not load.', { exact: true })).toHaveCount(0);
   await page.keyboard.press('Escape');
+});
+
+
+test('rapid native close and reopen keeps content and first keyboard input usable', async ({ page }) => {
+  test.setTimeout(120000);
+  await open(page);
+  const scroll = page.locator('.charcoal-viewer__scroll');
+  for (let i = 0; i < 4; i++) {
+    await page.getByRole('button', { name: 'Close', exact: true }).click();
+    await page.locator('#fire-learn').focus();
+    await page.keyboard.press('Enter');
+    await expect(page.locator(dialogSelector)).toBeVisible();
+    expect(await scroll.locator('article').count()).toBe(1);
+    expect(await scroll.evaluate(e => e.scrollTop)).toBe(0);
+    await scroll.focus();
+    await page.keyboard.press('End');
+    await expect.poll(() => scroll.evaluate(e => e.scrollTop)).toBeGreaterThan(0);
+  }
+  await page.keyboard.press('Escape');
+  await expect(page.locator(dialogSelector)).not.toBeVisible();
 });

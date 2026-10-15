@@ -9,3 +9,9 @@ export async function openTechnology(page: Page, trigger: Locator = page.locator
   await trigger.click();
   await expect(page.locator('#technology-viewer')).toBeVisible();
 }
+
+/** Settled composition excludes the temporary, inaccessible outgoing painting. */
+export async function settleTechnology(viewer: Locator) {
+  await expect(viewer).toHaveAttribute('aria-busy', 'false');
+  await expect(viewer.locator('.technology-viewer__snapshot')).toHaveCount(0);
+}

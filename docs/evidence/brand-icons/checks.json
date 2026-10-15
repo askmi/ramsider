@@ -1,0 +1,458 @@
+{
+  "date": "2026-10-13",
+  "sources": {
+    "B": {
+      "sha256": "24f732538caaf7b30b731c388fd202a5e7861eef58264ff49ef0a9f116ee2bcb",
+      "bytes": 3925
+    },
+    "W": {
+      "sha256": "caad8112db5d81d18b4f11388d14de6184ebc33caf5cbb9b35fcb5b53cf20f9a",
+      "bytes": 3930
+    }
+  },
+  "delivery": {
+    "/favicon.ico": {
+      "status": 200,
+      "contentType": "image/x-icon",
+      "bytes": 1464,
+      "sha256": "b181730c1f44df7f3d2f5169e2796e48bc2681cfb60012b83bc90436ad40d0e6"
+    },
+    "/art/brand-mark-white.png": {
+      "status": 200,
+      "contentType": "image/png",
+      "bytes": 1362,
+      "sha256": "8be8483e505d8f2653ab5ca5925736ec1b51c55a1d7b5ad87ea03df034381c1c"
+    },
+    "ico": {
+      "width": 32,
+      "height": 32,
+      "bitCount": 32,
+      "pngSha256": "538d95feb0345ea1df4f6c0f8db316f486decfb229cc75df75abef2a9b97d6ca",
+      "opaqueAlpha": true
+    }
+  },
+  "views": [
+    {
+      "name": "pro",
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "geometry": {
+        "layoutWidth": 402,
+        "scrollWidth": 402,
+        "link": {
+          "x": 34.171875,
+          "y": 11.546875,
+          "width": 128.5625,
+          "height": 44
+        },
+        "icon": {
+          "x": 34.171875,
+          "y": 23.296875,
+          "width": 20.5,
+          "height": 20.5
+        },
+        "text": {
+          "x": 62.421875,
+          "y": 23.947582244873047,
+          "width": 100.30570983886719,
+          "height": 19.198585510253906
+        },
+        "menu": {
+          "x": 323.390625,
+          "y": 12.1875,
+          "width": 44,
+          "height": 44
+        },
+        "locale": {
+          "x": 202.921875,
+          "y": 12.171875,
+          "width": 68.34375,
+          "height": 44
+        },
+        "direction": "ltr",
+        "blend": "normal",
+        "naturalWidth": 32,
+        "outsideBrandChangedChannels": 0,
+        "focusOutline": "solid"
+      },
+      "homeIconClick": true,
+      "menuEscape": true,
+      "keyboardFocus": true
+    },
+    {
+      "name": "max",
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "geometry": {
+        "layoutWidth": 440,
+        "scrollWidth": 440,
+        "link": {
+          "x": 37.40625,
+          "y": 14.703125,
+          "width": 140.71875,
+          "height": 44
+        },
+        "icon": {
+          "x": 37.40625,
+          "y": 25.484375,
+          "width": 22.4375,
+          "height": 22.4375
+        },
+        "text": {
+          "x": 68.328125,
+          "y": 26.18862533569336,
+          "width": 109.78730773925781,
+          "height": 21.01337432861328
+        },
+        "menu": {
+          "x": 358.109375,
+          "y": 15.40625,
+          "width": 44,
+          "height": 44
+        },
+        "locale": {
+          "x": 222.09375,
+          "y": 15.40625,
+          "width": 74.8125,
+          "height": 44
+        },
+        "direction": "ltr",
+        "blend": "normal",
+        "naturalWidth": 32,
+        "outsideBrandChangedChannels": 0,
+        "focusOutline": "solid"
+      },
+      "homeIconClick": true,
+      "menuEscape": true,
+      "keyboardFocus": true
+    },
+    {
+      "name": "small",
+      "width": 320,
+      "height": 568,
+      "dpr": 3,
+      "geometry": {
+        "layoutWidth": 320,
+        "scrollWidth": 320,
+        "link": {
+          "x": 27.203125,
+          "y": 4.703125,
+          "width": 104.03125,
+          "height": 44
+        },
+        "icon": {
+          "x": 27.203125,
+          "y": 17.703125,
+          "width": 18,
+          "height": 18
+        },
+        "text": {
+          "x": 51.375,
+          "y": 19.06189727783203,
+          "width": 79.84530639648438,
+          "height": 15.282455444335938
+        },
+        "menu": {
+          "x": 248.4375,
+          "y": 5.203125,
+          "width": 44,
+          "height": 44
+        },
+        "locale": {
+          "x": 161.515625,
+          "y": 5.203125,
+          "width": 64,
+          "height": 44
+        },
+        "direction": "ltr",
+        "blend": "normal",
+        "naturalWidth": 32,
+        "focusOutline": "solid"
+      },
+      "homeIconClick": true,
+      "menuEscape": true,
+      "keyboardFocus": true
+    },
+    {
+      "name": "phone",
+      "width": 375,
+      "height": 667,
+      "dpr": 3,
+      "geometry": {
+        "layoutWidth": 375,
+        "scrollWidth": 375,
+        "link": {
+          "x": 31.875,
+          "y": 9.28125,
+          "width": 119.921875,
+          "height": 44
+        },
+        "icon": {
+          "x": 31.875,
+          "y": 21.71875,
+          "width": 19.125,
+          "height": 19.125
+        },
+        "text": {
+          "x": 58.21875,
+          "y": 22.31887435913086,
+          "width": 93.56875610351562,
+          "height": 17.90912628173828
+        },
+        "menu": {
+          "x": 298.703125,
+          "y": 9.890625,
+          "width": 44,
+          "height": 44
+        },
+        "locale": {
+          "x": 189.28125,
+          "y": 9.875,
+          "width": 64,
+          "height": 44
+        },
+        "direction": "ltr",
+        "blend": "normal",
+        "naturalWidth": 32,
+        "focusOutline": "solid"
+      },
+      "homeIconClick": true,
+      "menuEscape": true,
+      "keyboardFocus": true
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024,
+      "dpr": 3,
+      "geometry": {
+        "layoutWidth": 768,
+        "scrollWidth": 768,
+        "link": {
+          "x": 65.28125,
+          "y": 42.0625,
+          "width": 238.453125,
+          "height": 44
+        },
+        "icon": {
+          "x": 65.28125,
+          "y": 48.0625,
+          "width": 32,
+          "height": 32
+        },
+        "text": {
+          "x": 112.09375,
+          "y": 45.71574020385742,
+          "width": 191.6287841796875,
+          "height": 36.67789077758789
+        },
+        "menu": {
+          "x": 657.875,
+          "y": 43.296875,
+          "width": 44,
+          "height": 44
+        },
+        "locale": {
+          "x": 387.671875,
+          "y": 43.28125,
+          "width": 130.578125,
+          "height": 44
+        },
+        "direction": "ltr",
+        "blend": "normal",
+        "naturalWidth": 32,
+        "focusOutline": "solid"
+      },
+      "homeIconClick": true,
+      "menuEscape": true,
+      "keyboardFocus": true
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 900,
+      "dpr": 3,
+      "geometry": {
+        "layoutWidth": 1440,
+        "scrollWidth": 1440,
+        "link": {
+          "x": 329.484375,
+          "y": 56.515625,
+          "width": 284.9375,
+          "height": 44
+        },
+        "icon": {
+          "x": 329.484375,
+          "y": 62.515625,
+          "width": 32,
+          "height": 32
+        },
+        "text": {
+          "x": 379.625,
+          "y": 56.04563903808594,
+          "width": 234.795166015625,
+          "height": 44.939971923828125
+        },
+        "menu": {
+          "x": 1065.46875,
+          "y": 58,
+          "width": 44,
+          "height": 44
+        },
+        "locale": {
+          "x": 724.484375,
+          "y": 58,
+          "width": 160,
+          "height": 44
+        },
+        "direction": "ltr",
+        "blend": "normal",
+        "naturalWidth": 32,
+        "focusOutline": "solid"
+      },
+      "homeIconClick": true,
+      "menuEscape": true,
+      "keyboardFocus": true
+    }
+  ],
+  "locales": [
+    {
+      "locale": "en",
+      "icons": [
+        {
+          "href": "/favicon.ico?favicon.3nfbh7suytgef.ico",
+          "type": "image/x-icon",
+          "sizes": "32x32"
+        }
+      ],
+      "brandDirection": "ltr"
+    },
+    {
+      "locale": "ru",
+      "icons": [
+        {
+          "href": "/favicon.ico?favicon.3nfbh7suytgef.ico",
+          "type": "image/x-icon",
+          "sizes": "32x32"
+        }
+      ],
+      "brandDirection": "ltr"
+    },
+    {
+      "locale": "de",
+      "icons": [
+        {
+          "href": "/favicon.ico?favicon.3nfbh7suytgef.ico",
+          "type": "image/x-icon",
+          "sizes": "32x32"
+        }
+      ],
+      "brandDirection": "ltr"
+    },
+    {
+      "locale": "fr",
+      "icons": [
+        {
+          "href": "/favicon.ico?favicon.3nfbh7suytgef.ico",
+          "type": "image/x-icon",
+          "sizes": "32x32"
+        }
+      ],
+      "brandDirection": "ltr"
+    },
+    {
+      "locale": "es",
+      "icons": [
+        {
+          "href": "/favicon.ico?favicon.3nfbh7suytgef.ico",
+          "type": "image/x-icon",
+          "sizes": "32x32"
+        }
+      ],
+      "brandDirection": "ltr"
+    },
+    {
+      "locale": "it",
+      "icons": [
+        {
+          "href": "/favicon.ico?favicon.3nfbh7suytgef.ico",
+          "type": "image/x-icon",
+          "sizes": "32x32"
+        }
+      ],
+      "brandDirection": "ltr"
+    },
+    {
+      "locale": "tr",
+      "icons": [
+        {
+          "href": "/favicon.ico?favicon.3nfbh7suytgef.ico",
+          "type": "image/x-icon",
+          "sizes": "32x32"
+        }
+      ],
+      "brandDirection": "ltr"
+    },
+    {
+      "locale": "ar",
+      "icons": [
+        {
+          "href": "/favicon.ico?favicon.3nfbh7suytgef.ico",
+          "type": "image/x-icon",
+          "sizes": "32x32"
+        }
+      ],
+      "brandDirection": "ltr"
+    },
+    {
+      "locale": "zh",
+      "icons": [
+        {
+          "href": "/favicon.ico?favicon.3nfbh7suytgef.ico",
+          "type": "image/x-icon",
+          "sizes": "32x32"
+        }
+      ],
+      "brandDirection": "ltr"
+    },
+    {
+      "locale": "ja",
+      "icons": [
+        {
+          "href": "/favicon.ico?favicon.3nfbh7suytgef.ico",
+          "type": "image/x-icon",
+          "sizes": "32x32"
+        }
+      ],
+      "brandDirection": "ltr"
+    },
+    {
+      "locale": "ko",
+      "icons": [
+        {
+          "href": "/favicon.ico?favicon.3nfbh7suytgef.ico",
+          "type": "image/x-icon",
+          "sizes": "32x32"
+        }
+      ],
+      "brandDirection": "ltr"
+    }
+  ],
+  "colors": [
+    {
+      "kind": "B",
+      "meanAbsoluteRgbError": 0.019386574074074073,
+      "maxRgbError": 1,
+      "method": "WebKit DPR3 original embedded AdobeRGB vs converted tagged sRGB screenshot pixels"
+    },
+    {
+      "kind": "W",
+      "meanAbsoluteRgbError": 0.025824652777777776,
+      "maxRgbError": 1,
+      "method": "WebKit DPR3 original embedded AdobeRGB vs converted tagged sRGB screenshot pixels"
+    }
+  ],
+  "errors": []
+}

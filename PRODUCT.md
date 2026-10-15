@@ -28,6 +28,12 @@ See [docs/reference-map.md](docs/reference-map.md) for observed copy, controls, 
 - **Localization:** `en`, `ru`, `de`, `fr`, `es`, `it`, `tr`, `ar`, `zh`, `ja`, `ko`, with a shared key schema. Check line length and typography in every script; Arabic needs RTL layout and direction-sensitive behavior. The English render is the visual source, not a license to hardcode English text into images or components.
 - **Fast first view:** show hero art, primary message, and action quickly. Segment and compress the giant background assets, prioritize the first segment, prefetch later segments near view, reserve their layout space, and verify no seams or pop-in. See [PERFORMANCE.md](PERFORMANCE.md).
 
+## Editorial heading concept — 2026-10-15
+
+Use spaced **Title Case** for English editorial headings: capitalize significant words, retain lowercase minor words such as `a`, `an`, `the`, `to`, `of`, `and`, `for`, `in`, and `with` within a phrase. Example: **Why Fire Had to End.** This is the product's requested “camel case with spaces”, not a programming identifier. Do not reproduce all-uppercase heading phrases from source images. Preserve official brand/product/acronym casing (RAMSIDER, UNO, PRO, GOLD); translations use natural language-specific capitalization rather than an English case algorithm.
+
+The four charcoal-ribbon headlines use the same responsive Open Sans Regular heading size and line height as the landing **Why Fire Had to End.** heading at equal canvas widths. Do not assign separate hero/small-title scales to these four headings. This correction takes precedence over the all-caps raster reference; see CHG0108 and DESIGN.md.
+
 ## Factual and functional dependencies
 
 The render shows PRO/GOLD features, a three-step payment schedule (PRO $599 then $400; GOLD $999 then $1,000), testing/certification cards, shipping/support FAQ prompts, and account tiles. These are **observations in the design**. Reproduce the visible wording in the local visual rebuild, but record factual claims as unverified until content approval. Before publishing a transactional flow or asserting regulated/technical facts as approved, confirm current prices/currency/payment terms, shipping and support policy, product specifications, the actual certificates and files, and whether the shown account and configurator exist. Do not fabricate PDF links, checkout endpoints, film media, FAQ answers, or hospitality contact routes. The same applies to implied wellness benefits: do not invent therapeutic claims.

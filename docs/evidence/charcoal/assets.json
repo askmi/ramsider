@@ -1,0 +1,296 @@
+{
+  "source": "design/references/charcoal-original.png",
+  "sourceSha256": "f2fee396b46074f4c06293d39095d4d3ba4264a211c852556b9c19c2e5bcb97f",
+  "faceSha256": "0a3453785ccd775c7a154e4db1c91ebf188ce8c61f6cdeda0f6cf23551eb064b",
+  "originalICC": "absent, intended profile UNKNOWN; native web interpretation retained",
+  "faceICC": "sRGB IEC61966-2.1",
+  "cutoff": 8550,
+  "removedTailRows": 1800,
+  "items": [
+    {
+      "index": 1,
+      "top": 0,
+      "height": 2250,
+      "boxes": [
+        [
+          62,
+          1340,
+          1018,
+          1545,
+          "dark"
+        ],
+        [
+          62,
+          1610,
+          1080,
+          1950,
+          "dark"
+        ]
+      ],
+      "donor": {
+        "sourceCrop": [
+          210,
+          0,
+          340,
+          580
+        ],
+        "scale": 1.8,
+        "left": 138,
+        "top": 0,
+        "contour": "M 310 125 L 405 125 L 421 370 L 350 438 L 245 438 L 245 265 L 294 220 Z",
+        "edgeBlur": 16,
+        "donorCorePixels": 99903
+      },
+      "width": 1080,
+      "maskedPixels": 339226,
+      "outsideChanged": 0,
+      "alpha": "source/output bothopaque",
+      "backplateSha256": "679ac47cd5c1a255fc9172f42d6ca1d3b4378c64627263db696c6b9664271cb8",
+      "nativeSha256": "68f93b3e45b60ed5b3a48ae58b457a5c7ce05e7de34eeff2258fa9c6d8989e88",
+      "tiles": [
+        {
+          "output": "public/art/charcoal/1-0.png",
+          "top": 0,
+          "contentTop": 0,
+          "contentHeight": 750,
+          "height": 752,
+          "width": 1080,
+          "bytes": 909288,
+          "decodedExact": true,
+          "sha256": "f09507293ece1cdf097204916fa7911fa77ffa7078a0a44675516270fbd6aaee"
+        },
+        {
+          "output": "public/art/charcoal/1-1.png",
+          "top": 748,
+          "contentTop": 750,
+          "contentHeight": 750,
+          "height": 754,
+          "width": 1080,
+          "bytes": 814354,
+          "decodedExact": true,
+          "sha256": "3e5525e9259f739d94dabf89480b72aebe658f04d8361a407f42733dd99001ca"
+        },
+        {
+          "output": "public/art/charcoal/1-2.png",
+          "top": 1498,
+          "contentTop": 1500,
+          "contentHeight": 750,
+          "height": 752,
+          "width": 1080,
+          "bytes": 601009,
+          "decodedExact": true,
+          "sha256": "ccd23cbfd9781bed6c685d44d25be4dffa1ad10becbbbb6d7dfe1326c04bc2ad"
+        }
+      ],
+      "joinedDecodedExact": true,
+      "bytes": 2324651,
+      "decodedExact": true,
+      "format": "lossless PNG, native1080px, no brightness/profile transform"
+    },
+    {
+      "index": 2,
+      "top": 2250,
+      "height": 2250,
+      "boxes": [
+        [
+          62,
+          1490,
+          840,
+          1548,
+          "gold"
+        ],
+        [
+          62,
+          1618,
+          1025,
+          2140,
+          "dark"
+        ]
+      ],
+      "width": 1080,
+      "maskedPixels": 146692,
+      "outsideChanged": 0,
+      "alpha": "source/output bothopaque",
+      "backplateSha256": "88f5a5c4943c8855ad35d9217d1eda0522e647b399b5d8cc04bbd993fa2554e6",
+      "nativeSha256": "7d69dba73f769b92d8993720233d09ed9fbd642f185a401fd0618dbc4e4a3f2b",
+      "tiles": [
+        {
+          "output": "public/art/charcoal/2-0.png",
+          "top": 0,
+          "contentTop": 0,
+          "contentHeight": 750,
+          "height": 752,
+          "width": 1080,
+          "bytes": 918572,
+          "decodedExact": true,
+          "sha256": "239d3bbd93da0650b2095d80979dd433df7c42d30783e62787afd9e48137d5f3"
+        },
+        {
+          "output": "public/art/charcoal/2-1.png",
+          "top": 748,
+          "contentTop": 750,
+          "contentHeight": 750,
+          "height": 754,
+          "width": 1080,
+          "bytes": 1035047,
+          "decodedExact": true,
+          "sha256": "f86194703e49126ddf96095d7dc8a97153a619dd0d9761009b7e3e7ded5f5d16"
+        },
+        {
+          "output": "public/art/charcoal/2-2.png",
+          "top": 1498,
+          "contentTop": 1500,
+          "contentHeight": 750,
+          "height": 752,
+          "width": 1080,
+          "bytes": 609000,
+          "decodedExact": true,
+          "sha256": "32b6b745e54fbc40523bcfabac278594586adc295d0b14e35ab411313010036a"
+        }
+      ],
+      "joinedDecodedExact": true,
+      "bytes": 2562619,
+      "decodedExact": true,
+      "format": "lossless PNG, native1080px, no brightness/profile transform"
+    },
+    {
+      "index": 3,
+      "top": 4500,
+      "height": 1900,
+      "boxes": [
+        [
+          62,
+          1203,
+          1010,
+          1270,
+          "gold"
+        ],
+        [
+          62,
+          1330,
+          1025,
+          1810,
+          "dark"
+        ]
+      ],
+      "width": 1080,
+      "maskedPixels": 95945,
+      "outsideChanged": 0,
+      "alpha": "source/output bothopaque",
+      "backplateSha256": "c9afbe1fd4ebd943567edb17667cd06827be013b35bf6824c3636addbd8744ae",
+      "nativeSha256": "167c993eace2036ea451c2baf8697abd8499a3e364a29df1ad7cf520d8c2fa2d",
+      "tiles": [
+        {
+          "output": "public/art/charcoal/3-0.png",
+          "top": 0,
+          "contentTop": 0,
+          "contentHeight": 750,
+          "height": 752,
+          "width": 1080,
+          "bytes": 1139499,
+          "decodedExact": true,
+          "sha256": "45ff2d45a21c3094396c4c0f5defe9eee762349f09374fcd03402a9b64b55f03"
+        },
+        {
+          "output": "public/art/charcoal/3-1.png",
+          "top": 748,
+          "contentTop": 750,
+          "contentHeight": 750,
+          "height": 754,
+          "width": 1080,
+          "bytes": 764124,
+          "decodedExact": true,
+          "sha256": "d6828152f6f7cf0627332c07890987be0c0ba4f56bae3fa21b093078ce8adcbb"
+        },
+        {
+          "output": "public/art/charcoal/3-2.png",
+          "top": 1498,
+          "contentTop": 1500,
+          "contentHeight": 400,
+          "height": 402,
+          "width": 1080,
+          "bytes": 326800,
+          "decodedExact": true,
+          "sha256": "e445331b2fcefea226bdf7e47587f02c19f7cb511fa03b853d48af15d203cc2c"
+        }
+      ],
+      "joinedDecodedExact": true,
+      "bytes": 2230423,
+      "decodedExact": true,
+      "format": "lossless PNG, native1080px, no brightness/profile transform"
+    },
+    {
+      "index": 4,
+      "top": 6400,
+      "height": 2150,
+      "boxes": [
+        [
+          62,
+          1152,
+          850,
+          1225,
+          "gold"
+        ],
+        [
+          62,
+          1278,
+          1055,
+          1790,
+          "dark"
+        ],
+        [
+          62,
+          2030,
+          410,
+          2090,
+          "gold"
+        ]
+      ],
+      "width": 1080,
+      "maskedPixels": 143115,
+      "outsideChanged": 0,
+      "alpha": "source/output bothopaque",
+      "backplateSha256": "9f12b66a14c58912847de0023593e6e982b473c5a3f6ba2e491495b0070a171e",
+      "nativeSha256": "87d81ba7249749bb0024ad4b6643f1b0ef74a2fb8adfe1921afdd97cb235f8f5",
+      "tiles": [
+        {
+          "output": "public/art/charcoal/4-0.png",
+          "top": 0,
+          "contentTop": 0,
+          "contentHeight": 750,
+          "height": 752,
+          "width": 1080,
+          "bytes": 1123277,
+          "decodedExact": true,
+          "sha256": "b6c7b3442bb0efd4fccad84b3d8220bc53d52c0266f76c1edfc0d05fa770657a"
+        },
+        {
+          "output": "public/art/charcoal/4-1.png",
+          "top": 748,
+          "contentTop": 750,
+          "contentHeight": 750,
+          "height": 754,
+          "width": 1080,
+          "bytes": 1023047,
+          "decodedExact": true,
+          "sha256": "c8003997c3808f915a920352dd1ef1fbc2ae17db151db1a288fd5ce378f10c74"
+        },
+        {
+          "output": "public/art/charcoal/4-2.png",
+          "top": 1498,
+          "contentTop": 1500,
+          "contentHeight": 650,
+          "height": 652,
+          "width": 1080,
+          "bytes": 504246,
+          "decodedExact": true,
+          "sha256": "38e66a608e5f9d41de2cfa5eca30b9ff875493d61ee5f93595459d301341a5f8"
+        }
+      ],
+      "joinedDecodedExact": true,
+      "bytes": 2650570,
+      "decodedExact": true,
+      "format": "lossless PNG, native1080px, no brightness/profile transform"
+    }
+  ]
+}

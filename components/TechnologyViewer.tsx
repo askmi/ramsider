@@ -1,6 +1,4 @@
 'use client';
-import {TechnologyArtTitle,ReadingIconSources,RetainedDecoration} from './TechnologyText';
-import {readingIconAssets,readingPhotoPatch} from '@/lib/technology-icons';
 import {PowerArmorDescriptions} from './PowerArmorDescriptions';
 import {powerArmorCopy} from '@/lib/power-armor-descriptions';
 import {MoodAquaDescriptions} from './MoodAquaDescriptions';
@@ -16,7 +14,6 @@ import type {Locale} from '@/lib/i18n';
 import type {TechnologyDescriptionCopy,TechnologySlideId} from '@/lib/technology-descriptions';
 import {technologyGroups,technologyGroupCopy} from '@/lib/technology-gallery';
 import {loadImage} from '@/lib/media-resource';
-import {startTechnologyPreload} from '@/lib/technology-preload';
 import {LoadingStatus,useScrollLock} from './MediaLoading';
 import {TechnologyDescriptions} from './TechnologyDescriptions';
 import {NobleCraftDescriptions} from './NobleCraftDescriptions';
@@ -65,21 +62,18 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
  const displayed=useRef<Position>({group:0,photo:0}),requested=useRef<Position>({group:0,photo:0}),pending=useRef(false),token=useRef(0),subscription=useRef<(()=>void)|null>(null),locked=useRef(0);
  const contact=useRef<Contact|null>(null),pointer=useRef<Contact|null>(null);
  const wheel=useRef({at:0,x:0,y:0,axis:null as 'horizontal'|'vertical'|null,committed:false,pan:false});
- const [iconSources,setIconSources]=useState<Record<string,HTMLImageElement>>({});
  const [open,setOpen]=useState(false),[position,setPosition]=useState<Position>({group:0,photo:0}),[image,setImage]=useState<HTMLImageElement|null>(null),[loading,setLoading]=useState(false),[failed,setFailed]=useState(false),[progress,setProgress]=useState<number|null>(null);
  const labels=copy[locale],photos=photoLabels[locale],group=technologyGroups[position.group],slide=group.slides[position.photo];
- const photoPatch=readingPhotoPatch(slide.src);
  useScrollLock(open);
  const select=useCallback((next:Position)=>{
   stopInertia();requested.current=next;pending.current=true;contact.current=null;pointer.current=null;locked.current=viewport.current?.scrollTop??0;
   setLoading(true);setFailed(false);setProgress(null);subscription.current?.();const revision=++token.current;
   const resource=loadImage(technologyGroups[next.group].slides[next.photo].src,'auto');
   subscription.current=resource.subscribe(value=>{if(revision===token.current)setProgress(value.total?Math.round(value.loaded/value.total*100):null);});
-  const assets=readingIconAssets(technologyGroups[next.group].slides[next.photo].src);
-  Promise.all([resource.ready,...assets.map(src=>loadImage(src,'auto').ready)]).then(([photo,...decorations])=>{
+  resource.ready.then(photo=>{
    if(revision!==token.current||!dialog.current?.open)return;
    if(document.activeElement===viewport.current)dialog.current.focus({preventScroll:true});
-   displayed.current=next;setPosition(next);setIconSources(Object.fromEntries(assets.map((src,index)=>[src,decorations[index]])));setImage(photo);pending.current=false;setLoading(false);subscription.current?.();subscription.current=null;
+   displayed.current=next;setPosition(next);setImage(photo);pending.current=false;setLoading(false);subscription.current?.();subscription.current=null;
   }).catch(()=>{if(revision===token.current&&dialog.current?.open){setFailed(true);subscription.current?.();subscription.current=null;}});
  },[stopInertia]);
  const move=useCallback((axis:'horizontal'|'vertical',delta:number)=>{
@@ -90,7 +84,11 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
  },[select]);
  useLayoutEffect(()=>{viewport.current?.scrollTo({top:0,left:0,behavior:'instant'});},[image]);
  useLayoutEffect(()=>{if(loading&&dialog.current?.open)dialog.current.focus({preventScroll:true});},[loading]);
- useEffect(startTechnologyPreload,[]);
+ useEffect(()=>{
+  const warm=()=>technologyGroups.forEach(g=>g.slides.forEach(s=>{void loadImage(s.src).ready.catch(()=>{});}));
+  if(document.readyState==='complete')warm();else window.addEventListener('load',warm,{once:true});
+  return()=>window.removeEventListener('load',warm);
+ },[]);
  useEffect(()=>{
   const activate=(event:MouseEvent)=>{
    const trigger=event.target instanceof Element?event.target.closest<HTMLElement>('[data-technology-open]'):null;
@@ -179,13 +177,10 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
  <div key={slide.src} ref={viewport} className="technology-viewer__scroll" tabIndex={0} role="region" aria-label={`${photos[0]} / ${photos[1]}; ${technologyGroupCopy[locale].previous} / ${labels.nextGroup}`}
  onScroll={e=>{if(pending.current&&e.currentTarget.scrollTop!==locked.current)e.currentTarget.scrollTop=locked.current;}}
  onPointerDown={pointerDown} onPointerUp={e=>{const c=pointer.current;pointer.current=null;if(c?.id===e.pointerId)finish(c,e.clientX,e.clientY);}} onPointerCancel={()=>{pointer.current=null;}}>
- {open&&image&&<ReadingIconSources.Provider value={iconSources}><article className="technology-viewer__content" data-photo={slide.src}>
- <div className="technology-viewer__illustration" style={{aspectRatio:`${image.naturalWidth}/${image.naturalHeight}`}}>
- <RetainedPhoto image={image} name={`${group.title} — ${group.title==='QuickCell'||group.title==='PolyArmor'?powerArmorCopy[locale].headlines[group.title==='PolyArmor'?2:position.photo].replaceAll('\n',' '):group.title==='MoodEngine'||group.title==='AquaSense'?moodAquaCopy[locale][group.title==='MoodEngine'?'mood':'aqua'].headlines[position.photo].replaceAll('\n',' '):group.title==='TouchLink'?(position.photo===0?touchLinkCopy[locale].headline:position.photo===1?touchLinkCopy[locale].appHeading:touchLinkCopy[locale].directHeading).replaceAll('\n',' '):group.title==='AirShield'?airShieldCopy[locale][position.photo].headline.replaceAll('\n',' '):group.title==='HeatCore'?labels.names[position.photo]:group.title==='CapsuleCode'?capsuleCodeCopy[locale][position.photo].headline.replaceAll('\n',' '):group.title==='CyberMind'?(position.photo===0?cyberMindCopy[locale].headline1:cyberMindCopy[locale].headline2).replaceAll('\n',' '):nobleName(locale,position.photo)}`}/>{photoPatch&&iconSources[photoPatch.src]&&<RetainedDecoration image={iconSources[photoPatch.src]} className="technology-viewer__icon-patch" style={{left:`${photoPatch.box[0]/photoPatch.width*100}%`,top:`${photoPatch.box[1]/photoPatch.height*100}%`,width:`${photoPatch.box[2]/photoPatch.width*100}%`,height:`${photoPatch.box[3]/photoPatch.height*100}%`}} width={photoPatch.box[2]} height={photoPatch.box[3]}/>}
- <TechnologyArtTitle name={group.title} descriptor={labels.technology} width={image.naturalWidth} height={image.naturalHeight}/>
- </div>
- {group.title==='QuickCell'||group.title==='PolyArmor'?<PowerArmorDescriptions kind={group.title==='QuickCell'?'quick':'poly'} slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='MoodEngine'||group.title==='AquaSense'?<MoodAquaDescriptions kind={group.title==='MoodEngine'?'mood':'aqua'} slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='TouchLink'?<TouchLinkDescriptions slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='AirShield'?<AirShieldDescriptions slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='CapsuleCode'?<CapsuleCodeDescriptions slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='HeatCore'?<TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={labels.names[position.photo]} copy={descriptions}/>:group.title==='CyberMind'?<CyberMindDescriptions slide={slide.id as '01'|'02'} locale={locale} name={group.title} copy={cyberMindCopy[locale]} descriptor={labels.technology}/>:<NobleCraftDescriptions slide={position.photo} locale={locale}/>}
- </article></ReadingIconSources.Provider>}
+ {open&&image&&<article className="technology-viewer__content" data-photo={slide.src} style={{aspectRatio:`${image.naturalWidth}/${image.naturalHeight}`}}>
+ <RetainedPhoto image={image} name={`${group.title} — ${group.title==='QuickCell'||group.title==='PolyArmor'?powerArmorCopy[locale].headlines[group.title==='PolyArmor'?2:position.photo].replaceAll('\n',' '):group.title==='MoodEngine'||group.title==='AquaSense'?moodAquaCopy[locale][group.title==='MoodEngine'?'mood':'aqua'].headlines[position.photo].replaceAll('\n',' '):group.title==='TouchLink'?(position.photo===0?touchLinkCopy[locale].headline:position.photo===1?touchLinkCopy[locale].appHeading:touchLinkCopy[locale].directHeading).replaceAll('\n',' '):group.title==='AirShield'?airShieldCopy[locale][position.photo].headline.replaceAll('\n',' '):group.title==='HeatCore'?labels.names[position.photo]:group.title==='CapsuleCode'?capsuleCodeCopy[locale][position.photo].headline.replaceAll('\n',' '):group.title==='CyberMind'?(position.photo===0?cyberMindCopy[locale].headline1:cyberMindCopy[locale].headline2).replaceAll('\n',' '):nobleName(locale,position.photo)}`}/>
+ {group.title==='QuickCell'||group.title==='PolyArmor'?<PowerArmorDescriptions kind={group.title==='QuickCell'?'quick':'poly'} slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='MoodEngine'||group.title==='AquaSense'?<MoodAquaDescriptions kind={group.title==='MoodEngine'?'mood':'aqua'} slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='TouchLink'?<TouchLinkDescriptions slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='AirShield'?<AirShieldDescriptions slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='CapsuleCode'?<CapsuleCodeDescriptions slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='HeatCore'?<TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={labels.names[position.photo]} copy={descriptions} cropTop={102}/>:group.title==='CyberMind'?<CyberMindDescriptions slide={slide.id as '01'|'02'} locale={locale} name={group.title} copy={cyberMindCopy[locale]} descriptor={labels.technology}/>:<NobleCraftDescriptions slide={position.photo} locale={locale}/>}
+ </article>}
  </div>
  {open&&loading&&<div className="technology-viewer__loading"><LoadingStatus locale={locale} progress={progress} error={failed} onRetry={()=>select(requested.current)}/></div>}
  </div>

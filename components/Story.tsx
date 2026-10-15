@@ -15,6 +15,7 @@ import iconMap from '@/lib/icon-map.json';
 import localizedButtonWidths from '@/lib/button-localized-widths.json';
 import artPreviews from '@/lib/art-previews.json';
 import { PageMediaGate } from './PageMediaGate';
+import { CharcoalRibbon } from './CharcoalRibbon';
 
 // Keep the complete FAQ/account artwork in one tile: no image edge through a card.
 const artTiles = Array.from({ length: 12 }, (_, i) => ({
@@ -56,7 +57,7 @@ function OverlayNode({ node, locale }: { node: StoryNode; locale: Locale }) {
   const props = {
     id: node.id,
     className: `overlay ${node.style ?? 'body'} key-${node.key} ${node.align ? `align-${node.align}` : ''}${/[\u0600-\u06ff\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/u.test(text) ? ' script-fallback' : ''}`,
-    style: sourceStyle(node.x, node.y, node.w, node.size),
+    style: { ...sourceStyle(node.x, node.y, node.w, node.size), ...(node.key === 'fire' ? { fontSize: 'var(--editorial-heading-size)' } : {}) },
   };
 
   if (node.style === 'button') {
@@ -82,6 +83,7 @@ function OverlayNode({ node, locale }: { node: StoryNode; locale: Locale }) {
       {appearance.kind === 'outline' && <ActionArrow />}
     </>;
     if (node.target) return <Link {...buttonProps} href={node.target}>{content}</Link>;
+    if (node.id === 'fire-learn') return <button {...buttonProps} type="button" aria-haspopup="dialog" aria-controls="charcoal-viewer" data-charcoal-open>{content}</button>;
     return <button {...buttonProps} type="button" aria-haspopup="dialog" {...(node.unavailable === 'technology' ? { 'data-technology-open': true } : { popoverTarget: `unavailable-${node.unavailable ?? 'commerce'}` })}>{content}</button>;
   }
   if (node.key === 'hero') return <h1 {...props}>{textLines(text)}</h1>;
@@ -156,7 +158,10 @@ function Faq({ locale }: { locale: Locale }) {
 
 function Menus({ locale }: { locale: Locale }) {
   return <header className="masthead">
-    <Link id="home-link" className="wordmark" href={`/${locale}`} aria-label={`RAMSIDER ${t(locale, 'home')}`}>RAMSIDER</Link>
+    <Link id="home-link" className="wordmark" href={`/${locale}`} aria-label={`RAMSIDER ${t(locale, 'home')}`}>
+      <Image className="wordmark-icon" src="/art/brand-mark-white.png" width={32} height={32} alt="" aria-hidden="true" unoptimized loading="eager" />
+      RAMSIDER
+    </Link>
     <MenuShell label={t(locale, 'menu')}>
       <nav aria-label={t(locale, 'menu')}>
         {(['moment', 'technology', 'choice', 'expressions', 'pro', 'gold', 'set', 'order', 'documents', 'hospitality', 'faq', 'final'] as const).map((id) => <a id={`navigation-${id}`} key={id} href={`#${id}`}>{t(locale, ({ moment: 'moment', technology: 'complexity', choice: 'choice', expressions: 'expressions', pro: 'pro', gold: 'gold', set: 'set', order: 'order', documents: 'documented', hospitality: 'hospitality', faq: 'faqTitle', final: 'final' } as const)[id])}</a>)}
@@ -223,6 +228,7 @@ function Popovers({ locale }: { locale: Locale }) {
 export function Story({ locale }: { locale: Locale }) {
   return <DialogController>
     <TechnologyViewer locale={locale} descriptions={technologyDescriptionCopy[locale]} />
+    <CharcoalRibbon locale={locale} />
     <PageMediaGate locale={locale}><main className="canvas" data-locale={locale}>
       <div className="story-prefix-space" aria-hidden="true" />
       <div className="art" aria-hidden="true">

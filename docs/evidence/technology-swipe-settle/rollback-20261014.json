@@ -1,0 +1,738 @@
+{
+  "id": "CHG0106",
+  "date": "2026-10-14",
+  "scope": "User-authorized precise rollback of520fdc4 clone/decode/opacity overlay while retaining d79favicon/header/Safari gradient. Local main; no commit/push.",
+  "status": "VERIFIED exact authorized rollback only; broader intermittentpaint FAIL/OPEN, physicalafter NOT_VERIFIED",
+  "runtime": {
+    "viewerExactParent": "9b50d95",
+    "viewerBlob": "57903446e4ada2891fdc865bc073e02b8a8343e1",
+    "cssOnlyTwoRulesRemoved": true,
+    "protected": {
+      "components/Story.tsx": {
+        "unchangedFromD79": true,
+        "sha256": "bd92352b60f70a42cd78e9b4f84f4b30c8652c99484b4414a42cad871e96cb24"
+      },
+      "app/[locale]/layout.tsx": {
+        "unchangedFromD79": true,
+        "sha256": "2c1baf718226d8059a97c0cfd81d6b5b60509cd2f4e7df391314f851334d5828"
+      },
+      "app/favicon.ico": {
+        "unchangedFromD79": true,
+        "sha256": "b181730c1f44df7f3d2f5169e2796e48bc2681cfb60012b83bc90436ad40d0e6"
+      },
+      "public/art/brand-mark-white.png": {
+        "unchangedFromD79": true,
+        "sha256": "8be8483e505d8f2653ab5ca5925736ec1b51c55a1d7b5ad87ea03df034381c1c"
+      },
+      "design/references/32х32_B.png": {
+        "unchangedFromD79": true,
+        "sha256": "24f732538caaf7b30b731c388fd202a5e7861eef58264ff49ef0a9f116ee2bcb"
+      },
+      "design/references/32х32_W.png": {
+        "unchangedFromD79": true,
+        "sha256": "caad8112db5d81d18b4f11388d14de6184ebc33caf5cbb9b35fcb5b53cf20f9a"
+      }
+    }
+  },
+  "browser": {
+    "states": [
+      {
+        "name": "pro",
+        "width": 402,
+        "height": 874,
+        "dpr": 3,
+        "protectedInfo": {
+          "width": 402,
+          "overflow": 402,
+          "root": "rgb(196, 183, 180)",
+          "body": "rgb(196, 183, 180)",
+          "feather": "linear-gradient(rgb(196, 183, 180) 4px, rgba(0, 0, 0, 0))",
+          "iconWidth": 20.5,
+          "homeHeight": 44,
+          "viewport": "width=device-width, initial-scale=1, viewport-fit=cover"
+        },
+        "baselineHeroNobleHeatEqual": true,
+        "geometry": {
+          "source": "/art/technology/slides/heat-02.png",
+          "width": 402,
+          "height": 650.203125,
+          "natural": [
+            941,
+            1522
+          ],
+          "scrollTop": 0,
+          "max": 0,
+          "overflow": 0
+        },
+        "closeRestoresBody": true
+      },
+      {
+        "name": "max",
+        "width": 440,
+        "height": 956,
+        "dpr": 3,
+        "protectedInfo": {
+          "width": 440,
+          "overflow": 440,
+          "root": "rgb(196, 183, 180)",
+          "body": "rgb(196, 183, 180)",
+          "feather": "linear-gradient(rgb(196, 183, 180) 4px, rgba(0, 0, 0, 0))",
+          "iconWidth": 22.4375,
+          "homeHeight": 44,
+          "viewport": "width=device-width, initial-scale=1, viewport-fit=cover"
+        },
+        "baselineHeroNobleHeatEqual": true,
+        "geometry": {
+          "source": "/art/technology/slides/heat-02.png",
+          "width": 440,
+          "height": 711.65625,
+          "natural": [
+            941,
+            1522
+          ],
+          "scrollTop": 0,
+          "max": 0,
+          "overflow": 0
+        },
+        "closeRestoresBody": true
+      },
+      {
+        "name": "small",
+        "width": 375,
+        "height": 667,
+        "dpr": 3,
+        "protectedInfo": {
+          "width": 375,
+          "overflow": 375,
+          "root": "rgb(196, 183, 180)",
+          "body": "rgb(196, 183, 180)",
+          "feather": "linear-gradient(rgb(196, 183, 180) 4px, rgba(0, 0, 0, 0))",
+          "iconWidth": 19.125,
+          "homeHeight": 44,
+          "viewport": "width=device-width, initial-scale=1, viewport-fit=cover"
+        },
+        "baselineHeroNobleHeatEqual": "no comparable before capture",
+        "geometry": {
+          "source": "/art/technology/slides/heat-02.png",
+          "width": 375,
+          "height": 606.53125,
+          "natural": [
+            941,
+            1522
+          ],
+          "scrollTop": 0,
+          "max": 36,
+          "overflow": 0
+        },
+        "closeRestoresBody": true
+      },
+      {
+        "name": "tablet",
+        "width": 768,
+        "height": 1024,
+        "dpr": 3,
+        "protectedInfo": {
+          "width": 768,
+          "overflow": 768,
+          "root": "rgb(196, 183, 180)",
+          "body": "rgb(196, 183, 180)",
+          "feather": "linear-gradient(rgb(196, 183, 180) 4px, rgba(0, 0, 0, 0))",
+          "iconWidth": 32,
+          "homeHeight": 44,
+          "viewport": "width=device-width, initial-scale=1, viewport-fit=cover"
+        },
+        "baselineHeroNobleHeatEqual": "no comparable before capture",
+        "geometry": {
+          "source": "/art/technology/slides/heat-02.png",
+          "width": 768,
+          "height": 1242.171875,
+          "natural": [
+            941,
+            1522
+          ],
+          "scrollTop": 0,
+          "max": 314,
+          "overflow": 0
+        },
+        "closeRestoresBody": true
+      },
+      {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900,
+        "dpr": 3,
+        "protectedInfo": {
+          "width": 1440,
+          "overflow": 1440,
+          "root": "rgb(196, 183, 180)",
+          "body": "rgb(189, 164, 140)",
+          "feather": "none",
+          "iconWidth": 32,
+          "homeHeight": 44,
+          "viewport": "width=device-width, initial-scale=1, viewport-fit=cover"
+        },
+        "baselineHeroNobleHeatEqual": "no comparable before capture",
+        "geometry": {
+          "source": "/art/technology/slides/heat-02.png",
+          "width": 941,
+          "height": 1522,
+          "natural": [
+            941,
+            1522
+          ],
+          "scrollTop": 0,
+          "max": 718,
+          "overflow": 0
+        },
+        "closeRestoresBody": true
+      }
+    ],
+    "locales": [
+      {
+        "locale": "en",
+        "buttons": [
+          {
+            "label": "Previous photo",
+            "height": 44
+          },
+          {
+            "label": "Next Slide",
+            "height": 44
+          },
+          {
+            "label": "Close technology viewer",
+            "height": 44
+          },
+          {
+            "label": "Previous technology",
+            "height": 44
+          },
+          {
+            "label": "Next Technology",
+            "height": 44
+          }
+        ],
+        "overflow": 0,
+        "dir": "ltr"
+      },
+      {
+        "locale": "ru",
+        "buttons": [
+          {
+            "label": "Предыдущее фото",
+            "height": 44
+          },
+          {
+            "label": "Следующее фото",
+            "height": 44
+          },
+          {
+            "label": "Закрыть просмотр технологий",
+            "height": 44
+          },
+          {
+            "label": "Предыдущая технология",
+            "height": 44
+          },
+          {
+            "label": "Следующая технология",
+            "height": 44
+          }
+        ],
+        "overflow": 0,
+        "dir": "ltr"
+      },
+      {
+        "locale": "de",
+        "buttons": [
+          {
+            "label": "Vorheriges Foto",
+            "height": 44
+          },
+          {
+            "label": "Nächstes Foto",
+            "height": 44
+          },
+          {
+            "label": "Technologieansicht schließen",
+            "height": 44
+          },
+          {
+            "label": "Vorherige Technologie",
+            "height": 44
+          },
+          {
+            "label": "Nächste Technologie",
+            "height": 44
+          }
+        ],
+        "overflow": 0,
+        "dir": "ltr"
+      },
+      {
+        "locale": "fr",
+        "buttons": [
+          {
+            "label": "Photo précédente",
+            "height": 44
+          },
+          {
+            "label": "Photo suivante",
+            "height": 44
+          },
+          {
+            "label": "Fermer la galerie",
+            "height": 44
+          },
+          {
+            "label": "Technologie précédente",
+            "height": 44
+          },
+          {
+            "label": "Technologie suivante",
+            "height": 44
+          }
+        ],
+        "overflow": 0,
+        "dir": "ltr"
+      },
+      {
+        "locale": "es",
+        "buttons": [
+          {
+            "label": "Foto anterior",
+            "height": 44
+          },
+          {
+            "label": "Siguiente foto",
+            "height": 44
+          },
+          {
+            "label": "Cerrar la galería",
+            "height": 44
+          },
+          {
+            "label": "Tecnología anterior",
+            "height": 44
+          },
+          {
+            "label": "Siguiente tecnología",
+            "height": 44
+          }
+        ],
+        "overflow": 0,
+        "dir": "ltr"
+      },
+      {
+        "locale": "it",
+        "buttons": [
+          {
+            "label": "Foto precedente",
+            "height": 44
+          },
+          {
+            "label": "Foto successiva",
+            "height": 44
+          },
+          {
+            "label": "Chiudi la galleria",
+            "height": 44
+          },
+          {
+            "label": "Tecnologia precedente",
+            "height": 44
+          },
+          {
+            "label": "Tecnologia successiva",
+            "height": 44
+          }
+        ],
+        "overflow": 0,
+        "dir": "ltr"
+      },
+      {
+        "locale": "tr",
+        "buttons": [
+          {
+            "label": "Önceki fotoğraf",
+            "height": 44
+          },
+          {
+            "label": "Sonraki fotoğraf",
+            "height": 44
+          },
+          {
+            "label": "Teknoloji görünümünü kapat",
+            "height": 44
+          },
+          {
+            "label": "Önceki teknoloji",
+            "height": 44
+          },
+          {
+            "label": "Sonraki teknoloji",
+            "height": 44
+          }
+        ],
+        "overflow": 0,
+        "dir": "ltr"
+      },
+      {
+        "locale": "ar",
+        "buttons": [
+          {
+            "label": "الصورة السابقة",
+            "height": 44
+          },
+          {
+            "label": "الصورة التالية",
+            "height": 44
+          },
+          {
+            "label": "إغلاق معرض التقنيات",
+            "height": 44
+          },
+          {
+            "label": "التقنية السابقة",
+            "height": 44
+          },
+          {
+            "label": "التقنية التالية",
+            "height": 44
+          }
+        ],
+        "overflow": 0,
+        "dir": "rtl"
+      },
+      {
+        "locale": "zh",
+        "buttons": [
+          {
+            "label": "上一张照片",
+            "height": 44
+          },
+          {
+            "label": "下一张照片",
+            "height": 44
+          },
+          {
+            "label": "关闭技术图库",
+            "height": 44
+          },
+          {
+            "label": "上一项技术",
+            "height": 44
+          },
+          {
+            "label": "下一项技术",
+            "height": 44
+          }
+        ],
+        "overflow": 0,
+        "dir": "ltr"
+      },
+      {
+        "locale": "ja",
+        "buttons": [
+          {
+            "label": "前の写真",
+            "height": 44
+          },
+          {
+            "label": "次の写真",
+            "height": 44
+          },
+          {
+            "label": "技術ギャラリーを閉じる",
+            "height": 44
+          },
+          {
+            "label": "前の技術",
+            "height": 44
+          },
+          {
+            "label": "次の技術",
+            "height": 44
+          }
+        ],
+        "overflow": 0,
+        "dir": "ltr"
+      },
+      {
+        "locale": "ko",
+        "buttons": [
+          {
+            "label": "이전 사진",
+            "height": 44
+          },
+          {
+            "label": "다음 사진",
+            "height": 44
+          },
+          {
+            "label": "기술 갤러리 닫기",
+            "height": 44
+          },
+          {
+            "label": "이전 기술",
+            "height": 44
+          },
+          {
+            "label": "다음 기술",
+            "height": 44
+          }
+        ],
+        "overflow": 0,
+        "dir": "ltr"
+      }
+    ],
+    "errors": [],
+    "coldPending": {
+      "oldImageRegionPixelEqual": true,
+      "oldImageDecoded": true,
+      "nextDecodedCommits": true
+    },
+    "protectedHTTP": {
+      "favicon": "b181730c1f44df7f3d2f5169e2796e48bc2681cfb60012b83bc90436ad40d0e6",
+      "brand": "8be8483e505d8f2653ab5ca5925736ec1b51c55a1d7b5ad87ea03df034381c1c"
+    }
+  },
+  "tests": {
+    "oldCrossfadeNegativeControl": {
+      "result": "EXPECTED_FAIL",
+      "warmCommitMs": 149,
+      "assertThresholdMs": 100,
+      "extraDetachedCloneDecodeDelayMs": 120
+    },
+    "focusedMobile": {
+      "pass": 12,
+      "seconds": 18.6,
+      "profiles": [
+        "iphone-17-pro-webkit",
+        "iphone-17-pro-max-webkit"
+      ]
+    },
+    "warmFinalAfterTypeOnlyRepair": {
+      "pass": 2,
+      "seconds": 6,
+      "repeatedSubset": true
+    },
+    "nativeChromium": {
+      "pass": 4,
+      "seconds": 55.6,
+      "input": "CDP native touch/pinch and Playwright mousewheel; not physicaliPhone"
+    },
+    "assembledSite": {
+      "pass": 4,
+      "seconds": 11.9,
+      "profiles": [
+        "iphone-17-pro-webkit",
+        "iphone-17-pro-max-webkit"
+      ]
+    }
+  },
+  "checks": {
+    "type": "PASS",
+    "lint": "PASS0errors2preexistingTelegramwarnings",
+    "productionBuild": "PASS15staticRoutes11locales",
+    "nativeCodexReview": "exit0/noactionable findings; reviewer browser server blocked by sandbox, root real production browser evidence supplied separately",
+    "whitespace": "PASS"
+  },
+  "performance": {
+    "lcp": 2576,
+    "cls": 0,
+    "jsEncodedBodyBytes": 213985,
+    "brandImage": [
+      {
+        "bytes": 1362,
+        "startTime": 154.30000001192093,
+        "duration": 122.59999999403954
+      }
+    ],
+    "layoutWidth": 402,
+    "scrollWidth": 402,
+    "usefulMs": 2548,
+    "conditions": "production Chromium402x874DPR3 cold4Mbps100ms4xCPU",
+    "INP": "NOT_MEASURED",
+    "physicalSafari": "NOT_VERIFIED"
+  },
+  "timing": {
+    "navigation": {
+      "commitMs": 4,
+      "cloneDecodes": 0,
+      "loadingFrames": 0
+    },
+    "frames": {
+      "sampleCount": 51,
+      "p95Ms": 18,
+      "over33Ms": 0,
+      "maxScroll": 146
+    },
+    "conditions": "WebKit production loopback402x874DPR3 warm target; outgoing clone decode hazard120ms. Scroll sampling402x600DPR3 uses synthetic scroll offsets, not input latency.",
+    "INP": "NOT_MEASURED",
+    "physicalSafari": "NOT_VERIFIED"
+  },
+  "auditor": {
+    "name": "icons_final_audit",
+    "scope": "PASS",
+    "visual": "PASS bounded restoration after re-audit; originalmissingphoto capture still FAIL/OPEN",
+    "behavior": "PASS after initial nativeinput evidence gap repaired",
+    "reviewPerformance": "PASS bounded restoration",
+    "finalRecords": "PASS bounded exactrestoration2026-10-14"
+  },
+  "limitations": [
+    "PhysicaliPhone after outcome NOT_VERIFIED; precise native dark-photo cause remains UNKNOWN.",
+    "Preexisting short393x784 safe47/34 maxScroll29px identical9b50/520/d79; unchanged by rollback. Small375x667 max36px is proportional-artwork overflow, not new regression.",
+    "INP/Lighthouse unmeasured; synthetic scroll frame sample is not nativeiPhone smoothness or input latency.",
+    "Cold performance one sample; no causal firstload speed claim. EncodedJS213985B vs prior214411B, not comparable to older transfer-byte counters.",
+    "CHG0103 minimum14px requirement pending separate layoutdecision; no textlayout changes here.",
+    "One original desktopWebKit capture lost the photograph despite decoded IMG. Three fresh matched runs paint correctly; cause UNKNOWN, broader intermittent paint check remains OPEN, not an all-paint-fix approval."
+  ],
+  "screenshots": "Ignored local screenshots/slider-rollback-20261014; six Pro/Max hero/Noble/Heat before/after wholeviewport PNG bytes equal. Root viewed actual screenshots; IAB1 reloaded current production and nextphoto checked at567x905; no temporary viewportoverride.",
+  "desktopPaintFollowup": {
+    "initialCapture": "after-heat-desktop.png missing photograph with decoded IMG; FAIL preserved",
+    "cause": "UNKNOWN; not attributed to rollback or nativevideo from one image",
+    "matchedRuns": [
+      {
+        "name": "old-d79",
+        "samples": [
+          {
+            "capture": 0,
+            "path": "screenshots/slider-rollback-20261014/desktop-old-d79-0.png",
+            "roiDistinctColors": 26601
+          },
+          {
+            "capture": 1,
+            "path": "screenshots/slider-rollback-20261014/desktop-old-d79-1.png",
+            "roiDistinctColors": 12446
+          },
+          {
+            "capture": 2,
+            "path": "screenshots/slider-rollback-20261014/desktop-old-d79-2.png",
+            "roiDistinctColors": 12446
+          }
+        ],
+        "decoded": true
+      },
+      {
+        "name": "rollback",
+        "samples": [
+          {
+            "capture": 0,
+            "path": "screenshots/slider-rollback-20261014/desktop-rollback-0.png",
+            "roiDistinctColors": 12446
+          },
+          {
+            "capture": 1,
+            "path": "screenshots/slider-rollback-20261014/desktop-rollback-1.png",
+            "roiDistinctColors": 12446
+          },
+          {
+            "capture": 2,
+            "path": "screenshots/slider-rollback-20261014/desktop-rollback-2.png",
+            "roiDistinctColors": 12446
+          }
+        ],
+        "decoded": true
+      }
+    ],
+    "originalWorkflowRepeat": [
+      {
+        "name": "old-d79-workflowA",
+        "samples": [
+          {
+            "capture": 0,
+            "path": "screenshots/slider-rollback-20261014/desktop-old-d79-workflowA-0.png",
+            "roiDistinctColors": 21755
+          },
+          {
+            "capture": 1,
+            "path": "screenshots/slider-rollback-20261014/desktop-old-d79-workflowA-1.png",
+            "roiDistinctColors": 12446
+          },
+          {
+            "capture": 2,
+            "path": "screenshots/slider-rollback-20261014/desktop-old-d79-workflowA-2.png",
+            "roiDistinctColors": 12446
+          }
+        ],
+        "decoded": true
+      },
+      {
+        "name": "rollback-workflowA",
+        "samples": [
+          {
+            "capture": 0,
+            "path": "screenshots/slider-rollback-20261014/desktop-rollback-workflowA-0.png",
+            "roiDistinctColors": 12446
+          },
+          {
+            "capture": 1,
+            "path": "screenshots/slider-rollback-20261014/desktop-rollback-workflowA-1.png",
+            "roiDistinctColors": 12446
+          },
+          {
+            "capture": 2,
+            "path": "screenshots/slider-rollback-20261014/desktop-rollback-workflowA-2.png",
+            "roiDistinctColors": 12446
+          }
+        ],
+        "decoded": true
+      },
+      {
+        "name": "old-d79-workflowB",
+        "samples": [
+          {
+            "capture": 0,
+            "path": "screenshots/slider-rollback-20261014/desktop-old-d79-workflowB-0.png",
+            "roiDistinctColors": 26601
+          },
+          {
+            "capture": 1,
+            "path": "screenshots/slider-rollback-20261014/desktop-old-d79-workflowB-1.png",
+            "roiDistinctColors": 12446
+          },
+          {
+            "capture": 2,
+            "path": "screenshots/slider-rollback-20261014/desktop-old-d79-workflowB-2.png",
+            "roiDistinctColors": 12446
+          }
+        ],
+        "decoded": true
+      },
+      {
+        "name": "rollback-workflowB",
+        "samples": [
+          {
+            "capture": 0,
+            "path": "screenshots/slider-rollback-20261014/desktop-rollback-workflowB-0.png",
+            "roiDistinctColors": 12446
+          },
+          {
+            "capture": 1,
+            "path": "screenshots/slider-rollback-20261014/desktop-rollback-workflowB-1.png",
+            "roiDistinctColors": 12446
+          },
+          {
+            "capture": 2,
+            "path": "screenshots/slider-rollback-20261014/desktop-rollback-workflowB-2.png",
+            "roiDistinctColors": 12446
+          }
+        ],
+        "decoded": true
+      }
+    ],
+    "settledWholeViewportEquality": {
+      "workflowA": true,
+      "workflowB": true
+    },
+    "result": "Three fresh restored runs painted correctly, immediate and after10/20RAF; matched oldd79 settled composition equal. This does not prove intermittent paint failure fixed."
+  },
+  "technicalApproval": {
+    "date": "2026-10-14",
+    "verifier": "/root",
+    "verdict": "APPROVED exact rollback only, not all physical or intermittentpaint symptoms",
+    "evidence": "Nativeactualdiff review/static/build,20distinct focusedbrowser tests plus repeatedwarm2, screenshotcomparisons, productionperformance, exactsource/hash checks; independenticons_final_audit boundedStages1–5PASS; finalStage6recordsPASS"
+  },
+  "userVisualApproval": "NOT_RECORDED"
+}

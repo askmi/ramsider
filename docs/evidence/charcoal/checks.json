@@ -1,0 +1,235 @@
+{
+  "date": "2026-10-15",
+  "changeId": "CHG-0108",
+  "status": "VERIFIED heading correction",
+  "codeChecks": {
+    "typecheck": "PASS",
+    "lint": "PASS 0errors2preexistingTelegramwarnings",
+    "productionBuild": "PASS",
+    "prerenderedPaths": [
+      "/",
+      "/_global-error",
+      "/_not-found",
+      "/ar",
+      "/de",
+      "/en",
+      "/es",
+      "/favicon.ico",
+      "/fr",
+      "/it",
+      "/ja",
+      "/ko",
+      "/ru",
+      "/tr",
+      "/zh"
+    ],
+    "nativeReview": {
+      "command": "codex review scoped actualuncommitteddiff/newfiles",
+      "exitCode": 0,
+      "verdict": "No actionable introduced bugs",
+      "reviewerBrowser": "blockedbylocalnetwork; primaryrealbrowser evidence separate",
+      "priorFindings": [
+        "desktopcanvascap",
+        "partialnextphotopaint",
+        "freshgeneratoroutputdirectory",
+        "Retrypointer/stacking",
+        "fractionalstripseams",
+        "375interiorstripmissing",
+        "asynchronousnativeopenemptycontent",
+        "hiddenresetretainedoffset",
+        "queuedcloseafterreopen"
+      ],
+      "allPriorFindings": "fixedandrechecked",
+      "finalReview": "Full final3 review: no actionable introduced defects; separate final-color/compact helper review: no actionable introduced defects. Earlier native P2 hidden reset fixed, stale close guard traced."
+    }
+  },
+  "browser": {
+    "charcoalSuite": "18PASS/2explicitduplicatematrixdesktopSKIP",
+    "integrationSuite": "32PASS all4profiles",
+    "profiles": [
+      "WebKit402\u00d7874DPR3",
+      "WebKit440\u00d7956DPR3",
+      "desktopChromium1440\u00d7900",
+      "desktopFirefox1440\u00d7900"
+    ],
+    "adaptation": [
+      "402\u00d7600",
+      "375\u00d7812",
+      "768\u00d71024",
+      "1440\u00d7900"
+    ],
+    "locales": 11,
+    "behavior": [
+      "firstLearnMoreonly",
+      "4semanticblocks/fullfooter",
+      "darkfixedright44close",
+      "nativeverticalpan/wheel",
+      "Tab/HomeEnd/Page/Arrow/Space",
+      "Escape",
+      "focus/landingpositionrestoration",
+      "reopenat0",
+      "sourceplane/proportionaltilegeometry",
+      "12concurrentpost-window-loadfetches/norepeatHTTP",
+      "realpointerfailedimageRetry",
+      "RTL/unmirroredart",
+      "assembledlanding/menu/FAQ/documents/otherdialogs"
+    ],
+    "consoleErrors": 0,
+    "actualScreenshots": "screenshots/charcoal/* (ignoredlocal)",
+    "visualEvidence": "docs/evidence/charcoal/visual-final.json",
+    "tilePartialEntries": {
+      "cases": 72,
+      "nativeDpr": 3,
+      "maxRowMismatch": 0.020938023450586266,
+      "threshold": 0.08,
+      "evidence": "docs/evidence/charcoal/tiles-rendered.json",
+      "currentUse": "Reused raster-geometry evidence; no PNG/tile/layout CSS changed. Current heading reflow and native opening separately screenshot/behavior checked."
+    },
+    "rapidNativeReopenTrace": {
+      "cases": 12,
+      "pass": true,
+      "emptyAtFirstKey": 0,
+      "staleCloseEventsIgnored": 7,
+      "evidence": "docs/evidence/charcoal/heading-key-race-final.json"
+    },
+    "headingTypography": {
+      "all4MatchActualLanding": true,
+      "widths": [
+        402,
+        440,
+        375,
+        768,
+        1440
+      ],
+      "mainReferencePixelIdentical": true,
+      "evidence": "docs/evidence/charcoal/typography-final.json"
+    }
+  },
+  "raster": {
+    "tiles": 12,
+    "pngBytes": 9768263,
+    "sourceWidth": 1080,
+    "maxTileRows": 754,
+    "allNativeDecodedExact": true,
+    "sourceExteriorChangedChannels": 0,
+    "icc": "Originaluntagged/intendedprofileUNKNOWN; no profile/brightness adjustment;Face knownsRGB",
+    "overlapRowsEachSide": 2
+  },
+  "contrast": {
+    "minimumEnglishActualGlyphCore": 4.999109816858859,
+    "minimumFourthTitle11LocalesPro": 4.999109816858859,
+    "minimumCompact375": 7.5424508435907756,
+    "h2Color": "#402008; first#241c18",
+    "method": "Actualpaintedbackground beneath fullycoveredglyphcores; conservative4.5threshold; not WCAGcertification"
+  },
+  "performance": [
+    {
+      "conditions": "cold production Chromium402\u00d7874/DPR3 loopback, tech+charcoal warming enabled",
+      "initial": {
+        "lcp": 360,
+        "cls": 0,
+        "useful": 310.39999997615814,
+        "jsEncodedBodyBytes": 208955,
+        "loadEventStart": 143.39999997615814
+      },
+      "allPngWarmCompletedMs": 367.0999999642372,
+      "warmAutomationMs": 517.1999999880791,
+      "scrollFrames": {
+        "samples": 119,
+        "p95": 16.700000000000273,
+        "over33": 0
+      },
+      "fixedCloseY": [
+        12,
+        12,
+        12,
+        12
+      ]
+    },
+    {
+      "conditions": "cold production Chromium402\u00d7874/DPR3 4Mbps100ms4xCPU, tech+charcoal warming enabled",
+      "initial": {
+        "lcp": 2356,
+        "cls": 0,
+        "useful": 2319.699999988079,
+        "jsEncodedBodyBytes": 208955,
+        "loadEventStart": 14641.600000023842
+      },
+      "allPngWarmCompletedMs": 115684,
+      "warmAutomationMs": 484.89999997615814,
+      "scrollFrames": {
+        "samples": 119,
+        "p95": 16.80000000000291,
+        "over33": 0
+      },
+      "fixedCloseY": [
+        12,
+        12,
+        12,
+        12
+      ]
+    }
+  ],
+  "limits": [
+    "physicalSafari/Telegram/browserchrome notavailable",
+    "INPfield/Lighthouse notmeasured",
+    "untaggedOriginalintendedICCunknown",
+    "suppliedmedical/productassertionsnotapprovedforpublication",
+    "controlledAgentEvalNOT_RUN"
+  ],
+  "unrelatedOpenIds": [
+    "CHG-0103",
+    "CHG-0099",
+    "CHG-0106 broader physicalpainting topic",
+    "CHG-0071",
+    "CHG-0065"
+  ],
+  "approval": {
+    "technical": {
+      "date": "2026-10-15",
+      "verifier": "/root",
+      "verdict": "APPROVED heading correction",
+      "independentAuditor": "/root/charcoal_auditor",
+      "gates": "CorrectionStages1\u20136PASS"
+    },
+    "userVisualAcceptance": "NOT_RECORDED",
+    "publication": "Authorized by prior push-afterdone and Founder-afterdeploy instruction; heading correction push/deploy pending final gates"
+  },
+  "independentAudit": {
+    "auditor": "/root/charcoal_auditor",
+    "stage1": "PASS heading correction scope",
+    "stage2": "PASS authoredcase/bodyPNGpreservation",
+    "stage3": "PASS finalcolor/ProMax/375/localecontrast",
+    "stage4": "PASS50browserchecks plus12rapidreopen trace;18feature rerun is subset",
+    "stage5": "PASS finalproduction/native/static/contrast",
+    "stage6": "PASS final heading-correction records, publication authorization field reconciled"
+  },
+  "deliveryClaims": {
+    "implemented": "All requested ribbon behavior locally implemented and verified in tested profiles",
+    "quality": "lossless native1080 strips, decoded/rejoined RGB exact; edits limited approved face/text masks; ICC intent unknown",
+    "limits": "physicalSafari/INP/Lighthouse/productpublicationfacts unverified",
+    "notClaimed": [
+      "zerobugsuniversally",
+      "instantfullwarming",
+      "WCAGcertification",
+      "all-displaypixelidentity"
+    ],
+    "commitPush": "Prior user instruction retained: push after done, Founder notification after deploy; heading correction publication pending final gates"
+  },
+  "headingCorrection": {
+    "source": "user2026-10-15 correction and redcircle WhyFire screenshot",
+    "rules": [
+      "PRODUCT.md",
+      "DESIGN.md",
+      "AGENTS.md"
+    ],
+    "fontPro": 24.777895,
+    "fontMax": 27.120085,
+    "weight": 400,
+    "lineHeightRatio": 1.2,
+    "bodyStringsUnchanged": 44,
+    "nativePngHashesUnchanged": 12,
+    "nativeFailuresPreserved": true,
+    "physicalCertification": "notclaimed"
+  }
+}

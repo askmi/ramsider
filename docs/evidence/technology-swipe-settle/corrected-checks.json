@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-13",
+  "change": "CHG-0106",
+  "runtime": "180ms ease-out full composed outgoing/incoming crossfade; initial/reduced-motion immediate",
+  "productionBuild": "PASS 14SSG routes incl framework TypeScript",
+  "finalTypecheck": "PASS",
+  "lint": "PASS 0errors 2pre-existing ignored integration warnings",
+  "nativeReview": "Final PASS no actionable findings; initial P2 settled-test snapshot interference resolved using settleTechnology; reviewer browser launches/connector blocked, root executed required browser QA",
+  "existingMobile": 6,
+  "nativeGesture": 2,
+  "paintedFrameRegression": 2,
+  "groupLocaleAdaptation": 11,
+  "capsule11Locale": 1,
+  "totalPassed": 22,
+  "explicitSkipped": 3,
+  "skips": "ProMax-only duplicate adaptation cases; actual baseline Pro adaptation executed",
+  "actualIAB": "Real unpaused old/mixed/settled frames iab-live-0/4/8.png; native ViewTransitions unavailable; universal WAAPI works",
+  "visual": "Pro/Max settled hero+Capsule2 four comparisons 0 changed channels; six old vs zero comparisons0; six midframes match compositing within1.5/255 meanchannelerror",
+  "motionAndAccessibility": "reducedmotion/RTL/Close/reopen/native touch/trackpad/keyboard/error/retry/scrolledoldframe passed",
+  "limits": [
+    "Emulated WebKit phone profiles, physical Safari not verified",
+    "INP/Lighthouse not measured",
+    "CHG0105 beta permanent-domain mapping remains open",
+    "Controlled EVAL-VIEWER agent behavior NOT_RUN"
+  ],
+  "publication": "User authorized push to origin/main2026-10-13; exact Git/deployment outcome authoritative in receipt linked by CHANGELOG",
+  "approval": "2026-10-13 /root APPROVED; independent icons_final_audit Stages1\u20136 PASS"
+}

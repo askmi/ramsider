@@ -1,6 +1,3 @@
-export const PAGE_ARTWORK_WARMING_EVENT = 'page-artwork-warming';
-export const PAGE_ARTWORK_WARMING_ATTRIBUTE = 'data-page-artwork-warming';
-
 export type ImageProgress = { loaded: number; total: number | null; ready: boolean; error: boolean };
 export type ImageResource = {
   ready: Promise<HTMLImageElement>;

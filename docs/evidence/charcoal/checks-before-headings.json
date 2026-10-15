@@ -1,0 +1,198 @@
+{
+  "date": "2026-10-15",
+  "changeId": "CHG-0108",
+  "status": "VERIFIED",
+  "codeChecks": {
+    "typecheck": "PASS",
+    "lint": "PASS 0errors2preexistingTelegramwarnings",
+    "productionBuild": "PASS",
+    "prerenderedPaths": [
+      "/",
+      "/_global-error",
+      "/_not-found",
+      "/ar",
+      "/de",
+      "/en",
+      "/es",
+      "/favicon.ico",
+      "/fr",
+      "/it",
+      "/ja",
+      "/ko",
+      "/ru",
+      "/tr",
+      "/zh"
+    ],
+    "nativeReview": {
+      "command": "codex review scoped actualuncommitteddiff/newfiles",
+      "exitCode": 0,
+      "verdict": "No actionable introduced bugs",
+      "reviewerBrowser": "blockedbylocalnetwork; primaryrealbrowser evidence separate",
+      "priorFindings": [
+        "desktopcanvascap",
+        "partialnextphotopaint",
+        "freshgeneratoroutputdirectory",
+        "Retrypointer/stacking",
+        "fractionalstripseams",
+        "375interiorstripmissing"
+      ],
+      "allPriorFindings": "fixedandrechecked",
+      "finalReview": "2026-10-15 after overlap/source positioning/compositor; exit0 no actionable introduced bugs; independent browser evidence separate"
+    }
+  },
+  "browser": {
+    "charcoalSuite": "14PASS/2explicitduplicatematrixdesktopSKIP",
+    "integrationSuite": "16PASS",
+    "profiles": [
+      "WebKit402\u00d7874DPR3",
+      "WebKit440\u00d7956DPR3",
+      "desktopChromium1440\u00d7900",
+      "desktopFirefox1440\u00d7900"
+    ],
+    "adaptation": [
+      "402\u00d7600",
+      "375\u00d7812",
+      "768\u00d71024",
+      "1440\u00d7900"
+    ],
+    "locales": 11,
+    "behavior": [
+      "firstLearnMoreonly",
+      "4semanticblocks/fullfooter",
+      "darkfixedright44close",
+      "nativeverticalpan/wheel",
+      "Tab/HomeEnd/Page/Arrow/Space",
+      "Escape",
+      "focus/landingpositionrestoration",
+      "reopenat0",
+      "sourceplane/proportionaltilegeometry",
+      "12concurrentpost-window-loadfetches/norepeatHTTP",
+      "realpointerfailedimageRetry",
+      "RTL/unmirroredart",
+      "assembledlanding/menu/FAQ/documents/otherdialogs"
+    ],
+    "consoleErrors": 0,
+    "actualScreenshots": "screenshots/charcoal/* (ignoredlocal)",
+    "visualEvidence": "docs/evidence/charcoal/visual-final.json",
+    "tilePartialEntries": {
+      "cases": 72,
+      "nativeDpr": 3,
+      "maxRowMismatch": 0.020938023450586266,
+      "threshold": 0.08,
+      "evidence": "docs/evidence/charcoal/tiles-rendered.json"
+    }
+  },
+  "raster": {
+    "tiles": 12,
+    "pngBytes": 9768263,
+    "sourceWidth": 1080,
+    "maxTileRows": 754,
+    "allNativeDecodedExact": true,
+    "sourceExteriorChangedChannels": 0,
+    "icc": "Originaluntagged/intendedprofileUNKNOWN; no profile/brightness adjustment;Face knownsRGB",
+    "overlapRowsEachSide": 2
+  },
+  "contrast": {
+    "minimumEnglishActualGlyphCore": 5.023718738328882,
+    "minimumFourthTitle11LocalesPro": 4.578280146009698,
+    "method": "Actualpaintedbackgroundbeneath fullycoveredglyphcores; threshold4.5; not a WCAGcertification"
+  },
+  "performance": [
+    {
+      "conditions": "cold production Chromium402\u00d7874/DPR3 loopback, tech+charcoal warming enabled",
+      "initial": {
+        "lcp": 384,
+        "cls": 0,
+        "useful": 317.2999999821186,
+        "jsEncodedBodyBytes": 208957,
+        "loadEventStart": 149.40000000596046
+      },
+      "allPngWarmCompletedMs": 374.19999998807907,
+      "warmAutomationMs": 553.4000000059605,
+      "scrollFrames": {
+        "samples": 119,
+        "p95": 16.700000000000273,
+        "over33": 0
+      },
+      "fixedCloseY": [
+        12,
+        12,
+        12,
+        12
+      ]
+    },
+    {
+      "conditions": "cold production Chromium402\u00d7874/DPR3 4Mbps100ms4xCPU, tech+charcoal warming enabled",
+      "initial": {
+        "lcp": 2376,
+        "cls": 0,
+        "useful": 2339.399999976158,
+        "jsEncodedBodyBytes": 208957,
+        "loadEventStart": 14641.09999999404
+      },
+      "allPngWarmCompletedMs": 115675.19999998808,
+      "warmAutomationMs": 470.69999998807907,
+      "scrollFrames": {
+        "samples": 119,
+        "p95": 16.70000000001164,
+        "over33": 0
+      },
+      "fixedCloseY": [
+        12,
+        12,
+        12,
+        12
+      ]
+    }
+  ],
+  "limits": [
+    "physicalSafari/Telegram/browserchrome notavailable",
+    "INPfield/Lighthouse notmeasured",
+    "untaggedOriginalintendedICCunknown",
+    "suppliedmedical/productassertionsnotapprovedforpublication",
+    "controlledAgentEvalNOT_RUN"
+  ],
+  "unrelatedOpenIds": [
+    "CHG-0103",
+    "CHG-0099",
+    "CHG-0106 broader physicalpainting topic",
+    "CHG-0071",
+    "CHG-0065"
+  ],
+  "approval": {
+    "technical": {
+      "date": "2026-10-15",
+      "verifier": "/root",
+      "verdict": "APPROVED",
+      "independentAuditor": "/root/charcoal_auditor",
+      "gates": "Stages1\u20136PASS"
+    },
+    "userVisualAcceptance": "NOT_RECORDED",
+    "publication": "notrequested"
+  },
+  "independentAudit": {
+    "auditor": "/root/charcoal_auditor",
+    "stage2": "PASS sourceRGB/hash/rejoin",
+    "stage3": "PASS actualblocks/joins/72nativepartialentrycases",
+    "stage4": "PASS14+16behavior/adaptation/localechecks",
+    "stage5": "PASS finalreview/static/contrast/coldproduction",
+    "stage6": "PASS finalrecords/deliveryclaims after narrowed AX wording",
+    "stage1": "PASS amendedscope/native-lossless/backgroundwarming",
+    "finalVerdict": {
+      "date": "2026-10-15",
+      "verdict": "PASS all applicable gates for tested implementation"
+    }
+  },
+  "deliveryClaims": {
+    "implemented": "All requested ribbon behavior locally implemented and verified in tested profiles",
+    "quality": "lossless native1080 strips, decoded/rejoined RGB exact; edits limited approved face/text masks; ICC intent unknown",
+    "limits": "physicalSafari/INP/Lighthouse/productpublicationfacts unverified",
+    "notClaimed": [
+      "zerobugsuniversally",
+      "instantfullwarming",
+      "WCAGcertification",
+      "all-displaypixelidentity"
+    ],
+    "commitPush": "notrequested"
+  }
+}

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import type { ReactNode } from 'react';
+import { Fragment, type ReactNode } from 'react';
 import { DialogController } from './DialogController';
 import { BackToTop } from './BackToTop';
 import { LocaleSwitcher } from './LocaleSwitcher';
@@ -16,6 +16,8 @@ import localizedButtonWidths from '@/lib/button-localized-widths.json';
 import artPreviews from '@/lib/art-previews.json';
 import { PageMediaGate } from './PageMediaGate';
 import { CharcoalRibbon } from './CharcoalRibbon';
+import { EmberScene } from './EmberScene';
+import { emberCopy } from '@/lib/ember-copy';
 import { CertificateViewer } from './CertificateViewer';
 import { certificates, type CertificateId } from '@/lib/certificates';
 
@@ -300,7 +302,7 @@ export function Story({ locale }: { locale: Locale }) {
         loading="eager"
         fetchPriority="low"
       />)}
-      {storyNodes.filter(node => node.y < 28207).map((node, index) => <OverlayNode node={node} locale={locale} key={`${node.key}-${index}`} />)}
+      {storyNodes.filter(node => node.y < 28207).map((node, index) => <Fragment key={`${node.key}-${index}`}><OverlayNode node={node} locale={locale} />{node.id === 'fire-learn' && <EmberScene labels={emberCopy[locale]} />}</Fragment>)}
       <button id="film-play" type="button" className="film-play" style={sourceStyle(390, 11439, 160)} popoverTarget="unavailable-film" aria-label={t(locale, 'film')}><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M12 7L34 20L12 33Z" fill="currentColor" /></svg></button>
       <div className="order-panels" aria-hidden="true">{[20140, 20370, 20650].map((y, i) => <div key={y} className="source-panel" data-step={`0${i + 1}`} style={sourceStyle(95, y, 750)} />)}</div>
       <DocumentCards locale={locale} />

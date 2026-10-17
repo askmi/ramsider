@@ -23,6 +23,14 @@ a{color:inherit}
 /* Safari may extend a solid page color rather than the hero image into its UI. */
 @media(max-width:941px){.art::before{content:"";position:absolute;z-index:1;inset:0 0 auto;height:clamp(32px,calc(120/941*100cqw),56px);background:linear-gradient(to bottom,var(--hero-chrome-bg) 4px,transparent);pointer-events:none}}
 .art img:not(:first-child),.tail-art-track img{margin-top:calc(-2/941*100cqw)}
+.ember-scene{position:absolute;z-index:1;left:calc(260/941*100cqw);top:calc(2360/941*100cqw);width:calc(480/941*100cqw);aspect-ratio:480/760;pointer-events:none;direction:ltr}
+.ember-scene__canvas{display:block;width:100%;height:100%;pointer-events:none}
+.ember-scene__canvas[data-state="fallback"],.ember-scene[data-motion="reduced"] .ember-scene__canvas{display:none}
+.ember-scene__toggle{position:absolute;bottom:0;right:0;width:44px;height:44px;border:0;padding:9px;background:transparent;color:#4b3d32;pointer-events:auto;border-radius:50%}
+.ember-scene__toggle::before{content:"";position:absolute;inset:7px;border:1px solid #806d5680;border-radius:50%;background:#f5eee565}
+.ember-scene__toggle svg{position:relative;display:block;width:100%;height:100%;fill:currentColor}
+.ember-scene__toggle:hover{color:#241c18;background:#f5eee580}
+.ember-scene__toggle[hidden],.ember-scene[data-motion="reduced"] .ember-scene__toggle{display:none}
 .story-prefix-space{grid-row:1;height:calc(27147/941*100cqw)}
 .story-tail{grid-row:3;position:relative;height:calc(3920/941*100cqw);--source-offset:calc(28207/941*100cqw)}
 .tail-art{position:absolute;inset:0;overflow:hidden;pointer-events:none}

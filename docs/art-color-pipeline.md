@@ -35,7 +35,7 @@ The standard Pro WebKit target is the supplied clean/reference render at 402 × 
 | Method | Useful when | Tradeoff |
 | --- | --- | --- |
 | Responsive width variants with `<picture>`/`srcset` | The layout displays a smaller bitmap than the source on different devices | More files and crop QA; this page already displays the 941-pixel artwork at smaller CSS widths, so device-pixel needs should be measured before resampling |
-| Lossless WebP or optimized PNG | Logos, flat color, certificates, or a localized region fails lossy QA | More bytes; used here for four thumbnails |
+| Lossless WebP or optimized PNG | Logos, flat color, certificates, or a localized region fails lossy QA | More bytes; used here for all five thumbnails |
 | Higher-quality lossy WebP | Photographic art tolerates small measured error | VP8's 4:2:0 chroma coding can still alter saturated fine detail |
 | AVIF or JPEG XL candidate | A browser matrix and measured quality/decoding advantage justify it | Requires separate color, alpha, browser and decode tests; small files alone are insufficient |
 | Art-directed layers and CSS/SVG text | Product imagery, gradients, copy and controls can be separated without changing composition | More positioning work; this site already keeps copy and controls as HTML |
@@ -43,3 +43,18 @@ The standard Pro WebKit target is the supplied clean/reference render at 402 × 
 | CDN image transformations | Many widths or dynamic assets need automatic delivery | The service must preserve/convert ICC correctly and must be checked against the master |
 
 Sources: [Adobe web color conversion](https://helpx.adobe.com/photoshop/desktop/adjust-color/color-profiles/manage-documents-colors-for-online-viewing.html), [Google WebP FAQ](https://developers.google.com/speed/webp/faq), [Google `cwebp` reference](https://developers.google.com/speed/webp/docs/cwebp), [WebP container ICC specification](https://developers.google.com/speed/webp/docs/riff_container), [Next Image placeholders](https://nextjs.org/docs/app/api-reference/components/image), [responsive images](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images).
+
+## Prepared lossless ribbon/gallery migration — CHG0113, 2026-10-18
+
+This is a separately validated **local package**, not a change to the current production asset registry. The current session permits main work/push only; the requested beta merge/publication is blocked. The package lives in `screenshots/lossless-preparation/package/`, with source-preserving patches and evidence beside it.
+
+Coverage is all 12 PNG tiles of the four charcoal/smoke/health sections and all 23 photographs in the ten technology groups. All 35 masters are untagged: intended editorial profile remains unknown. Preserve their existing browser sRGB interpretation by embedding a standard sRGB ICC **without changing RGB values**. Do not apply the Adobe RGB conversion used by the long background. No resizing, cropping, channel compensation, chroma subsampling or earlier lossy intermediate is allowed.
+
+The prepared `tools/convert-discrete-lossless.py` uses `cwebp -lossless -exact -q 100 -m 6 -mt -metadata icc`, verifies VP8L, full decoded RGBA equality, dimensions and embedded ICC, and keeps byte-exact PNG masters in `design/derived/lossless-originals/art/` outside public. The two live registries alone switch extensions; shared async fetching, post-load warming, decoding, retry and navigation remain intact. A future tagged/new input is rejected for separate color-managed review rather than guessed.
+
+Generated payload: **50,429,561 → 35,461,038 bytes** (29.68% reduction). All 35 decoded outputs have maximum channel error zero. Production WebKit Pro/Max comparisons cover all photographs, four sections, the bottom and three section boundaries: 62 screenshot pairs exactly equal. See [manifest](evidence/lossless-webp/manifest.json) and [browser evidence](evidence/lossless-webp/browser.json). Speed/behavior/review approval and actual publication are recorded separately in CHG0113; file-size reduction alone is not a speed measurement.
+
+Regeneration must cover both an in-place first migration and a repeat using reserved originals. Capture original bytes/hash/size before deleting a live PNG; combine live and reserved inventory after interrupted work. A generated output or an encoder lossless flag cannot substitute for decoded-pixel verification. Physical Safari, wide-gamut displays and Photoshop-intent parity remain unverified.
+
+### Beta continuation2026-10-18
+Historical main-only blocker above applied to the source Telegram session. Current user explicitly authorized beta transfer/publication; actual integration preserves main0f751fe, adds whole ember in f772dcb, and applies exact35-asset lossless candidate. Current verification is beta-verification.json/beta-browser.json; pending publication receipt is separate.

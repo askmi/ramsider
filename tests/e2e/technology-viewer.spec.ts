@@ -80,9 +80,16 @@ test('AirShield eighth: source geometry, icon axes, OpenSans and every locale',a
  }
 });
 
-test('six delivered photos exactly match current source PNGs',async()=>{
- const files=JSON.parse(await readFile('docs/evidence/technology-discrete/assets.json','utf8'));
- for(const file of files){const a=await readFile(file.source),b=await readFile(file.output);expect(a.equals(b)).toBe(true);expect(createHash('sha256').update(b).digest('hex')).toBe(file.sha256);}
+test('all 35 lossless WebP assets preserve original RGBA, size and sRGB profile',async()=>{
+ const {default:sharp}=await import('sharp');
+ const m=JSON.parse(await readFile('docs/evidence/lossless-webp/manifest.json','utf8'));expect(m.assets).toHaveLength(35);
+ for(const file of m.assets){
+  const source=await readFile(file.originalReserve),output=await readFile(file.output);
+  expect(createHash('sha256').update(source).digest('hex')).toBe(file.sourceSHA256);
+  expect(createHash('sha256').update(output).digest('hex')).toBe(file.outputSHA256);
+  const a=await sharp(source).ensureAlpha().raw().toBuffer(),b=await sharp(output).ensureAlpha().raw().toBuffer();expect(a.equals(b)).toBe(true);
+  const metadata=await sharp(output).metadata();expect(metadata.format).toBe('webp');expect(metadata.width).toBe(file.width);expect(metadata.height).toBe(file.height);expect(metadata.icc?.length).toBeGreaterThan(0);
+ }
 });
 
 test('photos move horizontally; technologies move vertically; source ratio and thin bars hold',async({page})=>{
@@ -105,7 +112,7 @@ test('photos move horizontally; technologies move vertically; source ratio and t
 });
 
 test('pending photo retains old frame; retry and close remain usable',async({page})=>{
- let valid=false;await page.route('**/art/technology/slides/noble-02.png',route=>valid?route.continue():route.fulfill({status:503,body:'failed'}));
+ let valid=false;await page.route('**/art/technology/slides/noble-02.webp',route=>valid?route.continue():route.fulfill({status:503,body:'failed'}));
  await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
  await page.keyboard.press('ArrowRight');await expect(viewer.getByRole('button',{name:'Retry',exact:true})).toBeVisible();await expect(viewer).toHaveAttribute('data-photo-index','0');await expect(viewer.locator('article')).toHaveCount(1);
  valid=true;await viewer.getByRole('button',{name:'Retry',exact:true}).click();await expect(viewer).toHaveAttribute('data-photo-index','1');await expect(viewer).toHaveAttribute('aria-busy','false');await page.keyboard.press('Escape');await expect(viewer).not.toBeVisible();

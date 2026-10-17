@@ -1,0 +1,42 @@
+[
+  {
+    "codec": "png",
+    "conditions": "Chromium Pro402×874 DPR3, cold cache,4Mbps100ms,CPU4x,production,reducedMotion",
+    "usefulMs": 2635.400000035763,
+    "lcp": 2708,
+    "cls": 0,
+    "fcp": 588,
+    "photoCount": 35,
+    "photoBodyBytes": 50429561,
+    "allPhotoResponseMs": 115897.90000003576,
+    "jsBytes": 218170,
+    "ttfb": 241.19999998807907,
+    "firstPhotoReadyAfterWarmClickMs": 335,
+    "scroll": {
+      "samples": 120,
+      "p95": 17.700000047683716,
+      "over33": 0
+    },
+    "totalWallMs": 118542
+  },
+  {
+    "codec": "webp",
+    "conditions": "Chromium Pro402×874 DPR3, cold cache,4Mbps100ms,CPU4x,production,reducedMotion",
+    "usefulMs": 2452.400000035763,
+    "lcp": 2540,
+    "cls": 0,
+    "fcp": 368,
+    "photoCount": 35,
+    "photoBodyBytes": 35461038,
+    "allPhotoResponseMs": 85758.80000001192,
+    "jsBytes": 218170,
+    "ttfb": 8,
+    "firstPhotoReadyAfterWarmClickMs": 769,
+    "scroll": {
+      "samples": 120,
+      "p95": 17.19999998807907,
+      "over33": 0
+    },
+    "totalWallMs": 88965
+  }
+]

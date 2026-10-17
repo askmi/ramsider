@@ -143,7 +143,7 @@ test('all locales, Arabic RTL, smaller height and representative responsive widt
   }
 });
 
-test('all PNG blocks warm concurrently after window load and are reused on open', async ({ page }) => {
+test('all lossless WebP blocks warm concurrently after window load and are reused on open', async ({ page }) => {
   test.setTimeout(120000);
   await page.goto('/en');
   await expect.poll(() => page.evaluate(() => performance.getEntriesByType('resource').filter(e => e.name.includes('/art/charcoal/')).length)).toBe(12);
@@ -163,7 +163,7 @@ test('all PNG blocks warm concurrently after window load and are reused on open'
 test('failed image retries through shared loader; close stays usable while pending', async ({ page }) => {
   test.setTimeout(120000);
   let failed = true;
-  await page.route('**/art/charcoal/1-0.png', async route => {
+  await page.route('**/art/charcoal/1-0.webp', async route => {
     if (failed) await route.abort(); else await route.continue();
   });
   await page.goto('/en');
@@ -206,7 +206,7 @@ test('narrow translated last-tile Retry stays fully usable', async ({ page }, in
   test.skip(info.project.name !== 'iphone-17-pro-webkit', 'One narrow translated mobile regression.');
   await page.setViewportSize({ width: 280, height: 600 });
   let failed = true;
-  await page.route('**/art/charcoal/3-2.png', route => failed ? route.abort() : route.continue());
+  await page.route('**/art/charcoal/3-2.webp', route => failed ? route.abort() : route.continue());
   await page.goto('/de');
   await page.locator('#fire-learn').scrollIntoViewIfNeeded();
   await page.waitForFunction(() => !document.querySelector('.page-media-overlay'));

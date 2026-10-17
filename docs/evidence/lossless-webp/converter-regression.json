@@ -1,0 +1,18 @@
+{
+  "dateLocal": "2026-10-18",
+  "scenario": "default in-place first migration and repeat; opaque/partial/zero alpha pixels",
+  "results": [
+    {
+      "run": 1,
+      "assets": 35,
+      "exact": true,
+      "source": "live PNG"
+    },
+    {
+      "run": 2,
+      "assets": 35,
+      "exact": true,
+      "source": "reserve"
+    }
+  ]
+}

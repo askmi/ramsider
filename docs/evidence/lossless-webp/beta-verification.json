@@ -1,0 +1,45 @@
+{
+  "dateLocal": "2026-10-18",
+  "scope": "Actual beta integration, production3092",
+  "build": "PASS11localeSSG",
+  "typecheck": "PASS",
+  "lint": {
+    "errors": 0,
+    "preExistingWarnings": 1,
+    "warning": "Unused verifyLinkFormatting in Telegram controller; unchanged"
+  },
+  "nativeReview": {
+    "exitCode": 0,
+    "verdict": "No actionable regressions",
+    "limitation": "Reviewer WebKit launch aborted; not a browser pass. Main agent actualWebKit checks below passed."
+  },
+  "browserComparison": {
+    "pairs": 56,
+    "exact": 56,
+    "maxChannelError": 0,
+    "geometryToleranceCSSpx": 1,
+    "pageerrors": 0,
+    "imagesSeen": [
+      "beta-contact-pro.png",
+      "beta-contact-max.png"
+    ]
+  },
+  "behavior": {
+    "passed": 6,
+    "fail": 0,
+    "scope": "SixPDFdocuments/deferredcode/navigation, fourcharcoalblocks/focus/scroll/close, assembledsite/actions onPro+Max"
+  },
+  "ember": {
+    "passed": 9,
+    "skipped": 1,
+    "fail": 0,
+    "scope": "actualmovingpixels/allfaces/pause/offscreen/modal/reducedmotion/GPUfallback/11localesRTL"
+  },
+  "priorEvidenceReuse": "Runtime/assets exact production-tested candidate; unchanged payload/loader geometry: prior62pairs,71tests,downloadandmoving-scroll measurements retained. New config only excludes localQAfixtures fromTypeScript.",
+  "technicalApproval": "APPROVED2026-10-18/root; independentbeta_auditor integration/Stages3-5PASS; publication remains separate",
+  "publication": "PENDING; push onlyorigin/beta; main unchanged",
+  "limits": [
+    "PhysicalSafari/P3/INP/Lighthouse unverified",
+    "CHG0112 existing dependencyadvisories and other unrelated openIDs unchanged"
+  ]
+}

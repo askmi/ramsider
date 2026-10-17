@@ -37,7 +37,7 @@ test('warm photos switch without clone decoding or a painted loading flash',asyn
  await page.goto('/en');await openTechnology(page);
  const viewer=page.locator('#technology-viewer');
  await expect(viewer).toHaveAttribute('aria-busy','false');
- await page.waitForFunction(()=>window.navigationProbe!.ready.includes('/art/technology/slides/noble-02.png'));
+ await page.waitForFunction(()=>window.navigationProbe!.ready.includes('/art/technology/slides/noble-02.webp'));
  await viewer.getByRole('button',{name:'Next Slide',exact:true}).click();
  await expect(viewer).toHaveAttribute('data-photo-index','1');
  await expect(viewer).toHaveAttribute('aria-busy','false');

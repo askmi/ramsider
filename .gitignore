@@ -74,3 +74,9 @@ next-env.d.ts
 # Compact, reviewed certificate QA evidence
 !/docs/evidence/certificates/*.png
 !/docs/evidence/certificates/*.txt
+
+# Reviewed lossless browser comparison evidence
+!/docs/evidence/lossless-webp/contact-pro-0.png
+!/docs/evidence/lossless-webp/contact-max-0.png
+!/docs/evidence/lossless-webp/beta-contact-pro.png
+!/docs/evidence/lossless-webp/beta-contact-max.png

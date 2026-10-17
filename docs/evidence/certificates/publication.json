@@ -1,0 +1,31 @@
+{
+  "dateLocal": "2026-10-16",
+  "repository": "askmi/ramsider",
+  "branch": "main",
+  "destination": "origin/main",
+  "sha": "43b60a6ebd7c672dfc3791b205aa762d2ca2bbf0",
+  "remoteRefVerified": true,
+  "stagedPdfHashes": "6/6 PASS",
+  "stagedWhitespace": "PASS",
+  "deploymentEvidence": "GitHub provider-specific commit statuses for exact pushed SHA",
+  "projects": [
+    {
+      "context": "Vercel – ramsider",
+      "state": "success",
+      "description": "Deployment has completed",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider/CLR7XCf2P1UF4YDr5diKWFLph2F2"
+    },
+    {
+      "context": "Vercel – ramsider-beta",
+      "state": "success",
+      "description": "Deployment has completed",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/3WK37r9pueMeh5VL8d7xocsrs72Y"
+    }
+  ],
+  "technicalApproval": {
+    "verifier": "/root",
+    "date": "2026-10-16",
+    "result": "APPROVED for push/exact-SHA deployment evidence; no new UI or domain-assignment claim"
+  },
+  "records": "Post-publication receipt stored locally; no runtime edits after validated commit"
+}

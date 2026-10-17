@@ -2531,6 +2531,8 @@
 
 -2026-10-16 publication: пользователь «пуш» авторизовал commit/push проверенного CHG0111 в origin/main. Предыдущие browser/type/lint/build/native/auditor результаты актуальны; runtime после них не менялся. Exact staged-tree/whitespace/source-asset checks перед commit; deployment exactSHA будет проверен после push. Это разрешение публикации, не выдуманная visual acceptance.
 
+-2026-10-16 publication FULFILLED: commit `43b60a6ebd7c672dfc3791b205aa762d2ca2bbf0` pushed `origin/main`; remote refs/heads/main exactSHA verified. Exact staged54files reviewed, sixPDFSHA6/6PASS, stagedwhitespacePASS; priorfullgates stillcoverruntime. GitHub providerstatuses BOTH `Vercel – ramsider` / `Vercel – ramsider-beta` SUCCESS «Deployment has completed», links/receipt `docs/evidence/certificates/publication.json`. TechnicalAPPROVED2026-10-16/root for dispatch/deployment evidence; no arbitrarycanonicaldomain/liveUI/issuer authenticity claim. Postpublicationrecords local only; no runtime changes after pushed commit.
+
 ## CHG0112 — Существующие dependency advisories
 - Дата / источник:2026-10-16, npm audit при установке PDF.js; новый найденный residual.
 - Тип / статус: DEFECT; OPEN (вне текущей интеграции сертификатов).

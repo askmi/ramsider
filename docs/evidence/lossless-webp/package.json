@@ -1,6 +1,6 @@
 {
   "dateLocal": "2026-10-18",
-  "status": "LOCAL_PREPARATION_VERIFIED_BETA_PUBLICATION_BLOCKED",
+  "status": "BETA_TRANSFER_DEPLOYED",
   "baseMain": "04aa21a2a8685290621b11c59493064def1e56e0",
   "candidate": "screenshots/lossless-preparation/package",
   "instructions": "screenshots/lossless-preparation/README.md",
@@ -16,5 +16,7 @@
       "sha256": "0b31c1a88f1099c199c51e643c1e4d630f0b9b7b654822a1bcc42933d311e82e"
     }
   ],
-  "limits": "These are patches, not actual beta commits. Required beta merge,one revertibleember commit and WebPdeployment notexecuted under main-onlysessionpolicy."
+  "limits": "Previous source-session beta prohibition is historical. Actualbeta merge2327713, onecompleteemberf772dcb,35WebPae6765e committed/pushed/deployed2026-10-18; main0f751feunchanged. Device/performance limits recorded in beta-verification.json.",
+  "historicalStatus": "LOCAL_PREPARATION_VERIFIED_BETA_PUBLICATION_BLOCKED",
+  "currentPublication": "beta-publication.json"
 }

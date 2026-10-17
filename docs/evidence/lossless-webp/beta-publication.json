@@ -1,0 +1,51 @@
+{
+  "dateLocal": "2026-10-18",
+  "repository": "askmi/ramsider",
+  "branch": "beta",
+  "sha": "ae6765e0f849c0424cc6b1917fb055234b546d0e",
+  "remoteExactSHA": true,
+  "mainUnchanged": "0f751fea50822bd1e9c23854932bc4aa5086cb5e",
+  "emberCommit": "f772dcb06b3e622de4c8c246eb67f54b41dfaea8",
+  "emberActualRevertVerified": true,
+  "targets": [
+    {
+      "context": "Vercel \u2013 ramsider-beta",
+      "state": "success",
+      "description": "Deployment has completed",
+      "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/bwcMYQvA8EmRqHH2VRoFigiyzZ2W"
+    },
+    {
+      "context": "Vercel \u2013 ramsider",
+      "state": "success",
+      "description": "Deployment has completed",
+      "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/2w7inxhqZg2ouA9SJzQYJkZhBR4k"
+    }
+  ],
+  "deployments": [
+    {
+      "id": 7146789771,
+      "sha": "ae6765e0f849c0424cc6b1917fb055234b546d0e",
+      "environment": "Production \u2013 ramsider-beta",
+      "state": "success",
+      "environment_url": "https://ramsider-beta-af4hrat7n-askmi-6282s-projects.vercel.app"
+    },
+    {
+      "id": 7146797345,
+      "sha": "ae6765e0f849c0424cc6b1917fb055234b546d0e",
+      "environment": "Preview \u2013 ramsider",
+      "state": "success",
+      "environment_url": "https://ramsider-2ch8ckgoe-askmi-6282s-projects.vercel.app"
+    }
+  ],
+  "canonicalLiveCheck": {
+    "status": "PASS",
+    "url": "https://ramsider-beta.vercel.app/en",
+    "evidence": "beta-public-live.json",
+    "assetsHashExact": 35,
+    "ProMaxRibbonPixelsEqualLocal": true,
+    "technologyWebpReady": true,
+    "certificateRendered": true,
+    "pageerrors": 0
+  },
+  "independentAudit": "PASS2026-10-18/root/beta_auditor: bothGitHubcontextsverified, receipts/currentrecords/fullpublic-localProMaxRGBAchecked; SSHremotequeryunavailable in auditor environment, primaryauthenticatedremoteevidence used"
+}

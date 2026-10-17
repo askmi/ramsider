@@ -10,15 +10,15 @@ for (const locale of ['ru', 'ar']) {
       await button.scrollIntoViewIfNeeded();
       await expect(button).toBeVisible();
       await button.click();
-      await expect(page.locator(`#doc-detail-${id}:modal`)).toBeVisible();
+      await expect(page.locator('#certificate-viewer:modal')).toBeVisible();
       await page.keyboard.press('Escape');
-      await expect(page.locator(`#doc-detail-${id}:modal`)).toHaveCount(0);
+      await expect(page.locator('#certificate-viewer:modal')).toHaveCount(0);
     }
     const all = page.locator('#documents-all');
     await all.focus();
     await page.keyboard.press('Enter');
-    await expect(page.locator('#unavailable-docs:modal')).toBeVisible();
+    await expect(page.locator('#certificate-viewer:modal')).toBeVisible();
     await page.keyboard.press('Escape');
-    await expect(page.locator('#unavailable-docs:modal')).toHaveCount(0);
+    await expect(page.locator('#certificate-viewer:modal')).toHaveCount(0);
   });
 }

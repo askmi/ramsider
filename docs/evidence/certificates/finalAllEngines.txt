@@ -1,0 +1,26 @@
+  ✓   2 [iphone-17-pro-max-webkit] › tests/e2e/certificates.spec.ts:20:1 › six exact destinations defer all PDF code and render complete documents (19.4s)
+  ✓   1 [iphone-17-pro-webkit] › tests/e2e/certificates.spec.ts:20:1 › six exact destinations defer all PDF code and render complete documents (19.4s)
+  ✓   4 [iphone-17-pro-webkit] › tests/e2e/certificates.spec.ts:59:1 › failure retry cancellation rapid reopen and keyboard containment (4.6s)
+  ✓   3 [iphone-17-pro-max-webkit] › tests/e2e/certificates.spec.ts:59:1 › failure retry cancellation rapid reopen and keyboard containment (5.2s)
+  -   6 [iphone-17-pro-max-webkit] › tests/e2e/certificates.spec.ts:75:1 › all locales and responsive viewport controls stay accessible
+  -   7 [iphone-17-pro-max-webkit] › tests/e2e/certificates.spec.ts:97:1 › deferred renderer failure and PDF deadline can recover
+  -   8 [iphone-17-pro-max-webkit] › tests/e2e/certificates.spec.ts:113:1 › six original PDF links remain usable without JavaScript
+  -   9 [iphone-17-pro-max-webkit] › tests/e2e/certificates.spec.ts:126:1 › worker initialization recovery and repeated keyboard navigation
+  ✓  10 [desktop-chromium] › tests/e2e/certificates.spec.ts:20:1 › six exact destinations defer all PDF code and render complete documents (18.0s)
+  ✓  11 [desktop-chromium] › tests/e2e/certificates.spec.ts:59:1 › failure retry cancellation rapid reopen and keyboard containment (6.3s)
+  -  12 [desktop-chromium] › tests/e2e/certificates.spec.ts:75:1 › all locales and responsive viewport controls stay accessible
+  -  13 [desktop-chromium] › tests/e2e/certificates.spec.ts:97:1 › deferred renderer failure and PDF deadline can recover
+  ✓  14 [desktop-chromium] › tests/e2e/certificates.spec.ts:113:1 › six original PDF links remain usable without JavaScript (816ms)
+  ✓   5 [iphone-17-pro-webkit] › tests/e2e/certificates.spec.ts:75:1 › all locales and responsive viewport controls stay accessible (35.4s)
+  ✓  15 [desktop-chromium] › tests/e2e/certificates.spec.ts:126:1 › worker initialization recovery and repeated keyboard navigation (6.6s)
+  ✓  16 [iphone-17-pro-webkit] › tests/e2e/certificates.spec.ts:97:1 › deferred renderer failure and PDF deadline can recover (3.9s)
+  -  18 [iphone-17-pro-webkit] › tests/e2e/certificates.spec.ts:113:1 › six original PDF links remain usable without JavaScript
+  ✓  19 [iphone-17-pro-webkit] › tests/e2e/certificates.spec.ts:126:1 › worker initialization recovery and repeated keyboard navigation (4.5s)
+  ✓  17 [desktop-firefox] › tests/e2e/certificates.spec.ts:20:1 › six exact destinations defer all PDF code and render complete documents (18.2s)
+  ✓  20 [desktop-firefox] › tests/e2e/certificates.spec.ts:59:1 › failure retry cancellation rapid reopen and keyboard containment (5.5s)
+  -  21 [desktop-firefox] › tests/e2e/certificates.spec.ts:75:1 › all locales and responsive viewport controls stay accessible
+  -  22 [desktop-firefox] › tests/e2e/certificates.spec.ts:97:1 › deferred renderer failure and PDF deadline can recover
+  -  23 [desktop-firefox] › tests/e2e/certificates.spec.ts:113:1 › six original PDF links remain usable without JavaScript
+  -  24 [desktop-firefox] › tests/e2e/certificates.spec.ts:126:1 › worker initialization recovery and repeated keyboard navigation
+  11 skipped
+  13 passed (1.5m)

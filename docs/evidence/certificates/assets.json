@@ -1,0 +1,55 @@
+[
+  {
+    "destination": "public/certificates/electrical-safety.pdf",
+    "source": "design/references/certificates/1_Electrical_Safety_IEC60335-1_CB_CNCVC3375.pdf",
+    "sha256": "0b55d4b11c4c1c3a06abc7890304410aa3768e412a40307645afc5b2c2988381",
+    "sourceExact": true,
+    "pages": 1,
+    "bytes": 140057
+  },
+  {
+    "destination": "public/certificates/emc.pdf",
+    "source": "design/references/certificates/2_EMC_CB_Scheme_BELLIS_BY-00473.pdf",
+    "sha256": "b5c8ae4e91a1f68dc5f7117aeb867c7f5e74d3d5ea5a9627b36d8d866dcf32da",
+    "sourceExact": true,
+    "pages": 1,
+    "bytes": 634866
+  },
+  {
+    "destination": "public/certificates/uae-conformity.pdf",
+    "source": "design/references/certificates/3_UAE_Conformity_ECAS_MoIAT_25-12-176846.pdf",
+    "sha256": "341d2fe214f1e2470c961fe5b4acc99604f55ab4628fd2f47c41de5c091b582d",
+    "sourceExact": true,
+    "pages": 3,
+    "bytes": 1398556
+  },
+  {
+    "destination": "public/certificates/uae-telecom.pdf",
+    "source": "design/references/certificates/5_UAE_Telecom_TDRA_ER55730-26.pdf",
+    "sha256": "990848a800ce8a25c0f6c6f55af669d73d82b26724d940042fead24839385554",
+    "sourceExact": true,
+    "pages": 4,
+    "bytes": 374332
+  },
+  {
+    "destination": "public/certificates/all-certificates.pdf",
+    "source": "design/references/certificates/6_RAMSIDER_UNO_All_Certificates_8docs.pdf",
+    "sha256": "b3775ec617da7ff28e2d264d2527b8dcf40df2ac4241df5c76b20e39217d4f6a",
+    "sourceExact": true,
+    "pages": 15,
+    "bytes": 3781482
+  },
+  {
+    "destination": "public/certificates/rohs.pdf",
+    "source": "design/references/certificates/6_RAMSIDER_UNO_All_Certificates_8docs.pdf",
+    "sourcePages": [
+      6,
+      7,
+      8
+    ],
+    "pageStreamsExact": true,
+    "sha256": "45a1bd70c7dba2f3e4f21330b2fabb79e0abd035163ae3b9553df9117c1ce87f",
+    "pages": 3,
+    "bytes": 1600374
+  }
+]

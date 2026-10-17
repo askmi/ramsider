@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Fragment, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { DialogController } from './DialogController';
 import { BackToTop } from './BackToTop';
 import { LocaleSwitcher } from './LocaleSwitcher';
@@ -16,8 +16,8 @@ import localizedButtonWidths from '@/lib/button-localized-widths.json';
 import artPreviews from '@/lib/art-previews.json';
 import { PageMediaGate } from './PageMediaGate';
 import { CharcoalRibbon } from './CharcoalRibbon';
-import { EmberScene } from './EmberScene';
-import { emberCopy } from '@/lib/ember-copy';
+import { CertificateViewer } from './CertificateViewer';
+import { certificates, type CertificateId } from '@/lib/certificates';
 
 // Keep the complete FAQ/account artwork in one tile: no image edge through a card.
 const artTiles = Array.from({ length: 12 }, (_, i) => ({
@@ -101,7 +101,7 @@ function OverlayNode({ node, locale }: { node: StoryNode; locale: Locale }) {
   return <p {...props}>{textLines(text)}</p>;
 }
 
-const docs: { key: Key; detail: string; x: number; y: number }[] = [
+const docs: { key: Exclude<CertificateId, 'all'>; detail: string; x: number; y: number }[] = [
   { key: 'electrical', detail: 'IEC 60335-1 · CVC CNCVC3375\nPRO · GOLD', x: 100, y: 23285 },
   { key: 'emc', detail: 'CB Scheme · BELLIS BY-00473\nPRO · GOLD', x: 485, y: 23285 },
   { key: 'uae', detail: 'ECAS · MoIAT 25-12-176846\nPRO · GOLD', x: 100, y: 23530 },
@@ -115,13 +115,13 @@ function DocumentCards({ locale }: { locale: Locale }) {
       <Image data-media className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized loading="lazy" fetchPriority="high" />
       <strong>{textLines(t(locale, doc.key))}</strong>
       <small>{textLines(doc.detail)}</small>
-      <button id={`document-${doc.key}`} type="button" aria-haspopup="dialog" popoverTarget={`doc-detail-${doc.key}`} aria-label={`${t(locale, 'docView')}: ${t(locale, doc.key).replaceAll('\n', ' ')}`}><span className="doc-action-label">{t(locale, 'docView')}</span><ActionArrow /></button>
+      <a id={`document-${doc.key}`} href={certificates[doc.key].href} data-certificate={doc.key} data-title={t(locale, doc.key).replaceAll('\n', ' ')} aria-haspopup="dialog" aria-controls="certificate-viewer" aria-label={`${t(locale, 'docView')}: ${t(locale, doc.key).replaceAll('\n', ' ')}`}><span className="doc-action-label">{t(locale, 'docView')}</span><ActionArrow /></a>
     </div>)}
     <div className="doc-card doc-card--all source-panel" style={sourceStyle(485, 23775, 356)}>
       <span className="doc-icon" aria-hidden="true">▱</span>
       <strong>{t(locale, 'allDocs')}</strong>
       <small>{t(locale, 'allDocsBody')}</small>
-      <button id="documents-all" type="button" aria-haspopup="dialog" popoverTarget="unavailable-docs" aria-label={`${t(locale, 'allDocsView')}: ${t(locale, 'allDocs')}`}><span className="doc-action-label">{t(locale, 'allDocsView')}</span><ActionArrow /></button>
+      <a id="documents-all" href={certificates.all.href} data-certificate="all" data-title={t(locale, 'allDocs')} aria-haspopup="dialog" aria-controls="certificate-viewer" aria-label={`${t(locale, 'allDocsView')}: ${t(locale, 'allDocs')}`}><span className="doc-action-label">{t(locale, 'allDocsView')}</span><ActionArrow /></a>
     </div>
   </>;
 }
@@ -178,7 +178,6 @@ function Menus({ locale }: { locale: Locale }) {
 const blocked = [
   ['commerce', 'unavailableCommerce'],
   ['film', 'unavailableFilm'],
-  ['docs', 'unavailableDocs'],
   ['business', 'unavailableBusiness'],
   ['account', 'unavailableAccount'],
 ] as const;
@@ -216,9 +215,6 @@ function Popovers({ locale }: { locale: Locale }) {
     <Panel id="unavailable-set" title={t(locale, 'set')} locale={locale}>
       <p>{textLines(t(locale, 'setBody'))}</p><p>{t(locale, 'unavailableSet')}</p>
     </Panel>
-    {docs.map(doc => <Panel key={doc.key} id={`doc-detail-${doc.key}`} title={t(locale, doc.key)} locale={locale}>
-      <p>{textLines(doc.detail)}</p><p>{t(locale, 'unavailableDocs')}</p>
-    </Panel>)}
     {projects.map((key, i) => <Panel key={key} id={`project-detail-${i + 1}`} title={t(locale, key)} locale={locale}>
       <p>{textLines(t(locale, projectBodies[i]))}</p>
       {i === 1 && <p>{textLines(t(locale, 'project2More'))}</p>}
@@ -231,6 +227,7 @@ export function Story({ locale }: { locale: Locale }) {
   return <DialogController>
     <TechnologyViewer locale={locale} descriptions={technologyDescriptionCopy[locale]} />
     <CharcoalRibbon locale={locale} />
+    <CertificateViewer locale={locale} closeLabel={t(locale, 'close')} />
     <PageMediaGate locale={locale}><main className="canvas" data-locale={locale}>
       <div className="story-prefix-space" aria-hidden="true" />
       <div className="art" aria-hidden="true">
@@ -303,10 +300,7 @@ export function Story({ locale }: { locale: Locale }) {
         loading="eager"
         fetchPriority="low"
       />)}
-      {storyNodes.filter(node => node.y < 28207).map((node, index) => <Fragment key={`${node.key}-${index}`}>
-        <OverlayNode node={node} locale={locale} />
-        {node.id === 'fire-learn' && <EmberScene labels={emberCopy[locale]} />}
-      </Fragment>)}
+      {storyNodes.filter(node => node.y < 28207).map((node, index) => <OverlayNode node={node} locale={locale} key={`${node.key}-${index}`} />)}
       <button id="film-play" type="button" className="film-play" style={sourceStyle(390, 11439, 160)} popoverTarget="unavailable-film" aria-label={t(locale, 'film')}><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M12 7L34 20L12 33Z" fill="currentColor" /></svg></button>
       <div className="order-panels" aria-hidden="true">{[20140, 20370, 20650].map((y, i) => <div key={y} className="source-panel" data-step={`0${i + 1}`} style={sourceStyle(95, y, 750)} />)}</div>
       <DocumentCards locale={locale} />

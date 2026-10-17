@@ -1,0 +1,232 @@
+{
+  "conditions": "Production3081; Chromium Pro viewport/DPR3, cold4Mbps/100ms/4xCPU; open loopback warm landing1xCPU; WebKit scroll120frames; final run isolated from other browser QA",
+  "initial": {
+    "useful": 2530.599999964237,
+    "lcp": 2524,
+    "cls": 0,
+    "navigation": {
+      "ttfb": 44.89999997615814
+    },
+    "paint": [
+      {
+        "name": "first-paint",
+        "time": 556
+      },
+      {
+        "name": "first-contentful-paint",
+        "time": 556
+      }
+    ],
+    "resources": [
+      {
+        "path": "/art/00.webp",
+        "bytes": 248536,
+        "duration": 2255.199999988079
+      },
+      {
+        "path": "/art/brand-mark-white.png",
+        "bytes": 1662,
+        "duration": 127.69999998807907
+      },
+      {
+        "path": "/_next/static/chunks/1l80e5dj8uw_7.css",
+        "bytes": 9313,
+        "duration": 172.69999998807907
+      },
+      {
+        "path": "/_next/static/chunks/3-5k80pt3ds20.js",
+        "bytes": 6422,
+        "duration": 346.89999997615814
+      },
+      {
+        "path": "/_next/static/chunks/15orcrkp-_9ct.js",
+        "bytes": 10864,
+        "duration": 405.5
+      },
+      {
+        "path": "/_next/static/chunks/3_yaym1q7aiwc.js",
+        "bytes": 40809,
+        "duration": 720.3000000119209
+      },
+      {
+        "path": "/_next/static/chunks/3gzxhq9iq6efl.js",
+        "bytes": 71280,
+        "duration": 1008.1999999880791
+      },
+      {
+        "path": "/_next/static/chunks/turbopack-3ps7o16pksegz.js",
+        "bytes": 4459,
+        "duration": 504.0999999642372
+      },
+      {
+        "path": "/_next/static/chunks/05-c3ty_6dwfk.js",
+        "bytes": 1756,
+        "duration": 855.3000000119209
+      },
+      {
+        "path": "/_next/static/chunks/2pmi80dh7kyh3.js",
+        "bytes": 3372,
+        "duration": 1476
+      },
+      {
+        "path": "/_next/static/chunks/14mrh2-p_w84d.js",
+        "bytes": 13163,
+        "duration": 1515.5
+      },
+      {
+        "path": "/_next/static/chunks/2qwby4t0t-10z.js",
+        "bytes": 68057,
+        "duration": 2183.5
+      },
+      {
+        "path": "/art/feature-divider-control.png",
+        "bytes": 551,
+        "duration": 1559.4000000357628
+      },
+      {
+        "path": "/art/feature-divider-draw.png",
+        "bytes": 619,
+        "duration": 1677.5
+      },
+      {
+        "path": "/art/feature-divider-intensity.png",
+        "bytes": 726,
+        "duration": 1787.5
+      },
+      {
+        "path": "/art/technology-connector-triple.png",
+        "bytes": 1907,
+        "duration": 1808.5
+      },
+      {
+        "path": "/art/technology-connector-core.png",
+        "bytes": 2001,
+        "duration": 1909.800000011921
+      },
+      {
+        "path": "/art/technology-connector-water.png",
+        "bytes": 2702,
+        "duration": 1985.4000000357628
+      },
+      {
+        "path": "/art/technology-connector-touch.png",
+        "bytes": 16348,
+        "duration": 2057.400000035763
+      },
+      {
+        "path": "/art/technology-connector-light.png",
+        "bytes": 7240,
+        "duration": 2080.699999988079
+      },
+      {
+        "path": "/art/technology-connector-armor.png",
+        "bytes": 8382,
+        "duration": 2146.699999988079
+      },
+      {
+        "path": "/art/technology-connector-flow.png",
+        "bytes": 19074,
+        "duration": 2247.800000011921
+      },
+      {
+        "path": "/art/icon-kit/01.png",
+        "bytes": 934,
+        "duration": 2187.699999988079
+      },
+      {
+        "path": "/art/icon-kit/02.png",
+        "bytes": 770,
+        "duration": 2217.5
+      },
+      {
+        "path": "/art/icon-kit/03.png",
+        "bytes": 1030,
+        "duration": 2254.099999964237
+      },
+      {
+        "path": "/art/icon-kit/04.png",
+        "bytes": 800,
+        "duration": 2284.099999964237
+      },
+      {
+        "path": "/art/icon-kit/05.png",
+        "bytes": 982,
+        "duration": 2292.599999964237
+      },
+      {
+        "path": "/fonts/opensans-regular.ttf",
+        "bytes": 78620,
+        "duration": 1115.4000000357628
+      },
+      {
+        "path": "/buttons/hero-reserve.svg",
+        "bytes": 706,
+        "duration": 860.8999999761581
+      },
+      {
+        "path": "/fonts/opensans-light.ttf",
+        "bytes": 78300,
+        "duration": 1312.5999999642372
+      },
+      {
+        "path": "/fonts/bankgothic.ttf",
+        "bytes": 14370,
+        "duration": 721.8000000119209
+      },
+      {
+        "path": "/fonts/opensans-button.ttf",
+        "bytes": 85053,
+        "duration": 1494.9000000357628
+      }
+    ]
+  },
+  "allDocumentOpenMs": 2888,
+  "assembly": [
+    {
+      "width": 402,
+      "state": "top",
+      "overflow": false
+    },
+    {
+      "width": 402,
+      "state": "middle",
+      "overflow": false
+    },
+    {
+      "width": 402,
+      "state": "bottom",
+      "overflow": false
+    },
+    {
+      "width": 402,
+      "frames": 119,
+      "p95": 18,
+      "over33": 0
+    },
+    {
+      "width": 440,
+      "state": "top",
+      "overflow": false
+    },
+    {
+      "width": 440,
+      "state": "middle",
+      "overflow": false
+    },
+    {
+      "width": 440,
+      "state": "bottom",
+      "overflow": false
+    },
+    {
+      "width": 440,
+      "frames": 119,
+      "p95": 18,
+      "over33": 0
+    }
+  ],
+  "limitations": [
+    "Synthetic measurements are not INP",
+    "Lighthouse and physical Safari unmeasured"
+  ]
+}

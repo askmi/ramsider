@@ -1,0 +1,41 @@
+{
+  "dateLocal": "2026-10-18",
+  "scope": "Prepared isolated lossless/ember package; NOT beta publication",
+  "productionBuild": "PASS;11localeSSG",
+  "typecheck": "PASS;final rerun passed",
+  "lint": "PASS;final rerun passed",
+  "mobile": {
+    "pass": 30,
+    "skipped": 10,
+    "fail": 0
+  },
+  "desktop": {
+    "pass": 26,
+    "skipped": 14,
+    "fail": 0
+  },
+  "reviewAffectedGroups": {
+    "pass": 6,
+    "skipped": 2,
+    "fail": 0
+  },
+  "nativeReview": {
+    "initial": "INVALID_INCOMPLETE_SNAPSHOT;P1missingmodules/assets",
+    "complete": "P2remainingPNG-onlyassertions;fixed",
+    "final": "No actionable regressions;reviewer dependencies unavailable;primary production/browserchecks supply runtime evidence"
+  },
+  "imageChecks": "35/35 exactRGBA,VP8L,sRGBICC,sourceSHA/size/reserveexact",
+  "actualBrowser": "62/62 exact screenshotpairs;8contact sheets viewed",
+  "async": "Sharedwarm/load/decode/retry/navigation source identical;afterload/cache testsPASS",
+  "performanceLimits": "Onecoldsample/codec;PNGbaseline reverseproxy/directWebP differs in TTFB;do not attribute hero timingdifference to codec. All35 HTTP downloads complete115.9→85.8s;not all35decoded readiness. Warm actualclick medians153.5/159.9ms over5each, comparable; no INP/Lighthouse/field/physicalSafari/P3 claims.",
+  "betaBranchMutation": false,
+  "emberIntegration": {
+    "pass": 9,
+    "skipped": 1,
+    "fail": 0
+  },
+  "actualScroll": "Corrected moving tall-photo402×560:650>464CSSpx,maxScrollTop186,60distinct positions,120frames/codec,p95~17.4msboth,0>33ms. Initial fitting-photo rAF sample excluded as scroll evidence.",
+  "totalExecutedPass": 71,
+  "totalProfileSkips": 27,
+  "visualProof": "Two representative tracked PNG/WebP contact sheets contact-pro-0.png/contact-max-0.png (four ribbons plus NobleCraft); all8contact sheets and fullDPR3pairs retained locally. Browser.json records62exactpair checks acrossall23photos andjoins."
+}

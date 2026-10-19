@@ -1,7 +1,7 @@
 {
   "date": "2026-10-19",
   "change": "CHG0115",
-  "status": "VERIFIED controlled compatibility fix; physical customer after unverified",
+  "status": "VERIFIED and deployed f1b02d253344ef563adf7a416db9f05067fe25af; physical customer after unverified",
   "base": "7b76567284723093d26b621551928d53fd0e4042",
   "cause": {
     "customerEvidence": "ERROR pdf.text TypeError undefined is not a function near ...t of e...; 140057 bytes/0.08s; render0.07s",
@@ -59,5 +59,14 @@
     "Controlled independent agent EVAL-MAP/VIEWER NOT_RUN"
   ],
   "rawIgnoredEvidence": "screenshots/certificate-diagnostics/{stream-before,browser-stream,browser-stream-final,browser-stream-compat-final,native-stream,native-stream-final,unit-stream,build-stream-final,type-stream-final,lint-stream-final,performance-stream} logs/JSON",
-  "technicalApproval": "APPROVED2026-10-19 /root; actual22unique browserPASS/5unitPASS/build/type/native/perf; independentStages1–6PASS, controlledfixverified/physicalcustomerafterunverified"
+  "technicalApproval": "APPROVED2026-10-19 /root; actual22unique browserPASS/5unitPASS/build/type/native/perf; independentStages1–6PASS, controlledfixverified/physicalcustomerafterunverified",
+  "publication": {
+    "sha": "f1b02d253344ef563adf7a416db9f05067fe25af",
+    "targets": "BOTHVercelSUCCESS;mainProductionconfirmed",
+    "canonicalProMax": "PASSactualrevision/missingAPIready/HTTP503belowRetry/recovery/initfallback",
+    "receipts": [
+      "persistent-publication.json",
+      "persistent-public-live.json"
+    ]
+  }
 }

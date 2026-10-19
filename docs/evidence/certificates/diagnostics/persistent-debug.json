@@ -1,7 +1,7 @@
 {
   "date": "2026-10-19",
   "change": "CHG0116",
-  "status": "VERIFIED local implementation; independentStages1–6PASS; publicationpending",
+  "status": "VERIFIED and deployed f1b02d253344ef563adf7a416db9f05067fe25af; physical customer after unverified",
   "publicRevision": "PDF-DEBUG-20261019-3",
   "request": "If Retry is shown, repeat DEBUG below it with captured error details; keep top DEBUG on every active-viewer state",
   "sourceScreenshot": "codex-clipboard-d6daa7e2-0ce0-465e-b55d-7062af12b71a.png",
@@ -65,5 +65,14 @@
     "no physicalSafari/field/INP/Lighthouseclaim",
     "controlled AgentEval NOT_RUN"
   ],
-  "rawIgnoredEvidence": "screenshots/certificate-diagnostics/{browser-persistent-debug-release,browser-persistent-debug-locales,browser-below-retry,native-persistent-debug-final,native-persistent-debug-closure,native-below-retry,build-below-retry,type-below-retry,lint-persistent-debug-release,unit-persistent-final} logs"
+  "rawIgnoredEvidence": "screenshots/certificate-diagnostics/{browser-persistent-debug-release,browser-persistent-debug-locales,browser-below-retry,native-persistent-debug-final,native-persistent-debug-closure,native-below-retry,build-below-retry,type-below-retry,lint-persistent-debug-release,unit-persistent-final} logs",
+  "publication": {
+    "sha": "f1b02d253344ef563adf7a416db9f05067fe25af",
+    "targets": "BOTHVercelSUCCESS;mainProductionconfirmed",
+    "canonicalProMax": "PASSactualrevision/missingAPIready/HTTP503belowRetry/recovery/initfallback",
+    "receipts": [
+      "persistent-publication.json",
+      "persistent-public-live.json"
+    ]
+  }
 }

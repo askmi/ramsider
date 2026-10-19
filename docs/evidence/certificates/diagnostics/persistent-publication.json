@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-19",
+  "sha": "f1b02d253344ef563adf7a416db9f05067fe25af",
+  "repository": "askmi/ramsider",
+  "branch": "main",
+  "remoteExactSHA": true,
+  "betaGitBranchUnchanged": "34b23a96212c7df96856585b6270a7d1fb800286",
+  "targets": [
+    {
+      "context": "Vercel – ramsider",
+      "state": "success",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider/2F2ThGZ19AJHEseWoZkA8zr4AYrz",
+      "deploymentId": 7179296908,
+      "environment": "Production – ramsider",
+      "environmentURL": "https://ramsider-lbuqv3a53-askmi-6282s-projects.vercel.app"
+    },
+    {
+      "context": "Vercel – ramsider-beta",
+      "state": "success",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/BxgrBoZsnBX2XsjAwpAfY2tYG7Xs",
+      "deploymentId": 7179280606,
+      "environment": "Preview – ramsider-beta",
+      "environmentURL": "https://ramsider-beta-b19coh3ln-askmi-6282s-projects.vercel.app"
+    }
+  ],
+  "canonicalURL": "https://ramsider-main.vercel.app/en?pdf-debug=PDF-DEBUG-20261019-3#documents",
+  "actualRenderedRevision": "PDF-DEBUG-20261019-3",
+  "publicProMax": "PASS missingAPI→PDF140057B/canvas/textready; HTTP503detailsBELOWRetry→recovery; forcedtraceinitfailurewithDEBUGandlocalreason; unhandledErrors0",
+  "evidence": "persistent-public-live.json",
+  "technicalApproval": "APPROVED2026-10-19 /root deployed115+116; physicalcustomeroldbuild/cause/afterunverified"
+}

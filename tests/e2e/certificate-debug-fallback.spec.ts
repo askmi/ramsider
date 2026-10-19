@@ -20,7 +20,7 @@ test('page render runtime failures always retain DEBUG and colocated reason',asy
   let injected=false,fail=true;
   await page.route('**/_next/static/chunks/*.js',async route=>{
    const response=await route.fetch();let body=await response.text();
-   if(fail&&body.includes('pdf.text.timeout')){
+   if(fail&&body.includes('PDF render exceeded 30000 ms')){
     const pattern=mode==='page'?/await [\w$]+\.getPage\([\w$]+\)/:mode==='render'?/[\w$]+\.render\(\{canvas:/:/function(?: [\w$]+)?\(\{source:[^}]+\}\)\{/;
     if(pattern.test(body)){injected=true;body=body.replace(pattern,match=>mode==='page'?'await Promise.reject(new Error("controlled page failure"))':mode==='render'?'(()=>{throw new Error("controlled render failure")})({canvas:':match+'throw new Error("controlled runtime failure");');}
    }
@@ -47,10 +47,10 @@ test('throwing diagnostic timing observer cannot prevent HTTP or timeout Retry',
 test('renderer import and render deadlines show DEBUG beside Retry',async({page},info)=>{
  test.skip(info.project.name!=='iphone-17-pro-webkit','One deterministic clock/deadline matrix');
  let injected=false;
- await page.route('**/_next/static/chunks/*.js',async route=>{const response=await route.fetch();let body=await response.text();const pattern=/[\w$]+\.render\(\{canvas:/;if(body.includes('pdf.text.timeout')&&pattern.test(body)){injected=true;body=body.replace(pattern,'(()=>({promise:new Promise(()=>{}),cancel(){}}))({canvas:');}await route.fulfill({response,body});});
+ await page.route('**/_next/static/chunks/*.js',async route=>{const response=await route.fetch();let body=await response.text();const pattern=/[\w$]+\.render\(\{canvas:/;if(body.includes('PDF render exceeded 30000 ms')&&pattern.test(body)){injected=true;body=body.replace(pattern,'(()=>({promise:new Promise(()=>{}),cancel(){}}))({canvas:');}await route.fulfill({response,body});});
  await page.clock.install();await open(page);await expect(page.locator('.certificate-debug')).toContainText('Waiting: pdf.render',{timeout:30000});expect(injected).toBe(true);await page.clock.fastForward(31000);await errorDetails(page,'pdf.render.timeout');await page.keyboard.press('Escape');await page.unroute('**/_next/static/chunks/*.js');
  let release!:()=>void;const held=new Promise<void>(resolve=>release=resolve);
- await page.route('**/_next/static/chunks/*.js',async route=>{const response=await route.fetch();if((await response.text()).includes('pdf.text.timeout')){await held;}await route.fulfill({response}).catch(()=>{});});
+ await page.route('**/_next/static/chunks/*.js',async route=>{const response=await route.fetch();if((await response.text()).includes('PDF render exceeded 30000 ms')){await held;}await route.fulfill({response}).catch(()=>{});});
  await open(page);await expect(page.locator('.certificate-debug')).toContainText('Waiting: renderer.import');await page.clock.fastForward(31000);await errorDetails(page,'renderer.import.timeout');await page.screenshot({path:`${out}/import-deadline-debug.png`});release();await page.keyboard.press('Escape');
 });
 

@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-19",
+  "url": "https://ramsider-main.vercel.app/en?pdf-debug=PDF-DEBUG-20261019-3#documents",
+  "revision": "PDF-DEBUG-20261019-3",
+  "checks": [
+    {
+      "profile": "Pro",
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "status": "PASS",
+      "renderedRevision": "PDF-DEBUG-20261019-3",
+      "missingAPI": "ReadableStream.asyncIterator",
+      "PDFBytes": 140057,
+      "canvasAndTextReady": true,
+      "HTTP503DetailsBelowRetry": true,
+      "HTTPRetryRecovery": true,
+      "initFailureFallbackAndLocalReason": true,
+      "pageErrors": []
+    },
+    {
+      "profile": "Max",
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "status": "PASS",
+      "renderedRevision": "PDF-DEBUG-20261019-3",
+      "missingAPI": "ReadableStream.asyncIterator",
+      "PDFBytes": 140057,
+      "canvasAndTextReady": true,
+      "HTTP503DetailsBelowRetry": true,
+      "HTTPRetryRecovery": true,
+      "initFailureFallbackAndLocalReason": true,
+      "pageErrors": []
+    }
+  ],
+  "physicalCustomerAfter": "UNVERIFIED"
+}

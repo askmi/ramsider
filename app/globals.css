@@ -361,8 +361,6 @@ html:has(#charcoal-viewer[open]),body:has(#charcoal-viewer[open]){background:var
 .certificate-controls output{font-size:13px;text-align:center;min-width:65px}
 .certificate-controls [aria-label]:is(:first-child,:nth-child(3)){font-size:28px;line-height:1}
 .certificate-controls:dir(rtl) [aria-label]:is(:first-child,:nth-child(3)){transform:scaleX(-1)}
-.certificate-text{background:#fff;color:#181512;padding:12px;font-size:16px;overflow-wrap:anywhere}
-.certificate-text summary{min-height:44px;cursor:pointer}
 .certificate-body>.media-loading,.certificate-document>.media-loading{position:absolute;z-index:2;inset-inline:24px;bottom:max(90px,calc(32px + env(safe-area-inset-bottom)));width:calc(100% - 48px);max-width:420px;margin-inline:auto}
 .media-loading__spinner{display:inline-block;width:16px;height:16px;margin-inline-end:10px;border:2px solid #d6d0c7;border-top-color:#8c5c25;border-radius:50%;vertical-align:middle;animation:certificate-spin .8s linear infinite}
 @keyframes certificate-spin{to{transform:rotate(360deg)}}

@@ -57,7 +57,7 @@ export class CertificateDebugTrace {
   this.add('viewer.open');
   this.add('features', `Worker=${typeof Worker !== 'undefined'}; Promise.withResolvers=${typeof Promise.withResolvers === 'function'}; Map.getOrInsertComputed=${typeof (Map.prototype as unknown as Record<string, unknown>).getOrInsertComputed === 'function'}; ReadableStream.asyncIterator=${typeof ReadableStream !== 'undefined' && typeof (ReadableStream.prototype as unknown as Record<symbol, unknown>)[Symbol.asyncIterator] === 'function'}`);
  }
- private isWaiting() {return !this.failed && ['renderer.import','pdf.fetch','pdf.body','pdf.open/worker','pdf.page','pdf.render','pdf.text'].includes(this.phase);}
+ private isWaiting() {return !this.failed && ['renderer.import','pdf.fetch','pdf.body','pdf.open/worker','pdf.page','pdf.render'].includes(this.phase);}
  refreshWaiting = () => {if(this.isWaiting())this.publish();};
  private makeSnapshot(): DebugSnapshot {return {summary:[this.isWaiting() ? `Waiting: ${this.phase} | phase ${((performance.now()-this.phaseStarted)/1000).toFixed(1)} s | total ${((performance.now()-this.started)/1000).toFixed(1)} s` : '', this.failed ? 'ERROR '+this.failure : '', this.transfer, this.render, ...this.device].filter(Boolean).join('\n'),events:this.rows.join('\n'),failed:this.failed,waiting:this.isWaiting()};}
  private publish() {this.state=this.makeSnapshot();this.listeners.forEach(listener=>listener());}

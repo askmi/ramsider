@@ -5,7 +5,6 @@ import { GlobalWorkerOptions, getDocument, version, type PDFDocumentProxy, type 
 import { safeDiagnostic, type CertificateDebugTrace } from '@/lib/certificate-debug';
 import type { Locale } from '@/lib/i18n';
 import type { CertificateCopy } from '@/lib/certificate-copy';
-import { readCertificateText } from '@/lib/certificate-text';
 import { LoadingStatus } from './MediaLoading';
 import { CertificateProblemDetails } from './CertificateDiagnostics';
 
@@ -24,7 +23,6 @@ export default function CertificateDocument({ source, title, locale, copy, onRel
  const [rotation, setRotation] = useState(source.rotation);
  const [ready, setReady] = useState(false);
  const [width, setWidth] = useState(0);
- const [text, setText] = useState('');
  const [problem,setProblem] = useState('');
  const reportFailure=useCallback((phase:string,reason:unknown)=>{setProblem(phase+': '+safeDiagnostic(reason));try {trace?.fail(phase,reason);} catch { /* Local failure/recovery must not depend on optional diagnostics. */ }},[trace]);
  const canvas = useRef<HTMLCanvasElement>(null);
@@ -69,8 +67,6 @@ export default function CertificateDocument({ source, title, locale, copy, onRel
   if (!pdf || !width) return;
   let cancelled = false;
   let task: RenderTask | undefined;
-  let textDeadline: ReturnType<typeof setTimeout> | undefined;
-  const textController = new AbortController();
   let phase='pdf.page';
   const started=performance.now();
   trace?.add(phase, `page ${pageNumber}`);
@@ -96,28 +92,18 @@ export default function CertificateDocument({ source, title, locale, copy, onRel
     trace?.rendered(performance.now()-started);
     setReady(true);
     clearTimeout(timeout);
-    phase='pdf.text';trace?.add(phase);
-    let textExpired=false;
-    textDeadline=setTimeout(() => {if (!cancelled) {textExpired=true;reportFailure('pdf.text.timeout', new Error('Text extraction exceeded 30000 ms; rendered PDF remains available'));textController.abort();}},30000);
-    try {
-     const content = await readCertificateText(page, textController.signal);
-     if (!cancelled && !textExpired) {setText(content);trace?.add('pdf.text.ready');}
-    } catch(reason) {if (!cancelled && !textExpired) reportFailure('pdf.text', reason);}
-    finally {clearTimeout(textDeadline);}
    } catch (reason) {if (!cancelled) {reportFailure(phase, reason);setError(true);}}
    finally {clearTimeout(timeout);}
   })();
-  return () => {cancelled = true;clearTimeout(timeout);clearTimeout(textDeadline);textController.abort();task?.cancel();};
+  return () => {cancelled = true;clearTimeout(timeout);task?.cancel();};
  }, [pdf, pageNumber, width, zoom, rotation, source.pageRotations, trace, reportFailure]);
  const retry = () => {if (reloadRequired) {onReload();return;}trace?.reset();setProblem('');setReloadRequired(false);setError(false);setReady(false);setPdf(null);setAttempt(value => value+1);};
  const navigate = (page: number) => {setReady(false);setPageNumber(page);};
  return <div className="certificate-document" aria-busy={!ready && !error}>
   <div ref={scroller} className="certificate-scroll" tabIndex={0} role="region" aria-label={title}>
    <canvas ref={canvas} style={{visibility:ready && !error ? 'visible' : 'hidden'}} role="img" aria-label={`${title} — ${copy.page} ${pageNumber} / ${pdf?.numPages ?? source.pages}`} />
-   {ready && text && <details className="certificate-text" dir="auto"><summary>{copy.text}</summary><p>{text}</p></details>}
   </div>
   {(!ready || error) && <LoadingStatus locale={locale} labels={copy} spinner error={error} onRetry={retry}><CertificateProblemDetails trace={trace} problem={problem}/></LoadingStatus>}
-  {ready && !error && problem && !trace && <CertificateProblemDetails problem={problem}/>}
   <footer className="certificate-controls">
    <button type="button" aria-label={copy.previous} aria-disabled={!ready || error || pageNumber === 1} onClick={() => {if (ready && !error && pageNumber>1) navigate(pageNumber-1);}}>‹</button>
    <output aria-live="polite">{copy.page} <bdi>{pageNumber} / {pdf?.numPages ?? source.pages}</bdi></output>

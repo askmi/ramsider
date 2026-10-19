@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-19",
+  "change": "CHG0117",
+  "status": "VERIFIED local removal; independentStages1–6PASS; publicationpending",
+  "request": "User explicitly orders removal of entire unrequested Document Text mode and no invented replacements",
+  "implementation": [
+    "PDF text UI/state/helper/import/cancellation/deadline/text-onlyfallback removed",
+    "all11locale text labels/typefield and2CSSrules removed",
+    "text waiting phase and obsolete text-only/unit/fixture tests removed",
+    "canvas/controls/Original/Close and DEBUG/detailsbelowRetry preserved"
+  ],
+  "sourceCheck": "rg finds no application getTextContent/streamTextContent/readCertificateText/copy.text/pdf.text/certificate-text; onlynegative assertions remain in regression tests. Vendor API definitions are not application calls.",
+  "checks": {
+    "browser": "29PASS19intentionalSKIP across48cases onPro402x874/Max440x956DPR3WebKit+Chromium1440,customer390x650",
+    "coverage": [
+      "all6/all27pagesnormal+missingReadableStream.asyncIterator, no disclosure/caption/textphase",
+      "pagination/zoom/rotate/scroll/keyboard/close/cancel/focus/noJS",
+      "11locales/RTL/narrow/tablet/desktop",
+      "HTTP/parse/worker/import/page/render/errors anddeadlines",
+      "traceinit+timingAPIthrowfallback; detailsbelowRetry; shortviewportnooverlap",
+      "noPDF/workerbeforeactivation"
+    ],
+    "build": "PASS11locales",
+    "type": "PASS",
+    "lint": "0errors1existing Telegram unused warning",
+    "native": "clean removal review; independently all11 non-textlocale fields unchanged, controlsbyteidentical, faultmarkersvalid",
+    "visual": "Root saw actualPro/Maxbundlepage15 bottom; DocumentText area gone, originalpageandfootercontrols intact",
+    "images": [
+      "iphone-17-pro-webkit-all-without-text.png",
+      "iphone-17-pro-max-webkit-all-without-text.png"
+    ],
+    "performance": {
+      "lcp": 2520,
+      "cls": 0,
+      "jsBytes": 220726,
+      "usefulMs": 2446.3000000715256,
+      "conditions": "ProductionChromium402x874DPR3;4Mbps100msCPU4x;cold;synthetic single sample",
+      "beforeClickPDFRequests": 0,
+      "loopbackPDFOpenMs": 538,
+      "debugVisible": true,
+      "limits": "NoINP/Lighthouse/field/physicalSafari; open is warm landing loopback1xCPU, not comparable to coldmeasurement"
+    }
+  },
+  "retiredHistory": [
+    "initialunrequestedfeature introducedbyagent",
+    "initialrepairwronglysoughtpreservation;2negativebeforeFAIL confirmedblank/stale, repair6unitPASS thennativeP2A-B-A",
+    "userexplicitremoval supersedesallrepairacceptance; helper/repairfixtures deleted, no repairapprovalclaimed"
+  ],
+  "technicalApproval": "APPROVED2026-10-19 /root; /root/beta_auditor revisedscope/Stage2/finalStages3–6PASS actualsource/browser/images/review/perf/records",
+  "limitations": [
+    "physicalcustomerafterunverified",
+    "no fieldINP/Lighthouseclaim",
+    "controlledindependent AgentEvalNOT_RUN"
+  ],
+  "rawIgnoredEvidence": "screenshots/certificate-diagnostics/{build-remove-text,type-remove-text,lint-remove-text,browser-remove-text,native-remove-text,performance-remove-text} logs; initialtext-before/native-text retired logs preserved"
+}

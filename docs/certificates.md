@@ -1,8 +1,16 @@
 # Certificate destinations — CHG0111
 
-Current scope / 2026-10-19, CHG0118: the user rejects the complete custom PDF viewer. All six cards now use ordinary `target="_blank" rel="noopener noreferrer"` anchors to the static PDF files below. Browser-native viewing, zoom and saving are delegated to the browser. There is no application modal, PDF renderer/worker, toolbar, loading state or diagnostics. Files and card artwork/composition are unchanged. CHG0111–0117 custom-viewer implementation and evidence below are historical, superseded by this removal.
+Current scope / 2026-10-19, CHG0118: the user rejects the complete custom PDF viewer. All six cards now use ordinary `target="_blank" rel="noopener noreferrer"` anchors to the static PDF files below. Browser-native viewing, zoom and saving are delegated to the browser. There is no application modal, PDF renderer/worker, toolbar, loading state or diagnostics. Card artwork/composition and native links are unchanged. CHG0119 corrects only page1 rotation in the delivered All Documents PDF; design originals remain untouched. CHG0111–0117 custom-viewer implementation and evidence below are historical, superseded by this removal.
 
-Acceptance: identical six hrefs/PDF bytes with application/pdf responses; browser navigation with JS and without JS, keyboard and modifier link semantics; no PDF or renderer fetch before activation; Pro/Max WebKit DPR3 card screenshots unchanged, Arabic RTL/all11locales and representative widths; type/lint/build, native review and production payload/scroll measurements. Physical browser PDF controls cannot be certified by headless emulation.
+Acceptance: identical six hrefs with application/pdf responses; five PDF files unchanged, All Documents differs only by an incremental page1 rotation update; browser navigation with JS and without JS, keyboard and modifier link semantics; no PDF or renderer fetch before activation; Pro/Max WebKit DPR3 card screenshots unchanged, Arabic RTL/all11locales and representative widths; type/lint/build, native review and production payload/scroll measurements. Physical browser PDF controls cannot be certified by headless emulation.
+
+## Native file orientation correction — CHG0119 / 2026-10-20
+
+The original bundle page1 has `/Rotate 0` and a sideways scanned Electrical certificate, while its separate source uses `/Rotate 270`. The deleted custom viewer supplied a presentation correction; preserving bundle bytes on native-link migration dropped that correction. `tools/prepare-certificates.py` now appends only page1 `/Rotate 270` and its cross-reference entry, preserving the entire original byte prefix, all15 content streams/resources/boxes and remaining page rotations. Delivered bundle grows390B to3781872B; no rasterization, image recompression, content replacement or source modification. The preparation receipt identifies this intentional derivative. Run with the bundled Python runtime containing pypdf6.10.0 (verified).
+
+All15 bundle and12 standalone page renders inspected. Pages2–15 remain pixel-identical to previous bundle renders; first page is upright with the original content. Standalone and bundle input streams differ, so cross-input pixel identity is not claimed. Existing native browser workflow remains. Evidence `docs/evidence/certificates/orientation.json` and orientation-before/after/all-pages PNGs; browser/review/publication outcomes recorded there and in CHANGELOG.
+
+## Historical implementation record
 
 2026-10-16. Requested on `main` b7beda9; beta ember code excluded, its local records saved in stash `pre-certificates-beta-records-20261016`.
 

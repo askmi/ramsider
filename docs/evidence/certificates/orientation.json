@@ -1,0 +1,152 @@
+{
+  "date": "2026-10-20",
+  "status": "VERIFIED locally / publication pending",
+  "sourcePrefixExact": true,
+  "bundleSHA256": "482c4a4fcf9acaa406faf1f2b19f7377ceb5296776a563d6bec014499be6de60",
+  "bundleBytes": 3781872,
+  "addedBytes": 390,
+  "correctedPage1OrientationMatchesStandalone": true,
+  "standalonePixelIdentity": false,
+  "standaloneDifferenceReason": "Original standalone and bundle have different content streams; pixel identity is not an appropriate cross-source acceptance criterion",
+  "unchangedOther14PagePixels": true,
+  "otherFiveFilesByteExactHEAD": true,
+  "generatorRepeatSHAStable": true,
+  "pages": [
+    {
+      "page": 1,
+      "rotation": 270,
+      "contentStreamExact": true,
+      "boxesExact": true,
+      "resourceObjectUnchanged": true,
+      "unchangedPixels": "Not applicable: orientation changed; original content stream preserved; standalone input differs"
+    },
+    {
+      "page": 2,
+      "rotation": 0,
+      "contentStreamExact": true,
+      "boxesExact": true,
+      "resourceObjectUnchanged": true,
+      "unchangedPixels": true
+    },
+    {
+      "page": 3,
+      "rotation": 0,
+      "contentStreamExact": true,
+      "boxesExact": true,
+      "resourceObjectUnchanged": true,
+      "unchangedPixels": true
+    },
+    {
+      "page": 4,
+      "rotation": 0,
+      "contentStreamExact": true,
+      "boxesExact": true,
+      "resourceObjectUnchanged": true,
+      "unchangedPixels": true
+    },
+    {
+      "page": 5,
+      "rotation": 0,
+      "contentStreamExact": true,
+      "boxesExact": true,
+      "resourceObjectUnchanged": true,
+      "unchangedPixels": true
+    },
+    {
+      "page": 6,
+      "rotation": 0,
+      "contentStreamExact": true,
+      "boxesExact": true,
+      "resourceObjectUnchanged": true,
+      "unchangedPixels": true
+    },
+    {
+      "page": 7,
+      "rotation": 0,
+      "contentStreamExact": true,
+      "boxesExact": true,
+      "resourceObjectUnchanged": true,
+      "unchangedPixels": true
+    },
+    {
+      "page": 8,
+      "rotation": 0,
+      "contentStreamExact": true,
+      "boxesExact": true,
+      "resourceObjectUnchanged": true,
+      "unchangedPixels": true
+    },
+    {
+      "page": 9,
+      "rotation": 0,
+      "contentStreamExact": true,
+      "boxesExact": true,
+      "resourceObjectUnchanged": true,
+      "unchangedPixels": true
+    },
+    {
+      "page": 10,
+      "rotation": 0,
+      "contentStreamExact": true,
+      "boxesExact": true,
+      "resourceObjectUnchanged": true,
+      "unchangedPixels": true
+    },
+    {
+      "page": 11,
+      "rotation": 0,
+      "contentStreamExact": true,
+      "boxesExact": true,
+      "resourceObjectUnchanged": true,
+      "unchangedPixels": true
+    },
+    {
+      "page": 12,
+      "rotation": 0,
+      "contentStreamExact": true,
+      "boxesExact": true,
+      "resourceObjectUnchanged": true,
+      "unchangedPixels": true
+    },
+    {
+      "page": 13,
+      "rotation": 0,
+      "contentStreamExact": true,
+      "boxesExact": true,
+      "resourceObjectUnchanged": true,
+      "unchangedPixels": true
+    },
+    {
+      "page": 14,
+      "rotation": 0,
+      "contentStreamExact": true,
+      "boxesExact": true,
+      "resourceObjectUnchanged": true,
+      "unchangedPixels": true
+    },
+    {
+      "page": 15,
+      "rotation": 0,
+      "contentStreamExact": true,
+      "boxesExact": true,
+      "resourceObjectUnchanged": true,
+      "unchangedPixels": true
+    }
+  ],
+  "allSixPages": 27,
+  "physicalSafariAfter": "UNVERIFIED",
+  "browser": "9 PASS / 1 intentional duplicate locale SKIP, Pro402x874 Max440x956 DPR3 WebKit; all6 HTTP bodies/MIME/native click+keyboard/noJS/no prefetch,11locales/RTL/320\u20131440 layout; actual root-viewed screenshots",
+  "build": "PASS eleven locale SSG",
+  "typecheck": "PASS",
+  "lint": "0 errors / 1 existing Telegram unused-variable warning",
+  "nativeReview": "PASS actual diff, no actionable findings; independently reproduced generator, upright p1 and unchanged14 renders",
+  "visualEvidence": [
+    "orientation-before.png",
+    "orientation-after.png",
+    "orientation-all-pages.png"
+  ],
+  "rawLogs": "/tmp/ramsider-pdf-orientation (untracked)",
+  "technicalApproval": "APPROVED /root 2026-10-20; independent /root/beta_auditor Stages1\u20136 prepublication PASS",
+  "performance": "orientation-performance.json: LCP2560ms CLS0 JS208974 encodedB 0PDFbeforeactivation; isolated4Mbps100ms4CPU sample; derivative+390B",
+  "cardPixelComparison": "Current Pro/Max landing screenshots pixel-identical to historical approved landing-pro.png/landing-max.png; actual images viewed by root and auditor"
+}

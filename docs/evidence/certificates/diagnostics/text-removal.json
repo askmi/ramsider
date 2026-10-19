@@ -1,7 +1,7 @@
 {
   "date": "2026-10-19",
   "change": "CHG0117",
-  "status": "VERIFIED local removal; independentStages1–6PASS; publicationpending",
+  "status": "VERIFIED and deployed dd565957a0643b014a522a9960c4947c6bbe427a",
   "request": "User explicitly orders removal of entire unrequested Document Text mode and no invented replacements",
   "implementation": [
     "PDF text UI/state/helper/import/cancellation/deadline/text-onlyfallback removed",
@@ -52,5 +52,14 @@
     "no fieldINP/Lighthouseclaim",
     "controlledindependent AgentEvalNOT_RUN"
   ],
-  "rawIgnoredEvidence": "screenshots/certificate-diagnostics/{build-remove-text,type-remove-text,lint-remove-text,browser-remove-text,native-remove-text,performance-remove-text} logs; initialtext-before/native-text retired logs preserved"
+  "rawIgnoredEvidence": "screenshots/certificate-diagnostics/{build-remove-text,type-remove-text,lint-remove-text,browser-remove-text,native-remove-text,performance-remove-text} logs; initialtext-before/native-text retired logs preserved",
+  "publication": {
+    "sha": "dd565957a0643b014a522a9960c4947c6bbe427a",
+    "bothVercel": "SUCCESS",
+    "canonicalProMax": "PASS noDocumentText/noextractionphase/PDFcanvas+DEBUG+belowRetry",
+    "receipts": [
+      "text-removal-publication.json",
+      "text-removal-public-live.json"
+    ]
+  }
 }

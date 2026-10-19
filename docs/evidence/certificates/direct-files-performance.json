@@ -1,0 +1,29 @@
+{
+  "conditions": "Production3111, cold Chromium402x874 DPR3 4Mbps/100ms/4xCPU; scroll loopback1xCPU; single synthetic sample; browser regression tests were running concurrently",
+  "usefulMs": 2591.2000000476837,
+  "lcpMs": 2584,
+  "cls": 0,
+  "ttfbMs": 18.399999976158142,
+  "paint": [
+    {
+      "name": "first-paint",
+      "time": 408
+    },
+    {
+      "name": "first-contentful-paint",
+      "time": 408
+    }
+  ],
+  "jsTransferBytes": 217796,
+  "initialTransferBytes": 800996,
+  "preClickPdfOrVendorRequests": 0,
+  "scroll": {
+    "frames": 119,
+    "p95Ms": 16.800000000000182,
+    "over33": 1
+  },
+  "limitations": [
+    "No INP/Lighthouse/field or physical browser PDF controls measurement",
+    "No causal A/B speed claim"
+  ]
+}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, type ReactNode } from 'react';
+import { useEffect } from 'react';
 import type { Locale } from '@/lib/i18n';
 
 const copy: Record<Locale, [string, string, string]> = {
@@ -17,19 +17,17 @@ const copy: Record<Locale, [string, string, string]> = {
   ko: ['이미지 로딩 중…', '이미지를 불러올 수 없습니다.', '다시 시도'],
 };
 
-export function LoadingStatus({ locale, progress = null, error = false, onRetry, labels, spinner = false, children }: {
+export function LoadingStatus({ locale, progress = null, error = false, onRetry }: {
   locale: Locale; progress?: number | null; error?: boolean; onRetry?: () => void;
-  labels?: {loading: string; failed: string; retry: string}; spinner?: boolean; children?: ReactNode;
 }) {
   const value = progress === null ? null : Math.max(0, Math.min(100, Math.floor(progress)));
-  const [loading, failed, retry] = labels ? [labels.loading, labels.failed, labels.retry] : copy[locale];
+  const [loading, failed, retry] = copy[locale];
   return <div className="media-loading" role="status" aria-live="polite" dir={locale === 'ar' ? 'rtl' : undefined}>
-    <p>{spinner && !error && <span className="media-loading__spinner" aria-hidden="true" />}{error ? failed : loading}{!error && value !== null && <span aria-hidden="true"> {value}%</span>}</p>
+    <p>{error ? failed : loading}{!error && value !== null && <span aria-hidden="true"> {value}%</span>}</p>
     {!error && <div className="media-loading__track" role="progressbar" aria-label={loading} aria-valuemin={0} aria-valuemax={100} {...(value !== null ? { 'aria-valuenow': value } : {})}>
       <span className={value === null ? 'media-loading__bar is-indeterminate' : 'media-loading__bar'} style={value !== null ? { width: `${value}%` } : undefined} />
     </div>}
     {error && onRetry && <button type="button" onClick={onRetry}>{retry}</button>}
-    {error && children}
   </div>;
 }
 

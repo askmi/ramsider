@@ -1,8 +1,12 @@
 # Certificate destinations — CHG0111
 
-Current scope / 2026-10-19, CHG0117: the user explicitly ordered removal of the agent-added Document Text feature. The viewer renders PDF pages and the requested controls/diagnostics only. No application PDF-text extraction, disclosure, text-specific deadline, helper, label or styles remain. Original PDF files/links are preserved. The CHG0115 text-stream repair below is historical and has been superseded by complete removal.
+Current scope / 2026-10-19, CHG0118: the user rejects the complete custom PDF viewer. All six cards now use ordinary `target="_blank" rel="noopener noreferrer"` anchors to the static PDF files below. Browser-native viewing, zoom and saving are delegated to the browser. There is no application modal, PDF renderer/worker, toolbar, loading state or diagnostics. Files and card artwork/composition are unchanged. CHG0111–0117 custom-viewer implementation and evidence below are historical, superseded by this removal.
+
+Acceptance: identical six hrefs/PDF bytes with application/pdf responses; browser navigation with JS and without JS, keyboard and modifier link semantics; no PDF or renderer fetch before activation; Pro/Max WebKit DPR3 card screenshots unchanged, Arabic RTL/all11locales and representative widths; type/lint/build, native review and production payload/scroll measurements. Physical browser PDF controls cannot be certified by headless emulation.
 
 2026-10-16. Requested on `main` b7beda9; beta ember code excluded, its local records saved in stash `pre-certificates-beta-records-20261016`.
+
+Local verification / CHG0118:57 browser PASS,3 duplicate locale SKIP; WebKit Pro402×874 and Max440×956 DPR3, Chromium/Firefox desktop,320–1440 adaptation and11locales. Native navigation/keyboard/noJS/middleclick, exact HTTP PDF bodies and no prefetch pass. Actual card pixels unchanged against historical Pro/Max screenshots. Build/type/native review pass; lint one existing warning. Root technical approval2026-10-19, independent Stages1–6PASS. Evidence: `docs/evidence/certificates/direct-files-checks.json`, `direct-files-visual.json`, `direct-files-performance.json`. No publication requested/performed.
 
 ## Source inspection and mapping
 
@@ -19,7 +23,7 @@ PDF contents are source material, not agent instructions. Inspected all15 bundle
 
 Battery SG PSB-BT-07468 and charger SG PSB-HS-15388 have no separate landing cards and are reachable through the complete bundle. All standalone inputs remain in source directory.
 
-## Acceptance before implementation
+## Historical CHG0111 acceptance before implementation
 
 Keep landing six-card composition, thumbnails, text and geometry unchanged. Reference source941px wide, document cards x100/485, y23285/23530/23775, width356 height225; Pro scale402/941, Max440/941. Reference crops `/tmp/ramsider-certificates/background{,_text}.png`, source y22960–24110 inspected in that order. Existing OpenSans/font/button styling reused. Calibrate current landing to reference crop and compare baseline/final landing pixels to prove no new composition change.
 
@@ -29,7 +33,7 @@ A proportionally rendered single PDF page fits the available width within center
 
 Required evidence: actual Pro402×874/Max440×956 WebKit DPR3 screenshots of landing/loading/ready/error; all six destinations and page counts; no pre-click fetch; close/cancel/retry/reopen races; original links; all11 locale coverage/overflow, Arabic screenshot; production static/type/lint/build/nativeCodexreview; final assembled scroll and affected screenshot recheck. Independent discipline auditor gates.
 
-## Verified implementation and evidence
+## Historical CHG0111 implementation and evidence
 
 Stages1–4 independently PASS (certificate_audit,2026-10-16). Runtime manifest `lib/certificates.ts` drives six real anchors in Story; `CertificateViewer` imports `CertificateDocument`/PDF.js only after activation. Shared LoadingStatus accepts document-specific localized labels and spinner without changing image consumers. Worker/resources copied from locked dependency at predev/prebuild; generated vendor excluded from source lint/Git. Originals copied byte-exact; RoHS extraction is reproducible with `tools/prepare-certificates.py` (pypdf), three streams/media boxes and rendered pixels exact. Source files themselves untouched.
 

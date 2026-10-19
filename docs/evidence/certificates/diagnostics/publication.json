@@ -1,0 +1,44 @@
+{
+  "dateLocal": "2026-10-19",
+  "sha": "ce8ff6c14cc26d2d164556e9354fedb6a09223bc",
+  "repository": "askmi/ramsider",
+  "branch": "main",
+  "remoteExactSHA": true,
+  "betaUnchanged": "34b23a96212c7df96856585b6270a7d1fb800286",
+  "targets": [
+    {
+      "context": "Vercel \u2013 ramsider",
+      "state": "success",
+      "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/8fpm611J47EyEKZnCRMorL2GfKWG"
+    },
+    {
+      "context": "Vercel \u2013 ramsider-beta",
+      "state": "success",
+      "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/JA2Csn7pgLWdFoZ4QQgg5BpsTSu8"
+    }
+  ],
+  "deployments": [
+    {
+      "id": 7178281898,
+      "sha": "ce8ff6c14cc26d2d164556e9354fedb6a09223bc",
+      "environment": "Preview \u2013 ramsider-beta",
+      "state": "success",
+      "environment_url": "https://ramsider-beta-bbf4huo5p-askmi-6282s-projects.vercel.app"
+    },
+    {
+      "id": 7178281607,
+      "sha": "ce8ff6c14cc26d2d164556e9354fedb6a09223bc",
+      "environment": "Production \u2013 ramsider",
+      "state": "success",
+      "environment_url": "https://ramsider-qjh0bxilv-askmi-6282s-projects.vercel.app"
+    }
+  ],
+  "publicLiveCheck": {
+    "initialProInspection": "READYHTTP200after32.48s",
+    "PDFBytes": 140057,
+    "rendererImportMs": 17580,
+    "PDFDeliveryMs": 7460,
+    "firstHarnessOutcome": "30saggregateharnesstimeout; notconfirmedapplicationfailure",
+    "followup": "Waiting-stageenhancement and90sProMaxprobe pending newSHA"
+  }
+}

@@ -47,7 +47,7 @@ export default function CertificateDocument({ source, title, locale, copy, onRel
     const response = await fetch(source.href, {signal:controller.signal});
     trace?.add('pdf.headers', `HTTP ${response.status}; MIME ${response.headers.get('content-type') ?? 'unavailable'}; Content-Length ${response.headers.get('content-length') ?? 'unavailable'} B`);
     if (!response.ok) throw new Error(`HTTP ${response.status} while loading PDF`);
-    phase='pdf.body';
+    phase='pdf.body';trace?.add(phase);
     const data = new Uint8Array(await response.arrayBuffer());
     if (disposed || expired) return;
     trace?.downloaded(data.byteLength, performance.now()-started, response.status, response.headers.get('content-type') ?? 'unavailable', Number(response.headers.get('content-length')) || null);

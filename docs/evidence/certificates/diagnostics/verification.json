@@ -58,7 +58,21 @@
     "customerphysicaliPhoneBelarusrootcauseunknown",
     "INP/Lighthouse/physicalSafariunmeasured"
   ],
-  "technicalApproval": "APPROVED2026-10-19/root; independentbeta_auditorStages2-6PASS; customerrootcauseCHG0115OPEN",
-  "publication": "PENDING main deployment under urgent customerdiagnostic task; not useracceptance",
-  "performance": "performance.json: useful2531.7ms,LCP2640ms,CLS0,JS219827B,0PDFbeforeclick;warmloopbackopen702ms;singlesynthetic"
+  "technicalApproval": "APPROVED2026-10-19/root for currentwaitingdelta; independentwaitingStages1-6PASS; originalfullinstrumentationStages2-6PASS retained",
+  "publication": "Initialce8ff6c main deployedbothprojects, publicinitialdocumentready32.48s; waitingdelta not yet deployed",
+  "performance": "Finalwaitingdelta: useful2726.6ms,LCP2852ms,CLS0,JS219995B,0PDFbeforeclick,warmloopbackopen334ms; singlesyntheticobservations, no causalA/B",
+  "waitingDelta": {
+    "pass": 7,
+    "skip": 5,
+    "fail": 0,
+    "build": "PASS11localeSSG",
+    "typecheck": "PASS",
+    "lint": "1oldwarning0errors",
+    "nativeReview": "No actionable lifecycle/factualissues; pending-onlyintervalcleansuponready/error/unmount",
+    "actualImages": [
+      "iphone-17-pro-webkit-waiting.png",
+      "iphone-17-pro-max-webkit-waiting.png"
+    ],
+    "clockEvidence": "HeldPDFfetch6s; actualphase/totalelapsedvisible; successfulRetry/ready removeswaiting"
+  }
 }

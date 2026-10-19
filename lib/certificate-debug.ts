@@ -21,7 +21,7 @@ export function reportedBrowser(ua: string): string {
 
 type Connection = {type?: string; effectiveType?: string; downlink?: number; rtt?: number};
 type DebugNavigator = Navigator & {deviceMemory?: number; connection?: Connection};
-export type DebugSnapshot = {summary: string; events: string; failed: boolean};
+export type DebugSnapshot = {summary: string; events: string; failed: boolean; waiting: boolean};
 
 export class CertificateDebugTrace {
  private started = performance.now();
@@ -32,11 +32,12 @@ export class CertificateDebugTrace {
  private transfer = 'PDF: measuring…';
  private render = '';
  private phase = 'renderer.import';
+ private phaseStarted = performance.now();
  private device: string[];
  private state: DebugSnapshot;
  constructor(private source: string) {
   const nav = navigator as DebugNavigator, ua = nav.userAgent;
-  const ios = /(?:CPU(?: iPhone)? OS|iPhone OS) ([\d_]+)/.exec(ua)?.[1]?.replaceAll('_', '.');
+  const ios = /(?:CPU(?: iPhone)? OS|iPhone OS) ([\d_]+)/.exec(ua)?.[1]?.replace(/_/g, '.');
   const android = /Android ([\d.]+)/.exec(ua)?.[1];
 
   const connection = nav.connection;
@@ -52,11 +53,13 @@ export class CertificateDebugTrace {
   this.add('viewer.open');
   this.add('features', `Worker=${typeof Worker !== 'undefined'}; Promise.withResolvers=${typeof Promise.withResolvers === 'function'}; Map.getOrInsertComputed=${typeof (Map.prototype as unknown as Record<string, unknown>).getOrInsertComputed === 'function'}`);
  }
- private makeSnapshot(): DebugSnapshot {return {summary:[this.failed ? 'ERROR '+this.failure : '', this.transfer, this.render, ...this.device].filter(Boolean).join('\n'),events:this.rows.join('\n'),failed:this.failed};}
+ private isWaiting() {return !this.failed && ['renderer.import','pdf.fetch','pdf.body','pdf.open/worker','pdf.page','pdf.render','pdf.text'].includes(this.phase);}
+ refreshWaiting = () => {if(this.isWaiting())this.publish();};
+ private makeSnapshot(): DebugSnapshot {return {summary:[this.isWaiting() ? `Waiting: ${this.phase} | phase ${((performance.now()-this.phaseStarted)/1000).toFixed(1)} s | total ${((performance.now()-this.started)/1000).toFixed(1)} s` : '', this.failed ? 'ERROR '+this.failure : '', this.transfer, this.render, ...this.device].filter(Boolean).join('\n'),events:this.rows.join('\n'),failed:this.failed,waiting:this.isWaiting()};}
  private publish() {this.state=this.makeSnapshot();this.listeners.forEach(listener=>listener());}
  subscribe = (listener: () => void) => {this.listeners.add(listener);return () => {this.listeners.delete(listener);};};
  snapshot = () => this.state;
- add(phase: string, detail = '') {this.phase=phase;this.rows.push(`${((performance.now()-this.started)/1000).toFixed(2)}s ${phase}${detail ? ' · '+safeDiagnostic(detail) : ''}`);this.rows=this.rows.slice(-24);this.publish();}
+ add(phase: string, detail = '') {this.phase=phase;this.phaseStarted=performance.now();this.rows.push(`${((performance.now()-this.started)/1000).toFixed(2)}s ${phase}${detail ? ' · '+safeDiagnostic(detail) : ''}`);this.rows=this.rows.slice(-24);this.publish();}
  fail(phase: string, reason: unknown) {
   this.failed=true;if(this.transfer==='PDF: measuring…')this.transfer='PDF: download incomplete; size/speed unavailable';this.failure=phase+': '+safeDiagnostic(reason);this.add(phase, safeDiagnostic(reason));
   for(const item of performance.getEntriesByType('resource').filter(entry=>{try{return entry.startTime >= this.started && new URL(entry.name).pathname.startsWith('/pdfjs/');}catch{return false;}}).slice(-4)) {

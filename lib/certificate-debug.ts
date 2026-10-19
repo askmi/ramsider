@@ -1,13 +1,17 @@
 /** Temporary, local-only diagnostics. Set false to remove the entire debug UI. */
 export const CERTIFICATE_DEBUG_ENABLED = true;
+/** Public diagnostic revision, deliberately independent of private build metadata. */
+export const CERTIFICATE_DEBUG_REVISION = 'PDF-DEBUG-20261019-3';
 
 export function safeDiagnostic(value: unknown): string {
+ try {
  const raw = value instanceof Error ? `${value.name}: ${value.message}` : String(value);
  return raw.replace(/https?:\/\/[^\s"'<>]+/gi, input => {
   try { const url = new URL(input); return url.origin === location.origin ? url.pathname : '[external URL]'; } catch { return '[URL]'; }
  }).replace(/(?:bearer\s+)[\w.\-]+/gi, 'Bearer [redacted]')
   .replace(/\b(token|password|secret|authorization|cookie|key)\s*[:=]\s*[^\s,;]+/gi, '$1=[redacted]')
   .replace(/[?&#][^\s"'<>]*/g, '[parameters removed]').slice(0, 420);
+ } catch {return 'Exception details unavailable (formatting failed)';}
 }
 
 export function reportedBrowser(ua: string): string {
@@ -51,7 +55,7 @@ export class CertificateDebugTrace {
   ];
   this.state = this.makeSnapshot();
   this.add('viewer.open');
-  this.add('features', `Worker=${typeof Worker !== 'undefined'}; Promise.withResolvers=${typeof Promise.withResolvers === 'function'}; Map.getOrInsertComputed=${typeof (Map.prototype as unknown as Record<string, unknown>).getOrInsertComputed === 'function'}`);
+  this.add('features', `Worker=${typeof Worker !== 'undefined'}; Promise.withResolvers=${typeof Promise.withResolvers === 'function'}; Map.getOrInsertComputed=${typeof (Map.prototype as unknown as Record<string, unknown>).getOrInsertComputed === 'function'}; ReadableStream.asyncIterator=${typeof ReadableStream !== 'undefined' && typeof (ReadableStream.prototype as unknown as Record<symbol, unknown>)[Symbol.asyncIterator] === 'function'}`);
  }
  private isWaiting() {return !this.failed && ['renderer.import','pdf.fetch','pdf.body','pdf.open/worker','pdf.page','pdf.render','pdf.text'].includes(this.phase);}
  refreshWaiting = () => {if(this.isWaiting())this.publish();};
@@ -60,9 +64,13 @@ export class CertificateDebugTrace {
  subscribe = (listener: () => void) => {this.listeners.add(listener);return () => {this.listeners.delete(listener);};};
  snapshot = () => this.state;
  add(phase: string, detail = '') {this.phase=phase;this.phaseStarted=performance.now();this.rows.push(`${((performance.now()-this.started)/1000).toFixed(2)}s ${phase}${detail ? ' · '+safeDiagnostic(detail) : ''}`);this.rows=this.rows.slice(-24);this.publish();}
+ private resourceEntries(method:'name'|'type',value:string):PerformanceEntry[] {
+  try {return method==='name'?performance.getEntriesByName(value):performance.getEntriesByType(value);}
+  catch(reason) {this.add('debug.resourceTiming.unavailable',safeDiagnostic(reason));return [];}
+ }
  fail(phase: string, reason: unknown) {
   this.failed=true;if(this.transfer==='PDF: measuring…')this.transfer='PDF: download incomplete; size/speed unavailable';this.failure=phase+': '+safeDiagnostic(reason);this.add(phase, safeDiagnostic(reason));
-  for(const item of performance.getEntriesByType('resource').filter(entry=>{try{return entry.startTime >= this.started && new URL(entry.name).pathname.startsWith('/pdfjs/');}catch{return false;}}).slice(-4)) {
+  for(const item of this.resourceEntries('type','resource').filter(entry=>{try{return entry.startTime >= this.started && new URL(entry.name).pathname.startsWith('/pdfjs/');}catch{return false;}}).slice(-4)) {
    const entry=item as PerformanceResourceTiming & {responseStatus?:number};
    this.add('resource.observed', `${new URL(entry.name).pathname}; ${Math.round(entry.duration)} ms; HTTP ${entry.responseStatus || 'unavailable'}; transfer ${entry.transferSize} B (0 may mean cache/blocked/unavailable)`);
   }
@@ -70,7 +78,7 @@ export class CertificateDebugTrace {
  reset() {this.started=performance.now();this.rows=[];this.failed=false;this.failure='';this.transfer='PDF: measuring…';this.render='';this.add('retry');}
  downloaded(bytes: number, elapsed: number, status: number, mime: string, declared: number | null) {
   const url=new URL(this.source, location.origin).href;
-  const entry=performance.getEntriesByName(url).filter(item=>item.entryType==='resource' && item.startTime >= this.started).at(-1) as PerformanceResourceTiming | undefined;
+  const entry=this.resourceEntries('name',url).filter(item=>item.entryType==='resource' && item.startTime >= this.started).at(-1) as PerformanceResourceTiming | undefined;
   const cached=entry && entry.transferSize===0 && entry.decodedBodySize>0;
   const speed=elapsed>0 ? `${(bytes*8/elapsed/1000).toFixed(2)} Mbps` : 'unavailable';
   this.transfer=`PDF: ${bytes.toLocaleString('en-US')} B (${(bytes/1024).toFixed(1)} KiB) | ${(elapsed/1000).toFixed(2)} s | ${cached ? '0 network bytes reported; internet speed unavailable' : speed+' delivery (latency/cache may affect)'}`;

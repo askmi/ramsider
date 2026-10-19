@@ -2,12 +2,14 @@ import {expect,test,type Page} from '@playwright/test';
 import {mkdirSync} from 'node:fs';
 import {certificates} from '../../lib/certificates';
 import {locales} from '../../lib/i18n';
+import {CERTIFICATE_DEBUG_REVISION} from '../../lib/certificate-debug';
 
 const evidence='screenshots/certificates';
 mkdirSync(evidence,{recursive:true});
 test.setTimeout(120000);
 async function landing(page:Page,locale='en') {
  await page.goto(`/${locale}`);
+ await page.waitForFunction(()=>document.documentElement.hasAttribute('data-media-hydrated'));
  await page.locator('#documents').scrollIntoViewIfNeeded();
  await page.evaluate(()=>document.fonts.ready);
  await expect(page.locator('.page-media-overlay')).toHaveCount(0,{timeout:30000});
@@ -60,6 +62,7 @@ test('failure retry cancellation rapid reopen and keyboard containment',async({p
  await landing(page);let fail=true;
  await page.route('**/certificates/rohs.pdf',async route=>fail?route.fulfill({status:503,body:'unavailable'}):route.continue());
  await page.locator('#document-rohs').click();await expect(viewer(page).getByText('The document could not load.',{exact:true})).toBeVisible();
+ await expect(viewer(page).locator('.certificate-debug')).toContainText(CERTIFICATE_DEBUG_REVISION);await expect(viewer(page).locator('.certificate-error-debug')).toContainText('HTTP 503');
  await page.screenshot({path:`${evidence}/${info.project.name}-error.png`});
  fail=false;await viewer(page).getByRole('button',{name:'Retry',exact:true}).click();await ready(page);
  for(let n=0;n<12;n++){await page.keyboard.press('Tab');expect(await page.evaluate(()=>!!document.activeElement?.closest('#certificate-viewer'))).toBe(true);}
@@ -102,6 +105,7 @@ test('deferred renderer failure and PDF deadline can recover',async({page},info)
  await landing(page);await page.locator('#document-emc').click();
  await expect(viewer(page).getByText('The document could not load.',{exact:true})).toBeVisible();
  await expect(viewer(page).locator('.certificate-debug')).toContainText('renderer.import.');
+ await expect(viewer(page).locator('.certificate-error-debug')).toContainText('renderer.import.');
  fail=false;await viewer(page).getByRole('button',{name:'Retry',exact:true}).click();await ready(page);await page.keyboard.press('Escape');
  let release!:()=>void;const hold=new Promise<void>(resolve=>{release=resolve;});
  await page.route('**/certificates/rohs.pdf',async route=>{await hold;await route.continue().catch(()=>{});});
@@ -109,6 +113,7 @@ test('deferred renderer failure and PDF deadline can recover',async({page},info)
  expect(await viewer(page).locator('.media-loading__spinner').evaluate(e=>getComputedStyle(e).animationName)).toBe('none');
  await page.clock.fastForward(31000);await expect(viewer(page).getByText('The document could not load.',{exact:true})).toBeVisible();
  await expect(viewer(page).locator('.certificate-debug')).toContainText('pdf.fetch.timeout');
+ await expect(viewer(page).locator('.certificate-error-debug')).toContainText('pdf.fetch.timeout');
  release();await page.unroute('**/certificates/rohs.pdf');await viewer(page).getByRole('button',{name:'Retry',exact:true}).click();await ready(page);await page.keyboard.press('Escape');
 });
 
@@ -131,6 +136,7 @@ test('worker initialization recovery and repeated keyboard navigation',async({pa
  await page.route('**/pdfjs/pdf.worker.min.mjs',async route=>fail?route.abort('failed'):route.continue());
  await landing(page);await page.locator('#document-uae').click();await expect(viewer(page).getByText('The document could not load.',{exact:true})).toBeVisible({timeout:30000});
  await expect(viewer(page).locator('.certificate-debug')).toContainText('pdf.open/worker');
+ await expect(viewer(page).locator('.certificate-error-debug')).toContainText('pdf.open/worker');
  fail=false;await viewer(page).getByRole('button',{name:'Retry',exact:true}).click();await ready(page);
  const next=viewer(page).getByRole('button',{name:'Next Page',exact:true});await next.focus();
  for(let n=2;n<=3;n++){await page.keyboard.press('Enter');await ready(page);await expect(next).toBeFocused();await expect(viewer(page).locator('output')).toHaveText(`Page ${n} / 3`);}

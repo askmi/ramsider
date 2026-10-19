@@ -375,3 +375,5 @@ html:has(#charcoal-viewer[open]),body:has(#charcoal-viewer[open]){background:var
 .certificate-debug pre{margin:6px 0;font:inherit;white-space:pre-wrap;overflow-wrap:anywhere;text-align:left}
 .certificate-debug summary{min-height:44px;display:flex;align-items:center;cursor:pointer;text-decoration:underline}
 .certificate-debug summary:focus-visible{outline:3px solid #e7b46a}
+.certificate-error-debug{max-height:100px;overflow:auto;margin:8px 0;padding:8px;border:1px dashed #bfa47e;color:#ffda9e;font:12px/1.4 OpenSans,sans-serif;white-space:pre-wrap;overflow-wrap:anywhere;text-align:left;user-select:text}
+.certificate-body .media-loading:has(.certificate-error-debug){inset-block:0;max-height:100%;overflow:auto}

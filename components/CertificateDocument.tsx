@@ -1,11 +1,13 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { GlobalWorkerOptions, getDocument, version, type PDFDocumentProxy, type RenderTask } from 'pdfjs-dist';
-import type { CertificateDebugTrace } from '@/lib/certificate-debug';
+import { safeDiagnostic, type CertificateDebugTrace } from '@/lib/certificate-debug';
 import type { Locale } from '@/lib/i18n';
 import type { CertificateCopy } from '@/lib/certificate-copy';
+import { readCertificateText } from '@/lib/certificate-text';
 import { LoadingStatus } from './MediaLoading';
+import { CertificateProblemDetails } from './CertificateDiagnostics';
 
 GlobalWorkerOptions.workerSrc = '/pdfjs/pdf.worker.min.mjs';
 
@@ -23,6 +25,8 @@ export default function CertificateDocument({ source, title, locale, copy, onRel
  const [ready, setReady] = useState(false);
  const [width, setWidth] = useState(0);
  const [text, setText] = useState('');
+ const [problem,setProblem] = useState('');
+ const reportFailure=useCallback((phase:string,reason:unknown)=>{setProblem(phase+': '+safeDiagnostic(reason));try {trace?.fail(phase,reason);} catch { /* Local failure/recovery must not depend on optional diagnostics. */ }},[trace]);
  const canvas = useRef<HTMLCanvasElement>(null);
  const scroller = useRef<HTMLDivElement>(null);
  useEffect(() => {
@@ -41,7 +45,7 @@ export default function CertificateDocument({ source, title, locale, copy, onRel
   let expired=false;
   trace?.add(phase, `PDF.js ${version}; ${source.href}`);
   const started=performance.now();
-  const timeout = setTimeout(() => {expired=true;trace?.fail(phase+'.timeout', new Error('PDF load exceeded 30000 ms'));controller.abort();setError(true);void task?.destroy();}, 30000);
+  const timeout = setTimeout(() => {expired=true;reportFailure(phase+'.timeout', new Error('PDF load exceeded 30000 ms'));controller.abort();setError(true);void task?.destroy();}, 30000);
   (async () => {
    try {
     const response = await fetch(source.href, {signal:controller.signal});
@@ -56,20 +60,21 @@ export default function CertificateDocument({ source, title, locale, copy, onRel
     const document = await task.promise;
     if (!disposed && !expired) {trace?.add('pdf.open.ready', `${document.numPages} pages`);setPdf(document);}
    } catch (reason) {
-    if (!disposed && !expired) {trace?.fail(phase, reason);setError(true);if (/worker/i.test(reason instanceof Error ? reason.message : String(reason))) setReloadRequired(true);}
+    if (!disposed && !expired) {reportFailure(phase, reason);setError(true);if (/worker/i.test(reason instanceof Error ? reason.message : String(reason))) setReloadRequired(true);}
    } finally {clearTimeout(timeout);}
   })();
   return () => {disposed = true;clearTimeout(timeout);controller.abort();void task?.destroy();};
- }, [source.href, attempt, trace]);
+ }, [source.href, attempt, trace, reportFailure]);
  useEffect(() => {
   if (!pdf || !width) return;
   let cancelled = false;
   let task: RenderTask | undefined;
   let textDeadline: ReturnType<typeof setTimeout> | undefined;
+  const textController = new AbortController();
   let phase='pdf.page';
   const started=performance.now();
   trace?.add(phase, `page ${pageNumber}`);
-  const timeout = setTimeout(() => {if (!cancelled) {cancelled=true;task?.cancel();trace?.fail(phase+'.timeout', new Error('PDF render exceeded 30000 ms'));setError(true);}}, 30000);
+  const timeout = setTimeout(() => {if (!cancelled) {cancelled=true;task?.cancel();reportFailure(phase+'.timeout', new Error('PDF render exceeded 30000 ms'));setError(true);}}, 30000);
   (async () => {
    try {
     const page = await pdf.getPage(pageNumber);
@@ -93,25 +98,26 @@ export default function CertificateDocument({ source, title, locale, copy, onRel
     clearTimeout(timeout);
     phase='pdf.text';trace?.add(phase);
     let textExpired=false;
-    textDeadline=setTimeout(() => {if (!cancelled) {textExpired=true;trace?.fail('pdf.text.timeout', new Error('Text extraction exceeded 30000 ms; rendered PDF remains available'));}},30000);
+    textDeadline=setTimeout(() => {if (!cancelled) {textExpired=true;reportFailure('pdf.text.timeout', new Error('Text extraction exceeded 30000 ms; rendered PDF remains available'));textController.abort();}},30000);
     try {
-     const content = await page.getTextContent();
-     if (!cancelled && !textExpired) {setText(content.items.map(item => 'str' in item ? item.str : '').join(' '));trace?.add('pdf.text.ready');}
-    } catch(reason) {if (!cancelled && !textExpired) trace?.fail('pdf.text', reason);}
+     const content = await readCertificateText(page, textController.signal);
+     if (!cancelled && !textExpired) {setText(content);trace?.add('pdf.text.ready');}
+    } catch(reason) {if (!cancelled && !textExpired) reportFailure('pdf.text', reason);}
     finally {clearTimeout(textDeadline);}
-   } catch (reason) {if (!cancelled) {trace?.fail(phase, reason);setError(true);}}
+   } catch (reason) {if (!cancelled) {reportFailure(phase, reason);setError(true);}}
    finally {clearTimeout(timeout);}
   })();
-  return () => {cancelled = true;clearTimeout(timeout);clearTimeout(textDeadline);task?.cancel();};
- }, [pdf, pageNumber, width, zoom, rotation, source.pageRotations, trace]);
- const retry = () => {if (reloadRequired) {onReload();return;}trace?.reset();setReloadRequired(false);setError(false);setReady(false);setPdf(null);setAttempt(value => value+1);};
+  return () => {cancelled = true;clearTimeout(timeout);clearTimeout(textDeadline);textController.abort();task?.cancel();};
+ }, [pdf, pageNumber, width, zoom, rotation, source.pageRotations, trace, reportFailure]);
+ const retry = () => {if (reloadRequired) {onReload();return;}trace?.reset();setProblem('');setReloadRequired(false);setError(false);setReady(false);setPdf(null);setAttempt(value => value+1);};
  const navigate = (page: number) => {setReady(false);setPageNumber(page);};
  return <div className="certificate-document" aria-busy={!ready && !error}>
   <div ref={scroller} className="certificate-scroll" tabIndex={0} role="region" aria-label={title}>
    <canvas ref={canvas} style={{visibility:ready && !error ? 'visible' : 'hidden'}} role="img" aria-label={`${title} — ${copy.page} ${pageNumber} / ${pdf?.numPages ?? source.pages}`} />
    {ready && text && <details className="certificate-text" dir="auto"><summary>{copy.text}</summary><p>{text}</p></details>}
   </div>
-  {(!ready || error) && <LoadingStatus locale={locale} labels={copy} spinner error={error} onRetry={retry} />}
+  {(!ready || error) && <LoadingStatus locale={locale} labels={copy} spinner error={error} onRetry={retry}><CertificateProblemDetails trace={trace} problem={problem}/></LoadingStatus>}
+  {ready && !error && problem && !trace && <CertificateProblemDetails problem={problem}/>}
   <footer className="certificate-controls">
    <button type="button" aria-label={copy.previous} aria-disabled={!ready || error || pageNumber === 1} onClick={() => {if (ready && !error && pageNumber>1) navigate(pageNumber-1);}}>‹</button>
    <output aria-live="polite">{copy.page} <bdi>{pageNumber} / {pdf?.numPages ?? source.pages}</bdi></output>

@@ -1,6 +1,6 @@
 import type { Locale } from './i18n';
 
-export type CertificateCopy = { loading: string; failed: string; retry: string; original: string; previous: string; next: string; page: string; zoom: string; rotate: string; text: string };
+export type CertificateCopy = { loading: string; failed: string; retry: string; original: string; previous: string; next: string; page: string; zoom: string; rotate: string; text: string; debug: string };
 const entries: Record<Locale, readonly string[]> = {
  en: ['Loading Document…', 'The document could not load.', 'Retry', 'Open Original PDF', 'Previous Page', 'Next Page', 'Page', 'Zoom', 'Rotate Page', 'Document Text'],
  ru: ['Загрузка документа…', 'Не удалось загрузить документ.', 'Повторить', 'Открыть оригинал PDF', 'Предыдущая страница', 'Следующая страница', 'Страница', 'Масштаб', 'Повернуть страницу', 'Текст документа'],
@@ -16,5 +16,6 @@ const entries: Record<Locale, readonly string[]> = {
 };
 export function certificateCopy(locale: Locale): CertificateCopy {
  const [loading, failed, retry, original, previous, next, page, zoom, rotate, text] = entries[locale];
- return {loading, failed, retry, original, previous, next, page, zoom, rotate, text};
+ const debug: Record<Locale,string> = {en:'DEBUG · Temporary Diagnostics',ru:'DEBUG · Временная диагностика',de:'DEBUG · Temporäre Diagnose',fr:'DEBUG · Diagnostic temporaire',es:'DEBUG · Diagnóstico temporal',it:'DEBUG · Diagnostica temporanea',tr:'DEBUG · Geçici tanılama',ar:'DEBUG · تشخيص مؤقت',zh:'DEBUG · 临时诊断',ja:'DEBUG · 一時的な診断',ko:'DEBUG · 임시 진단'};
+ return {loading, failed, retry, original, previous, next, page, zoom, rotate, text, debug:debug[locale]};
 }

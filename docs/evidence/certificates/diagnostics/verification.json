@@ -1,0 +1,64 @@
+{
+  "dateLocal": "2026-10-19",
+  "scope": "CHG0114temporarydebug; customerunderlyingincidentUNKNOWN",
+  "branch": "main",
+  "betaPreserved": "34b23a96212c7df96856585b6270a7d1fb800286",
+  "productionPreview": "http://127.0.0.1:3096/en#documents",
+  "build": "PASS11localeSSG",
+  "typecheck": "PASS",
+  "lint": "0errors1existingTelegramwarning",
+  "browser": {
+    "profiles": [
+      "Pro402x874DPR3WebKit",
+      "Max440x956DPR3WebKit",
+      "1440x900Chromium"
+    ],
+    "fullMatrix": {
+      "pass": 16,
+      "skip": 11,
+      "fail": 0
+    },
+    "afterResourceTimingFix": {
+      "pass": 5,
+      "skip": 4,
+      "fail": 0
+    },
+    "coverage": [
+      "all6documents/allpages",
+      "noPDF/workerbeforeclick",
+      "HTTP503/403",
+      "corruptPDFnamedexception",
+      "chunkimportfailure",
+      "workerfailure",
+      "PDF30sdeadline",
+      "optionaltextextraction30sdeadlinePDFstaysvisible",
+      "freshRetry/cancel/reopen/keyboard",
+      "all11locales/RTL/320/402short/768/1440"
+    ]
+  },
+  "nativeReview": {
+    "initial": "P2EdgeUAprecedence fixed",
+    "followup": "P2stalePDFResourceTiming fixed",
+    "final": "No remaining actionable factual timing or attempt-boundary bugs; reviewdidnotrunbrowsers, primarybrowserchecksseparatePASS"
+  },
+  "fixtures": {
+    "browserUAPrecedence": 5,
+    "resourceAttemptBoundaries": 3,
+    "PDFTimingStaleCachedNetwork": 3,
+    "messageSanitization": "PASSfixturevaluesonly"
+  },
+  "switch": "CERTIFICATE_DEBUG_ENABLED in lib/certificate-debug.ts",
+  "factualLimits": [
+    "CPUthreadsnotCPUutilization",
+    "deviceMemoryapproxAPIhintnotfreeRAM",
+    "VPNunavailable",
+    "networkinterface/estimateunavailableifnotexposed",
+    "PDFdeliverybytes/elapsednotISPline-speed; latency/cachemayaffect",
+    "zero/currentresourceunknownexplicit",
+    "customerphysicaliPhoneBelarusrootcauseunknown",
+    "INP/Lighthouse/physicalSafariunmeasured"
+  ],
+  "technicalApproval": "APPROVED2026-10-19/root; independentbeta_auditorStages2-6PASS; customerrootcauseCHG0115OPEN",
+  "publication": "PENDING main deployment under urgent customerdiagnostic task; not useracceptance",
+  "performance": "performance.json: useful2531.7ms,LCP2640ms,CLS0,JS219827B,0PDFbeforeclick;warmloopbackopen702ms;singlesynthetic"
+}

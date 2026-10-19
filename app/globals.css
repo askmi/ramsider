@@ -368,3 +368,10 @@ html:has(#charcoal-viewer[open]),body:has(#charcoal-viewer[open]){background:var
 @keyframes certificate-spin{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.media-loading__spinner{animation:none}}
 @media(max-width:360px){.certificate-header h2{font-size:16px}.certificate-controls{gap:3px}.certificate-controls output{font-size:12px}}
+
+/* CHG0114 temporary diagnostic UI, removed via CERTIFICATE_DEBUG_ENABLED. */
+.certificate-debug{flex:none;max-height:min(28dvh,210px);overflow:auto;margin:0 12px 6px;padding:10px;border:1px dashed #bfa47e;background:#28221d;color:#fff;font-size:14px;line-height:1.4;overflow-wrap:anywhere;user-select:text}
+.certificate-debug strong{display:block;color:#ffda9e}
+.certificate-debug pre{margin:6px 0;font:inherit;white-space:pre-wrap;overflow-wrap:anywhere;text-align:left}
+.certificate-debug summary{min-height:44px;display:flex;align-items:center;cursor:pointer;text-decoration:underline}
+.certificate-debug summary:focus-visible{outline:3px solid #e7b46a}

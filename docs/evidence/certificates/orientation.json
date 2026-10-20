@@ -1,6 +1,6 @@
 {
   "date": "2026-10-20",
-  "status": "VERIFIED locally / publication pending",
+  "status": "VERIFIED and deployed 7f93223cb62608c4803afa0490222ce2180749cc",
   "sourcePrefixExact": true,
   "bundleSHA256": "482c4a4fcf9acaa406faf1f2b19f7377ceb5296776a563d6bec014499be6de60",
   "bundleBytes": 3781872,
@@ -148,5 +148,6 @@
   "rawLogs": "/tmp/ramsider-pdf-orientation (untracked)",
   "technicalApproval": "APPROVED /root 2026-10-20; independent /root/beta_auditor Stages1\u20136 prepublication PASS",
   "performance": "orientation-performance.json: LCP2560ms CLS0 JS208974 encodedB 0PDFbeforeactivation; isolated4Mbps100ms4CPU sample; derivative+390B",
-  "cardPixelComparison": "Current Pro/Max landing screenshots pixel-identical to historical approved landing-pro.png/landing-max.png; actual images viewed by root and auditor"
+  "cardPixelComparison": "Current Pro/Max landing screenshots pixel-identical to historical approved landing-pro.png/landing-max.png; actual images viewed by root and auditor",
+  "publication": "orientation-publication.json"
 }

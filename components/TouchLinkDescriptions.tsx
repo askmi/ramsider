@@ -1,7 +1,7 @@
 'use client';
 import type { Locale } from '@/lib/i18n';
 import { touchLinkCopy } from '@/lib/touchlink-descriptions';
-import { Divider, TextBlock } from './TechnologyDescriptions';
+import { TextBlock } from './TechnologyDescriptions';
 
 function TouchLinkTitle({ locale, descriptor }: { locale: Locale; descriptor: string }) {
  return <g data-touchlink-title="live">
@@ -17,10 +17,10 @@ export function TouchLinkDescriptions({ slide, locale, descriptor }: { slide: nu
   <svg viewBox="0 0 941 1522" role="presentation">
    <TouchLinkTitle locale={locale} descriptor={descriptor}/>
    {slide===0?<>
-    <TextBlock {...common} id="touch-eyebrow" x={64} y={1155} width={810} height={40} size={26} line={34} color="#975f41" text={copy.eyebrow}/>
-    <TextBlock {...common} id="touch-headline" x={64} y={1186} width={873} height={133} size={54.5} line={62} kind="h3" text={copy.headline}/>
-    <Divider y={1340}/>
-    <TextBlock {...common} id="touch-body" x={64} y={1354} width={873} height={162} size={28} line={37} text={copy.body}/>
+    <TextBlock {...common} id="touch-eyebrow" x={64} y={1155} width={813} height={40} size={26} line={34} color="#975f41" text={copy.eyebrow}/>
+    <TextBlock {...common} id="touch-headline" x={64} y={1186} width={813} height={133} size={54.5} line={62} kind="h3" text={copy.headline}/>
+    <line x1="64" x2="877" y1="1340" y2="1340" stroke="#8f8983" strokeWidth="1" aria-hidden="true"/>
+    <TextBlock {...common} id="touch-body" x={64} y={1354} width={813} height={162} size={28} line={37} text={copy.body}/>
    </>:<>
     <TextBlock {...common} id="touch-headline" x={54} y={slide===1?211:245} width={800} height={120} size={51} line={55} kind="h3" text={slide===1?copy.appHeading:copy.directHeading}/>
     {(slide===1?copy.app:copy.direct).map((feature,i)=><g key={i}>

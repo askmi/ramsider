@@ -1,0 +1,485 @@
+{
+  "id": "CHG0123",
+  "date": "2026-10-21",
+  "status": "VERIFIED locally2026-10-21",
+  "runtime": "production Next3123/en, beta checkout; no publication requested",
+  "sourceToCss": {
+    "sourceWidth": 941,
+    "proScale": 0.42720510095642933,
+    "maxScale": 0.4675876726886291,
+    "touch1SourceLeftRight": 64,
+    "touch1SourceWidth": 813,
+    "unchangedPhotoGeometry": true
+  },
+  "browser": [
+    {
+      "profile": "iphone-17-pro-webkit",
+      "viewports": [
+        [
+          402,
+          3
+        ]
+      ],
+      "locales": [
+        "en",
+        "ru",
+        "de",
+        "fr",
+        "es",
+        "it",
+        "tr",
+        "ar",
+        "zh",
+        "ja",
+        "ko"
+      ],
+      "states": 253,
+      "errors": [],
+      "clipped": 0,
+      "overflow": 0,
+      "headingAndLabelSamples": 1155,
+      "touchAxis": [
+        {
+          "locale": "en",
+          "axis": [
+            {
+              "id": "touch-eyebrow",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-headline",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-body",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            }
+          ]
+        },
+        {
+          "locale": "ru",
+          "axis": [
+            {
+              "id": "touch-eyebrow",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-headline",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-body",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            }
+          ]
+        },
+        {
+          "locale": "de",
+          "axis": [
+            {
+              "id": "touch-eyebrow",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-headline",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-body",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            }
+          ]
+        },
+        {
+          "locale": "fr",
+          "axis": [
+            {
+              "id": "touch-eyebrow",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-headline",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-body",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            }
+          ]
+        },
+        {
+          "locale": "es",
+          "axis": [
+            {
+              "id": "touch-eyebrow",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-headline",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-body",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            }
+          ]
+        },
+        {
+          "locale": "it",
+          "axis": [
+            {
+              "id": "touch-eyebrow",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-headline",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-body",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            }
+          ]
+        },
+        {
+          "locale": "tr",
+          "axis": [
+            {
+              "id": "touch-eyebrow",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-headline",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-body",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            }
+          ]
+        },
+        {
+          "locale": "ar",
+          "axis": [
+            {
+              "id": "touch-eyebrow",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "rtl"
+            },
+            {
+              "id": "touch-headline",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "rtl"
+            },
+            {
+              "id": "touch-body",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "rtl"
+            }
+          ]
+        },
+        {
+          "locale": "zh",
+          "axis": [
+            {
+              "id": "touch-eyebrow",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-headline",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-body",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            }
+          ]
+        },
+        {
+          "locale": "ja",
+          "axis": [
+            {
+              "id": "touch-eyebrow",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-headline",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-body",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            }
+          ]
+        },
+        {
+          "locale": "ko",
+          "axis": [
+            {
+              "id": "touch-eyebrow",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-headline",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-body",
+              "left": 27.341938018798828,
+              "right": 27.341960906982422,
+              "direction": "ltr"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "profile": "iphone-17-pro-max-webkit",
+      "viewports": [
+        [
+          440,
+          3
+        ]
+      ],
+      "locales": [
+        "en",
+        "ru",
+        "de",
+        "ar"
+      ],
+      "states": 92,
+      "errors": [],
+      "clipped": 0,
+      "overflow": 0,
+      "headingAndLabelSamples": 420,
+      "touchAxis": [
+        {
+          "locale": "en",
+          "axis": [
+            {
+              "id": "touch-eyebrow",
+              "left": 29.928865432739258,
+              "right": 29.928861618041992,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-headline",
+              "left": 29.928865432739258,
+              "right": 29.928861618041992,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-body",
+              "left": 29.928865432739258,
+              "right": 29.928861618041992,
+              "direction": "ltr"
+            }
+          ]
+        },
+        {
+          "locale": "ru",
+          "axis": [
+            {
+              "id": "touch-eyebrow",
+              "left": 29.928865432739258,
+              "right": 29.928861618041992,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-headline",
+              "left": 29.928865432739258,
+              "right": 29.928861618041992,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-body",
+              "left": 29.928865432739258,
+              "right": 29.928861618041992,
+              "direction": "ltr"
+            }
+          ]
+        },
+        {
+          "locale": "de",
+          "axis": [
+            {
+              "id": "touch-eyebrow",
+              "left": 29.928865432739258,
+              "right": 29.928861618041992,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-headline",
+              "left": 29.928865432739258,
+              "right": 29.928861618041992,
+              "direction": "ltr"
+            },
+            {
+              "id": "touch-body",
+              "left": 29.928865432739258,
+              "right": 29.928861618041992,
+              "direction": "ltr"
+            }
+          ]
+        },
+        {
+          "locale": "ar",
+          "axis": [
+            {
+              "id": "touch-eyebrow",
+              "left": 29.928865432739258,
+              "right": 29.928861618041992,
+              "direction": "rtl"
+            },
+            {
+              "id": "touch-headline",
+              "left": 29.928865432739258,
+              "right": 29.928861618041992,
+              "direction": "rtl"
+            },
+            {
+              "id": "touch-body",
+              "left": 29.928865432739258,
+              "right": 29.928861618041992,
+              "direction": "rtl"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "tests": {
+    "galleryAndAdaptation": "3PASS1intentionalMaxduplicateSKIP36.8s",
+    "behavior": "9PASS17.9s mobileWebKitPro/Max and desktopChromium, before caption-only followup; no interaction code changed",
+    "adaptation": "375x812,402x650,768x1024,1440x900; assembled402x874/440x956",
+    "formulas": "N₂ and CO₂ exact symbols asserted at Capsule2 in every tested locale"
+  },
+  "visual": {
+    "baseline": "/tmp/ramsider-title-fix/before-touch-1.png (published original beta, same WebKitPro)",
+    "reference": "design/references/tech_05/23.png and24.png; user screenshot supersedes allcaps/offset",
+    "actual": "screenshots/technology-editorial-case/* and screenshots/technology-touchlink/adapt-*/assembled-*",
+    "rootViewed": "23Pro final English articles through4contacts;6Max changed compositions;Touch1Pro/Max lowerpanels;Arabic3Touchslides;4adaptationimages; Russian/GermanTouch1 lowerpanels",
+    "unchangedTouchArtworkComparison": {
+      "dimensions": [
+        1206,
+        1956
+      ],
+      "comparedTopRegion": [
+        1206,
+        1454
+      ],
+      "changedChannels": 0,
+      "meanAbsoluteError": 0
+    },
+    "changedTextComparison": "Intentional case/width/reflow difference: inspect user-requested normal case and equal margins; no full-raster pixelidentity claim"
+  },
+  "quality": {
+    "productionBuild": "PASS11localeSSG",
+    "typecheck": "PASS",
+    "lint": "PASS0errors1preexistingTelegramwarning",
+    "nativeReview": "initialclean; captionexpandedP2formula fixed; final2review no actionable regressions; reviewerWebKitlaunchblocked, primary actualWebKit independently executed",
+    "diffCheck": "PASS"
+  },
+  "performance": {
+    "conditions": "production3123,Chromium402x874DPR3,cold4Mbps100ms4xCPU; interaction/scroll unthrottled loopback",
+    "usefulMs": 2353.5,
+    "lcp": 2408,
+    "cls": 0,
+    "jsEncodedBytes": 207709,
+    "imageTransferBytes": 54106,
+    "warmSwitchMs": 47.646874999999454,
+    "scroll": {
+      "frames": 89,
+      "p95Ms": 16.700000000000728,
+      "positions": 90,
+      "from": 0,
+      "to": 246
+    },
+    "inp": "not measured",
+    "lighthouse": "not run",
+    "imageInitiatorFilter": "img only, sampled1000ms after firstready; excludes link-preloaded media and is not total page media",
+    "jsCounter": "encodedBodySize, initiatorType=script, at same sample",
+    "measurementLimits": "single synthetic run; automation warm switch not INP, scripted scroll not physical touch; no Lighthouse/physical Safari/P3 claims"
+  },
+  "files": {
+    "lib/noblecraft-descriptions.ts": "8928ecacd7f29851f7b473da2ba1af2848f4cdc4baa2fac43ecf901352e216d5",
+    "lib/technology-descriptions.ts": "5987c03623be37934d8affa7eea7985696bfe4606afa0b1bdee886ca97b6ecd3",
+    "lib/capsulecode-descriptions.ts": "09968986eb41f0649d93c93ea86eb504fed631e59725a685c1b78e7992891546",
+    "lib/cybermind-descriptions.ts": "c4c53c28b0aa95da929e82a44c8cda43b4d5ff40a43025cfcb89bbb72780db3b",
+    "lib/touchlink-descriptions.ts": "92b28c80b2ddf82e1c9b08734745947442e053368767977ca1e65922ab9b0bb6",
+    "lib/mood-aqua-descriptions.ts": "aa7d5e4c3c7e8aa1bdd8fbf433d11908962f39262c382c744b479dde984b18cf",
+    "lib/airshield-descriptions.ts": "ed86ba8de6b0e99ce50ff2c0606cae68d0e0dfcd2e225f1cf1bdcade2e1767c6",
+    "lib/power-armor-descriptions.ts": "ab7f198100954162ca189c1eb77d4c0dd06eb6f798d53862f15db0144dbc9fec",
+    "components/TouchLinkDescriptions.tsx": "2aaa76c5a56fa4fd0ae709eb43a3ddd6a38d698a5bab467339fb5e469995240a",
+    "tests/e2e/technology-editorial-case.spec.ts": "7da057d7c785fd7e34b4c20fc0f6a6bfbef23a61aab5494db6a256f9e10fc040"
+  },
+  "independentAudit": "2026-10-21 /root/deployment_auditor Stages1–6 PASS after recorded Noble label/formula/fixture/record repairs; final direct artifacts/hash audit PASS",
+  "technicalApproval": "2026-10-21 /root APPROVED local correction after browser/static/native-review/performance evidence and independent finalPASS",
+  "userAcceptance": "NOT_RECORDED",
+  "controlledAgentEval": "EVAL-MAP NOT_RUN",
+  "unchangedOtherTopics": [
+    "CHG0121 OPEN",
+    "CHG0103/CHG0106 broader historical technology limitations remain separate"
+  ]
+}

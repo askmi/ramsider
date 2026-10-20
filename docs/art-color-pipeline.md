@@ -58,3 +58,9 @@ Regeneration must cover both an in-place first migration and a repeat using rese
 
 ### Beta continuation2026-10-18
 Historical main-only blocker above applied to the source Telegram session. Current user explicitly authorized beta transfer/publication; actual integration preserves main0f751fe, adds whole ember in f772dcb, and applies exact35-asset lossless candidate. Current verification is beta-verification.json/beta-browser.json; pending publication receipt is separate.
+
+### Current beta continuation — CHG0120, 2026-10-20
+
+All active raster delivery is83WebP (66VP8L lossless,17existing q95 VP8), plus four lossless inline seams; SVG/ICO retain native formats. The26remaining active PNG derivatives use `tools/optimize-small-images.py`, with immutable path/SHA/profile-bound masters outside public, tagged AdobeRGB diamond transformed to sRGB, sRGB brand preserved,28untagged inputs including numeric mask left untransformed (4unusedcontrolsreserved). Inputs/controls/ICC and allalpha decodedchecks are in beta-media/small-images.json; the seam master JSON also has an immutable baseline SHA/count. Old35lossless outputs remain unchanged. Full recipe/byte totals/source roles are in [beta-media-optimization.md](beta-media-optimization.md).
+
+Warming now obeys whole-story decoded readiness, replacing historical window.load priority. The main hero still starts eagerly; after its decode every main story IMG warms, including thumbnails/icons/footer. Optional charcoal/technology transfers and ember initialization wait for all main IMG decoded. Prerequisite failures reach existing viewer error progress/Retry without forcing the user to close the dialog. No PDF is prefetched. Ready screenshots, error/recovery tests and production timing are separate gates; conversion alone does not certify priority or speed.

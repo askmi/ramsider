@@ -1,13 +1,13 @@
 import { expect, test } from '@playwright/test';
 
 const mapped = [
-  ['I01', 'triple', '01.png'],
-  ['I02', 'core', '02.png'],
-  ['I03', 'touch', '03.png'],
-  ['I04', 'water', '04.png'],
-  ['I05', 'light', '05.png'],
-  ['I07', 'armor', '07.png'],
-  ['I08', 'flow', '08.png'],
+  ['I01', 'triple', '01.webp'],
+  ['I02', 'core', '02.webp'],
+  ['I03', 'touch', '03.webp'],
+  ['I04', 'water', '04.webp'],
+  ['I05', 'light', '05.webp'],
+  ['I07', 'armor', '07.webp'],
+  ['I08', 'flow', '08.webp'],
 ] as const;
 
 test('technology kit icons decode, map one-to-one and clear their labels', async ({ page }) => {

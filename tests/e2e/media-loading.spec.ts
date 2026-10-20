@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import sharp from 'sharp';
 
 async function readyExcept(page: import('@playwright/test').Page, path: string) {
-  await expect.poll(() => page.locator('img[data-media]:not([data-media-ready])').evaluateAll((images, path) => images.every(image => new URL((image as HTMLImageElement).src).pathname === path), path)).toBe(true);
+  await expect.poll(() => page.locator('.page-media-shell img:not([data-media-ready])').evaluateAll((images, path) => images.every(image => new URL((image as HTMLImageElement).src).pathname === path), path)).toBe(true);
 }
 
 
@@ -146,7 +146,19 @@ test('pending next block retains ready pixels, stops downward scroll and allows 
   await page.evaluate(() => document.fonts.ready);
   const viewport = info.project.use.viewport!;
   const crop = { left: 0, top: 0, width: viewport.width, height: viewport.height - 200 };
-  const pending = await sharp(await page.screenshot({ path: `${process.env.LOADING_EVIDENCE ?? 'docs/evidence/media-loading'}/retained-${info.project.name}-pending.png`, scale: 'device' })).resize({ width: viewport.width }).extract(crop).raw().toBuffer();
+  // WebKit scroll/compositor paint settles after the DOM scroll coordinate.
+  await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+  let pending!: Buffer;
+  await expect.poll(async () => {
+    const painted = await page.screenshot({ path: `${process.env.LOADING_EVIDENCE ?? 'docs/evidence/media-loading'}/retained-${info.project.name}-pending.png`, scale:'device' });
+    const normalized = sharp(painted).resize({width:viewport.width});
+    const {data:top,info:pixelInfo} = await normalized.clone().extract({left:0,top:0,width:viewport.width,height:200}).raw().toBuffer({resolveWithObject:true});
+    pending = await normalized.extract(crop).raw().toBuffer();
+    // Coordinates/data-ready can precede WebKit's scrolled backing-store paint.
+    // Require actual retained artwork, not a flat canvas, before comparing it.
+    let min=255,max=0;for(let i=0;i<top.length;i+=pixelInfo.channels){const luminance=(top[i]*3+top[i+1]*6+top[i+2])/10;min=Math.min(min,luminance);max=Math.max(max,luminance);}
+    return max-min;
+  }).toBeGreaterThan(25);
   await page.keyboard.press('Home');
   await expect.poll(() => page.evaluate(() => scrollY)).toBe(0);
   await expect(page.locator('.page-media-overlay')).toHaveCount(0);
@@ -347,7 +359,7 @@ test('retained loading strip fits all eleven locales including Arabic', async ({
   // Failed optional gallery background fetches must never block the main page.
   await page.route('**/art/technology/**', route => route.abort());
   for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
-    await page.goto(`/${locale}`);
+    await page.goto(`/${locale}`, {waitUntil:'domcontentloaded'});
     await readyExcept(page, '/art/04.webp');
     await page.evaluate(() => scrollTo({ top: 100000, behavior: 'instant' }));
     const status = page.locator('.page-media-overlay .media-loading');

@@ -13,7 +13,7 @@ async function luminanceRange(png: Buffer, box: { left: number; top: number; wid
   return max - min;
 }
 
-test('color-managed WebP tiles load after a fast distant scroll', async ({ page }, testInfo) => {
+test('protected fast scroll waits for decoded WebP then reaches distant art', async ({ page }, testInfo) => {
   let releaseImages!: () => void;
   const imageGate = new Promise<void>(resolve => { releaseImages = resolve; });
   await page.route('**/art/*.webp', async route => { await imageGate; await route.continue(); });
@@ -27,26 +27,17 @@ test('color-managed WebP tiles load after a fast distant scroll', async ({ page 
     expect(first.preview).toBe('none');
 
     await page.evaluate(() => scrollTo({ top: 6500, behavior: 'instant' }));
-    const distant = await page.evaluate(() => [...document.querySelectorAll<HTMLImageElement>('.art img')]
-      .filter(image => { const box = image.getBoundingClientRect(); return box.top < innerHeight && box.bottom > 0; })
-      .map(image => ({ complete: image.complete, preview: getComputedStyle(image).backgroundImage })));
-    expect(distant.length).toBeGreaterThan(0);
-    expect(distant.some(image => !image.complete && image.preview.includes('data:image/webp;base64,'))).toBe(true);
-    const preview = await page.evaluate(async () => {
-      const visible = [...document.querySelectorAll<HTMLImageElement>('.art img')]
-        .find(image => { const r = image.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; });
-      const background = getComputedStyle(visible!).backgroundImage;
-      const url = background.slice(5, -2);
-      const image = new Image();
-      image.src = url;
-      await image.decode();
-      return { width: image.naturalWidth, height: image.naturalHeight };
-    });
-    expect(preview.width).toBe(118);
-    expect(preview.height).toBeGreaterThan(100);
+    // The protected story frontier intentionally prevents a jump into missing art.
+    await page.waitForFunction(() => document.documentElement.hasAttribute('data-media-hydrated'));
+    await expect(page.locator('.page-media-overlay .media-loading')).toBeVisible();
+    expect(await page.evaluate(() => scrollY)).toBe(0);
+    await expect(page.locator('.page-media-content')).toHaveAttribute('inert', '');
   } finally {
     releaseImages();
   }
+  await page.waitForFunction(() => document.documentElement.hasAttribute('data-story-media-ready'));
+  await page.evaluate(() => scrollTo({top:6500,behavior:'instant'}));
+  await expect.poll(() => page.evaluate(() => Math.abs(scrollY-6500))).toBeLessThan(2);
   await expect.poll(async () => page.locator('.art img, .tail-art img').evaluateAll(images => {
     const visible = images.filter(image => {
       const box = image.getBoundingClientRect();
@@ -72,6 +63,7 @@ for (const language of [{ code: 'ru', dir: 'ltr' }, { code: 'ar', dir: 'rtl' }])
   await page.locator('#locale-toggle').click();
   await page.evaluate(code => document.getElementById(`locale-option-${code}`)?.click(), language.code);
   await page.waitForURL(`**/${language.code}`, { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => document.documentElement.hasAttribute('data-story-media-ready'));
   await page.evaluate(() => scrollTo({ top: 6500, behavior: 'instant' }));
   await expect.poll(() => page.evaluate(() => [...document.querySelectorAll<HTMLImageElement>('.art img')]
     .filter(image => { const box = image.getBoundingClientRect(); return box.top < innerHeight && box.bottom > 0; })
@@ -98,10 +90,17 @@ for (const language of [{ code: 'ru', dir: 'ltr' }, { code: 'ar', dir: 'rtl' }])
 });
 
 test('a stalled image cannot hold language navigation indefinitely', async ({ page }) => {
-  await page.goto('/en');
-  await page.evaluate(() => {
-    document.querySelector<HTMLImageElement>('.art img')!.decode = () => new Promise(() => {});
+  await page.addInitScript(() => {
+    const original = HTMLImageElement.prototype.decode;
+    HTMLImageElement.prototype.decode = function() {
+      if(document.documentElement.lang === 'en' && this.src.includes('/art/08.webp')) return new Promise(() => {});
+      return original.call(this);
+    };
   });
+  await page.goto('/en');
+  await page.waitForFunction(() => document.documentElement.hasAttribute('data-media-hydrated'));
+  await expect(page.locator('.art img').first()).toHaveAttribute('data-media-ready','');
+  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
   await page.locator('#locale-toggle').click();
   await page.getByRole('link', { name: 'Русский' }).click();
   await page.waitForURL('**/ru', { waitUntil: 'domcontentloaded', timeout: 7000 });

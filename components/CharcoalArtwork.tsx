@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import type { Locale } from '@/lib/i18n';
 import { charcoalTiles } from '@/lib/charcoal-assets';
-import { loadImage } from '@/lib/media-resource';
+import { loadImage, retryStoryMedia } from '@/lib/media-resource';
 import { LoadingStatus } from './MediaLoading';
 
 function CharcoalTile({ src, height, visibleHeight, top, locale, first }: { src: string; height: number; visibleHeight: number; top: number; locale: Locale; first: boolean }) {
@@ -16,7 +16,7 @@ function CharcoalTile({ src, height, visibleHeight, top, locale, first }: { src:
     let alive = true;
     const resource = loadImage(src, first ? 'high' : 'auto');
     const unsubscribe = resource.subscribe(value => {
-      if (alive) setProgress(value.total ? value.loaded / value.total * 100 : null);
+      if (alive) { setProgress(value.total ? value.loaded / value.total * 100 : null); setFailed(value.error); }
     });
     resource.ready.then(value => { if (alive) setImage(value); }).catch(() => { if (alive) setFailed(true); });
     return () => { alive = false; unsubscribe(); };
@@ -26,7 +26,7 @@ function CharcoalTile({ src, height, visibleHeight, top, locale, first }: { src:
     {/* eslint-disable-next-line @next/next/no-img-element */}
     <div className="charcoal-tile__image">{image && <img key={attempt} className="charcoal-art" src={image.src} width={1080} height={height} alt="" aria-hidden="true" draggable={false} data-charcoal-ready={decoded}
       onLoad={event => { void event.currentTarget.decode().then(() => setDecoded(true)).catch(() => setFailed(true)); }} onError={() => setFailed(true)} />}</div>
-    {!decoded && <div className="charcoal-art-error"><LoadingStatus locale={locale} progress={progress} error={failed} onRetry={() => { setFailed(false); setProgress(null); setAttempt(value => value + 1); }} /></div>}
+    {!decoded && <div className="charcoal-art-error"><LoadingStatus locale={locale} progress={progress} error={failed} onRetry={() => { retryStoryMedia(); setFailed(false); setProgress(null); setAttempt(value => value + 1); }} /></div>}
   </div>;
 }
 

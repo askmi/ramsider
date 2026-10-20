@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import type { EmberRenderer } from '@/lib/ember-renderer';
+import { waitForStoryMedia } from '@/lib/media-resource';
 
 /** The original server-rendered artwork is always the fallback. */
 export function EmberScene({ labels }: { labels: { pause: string; play: string } }) {
@@ -17,7 +18,7 @@ export function EmberScene({ labels }: { labels: { pause: string; play: string }
     const surface = canvas.current!;
     const motion = matchMedia('(prefers-reduced-motion: reduce)');
     let disposed = false, near = false, visible = false, initializing = false, failed = false;
-    let imagesReady = false;
+    let imagesReady = false, storyReady = false;
     const art = [...element.closest('main')!.querySelectorAll<HTMLImageElement>('.art img')].slice(0, 2);
     const update = () => {
       if (disposed) return;
@@ -27,7 +28,7 @@ export function EmberScene({ labels }: { labels: { pause: string; play: string }
         renderer.current.setRunning(allowed && visible && !paused.current);
         return;
       }
-      if (!near || !allowed || initializing || failed || !imagesReady) return;
+      if (!near || !allowed || initializing || failed || !imagesReady || !storyReady) return;
       initializing = true;
       void import('@/lib/ember-renderer').then(module => module.createEmberRenderer(surface)).then(engine => {
         if (disposed) { engine.destroy(); return; }
@@ -43,6 +44,7 @@ export function EmberScene({ labels }: { labels: { pause: string; play: string }
       imagesReady = art.every(image => image.hasAttribute('data-media-ready'));
       update();
     };
+    void waitForStoryMedia().then(() => { if (!disposed) { storyReady = true; update(); } });
     const imageObserver = new MutationObserver(ready);
     art.forEach(image => imageObserver.observe(image, { attributes: true, attributeFilter: ['data-media-ready'] }));
     const warm = new IntersectionObserver(([entry]) => { near = entry.isIntersecting; update(); }, { rootMargin: '64px' });

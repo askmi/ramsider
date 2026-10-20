@@ -1,0 +1,774 @@
+{
+  "status": "BROWSER_PAIRS_VERIFIED_ROOT_IMAGES_REVIEWED",
+  "results": [
+    {
+      "width": 402,
+      "position": 0,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 0,
+      "mode": "all-control",
+      "meanChannelError": 0.6305168474940325,
+      "maxChannelError": 62,
+      "differentChannels": 5741847,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 1,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 1,
+      "mode": "all-control",
+      "meanChannelError": 0.7855454010142524,
+      "maxChannelError": 98,
+      "differentChannels": 6429634,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 2,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 2,
+      "mode": "all-control",
+      "meanChannelError": 0.7427764716969437,
+      "maxChannelError": 83,
+      "differentChannels": 6285051,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 3,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 3,
+      "mode": "all-control",
+      "meanChannelError": 0.68370050649372,
+      "maxChannelError": 40,
+      "differentChannels": 6141738,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 4,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 4,
+      "mode": "all-control",
+      "meanChannelError": 0.7848037336834769,
+      "maxChannelError": 30,
+      "differentChannels": 6348745,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 5,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 5,
+      "mode": "all-control",
+      "meanChannelError": 0.9729421478926243,
+      "maxChannelError": 119,
+      "differentChannels": 6755997,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 6,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 6,
+      "mode": "all-control",
+      "meanChannelError": 1.081882650692634,
+      "maxChannelError": 95,
+      "differentChannels": 7041454,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 7,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 7,
+      "mode": "all-control",
+      "meanChannelError": 0.9943478798481531,
+      "maxChannelError": 77,
+      "differentChannels": 6841650,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 8,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 8,
+      "mode": "all-control",
+      "meanChannelError": 0.914637339617701,
+      "maxChannelError": 56,
+      "differentChannels": 6542163,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 9,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 9,
+      "mode": "all-control",
+      "meanChannelError": 0.7885113587921061,
+      "maxChannelError": 28,
+      "differentChannels": 6348227,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 10,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 10,
+      "mode": "all-control",
+      "meanChannelError": 0.7826958994754172,
+      "maxChannelError": 59,
+      "differentChannels": 6392520,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 11,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 11,
+      "mode": "all-control",
+      "meanChannelError": 0.8833807380590057,
+      "maxChannelError": 42,
+      "differentChannels": 6677249,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 12,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 12,
+      "mode": "all-control",
+      "meanChannelError": 0.7089172748006725,
+      "maxChannelError": 17,
+      "differentChannels": 5995749,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 13,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 13,
+      "mode": "all-control",
+      "meanChannelError": 0.7346015283359455,
+      "maxChannelError": 83,
+      "differentChannels": 6267948,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 14,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 14,
+      "mode": "all-control",
+      "meanChannelError": 0.6000715656398911,
+      "maxChannelError": 48,
+      "differentChannels": 5224188,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 15,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 15,
+      "mode": "all-control",
+      "meanChannelError": 0.8535388465756648,
+      "maxChannelError": 70,
+      "differentChannels": 6566998,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 16,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 16,
+      "mode": "all-control",
+      "meanChannelError": 0.705189805485666,
+      "maxChannelError": 50,
+      "differentChannels": 6124065,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 17,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 17,
+      "mode": "all-control",
+      "meanChannelError": 0.7383031448402534,
+      "maxChannelError": 59,
+      "differentChannels": 6217087,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 18,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 18,
+      "mode": "all-control",
+      "meanChannelError": 0.8261382668402205,
+      "maxChannelError": 62,
+      "differentChannels": 6486693,
+      "exact": false
+    },
+    {
+      "width": 402,
+      "position": 19,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 402,
+      "position": 19,
+      "mode": "all-control",
+      "meanChannelError": 0.7616639659571454,
+      "maxChannelError": 62,
+      "differentChannels": 6318208,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 0,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 0,
+      "mode": "all-control",
+      "meanChannelError": 0.6311488314103377,
+      "maxChannelError": 61,
+      "differentChannels": 6880356,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 1,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 1,
+      "mode": "all-control",
+      "meanChannelError": 0.7887124381894256,
+      "maxChannelError": 93,
+      "differentChannels": 7727720,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 2,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 2,
+      "mode": "all-control",
+      "meanChannelError": 0.7597333164278771,
+      "maxChannelError": 89,
+      "differentChannels": 7586039,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 3,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 3,
+      "mode": "all-control",
+      "meanChannelError": 0.6865260872321541,
+      "maxChannelError": 64,
+      "differentChannels": 7357018,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 4,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 4,
+      "mode": "all-control",
+      "meanChannelError": 0.7738311461899328,
+      "maxChannelError": 38,
+      "differentChannels": 7580535,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 5,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 5,
+      "mode": "all-control",
+      "meanChannelError": 0.8937302549554118,
+      "maxChannelError": 125,
+      "differentChannels": 7851161,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 6,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 6,
+      "mode": "all-control",
+      "meanChannelError": 1.0078578013397574,
+      "maxChannelError": 125,
+      "differentChannels": 8232616,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 7,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 7,
+      "mode": "all-control",
+      "meanChannelError": 1.0288187840750602,
+      "maxChannelError": 90,
+      "differentChannels": 8258448,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 8,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 8,
+      "mode": "all-control",
+      "meanChannelError": 0.9542142792992688,
+      "maxChannelError": 77,
+      "differentChannels": 8026285,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 9,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 9,
+      "mode": "all-control",
+      "meanChannelError": 0.8680791967795106,
+      "maxChannelError": 51,
+      "differentChannels": 7755318,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 10,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 10,
+      "mode": "all-control",
+      "meanChannelError": 0.7951052100502938,
+      "maxChannelError": 30,
+      "differentChannels": 7667177,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 11,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 11,
+      "mode": "all-control",
+      "meanChannelError": 0.7922755272389164,
+      "maxChannelError": 67,
+      "differentChannels": 7710017,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 12,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 12,
+      "mode": "all-control",
+      "meanChannelError": 0.8820527450234563,
+      "maxChannelError": 43,
+      "differentChannels": 7994487,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 13,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 13,
+      "mode": "all-control",
+      "meanChannelError": 0.7439678558598538,
+      "maxChannelError": 43,
+      "differentChannels": 7300358,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 14,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 14,
+      "mode": "all-control",
+      "meanChannelError": 0.7760855812307172,
+      "maxChannelError": 90,
+      "differentChannels": 7695644,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 15,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 15,
+      "mode": "all-control",
+      "meanChannelError": 0.6046776604961751,
+      "maxChannelError": 37,
+      "differentChannels": 6313777,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 16,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 16,
+      "mode": "all-control",
+      "meanChannelError": 0.8190665810827945,
+      "maxChannelError": 74,
+      "differentChannels": 7702828,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 17,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 17,
+      "mode": "all-control",
+      "meanChannelError": 0.7999898963484214,
+      "maxChannelError": 74,
+      "differentChannels": 7695421,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 18,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 18,
+      "mode": "all-control",
+      "meanChannelError": 0.653041265162081,
+      "maxChannelError": 25,
+      "differentChannels": 7126549,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 19,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 19,
+      "mode": "all-control",
+      "meanChannelError": 0.7745809956257133,
+      "maxChannelError": 66,
+      "differentChannels": 7508716,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 20,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 20,
+      "mode": "all-control",
+      "meanChannelError": 0.7787507660284857,
+      "maxChannelError": 53,
+      "differentChannels": 7664203,
+      "exact": false
+    },
+    {
+      "width": 440,
+      "position": 21,
+      "mode": "small-control",
+      "meanChannelError": 0,
+      "maxChannelError": 0,
+      "differentChannels": 0,
+      "exact": true
+    },
+    {
+      "width": 440,
+      "position": 21,
+      "mode": "all-control",
+      "meanChannelError": 0.7628379110139047,
+      "maxChannelError": 53,
+      "differentChannels": 7572233,
+      "exact": false
+    }
+  ],
+  "technicalReview": {
+    "verifier": "/root",
+    "date": "2026-10-20",
+    "newSmallPairs": 42,
+    "newSmallExact": true,
+    "allControlPairs": 42,
+    "maxMeanChannelError": 1.081882650692634,
+    "contacts": [
+      "story-402-contact.png",
+      "story-440-contact.png"
+    ],
+    "scope": "Current composition versus same color-managed controls; no new layout design; no physical P3 claim"
+  }
+}

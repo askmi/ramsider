@@ -5,7 +5,7 @@ import sharp from 'sharp';
 async function scene(page: Page, locale = 'en') {
   await page.goto(`/${locale}`, { waitUntil: 'load' });
   await page.evaluate(() => document.fonts.ready);
-  await page.waitForFunction(() => [...document.querySelectorAll('.art img')].slice(0, 2).every(i => i.hasAttribute('data-media-ready')));
+  await page.waitForFunction(() => document.documentElement.hasAttribute('data-story-media-ready'));
   await page.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; scrollTo(0, 2048 * Math.min(innerWidth, 941) / 941 - 24); });
   await expect(page.locator('.ember-scene__canvas')).toHaveAttribute('data-state', 'running', { timeout: 30000 });
   return page.locator('.ember-scene');

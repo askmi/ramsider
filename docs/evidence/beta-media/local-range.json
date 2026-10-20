@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "rows": [
+    {
+      "file": "all-certificates.pdf",
+      "status": 206,
+      "bytes": 65536,
+      "contentRange": "bytes 0-65535/2635678",
+      "acceptRanges": "bytes",
+      "mime": "application/pdf",
+      "sliceSHA256": "9cb60ed2970bda18858d57da9062973e1867fed5b7c90a3efbc6e3e345c02cf9"
+    },
+    {
+      "file": "electrical-safety.pdf",
+      "status": 206,
+      "bytes": 65536,
+      "contentRange": "bytes 0-65535/135288",
+      "acceptRanges": "bytes",
+      "mime": "application/pdf",
+      "sliceSHA256": "4cfd6488058fa713182ef09c4ac278ed8b968a953129260486bd952939d31aa6"
+    },
+    {
+      "file": "emc.pdf",
+      "status": 206,
+      "bytes": 65536,
+      "contentRange": "bytes 0-65535/541229",
+      "acceptRanges": "bytes",
+      "mime": "application/pdf",
+      "sliceSHA256": "c8b050ec62a4321850ceebed4ab98f633a366e5806b43f8fab7faf78d9916c85"
+    },
+    {
+      "file": "rohs.pdf",
+      "status": 206,
+      "bytes": 65536,
+      "contentRange": "bytes 0-65535/1060192",
+      "acceptRanges": "bytes",
+      "mime": "application/pdf",
+      "sliceSHA256": "6d68c08b91f9070e44f3b94af0705935d8435593cafe9b49147875df4393104a"
+    },
+    {
+      "file": "uae-conformity.pdf",
+      "status": 206,
+      "bytes": 65536,
+      "contentRange": "bytes 0-65535/719638",
+      "acceptRanges": "bytes",
+      "mime": "application/pdf",
+      "sliceSHA256": "ce06d3862e45183a21bf66e5d616ea81474e516f81f317481db29751afc6e01c"
+    },
+    {
+      "file": "uae-telecom.pdf",
+      "status": 206,
+      "bytes": 65536,
+      "contentRange": "bytes 0-65535/306362",
+      "acceptRanges": "bytes",
+      "mime": "application/pdf",
+      "sliceSHA256": "ab583b83ddf803252e17116b0d0530278c6b8601ec026ab4ba47198bf9f7654f"
+    }
+  ]
+}

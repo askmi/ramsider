@@ -2,49 +2,100 @@
   {
     "destination": "public/certificates/electrical-safety.pdf",
     "source": "design/references/certificates/1_Electrical_Safety_IEC60335-1_CB_CNCVC3375.pdf",
-    "sha256": "0b55d4b11c4c1c3a06abc7890304410aa3768e412a40307645afc5b2c2988381",
-    "sourceExact": true,
+    "sha256": "bc721953c4c3ff248576f38b665bbb0e8d9467b5bf85bd54b6b3feb508dacac5",
+    "sourceExact": false,
     "pages": 1,
-    "bytes": 140057
+    "bytes": 135288,
+    "unoptimizedSHA256": "0b55d4b11c4c1c3a06abc7890304410aa3768e412a40307645afc5b2c2988381",
+    "unoptimizedBytes": 140057,
+    "betaOptimization": {
+      "change": "CHG0120",
+      "master": "design/derived/certificate-originals/electrical-safety.pdf",
+      "masterSHA256": "0b55d4b11c4c1c3a06abc7890304410aa3768e412a40307645afc5b2c2988381",
+      "linearized": true,
+      "pageContentTextBoxesRotationLinksExact": true,
+      "normalRenderAllPagesExact": true
+    }
   },
   {
     "destination": "public/certificates/emc.pdf",
     "source": "design/references/certificates/2_EMC_CB_Scheme_BELLIS_BY-00473.pdf",
-    "sha256": "b5c8ae4e91a1f68dc5f7117aeb867c7f5e74d3d5ea5a9627b36d8d866dcf32da",
-    "sourceExact": true,
+    "sha256": "66d54bce15859b56d4f823467e8c30a01d088c5e7351bc9db0f9308093d0bc1a",
+    "sourceExact": false,
     "pages": 1,
-    "bytes": 634866
+    "bytes": 541229,
+    "unoptimizedSHA256": "b5c8ae4e91a1f68dc5f7117aeb867c7f5e74d3d5ea5a9627b36d8d866dcf32da",
+    "unoptimizedBytes": 634866,
+    "betaOptimization": {
+      "change": "CHG0120",
+      "master": "design/derived/certificate-originals/emc.pdf",
+      "masterSHA256": "b5c8ae4e91a1f68dc5f7117aeb867c7f5e74d3d5ea5a9627b36d8d866dcf32da",
+      "linearized": true,
+      "pageContentTextBoxesRotationLinksExact": true,
+      "normalRenderAllPagesExact": true
+    }
   },
   {
     "destination": "public/certificates/uae-conformity.pdf",
     "source": "design/references/certificates/3_UAE_Conformity_ECAS_MoIAT_25-12-176846.pdf",
-    "sha256": "341d2fe214f1e2470c961fe5b4acc99604f55ab4628fd2f47c41de5c091b582d",
-    "sourceExact": true,
+    "sha256": "700635ef13eb5ba98a67a2f378bf51695580b670edb2a2ea9ffc72f84c067077",
+    "sourceExact": false,
     "pages": 3,
-    "bytes": 1398556
+    "bytes": 719638,
+    "unoptimizedSHA256": "341d2fe214f1e2470c961fe5b4acc99604f55ab4628fd2f47c41de5c091b582d",
+    "unoptimizedBytes": 1398556,
+    "betaOptimization": {
+      "change": "CHG0120",
+      "master": "design/derived/certificate-originals/uae-conformity.pdf",
+      "masterSHA256": "341d2fe214f1e2470c961fe5b4acc99604f55ab4628fd2f47c41de5c091b582d",
+      "linearized": true,
+      "pageContentTextBoxesRotationLinksExact": true,
+      "normalRenderAllPagesExact": true
+    }
   },
   {
     "destination": "public/certificates/uae-telecom.pdf",
     "source": "design/references/certificates/5_UAE_Telecom_TDRA_ER55730-26.pdf",
-    "sha256": "990848a800ce8a25c0f6c6f55af669d73d82b26724d940042fead24839385554",
-    "sourceExact": true,
+    "sha256": "22ffabff1340a2a32c702685c3ed96ef06a08eff11559f4c86ff4cf32feb2273",
+    "sourceExact": false,
     "pages": 4,
-    "bytes": 374332
+    "bytes": 306362,
+    "unoptimizedSHA256": "990848a800ce8a25c0f6c6f55af669d73d82b26724d940042fead24839385554",
+    "unoptimizedBytes": 374332,
+    "betaOptimization": {
+      "change": "CHG0120",
+      "master": "design/derived/certificate-originals/uae-telecom.pdf",
+      "masterSHA256": "990848a800ce8a25c0f6c6f55af669d73d82b26724d940042fead24839385554",
+      "linearized": true,
+      "pageContentTextBoxesRotationLinksExact": true,
+      "normalRenderAllPagesExact": true
+    }
   },
   {
     "destination": "public/certificates/all-certificates.pdf",
     "source": "design/references/certificates/6_RAMSIDER_UNO_All_Certificates_8docs.pdf",
-    "sha256": "482c4a4fcf9acaa406faf1f2b19f7377ceb5296776a563d6bec014499be6de60",
+    "sha256": "0934775216a0982c1c603246ebd303c22c397c9b9735f26cad5b3508249224e1",
     "sourceExact": false,
     "pages": 15,
-    "bytes": 3781872,
+    "bytes": 2635678,
     "orientationCorrection": {
       "page": 1,
       "sourceRotation": 0,
       "rotation": 270,
-      "incremental": true,
-      "sourcePrefixExact": true,
-      "pageStreamsExact": true
+      "pageStreamsExact": true,
+      "incrementalMaster": true,
+      "masterSourcePrefixExact": true,
+      "optimizedOutputPrefixExact": false
+    },
+    "unoptimizedSHA256": "482c4a4fcf9acaa406faf1f2b19f7377ceb5296776a563d6bec014499be6de60",
+    "unoptimizedBytes": 3781872,
+    "betaOptimization": {
+      "change": "CHG0120",
+      "master": "design/derived/certificate-originals/all-certificates.pdf",
+      "masterSHA256": "482c4a4fcf9acaa406faf1f2b19f7377ceb5296776a563d6bec014499be6de60",
+      "linearized": true,
+      "pageContentTextBoxesRotationLinksExact": true,
+      "normalRenderAllPagesExact": true
     }
   },
   {
@@ -56,8 +107,19 @@
       8
     ],
     "pageStreamsExact": true,
-    "sha256": "45a1bd70c7dba2f3e4f21330b2fabb79e0abd035163ae3b9553df9117c1ce87f",
+    "sha256": "31cb844c07d46db78f42f7fd2505c5f3018340d2e6e28ba7b7f2bb9f4573e8dc",
     "pages": 3,
-    "bytes": 1600374
+    "bytes": 1060192,
+    "unoptimizedSHA256": "45a1bd70c7dba2f3e4f21330b2fabb79e0abd035163ae3b9553df9117c1ce87f",
+    "unoptimizedBytes": 1600374,
+    "sourceExact": false,
+    "betaOptimization": {
+      "change": "CHG0120",
+      "master": "design/derived/certificate-originals/rohs.pdf",
+      "masterSHA256": "45a1bd70c7dba2f3e4f21330b2fabb79e0abd035163ae3b9553df9117c1ce87f",
+      "linearized": true,
+      "pageContentTextBoxesRotationLinksExact": true,
+      "normalRenderAllPagesExact": true
+    }
   }
 ]

@@ -13,7 +13,7 @@ import {useCallback,useEffect,useLayoutEffect,useRef,useState,type PointerEvent}
 import type {Locale} from '@/lib/i18n';
 import type {TechnologyDescriptionCopy,TechnologySlideId} from '@/lib/technology-descriptions';
 import {technologyGroups,technologyGroupCopy} from '@/lib/technology-gallery';
-import {loadImage} from '@/lib/media-resource';
+import {loadImage,retryStoryMedia} from '@/lib/media-resource';
 import {LoadingStatus,useScrollLock} from './MediaLoading';
 import {TechnologyDescriptions} from './TechnologyDescriptions';
 import {NobleCraftDescriptions} from './NobleCraftDescriptions';
@@ -69,7 +69,7 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
   stopInertia();requested.current=next;pending.current=true;contact.current=null;pointer.current=null;locked.current=viewport.current?.scrollTop??0;
   setLoading(true);setFailed(false);setProgress(null);subscription.current?.();const revision=++token.current;
   const resource=loadImage(technologyGroups[next.group].slides[next.photo].src,'auto');
-  subscription.current=resource.subscribe(value=>{if(revision===token.current)setProgress(value.total?Math.round(value.loaded/value.total*100):null);});
+  subscription.current=resource.subscribe(value=>{if(revision===token.current){setProgress(value.total?Math.round(value.loaded/value.total*100):null);setFailed(value.error);}});
   resource.ready.then(photo=>{
    if(revision!==token.current||!dialog.current?.open)return;
    if(document.activeElement===viewport.current)dialog.current.focus({preventScroll:true});
@@ -182,7 +182,7 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
  {group.title==='QuickCell'||group.title==='PolyArmor'?<PowerArmorDescriptions kind={group.title==='QuickCell'?'quick':'poly'} slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='MoodEngine'||group.title==='AquaSense'?<MoodAquaDescriptions kind={group.title==='MoodEngine'?'mood':'aqua'} slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='TouchLink'?<TouchLinkDescriptions slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='AirShield'?<AirShieldDescriptions slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='CapsuleCode'?<CapsuleCodeDescriptions slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='HeatCore'?<TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={labels.names[position.photo]} copy={descriptions} cropTop={102}/>:group.title==='CyberMind'?<CyberMindDescriptions slide={slide.id as '01'|'02'} locale={locale} name={group.title} copy={cyberMindCopy[locale]} descriptor={labels.technology}/>:<NobleCraftDescriptions slide={position.photo} locale={locale}/>}
  </article>}
  </div>
- {open&&loading&&<div className="technology-viewer__loading"><LoadingStatus locale={locale} progress={progress} error={failed} onRetry={()=>select(requested.current)}/></div>}
+ {open&&loading&&<div className="technology-viewer__loading"><LoadingStatus locale={locale} progress={progress} error={failed} onRetry={()=>{retryStoryMedia();select(requested.current);}}/></div>}
  </div>
  <footer className="technology-viewer__toolbar technology-viewer__toolbar--bottom">
  <button type="button" className="technology-viewer__arrow" aria-label={technologyGroupCopy[locale].previous} disabled={loading||position.group===0} onClick={()=>move('vertical',-1)}><Chevron direction="up"/></button>

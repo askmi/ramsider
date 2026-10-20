@@ -1,0 +1,597 @@
+{
+  "files": [
+    {
+      "file": "00.webp",
+      "mode": "lossy-q95",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          1.152,
+          0.862,
+          1.131
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          4.0,
+          6.0
+        ],
+        "red_mean_signed": [
+          -0.293,
+          0.253,
+          0.336
+        ],
+        "local_max_mae": 5.086,
+        "local_max_red_shift": 20.354,
+        "sampled_delta_e76_p99": 3.848,
+        "visible_pixels": 2633124
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "01.webp",
+      "mode": "lossy-q95-sharp-yuv",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          1.274,
+          0.981,
+          1.285
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          4.0,
+          6.0
+        ],
+        "red_mean_signed": [
+          -0.06,
+          0.255,
+          -0.037
+        ],
+        "local_max_mae": 5.213,
+        "local_max_red_shift": 11.679,
+        "sampled_delta_e76_p99": 3.866,
+        "visible_pixels": 2635714
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "02.webp",
+      "mode": "lossy-q95-sharp-yuv",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          1.321,
+          0.997,
+          1.374
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          4.0,
+          6.0
+        ],
+        "red_mean_signed": [
+          -0.031,
+          0.195,
+          -0.015
+        ],
+        "local_max_mae": 4.479,
+        "local_max_red_shift": 2.672,
+        "sampled_delta_e76_p99": 4.039,
+        "visible_pixels": 2633880
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "03.webp",
+      "mode": "lossy-q95-sharp-yuv",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          1.744,
+          1.206,
+          1.939
+        ],
+        "rgb_p99_abs": [
+          8.0,
+          5.0,
+          10.0
+        ],
+        "red_mean_signed": [
+          -0.037,
+          0.193,
+          0.064
+        ],
+        "local_max_mae": 7.619,
+        "local_max_red_shift": 9.57,
+        "sampled_delta_e76_p99": 6.76,
+        "visible_pixels": 2633880
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "04.webp",
+      "mode": "lossy-q95-sharp-yuv",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          1.752,
+          1.253,
+          1.965
+        ],
+        "rgb_p99_abs": [
+          8.0,
+          5.0,
+          10.0
+        ],
+        "red_mean_signed": [
+          -0.05,
+          0.177,
+          -0.005
+        ],
+        "local_max_mae": 6.454,
+        "local_max_red_shift": 4.361,
+        "sampled_delta_e76_p99": 5.968,
+        "visible_pixels": 2636410
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "05.webp",
+      "mode": "lossy-q95-sharp-yuv",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          1.47,
+          1.123,
+          1.533
+        ],
+        "rgb_p99_abs": [
+          6.0,
+          4.0,
+          6.0
+        ],
+        "red_mean_signed": [
+          -0.022,
+          0.195,
+          -0.017
+        ],
+        "local_max_mae": 4.546,
+        "local_max_red_shift": 5.66,
+        "sampled_delta_e76_p99": 4.092,
+        "visible_pixels": 2636682
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "06.webp",
+      "mode": "lossy-q95-sharp-yuv",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          1.449,
+          1.15,
+          1.589
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          4.0,
+          6.0
+        ],
+        "red_mean_signed": [
+          -0.008,
+          0.188,
+          -0.03
+        ],
+        "local_max_mae": 4.219,
+        "local_max_red_shift": 3.855,
+        "sampled_delta_e76_p99": 3.745,
+        "visible_pixels": 2636682
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "07.webp",
+      "mode": "lossy-q95-sharp-yuv",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          1.416,
+          1.162,
+          1.532
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          4.0,
+          5.0
+        ],
+        "red_mean_signed": [
+          -0.022,
+          0.181,
+          -0.038
+        ],
+        "local_max_mae": 2.387,
+        "local_max_red_shift": 9.747,
+        "sampled_delta_e76_p99": 3.288,
+        "visible_pixels": 2636682
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "08.webp",
+      "mode": "lossy-q95-sharp-yuv",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          1.327,
+          1.018,
+          1.361
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          4.0,
+          5.0
+        ],
+        "red_mean_signed": [
+          0.03,
+          0.17,
+          0.099
+        ],
+        "local_max_mae": 3.656,
+        "local_max_red_shift": 3.488,
+        "sampled_delta_e76_p99": 3.526,
+        "visible_pixels": 2636682
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "09-10.webp",
+      "mode": "lossy-q95-sharp-yuv",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          1.313,
+          1.021,
+          1.381
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          4.0,
+          6.0
+        ],
+        "red_mean_signed": [
+          -0.047,
+          0.194,
+          0.001
+        ],
+        "local_max_mae": 4.64,
+        "local_max_red_shift": 18.562,
+        "sampled_delta_e76_p99": 4.164,
+        "visible_pixels": 5271482
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "11.webp",
+      "mode": "lossy-q95-sharp-yuv",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          1.26,
+          1.028,
+          1.291
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          4.0,
+          5.0
+        ],
+        "red_mean_signed": [
+          -0.021,
+          0.229,
+          -0.073
+        ],
+        "local_max_mae": 2.583,
+        "local_max_red_shift": 13.029,
+        "sampled_delta_e76_p99": 3.102,
+        "visible_pixels": 1250589
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "faq-row-1.webp",
+      "mode": "lossy-q95",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          1.091,
+          0.778,
+          0.933
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          3.0,
+          5.0
+        ],
+        "red_mean_signed": [
+          -0.37,
+          0.267,
+          0.519
+        ],
+        "local_max_mae": 1.629,
+        "local_max_red_shift": 2.269,
+        "sampled_delta_e76_p99": 2.789,
+        "visible_pixels": 175967
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "faq-row-2.webp",
+      "mode": "lossy-q95",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          0.978,
+          0.718,
+          0.948
+        ],
+        "rgb_p99_abs": [
+          4.0,
+          3.0,
+          4.0
+        ],
+        "red_mean_signed": [
+          -0.42,
+          0.317,
+          0.526
+        ],
+        "local_max_mae": 1.584,
+        "local_max_red_shift": 19.814,
+        "sampled_delta_e76_p99": 2.49,
+        "visible_pixels": 175967
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "faq-row-3.webp",
+      "mode": "lossy-q95",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          0.989,
+          0.756,
+          0.974
+        ],
+        "rgb_p99_abs": [
+          4.0,
+          3.0,
+          4.0
+        ],
+        "red_mean_signed": [
+          -0.235,
+          0.259,
+          0.287
+        ],
+        "local_max_mae": 1.719,
+        "local_max_red_shift": 20.609,
+        "sampled_delta_e76_p99": 2.481,
+        "visible_pixels": 175026
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "faq-row-4.webp",
+      "mode": "lossy-q95-sharp-yuv",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          1.047,
+          0.819,
+          1.064
+        ],
+        "rgb_p99_abs": [
+          4.0,
+          3.0,
+          4.0
+        ],
+        "red_mean_signed": [
+          -0.118,
+          0.195,
+          0.351
+        ],
+        "local_max_mae": 1.785,
+        "local_max_red_shift": 17.562,
+        "sampled_delta_e76_p99": 2.567,
+        "visible_pixels": 175026
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "faq-row-5.webp",
+      "mode": "lossy-q95",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          1.06,
+          0.824,
+          1.076
+        ],
+        "rgb_p99_abs": [
+          4.0,
+          3.0,
+          5.0
+        ],
+        "red_mean_signed": [
+          -0.197,
+          0.223,
+          0.276
+        ],
+        "local_max_mae": 1.903,
+        "local_max_red_shift": 1.924,
+        "sampled_delta_e76_p99": 2.949,
+        "visible_pixels": 173144
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "faq-row-6.webp",
+      "mode": "lossy-q95-sharp-yuv",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          1.079,
+          0.818,
+          1.049
+        ],
+        "rgb_p99_abs": [
+          4.0,
+          3.0,
+          5.0
+        ],
+        "red_mean_signed": [
+          -0.016,
+          0.104,
+          -0.037
+        ],
+        "local_max_mae": 1.957,
+        "local_max_red_shift": 2.2,
+        "sampled_delta_e76_p99": 2.81,
+        "visible_pixels": 167498
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "doc-electrical.webp",
+      "mode": "lossless",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rgb_p99_abs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "red_mean_signed": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "local_max_mae": 0.0,
+        "local_max_red_shift": 0.0,
+        "sampled_delta_e76_p99": 0.0,
+        "visible_pixels": 13300
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "doc-emc.webp",
+      "mode": "lossless",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rgb_p99_abs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "red_mean_signed": null,
+        "local_max_mae": 0.0,
+        "local_max_red_shift": 0.0,
+        "sampled_delta_e76_p99": 0.0,
+        "visible_pixels": 13300
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "doc-uae.webp",
+      "mode": "lossless",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rgb_p99_abs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "red_mean_signed": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "local_max_mae": 0.0,
+        "local_max_red_shift": 0.0,
+        "sampled_delta_e76_p99": 0.0,
+        "visible_pixels": 13300
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "doc-rohs.webp",
+      "mode": "lossless",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rgb_p99_abs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "red_mean_signed": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "local_max_mae": 0.0,
+        "local_max_red_shift": 0.0,
+        "sampled_delta_e76_p99": 0.0,
+        "visible_pixels": 13300
+      },
+      "sourceHashExact": true
+    },
+    {
+      "file": "doc-telecom.webp",
+      "mode": "lossless",
+      "alphaExact": true,
+      "metrics": {
+        "rgb_mae": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rgb_p99_abs": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "red_mean_signed": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "local_max_mae": 0.0,
+        "local_max_red_shift": 0.0,
+        "sampled_delta_e76_p99": 0.0,
+        "visible_pixels": 13300
+      },
+      "sourceHashExact": true
+    }
+  ],
+  "count": 22,
+  "status": "PASS existing thresholds; 17 retained q95 lossy, five document thumbnails lossless",
+  "noReencodingOfExistingWebP": true
+}

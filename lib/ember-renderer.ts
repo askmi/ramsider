@@ -147,7 +147,7 @@ export interface EmberRenderer {
 export async function createEmberRenderer(canvas: HTMLCanvasElement): Promise<EmberRenderer> {
   const image = new Image();
   image.decoding = 'async';
-  image.src = '/art/ember/mask.png';
+  image.src = '/art/ember/mask.webp';
   await image.decode();
   const gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: false, depth: false, stencil: false, powerPreference: 'low-power' });
   if (!gl) throw new Error('Ember WebGL unavailable');

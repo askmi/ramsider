@@ -162,7 +162,7 @@ function Faq({ locale }: { locale: Locale }) {
 function Menus({ locale }: { locale: Locale }) {
   return <header className="masthead">
     <Link id="home-link" className="wordmark" href={`/${locale}`} aria-label={`RAMSIDER ${t(locale, 'home')}`}>
-      <Image className="wordmark-icon" src="/art/brand-mark-white.png" width={32} height={32} alt="" aria-hidden="true" unoptimized loading="eager" />
+      <Image className="wordmark-icon" src="/art/brand-mark-white.webp" width={32} height={32} alt="" aria-hidden="true" unoptimized loading="eager" />
       RAMSIDER
     </Link>
     <MenuShell label={t(locale, 'menu')}>
@@ -249,7 +249,7 @@ export function Story({ locale }: { locale: Locale }) {
       {featureDividers.map(icon => <Image
         key={icon.name}
         className="feature-divider-art"
-        src={`/art/feature-divider-${icon.name}.png`}
+        src={`/art/feature-divider-${icon.name}.webp`}
         width={icon.width}
         height={icon.height}
         style={sourceStyle(icon.x, icon.y, icon.width)}
@@ -262,7 +262,7 @@ export function Story({ locale }: { locale: Locale }) {
       {technologyConnectors.map(icon => <Image
         key={icon.name}
         className="technology-connector-art"
-        src={`/art/technology-connector-${icon.name}.png`}
+        src={`/art/technology-connector-${icon.name}.webp`}
         width={icon.width}
         height={icon.height}
         style={sourceStyle(icon.x, icon.y, icon.width)}
@@ -275,7 +275,7 @@ export function Story({ locale }: { locale: Locale }) {
       <Image
         data-media
         className="expression-waves-art"
-        src="/art/expression-waves.png"
+        src="/art/expression-waves.webp"
         width={701}
         height={401}
         style={sourceStyle(120, 14665, 701)}
@@ -313,7 +313,7 @@ export function Story({ locale }: { locale: Locale }) {
         {storyNodes.filter(node => node.y >= 28207).map((node, index) => <OverlayNode node={node} locale={locale} key={`${node.key}-${index}`} />)}
       <button id="account-personal" type="button" className="account-hit" style={sourceStyle(45, 28230, 850)} popoverTarget="unavailable-account" aria-label={t(locale, 'account')} />
       <button id="account-venue" type="button" className="account-hit" style={sourceStyle(45, 28350, 850)} popoverTarget="unavailable-account" aria-label={`${t(locale, 'businessAccount')}: ${t(locale, 'venueAccount')}`} />
-      <Image className="group-diamond" src="/art/rams-group-diamond.png" width={120} height={150} alt="" unoptimized style={sourceStyle(410, 28885, 120)} />
+      <Image className="group-diamond" src="/art/rams-group-diamond.webp" width={120} height={150} alt="" unoptimized style={sourceStyle(410, 28885, 120)} />
       {[
         { hit: 29370, number: 29373, link: 29586 },
         { hit: 29690, number: 29705, link: 29908 },

@@ -222,6 +222,8 @@ test('keyboard focus, Escape, and Arabic alignment remain usable', async ({ page
   test.skip(testInfo.project.name !== 'iphone-17-pro-webkit');
   for (const locale of ['en', 'ar']) {
     await page.goto(`/${locale}`);
+    await page.waitForFunction(() => document.documentElement.hasAttribute('data-media-hydrated'));
+    await expect(page.locator('.page-media-overlay')).toHaveCount(0);
     const trigger = page.locator('#locale-toggle');
     await trigger.focus();
     await page.keyboard.press('Enter');

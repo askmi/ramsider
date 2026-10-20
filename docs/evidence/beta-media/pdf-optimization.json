@@ -1,0 +1,698 @@
+{
+  "date": "2026-10-20",
+  "status": "VERIFIED_WITH_SEPARATE_RENDER_RECEIPT",
+  "pikepdf": "10.17.0",
+  "qpdf": "12.4.2",
+  "jpegtran": "libjpeg-turbo version 3.1.4.1 (build 20260327)",
+  "flateCompressionLevel": 9,
+  "files": [
+    {
+      "file": "all-certificates.pdf",
+      "master": "design/derived/certificate-originals/all-certificates.pdf",
+      "masterSHA256": "482c4a4fcf9acaa406faf1f2b19f7377ceb5296776a563d6bec014499be6de60",
+      "originalBytes": 3781872,
+      "outputBytes": 2635678,
+      "outputSHA256": "0934775216a0982c1c603246ebd303c22c397c9b9735f26cad5b3508249224e1",
+      "selection": "dedup-entropy",
+      "linearized": true,
+      "pages": 15,
+      "pageContentTextBoxesRotationLinksExact": true,
+      "candidates": [
+        {
+          "kind": "entropy",
+          "linearized": false,
+          "bytes": 2951781,
+          "jpegStreams": [
+            {
+              "before": 139007,
+              "after": 133541,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 633793,
+              "after": 539464,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 118323,
+              "after": 111351,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 30942,
+              "after": 29002,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 30717,
+              "after": 28774,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 49120,
+              "after": 44892,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 265926,
+              "after": 205590,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 10580,
+              "after": 9436,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        },
+        {
+          "kind": "entropy",
+          "linearized": true,
+          "bytes": 2958170,
+          "jpegStreams": [
+            {
+              "before": 139007,
+              "after": 133541,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 633793,
+              "after": 539464,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 118323,
+              "after": 111351,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 30942,
+              "after": 29002,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 30717,
+              "after": 28774,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 49120,
+              "after": 44892,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 265926,
+              "after": 205590,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 10580,
+              "after": 9436,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        },
+        {
+          "kind": "dedup-entropy",
+          "linearized": false,
+          "bytes": 2629469,
+          "jpegStreams": [
+            {
+              "before": 139007,
+              "after": 133541,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 633793,
+              "after": 539464,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 118323,
+              "after": 111351,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 30942,
+              "after": 29002,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 30717,
+              "after": 28774,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 49120,
+              "after": 44892,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 265926,
+              "after": 205590,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 10580,
+              "after": 9436,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        },
+        {
+          "kind": "dedup-entropy",
+          "linearized": true,
+          "bytes": 2635678,
+          "jpegStreams": [
+            {
+              "before": 139007,
+              "after": 133541,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 633793,
+              "after": 539464,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 118323,
+              "after": 111351,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 30942,
+              "after": 29002,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 30717,
+              "after": 28774,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 49120,
+              "after": 44892,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 265926,
+              "after": 205590,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 10580,
+              "after": 9436,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "electrical-safety.pdf",
+      "master": "design/derived/certificate-originals/electrical-safety.pdf",
+      "masterSHA256": "0b55d4b11c4c1c3a06abc7890304410aa3768e412a40307645afc5b2c2988381",
+      "originalBytes": 140057,
+      "outputBytes": 135288,
+      "outputSHA256": "bc721953c4c3ff248576f38b665bbb0e8d9467b5bf85bd54b6b3feb508dacac5",
+      "selection": "entropy",
+      "linearized": true,
+      "pages": 1,
+      "pageContentTextBoxesRotationLinksExact": true,
+      "candidates": [
+        {
+          "kind": "entropy",
+          "linearized": false,
+          "bytes": 134506,
+          "jpegStreams": [
+            {
+              "before": 139007,
+              "after": 133541,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        },
+        {
+          "kind": "entropy",
+          "linearized": true,
+          "bytes": 135288,
+          "jpegStreams": [
+            {
+              "before": 139007,
+              "after": 133541,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        },
+        {
+          "kind": "dedup-entropy",
+          "linearized": false,
+          "bytes": 134502,
+          "jpegStreams": [
+            {
+              "before": 139007,
+              "after": 133541,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        },
+        {
+          "kind": "dedup-entropy",
+          "linearized": true,
+          "bytes": 135288,
+          "jpegStreams": [
+            {
+              "before": 139007,
+              "after": 133541,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "emc.pdf",
+      "master": "design/derived/certificate-originals/emc.pdf",
+      "masterSHA256": "b5c8ae4e91a1f68dc5f7117aeb867c7f5e74d3d5ea5a9627b36d8d866dcf32da",
+      "originalBytes": 634866,
+      "outputBytes": 541229,
+      "outputSHA256": "66d54bce15859b56d4f823467e8c30a01d088c5e7351bc9db0f9308093d0bc1a",
+      "selection": "dedup-entropy",
+      "linearized": true,
+      "pages": 1,
+      "pageContentTextBoxesRotationLinksExact": true,
+      "candidates": [
+        {
+          "kind": "entropy",
+          "linearized": false,
+          "bytes": 540420,
+          "jpegStreams": [
+            {
+              "before": 633793,
+              "after": 539464,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        },
+        {
+          "kind": "entropy",
+          "linearized": true,
+          "bytes": 541241,
+          "jpegStreams": [
+            {
+              "before": 633793,
+              "after": 539464,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        },
+        {
+          "kind": "dedup-entropy",
+          "linearized": false,
+          "bytes": 540416,
+          "jpegStreams": [
+            {
+              "before": 633793,
+              "after": 539464,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        },
+        {
+          "kind": "dedup-entropy",
+          "linearized": true,
+          "bytes": 541229,
+          "jpegStreams": [
+            {
+              "before": 633793,
+              "after": 539464,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "rohs.pdf",
+      "master": "design/derived/certificate-originals/rohs.pdf",
+      "masterSHA256": "45a1bd70c7dba2f3e4f21330b2fabb79e0abd035163ae3b9553df9117c1ce87f",
+      "originalBytes": 1600374,
+      "outputBytes": 1060192,
+      "outputSHA256": "31cb844c07d46db78f42f7fd2505c5f3018340d2e6e28ba7b7f2bb9f4573e8dc",
+      "selection": "dedup-entropy",
+      "linearized": true,
+      "pages": 3,
+      "pageContentTextBoxesRotationLinksExact": true,
+      "candidates": [
+        {
+          "kind": "entropy",
+          "linearized": false,
+          "bytes": 1103020,
+          "jpegStreams": [
+            {
+              "before": 118323,
+              "after": 111351,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 30717,
+              "after": 28774,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        },
+        {
+          "kind": "entropy",
+          "linearized": true,
+          "bytes": 1105465,
+          "jpegStreams": [
+            {
+              "before": 118323,
+              "after": 111351,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 30717,
+              "after": 28774,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        },
+        {
+          "kind": "dedup-entropy",
+          "linearized": false,
+          "bytes": 1057727,
+          "jpegStreams": [
+            {
+              "before": 118323,
+              "after": 111351,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 30717,
+              "after": 28774,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        },
+        {
+          "kind": "dedup-entropy",
+          "linearized": true,
+          "bytes": 1060192,
+          "jpegStreams": [
+            {
+              "before": 118323,
+              "after": 111351,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 30717,
+              "after": 28774,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "uae-conformity.pdf",
+      "master": "design/derived/certificate-originals/uae-conformity.pdf",
+      "masterSHA256": "341d2fe214f1e2470c961fe5b4acc99604f55ab4628fd2f47c41de5c091b582d",
+      "originalBytes": 1398556,
+      "outputBytes": 719638,
+      "outputSHA256": "700635ef13eb5ba98a67a2f378bf51695580b670edb2a2ea9ffc72f84c067077",
+      "selection": "dedup-entropy",
+      "linearized": true,
+      "pages": 3,
+      "pageContentTextBoxesRotationLinksExact": true,
+      "candidates": [
+        {
+          "kind": "entropy",
+          "linearized": false,
+          "bytes": 1337002,
+          "jpegStreams": [
+            {
+              "before": 30942,
+              "after": 29002,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 118323,
+              "after": 111351,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 30942,
+              "after": 29002,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 118323,
+              "after": 111351,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 30942,
+              "after": 29002,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 118323,
+              "after": 111351,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        },
+        {
+          "kind": "entropy",
+          "linearized": true,
+          "bytes": 1339199,
+          "jpegStreams": [
+            {
+              "before": 30942,
+              "after": 29002,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 118323,
+              "after": 111351,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 30942,
+              "after": 29002,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 118323,
+              "after": 111351,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 30942,
+              "after": 29002,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 118323,
+              "after": 111351,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        },
+        {
+          "kind": "dedup-entropy",
+          "linearized": false,
+          "bytes": 717538,
+          "jpegStreams": [
+            {
+              "before": 30942,
+              "after": 29002,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 118323,
+              "after": 111351,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        },
+        {
+          "kind": "dedup-entropy",
+          "linearized": true,
+          "bytes": 719638,
+          "jpegStreams": [
+            {
+              "before": 30942,
+              "after": 29002,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 118323,
+              "after": 111351,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "uae-telecom.pdf",
+      "master": "design/derived/certificate-originals/uae-telecom.pdf",
+      "masterSHA256": "990848a800ce8a25c0f6c6f55af669d73d82b26724d940042fead24839385554",
+      "originalBytes": 374332,
+      "outputBytes": 306362,
+      "outputSHA256": "22ffabff1340a2a32c702685c3ed96ef06a08eff11559f4c86ff4cf32feb2273",
+      "selection": "entropy",
+      "linearized": true,
+      "pages": 4,
+      "pageContentTextBoxesRotationLinksExact": true,
+      "candidates": [
+        {
+          "kind": "entropy",
+          "linearized": false,
+          "bytes": 304108,
+          "jpegStreams": [
+            {
+              "before": 49120,
+              "after": 44892,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 265926,
+              "after": 205590,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        },
+        {
+          "kind": "entropy",
+          "linearized": true,
+          "bytes": 306362,
+          "jpegStreams": [
+            {
+              "before": 49120,
+              "after": 44892,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 265926,
+              "after": 205590,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        },
+        {
+          "kind": "dedup-entropy",
+          "linearized": false,
+          "bytes": 304122,
+          "jpegStreams": [
+            {
+              "before": 49120,
+              "after": 44892,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 265926,
+              "after": 205590,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        },
+        {
+          "kind": "dedup-entropy",
+          "linearized": true,
+          "bytes": 306366,
+          "jpegStreams": [
+            {
+              "before": 49120,
+              "after": 44892,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            },
+            {
+              "before": 265926,
+              "after": 205590,
+              "decodedSamplesExact": true,
+              "iccExact": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "sourceBytes": 7930057,
+  "outputBytes": 5398387,
+  "qualityPolicy": "No downsampling/requantization/cropping/color conversion; JPEG entropy decoded samples/ICC exact, PDF page content/text/boxes/rotation/link fingerprints exact; actual renders required separately",
+  "renderReceipt": "pdf-render.json"
+}

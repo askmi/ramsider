@@ -11,7 +11,7 @@ test('expression waves frame centered localized copy and keep comparison usable'
     await wave.scrollIntoViewIfNeeded();
     const canvasBox = await canvas.boundingBox();
     if (!canvasBox) throw new Error(`Missing canvas: ${locale}`);
-    await expect(wave).toHaveAttribute('src', '/art/expression-waves.png');
+    await expect(wave).toHaveAttribute('src', '/art/expression-waves.webp');
     await expect(wave).toHaveAttribute('aria-hidden', 'true');
     expect(await wave.evaluate(async element => {
       const image = element as HTMLImageElement;

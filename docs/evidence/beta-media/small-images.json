@@ -1,0 +1,504 @@
+{
+  "date": "2026-10-20",
+  "encoder": "1.6.0\nlibsharpyuv: 0.4.2",
+  "options": "-lossless -exact -q100 -m6 -mt -metadata icc",
+  "assets": [
+    {
+      "source": "art/brand-mark-white.png",
+      "output": "public/art/brand-mark-white.webp",
+      "master": "design/derived/webp-small-originals/art/brand-mark-white.png",
+      "sourceSHA256": "8be8483e505d8f2653ab5ca5925736ec1b51c55a1d7b5ad87ea03df034381c1c",
+      "outputSHA256": "fa7099ab0ca3f354c722e4609703145fe0f6d640162658f2a9a99da62a2cf1e6",
+      "sourceBytes": 1362,
+      "outputBytes": 1082,
+      "dimensions": [
+        32,
+        32
+      ],
+      "policy": "Existing sRGB pixels and profile preserved",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "c56e1685d888f5edb92fe07f2750f387f8fe8e91b32ff8fb0b56bfbbb9458353"
+    },
+    {
+      "source": "art/ember/mask.png",
+      "output": "public/art/ember/mask.webp",
+      "master": "design/derived/webp-small-originals/art/ember/mask.png",
+      "sourceSHA256": "546917ec11743434629fd4130482266f08ebab9c679638eca17c2d48bfcffbbe",
+      "outputSHA256": "f86b14ce709677b66d19cb73e66d96362eae398cc27d5c0ddb9c7ed4f524a193",
+      "sourceBytes": 77566,
+      "outputBytes": 35276,
+      "dimensions": [
+        480,
+        760
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/expression-waves.png",
+      "output": "public/art/expression-waves.webp",
+      "master": "design/derived/webp-small-originals/art/expression-waves.png",
+      "sourceSHA256": "d7e150754ed76ce2bf48c188dd60bfc9c96f3beb9c76963808b49e16d95b8b8c",
+      "outputSHA256": "2c4cc6c937304be46d420ef2e441c65fbff026fd117729c9d3a83dac3a70e6f7",
+      "sourceBytes": 100829,
+      "outputBytes": 67220,
+      "dimensions": [
+        701,
+        401
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/feature-divider-control.png",
+      "output": "public/art/feature-divider-control.webp",
+      "master": "design/derived/webp-small-originals/art/feature-divider-control.png",
+      "sourceSHA256": "a245c5f11e0e0472c6b128ecc3220716e8415ab195406c860b36ed7becba899d",
+      "outputSHA256": "075ed7d4dd111e075cde8c4204d40313c8a12e9f17c00f56f54eaa342e19f21e",
+      "sourceBytes": 251,
+      "outputBytes": 710,
+      "dimensions": [
+        100,
+        154
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/feature-divider-draw.png",
+      "output": "public/art/feature-divider-draw.webp",
+      "master": "design/derived/webp-small-originals/art/feature-divider-draw.png",
+      "sourceSHA256": "5b512f72b0807c60cfa8eecf810ffe1932b13a1a526a11db7d27c51a1f2f34ba",
+      "outputSHA256": "bebc90ec4b6733827ed7d0c5beda7ed48749f5a1bf873adfc8fa4b6358b13bca",
+      "sourceBytes": 319,
+      "outputBytes": 746,
+      "dimensions": [
+        100,
+        161
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/feature-divider-intensity.png",
+      "output": "public/art/feature-divider-intensity.webp",
+      "master": "design/derived/webp-small-originals/art/feature-divider-intensity.png",
+      "sourceSHA256": "129fea0f2f7987fe6cdecf4a969bf71a92e4ea2b32dd38300cbe524cd26f8865",
+      "outputSHA256": "2e30a304376b08d16cfe3d7f7388517a767146720cb1781cc462c6f616c7369c",
+      "sourceBytes": 426,
+      "outputBytes": 802,
+      "dimensions": [
+        100,
+        158
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/icon-kit/01.png",
+      "output": "public/art/icon-kit/01.webp",
+      "master": "design/derived/webp-small-originals/art/icon-kit/01.png",
+      "sourceSHA256": "e260d57741e5a0ebc91918edb1f95d2a672c2bda4f86432a5f36da4487e5fcba",
+      "outputSHA256": "ba243e0cb50f867ffba46d016a448dacc9446d81c811a9bb72c91f960e2def51",
+      "sourceBytes": 634,
+      "outputBytes": 944,
+      "dimensions": [
+        21,
+        24
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/icon-kit/02.png",
+      "output": "public/art/icon-kit/02.webp",
+      "master": "design/derived/webp-small-originals/art/icon-kit/02.png",
+      "sourceSHA256": "48b418689365aface941527ca5972fec022d0b860c059e311a9153e2b6f3ecc4",
+      "outputSHA256": "7e38e240f9b05ef325af0a43e641abfbe84b460fe1b3c6da8fe23a919e02f917",
+      "sourceBytes": 470,
+      "outputBytes": 816,
+      "dimensions": [
+        24,
+        24
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/icon-kit/03.png",
+      "output": "public/art/icon-kit/03.webp",
+      "master": "design/derived/webp-small-originals/art/icon-kit/03.png",
+      "sourceSHA256": "e8420759b8f56636b7f601b6f91235678bf98dcacb3cb5d475463dbecbdca054",
+      "outputSHA256": "c8f3ae280ff4d50ae5970337dd7286b10fafde752797ef74457c8b4f6a1b47df",
+      "sourceBytes": 730,
+      "outputBytes": 1002,
+      "dimensions": [
+        22,
+        30
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/icon-kit/04.png",
+      "output": "public/art/icon-kit/04.webp",
+      "master": "design/derived/webp-small-originals/art/icon-kit/04.png",
+      "sourceSHA256": "59dcaea2edbe615f6f08f3a17010e1a7ac13d05a4813b1eb30f1379b59bf901a",
+      "outputSHA256": "caa2b7cc611fc5df81c1f283c1c714ed4811c81a7a811030eecac5b85c754b3c",
+      "sourceBytes": 500,
+      "outputBytes": 860,
+      "dimensions": [
+        19,
+        27
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/icon-kit/05.png",
+      "output": "public/art/icon-kit/05.webp",
+      "master": "design/derived/webp-small-originals/art/icon-kit/05.png",
+      "sourceSHA256": "790cd81948021271dfd331a015c26bde8de9f46d5feb3ede2bb237bd374f982c",
+      "outputSHA256": "8ab71aa15c20369c7fba2519a7289190a88cbc39307c01e60b8f6b3583feaed1",
+      "sourceBytes": 682,
+      "outputBytes": 950,
+      "dimensions": [
+        28,
+        27
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/icon-kit/06.png",
+      "output": "public/art/icon-kit/06.webp",
+      "master": "design/derived/webp-small-originals/art/icon-kit/06.png",
+      "sourceSHA256": "790cd81948021271dfd331a015c26bde8de9f46d5feb3ede2bb237bd374f982c",
+      "outputSHA256": "8ab71aa15c20369c7fba2519a7289190a88cbc39307c01e60b8f6b3583feaed1",
+      "sourceBytes": 682,
+      "outputBytes": 950,
+      "dimensions": [
+        28,
+        27
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/icon-kit/07.png",
+      "output": "public/art/icon-kit/07.webp",
+      "master": "design/derived/webp-small-originals/art/icon-kit/07.png",
+      "sourceSHA256": "bcc2b223c96695097475812427b4ec42001843c42f5d84c3c1e75d6b1aeeafbe",
+      "outputSHA256": "fd4fd006391ef3ccc845fc3fc81dd192e73980e52849925a981fc7d9a92c97d3",
+      "sourceBytes": 557,
+      "outputBytes": 888,
+      "dimensions": [
+        19,
+        24
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/icon-kit/08.png",
+      "output": "public/art/icon-kit/08.webp",
+      "master": "design/derived/webp-small-originals/art/icon-kit/08.png",
+      "sourceSHA256": "779c6b1cefff06bf93e3915492801ec1871e5987589cad47ea8f44bda7ed3b57",
+      "outputSHA256": "55c9636ebea3d507c251472ec5fcd06ad0dbc4983357727db95ef78f8f99adc0",
+      "sourceBytes": 582,
+      "outputBytes": 908,
+      "dimensions": [
+        28,
+        27
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/icon-kit/09.png",
+      "output": "public/art/icon-kit/09.webp",
+      "master": "design/derived/webp-small-originals/art/icon-kit/09.png",
+      "sourceSHA256": "7a5b3b2ed1920f28f42c8ceb858981037e85087652eb6c174d2429e4a543dc3a",
+      "outputSHA256": "d24a3d288a6c1635c95aec8882dbbae399c464ba6cf7c7e591734c1747c16c48",
+      "sourceBytes": 1188,
+      "outputBytes": 1632,
+      "dimensions": [
+        46,
+        54
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/icon-kit/10.png",
+      "output": "public/art/icon-kit/10.webp",
+      "master": "design/derived/webp-small-originals/art/icon-kit/10.png",
+      "sourceSHA256": "386a974846bd7c8f535eb1666aae99f01dc467a347c262965a231f5995bedbd7",
+      "outputSHA256": "84c0f9362a04ce32abccc74770c8bcae71fc270f0e26aa4bee6133a4a44b6ac5",
+      "sourceBytes": 2003,
+      "outputBytes": 2040,
+      "dimensions": [
+        65,
+        64
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/icon-kit/11.png",
+      "output": "public/art/icon-kit/11.webp",
+      "master": "design/derived/webp-small-originals/art/icon-kit/11.png",
+      "sourceSHA256": "a111c9cddbf611551a0ff2ede9c6a5dce2aa96b47b28b40049ecc7c2973c94a5",
+      "outputSHA256": "9a9e4a5ee66eddd1174d3810d566111c4adcfd1d4b4c589109c1a1a3860aae1d",
+      "sourceBytes": 969,
+      "outputBytes": 1360,
+      "dimensions": [
+        50,
+        49
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/icon-kit/12.png",
+      "output": "public/art/icon-kit/12.webp",
+      "master": "design/derived/webp-small-originals/art/icon-kit/12.png",
+      "sourceSHA256": "689abf2d8c058c5e0eac74d9e3e8e259bf43807956a5f1d666d1f7aa723aeb12",
+      "outputSHA256": "5b5f7cb92b5aca8e0517039a6cf2baa0725c5bade88aa48d9b45ee481ebcca5e",
+      "sourceBytes": 2059,
+      "outputBytes": 2020,
+      "dimensions": [
+        58,
+        58
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/rams-group-diamond.png",
+      "output": "public/art/rams-group-diamond.webp",
+      "master": "design/derived/webp-small-originals/art/rams-group-diamond.png",
+      "sourceSHA256": "9dd770dfe792f030ddf4777373c5fa8321dc6f086ee8b492d6bf03f1dc0a9c65",
+      "outputSHA256": "c0d94e2452d4992d1626cc5357e852ec85a75c2dfe851b788b689349f6045fa5",
+      "sourceBytes": 41088,
+      "outputBytes": 28384,
+      "dimensions": [
+        120,
+        150
+      ],
+      "policy": "AdobeRGB to sRGB managed control, original alpha retained",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/technology/arrow-down.png",
+      "sourceSHA256": "2a1de41f1f7f5734740b51ab4a08473867a26d9a4c4d19e5ec951599a58851dd",
+      "sourceBytes": 2174,
+      "status": "unused legacy controls reserved outside public"
+    },
+    {
+      "source": "art/technology/arrow-right.png",
+      "sourceSHA256": "fcc941c5f56a96e6f8c0f16915adc0a84580383e6817b72bbee7d04423fbe3c0",
+      "sourceBytes": 2291,
+      "status": "unused legacy controls reserved outside public"
+    },
+    {
+      "source": "art/technology/dot-active.png",
+      "sourceSHA256": "b53be6811cf3256fc02373afc6f060dbd5ce4c231cbddcb3e40f17c364f33bef",
+      "sourceBytes": 1594,
+      "status": "unused legacy controls reserved outside public"
+    },
+    {
+      "source": "art/technology/dot-inactive.png",
+      "sourceSHA256": "e3d898f6246c7fec53ab2ce55d128d6f57858ee60b88ae9bf0f4bedbfca5836d",
+      "sourceBytes": 1412,
+      "status": "unused legacy controls reserved outside public"
+    },
+    {
+      "source": "art/technology-connector-armor.png",
+      "output": "public/art/technology-connector-armor.webp",
+      "master": "design/derived/webp-small-originals/art/technology-connector-armor.png",
+      "sourceSHA256": "da09a2a25125fb4e5d5812c20292dd63bf942b4cbd3825e81e87fa0a8bd13688",
+      "outputSHA256": "cc042f744900b25ad927f1a1208fdf42b079a266ca3b5ec0adafea88f7104174",
+      "sourceBytes": 8082,
+      "outputBytes": 4782,
+      "dimensions": [
+        152,
+        145
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/technology-connector-core.png",
+      "output": "public/art/technology-connector-core.webp",
+      "master": "design/derived/webp-small-originals/art/technology-connector-core.png",
+      "sourceSHA256": "fc7e9128933f06a0813b14140188dad57cf56f35ddc023e27c03572453f76fcf",
+      "outputSHA256": "6c93b0e254b007600564200c4181212adee612dcf340b17249fefeeffc764bc9",
+      "sourceBytes": 1701,
+      "outputBytes": 1712,
+      "dimensions": [
+        210,
+        52
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/technology-connector-flow.png",
+      "output": "public/art/technology-connector-flow.webp",
+      "master": "design/derived/webp-small-originals/art/technology-connector-flow.png",
+      "sourceSHA256": "31a4265bebcdffb18c3c3ccb0a426f06741afc6c1088c6656ffad22fb826ccfe",
+      "outputSHA256": "0d4885cf06fee703f4530f735f8f3e4e24a56318c99b8a71eaf594ad362aa5ef",
+      "sourceBytes": 18774,
+      "outputBytes": 11570,
+      "dimensions": [
+        290,
+        145
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/technology-connector-light.png",
+      "output": "public/art/technology-connector-light.webp",
+      "master": "design/derived/webp-small-originals/art/technology-connector-light.png",
+      "sourceSHA256": "35479f4ab5fe4ac1245f2f4acae65ce6704d1da27dea89c5c02bdb742fe969b5",
+      "outputSHA256": "d0dd91048eb05dfb2c7c3ab514dc726b32edc86968c674177d6b9c888fa3d05a",
+      "sourceBytes": 6940,
+      "outputBytes": 4296,
+      "dimensions": [
+        150,
+        155
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/technology-connector-touch.png",
+      "output": "public/art/technology-connector-touch.webp",
+      "master": "design/derived/webp-small-originals/art/technology-connector-touch.png",
+      "sourceSHA256": "02b336a35f09a2df5c10b8e40ff53b873c5365ec371154127890eaabbaa526f2",
+      "outputSHA256": "5c2d9e90af86066e97779d92a77eaed682e00c2cc1fc8cc9819755c7e6187eea",
+      "sourceBytes": 16048,
+      "outputBytes": 10026,
+      "dimensions": [
+        265,
+        130
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/technology-connector-triple.png",
+      "output": "public/art/technology-connector-triple.webp",
+      "master": "design/derived/webp-small-originals/art/technology-connector-triple.png",
+      "sourceSHA256": "2c5e651382d7fff2cfd4e7226e7b139c7167cb3484e3f168e06389d701bf9538",
+      "outputSHA256": "23c04f0ed288267928b8c58205d36888c7949347618da5ee4dd61543f2a3af21",
+      "sourceBytes": 1607,
+      "outputBytes": 1642,
+      "dimensions": [
+        240,
+        60
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    },
+    {
+      "source": "art/technology-connector-water.png",
+      "output": "public/art/technology-connector-water.webp",
+      "master": "design/derived/webp-small-originals/art/technology-connector-water.png",
+      "sourceSHA256": "ce6f3001b8bff1a9c0903b884c8bc1da7c39b29d4a7231c6d3a0bb0fbfed189c",
+      "outputSHA256": "783b9eb5cf1cbeeb9164ef74c024fd46bf39b391c45a6a8be403988c0484265c",
+      "sourceBytes": 2402,
+      "outputBytes": 2080,
+      "dimensions": [
+        260,
+        65
+      ],
+      "policy": "Untagged browser interpretation/raw RGBA preserved; no RGB transform",
+      "codec": "VP8L",
+      "decodedControlRGBAExact": true,
+      "alphaExact": true,
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e"
+    }
+  ],
+  "inlineSeams": 4,
+  "inlineRGBAExact": true,
+  "sourceBytes": 295922,
+  "webpBytes": 184698,
+  "sourceProfileIntent": "Untagged editorial intent UNKNOWN; current browser interpretation preserved"
+}

@@ -15,7 +15,7 @@ async function landing(page:Page,locale='en') {
  await page.waitForFunction(()=>[...document.querySelectorAll<HTMLImageElement>('.doc-thumb')].every(i=>i.complete&&i.naturalWidth));
 }
 
-test('six original PDF files are intact and served as viewable PDFs',async({request})=>{
+test('six delivered PDF files match approved derivatives and remain viewable PDFs',async({request})=>{
  for(const source of Object.values(certificates)) {
   const response=await request.get(source.href);
   expect(response.status()).toBe(200);

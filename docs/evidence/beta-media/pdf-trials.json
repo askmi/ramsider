@@ -1,0 +1,188 @@
+[
+  {
+    "file": "all-certificates.pdf",
+    "originalBytes": 3781872,
+    "variants": [
+      {
+        "mode": "structural",
+        "bytes": 3179209,
+        "jpegStreamsEntropyOptimized": 0
+      },
+      {
+        "mode": "linearized",
+        "bytes": 3185566,
+        "jpegStreamsEntropyOptimized": 0
+      },
+      {
+        "mode": "dedup-linearized",
+        "bytes": 2861807,
+        "jpegStreamsEntropyOptimized": 0
+      },
+      {
+        "mode": "jpeg-linearized",
+        "bytes": 3009206,
+        "jpegStreamsEntropyOptimized": 8
+      },
+      {
+        "mode": "dedup-jpeg-linearized",
+        "bytes": 2685448,
+        "jpegStreamsEntropyOptimized": 8
+      }
+    ]
+  },
+  {
+    "file": "electrical-safety.pdf",
+    "originalBytes": 140057,
+    "variants": [
+      {
+        "mode": "structural",
+        "bytes": 139973,
+        "jpegStreamsEntropyOptimized": 0
+      },
+      {
+        "mode": "linearized",
+        "bytes": 140754,
+        "jpegStreamsEntropyOptimized": 0
+      },
+      {
+        "mode": "dedup-linearized",
+        "bytes": 140754,
+        "jpegStreamsEntropyOptimized": 0
+      },
+      {
+        "mode": "jpeg-linearized",
+        "bytes": 135288,
+        "jpegStreamsEntropyOptimized": 1
+      },
+      {
+        "mode": "dedup-jpeg-linearized",
+        "bytes": 135288,
+        "jpegStreamsEntropyOptimized": 1
+      }
+    ]
+  },
+  {
+    "file": "emc.pdf",
+    "originalBytes": 634866,
+    "variants": [
+      {
+        "mode": "structural",
+        "bytes": 634749,
+        "jpegStreamsEntropyOptimized": 0
+      },
+      {
+        "mode": "linearized",
+        "bytes": 635570,
+        "jpegStreamsEntropyOptimized": 0
+      },
+      {
+        "mode": "dedup-linearized",
+        "bytes": 635558,
+        "jpegStreamsEntropyOptimized": 0
+      },
+      {
+        "mode": "jpeg-linearized",
+        "bytes": 541241,
+        "jpegStreamsEntropyOptimized": 1
+      },
+      {
+        "mode": "dedup-jpeg-linearized",
+        "bytes": 541229,
+        "jpegStreamsEntropyOptimized": 1
+      }
+    ]
+  },
+  {
+    "file": "rohs.pdf",
+    "originalBytes": 1600374,
+    "variants": [
+      {
+        "mode": "structural",
+        "bytes": 1152567,
+        "jpegStreamsEntropyOptimized": 0
+      },
+      {
+        "mode": "linearized",
+        "bytes": 1154996,
+        "jpegStreamsEntropyOptimized": 0
+      },
+      {
+        "mode": "dedup-linearized",
+        "bytes": 1109532,
+        "jpegStreamsEntropyOptimized": 0
+      },
+      {
+        "mode": "jpeg-linearized",
+        "bytes": 1146080,
+        "jpegStreamsEntropyOptimized": 2
+      },
+      {
+        "mode": "dedup-jpeg-linearized",
+        "bytes": 1100616,
+        "jpegStreamsEntropyOptimized": 2
+      }
+    ]
+  },
+  {
+    "file": "uae-conformity.pdf",
+    "originalBytes": 1398556,
+    "variants": [
+      {
+        "mode": "structural",
+        "bytes": 1385307,
+        "jpegStreamsEntropyOptimized": 0
+      },
+      {
+        "mode": "linearized",
+        "bytes": 1387524,
+        "jpegStreamsEntropyOptimized": 0
+      },
+      {
+        "mode": "dedup-linearized",
+        "bytes": 740953,
+        "jpegStreamsEntropyOptimized": 0
+      },
+      {
+        "mode": "jpeg-linearized",
+        "bytes": 1360788,
+        "jpegStreamsEntropyOptimized": 6
+      },
+      {
+        "mode": "dedup-jpeg-linearized",
+        "bytes": 732041,
+        "jpegStreamsEntropyOptimized": 2
+      }
+    ]
+  },
+  {
+    "file": "uae-telecom.pdf",
+    "originalBytes": 374332,
+    "variants": [
+      {
+        "mode": "structural",
+        "bytes": 369014,
+        "jpegStreamsEntropyOptimized": 0
+      },
+      {
+        "mode": "linearized",
+        "bytes": 371270,
+        "jpegStreamsEntropyOptimized": 0
+      },
+      {
+        "mode": "dedup-linearized",
+        "bytes": 371274,
+        "jpegStreamsEntropyOptimized": 0
+      },
+      {
+        "mode": "jpeg-linearized",
+        "bytes": 306703,
+        "jpegStreamsEntropyOptimized": 2
+      },
+      {
+        "mode": "dedup-jpeg-linearized",
+        "bytes": 306707,
+        "jpegStreamsEntropyOptimized": 2
+      }
+    ]
+  }
+]

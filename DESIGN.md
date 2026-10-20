@@ -4,7 +4,7 @@
 
 | Path | Role | Current observation |
 | --- | --- | --- |
-| `design/references/32х32_B.png`, `32х32_W.png` | Approved favicon / header brand mark (CHG0107) | 32×32 opaque Adobe RGB PNG masters; lossless sRGB web derivatives: B inside `app/favicon.ico`, W at `public/art/brand-mark-white.png`; unchanged originals |
+| `design/references/32х32_B.png`, `32х32_W.png` | Approved favicon / header brand mark (CHG0107) | 32×32 opaque Adobe RGB PNG masters; lossless sRGB web derivatives: B inside `app/favicon.ico`, W at `public/art/brand-mark-white.webp`; unchanged originals |
 | `design/references/background.png` | Clean artwork for implementation | 941 × 32,127 PNG, about 44 MB |
 | `design/references/background_text.png` | Composited visual target | 941 × 32,127 PNG, about 44 MB |
 | `design/references/fix_RAMSIDER_BUSINESS.png` | Approved supplemental correction to the main render | Adds **RAMSIDER Business** above the second account card subtitle; see [supplemental fix](docs/fix-ramsider-business.md) |

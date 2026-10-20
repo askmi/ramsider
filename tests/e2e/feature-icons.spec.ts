@@ -13,7 +13,7 @@ test('designer feature icons render once above their localized labels', async ({
     for (let index = 0; index < featureIds.length; index++) {
       const icon = page.locator(`#icon-${featureIds[index].toLowerCase()}`);
       const label = page.locator(`.overlay.key-${featureKeys[index]}`);
-      await expect(icon).toHaveAttribute('src', `/art/icon-kit/${String(index + 9).padStart(2, '0')}.png`);
+      await expect(icon).toHaveAttribute('src', `/art/icon-kit/${String(index + 9).padStart(2, '0')}.webp`);
       await expect(icon).toHaveAttribute('alt', '');
       await expect(icon).toHaveAttribute('aria-hidden', 'true');
       await expect(label).not.toBeEmpty();

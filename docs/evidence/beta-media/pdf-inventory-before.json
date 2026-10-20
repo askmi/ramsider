@@ -1,0 +1,601 @@
+{
+  "pikepdf": "10.17.0",
+  "qpdf": "12.4.2",
+  "files": [
+    {
+      "path": "public/certificates/all-certificates.pdf",
+      "bytes": 3781872,
+      "pages": 15,
+      "rotation": [
+        270,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "images": [
+        {
+          "filter": "/DCTDecode",
+          "bytes": 139007,
+          "w": 1172,
+          "h": 827,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 633793,
+          "w": 3306,
+          "h": 4676,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 117147,
+          "w": 1182,
+          "h": 623,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 100748,
+          "w": 2380,
+          "h": 2463,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 118323,
+          "w": 1418,
+          "h": 237,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1248,
+          "w": 45,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 2094,
+          "w": 46,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1648,
+          "w": 40,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1332,
+          "w": 43,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1209,
+          "w": 43,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1116,
+          "w": 42,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 30942,
+          "w": 250,
+          "h": 250,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 50078,
+          "w": 2380,
+          "h": 2463,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 608279,
+          "w": 5907,
+          "h": 3438,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 30717,
+          "w": 250,
+          "h": 250,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 242103,
+          "w": 5907,
+          "h": 3438,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 49120,
+          "w": 800,
+          "h": 103,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 265926,
+          "w": 2480,
+          "h": 562,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 12074,
+          "w": 355,
+          "h": 178,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 257637,
+          "w": 1817,
+          "h": 2571,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 10580,
+          "w": 434,
+          "h": 274,
+          "bpc": 8
+        }
+      ],
+      "imageBytes": 2675121,
+      "signed": false,
+      "version": "1.3",
+      "sha256": "482c4a4fcf9acaa406faf1f2b19f7377ceb5296776a563d6bec014499be6de60"
+    },
+    {
+      "path": "public/certificates/electrical-safety.pdf",
+      "bytes": 140057,
+      "pages": 1,
+      "rotation": [
+        270
+      ],
+      "images": [
+        {
+          "filter": "/DCTDecode",
+          "bytes": 139007,
+          "w": 1172,
+          "h": 827,
+          "bpc": 8
+        }
+      ],
+      "imageBytes": 139007,
+      "signed": false,
+      "version": "1.4",
+      "sha256": "0b55d4b11c4c1c3a06abc7890304410aa3768e412a40307645afc5b2c2988381"
+    },
+    {
+      "path": "public/certificates/emc.pdf",
+      "bytes": 634866,
+      "pages": 1,
+      "rotation": [
+        0
+      ],
+      "images": [
+        {
+          "filter": "/DCTDecode",
+          "bytes": 633793,
+          "w": 3306,
+          "h": 4676,
+          "bpc": 8
+        }
+      ],
+      "imageBytes": 633793,
+      "signed": false,
+      "version": "1.4",
+      "sha256": "b5c8ae4e91a1f68dc5f7117aeb867c7f5e74d3d5ea5a9627b36d8d866dcf32da"
+    },
+    {
+      "path": "public/certificates/rohs.pdf",
+      "bytes": 1600374,
+      "pages": 3,
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "images": [
+        {
+          "filter": "/FlateDecode",
+          "bytes": 608279,
+          "w": 5907,
+          "h": 3438,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 242103,
+          "w": 5907,
+          "h": 3438,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 100748,
+          "w": 2380,
+          "h": 2463,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 50078,
+          "w": 2380,
+          "h": 2463,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 118323,
+          "w": 1418,
+          "h": 237,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1248,
+          "w": 45,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 2094,
+          "w": 46,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1648,
+          "w": 40,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1332,
+          "w": 43,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1209,
+          "w": 43,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1116,
+          "w": 42,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 30717,
+          "w": 250,
+          "h": 250,
+          "bpc": 8
+        }
+      ],
+      "imageBytes": 1158895,
+      "signed": false,
+      "version": "1.3",
+      "sha256": "45a1bd70c7dba2f3e4f21330b2fabb79e0abd035163ae3b9553df9117c1ce87f"
+    },
+    {
+      "path": "public/certificates/uae-conformity.pdf",
+      "bytes": 1398556,
+      "pages": 3,
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "images": [
+        {
+          "filter": "/DCTDecode",
+          "bytes": 117147,
+          "w": 1182,
+          "h": 623,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 35238,
+          "w": 2380,
+          "h": 2463,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 23091,
+          "w": 2380,
+          "h": 2463,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1568,
+          "w": 40,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1234,
+          "w": 43,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1120,
+          "w": 43,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1018,
+          "w": 42,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 30942,
+          "w": 250,
+          "h": 250,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 118323,
+          "w": 1418,
+          "h": 237,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1165,
+          "w": 45,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1994,
+          "w": 46,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1165,
+          "w": 45,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1994,
+          "w": 46,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1568,
+          "w": 40,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1234,
+          "w": 43,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1120,
+          "w": 43,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1018,
+          "w": 42,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 30942,
+          "w": 250,
+          "h": 250,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 118323,
+          "w": 1418,
+          "h": 237,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 117147,
+          "w": 1182,
+          "h": 623,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 35238,
+          "w": 2380,
+          "h": 2463,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 23091,
+          "w": 2380,
+          "h": 2463,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1165,
+          "w": 45,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1994,
+          "w": 46,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1568,
+          "w": 40,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1234,
+          "w": 43,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1120,
+          "w": 43,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 1018,
+          "w": 42,
+          "h": 44,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 30942,
+          "w": 250,
+          "h": 250,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 118323,
+          "w": 1418,
+          "h": 237,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 117147,
+          "w": 1182,
+          "h": 623,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 35238,
+          "w": 2380,
+          "h": 2463,
+          "bpc": 8
+        },
+        {
+          "filter": "/FlateDecode",
+          "bytes": 23091,
+          "w": 2380,
+          "h": 2463,
+          "bpc": 8
+        }
+      ],
+      "imageBytes": 998520,
+      "signed": false,
+      "version": "1.4",
+      "sha256": "341d2fe214f1e2470c961fe5b4acc99604f55ab4628fd2f47c41de5c091b582d"
+    },
+    {
+      "path": "public/certificates/uae-telecom.pdf",
+      "bytes": 374332,
+      "pages": 4,
+      "rotation": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "images": [
+        {
+          "filter": "/DCTDecode",
+          "bytes": 49120,
+          "w": 800,
+          "h": 103,
+          "bpc": 8
+        },
+        {
+          "filter": "/DCTDecode",
+          "bytes": 265926,
+          "w": 2480,
+          "h": 562,
+          "bpc": 8
+        }
+      ],
+      "imageBytes": 315046,
+      "signed": false,
+      "version": "1.4",
+      "sha256": "990848a800ce8a25c0f6c6f55af669d73d82b26724d940042fead24839385554"
+    }
+  ]
+}

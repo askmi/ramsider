@@ -8,6 +8,43 @@ export type ImageResource = {
 const images = new Map<string, ImageResource>();
 const failed = new Set<string>();
 const decoded = new WeakMap<HTMLImageElement, Promise<void>>();
+/** Optional media waits for decoded story pixels, including below-fold artwork. */
+export function waitForStoryMedia(rejectOnFailure = false): Promise<void> {
+  if (document.documentElement.hasAttribute('data-story-media-ready')) return Promise.resolve();
+  if (rejectOnFailure && document.documentElement.hasAttribute('data-story-media-failed')) return Promise.reject(new Error('Story image failed'));
+  return new Promise<void>((resolve, reject) => {
+    const cleanup = () => {
+      document.removeEventListener('story-media-ready', ready);
+      document.removeEventListener('story-media-failed', failure);
+    };
+    const ready = () => { cleanup(); resolve(); };
+    const failure = () => { cleanup(); reject(new Error('Story image failed')); };
+    document.addEventListener('story-media-ready', ready, { once: true });
+    if (rejectOnFailure) document.addEventListener('story-media-failed', failure, { once: true });
+  });
+}
+
+export function resetStoryMedia() {
+  document.documentElement.removeAttribute('data-story-media-ready');
+  document.documentElement.removeAttribute('data-story-media-failed');
+}
+
+export function markStoryMediaFailed() {
+  if (document.documentElement.hasAttribute('data-story-media-failed')) return;
+  document.documentElement.setAttribute('data-story-media-failed', '');
+  document.dispatchEvent(new Event('story-media-failed'));
+}
+
+/** A viewer's Retry also retries any failed story artwork holding its barrier. */
+export function retryStoryMedia() {
+  document.dispatchEvent(new Event('story-media-retry'));
+}
+
+export function markStoryMediaReady() {
+  if (document.documentElement.hasAttribute('data-story-media-ready')) return;
+  document.documentElement.setAttribute('data-story-media-ready', '');
+  document.dispatchEvent(new Event('story-media-ready'));
+}
 
 /** Readiness belongs to the actual element that will paint, including native lazy images. */
 export function decodeImageElement(image: HTMLImageElement): Promise<void> {
@@ -44,6 +81,14 @@ export function loadImage(src: string, priority: 'low' | 'auto' | 'high' = 'low'
   resource.ready = (async () => {
     let objectURL: string | undefined;
     try {
+      try { await waitForStoryMedia(true); }
+      catch {
+        // Keep the shared resource waiting, but expose the failed prerequisite.
+        // One viewer Retry can recover the story and resume every waiting tile.
+        update({ error: true });
+        await waitForStoryMedia();
+      }
+      update({ error: false });
       // A corrupt HTTP 200 can survive in the browser cache after decode fails.
       const response = await fetch(src, { priority, cache: failed.has(src) ? 'reload' : 'default' } as RequestInit);
       if (!response.ok) throw new Error(`Image response ${response.status}`);

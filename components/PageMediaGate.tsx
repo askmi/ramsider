@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import type { Locale } from '@/lib/i18n';
-import { decodeImageElement } from '@/lib/media-resource';
+import { decodeImageElement, markStoryMediaFailed, markStoryMediaReady, resetStoryMedia } from '@/lib/media-resource';
 import { LoadingStatus, useScrollLock } from './MediaLoading';
 
 /** Actual painted resource bounds, ignoring the gate's temporary scroll cap. */
@@ -29,10 +29,11 @@ export function PageMediaGate({ locale, children }: { locale: Locale; children: 
   useEffect(() => {
     // The early head bootstrap opts into guarded loading. Without JavaScript,
     // or when an initial framework script failed, retain native static content.
-    if (!document.documentElement.hasAttribute('data-media-js')) return;
+    const guarded = document.documentElement.hasAttribute('data-media-js');
+    resetStoryMedia();
     document.documentElement.setAttribute('data-media-hydrated', '');
     const shell = root.current!;
-    const images = [...shell.querySelectorAll<HTMLImageElement>('img[data-media]')];
+    const images = [...shell.querySelectorAll<HTMLImageElement>('img')];
     const loading = new Set<HTMLImageElement>();
     const failures = new Set<HTMLImageElement>();
     let alive = true, frame = 0, retryVersion = Date.now();
@@ -45,6 +46,15 @@ export function PageMediaGate({ locale, children }: { locale: Locale; children: 
       if (!warming && images[0]?.hasAttribute('data-media-ready')) {
         warming = true;
         images.forEach(image => start(image));
+      }
+      if (failures.size) markStoryMediaFailed();
+      if (images.length && images.every(image => image.hasAttribute('data-media-ready'))) markStoryMediaReady();
+      // A recovered hydration still tracks priority without restoring the guard
+      // that the early bootstrap deliberately disabled for native readability.
+      if (!guarded) {
+        // A dialog may open before the hero observer fires in native fallback.
+        if (images[0]) start(images[0]);
+        return;
       }
       const pending = images.filter(image => !image.hasAttribute('data-media-ready'))
         .map(image => ({ image, box: bounds(image, shell) }))
@@ -97,6 +107,7 @@ export function PageMediaGate({ locale, children }: { locale: Locale; children: 
     const dialogs = new MutationObserver(schedule);
     document.querySelectorAll('dialog').forEach(dialog => dialogs.observe(dialog, { attributes: true, attributeFilter: ['open'] }));
     retryAction.current = () => {
+      document.documentElement.removeAttribute('data-story-media-failed');
       failures.forEach(image => {
         failures.delete(image);
         // Some browsers retain a corrupt HTTP 200 in their image cache.
@@ -108,13 +119,15 @@ export function PageMediaGate({ locale, children }: { locale: Locale; children: 
       });
       schedule();
     };
+    const retryStory = () => retryAction.current();
+    document.addEventListener('story-media-retry', retryStory);
     const resize = new ResizeObserver(schedule);
     const main = shell.querySelector('main');
     if (main) resize.observe(main);
     addEventListener('scroll', schedule, { passive: true });
     addEventListener('resize', schedule);
     refresh();
-    return () => { alive = false; observer.disconnect(); dialogs.disconnect(); resize.disconnect(); shell.style.height = ''; managed.forEach((inert, control) => { control.inert = inert; }); cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); };
+    return () => { alive = false; document.removeEventListener('story-media-retry', retryStory); resetStoryMedia(); observer.disconnect(); dialogs.disconnect(); resize.disconnect(); shell.style.height = ''; managed.forEach((inert, control) => { control.inert = inert; }); cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); };
   }, []);
   return <div ref={root} className="page-media-shell" data-media-blocked={state.blocked ? '' : undefined} data-media-initial={state.initial ? '' : undefined}>
     <div className="page-media-content" inert={state.activated && state.blocked && state.initial}>{children}</div>

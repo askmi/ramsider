@@ -1,0 +1,47 @@
+{
+  "change": "CHG0118",
+  "date": "2026-10-19",
+  "status": "VERIFIED locally",
+  "scope": "Delete custom certificate viewer and use six native browser PDF links",
+  "mapping": "lib/certificates.ts -> components/Story.tsx anchors -> unchanged public/certificates/*.pdf",
+  "production": "http://127.0.0.1:3111/en",
+  "build": "PASS root production11locale SSG and repeated native review build",
+  "typecheck": "PASS",
+  "lint": "PASS zero errors, one preexisting integrations/telegram/controller.mjs unused warning",
+  "nativeReview": {
+    "command": "codex review --uncommitted",
+    "result": "PASS final actual diff no actionable findings; native type/build passed, one existing lint warning; browser verification independently completed57PASS3SKIP",
+    "rawLog": "/tmp/ramsider-direct-review-final.log"
+  },
+  "browser": {
+    "initial": "17 PASS / 3 intentional duplicate-locale SKIP",
+    "final": "57 PASS / 3 intentional duplicate locale SKIP; production3111 WebKit Pro/Max + Chromium/Firefox desktop; /tmp/ramsider-direct-final-browser.log",
+    "navigationTransport": "Headless browser requests observed as real document navigations; PDF transport then intentionally aborted. Real HTTP body/MIME tested separately. No physical native PDF controls claim."
+  },
+  "visual": "direct-files-visual.json; exact decoded-pixel no-regression against historical approved WebKit Pro and Max screenshots; initial wrong-scroll comparison rejected",
+  "performance": "direct-files-performance.json",
+  "technicalApproval": "APPROVED /root 2026-10-19 based on actual browser/static/native/performance evidence",
+  "independentAudit": {
+    "scope": "PASS",
+    "implementation": "PASS after stale RU/AR consumer migration",
+    "visual": "PASS /root/certificate_audit actual reference+Pro+Max+Arabic and independent0channel diff",
+    "behavior": "PASS /root/certificate_audit final57/3log and actual screenshots",
+    "reviewPerformance": "PASS /root/certificate_audit",
+    "closeout": "PASS /root/certificate_audit 2026-10-19; actual journal/memory/docs/lessons/evals/evidence inspected"
+  },
+  "limitations": [
+    "Physical Safari/Telegram browser save/zoom UI unverified",
+    "Controlled EVAL-MAP/EVAL-VIEWER NOT_RUN"
+  ],
+  "remainingOpenIds": [
+    "CHG0112 dependency advisories (historical open, not audited by this removal)",
+    "CHG0071",
+    "CHG0065",
+    "CHG0035"
+  ],
+  "productionRetiredMarkers": {
+    "pdfWorkerOrDebugInJs": false,
+    "generatedVendorPresent": false
+  },
+  "publication": "Requested2026-10-19; pending exactSHA/deployment/publicchecks/Founder message"
+}

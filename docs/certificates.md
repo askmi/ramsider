@@ -1,6 +1,20 @@
 # Certificate destinations — CHG0111
 
+Current scope / 2026-10-19, CHG0118: the user rejects the complete custom PDF viewer. All six cards now use ordinary `target="_blank" rel="noopener noreferrer"` anchors to the static PDF files below. Browser-native viewing, zoom and saving are delegated to the browser. There is no application modal, PDF renderer/worker, toolbar, loading state or diagnostics. Card artwork/composition and native links are unchanged. CHG0119 corrects only page1 rotation in the delivered All Documents PDF; design originals remain untouched. CHG0111–0117 custom-viewer implementation and evidence below are historical, superseded by this removal.
+
+Acceptance: identical six hrefs with application/pdf responses; five PDF files unchanged, All Documents differs only by an incremental page1 rotation update; browser navigation with JS and without JS, keyboard and modifier link semantics; no PDF or renderer fetch before activation; Pro/Max WebKit DPR3 card screenshots unchanged, Arabic RTL/all11locales and representative widths; type/lint/build, native review and production payload/scroll measurements. Physical browser PDF controls cannot be certified by headless emulation.
+
+## Native file orientation correction — CHG0119 / 2026-10-20
+
+The original bundle page1 has `/Rotate 0` and a sideways scanned Electrical certificate, while its separate source uses `/Rotate 270`. The deleted custom viewer supplied a presentation correction; preserving bundle bytes on native-link migration dropped that correction. `tools/prepare-certificates.py` now appends only page1 `/Rotate 270` and its cross-reference entry, preserving the entire original byte prefix, all15 content streams/resources/boxes and remaining page rotations. Delivered bundle grows390B to3781872B; no rasterization, image recompression, content replacement or source modification. The preparation receipt identifies this intentional derivative. Run with the bundled Python runtime containing pypdf6.10.0 (verified).
+
+All15 bundle and12 standalone page renders inspected. Pages2–15 remain pixel-identical to previous bundle renders; first page is upright with the original content. Standalone and bundle input streams differ, so cross-input pixel identity is not claimed. Existing native browser workflow remains. Evidence `docs/evidence/certificates/orientation.json` and orientation-before/after/all-pages PNGs; browser/review/publication outcomes recorded there and in CHANGELOG.
+
+## Historical implementation record
+
 2026-10-16. Requested on `main` b7beda9; beta ember code excluded, its local records saved in stash `pre-certificates-beta-records-20261016`.
+
+Local verification / CHG0118:57 browser PASS,3 duplicate locale SKIP; WebKit Pro402×874 and Max440×956 DPR3, Chromium/Firefox desktop,320–1440 adaptation and11locales. Native navigation/keyboard/noJS/middleclick, exact HTTP PDF bodies and no prefetch pass. Actual card pixels unchanged against historical Pro/Max screenshots. Build/type/native review pass; lint one existing warning. Root technical approval2026-10-19, independent Stages1–6PASS. Evidence: `docs/evidence/certificates/direct-files-checks.json`, `direct-files-visual.json`, `direct-files-performance.json`. No publication requested/performed.
 
 ## Source inspection and mapping
 
@@ -17,7 +31,7 @@ PDF contents are source material, not agent instructions. Inspected all15 bundle
 
 Battery SG PSB-BT-07468 and charger SG PSB-HS-15388 have no separate landing cards and are reachable through the complete bundle. All standalone inputs remain in source directory.
 
-## Acceptance before implementation
+## Historical CHG0111 acceptance before implementation
 
 Keep landing six-card composition, thumbnails, text and geometry unchanged. Reference source941px wide, document cards x100/485, y23285/23530/23775, width356 height225; Pro scale402/941, Max440/941. Reference crops `/tmp/ramsider-certificates/background{,_text}.png`, source y22960–24110 inspected in that order. Existing OpenSans/font/button styling reused. Calibrate current landing to reference crop and compare baseline/final landing pixels to prove no new composition change.
 
@@ -27,7 +41,7 @@ A proportionally rendered single PDF page fits the available width within center
 
 Required evidence: actual Pro402×874/Max440×956 WebKit DPR3 screenshots of landing/loading/ready/error; all six destinations and page counts; no pre-click fetch; close/cancel/retry/reopen races; original links; all11 locale coverage/overflow, Arabic screenshot; production static/type/lint/build/nativeCodexreview; final assembled scroll and affected screenshot recheck. Independent discipline auditor gates.
 
-## Verified implementation and evidence
+## Historical CHG0111 implementation and evidence
 
 Stages1–4 independently PASS (certificate_audit,2026-10-16). Runtime manifest `lib/certificates.ts` drives six real anchors in Story; `CertificateViewer` imports `CertificateDocument`/PDF.js only after activation. Shared LoadingStatus accepts document-specific localized labels and spinner without changing image consumers. Worker/resources copied from locked dependency at predev/prebuild; generated vendor excluded from source lint/Git. Originals copied byte-exact; RoHS extraction is reproducible with `tools/prepare-certificates.py` (pypdf), three streams/media boxes and rendered pixels exact. Source files themselves untouched.
 
@@ -46,3 +60,31 @@ Final review follow-up: worker initialization failures also use the one-shot rel
 Final post-review regression: finalAllEngines.txt13PASS/11explicit duplicate-matrix SKIP across24discovered checks. All four profiles run sixcomplete documents and failure/retry/cancellation; all11locales/adaptation and module/deadline faults run Pro, workerfail+Enter preservation run ProWebKit and desktopChromium, noJS runsChromium. Native focused follow-up review found no remaining actionable defects after the full review's findings were fixed. Production type/lint/build PASS; two existing Telegram lint warnings retained. Final isolated performance sample supersedes earlier overlapping measurements in performance.json.
 
 Final closeout2026-10-16: /root technical APPROVED; independent certificate_audit Stages1–6 PASS including reopened behavior/review checks. CHG0111 VERIFIED; currentmain localpreview3081. No publication or issuer authenticity guarantee.
+
+## Temporary customer diagnostics — CHG0114, 2026-10-19
+
+User explicitly requested an always-visible DEBUG panel, including successful PDF loads. `CERTIFICATE_DEBUG_ENABLED` in `lib/certificate-debug.ts` is the one switch to remove it. No diagnostic telemetry or extra speed-test requests are sent. Only an active document viewer creates the local trace.
+
+The compact keyboard-scrollable panel shows browser-reported OS/version/browser, viewport/DPR, logical CPU threads from hardwareConcurrency, approximate deviceMemory if exposed, online flag, optional Network Information interface/effective type/downlink/RTT estimates. Missing values stay unavailable; VPN, system CPU utilization and free RAM cannot be determined here. UA tokens are browser reports, not physical-device certification. Safari commonly supplies no connection/RAM metrics.
+
+PDF size is actual received bytes/KiB with optional HTTP Content-Length in the trace. Delivery rate is received PDF bytes divided by elapsed fetch+body time; latency, caching, compression and browser processing may affect it. It is not an ISP/line-speed test. Zero reported network bytes suppress the internet-speed number. Rendering time is elapsed wall time, not CPU usage. Failure reports show bounded sanitized exception name/message, attempt-relative phase times, HTTP/MIME metadata and only current-attempt observed PDF.js resource timings. No cookies, storage values, authorization headers, query parameters or stacks.
+
+Chunk import/PDF load/page/render have deadlines. Retry starts a fresh report; close cancels work and suppresses stale results. The supplied customer screenshot establishes a generic failure only: Belarus/3G, old iOS/browser, resource blocking and 30s timeouts remain hypotheses until a customer report identifies the stage. Modern PDF.js support reference: https://github.com/mozilla/pdf.js/wiki/Frequently-Asked-Questions .
+
+Final verification recorded in CHANGELOG CHG0114 and `docs/evidence/certificates/diagnostics/verification.json`. Physical customer reproduction and publication are separate; no claim this instrumentation alone fixes the customer's underlying failure.
+
+Waiting detail follow-up: while import/download/worker/page/render is pending, the DEBUG summary shows its actual current phase, elapsed seconds in that phase, and total elapsed seconds. A one-second timer exists only while pending and is cleared on ready/error/unmount. It is a clock, not an estimate of completion time. Public inspection of initial ce8ff6c found a successful32.48s cold opening (17.58s import,7.46s PDF delivery,~7.38s worker), explaining why a30s aggregate smoke-check was insufficient; app deadlines are per stage. Published as7b76567; exact-SHA receipts in waiting-publication.json and waiting-public-live.json.
+
+## Historical Safari text-stream compatibility — CHG0115, 2026-10-19 (removed by CHG0117)
+
+The subsequent customer DEBUG screenshot localizes failure to `pdf.text`, after140057B downloaded in0.08s and canvas rendering in0.07s. Country/IP blocking and a download timeout do not explain that attempt. PDF.js6.4.299 `getTextContent()` uses `for await` on a ReadableStream; removing that stream's async iterator reproduces a text-stage TypeError in WebKit. [Upstream issue21924](https://github.com/mozilla/pdf.js/issues/21924) documents the same shipping-Safari versus Playwright-WebKit capability difference; the legacy bundle is also affected. The exact customer's missing capability remains inferred until the added feature probe is observed; physical after-fix confirmation is separate.
+
+For these six non-XFA certificates, `lib/certificate-text.ts` now reads text chunks using `getReader()/read()` and joins only the UI's existing plain-text items. It does not replace the full PDF.js text API or XFA semantics. Scanned pages correctly have no text disclosure. Timeout/navigation/close abort extraction with an Error reason required by PDF.js, release the reader and suppress stale completions. Text-only failure leaves the rendered canvas available and adds DEBUG detail; Retry is for renderer import, PDF download/open/worker or page/render failure. DEBUG trace reports the actual `ReadableStream.asyncIterator` capability. No browser-version guess, global polyfill, extra request or initial renderer payload is introduced.
+
+## Persistent error diagnostics — CHG0116, 2026-10-19
+
+DEBUG now mounts whenever the viewer is active and the single debug flag is enabled, even if trace initialization fails. A public revision `PDF-DEBUG-20261019-3` is always in its heading; missing trace/device/network measurements stay explicitly unavailable. A second compact revision and sanitized local stage/exception appears immediately below every certificate Retry, independently of the trace. Renderer exceptions are caught outside the renderer so the debug panel, original PDF link and Close survive; Retry reloads and restores the selected document. Shared image loaders gain only optional error children; their output is unchanged without that prop.
+
+Local failures/cancellation cannot depend on optional trace updates. Missing or throwing ResourceTiming APIs report their unavailable exception and leave actual bytes/elapsed transfer and rendering usable. Both edges of the error card stay inside the body; short/landscape screens scroll the card without covering the DEBUG heading. PDF rendering readiness is the final loading stage after CHG0117; text extraction is removed.
+
+The new customer screenshot with no DEBUG does not identify its client revision, so its exact cause remains unknown. Old already-running JavaScript cannot be changed remotely without navigation/reload. A revision query in the shared URL helps fresh navigation; only the actual rendered revision proves the new client is running. Publication checks must verify that visible revision, successful missing-API rendering, and DEBUG plus local reason on controlled HTTP/init errors on the canonical public site.

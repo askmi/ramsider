@@ -18,7 +18,6 @@ import { PageMediaGate } from './PageMediaGate';
 import { CharcoalRibbon } from './CharcoalRibbon';
 import { EmberScene } from './EmberScene';
 import { emberCopy } from '@/lib/ember-copy';
-import { CertificateViewer } from './CertificateViewer';
 import { certificates, type CertificateId } from '@/lib/certificates';
 
 // Keep the complete FAQ/account artwork in one tile: no image edge through a card.
@@ -117,13 +116,13 @@ function DocumentCards({ locale }: { locale: Locale }) {
       <Image data-media className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized loading="lazy" fetchPriority="high" />
       <strong>{textLines(t(locale, doc.key))}</strong>
       <small>{textLines(doc.detail)}</small>
-      <a id={`document-${doc.key}`} href={certificates[doc.key].href} data-certificate={doc.key} data-title={t(locale, doc.key).replaceAll('\n', ' ')} aria-haspopup="dialog" aria-controls="certificate-viewer" aria-label={`${t(locale, 'docView')}: ${t(locale, doc.key).replaceAll('\n', ' ')}`}><span className="doc-action-label">{t(locale, 'docView')}</span><ActionArrow /></a>
+      <a id={`document-${doc.key}`} href={certificates[doc.key].href} target="_blank" rel="noopener noreferrer" aria-label={`${t(locale, 'docView')}: ${t(locale, doc.key).replaceAll('\n', ' ')}`}><span className="doc-action-label">{t(locale, 'docView')}</span><ActionArrow /></a>
     </div>)}
     <div className="doc-card doc-card--all source-panel" style={sourceStyle(485, 23775, 356)}>
       <span className="doc-icon" aria-hidden="true">▱</span>
       <strong>{t(locale, 'allDocs')}</strong>
       <small>{t(locale, 'allDocsBody')}</small>
-      <a id="documents-all" href={certificates.all.href} data-certificate="all" data-title={t(locale, 'allDocs')} aria-haspopup="dialog" aria-controls="certificate-viewer" aria-label={`${t(locale, 'allDocsView')}: ${t(locale, 'allDocs')}`}><span className="doc-action-label">{t(locale, 'allDocsView')}</span><ActionArrow /></a>
+      <a id="documents-all" href={certificates.all.href} target="_blank" rel="noopener noreferrer" aria-label={`${t(locale, 'allDocsView')}: ${t(locale, 'allDocs')}`}><span className="doc-action-label">{t(locale, 'allDocsView')}</span><ActionArrow /></a>
     </div>
   </>;
 }
@@ -229,7 +228,6 @@ export function Story({ locale }: { locale: Locale }) {
   return <DialogController>
     <TechnologyViewer locale={locale} descriptions={technologyDescriptionCopy[locale]} />
     <CharcoalRibbon locale={locale} />
-    <CertificateViewer locale={locale} closeLabel={t(locale, 'close')} />
     <PageMediaGate locale={locale}><main className="canvas" data-locale={locale}>
       <div className="story-prefix-space" aria-hidden="true" />
       <div className="art" aria-hidden="true">

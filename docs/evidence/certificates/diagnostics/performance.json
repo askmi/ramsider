@@ -1,0 +1,19 @@
+{
+  "lcp": 2852,
+  "cls": 0,
+  "jsBytes": 219995,
+  "usefulMs": 2726.600000023842,
+  "conditions": "ProductionChromium402x874DPR3;4Mbps100msCPU4x;cold;synthetic single sample",
+  "beforeClickPDFRequests": 0,
+  "loopbackPDFOpenMs": 334,
+  "debugVisible": true,
+  "limits": "NoINP/Lighthouse/field/physicalSafari; open is warm landing loopback1xCPU, not comparable to coldmeasurement",
+  "scope": "Finalpending-onlywaitingdelta, production3097; samplesareobservationsnotcausalA/B",
+  "priorDiagnosticSample": {
+    "sha": "ce8ff6c14cc26d2d164556e9354fedb6a09223bc",
+    "usefulMs": 2531.7,
+    "lcp": 2640,
+    "cls": 0,
+    "jsBytes": 219827
+  }
+}

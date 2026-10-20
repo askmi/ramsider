@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-19",
+  "change": "CHG0115",
+  "status": "VERIFIED and deployed f1b02d253344ef563adf7a416db9f05067fe25af; physical customer after unverified",
+  "base": "7b76567284723093d26b621551928d53fd0e4042",
+  "cause": {
+    "customerEvidence": "ERROR pdf.text TypeError undefined is not a function near ...t of e...; 140057 bytes/0.08s; render0.07s",
+    "controlledBefore": "WebKit390x650DPR3 missing ReadableStream Symbol.asyncIterator reproduces text-stage TypeError, canvas retained",
+    "upstream": "https://github.com/mozilla/pdf.js/issues/21924",
+    "scope": "six non-XFA public certificates; plain-text disclosure",
+    "physicalCustomerCapability": "INFERRED; no post-fix physical observation"
+  },
+  "implementation": "getReader/read loop; cancel with PDF.js-required Error reason; cleanup lock/listener; preserve canvas on text failure; actual capability trace",
+  "checks": {
+    "build": "PASS11locales",
+    "typecheck": "PASS",
+    "lint": "PASS0errors;1existing Telegram unused function warning",
+    "unit": "5PASS including actual PDF.js abort and worker reuse",
+    "modernBrowsers": "18PASS12intentional duplicate matrix skips from final production matrix (19PASS includes customer case); no runtime edits after build",
+    "missingAPI": "4PASS2intentional geometry duplicate skips: Pro402x874DPR3,Max440x956DPR3,Chromium1440; all6/all27pages plus390x650DPR3 customergeometry",
+    "uniqueMatrix": "22PASS14intentionalSKIP across36cases after affected rerun",
+    "coverage": [
+      "HTTP503,corruptPDF,Retryfreshtrace",
+      "renderer import/worker/PDFdeadline recovery",
+      "textdeadline retains canvas and noRetry",
+      "slowfetch phase and clocks",
+      "close/cancel/rapidreopen,keyboard",
+      "11locales/RTL/320,375,402short,768,1440",
+      "zero PDF/worker pre-click,original links/noJS"
+    ],
+    "screenshots": [
+      "iphone-17-pro-webkit-stream-ready.png",
+      "iphone-17-pro-max-webkit-stream-ready.png",
+      "customer-stream-ready.png"
+    ],
+    "visual": "Root inspected three real screenshots: canvas/document/control composition retained, debug scrolls, no new layout code; old failed customer screenshot replaced by rendered certificate under controlled missing API",
+    "nativeReview": "First native review2P2 fixed and history retained; final scoped review clean, actual-library5tests independently passed",
+    "performance": {
+      "lcp": 2572,
+      "cls": 0,
+      "jsBytes": 220040,
+      "usefulMs": 2481.7999999523163,
+      "conditions": "ProductionChromium402x874DPR3;4Mbps100msCPU4x;cold;synthetic single sample",
+      "beforeClickPDFRequests": 0,
+      "loopbackPDFOpenMs": 468,
+      "debugVisible": true,
+      "limits": "NoINP/Lighthouse/field/physicalSafari; open is warm landing loopback1xCPU, not comparable to coldmeasurement"
+    }
+  },
+  "failuresPreserved": [
+    "initial missing Error cancel reason caught by native real-PDF reproduction",
+    "initial test required nonempty text on scanned pages",
+    "follow-up innerText assertion on closed details invalid in WebKit; textContent and bounded feature-event checks corrected",
+    "native reviewer browser launch sandbox failure was not product evidence"
+  ],
+  "limitations": [
+    "No physical customer after confirmation",
+    "No INP, Lighthouse, field/device CPU usage or VPN detection",
+    "Controlled independent agent EVAL-MAP/VIEWER NOT_RUN"
+  ],
+  "rawIgnoredEvidence": "screenshots/certificate-diagnostics/{stream-before,browser-stream,browser-stream-final,browser-stream-compat-final,native-stream,native-stream-final,unit-stream,build-stream-final,type-stream-final,lint-stream-final,performance-stream} logs/JSON",
+  "technicalApproval": "APPROVED2026-10-19 /root; actual22unique browserPASS/5unitPASS/build/type/native/perf; independentStages1–6PASS, controlledfixverified/physicalcustomerafterunverified",
+  "publication": {
+    "sha": "f1b02d253344ef563adf7a416db9f05067fe25af",
+    "targets": "BOTHVercelSUCCESS;mainProductionconfirmed",
+    "canonicalProMax": "PASSactualrevision/missingAPIready/HTTP503belowRetry/recovery/initfallback",
+    "receipts": [
+      "persistent-publication.json",
+      "persistent-public-live.json"
+    ]
+  }
+}

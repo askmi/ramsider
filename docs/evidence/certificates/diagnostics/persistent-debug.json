@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-19",
+  "change": "CHG0116",
+  "status": "VERIFIED and deployed f1b02d253344ef563adf7a416db9f05067fe25af; physical customer after unverified",
+  "publicRevision": "PDF-DEBUG-20261019-3",
+  "request": "If Retry is shown, repeat DEBUG below it with captured error details; keep top DEBUG on every active-viewer state",
+  "sourceScreenshot": "codex-clipboard-d6daa7e2-0ce0-465e-b55d-7062af12b71a.png",
+  "customerScreenshotCause": "UNKNOWN; client revision absent, no stale-cache/country blocking conclusion",
+  "implementation": [
+    "enabled panel independent of trace/init success",
+    "public revision + honest unavailable fallback",
+    "local sanitized exception/phase below every certificate Retry, independent of trace",
+    "boundary keeps header/original/Close/debug outside renderer failure",
+    "optional timing/logging cannot block actual recovery or downloaded PDF",
+    "single switch; no telemetry/extra speed requests"
+  ],
+  "checks": {
+    "build": "PASS11locale final3102",
+    "type": "PASS",
+    "lint": "0errors1existing Telegram unused warning",
+    "unit": "5PASS inclrealPDF.js",
+    "native": "initialCSSP2fixed; finalclean + resource-isolationclosureclean + below-Retrydelta clean",
+    "browserComposite": "30uniquePASS21intentionalSKIP across51case final acceptance; original fullrun29PASS21SKIP1hydrationharnessFAIL, correctedlocale1PASS; latest below-Retryerror27case rerun15PASS12SKIP",
+    "profiles": "Pro402x874/Max440x956DPR3WebKit;Chromium1440;customer390x650",
+    "coverage": [
+      "all6/all27pages normal/missingReadableStream.asyncIterator",
+      "trace initialization failure+HTTP503→successfulRetry despitemissingtrace",
+      "getEntriesByName/Type throw:503→Retry200canvas→deadline,zero unhandlederrors",
+      "page/render/runtime exceptions+runtime reload recovery",
+      "chunk/import/PDF/render/text deadlines;worker failure/parse corruption",
+      "geometric details.y>=Retry.bottom on affected error branches",
+      "11locales/RTL;320x320/402x360/844x390short;320/402/768/1440adaptation",
+      "header/original/Close,keyboard,noJSlinks,no PDF/workerbeforeclick"
+    ],
+    "screenshots": [
+      "persistent-iphone-17-pro-webkit-fallback-http.png",
+      "persistent-iphone-17-pro-max-webkit-fallback-http.png",
+      "persistent-error-short-320-320.png",
+      "persistent-iphone-17-pro-webkit-runtime-debug.png"
+    ],
+    "visual": "Root viewed freshbelow-Retry Pro/Max/short images; upperrevision/erroravailable and duplicatedactualreasonbelowbutton. Shortcardverticalscrollingkeepsallcontentreachable; cardtop>=panelbottom. No artwork change.",
+    "performance": {
+      "lcp": 2592,
+      "cls": 0,
+      "jsBytes": 220812,
+      "usefulMs": 2497.7999999523163,
+      "conditions": "ProductionChromium402x874DPR3;4Mbps100msCPU4x;cold;synthetic single sample",
+      "beforeClickPDFRequests": 0,
+      "loopbackPDFOpenMs": 352,
+      "debugVisible": true,
+      "limits": "NoINP/Lighthouse/field/physicalSafari; open is warm landing loopback1xCPU, not comparable to coldmeasurement"
+    }
+  },
+  "failuresPreserved": [
+    "unguarded trace.fail could skip local state/abort; guarded",
+    "throwing resource timing could block valid PDF; safe unavailable helper",
+    "CSSbottom90+maxheight100 overlap; boundbothblockedges",
+    "named-onlyminifierfault andnonexistent clock.uninstall harness corrections",
+    "localeactivation beforehydration; marker helper and rerun"
+  ],
+  "technicalApproval": "APPROVED2026-10-19 /root; independent /root/beta_auditor scope/Stage2reaudit/finalStages3–6PASS after source/log/image/perf inspection",
+  "limitations": [
+    "customer originalclientrevision/afterunverified",
+    "oldalreadyopenJavaScriptrequiresfreshnavigation; queryaloneisnot runtimeproof",
+    "no physicalSafari/field/INP/Lighthouseclaim",
+    "controlled AgentEval NOT_RUN"
+  ],
+  "rawIgnoredEvidence": "screenshots/certificate-diagnostics/{browser-persistent-debug-release,browser-persistent-debug-locales,browser-below-retry,native-persistent-debug-final,native-persistent-debug-closure,native-below-retry,build-below-retry,type-below-retry,lint-persistent-debug-release,unit-persistent-final} logs",
+  "publication": {
+    "sha": "f1b02d253344ef563adf7a416db9f05067fe25af",
+    "targets": "BOTHVercelSUCCESS;mainProductionconfirmed",
+    "canonicalProMax": "PASSactualrevision/missingAPIready/HTTP503belowRetry/recovery/initfallback",
+    "receipts": [
+      "persistent-publication.json",
+      "persistent-public-live.json"
+    ]
+  }
+}

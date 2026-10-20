@@ -34,10 +34,18 @@
   {
     "destination": "public/certificates/all-certificates.pdf",
     "source": "design/references/certificates/6_RAMSIDER_UNO_All_Certificates_8docs.pdf",
-    "sha256": "b3775ec617da7ff28e2d264d2527b8dcf40df2ac4241df5c76b20e39217d4f6a",
-    "sourceExact": true,
+    "sha256": "482c4a4fcf9acaa406faf1f2b19f7377ceb5296776a563d6bec014499be6de60",
+    "sourceExact": false,
     "pages": 15,
-    "bytes": 3781482
+    "bytes": 3781872,
+    "orientationCorrection": {
+      "page": 1,
+      "sourceRotation": 0,
+      "rotation": 270,
+      "incremental": true,
+      "sourcePrefixExact": true,
+      "pageStreamsExact": true
+    }
   },
   {
     "destination": "public/certificates/rohs.pdf",

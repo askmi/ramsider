@@ -1,0 +1,30 @@
+{
+  "dateLocal": "2026-10-19",
+  "url": "https://ramsider-main.vercel.app/en",
+  "devices": [
+    {
+      "name": "pro",
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "debugOnSuccess": true,
+      "PDFSizeExact": true,
+      "liveWaitingPhaseAnd5sClock": true,
+      "HTTP503Debug": true,
+      "retryFreshReport": true,
+      "pageerrors": []
+    },
+    {
+      "name": "max",
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "debugOnSuccess": true,
+      "PDFSizeExact": true,
+      "liveWaitingPhaseAnd5sClock": true,
+      "HTTP503Debug": true,
+      "retryFreshReport": true,
+      "pageerrors": []
+    }
+  ]
+}

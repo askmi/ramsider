@@ -1,0 +1,37 @@
+{
+  "dateLocal": "2026-10-19",
+  "sha": "7b76567284723093d26b621551928d53fd0e4042",
+  "branch": "main",
+  "remoteExactSHA": true,
+  "betaUnchanged": "34b23a96212c7df96856585b6270a7d1fb800286",
+  "targets": [
+    {
+      "context": "Vercel \u2013 ramsider",
+      "state": "success",
+      "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/Fmhd19K8JW8D3H9iUYp8TmdMFcYB"
+    },
+    {
+      "context": "Vercel \u2013 ramsider-beta",
+      "state": "success",
+      "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/4u1Vddykzs7Eq4dfXvPkxYeNb6SA"
+    }
+  ],
+  "deployments": [
+    {
+      "sha": "7b76567284723093d26b621551928d53fd0e4042",
+      "id": 7178520123,
+      "environment": "Preview \u2013 ramsider-beta",
+      "state": "success",
+      "environment_url": "https://ramsider-beta-cziqavaxo-askmi-6282s-projects.vercel.app"
+    },
+    {
+      "sha": "7b76567284723093d26b621551928d53fd0e4042",
+      "id": 7178507783,
+      "environment": "Production \u2013 ramsider",
+      "state": "success",
+      "environment_url": "https://ramsider-11bedl48j-askmi-6282s-projects.vercel.app"
+    }
+  ],
+  "canonicalPublicCheck": "PASSProMaxwaiting/success/HTTP503/freshRetry;waiting-public-live.json",
+  "technicalApproval": "APPROVED2026-10-19/root for deployedwaitingdiagnostic; customerpdf.textfault115 separatelyopen"
+}

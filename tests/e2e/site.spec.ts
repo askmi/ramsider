@@ -80,10 +80,14 @@ test('responsive viewport, artwork, and primary actions', async ({ page }, testI
   const cardBox = await firstDocument.boundingBox();
   const buttonBox = await firstDocument.getByRole('link').boundingBox();
   expect(buttonBox!.height).toBeGreaterThan(cardBox!.height - 4);
+  await page.context().route('**/certificates/*.pdf', route => route.abort());
+  const documentRequest = page.context().waitForEvent('request', request => request.url().endsWith('/certificates/electrical-safety.pdf'));
   await firstDocument.getByRole('link').click({ position: { x: cardBox!.width / 2, y: 8 } });
-  await expect(page.locator('#certificate-viewer')).toBeVisible();
-  await expect(page.locator('#certificate-viewer')).toContainText('Electrical Safety');
-  await page.keyboard.press('Escape');
+  expect((await documentRequest).isNavigationRequest()).toBe(true);
+  for (const popup of page.context().pages()) if (popup !== page) await popup.close();
+  await expect(firstDocument.getByRole('link')).toHaveAttribute('href', '/certificates/electrical-safety.pdf');
+  await expect(firstDocument.getByRole('link')).toHaveAttribute('target', '_blank');
+  await expect(page.locator('#certificate-viewer')).toHaveCount(0);
   await page.locator('.project-hit').first().click();
   await expect(page.locator('#project-detail-1')).toBeVisible();
   await expect(page.locator('#project-detail-1')).toContainText('Premium Intelligent');

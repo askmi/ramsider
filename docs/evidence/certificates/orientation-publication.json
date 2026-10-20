@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-20",
+  "sha": "7f93223cb62608c4803afa0490222ce2180749cc",
+  "branch": "origin/main",
+  "remoteExactSHA": true,
+  "betaGitBranchUnchanged": "34b23a96212c7df96856585b6270a7d1fb800286",
+  "targets": [
+    {
+      "context": "Vercel \u2013 ramsider",
+      "state": "success",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider/HpvTCGsmHULE6obHtJEL9Jjr7Cu1",
+      "deploymentId": 7185266712,
+      "environment": "Production \u2013 ramsider",
+      "environmentURL": "https://ramsider-lchbh2lts-askmi-6282s-projects.vercel.app"
+    },
+    {
+      "context": "Vercel \u2013 ramsider-beta",
+      "state": "success",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/8kemMtaGeTJsVhz6YH2gj3VqCbFW",
+      "deploymentId": 7185282861,
+      "environment": "Preview \u2013 ramsider-beta",
+      "environmentURL": "https://ramsider-beta-l5d33aft2-askmi-6282s-projects.vercel.app"
+    }
+  ],
+  "canonical": "https://ramsider-main.vercel.app/certificates/all-certificates.pdf",
+  "canonicalSHA256": "482c4a4fcf9acaa406faf1f2b19f7377ceb5296776a563d6bec014499be6de60",
+  "canonicalBytes": 3781872,
+  "canonicalRotation": 270,
+  "canonicalRenderExactApprovedAfterPNG": true,
+  "publicBrowser": "4 PASS Pro/Max WebKit all6 HTTP/MIME/exactbody/nativeclick/Enter/no-prefetch",
+  "nativeDesktopChrome": "Actual public PDF first page upright; real screenshot inspected /tmp/ramsider-pdf-orientation/public-browser.png",
+  "browserNavigationTimeout": "Initial Chrome createTab reported navigation timeout while native PDF viewer loaded; rebind+screenshot confirmed actual success, not a PDF failure",
+  "physicalSafariAfter": "UNVERIFIED",
+  "technicalApproval": "APPROVED /root published asset 2026-10-20; independent /root/beta_auditor final transport PASS",
+  "optionalApplePDFKitCheck": "BLOCKED: installed Command Line Tools compiler/linker do not support installed macOS27 SDK (Swift6.3.3 vs SDK6.4; TAPI arm64e.x1 unsupported). No PDFKit render approval claimed. Poppler/nativeChrome and publishedWebKit link/HTTP gates passed."
+}

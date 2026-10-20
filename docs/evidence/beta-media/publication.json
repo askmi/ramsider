@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-20",
+  "repository": "askmi/ramsider",
+  "branch": "beta",
+  "sha": "fcd34c98ffd86230d62c53d30824b817097c31bd",
+  "remoteExactSHA": true,
+  "mainUnchanged": "7f93223cb62608c4803afa0490222ce2180749cc",
+  "targets": [
+    {
+      "context": "Vercel \u2013 ramsider-beta",
+      "state": "success",
+      "description": "Deployment has completed",
+      "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/dtP1napkyBcZV9vanJiTFxcGVGDU"
+    },
+    {
+      "context": "Vercel \u2013 ramsider",
+      "state": "success",
+      "description": "Deployment has completed",
+      "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/61uhwMoCn66SsDJae7ka6bvrJC8Z"
+    }
+  ],
+  "deployments": [
+    {
+      "id": 7204251578,
+      "sha": "fcd34c98ffd86230d62c53d30824b817097c31bd",
+      "environment": "Production \u2013 ramsider-beta",
+      "state": "success",
+      "environment_url": "https://ramsider-beta-38kqnctcc-askmi-6282s-projects.vercel.app"
+    },
+    {
+      "id": 7204270533,
+      "sha": "fcd34c98ffd86230d62c53d30824b817097c31bd",
+      "environment": "Preview \u2013 ramsider",
+      "state": "success",
+      "environment_url": "https://ramsider-on6j0yz8q-askmi-6282s-projects.vercel.app"
+    }
+  ],
+  "canonical": "https://ramsider-beta.vercel.app/en",
+  "canonicalEvidence": "public-live.json + public-optionals.json",
+  "providerAliasLookup": "CLI lacked existing credentials and started device-auth; interrupted without login or settings change. GitHub Production exactSHA plus actual canonical artifact/raster/native/order verification used. No provider alias metadata claimed.",
+  "independentTransportAudit": "PASS2026-10-20 /root/beta_auditor: independently GitHubconnectorBOTHexactSHAcontextsSUCCESS,89approvedfilehashes/10RGBApairs/scripts/receipts+4publicimages checked. SandboxCLIremote/env rereads unavailable; primarypublicationreceipt+originrefs used for those, notclaimed independentsecondAPI."
+}

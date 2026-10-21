@@ -1,0 +1,125 @@
+{
+  "statuses": [
+    {
+      "context": "Vercel – ramsider-beta",
+      "description": "Deployment has completed",
+      "state": "success",
+      "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/Bzh27ZkUuVQPfJSyYxKu5o9LdJiq"
+    },
+    {
+      "context": "Vercel – ramsider",
+      "description": "Deployment has completed",
+      "state": "success",
+      "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/Hp1inY3gKyGK9niLpTvdFPqgWG6n"
+    }
+  ],
+  "id": "CHG0124",
+  "date": "2026-10-21",
+  "repository": "askmi/ramsider",
+  "sha": "d4cb439b8bbfc598446db5316bf80f3dc4a1cb65",
+  "branch": "main",
+  "remoteRefs": {
+    "Alpha": "158962347d9866ce758bb8e3d83453fa3ed4070f",
+    "beta": "966e25c09fe607715d08285fadeac77f7ccdbb72",
+    "main": "d4cb439b8bbfc598446db5316bf80f3dc4a1cb65"
+  },
+  "deployments": [
+    {
+      "environment": "Production – ramsider",
+      "id": 7232529531,
+      "ref": "d4cb439b8bbfc598446db5316bf80f3dc4a1cb65",
+      "sha": "d4cb439b8bbfc598446db5316bf80f3dc4a1cb65"
+    },
+    {
+      "environment": "Preview – ramsider-beta",
+      "id": 7232528386,
+      "ref": "d4cb439b8bbfc598446db5316bf80f3dc4a1cb65",
+      "sha": "d4cb439b8bbfc598446db5316bf80f3dc4a1cb65"
+    }
+  ],
+  "productionLatestStatus": {
+    "created_at": "2026-10-21T17:19:13Z",
+    "environment_url": "https://ramsider-q53vbrb2q-askmi-6282s-projects.vercel.app",
+    "log_url": "https://ramsider-q53vbrb2q-askmi-6282s-projects.vercel.app",
+    "state": "success"
+  },
+  "previewLatestStatus": {
+    "created_at": "2026-10-21T17:19:10Z",
+    "environment_url": "https://ramsider-beta-arusm00wp-askmi-6282s-projects.vercel.app",
+    "log_url": "https://ramsider-beta-arusm00wp-askmi-6282s-projects.vercel.app",
+    "state": "success"
+  },
+  "canonical": "https://ramsider-main.vercel.app/en",
+  "publicAssetAndPhoneEvidence": "public-live.json",
+  "editorialSmoke": {
+    "date": "2026-10-21",
+    "url": "https://ramsider-main.vercel.app/en",
+    "rows": [
+      {
+        "profile": "iphone-17-pro-webkit",
+        "width": 402,
+        "dpr": 3,
+        "overflow": false,
+        "axis": [
+          {
+            "left": 27.341938018798828,
+            "right": 27.341960906982422
+          },
+          {
+            "left": 27.341938018798828,
+            "right": 27.341960906982422
+          },
+          {
+            "left": 27.341938018798828,
+            "right": 27.341960906982422
+          }
+        ],
+        "checks": {
+          "nobleMaterials": "PASS",
+          "chemicalFormula": "PASS",
+          "touchHeading": "PASS",
+          "axis": "PASS"
+        },
+        "localPublicChangedChannels": 0,
+        "errors": [],
+        "screenshot": "/tmp/ramsider-main-promotion/public-iphone-17-pro-webkit-TouchLink-1.png"
+      },
+      {
+        "profile": "iphone-17-pro-max-webkit",
+        "width": 440,
+        "dpr": 3,
+        "overflow": false,
+        "axis": [
+          {
+            "left": 29.928865432739258,
+            "right": 29.928861618041992
+          },
+          {
+            "left": 29.928865432739258,
+            "right": 29.928861618041992
+          },
+          {
+            "left": 29.928865432739258,
+            "right": 29.928861618041992
+          }
+        ],
+        "checks": {
+          "nobleMaterials": "PASS",
+          "chemicalFormula": "PASS",
+          "touchHeading": "PASS",
+          "axis": "PASS"
+        },
+        "localPublicChangedChannels": 0,
+        "errors": [],
+        "screenshot": "/tmp/ramsider-main-promotion/public-iphone-17-pro-max-webkit-TouchLink-1.png"
+      }
+    ]
+  },
+  "actualImagesViewed": [
+    "/tmp/ramsider-main-promotion/contacts.png",
+    "/tmp/ramsider-main-promotion/touch-lower.png"
+  ],
+  "primaryTechnicalApproval": "2026-10-21 /root APPROVED: exact branch preservation, beta runtime equality, both success/latest Production, canonical89hash/6ranges/ProMax6exactscreenpairs/12nativePDFs/editorial checks/Touchpixels0differences/0errors",
+  "independentFinalAudit": "2026-10-21 /root/promotion_auditor final transport/canonical/records PASS: direct currentrefs/savedliveSHA/3JSON/scripts/logs; actual screenshot images viewed; independently6beta-mainRGBApairs+2TouchRGBApairs exact,89localSHA/bytes,unchangedlicense/runtime,JSON/whitespace; fresh independent GitHub connector BOTH exact-d4cb Vercel contexts SUCCESS",
+  "userAcceptance": "NOT_RECORDED"
+}

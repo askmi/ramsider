@@ -1,7 +1,7 @@
 {
   "id": "CHG0124",
   "date": "2026-10-21",
-  "status": "APPLIED_UNVERIFIED",
+  "status": "VERIFIED; main deployed d4cb439",
   "repository": "askmi/ramsider",
   "alpha": {
     "branch": "Alpha",
@@ -20,7 +20,8 @@
     "oldLocalSHA": "158962347d9866ce758bb8e3d83453fa3ed4070f",
     "runtimeAssetsConfiguration": "exact frozen beta; record paths only differ",
     "forcePush": false,
-    "publication": "PENDING"
+    "publication": "SUCCESS; Production – ramsider and Preview – ramsider-beta; canonical checked",
+    "sha": "d4cb439b8bbfc598446db5316bf80f3dc4a1cb65"
   },
   "checks": {
     "localApprovedMediaHashes": {
@@ -35,13 +36,23 @@
     ],
     "scopeAudit": "2026-10-21 /root/promotion_auditor PASS after discovery entry",
     "untrackedLicense": "one preexisting file preserved/excluded; SHA stored locally for after comparison",
-    "prepublicationAudit": "2026-10-21 /root/promotion_auditor PASS: independent89hash/bytes, runtime equality, Alpha ancestry, license unchanged, records/whitespace"
+    "prepublicationAudit": "2026-10-21 /root/promotion_auditor PASS: independent89hash/bytes, runtime equality, Alpha ancestry, license unchanged, records/whitespace",
+    "canonical": "89exactSHA/MIME files,6exact206ranges,Pro402/Max440DPR3,6beta/main pixel-exact pairs,12nativePDF navigations,0PDFprefetch/0pageerrors; editorial/formula/TouchLinkaxisPASS/0changedchannels",
+    "finalAudit": "2026-10-21 /root/promotion_auditor final transport/canonical/records PASS: direct currentrefs/savedliveSHA/3JSON/scripts/logs; actual screenshot images viewed; independently6beta-mainRGBApairs+2TouchRGBApairs exact,89localSHA/bytes,unchangedlicense/runtime,JSON/whitespace; fresh independent GitHub connector BOTH exact-d4cb Vercel contexts SUCCESS"
   },
   "limitations": [
     "CHG0121 remains OPEN",
     "No new raster conversion, color transform, code or UI changes versus approved beta",
     "Prior beta measurements are historical; no new Lighthouse/INP/physicalSafari claim"
   ],
-  "technicalApproval": "2026-10-21 /root APPROVED snapshot preservation and candidate; transport/canonical gate PENDING",
-  "userAcceptance": "NOT_RECORDED"
+  "technicalApproval": "2026-10-21 /root APPROVED final publication; independent promotion_auditor PASS; primary public/canonical results in publication.json/public-live.json",
+  "userAcceptance": "NOT_RECORDED",
+  "changedPaths": [
+    "CHANGELOG.md",
+    "MEMORY.md",
+    "docs/evidence/main-promotion/verification.json",
+    "docs/evidence/main-promotion/publication.json",
+    "docs/evidence/main-promotion/public-live.json"
+  ],
+  "outcomeRecords": "Postpublication receipt supplements local/uncommitted; no runtime/assets/configuration change after published d4cb439."
 }

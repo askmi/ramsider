@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-21",
+  "id": "CHG0123",
+  "sha": "f1b489cfbb29cd735c36b2328fded22dd8137787",
+  "branch": "beta",
+  "repository": "askmi/ramsider",
+  "remoteExactSHA": true,
+  "mainUnchanged": "7f93223cb62608c4803afa0490222ce2180749cc",
+  "statuses": [
+    {
+      "context": "Vercel – ramsider",
+      "description": "Deployment has completed",
+      "state": "success",
+      "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/EyMzPWzX2vaoYYnMVQoaUJRmohA5"
+    },
+    {
+      "context": "Vercel – ramsider-beta",
+      "description": "Deployment has completed",
+      "state": "success",
+      "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/2LaqJbWSSFPvzxBMPNHqY1HZy5YW"
+    }
+  ],
+  "deployments": [
+    {
+      "environment": "Production – ramsider-beta",
+      "environment_url": "https://ramsider-beta-pggckt29p-askmi-6282s-projects.vercel.app",
+      "log_url": "https://ramsider-beta-pggckt29p-askmi-6282s-projects.vercel.app",
+      "state": "success",
+      "id": 7211593477,
+      "sha": "f1b489cfbb29cd735c36b2328fded22dd8137787"
+    },
+    {
+      "environment": "Preview – ramsider",
+      "environment_url": "https://ramsider-7lehtcsdc-askmi-6282s-projects.vercel.app",
+      "log_url": "https://ramsider-7lehtcsdc-askmi-6282s-projects.vercel.app",
+      "state": "success",
+      "id": 7211592204,
+      "sha": "f1b489cfbb29cd735c36b2328fded22dd8137787"
+    }
+  ],
+  "canonical": "https://ramsider-beta.vercel.app/en",
+  "publicBrowser": {
+    "date": "2026-10-21",
+    "url": "https://ramsider-beta.vercel.app/en",
+    "rows": [
+      {
+        "profile": "iphone-17-pro-webkit",
+        "width": 402,
+        "dpr": 3,
+        "overflow": false,
+        "axis": [
+          {
+            "left": 27.341938018798828,
+            "right": 27.341960906982422
+          },
+          {
+            "left": 27.341938018798828,
+            "right": 27.341960906982422
+          },
+          {
+            "left": 27.341938018798828,
+            "right": 27.341960906982422
+          }
+        ],
+        "checks": {
+          "nobleMaterials": "PASS",
+          "chemicalFormula": "PASS",
+          "touchHeading": "PASS",
+          "axis": "PASS"
+        },
+        "localPublicChangedChannels": 0,
+        "errors": [],
+        "screenshot": "/tmp/ramsider-title-fix/public-iphone-17-pro-webkit-TouchLink-1.png"
+      },
+      {
+        "profile": "iphone-17-pro-max-webkit",
+        "width": 440,
+        "dpr": 3,
+        "overflow": false,
+        "axis": [
+          {
+            "left": 29.928865432739258,
+            "right": 29.928861618041992
+          },
+          {
+            "left": 29.928865432739258,
+            "right": 29.928861618041992
+          },
+          {
+            "left": 29.928865432739258,
+            "right": 29.928861618041992
+          }
+        ],
+        "checks": {
+          "nobleMaterials": "PASS",
+          "chemicalFormula": "PASS",
+          "touchHeading": "PASS",
+          "axis": "PASS"
+        },
+        "localPublicChangedChannels": 0,
+        "errors": [],
+        "screenshot": "/tmp/ramsider-title-fix/public-iphone-17-pro-max-webkit-TouchLink-1.png"
+      }
+    ]
+  },
+  "primaryTechnicalApproval": "2026-10-21 /root APPROVED: exactremoteSHA,bothdeployments,canonicalProMaxcase/axis/material/formula+0RGBAchannelchanges/0errors",
+  "independentAudit": "2026-10-21 /root/deployment_auditor final publication/record PASS: direct safe stdout/remote/deployment records, independently fresh GitHubconnector bothsuccess, actualpublicProMaximages and independentRGBAdecode bothexact; no runtime changes after committedSHA",
+  "limitations": "No provider alias API/physical Safari/fieldINP/Lighthouse claims; exact Production deployment plus actual canonical corrected content and pixel comparisons verified."
+}

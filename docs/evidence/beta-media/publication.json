@@ -7,13 +7,13 @@
   "mainUnchanged": "7f93223cb62608c4803afa0490222ce2180749cc",
   "targets": [
     {
-      "context": "Vercel \u2013 ramsider-beta",
+      "context": "Vercel – ramsider-beta",
       "state": "success",
       "description": "Deployment has completed",
       "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/dtP1napkyBcZV9vanJiTFxcGVGDU"
     },
     {
-      "context": "Vercel \u2013 ramsider",
+      "context": "Vercel – ramsider",
       "state": "success",
       "description": "Deployment has completed",
       "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/61uhwMoCn66SsDJae7ka6bvrJC8Z"
@@ -23,14 +23,14 @@
     {
       "id": 7204251578,
       "sha": "fcd34c98ffd86230d62c53d30824b817097c31bd",
-      "environment": "Production \u2013 ramsider-beta",
+      "environment": "Production – ramsider-beta",
       "state": "success",
       "environment_url": "https://ramsider-beta-38kqnctcc-askmi-6282s-projects.vercel.app"
     },
     {
       "id": 7204270533,
       "sha": "fcd34c98ffd86230d62c53d30824b817097c31bd",
-      "environment": "Preview \u2013 ramsider",
+      "environment": "Preview – ramsider",
       "state": "success",
       "environment_url": "https://ramsider-on6j0yz8q-askmi-6282s-projects.vercel.app"
     }
@@ -38,5 +38,50 @@
   "canonical": "https://ramsider-beta.vercel.app/en",
   "canonicalEvidence": "public-live.json + public-optionals.json",
   "providerAliasLookup": "CLI lacked existing credentials and started device-auth; interrupted without login or settings change. GitHub Production exactSHA plus actual canonical artifact/raster/native/order verification used. No provider alias metadata claimed.",
-  "independentTransportAudit": "PASS2026-10-20 /root/beta_auditor: independently GitHubconnectorBOTHexactSHAcontextsSUCCESS,89approvedfilehashes/10RGBApairs/scripts/receipts+4publicimages checked. SandboxCLIremote/env rereads unavailable; primarypublicationreceipt+originrefs used for those, notclaimed independentsecondAPI."
+  "independentTransportAudit": "PASS2026-10-20 /root/beta_auditor: independently GitHubconnectorBOTHexactSHAcontextsSUCCESS,89approvedfilehashes/10RGBApairs/scripts/receipts+4publicimages checked. SandboxCLIremote/env rereads unavailable; primarypublicationreceipt+originrefs used for those, notclaimed independentsecondAPI.",
+  "recoveryPublication": {
+    "date": "2026-10-20",
+    "sha": "2d57483e8af97282710f0a69ed239f8e008f669e",
+    "branch": "beta",
+    "remoteExactSHA": true,
+    "mainUnchanged": "7f93223cb62608c4803afa0490222ce2180749cc",
+    "runtimeAssetsDiff": "EMPTY versus fcd34c98ffd86230d62c53d30824b817097c31bd; receipt-only commit",
+    "stalledChat": "idle; last turn interrupted after authorized stop message",
+    "approvalWaitCause": "UNKNOWN",
+    "targets": [
+      {
+        "context": "Vercel – ramsider-beta",
+        "state": "success",
+        "environment": "Production – ramsider-beta",
+        "deploymentId": 7209645608,
+        "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/3Fnk4CKLabbj4TuG6XYLDz1tHbCY",
+        "environment_url": "https://ramsider-beta-dgdjlk70w-askmi-6282s-projects.vercel.app"
+      },
+      {
+        "context": "Vercel – ramsider",
+        "state": "success",
+        "environment": "Preview – ramsider",
+        "deploymentId": 7209631855,
+        "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/DAwTo8DWbij1HTjuvM8Bx77gzppM",
+        "environment_url": "https://ramsider-ogs5wxo6z-askmi-6282s-projects.vercel.app"
+      }
+    ],
+    "evidence": "Fresh gh commit statuses, both deployment records/latest statuses, git ls-remote; canonical response check recorded separately below",
+    "technicalApproval": "2026-10-20 /root APPROVED; independent /root/deployment_auditor final transport/closeout PASS, actual safe stdout inspected and independent GitHub connector exact-SHA both success",
+    "userAcceptance": "NOT_RECORDED",
+    "canonicalCheck": {
+      "url": "https://ramsider-beta.vercel.app/en",
+      "status": 200,
+      "bytes": 443277,
+      "html": true,
+      "sampleAsset": {
+        "file": "public/art/faq-row-5.webp",
+        "status": 200,
+        "bytes": 11720,
+        "sha256": "0914f13e33b0f0c08a937a6f967a6abf3638e48d766d114293aff786f866552c",
+        "expected": "0914f13e33b0f0c08a937a6f967a6abf3638e48d766d114293aff786f866552c"
+      },
+      "scope": "HTTP availability plus one unchanged artwork hash; prior full public/UI evidence reused; not provider alias assignment metadata"
+    }
+  }
 }

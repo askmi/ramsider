@@ -1,0 +1,47 @@
+{
+  "id": "CHG0124",
+  "date": "2026-10-21",
+  "status": "APPLIED_UNVERIFIED",
+  "repository": "askmi/ramsider",
+  "alpha": {
+    "branch": "Alpha",
+    "sha": "158962347d9866ce758bb8e3d83453fa3ed4070f",
+    "remoteExactBeforeMainAdvance": true,
+    "includesFormerLocalMainReceiptCommit": true,
+    "deployment": "No GitHub deployment records/statuses observed for archive branch; archive requires Git preservation, not a deployed site."
+  },
+  "beta": {
+    "sha": "966e25c09fe607715d08285fadeac77f7ccdbb72",
+    "unchanged": true
+  },
+  "main": {
+    "method": "fast-forward; main already ancestor of beta",
+    "oldRemoteSHA": "7f93223cb62608c4803afa0490222ce2180749cc",
+    "oldLocalSHA": "158962347d9866ce758bb8e3d83453fa3ed4070f",
+    "runtimeAssetsConfiguration": "exact frozen beta; record paths only differ",
+    "forcePush": false,
+    "publication": "PENDING"
+  },
+  "checks": {
+    "localApprovedMediaHashes": {
+      "status": "PASS",
+      "count": 89,
+      "evidence": "docs/evidence/beta-media/public-live.json"
+    },
+    "reusedQA": [
+      "docs/evidence/beta-media/publication.json",
+      "docs/evidence/technology-editorial-case/verification.json",
+      "docs/evidence/technology-editorial-case/publication.json"
+    ],
+    "scopeAudit": "2026-10-21 /root/promotion_auditor PASS after discovery entry",
+    "untrackedLicense": "one preexisting file preserved/excluded; SHA stored locally for after comparison",
+    "prepublicationAudit": "2026-10-21 /root/promotion_auditor PASS: independent89hash/bytes, runtime equality, Alpha ancestry, license unchanged, records/whitespace"
+  },
+  "limitations": [
+    "CHG0121 remains OPEN",
+    "No new raster conversion, color transform, code or UI changes versus approved beta",
+    "Prior beta measurements are historical; no new Lighthouse/INP/physicalSafari claim"
+  ],
+  "technicalApproval": "2026-10-21 /root APPROVED snapshot preservation and candidate; transport/canonical gate PENDING",
+  "userAcceptance": "NOT_RECORDED"
+}

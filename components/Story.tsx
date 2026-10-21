@@ -19,6 +19,8 @@ import { CharcoalRibbon } from './CharcoalRibbon';
 import { EmberScene } from './EmberScene';
 import { emberCopy } from '@/lib/ember-copy';
 import { certificates, type CertificateId } from '@/lib/certificates';
+import { company, companyCopy } from '@/lib/company';
+import { SiteFooter } from './SiteFooter';
 
 // Keep the complete FAQ/account artwork in one tile: no image edge through a card.
 const artTiles = Array.from({ length: 12 }, (_, i) => ({
@@ -86,6 +88,7 @@ function OverlayNode({ node, locale }: { node: StoryNode; locale: Locale }) {
       {appearance.kind === 'outline' && <ActionArrow />}
     </>;
     if (node.target) return <Link {...buttonProps} href={node.target}>{content}</Link>;
+    if (node.unavailable === 'business') return <a {...buttonProps} href={company.emailHref}>{content}</a>;
     if (node.id === 'fire-learn') return <button {...buttonProps} type="button" aria-haspopup="dialog" aria-controls="charcoal-viewer" data-charcoal-open>{content}</button>;
     return <button {...buttonProps} type="button" aria-haspopup="dialog" {...(node.unavailable === 'technology' ? { 'data-technology-open': true } : { popoverTarget: `unavailable-${node.unavailable ?? 'commerce'}` })}>{content}</button>;
   }
@@ -153,7 +156,9 @@ function Faq({ locale }: { locale: Locale }) {
       </div>
       <details>
       <summary id={`faq-${question.id}`}><span className="faq-question">{t(locale, question.key)}</span><span className="faq-symbol" aria-hidden="true" /></summary>
-      <p>{t(locale, 'faqPending')}</p>
+      <p>{question.id === 'support' || question.id === 'venue'
+        ? <>{companyCopy[locale][question.id === 'support' ? 'support' : 'business']} <a className="faq-contact-link" href={company.emailHref}><bdi dir="ltr">{company.email}</bdi></a></>
+        : t(locale, 'faqPending')}</p>
       </details>
     </div>)}
   </div>;
@@ -168,6 +173,7 @@ function Menus({ locale }: { locale: Locale }) {
     <MenuShell label={t(locale, 'menu')}>
       <nav aria-label={t(locale, 'menu')}>
         {(['moment', 'technology', 'choice', 'expressions', 'pro', 'gold', 'set', 'order', 'documents', 'hospitality', 'faq', 'final'] as const).map((id) => <a id={`navigation-${id}`} key={id} href={`#${id}`}>{t(locale, ({ moment: 'moment', technology: 'complexity', choice: 'choice', expressions: 'expressions', pro: 'pro', gold: 'gold', set: 'set', order: 'order', documents: 'documented', hospitality: 'hospitality', faq: 'faqTitle', final: 'final' } as const)[id])}</a>)}
+        <a id="navigation-contact" href={company.emailHref}>{companyCopy[locale].contact}</a>
         <div className="locale-links" aria-label={t(locale, 'language')}>
           {locales.map((option) => <Link id={`locale-${option}`} key={option} href={`/${option}`} hrefLang={option} aria-current={locale === option ? 'page' : undefined}>{option.toUpperCase()}</Link>)}
         </div>
@@ -179,7 +185,6 @@ function Menus({ locale }: { locale: Locale }) {
 const blocked = [
   ['commerce', 'unavailableCommerce'],
   ['film', 'unavailableFilm'],
-  ['business', 'unavailableBusiness'],
   ['account', 'unavailableAccount'],
 ] as const;
 
@@ -330,7 +335,7 @@ export function Story({ locale }: { locale: Locale }) {
       </div>)}
       </section>
       <LocaleSwitcher locale={locale} label={t(locale, 'language')} />
-    </main></PageMediaGate>
+    </main><SiteFooter locale={locale} /></PageMediaGate>
     <BackToTop label={t(locale, 'backToTop')} />
     <Popovers locale={locale} />
   </DialogController>;

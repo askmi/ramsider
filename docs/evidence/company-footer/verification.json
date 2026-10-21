@@ -1,0 +1,193 @@
+{
+  "id": "CHG0125",
+  "date": "2026-10-21",
+  "status": "VERIFIED historical CHG0125 baseline; superseded by CHG0126 compact/icons correction",
+  "baseSHA": "c2b8f8cec32a988d8bcd5f8acf2a99cf258ea548",
+  "finalScope": "owner confirmed company/legal/address/email/social data; exact License No. 1050925 plain text; DO NOT publish or link source PDF; no phone anywhere",
+  "sourceLicence": {
+    "file": "design/references/license/u477240067_c1177926742_m1346_AgADSZ0AAvF_wUo_LICENSE_2026_2027.pdf",
+    "sha256": "9a37c2e174e1e291a386ec0e6b146fbd386697510a8190fd294c6957c52f8b1e",
+    "pages": 5,
+    "bytes": 484704,
+    "originalUntouched": true,
+    "publicFile": false,
+    "publicLink": false,
+    "knownCompanyPdfURLStatus": 404,
+    "policy": "owner explicitly supplied for verification only; initial PDFattachment request superseded2026-10-21; source remains untracked/excluded from publication"
+  },
+  "reference": {
+    "cleanFirst": "/tmp/ramsider-footer/reference-clean-bottom.png",
+    "textSecond": "/tmp/ramsider-footer/reference-text-bottom.png",
+    "sourceRange": [
+      29900,
+      32127
+    ],
+    "footerReference": "none; approved normal-flow extension after existing finalCTA",
+    "sourceScale": {
+      "Pro": "402/941",
+      "Max": "440/941"
+    }
+  },
+  "browser": {
+    "command": "BASE_URL=http://localhost:3141 npx playwright test tests/e2e/company-footer.spec.ts --workers=1",
+    "pass": 18,
+    "intentionalSkip": 10,
+    "fail": 0,
+    "duration": "1.3m",
+    "skipReason": "duplicate adaptation/safe-area/late-load and exact-source404 checks on additional profiles; no required primary case skipped",
+    "profiles": [
+      "WebKit402x874DPR3",
+      "WebKit440x956DPR3",
+      "Chromium1440x900",
+      "Firefox1440x900"
+    ],
+    "footerLocaleProfileStates": 19,
+    "expandedFaqLocales": {
+      "Pro": 11,
+      "Max": [
+        "en",
+        "ar",
+        "de"
+      ]
+    },
+    "adaptationWidths": [
+      280,
+      320,
+      375,
+      768,
+      1440
+    ],
+    "safeAreas": {
+      "sharedRootVariable": "--page-safe-bottom consumed by footer AND BackToTop",
+      "bottomInsets": [
+        0,
+        34,
+        70
+      ],
+      "sideInsets": 44,
+      "minimumFinalLinkButtonGap": 16,
+      "actualYouTubeElementFromPoint": "PASS"
+    },
+    "actualImages": "screenshots/company-footer/",
+    "rootViewed": [
+      "/tmp/ramsider-footer/approved-mobile-contact.png",
+      "screenshots/company-footer/desktop-chromium-en.png",
+      "screenshots/company-footer/faq-iphone-17-pro-webkit-en.png",
+      "screenshots/company-footer/faq-iphone-17-pro-max-webkit-ar.png",
+      "screenshots/company-footer/faq-iphone-17-pro-webkit-de.png",
+      "screenshots/company-footer/safe-iphone-17-pro-webkit-ar.png"
+    ],
+    "noJs": 4,
+    "unpromptedCompanyPdfRequests": 0,
+    "companyPdfNativeLink": false,
+    "phoneLinks": 0,
+    "behavior": "native mailto in footer/business/menu/support+venue; native social Enter navigation verified by browser requests; Safari Option-Tab/other engines Tab+visible focus; tail image503→Retryrecovery; no messages sent"
+  },
+  "integration": {
+    "command": "site.spec.ts responsive viewport/artwork/primary actions and Back to Top on Pro/Max",
+    "pass": 4,
+    "duration": "26.4s",
+    "fullPageShots": "screenshots/actual/full-iphone-17-pro{,-max}-webkit.png"
+  },
+  "retention": [
+    {
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "canvasWidth": 402,
+      "canvasHeight": 13724.71875,
+      "requestedScroll": 12850,
+      "actualScroll": 12850,
+      "controlScroll": 12850,
+      "changedChannels": 0,
+      "image": "/tmp/ramsider-footer/tail-402.png",
+      "original": "/tmp/ramsider-footer/control-tail-402.png"
+    },
+    {
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "canvasWidth": 440,
+      "canvasHeight": 15022.109375,
+      "requestedScroll": 14066,
+      "actualScroll": 14066,
+      "controlScroll": 14066,
+      "changedChannels": 0,
+      "image": "/tmp/ramsider-footer/tail-440.png",
+      "original": "/tmp/ramsider-footer/control-tail-440.png"
+    }
+  ],
+  "publicAssets": {
+    "unchangedApprovedHashes": 89,
+    "rasterConversion": "none",
+    "sourceImagesGeometry": "unchanged; FAQ expansion uses existing artwork system"
+  },
+  "sourceHashes": {
+    "components/SiteFooter.tsx": "1dc48eb8508a48113e2a965620343c9221066e511638ceb1b3b0a520c2db7312",
+    "components/Story.tsx": "01f2fd1ad61fe26d7e6987b26b2e3952b966e74b39146f5847b60de3ab4a34c4",
+    "lib/company.ts": "853120b74550e21ef8ef06868f48074690d1b6cf67d9695ee772ac4723cdee25",
+    "app/globals.css": "4cb8da7f4bdf5250e1ea1065a94341fc29611accb8684c10461cd16dedf6be91",
+    "tests/e2e/company-footer.spec.ts": "38a123c973c2b6273bee8ee406ab525ad139059562a2dd3e0b7f633384c6159b"
+  },
+  "nativeReview": {
+    "initial": "clean; primary found expanded FAQ hitarea gap subsequently fixed",
+    "final2": "P2 safe-area overlap; repaired and strengthened shared-input test",
+    "approved": "clean; actual final diff examined; reviewer browser launch blocked but primary browser suite executed"
+  },
+  "quality": {
+    "typecheck": "PASS",
+    "lint": "0 errors,1 preexisting integrations/telegram/controller.mjs warning",
+    "build": "PASS11localeSSG",
+    "serverComponent": "SiteFooter and lib/company absent from client-reference manifests",
+    "newDependencies": false,
+    "renderStrategy": "existing SSG kept; static owner facts need no request-time data, client state or hydration"
+  },
+  "contrast": {
+    "computedBackground": "rgb(239,228,211)",
+    "computedText": "rgb(56,42,32)",
+    "ratios": {
+      "text": 10.991,
+      "hover": 5.702,
+      "focus": 5.407
+    },
+    "scope": "footer primary/hover/focus colors only, not full-site WCAG certification"
+  },
+  "performance": "performance.json",
+  "independentAudit": {
+    "scope": "PASS2026-10-21 after discovery/mapping; updated owner no-publication scope PASS",
+    "visualBehavior": "PASS2026-10-21 /root/promotion_auditor repaired Stages2–4: actual final footer/FAQ/safe/adapt images viewed, exactfacts/hitareas/sharedsafe+phone/PDF absence and runtime/image hashes",
+    "quality": "PASS2026-10-21 /root/promotion_auditor Stage5: finalnativeclean afterP2repair/type/lint/build/perf/integrationactualresults",
+    "finalRecords": "PASS2026-10-21 /root/promotion_auditor final-record re-audit after stale-memory/status-alias repair; actualscope/13paths/frozen5hashes/JSON/whitespace coherent"
+  },
+  "technicalApproval": "2026-10-21 /root APPROVED complete scoped footer; independent promotion_auditor Stages2–4 PASS,Stage5 PASS,finalrecord re-audit PASS; no material scoped discrepancy remains",
+  "userAcceptance": "NOT_RECORDED",
+  "publication": {
+    "priorReportsPushed": "c2b8f8cec32a988d8bcd5f8acf2a99cf258ea548",
+    "priorDeploymentWait": "SKIPPED by explicit user instruction",
+    "newFooterCommitPush": "Subsequently authorized by owner CHG0126; exactmainSHA/deployment pending in compact evidence"
+  },
+  "limitations": [
+    "No comparable footer reference; only original story retention pixel equality claimed",
+    "PhysicalSafari/nativeChrome/screenreader device behavior unverified; native semantics/keyboard tested",
+    "INP not measured/Lighthouse not run",
+    "CHG0121 and broader CHG0103/CHG0106 remain separate open topics",
+    "AgentEvals controlled runs NOT_RUN; QA checks do not prove agent behavioral learning"
+  ],
+  "changedPaths": [
+    "CHANGELOG.md",
+    "LESSONS.md",
+    "MEMORY.md",
+    "PRODUCT.md",
+    "app/globals.css",
+    "components/Story.tsx",
+    "components/SiteFooter.tsx",
+    "docs/agent-evals.md",
+    "docs/company-footer.md",
+    "docs/evidence/company-footer/verification.json",
+    "docs/evidence/company-footer/performance.json",
+    "lib/company.ts",
+    "tests/e2e/company-footer.spec.ts"
+  ],
+  "runtimeFrozenAfterApprovedChecks": true,
+  "supersededBy": "compact/verification.json"
+}

@@ -1,0 +1,26 @@
+{
+  "conditions": "production3141,Chromium402x874DPR3,cold4Mbps/100ms/4CPU; scroll unthrottled",
+  "usefulMs": 2519,
+  "lcp": 2600,
+  "cls": 0,
+  "ttfb": 25.399999976158142,
+  "firstPaint": 460,
+  "jsEncodedBytes": 207709,
+  "transferBytes": 786857,
+  "companyPdfRequests": 0,
+  "scroll": {
+    "frames": 119,
+    "p95": 16.800000000000182,
+    "over33ms": 2,
+    "distinctPositions": 120,
+    "from": 0,
+    "to": 13235
+  },
+  "footer": {
+    "rendered": true,
+    "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif"
+  },
+  "rendering": "11locale SSG; company footer ServerComponent; no new client module or fresh-data requirement",
+  "inp": "not measured",
+  "lighthouse": "not run"
+}

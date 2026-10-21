@@ -182,3 +182,21 @@ CHG0120 EVAL-MAP/EVAL-VIEWER extensions (2026-10-20): supply mixed AdobeRGB/sRGB
 CHG0120 follow-up EVAL-VIEWER: earlybootstrap error→nativefallback→recoveredhydration, holdhero+lastimage, openeachviewer before initialobserver, require priority/complete recovery without closing. Require actual per-pixel luminance (not cross-channel range) for settled pending capture, exact retained comparison, and recorded scroll movement before any frame-p95 claim. Product fallback4PASS/priority14PASS/retained3repeats×2profiles6PASS; controlled independent agent behavior run remains NOT_RUN.
 
 CHG0123 extends EVAL-MAP: apply an existing global heading-case correction across the complete23-slide gallery, including visually heading-like material p labels and editorial captions. Negative input includes x64/width873 in941px space, German nouns, Turkish dotted/dotless I, Japanese Latin-unit captions and N₂/CO₂ symbols. Acceptance requires authored locale case,64/64Touch gutters, unchanged chemical symbols/units/prose/artwork, Pro/Max images and complete role/locale fit checks. Actual controlled agent evaluation NOT_RUN; current browser/product checks are separate evidence, not behavioral improvement proof.
+
+### EVAL-MAP — CHG0125 acceptance extension (2026-10-21)
+- Expected agent behavior: inventory every changed interactive surface, including expanded support/venue answers; capture Pro/Max with RTL/long locale, verify readable underlined44px links and actual hit-testing.
+- Model safe-area changes through a shared content/overlay input, covering0/34/70px and fixed control offset+height+gap; varying only the footer is insufficient.
+- Freeze production artifacts during real-browser QA; record actual viewport/canvas widths and matched integer scroll offsets in both pixel-comparison images. Never rebuild shared .next while verifying the running artifact.
+- Use bounded structural edits to separate authoritative legal facts from localized labels; reread changed objects and enforce exact owner facts before build. Keep native-review diagnostics private and expose only a selected final verdict (also EVAL-SECRET-PUBLICATION).
+- Reconcile current state in original topic memory after a later receipt push; no stale local/uncommitted statements or duplicate pending gate aliases may remain after actual approval.
+- Run status: controlled agent run NOT_RUN. Actual CHG0125 product tests, screenshots and review repairs are recorded separately and do not certify improved agent behavior.
+
+<a id="eval-browser-keyboard"></a>
+## EVAL-BROWSER-KEYBOARD
+- Source: CHG0125 footer keyboard fixture; root assumed universal plain-Tab link traversal.
+- Scenario: accessible native anchors pass focus/Enter but Safari default Tab skips links; Chromium includes links.
+- Expected agent behavior: inspect actual active element and native keyboard mode, exercise Safari Option-Tab and other engines Tab, retain visible-focus/Enter assertions, and avoid unnecessary tabindex/product changes.
+- Run status: controlled agent run NOT_RUN. 2026-10-21 real WebKit diagnostic PASS (Tab→BODY, Option-Tab→Instagram) is product/harness evidence only.
+
+### EVAL-MAP — Compact footer palette acceptance (CHG0126)
+Expected: map source-edge colours to the actual adjacent footer, capture/inspect transition, record actualCSSheight versus explicitmobile budget, and test one-row44px recognizableSVG links with nativeaccessible names. Do not use scaledpreview sizes as CSSmeasurements or substitute label rows for requested icons. Preserve legal/noPDF/private-source and safe-area requirements. Controlled agent run NOT_RUN.

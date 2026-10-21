@@ -1,0 +1,583 @@
+{
+  "id": "CHG0126",
+  "date": "2026-10-21",
+  "status": "VERIFIED_LOCAL; publication pending",
+  "baseSHA": "c2b8f8cec32a988d8bcd5f8acf2a99cf258ea548",
+  "request": "compact one-row clickable Instagram/YouTube icons, footer colour matches final artwork, publishmain and waitProduction",
+  "sourceColor": {
+    "size": [
+      941,
+      1329
+    ],
+    "colors": [
+      {
+        "percent": 0,
+        "rgb": [
+          214,
+          181,
+          157
+        ]
+      },
+      {
+        "percent": 25,
+        "rgb": [
+          220,
+          186,
+          160
+        ]
+      },
+      {
+        "percent": 50,
+        "rgb": [
+          218,
+          185,
+          158
+        ]
+      },
+      {
+        "percent": 75,
+        "rgb": [
+          214,
+          180,
+          152
+        ]
+      },
+      {
+        "percent": 100,
+        "rgb": [
+          206,
+          172,
+          144
+        ]
+      }
+    ]
+  },
+  "baseline": [
+    {
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "footerHeight": 551.46875,
+      "footerWidth": 402,
+      "boundary": [
+        {
+          "x": 0.05,
+          "above": [
+            219,
+            187,
+            162
+          ],
+          "below": [
+            239,
+            228,
+            211
+          ],
+          "meanAbsRGB": 36.666666666666664
+        },
+        {
+          "x": 0.25,
+          "above": [
+            218,
+            185,
+            159
+          ],
+          "below": [
+            239,
+            228,
+            211
+          ],
+          "meanAbsRGB": 38.666666666666664
+        },
+        {
+          "x": 0.5,
+          "above": [
+            217,
+            185,
+            159
+          ],
+          "below": [
+            239,
+            228,
+            211
+          ],
+          "meanAbsRGB": 39
+        },
+        {
+          "x": 0.75,
+          "above": [
+            213,
+            181,
+            153
+          ],
+          "below": [
+            239,
+            228,
+            211
+          ],
+          "meanAbsRGB": 43.666666666666664
+        },
+        {
+          "x": 0.95,
+          "above": [
+            209,
+            175,
+            147
+          ],
+          "below": [
+            239,
+            228,
+            211
+          ],
+          "meanAbsRGB": 49
+        }
+      ],
+      "boundaryMean": 41.4,
+      "icons": [
+        {
+          "label": null,
+          "text": "Instagram@ramsider_official",
+          "x": 24,
+          "y": 698.1875,
+          "width": 354,
+          "height": 44,
+          "svg": false
+        },
+        {
+          "label": null,
+          "text": "YouTube@ramsider_official",
+          "x": 24,
+          "y": 742.1875,
+          "width": 354,
+          "height": 44,
+          "svg": false
+        }
+      ],
+      "path": "/tmp/ramsider-footer-compact/before-402-transition.png"
+    },
+    {
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "footerHeight": 551.46875,
+      "footerWidth": 440,
+      "boundary": [
+        {
+          "x": 0.05,
+          "above": [
+            219,
+            187,
+            162
+          ],
+          "below": [
+            239,
+            228,
+            211
+          ],
+          "meanAbsRGB": 36.666666666666664
+        },
+        {
+          "x": 0.25,
+          "above": [
+            218,
+            185,
+            159
+          ],
+          "below": [
+            239,
+            228,
+            211
+          ],
+          "meanAbsRGB": 38.666666666666664
+        },
+        {
+          "x": 0.5,
+          "above": [
+            217,
+            185,
+            159
+          ],
+          "below": [
+            239,
+            228,
+            211
+          ],
+          "meanAbsRGB": 39
+        },
+        {
+          "x": 0.75,
+          "above": [
+            213,
+            181,
+            153
+          ],
+          "below": [
+            239,
+            228,
+            211
+          ],
+          "meanAbsRGB": 43.666666666666664
+        },
+        {
+          "x": 0.95,
+          "above": [
+            210,
+            176,
+            147
+          ],
+          "below": [
+            239,
+            228,
+            211
+          ],
+          "meanAbsRGB": 48.333333333333336
+        }
+      ],
+      "boundaryMean": 41.266666666666666,
+      "icons": [
+        {
+          "label": null,
+          "text": "Instagram@ramsider_official",
+          "x": 24,
+          "y": 779.578125,
+          "width": 392,
+          "height": 44,
+          "svg": false
+        },
+        {
+          "label": null,
+          "text": "YouTube@ramsider_official",
+          "x": 24,
+          "y": 823.578125,
+          "width": 392,
+          "height": 44,
+          "svg": false
+        }
+      ],
+      "path": "/tmp/ramsider-footer-compact/before-440-transition.png"
+    }
+  ],
+  "final": [
+    {
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "footerHeight": 384.59375,
+      "footerWidth": 402,
+      "boundary": [
+        {
+          "x": 0.05,
+          "above": [
+            219,
+            187,
+            162
+          ],
+          "below": [
+            215,
+            182,
+            158
+          ],
+          "meanAbsRGB": 4.333333333333333
+        },
+        {
+          "x": 0.25,
+          "above": [
+            218,
+            185,
+            159
+          ],
+          "below": [
+            220,
+            186,
+            160
+          ],
+          "meanAbsRGB": 1.3333333333333333
+        },
+        {
+          "x": 0.5,
+          "above": [
+            217,
+            185,
+            159
+          ],
+          "below": [
+            218,
+            185,
+            158
+          ],
+          "meanAbsRGB": 0.6666666666666666
+        },
+        {
+          "x": 0.75,
+          "above": [
+            213,
+            181,
+            153
+          ],
+          "below": [
+            214,
+            180,
+            152
+          ],
+          "meanAbsRGB": 1
+        },
+        {
+          "x": 0.95,
+          "above": [
+            209,
+            175,
+            147
+          ],
+          "below": [
+            208,
+            174,
+            146
+          ],
+          "meanAbsRGB": 1
+        }
+      ],
+      "boundaryMean": 1.6666666666666665,
+      "icons": [
+        {
+          "label": "Instagram",
+          "text": "",
+          "x": 24,
+          "y": 742.3125,
+          "width": 44,
+          "height": 44,
+          "svg": true
+        },
+        {
+          "label": "YouTube",
+          "text": "",
+          "x": 76,
+          "y": 742.3125,
+          "width": 44,
+          "height": 44,
+          "svg": true
+        }
+      ],
+      "path": "/tmp/ramsider-footer-compact/after-402-transition.png"
+    },
+    {
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "footerHeight": 384.59375,
+      "footerWidth": 440,
+      "boundary": [
+        {
+          "x": 0.05,
+          "above": [
+            219,
+            187,
+            162
+          ],
+          "below": [
+            215,
+            182,
+            158
+          ],
+          "meanAbsRGB": 4.333333333333333
+        },
+        {
+          "x": 0.25,
+          "above": [
+            218,
+            185,
+            159
+          ],
+          "below": [
+            220,
+            186,
+            160
+          ],
+          "meanAbsRGB": 1.3333333333333333
+        },
+        {
+          "x": 0.5,
+          "above": [
+            217,
+            185,
+            159
+          ],
+          "below": [
+            218,
+            185,
+            158
+          ],
+          "meanAbsRGB": 0.6666666666666666
+        },
+        {
+          "x": 0.75,
+          "above": [
+            213,
+            181,
+            153
+          ],
+          "below": [
+            214,
+            180,
+            152
+          ],
+          "meanAbsRGB": 1
+        },
+        {
+          "x": 0.95,
+          "above": [
+            210,
+            176,
+            147
+          ],
+          "below": [
+            208,
+            174,
+            146
+          ],
+          "meanAbsRGB": 1.6666666666666667
+        }
+      ],
+      "boundaryMean": 1.8,
+      "icons": [
+        {
+          "label": "Instagram",
+          "text": "",
+          "x": 24,
+          "y": 823.703125,
+          "width": 44,
+          "height": 44,
+          "svg": true
+        },
+        {
+          "label": "YouTube",
+          "text": "",
+          "x": 76,
+          "y": 823.703125,
+          "width": 44,
+          "height": 44,
+          "svg": true
+        }
+      ],
+      "path": "/tmp/ramsider-footer-compact/after-440-transition.png"
+    }
+  ],
+  "bodyFont": "OpenSans14px/1.5 unchanged readable body size",
+  "compactness": "551.46875→384.59375CSSpx on both Pro/Max (-30.26%)",
+  "colorEdge": "five-sample average absolute RGB boundary jump Pro41.4→1.667,Max41.267→1.8",
+  "contrastMinimumAcrossFiveStops": {
+    "body": 6.531,
+    "hover": 8.314,
+    "focus": 5.053
+  },
+  "browser": {
+    "pass": 18,
+    "intentionalDuplicateSkip": 10,
+    "fail": 0,
+    "duration": "1.0m",
+    "profiles": [
+      "WebKit402x874DPR3",
+      "WebKit440x956DPR3",
+      "Chromium1440x900",
+      "Firefox1440x900"
+    ],
+    "all11locales": true,
+    "iconAssertions": "2same-Y44x44nativeSVGlinks, accessiblebrandnames,emptyvisibletext,noheading",
+    "additional": "280–1440/RTL/nativeexternalEnter/keyboard/noJS/safe0-34-70actualhittests/Retry/privatePDF404",
+    "screenshots": "screenshots/company-footer/",
+    "rootViewed": [
+      "/tmp/ramsider-footer-compact/after-402-transition.png",
+      "/tmp/ramsider-footer-compact/after-440-footer.png",
+      "screenshots/company-footer/adapt-320.png",
+      "screenshots/company-footer/desktop-chromium-en.png"
+    ]
+  },
+  "integration": {
+    "pass": 4,
+    "duration": "27.4s",
+    "scope": "assembledProMax/primaryactions/BackToTop"
+  },
+  "retention": [
+    {
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "canvasWidth": 402,
+      "canvasHeight": 13724.71875,
+      "requestedScroll": 12850,
+      "actualScroll": 12850,
+      "controlScroll": 12850,
+      "changedChannels": 0,
+      "image": "/tmp/ramsider-footer/tail-402.png",
+      "original": "/tmp/ramsider-footer/control-tail-402.png"
+    },
+    {
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "canvasWidth": 440,
+      "canvasHeight": 15022.109375,
+      "requestedScroll": 14066,
+      "actualScroll": 14066,
+      "controlScroll": 14066,
+      "changedChannels": 0,
+      "image": "/tmp/ramsider-footer/tail-440.png",
+      "original": "/tmp/ramsider-footer/control-tail-440.png"
+    }
+  ],
+  "nativeReview": "CLEAN actualuncommitteddiff; reviewer localserverpermissionblocked; primary browserchecks actually executed",
+  "static": {
+    "typecheck": "PASS",
+    "lint": "0errors1preexistingTelegramwarning",
+    "build": "PASS11localeSSG"
+  },
+  "performance": "performance.json",
+  "frozenSourceHashes": {
+    "components/SiteFooter.tsx": "a149c9ee218a1034a4b235f9f147fefa6c406d60ea927085d29f17cce790ad7b",
+    "components/Story.tsx": "01f2fd1ad61fe26d7e6987b26b2e3952b966e74b39146f5847b60de3ab4a34c4",
+    "lib/company.ts": "c3fc0b50b9e7020fce62a0887524b27a8375c2a3af394f6b75a7cd50c8de4ecf",
+    "app/globals.css": "7983dc571a8edfd72d53c4907cacfd0481a6627e7d6d201481999bce3476015c",
+    "tests/e2e/company-footer.spec.ts": "8d22794e9046e48bd10a5a31287c089b97b3bc9055b07629624ab1609eae7563"
+  },
+  "privateSources": {
+    "count": 3,
+    "hashesUnchanged": true,
+    "excludedDirs": [
+      "design/references/license/",
+      "design/references/policy/"
+    ],
+    "publicLicencePDF": false,
+    "phonePublished": false
+  },
+  "publicAssetHashesUnchanged": 89,
+  "independentAudit": {
+    "scope": "PASS2026-10-21 promotion_auditor",
+    "visualBehavior": "PASS2026-10-21 /root/promotion_auditor Stages2–4 actualProMax/RTL/icon/safe/transition images and behavior/sourcehash checks",
+    "quality": "PASS2026-10-21 /root/promotion_auditor Stage5 actualnativeclean/static18browser+4integration/perf/89media/private3hash/2RGBApair checks",
+    "finalRecords": "PASS2026-10-21 /root/footer_records_auditor; bounded current-memory/CHG0126/status/scope/staged15/whitespace audit; replaces unresponsive prior record-audit turn"
+  },
+  "technicalApproval": "2026-10-21 /root APPROVED local implementation and records; /root/promotion_auditor Stages2–5 PASS and /root/footer_records_auditor finalprepublication records PASS",
+  "publication": "AUTHORIZED origin/main; pending exactSHA/deployment/canonicalchecks",
+  "limitations": [
+    "Footerreferenceabsent; originalstorypixelretention only",
+    "PhysicalSafari/INP/Lighthouseunverified",
+    "CHG0121/CHG0103/CHG0106separateopen",
+    "AgentEvalscontrolledNOT_RUN"
+  ],
+  "userAcceptance": "NOT_RECORDED",
+  "changedPaths": [
+    "CHANGELOG.md",
+    "LESSONS.md",
+    "MEMORY.md",
+    "PRODUCT.md",
+    "app/globals.css",
+    "components/Story.tsx",
+    "components/SiteFooter.tsx",
+    "docs/agent-evals.md",
+    "docs/company-footer.md",
+    "docs/evidence/company-footer/verification.json",
+    "docs/evidence/company-footer/performance.json",
+    "docs/evidence/company-footer/compact/verification.json",
+    "docs/evidence/company-footer/compact/performance.json",
+    "lib/company.ts",
+    "tests/e2e/company-footer.spec.ts"
+  ]
+}

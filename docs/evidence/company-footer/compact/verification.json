@@ -1,7 +1,7 @@
 {
   "id": "CHG0126",
   "date": "2026-10-21",
-  "status": "VERIFIED_LOCAL; publication pending",
+  "status": "VERIFIED and PUBLISHED",
   "baseSHA": "c2b8f8cec32a988d8bcd5f8acf2a99cf258ea548",
   "request": "compact one-row clickable Instagram/YouTube icons, footer colour matches final artwork, publishmain and waitProduction",
   "sourceColor": {
@@ -552,10 +552,19 @@
     "scope": "PASS2026-10-21 promotion_auditor",
     "visualBehavior": "PASS2026-10-21 /root/promotion_auditor Stages2–4 actualProMax/RTL/icon/safe/transition images and behavior/sourcehash checks",
     "quality": "PASS2026-10-21 /root/promotion_auditor Stage5 actualnativeclean/static18browser+4integration/perf/89media/private3hash/2RGBApair checks",
-    "finalRecords": "PASS2026-10-21 /root/footer_records_auditor; bounded current-memory/CHG0126/status/scope/staged15/whitespace audit; replaces unresponsive prior record-audit turn"
+    "finalRecords": "PASS2026-10-21 /root/footer_records_auditor; bounded current-memory/CHG0126/status/scope/staged15/whitespace audit; replaces unresponsive prior record-audit turn",
+    "finalTransport": "PASS2026-10-21 /root/footer_records_auditor final transport/canonical/records; fresh GitHub exactmain/bothVercel/Alpha-beta, actualpublicProMaximages, independent4RGBApairs/5committedhashes/3privatehashes/exclusions/records/whitespace"
   },
-  "technicalApproval": "2026-10-21 /root APPROVED local implementation and records; /root/promotion_auditor Stages2–5 PASS and /root/footer_records_auditor finalprepublication records PASS",
-  "publication": "AUTHORIZED origin/main; pending exactSHA/deployment/canonicalchecks",
+  "technicalApproval": "2026-10-21 /root APPROVED complete scoped delivery; /root/promotion_auditor Stages2–5 PASS, /root/footer_records_auditor prepublication and finaltransport/canonical/records PASS",
+  "publication": {
+    "status": "PUBLISHED",
+    "sha": "fcc82043151623ff3755f6f3995ffea0a7dab2bd",
+    "branch": "origin/main",
+    "production": "SUCCESS exactSHA deployment7234552888",
+    "preview": "SUCCESS exactSHA deployment7234565134",
+    "canonical": "PASS WebKit Pro402/Max440DPR3, four local/public screenshotsRGBAexact; EN/AR exactfacts/RTL/mail/social/noPDF404",
+    "receipt": "publication.json"
+  },
   "limitations": [
     "Footerreferenceabsent; originalstorypixelretention only",
     "PhysicalSafari/INP/Lighthouseunverified",

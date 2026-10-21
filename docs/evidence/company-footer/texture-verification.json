@@ -1,0 +1,634 @@
+{
+  "id": "CHG0128",
+  "date": "2026-10-22",
+  "status": "VERIFIED_LOCAL; publication pending",
+  "baseSHA": "fcc82043151623ff3755f6f3995ffea0a7dab2bd",
+  "request": "Continue original final clean artwork texture under footer; commit/pushmain",
+  "includedPriorScope": "ApprovedCHG0127 secondpartneremail and smoke-onlyremoval; inheritedCHG0125/126publicationreceipts",
+  "sourceMapping": "texture-export.json",
+  "sourceHashes": {
+    "app/globals.css": "0bb8b99db0399ef6a3d3b4d62e2dcd1168d35805a3b951ed458e065ef73b774b",
+    "components/SiteFooter.tsx": "3785e63eb7adb386ea8842ef5b2b010faa317d8d7cd3f13e2af397c24a764345",
+    "components/Story.tsx": "01f2fd1ad61fe26d7e6987b26b2e3952b966e74b39146f5847b60de3ab4a34c4",
+    "lib/company.ts": "25e755e81ed6d22368f38293033e1f9300b3a5837dcea348883a1f179b6b9d78",
+    "lib/ember-renderer.ts": "745751019eb2a9ccbead567ca85c5d92289d2824751fa1d4d82f7b15cccc7eea",
+    "tests/e2e/company-footer.spec.ts": "a86246dd3eca2c21f62fcf9e4165657be48f20efe20be5f445e143cf73ff9272",
+    "tools/build-footer-paper.py": "15c5328d8f69dc34fda4479ead572dc26c8bde31a13072a4fd51594df5a7df9a",
+    "public/art/footer-paper.webp": "ed5c0a2ecc03abb372c52a82ad831d1174e2a58394e90035af68db5f86a96f4c",
+    "design/derived/footer/continuation.png": "884745c3eae59030143fbd93b772df3151c93108778253dbf496d2c20af073bb"
+  },
+  "export": {
+    "id": "CHG0128",
+    "sourceSHA": "1b8deab0448cb73d016f3cf8571caa081c544883dc17c9a1c2db0d24e2abc971",
+    "sourceICC": "Adobe RGB (1998)",
+    "donorBox": [
+      0,
+      31600,
+      941,
+      32127
+    ],
+    "anchorBox": [
+      0,
+      31999,
+      941,
+      32127
+    ],
+    "sourceAlphaRetainedInFirst16Rows": true,
+    "anchorOrientation": "vertical reflection at original final row",
+    "handoff": "16 exact source rows; smoothstep through row127 into generated texture",
+    "generatedInput": "design/derived/footer/continuation.png",
+    "generatedSHA": "884745c3eae59030143fbd93b772df3151c93108778253dbf496d2c20af073bb",
+    "generator": "built-in imagegen, source-edge reference; first brighter candidate rejected",
+    "generatedColourInterpretation": "untagged native imagegen RGB interpreted as standard sRGB",
+    "size": [
+      941,
+      2588
+    ],
+    "masterSHA": "f475affa76badbe044bf8b419503ca84cc3adbab4c888d72ce87401041f1978e",
+    "sRGBProfileSHA": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e",
+    "candidates": [
+      {
+        "encoding": "q95",
+        "bytes": 182184,
+        "maxRGBError": 8,
+        "meanRGBError": [
+          1.0217,
+          0.8457,
+          1.1179
+        ],
+        "p99RGBError": [
+          3.0,
+          3.0,
+          4.0
+        ],
+        "signedRGBError": [
+          0.3327,
+          0.0269,
+          0.1722
+        ],
+        "alphaExact": true,
+        "iccExact": true,
+        "sha256": "ed5c0a2ecc03abb372c52a82ad831d1174e2a58394e90035af68db5f86a96f4c"
+      },
+      {
+        "encoding": "lossless",
+        "bytes": 1817800,
+        "maxRGBError": 0,
+        "meanRGBError": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "p99RGBError": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "signedRGBError": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "alphaExact": true,
+        "iccExact": true,
+        "sha256": "bd4d4a7b8c13aef45ddb450a7b69b50ed107b60ce6593481791aef321f5bf8d4"
+      }
+    ],
+    "selected": "q95; browser PNG-control comparison required",
+    "delivery": "public/art/footer-paper.webp",
+    "deliverySHA": "ed5c0a2ecc03abb372c52a82ad831d1174e2a58394e90035af68db5f86a96f4c",
+    "deliveryBytes": 182184,
+    "repeatRecipe": "PASS byte-identical report+delivery after two consecutive builds",
+    "builtInMode": "built-in image_gen (no CLI/API fallback)",
+    "finalPrompt": "Asset: tall continuation of this exact website paper background. Input is ONLY the final 128px-high bottom edge of the original artwork, sRGB. Continue the same subtly mottled warm tan paper downwards, output ONLY the new tall texture, 1024x2816 portrait. Preserve this edge's darker muted tan colour throughout: typical sRGB centre colour around RGB(217,183,157), left-to-right source variations matter. Do not lighten it, do not turn it cream/white, do not add a top highlight, vignette, new tint or new lighting gradient. TOP of output directly continues BOTTOM of input. Same soft cloudy fine paper and tiny faint crackle, same scale for a941px-wide surface, small natural non-repeating variation. No new objects, no text, no icon, no border, no logo, no watermark, no dark/bright stains, no obvious mirrored pattern. This is faithful texture extension for footer placed below artwork, not redesign."
+  },
+  "browser": [
+    {
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "variant": "delivery",
+      "footer": {
+        "width": 402,
+        "height": 428.59375
+      },
+      "art": {
+        "width": 402,
+        "height": 1105.59375,
+        "naturalWidth": 941,
+        "naturalHeight": 2588,
+        "ready": true
+      },
+      "background": "none",
+      "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif",
+      "mails": [
+        {
+          "text": "support@ramsider.com",
+          "href": "mailto:support@ramsider.com"
+        },
+        {
+          "text": "partners@ramsider.com",
+          "href": "mailto:partners@ramsider.com"
+        }
+      ],
+      "overflow": false,
+      "verticalTextureMeanRGBDelta30px": 2.524600938967136,
+      "errors": []
+    },
+    {
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "variant": "control",
+      "footer": {
+        "width": 402,
+        "height": 428.59375
+      },
+      "art": {
+        "width": 402,
+        "height": 1105.59375,
+        "naturalWidth": 941,
+        "naturalHeight": 2588,
+        "ready": true
+      },
+      "background": "none",
+      "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif",
+      "mails": [
+        {
+          "text": "support@ramsider.com",
+          "href": "mailto:support@ramsider.com"
+        },
+        {
+          "text": "partners@ramsider.com",
+          "href": "mailto:partners@ramsider.com"
+        }
+      ],
+      "overflow": false,
+      "verticalTextureMeanRGBDelta30px": 2.6502347417840375,
+      "errors": []
+    },
+    {
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "variant": "delivery",
+      "footer": {
+        "width": 440,
+        "height": 428.59375
+      },
+      "art": {
+        "width": 440,
+        "height": 1210.109375,
+        "naturalWidth": 941,
+        "naturalHeight": 2588,
+        "ready": true
+      },
+      "background": "none",
+      "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif",
+      "mails": [
+        {
+          "text": "support@ramsider.com",
+          "href": "mailto:support@ramsider.com"
+        },
+        {
+          "text": "partners@ramsider.com",
+          "href": "mailto:partners@ramsider.com"
+        }
+      ],
+      "overflow": false,
+      "verticalTextureMeanRGBDelta30px": 2.5671361502347416,
+      "errors": []
+    },
+    {
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "variant": "control",
+      "footer": {
+        "width": 440,
+        "height": 428.59375
+      },
+      "art": {
+        "width": 440,
+        "height": 1210.109375,
+        "naturalWidth": 941,
+        "naturalHeight": 2588,
+        "ready": true
+      },
+      "background": "none",
+      "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif",
+      "mails": [
+        {
+          "text": "support@ramsider.com",
+          "href": "mailto:support@ramsider.com"
+        },
+        {
+          "text": "partners@ramsider.com",
+          "href": "mailto:partners@ramsider.com"
+        }
+      ],
+      "overflow": false,
+      "verticalTextureMeanRGBDelta30px": 2.583269312846778,
+      "errors": []
+    }
+  ],
+  "browserColour": [
+    {
+      "width": 402,
+      "browserMasterRGBMean": [
+        0.957,
+        0.7274,
+        1.0156
+      ],
+      "browserMasterRGBP99": [
+        3.0,
+        3.0,
+        3.0
+      ],
+      "browserMasterRGBMax": 8,
+      "minimumContrastOverWholeFooter": {
+        "text": 5.653,
+        "hover": 7.196,
+        "focus": 4.373
+      }
+    },
+    {
+      "width": 440,
+      "browserMasterRGBMean": [
+        0.9602,
+        0.729,
+        1.0179
+      ],
+      "browserMasterRGBP99": [
+        3.0,
+        3.0,
+        3.0
+      ],
+      "browserMasterRGBMax": 8,
+      "minimumContrastOverWholeFooter": {
+        "text": 5.653,
+        "hover": 7.196,
+        "focus": 4.373
+      }
+    }
+  ],
+  "seam": [
+    {
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "footerHeight": 428.59375,
+      "footerWidth": 402,
+      "boundary": [
+        {
+          "x": 0.05,
+          "above": [
+            219,
+            187,
+            162
+          ],
+          "below": [
+            219,
+            186,
+            163
+          ],
+          "meanAbsRGB": 0.6666666666666666
+        },
+        {
+          "x": 0.25,
+          "above": [
+            218,
+            185,
+            159
+          ],
+          "below": [
+            219,
+            185,
+            160
+          ],
+          "meanAbsRGB": 0.6666666666666666
+        },
+        {
+          "x": 0.5,
+          "above": [
+            217,
+            185,
+            159
+          ],
+          "below": [
+            219,
+            184,
+            158
+          ],
+          "meanAbsRGB": 1.3333333333333333
+        },
+        {
+          "x": 0.75,
+          "above": [
+            213,
+            181,
+            153
+          ],
+          "below": [
+            213,
+            181,
+            153
+          ],
+          "meanAbsRGB": 0
+        },
+        {
+          "x": 0.95,
+          "above": [
+            209,
+            175,
+            147
+          ],
+          "below": [
+            209,
+            174,
+            147
+          ],
+          "meanAbsRGB": 0.3333333333333333
+        }
+      ],
+      "boundaryMean": 0.6,
+      "icons": [
+        {
+          "label": "Instagram",
+          "text": "",
+          "x": 24,
+          "y": 742.3125,
+          "width": 44,
+          "height": 44,
+          "svg": true
+        },
+        {
+          "label": "YouTube",
+          "text": "",
+          "x": 76,
+          "y": 742.3125,
+          "width": 44,
+          "height": 44,
+          "svg": true
+        }
+      ],
+      "path": "/tmp/ramsider-footer-compact/texture-after-402-transition.png"
+    },
+    {
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "footerHeight": 428.59375,
+      "footerWidth": 440,
+      "boundary": [
+        {
+          "x": 0.05,
+          "above": [
+            219,
+            187,
+            162
+          ],
+          "below": [
+            219,
+            186,
+            163
+          ],
+          "meanAbsRGB": 0.6666666666666666
+        },
+        {
+          "x": 0.25,
+          "above": [
+            218,
+            185,
+            159
+          ],
+          "below": [
+            219,
+            185,
+            160
+          ],
+          "meanAbsRGB": 0.6666666666666666
+        },
+        {
+          "x": 0.5,
+          "above": [
+            217,
+            185,
+            159
+          ],
+          "below": [
+            219,
+            184,
+            159
+          ],
+          "meanAbsRGB": 1
+        },
+        {
+          "x": 0.75,
+          "above": [
+            213,
+            181,
+            153
+          ],
+          "below": [
+            213,
+            181,
+            153
+          ],
+          "meanAbsRGB": 0
+        },
+        {
+          "x": 0.95,
+          "above": [
+            210,
+            176,
+            147
+          ],
+          "below": [
+            209,
+            174,
+            147
+          ],
+          "meanAbsRGB": 1
+        }
+      ],
+      "boundaryMean": 0.6666666666666666,
+      "icons": [
+        {
+          "label": "Instagram",
+          "text": "",
+          "x": 24,
+          "y": 823.703125,
+          "width": 44,
+          "height": 44,
+          "svg": true
+        },
+        {
+          "label": "YouTube",
+          "text": "",
+          "x": 76,
+          "y": 823.703125,
+          "width": 44,
+          "height": 44,
+          "svg": true
+        }
+      ],
+      "path": "/tmp/ramsider-footer-compact/texture-after-440-transition.png"
+    }
+  ],
+  "storyRetention": [
+    {
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "canvasWidth": 402,
+      "canvasHeight": 13724.71875,
+      "requestedScroll": 12850,
+      "actualScroll": 12850,
+      "controlScroll": 12850,
+      "changedChannels": 0,
+      "image": "/tmp/ramsider-footer-texture/tail-402.png",
+      "original": "/tmp/ramsider-footer-texture/control-tail-402.png"
+    },
+    {
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "canvasWidth": 440,
+      "canvasHeight": 15022.109375,
+      "requestedScroll": 14066,
+      "actualScroll": 14066,
+      "controlScroll": 14066,
+      "changedChannels": 0,
+      "image": "/tmp/ramsider-footer-texture/tail-440.png",
+      "original": "/tmp/ramsider-footer-texture/control-tail-440.png"
+    }
+  ],
+  "tests": {
+    "footer": "20uniqueapplicablecasesPASS;12duplicateSKIP. Initialfullrun19PASS1harnessFAIL, repairedresponsivecase1PASS7.5s; priorfailurepreserved",
+    "coverage": "4profiles/11locales,280–1440,sharedsafe0/34/70,keyboard/nativeemail/social/noJS,newassetandlasttilefail→Retry,noPDF/phone",
+    "integration": "8PASS39.3sProMax assembledpage/primaryactions/BackToTop/emberpixels/pause/modal/offscreen/reducedmotion/GPUloss/noearlymask",
+    "prior127retained": "Unchangedembercode retains9PASSnativeface/lifecycle and6samephasecontrolsRGBAexact frompartners-and-smoke.json",
+    "priority": "7PASS12.6sPro complete media-priority suite"
+  },
+  "priorAssetsUnchanged": 218,
+  "privateSourceHashesUnchanged": 3,
+  "noPrivateFilesPublished": true,
+  "independentAudit": {
+    "scope": "PASS2026-10-22 footer_records_auditor after recordedmappingalpharefinement; earlierholdsretainedjournal",
+    "export": "PASS2026-10-22 footer_records_auditor hashes/source16RGBArows/colouralphaICC",
+    "visualBehavior": "PASS2026-10-22 footer_records_auditor actualProMaxentry/transition/fullfooter/280ARsafe/control/images/logs +independent2tailRGBApairs",
+    "quality": "PASS2026-10-22 /root/footer_publish_auditor replacement for unresponsive priorqualityturn; actualnativeverdict/static/integration8/priority7/perf/8imagepairs/9source/218public/3privatehashes",
+    "finalRecords": "PASS2026-10-22 /root/footer_publish_auditor exact20stagedscope/currentmemory-index-spec-evidence/JSON/whitespace/9hashes/privateexclusion"
+  },
+  "technicalApproval": "2026-10-22 /root APPROVED complete scoped local delivery; independentStages1–6 PASS",
+  "publication": "AUTHORIZED origin/main pending inspectedcommit/exactSHAdeployments/canonical",
+  "limitations": [
+    "Generatedcontinuation is newart derivedfromoriginalreference, not literaloriginalpixels beyondanchor",
+    "sRGB/browser fidelitymeasured; physicalSafari/P3/calibratedPhotoshopintentunverified",
+    "Single-sampleperformance, noINP/Lighthousescoreclaim",
+    "UnrelatedCHG0121/CHG0103/0106 open; controlledAgentEvalsNOT_RUN"
+  ],
+  "userResultAcceptance": "NOT_RECORDED",
+  "artifacts": "/tmp/ramsider-footer-texture/ and screenshots/footer-texture/ (rawlogs/screenshots untracked)",
+  "quality": {
+    "nativeReview": "FinalactualdiffCLEAN; type/buildpass,lint1preexistingwarning; reviewerbrowserlaunchblocked,primaryrealbrowserexecuted",
+    "nativeReviewArtifact": "/tmp/ramsider-footer-texture/native-final.log (private rawlog)",
+    "typecheck": "PASSfinal",
+    "lint": "0errors,1preexisting integrations/telegram/controller.mjs unusedverifyLinkFormatting",
+    "productionBuild": "PASSfinal11localeSSG",
+    "performance": {
+      "conditions": "production3141,Chromium402x874DPR3,cold4Mbps/100ms/4CPU; scroll unthrottled",
+      "usefulMs": 2544.2000000476837,
+      "lcp": 2620,
+      "cls": 0,
+      "ttfb": 51.799999952316284,
+      "firstPaint": 476,
+      "jsEncodedBytes": 207710,
+      "transferBytes": 788483,
+      "companyPdfRequests": 0,
+      "scroll": {
+        "frames": 119,
+        "p95": 16.800000000000182,
+        "over33ms": 3,
+        "distinctPositions": 120,
+        "from": 0,
+        "to": 13279
+      },
+      "footer": {
+        "rendered": true,
+        "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif"
+      },
+      "rendering": "11locale SSG; company footer ServerComponent; no new client module or fresh-data requirement",
+      "inp": "not measured",
+      "lighthouse": "not run"
+    },
+    "performanceInterpretation": "Onecold4Mbps/100ms/4CPU sample; transferBytes countscompletedresourceentries atfirstsample, notfullyloadedpage. Extrafooterfile182184B measured separately. StaticSSG/serverfooter + existinglazyNextImage/clientmodule retained.",
+    "priority": "7PASS12.6sPro story-before-optionals/decodebarrier/failureRetry/earlydialog/heldhero",
+    "finalReverification": [
+      {
+        "width": 402,
+        "kind": "entry",
+        "changedRGBA": 0
+      },
+      {
+        "width": 402,
+        "kind": "transition",
+        "changedRGBA": 0
+      },
+      {
+        "width": 402,
+        "kind": "footer",
+        "changedRGBA": 0
+      },
+      {
+        "width": 402,
+        "kind": "paper",
+        "changedRGBA": 0
+      },
+      {
+        "width": 440,
+        "kind": "entry",
+        "changedRGBA": 0
+      },
+      {
+        "width": 440,
+        "kind": "transition",
+        "changedRGBA": 0
+      },
+      {
+        "width": 440,
+        "kind": "footer",
+        "changedRGBA": 0
+      },
+      {
+        "width": 440,
+        "kind": "paper",
+        "changedRGBA": 0
+      }
+    ],
+    "frozenHashes": "All9source/assethashes unchanged"
+  },
+  "changedPaths": [
+    "CHANGELOG.md",
+    "LESSONS.md",
+    "MEMORY.md",
+    "PRODUCT.md",
+    "app/globals.css",
+    "components/SiteFooter.tsx",
+    "design/derived/footer/continuation.png",
+    "docs/agent-evals.md",
+    "docs/company-footer.md",
+    "docs/ember-animation.md",
+    "docs/evidence/company-footer/compact/publication.json",
+    "docs/evidence/company-footer/compact/verification.json",
+    "docs/evidence/company-footer/partners-and-smoke.json",
+    "docs/evidence/company-footer/texture-export.json",
+    "docs/evidence/company-footer/texture-verification.json",
+    "lib/company.ts",
+    "lib/ember-renderer.ts",
+    "public/art/footer-paper.webp",
+    "tests/e2e/company-footer.spec.ts",
+    "tools/build-footer-paper.py"
+  ]
+}

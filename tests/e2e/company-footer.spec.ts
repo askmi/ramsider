@@ -5,6 +5,7 @@ const output = 'screenshots/company-footer';
 const legalName = 'RAMSIDER SMOKING & TOBACCO HEATING DEVICES TRADING CO. L.L.C';
 const address = 'Office No. D-28, Mohamed Hashem Alawi Al Saf Building, Al Murar, Dubai, UAE.';
 const email = 'support@ramsider.com';
+const partnersEmail = 'partners@ramsider.com';
 const languages = ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko'];
 
 async function ready(page: Page, locale = 'en') {
@@ -29,8 +30,15 @@ test('official company facts and localized footer fit the real browser', async (
     await expect(footer.locator('address p')).toHaveText(address);
     await expect(footer.locator('.site-footer__licence')).toHaveText('License No. 1050925');
     await expect(footer.locator('.site-footer__licence a')).toHaveCount(0);
+    const paper = footer.locator('.site-footer__art');
+    await expect(paper).toHaveAttribute('data-media-ready', '');
+    const paperBox = (await paper.boundingBox())!, footerBox = (await footer.boundingBox())!;
+    expect(paperBox.width).toBeCloseTo(footerBox.width, 1);
+    expect(paperBox.height).toBeGreaterThanOrEqual(footerBox.height);
+    expect(paperBox.height / paperBox.width).toBeCloseTo(2588 / 941, 2);
     await expect(page.locator('a[href*="/company/"], a[href*="LICENSE_2026_2027"]')).toHaveCount(0);
     await expect(footer.getByRole('link', { name: email, exact: true })).toHaveAttribute('href', `mailto:${email}`);
+    await expect(footer.getByRole('link', { name: partnersEmail, exact: true })).toHaveAttribute('href', `mailto:${partnersEmail}`);
     await expect(footer.getByRole('link', { name: /Instagram/ })).toHaveAttribute('href', 'https://instagram.com/ramsider_official');
     await expect(footer.getByRole('link', { name: /YouTube/ })).toHaveAttribute('href', 'https://youtube.com/@ramsider_official');
     await expect(footer.locator('nav h3')).toHaveCount(0);
@@ -60,7 +68,7 @@ test('official company facts and localized footer fit the real browser', async (
     expect(result.overflow).toBe(false);
     for (const link of result.links) { expect(link.height).toBeGreaterThanOrEqual(44); expect(link.clipped).toBe(false); }
     if (info.project.name.includes('iphone')) expect(result.dpr).toBe(3);
-    if (locale === 'en' && info.project.name.includes('iphone')) expect(result.footerHeight).toBeLessThanOrEqual(info.project.name.includes('max') ? 390 : 400);
+    if (locale === 'en' && info.project.name.includes('iphone')) expect(result.footerHeight).toBeLessThanOrEqual(info.project.name.includes('max') ? 434 : 444);
     await footer.screenshot({ path: `${output}/${info.project.name}-${locale}.png` });
     rows.push({ locale, ...result });
   }
@@ -89,6 +97,8 @@ test('support, business, keyboard and official social links use confirmed destin
   await mail.focus();
   // Safari's default keyboard mode uses Option-Tab to visit native links.
   await page.keyboard.press(browserName === 'webkit' ? 'Alt+Tab' : 'Tab');
+  await expect(footer.getByRole('link', { name: partnersEmail, exact: true })).toBeFocused();
+  await page.keyboard.press(browserName === 'webkit' ? 'Alt+Tab' : 'Tab');
   const instagram = footer.getByRole('link', { name: /Instagram/ });
   await expect(instagram).toBeFocused();
   expect(await instagram.evaluate(e => e.matches(':focus-visible'))).toBe(true);
@@ -112,6 +122,10 @@ test('footer adapts at narrow and wide widths without covering final links', asy
     await ready(page, width === 320 ? 'ar' : 'en');
     await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }));
     await expect(page.getByRole('contentinfo')).toBeVisible();
+    const footer = page.getByRole('contentinfo');
+    await page.evaluate(() => document.documentElement.style.setProperty('--page-safe-bottom', '70px'));
+    await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }));
+    expect((await footer.locator('.site-footer__art').boundingBox())!.height).toBeGreaterThanOrEqual((await footer.boundingBox())!.height);
     const last = page.getByRole('contentinfo').getByRole('link', { name: /YouTube/ });
     const a = (await last.boundingBox())!, b = (await page.locator('.back-to-top').boundingBox())!;
     expect(a.y + a.height).toBeLessThan(b.y);
@@ -120,10 +134,10 @@ test('footer adapts at narrow and wide widths without covering final links', asy
   }
 });
 
-test('contact mail links stay reachable while a late image fails and Retry restores footer', async ({ page }, info) => {
+for (const failedAsset of ['11.webp', 'footer-paper.webp']) test(`contact mail links stay reachable while ${failedAsset} fails and Retry restores footer`, async ({ page }, info) => {
   test.skip(!info.project.name.includes('iphone'), 'mobile loading gate');
   let fail = true;
-  await page.route('**/art/11.webp*', route => fail ? route.abort() : route.continue());
+  await page.route(`**/art/${failedAsset}*`, route => fail ? route.abort() : route.continue());
   await page.goto('/en');
   await expect(page.locator('html')).toHaveAttribute('data-media-hydrated', '');
   await page.locator('.menu summary').click();
@@ -137,6 +151,8 @@ test('contact mail links stay reachable while a late image fails and Retry resto
   await expect(page.locator('html')).toHaveAttribute('data-story-media-ready', '');
   await page.getByRole('contentinfo').scrollIntoViewIfNeeded();
   await expect(page.getByRole('contentinfo').getByRole('link', { name: email, exact: true })).toBeVisible();
+  await expect(page.getByRole('contentinfo').getByRole('link', { name: partnersEmail, exact: true })).toBeVisible();
+  await expect(page.locator('.site-footer__art')).toHaveAttribute('data-media-ready', '');
 });
 
 test('company details and native contacts are available without JavaScript', async ({ browser, baseURL }, info) => {
@@ -148,6 +164,7 @@ test('company details and native contacts are available without JavaScript', asy
     await footer.scrollIntoViewIfNeeded();
     await expect(footer.locator('.site-footer__name')).toHaveText(legalName);
     await expect(footer.getByRole('link', { name: email, exact: true })).toHaveAttribute('href', `mailto:${email}`);
+    await expect(footer.getByRole('link', { name: partnersEmail, exact: true })).toHaveAttribute('href', `mailto:${partnersEmail}`);
     await expect(footer.getByRole('link', { name: /Instagram/ })).toHaveAttribute('href', 'https://instagram.com/ramsider_official');
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   } finally { await context.close(); }

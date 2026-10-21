@@ -57,22 +57,6 @@ vec4 over(vec4 base, vec3 color, float alpha) {
   alpha = clamp(alpha, 0.0, 1.0);
   return vec4(color * alpha + base.rgb * (1.0 - alpha), alpha + base.a * (1.0 - alpha));
 }
-float plume(vec2 p, float origin, float seed) {
-  float rise = (335.0 - p.y) / 324.0;
-  float gate = smoothstep(0.0, .018, rise) * (1.0 - smoothstep(.62, 1.0, rise));
-  float bend = sin(rise * 6.0 - uTime * .45 + seed) * rise * (12.0 + rise * 18.0)
-             + sin(rise * 12.0 + uTime * .32 + seed) * rise * 9.0;
-  float center = origin - rise * 27.0 + bend;
-  float width = 2.5 + max(rise, 0.0) * 48.0;
-  float lateral = (p.x - center) / width;
-  float envelope = exp(-lateral * lateral * 1.8) * gate;
-  vec2 q = vec2(p.x * .034 + seed, p.y * .019 + uTime * .32);
-  float warp = fbm(q + vec2(uTime * .04, 0.0));
-  float billow = fbm(q + vec2(warp * 2.3, warp * .7));
-  float filament = smoothstep(.29, .74, billow) * (.65 + .35 * noise(q * 3.0));
-  float stem = (1.0 - smoothstep(.08,.26,rise)) * .20;
-  return envelope * (filament + stem);
-}
 float fissure(vec2 p, vec2 a, vec2 b, float offset, float total, float phase) {
   vec2 segment = b - a;
   float t = clamp(dot(p-a, segment) / dot(segment, segment), 0.0, 1.0);
@@ -91,12 +75,6 @@ void main() {
   float edge = smoothstep(0.0, 14.0, p.x) * smoothstep(0.0, 14.0, 480.0-p.x)
              * smoothstep(0.0, 14.0, p.y) * smoothstep(0.0, 14.0, 760.0-p.y);
   vec4 outColor = vec4(0);
-
-  // One fixed, narrow outlet on the top; turbulence grows only as the smoke rises.
-  float smoke = plume(p, 235.0, 2.0);
-  float inlet = 1.0 - smoothstep(0.0,24.0,335.0-p.y);
-  float smokeAlpha = min(.22, smoke * .32) * max(1.0-mask.b,inlet);
-  outColor = over(outColor, vec3(.19, .18, .17), smokeAlpha);
 
   // Each part of the real crack network has its own slow thermal wave and quick irregular flicker.
   float field = fbm(p * .04);

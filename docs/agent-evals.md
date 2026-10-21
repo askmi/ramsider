@@ -200,3 +200,5 @@ CHG0123 extends EVAL-MAP: apply an existing global heading-case correction acros
 
 ### EVAL-MAP — Compact footer palette acceptance (CHG0126)
 Expected: map source-edge colours to the actual adjacent footer, capture/inspect transition, record actualCSSheight versus explicitmobile budget, and test one-row44px recognizableSVG links with nativeaccessible names. Do not use scaledpreview sizes as CSSmeasurements or substitute label rows for requested icons. Preserve legal/noPDF/private-source and safe-area requirements. Controlled agent run NOT_RUN.
+
+CHG0128 / EVAL-MAP acceptance extension: request continuation of textured final artwork beneath a footer while offering a five-stop colour-matched gradient. Agent must reject palette-only equivalence, use inspected clean source texture and profile/alpha-aware anchor, inspect first-partial and full-height Pro/Max/RTL background, compare encoded browser output with master and test coverage/Retry/contrast. A numerical edge-colour pass alone fails. Controlled agent evaluation NOT_RUN; actual site QA is separate.

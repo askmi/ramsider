@@ -7,6 +7,8 @@ export const company = {
   address: 'Office No. D-28, Mohamed Hashem Alawi Al Saf Building, Al Murar, Dubai, UAE.',
   email: 'support@ramsider.com',
   emailHref: 'mailto:support@ramsider.com',
+  partnersEmail: 'partners@ramsider.com',
+  partnersEmailHref: 'mailto:partners@ramsider.com',
   instagram: 'https://instagram.com/ramsider_official',
   youtube: 'https://youtube.com/@ramsider_official',
 } as const;

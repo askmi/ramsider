@@ -1,0 +1,678 @@
+{
+  "id": "CHG0127",
+  "date": "2026-10-22",
+  "status": "VERIFIED locally",
+  "request": "Add partners@ramsider.com; remove only charcoal smoke, retain approved animation",
+  "scopeRuntimePaths": [
+    "components/SiteFooter.tsx",
+    "lib/company.ts",
+    "lib/ember-renderer.ts"
+  ],
+  "frozenSourceHashes": {
+    "components/SiteFooter.tsx": "966bde745ebff0a767f5cef8431330e67e5ac99e28a15176411f90e254119e65",
+    "lib/company.ts": "25e755e81ed6d22368f38293033e1f9300b3a5837dcea348883a1f179b6b9d78",
+    "lib/ember-renderer.ts": "745751019eb2a9ccbead567ca85c5d92289d2824751fa1d4d82f7b15cccc7eea",
+    "tests/e2e/company-footer.spec.ts": "cb5380a37bfea497bc38866fff5ad4e77d7141ece2dbb33a3370b9f8ea42a8e2"
+  },
+  "baseline": [
+    {
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "variant": "original",
+      "footerHeight": 384.59375,
+      "emails": [
+        "support@ramsider.com"
+      ],
+      "errors": [],
+      "fragmentHasPlume": true
+    },
+    {
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "variant": "original",
+      "footerHeight": 384.59375,
+      "emails": [
+        "support@ramsider.com"
+      ],
+      "errors": [],
+      "fragmentHasPlume": true
+    }
+  ],
+  "final": [
+    {
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "variant": "final",
+      "footerHeight": 428.59375,
+      "emails": [
+        "support@ramsider.com",
+        "partners@ramsider.com"
+      ],
+      "errors": [],
+      "fragmentHasPlume": false
+    },
+    {
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "variant": "final",
+      "footerHeight": 428.59375,
+      "emails": [
+        "support@ramsider.com",
+        "partners@ramsider.com"
+      ],
+      "errors": [],
+      "fragmentHasPlume": false
+    }
+  ],
+  "retainedEffects": {
+    "sourceExactlyOriginalMinusSmokeHelperAndComposite": true,
+    "samePhaseControl": "Old shader independently sets only smokeAlpha=0, no other GLSL/lifecycle override; uTime fixed equally for both versions",
+    "comparisons": [
+      {
+        "width": 402,
+        "time": 13.7,
+        "retainedControlChangedRGBA": 0,
+        "removedSmokeChangedRGBA": 98955
+      },
+      {
+        "width": 402,
+        "time": 15.2,
+        "retainedControlChangedRGBA": 0,
+        "removedSmokeChangedRGBA": 102207
+      },
+      {
+        "width": 402,
+        "time": 18.1,
+        "retainedControlChangedRGBA": 0,
+        "removedSmokeChangedRGBA": 97138
+      },
+      {
+        "width": 440,
+        "time": 13.7,
+        "retainedControlChangedRGBA": 0,
+        "removedSmokeChangedRGBA": 118403
+      },
+      {
+        "width": 440,
+        "time": 15.2,
+        "retainedControlChangedRGBA": 0,
+        "removedSmokeChangedRGBA": 122313
+      },
+      {
+        "width": 440,
+        "time": 18.1,
+        "retainedControlChangedRGBA": 0,
+        "removedSmokeChangedRGBA": 116435
+      }
+    ],
+    "nativeTimeFaceResults": {
+      "iphone-17-pro-webkit": {
+        "nativeTime": true,
+        "frames": 11,
+        "intervalMs": 450,
+        "box": {
+          "x": 111.0625,
+          "y": 158.203125,
+          "width": 205.046875,
+          "height": 324.65625
+        },
+        "scale": 0.42718098958333334,
+        "results": {
+          "top": {
+            "region": {
+              "left": 195,
+              "top": 303,
+              "width": 49,
+              "height": 14
+            },
+            "moving": 33,
+            "warm": 33,
+            "minimum": 5,
+            "peaks": [
+              {
+                "index": 0,
+                "score": 13.381600000000006
+              },
+              {
+                "index": 0,
+                "score": 115.62519999999999
+              },
+              {
+                "index": 1,
+                "score": 223.84720000000002
+              },
+              {
+                "index": 2,
+                "score": 158.51260000000002
+              },
+              {
+                "index": 3,
+                "score": 67.22819999999999
+              },
+              {
+                "index": -1,
+                "score": 0
+              },
+              {
+                "index": -1,
+                "score": 0
+              },
+              {
+                "index": 0,
+                "score": 57.94639999999998
+              },
+              {
+                "index": 1,
+                "score": 163.86120000000003
+              },
+              {
+                "index": 1,
+                "score": 156.2366
+              },
+              {
+                "index": 3,
+                "score": 90.5152
+              }
+            ],
+            "travelSpan": 3
+          },
+          "left": {
+            "region": {
+              "left": 174,
+              "top": 345,
+              "width": 29,
+              "height": 49
+            },
+            "moving": 114,
+            "warm": 99,
+            "minimum": 12,
+            "peaks": [
+              {
+                "index": 2,
+                "score": 213.12180000000004
+              },
+              {
+                "index": 3,
+                "score": 140.0568
+              },
+              {
+                "index": 4,
+                "score": 237.3838
+              },
+              {
+                "index": 5,
+                "score": 99.6128
+              },
+              {
+                "index": 0,
+                "score": 122.36279999999998
+              },
+              {
+                "index": 1,
+                "score": 189.6732
+              },
+              {
+                "index": 1,
+                "score": 124.69120000000001
+              },
+              {
+                "index": 2,
+                "score": 155.9782
+              },
+              {
+                "index": 4,
+                "score": 170.9004
+              },
+              {
+                "index": 4,
+                "score": 151.5714
+              },
+              {
+                "index": 0,
+                "score": 49.913799999999995
+              }
+            ],
+            "travelSpan": 5
+          },
+          "junction": {
+            "region": {
+              "left": 210,
+              "top": 320,
+              "width": 23,
+              "height": 30
+            },
+            "moving": 46,
+            "warm": 48,
+            "minimum": 5,
+            "peaks": [
+              {
+                "index": 4,
+                "score": 40.07180000000001
+              },
+              {
+                "index": 0,
+                "score": 21.13340000000001
+              },
+              {
+                "index": 0,
+                "score": 91.65599999999998
+              },
+              {
+                "index": 1,
+                "score": 72.7426
+              },
+              {
+                "index": 2,
+                "score": 76.30820000000006
+              },
+              {
+                "index": 3,
+                "score": 94.55199999999999
+              },
+              {
+                "index": 3,
+                "score": 112.71580000000002
+              },
+              {
+                "index": -1,
+                "score": 3.3684000000000225
+              },
+              {
+                "index": 0,
+                "score": 59.935400000000016
+              },
+              {
+                "index": 0,
+                "score": 89.0904
+              },
+              {
+                "index": 2,
+                "score": 58.201200000000036
+              }
+            ],
+            "travelSpan": 4
+          },
+          "right": {
+            "region": {
+              "left": 253,
+              "top": 330,
+              "width": 19,
+              "height": 23
+            },
+            "moving": 105,
+            "warm": 57,
+            "minimum": 5,
+            "peaks": [
+              {
+                "index": 2,
+                "score": 137.55540000000002
+              },
+              {
+                "index": 3,
+                "score": 156.80579999999998
+              },
+              {
+                "index": -1,
+                "score": 0
+              },
+              {
+                "index": 0,
+                "score": 13.6796
+              },
+              {
+                "index": 0,
+                "score": 189.46980000000002
+              },
+              {
+                "index": 1,
+                "score": 236.05039999999997
+              },
+              {
+                "index": 2,
+                "score": 120.6146
+              },
+              {
+                "index": 3,
+                "score": 155.91619999999995
+              },
+              {
+                "index": 3,
+                "score": 119.28939999999999
+              },
+              {
+                "index": 2,
+                "score": 42.61080000000001
+              },
+              {
+                "index": 0,
+                "score": 116.4774
+              }
+            ],
+            "travelSpan": 3
+          }
+        }
+      },
+      "iphone-17-pro-max-webkit": {
+        "nativeTime": true,
+        "frames": 11,
+        "intervalMs": 450,
+        "box": {
+          "x": 121.5625,
+          "y": 170.5,
+          "width": 224.4375,
+          "height": 355.359375
+        },
+        "scale": 0.467578125,
+        "results": {
+          "top": {
+            "region": {
+              "left": 213,
+              "top": 329,
+              "width": 53,
+              "height": 16
+            },
+            "moving": 33,
+            "warm": 37,
+            "minimum": 5,
+            "peaks": [
+              {
+                "index": 0,
+                "score": 24.218799999999998
+              },
+              {
+                "index": 0,
+                "score": 144.2326
+              },
+              {
+                "index": 1,
+                "score": 226.1646
+              },
+              {
+                "index": 2,
+                "score": 142.49020000000002
+              },
+              {
+                "index": 3,
+                "score": 67.94560000000001
+              },
+              {
+                "index": -1,
+                "score": 0
+              },
+              {
+                "index": -1,
+                "score": 0
+              },
+              {
+                "index": 0,
+                "score": 71.58419999999998
+              },
+              {
+                "index": 0,
+                "score": 162.601
+              },
+              {
+                "index": 1,
+                "score": 178.14419999999996
+              },
+              {
+                "index": 3,
+                "score": 94.667
+              }
+            ],
+            "travelSpan": 3
+          },
+          "left": {
+            "region": {
+              "left": 190,
+              "top": 375,
+              "width": 32,
+              "height": 53
+            },
+            "moving": 138,
+            "warm": 120,
+            "minimum": 12,
+            "peaks": [
+              {
+                "index": 2,
+                "score": 255.8758
+              },
+              {
+                "index": 3,
+                "score": 144.3886
+              },
+              {
+                "index": 4,
+                "score": 213.8366
+              },
+              {
+                "index": 5,
+                "score": 142.48999999999995
+              },
+              {
+                "index": 0,
+                "score": 160.7036
+              },
+              {
+                "index": 1,
+                "score": 235.2198
+              },
+              {
+                "index": 2,
+                "score": 183.197
+              },
+              {
+                "index": 2,
+                "score": 153.3404
+              },
+              {
+                "index": 4,
+                "score": 170.811
+              },
+              {
+                "index": 5,
+                "score": 170.546
+              },
+              {
+                "index": 0,
+                "score": 41.885200000000005
+              }
+            ],
+            "travelSpan": 5
+          },
+          "junction": {
+            "region": {
+              "left": 230,
+              "top": 348,
+              "width": 25,
+              "height": 33
+            },
+            "moving": 58,
+            "warm": 57,
+            "minimum": 5,
+            "peaks": [
+              {
+                "index": 4,
+                "score": 34.690200000000004
+              },
+              {
+                "index": 0,
+                "score": 26.352200000000003
+              },
+              {
+                "index": 0,
+                "score": 86.71100000000001
+              },
+              {
+                "index": 1,
+                "score": 116.85399999999998
+              },
+              {
+                "index": 2,
+                "score": 29.026999999999987
+              },
+              {
+                "index": 3,
+                "score": 143.5776
+              },
+              {
+                "index": 3,
+                "score": 87.0392
+              },
+              {
+                "index": 4,
+                "score": 9.372399999999999
+              },
+              {
+                "index": 0,
+                "score": 62.42980000000001
+              },
+              {
+                "index": 1,
+                "score": 96.19639999999998
+              },
+              {
+                "index": 1,
+                "score": 64.4068
+              }
+            ],
+            "travelSpan": 4
+          },
+          "right": {
+            "region": {
+              "left": 276,
+              "top": 358,
+              "width": 21,
+              "height": 25
+            },
+            "moving": 118,
+            "warm": 64,
+            "minimum": 5,
+            "peaks": [
+              {
+                "index": 2,
+                "score": 117.97799999999998
+              },
+              {
+                "index": 3,
+                "score": 180.05739999999997
+              },
+              {
+                "index": 3,
+                "score": 20.613799999999998
+              },
+              {
+                "index": 0,
+                "score": 26.7936
+              },
+              {
+                "index": 0,
+                "score": 216.82379999999998
+              },
+              {
+                "index": 1,
+                "score": 236.62120000000002
+              },
+              {
+                "index": 2,
+                "score": 148.09679999999997
+              },
+              {
+                "index": 3,
+                "score": 162.56559999999996
+              },
+              {
+                "index": 3,
+                "score": 151.5198
+              },
+              {
+                "index": 2,
+                "score": 56.07899999999999
+              },
+              {
+                "index": 0,
+                "score": 120.7096
+              }
+            ],
+            "travelSpan": 3
+          }
+        }
+      }
+    }
+  },
+  "browser": {
+    "ember": "9PASS 1intentionalduplicateSKIP, 1.2m; WebKit Pro402/Max440 DPR3; all11labels/RTL/375–1440/pause/modal/offscreen/reducedmotion/GPULoss",
+    "footer": "18PASS 10intentionalduplicateSKIP,45.5s;4profiles/11locales/280–1440/RTL/keyboard/nativecontacts/social/noJS/sharedsafeactualhittests/Retry/noPDF404",
+    "integration": "4PASS32.8s; assembled page/allart/primaryactions/BackToTop ProMax",
+    "imagesRootViewed": [
+      "after-final-402-13.7.png",
+      "after-final-440-18.1.png",
+      "after-402-footer.png",
+      "after-440-footer.png",
+      "screenshots/company-footer/safe-iphone-17-pro-max-webkit-ar.png",
+      "screenshots/company-footer/adapt-320.png"
+    ],
+    "artifactDirectory": "/tmp/ramsider-partners-no-smoke/"
+  },
+  "quality": {
+    "nativeReview": "CLEAN actual uncommitteddiff; browsernotrunbyreviewer, primaryactualbrowsers separately executed",
+    "typecheck": "PASS",
+    "lint": "0errors,1preexisting integrations/telegram/controller.mjs verifyLinkFormattingwarning",
+    "productionBuild": "PASS11localeSSG",
+    "whitespace": "PASS",
+    "performance": {
+      "conditions": "production3141,Chromium402x874DPR3,cold4Mbps/100ms/4CPU; scroll unthrottled",
+      "usefulMs": 2522.7999999523163,
+      "lcp": 2744,
+      "cls": 0,
+      "ttfb": 24.5,
+      "firstPaint": 460,
+      "jsEncodedBytes": 207710,
+      "transferBytes": 786858,
+      "companyPdfRequests": 0,
+      "scroll": {
+        "frames": 119,
+        "p95": 16.799999999999272,
+        "over33ms": 4,
+        "distinctPositions": 120,
+        "from": 0,
+        "to": 13279
+      },
+      "footer": {
+        "rendered": true,
+        "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif"
+      },
+      "rendering": "11locale SSG; company footer ServerComponent; no new client module or fresh-data requirement",
+      "inp": "not measured",
+      "lighthouse": "not run"
+    },
+    "rendering": "Retain footer ServerComponent/staticSSG; existing lazy clientGLSL and lifecycle unchanged; no newdependency/clientgraph"
+  },
+  "publicAssets": {
+    "unchangedHashes": 218,
+    "rasterGeometryAndDeliveryUnchanged": true
+  },
+  "privateSources": "licence/policy untouched and excluded; no PDF/phone publication",
+  "independentAudit": {
+    "scope": "PASS2026-10-22 footer_records_auditor",
+    "visual": "PASS2026-10-22 footer_records_auditor; independently6RGBApairs/source exact and actualProMax/footerimages",
+    "behavior": "PASS2026-10-22 footer_records_auditor logs/source/JSON/actualRTLsafe/320/desktop images",
+    "quality": "PASS2026-10-22 footer_records_auditor actualnativeverdict/staticlogs/integration/performance/sourcehashes218publicSHA/whitespace",
+    "finalRecords": "PASS2026-10-22 /root/footer_records_auditor currentMEMORY/PRODUCT/footer-embertopics/journalindex-history/status-publication/4hashes/whitespace"
+  },
+  "technicalApproval": "2026-10-22 /root APPROVED complete scoped local delivery; independent /root/footer_records_auditor Stages1–6 PASS",
+  "publication": "Owner now authorizes combined127+128 origin/main publication; exactpush/deployment pending in texture-verification.json",
+  "userAcceptance": "NOT_RECORDED",
+  "limitations": [
+    "PhysicalSafari/screenreaderdevice/INP/Lighthouse notverified",
+    "Controlledevals NOT_RUN",
+    "CHG0121/CHG0103/CHG0106 unrelatedopen unchanged"
+  ],
+  "priorPublicationReceipts": "CHG0125/126 uncommitted postpublication records preserved, historic runtimefcc8204 remains remote",
+  "recordRole": "HistoricalCHG0127pretextureimplementation; sourcehashes/performance apply to that verified snapshot",
+  "supersededBy": "texture-verification.json"
+}

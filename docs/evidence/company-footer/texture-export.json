@@ -1,0 +1,85 @@
+{
+  "id": "CHG0128",
+  "sourceSHA": "1b8deab0448cb73d016f3cf8571caa081c544883dc17c9a1c2db0d24e2abc971",
+  "sourceICC": "Adobe RGB (1998)",
+  "donorBox": [
+    0,
+    31600,
+    941,
+    32127
+  ],
+  "anchorBox": [
+    0,
+    31999,
+    941,
+    32127
+  ],
+  "sourceAlphaRetainedInFirst16Rows": true,
+  "anchorOrientation": "vertical reflection at original final row",
+  "handoff": "16 exact source rows; smoothstep through row127 into generated texture",
+  "generatedInput": "design/derived/footer/continuation.png",
+  "generatedSHA": "884745c3eae59030143fbd93b772df3151c93108778253dbf496d2c20af073bb",
+  "generator": "built-in imagegen, source-edge reference; first brighter candidate rejected",
+  "generatedColourInterpretation": "untagged native imagegen RGB interpreted as standard sRGB",
+  "size": [
+    941,
+    2588
+  ],
+  "masterSHA": "f475affa76badbe044bf8b419503ca84cc3adbab4c888d72ce87401041f1978e",
+  "sRGBProfileSHA": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e",
+  "candidates": [
+    {
+      "encoding": "q95",
+      "bytes": 182184,
+      "maxRGBError": 8,
+      "meanRGBError": [
+        1.0217,
+        0.8457,
+        1.1179
+      ],
+      "p99RGBError": [
+        3.0,
+        3.0,
+        4.0
+      ],
+      "signedRGBError": [
+        0.3327,
+        0.0269,
+        0.1722
+      ],
+      "alphaExact": true,
+      "iccExact": true,
+      "sha256": "ed5c0a2ecc03abb372c52a82ad831d1174e2a58394e90035af68db5f86a96f4c"
+    },
+    {
+      "encoding": "lossless",
+      "bytes": 1817800,
+      "maxRGBError": 0,
+      "meanRGBError": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "p99RGBError": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "signedRGBError": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "alphaExact": true,
+      "iccExact": true,
+      "sha256": "bd4d4a7b8c13aef45ddb450a7b69b50ed107b60ce6593481791aef321f5bf8d4"
+    }
+  ],
+  "selected": "q95; browser PNG-control comparison required",
+  "delivery": "public/art/footer-paper.webp",
+  "deliverySHA": "ed5c0a2ecc03abb372c52a82ad831d1174e2a58394e90035af68db5f86a96f4c",
+  "deliveryBytes": 182184,
+  "repeatRecipe": "PASS byte-identical report+delivery after two consecutive builds",
+  "builtInMode": "built-in image_gen (no CLI/API fallback)",
+  "finalPrompt": "Asset: tall continuation of this exact website paper background. Input is ONLY the final 128px-high bottom edge of the original artwork, sRGB. Continue the same subtly mottled warm tan paper downwards, output ONLY the new tall texture, 1024x2816 portrait. Preserve this edge's darker muted tan colour throughout: typical sRGB centre colour around RGB(217,183,157), left-to-right source variations matter. Do not lighten it, do not turn it cream/white, do not add a top highlight, vignette, new tint or new lighting gradient. TOP of output directly continues BOTTOM of input. Same soft cloudy fine paper and tiny faint crackle, same scale for a941px-wide surface, small natural non-repeating variation. No new objects, no text, no icon, no border, no logo, no watermark, no dark/bright stains, no obvious mirrored pattern. This is faithful texture extension for footer placed below artwork, not redesign."
+}

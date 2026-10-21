@@ -1,0 +1,327 @@
+{
+  "id": "CHG0126",
+  "date": "2026-10-21",
+  "repository": "askmi/ramsider",
+  "branch": "main",
+  "pushedSHA": "fcc82043151623ff3755f6f3995ffea0a7dab2bd",
+  "remoteMainVerified": "fcc82043151623ff3755f6f3995ffea0a7dab2bd",
+  "preservedBranches": {
+    "Alpha": "158962347d9866ce758bb8e3d83453fa3ed4070f",
+    "beta": "966e25c09fe607715d08285fadeac77f7ccdbb72"
+  },
+  "latestDeploymentContexts": [
+    {
+      "context": "Vercel – ramsider",
+      "state": "success",
+      "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/A7QZi1M8Eyzeqh4EAdVE4zQB5U34"
+    },
+    {
+      "context": "Vercel – ramsider-beta",
+      "state": "success",
+      "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/AyAwqwdkFTkatSSXxc7kHRRpBYrp"
+    }
+  ],
+  "deployments": [
+    {
+      "environment": "Preview – ramsider-beta",
+      "id": 7234565134,
+      "ref": "fcc82043151623ff3755f6f3995ffea0a7dab2bd",
+      "sha": "fcc82043151623ff3755f6f3995ffea0a7dab2bd"
+    },
+    {
+      "environment": "Production – ramsider",
+      "id": 7234552888,
+      "ref": "fcc82043151623ff3755f6f3995ffea0a7dab2bd",
+      "sha": "fcc82043151623ff3755f6f3995ffea0a7dab2bd"
+    }
+  ],
+  "productionStatus": {
+    "created_at": "2026-10-21T18:53:10Z",
+    "environment_url": "https://ramsider-e8yygs23k-askmi-6282s-projects.vercel.app",
+    "log_url": "https://ramsider-e8yygs23k-askmi-6282s-projects.vercel.app",
+    "state": "success"
+  },
+  "previewStatus": {
+    "created_at": "2026-10-21T18:53:47Z",
+    "environment_url": "https://ramsider-beta-4tme8h0g0-askmi-6282s-projects.vercel.app",
+    "log_url": "https://ramsider-beta-4tme8h0g0-askmi-6282s-projects.vercel.app",
+    "state": "success"
+  },
+  "canonicalURL": "https://ramsider-main.vercel.app/en#company",
+  "canonicalMobile": [
+    {
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "footerHeight": 384.59375,
+      "footerWidth": 402,
+      "boundary": [
+        {
+          "x": 0.05,
+          "above": [
+            219,
+            187,
+            162
+          ],
+          "below": [
+            215,
+            182,
+            158
+          ],
+          "meanAbsRGB": 4.333333333333333
+        },
+        {
+          "x": 0.25,
+          "above": [
+            218,
+            185,
+            159
+          ],
+          "below": [
+            220,
+            186,
+            160
+          ],
+          "meanAbsRGB": 1.3333333333333333
+        },
+        {
+          "x": 0.5,
+          "above": [
+            217,
+            185,
+            159
+          ],
+          "below": [
+            218,
+            185,
+            158
+          ],
+          "meanAbsRGB": 0.6666666666666666
+        },
+        {
+          "x": 0.75,
+          "above": [
+            213,
+            181,
+            153
+          ],
+          "below": [
+            214,
+            180,
+            152
+          ],
+          "meanAbsRGB": 1
+        },
+        {
+          "x": 0.95,
+          "above": [
+            209,
+            175,
+            147
+          ],
+          "below": [
+            208,
+            174,
+            146
+          ],
+          "meanAbsRGB": 1
+        }
+      ],
+      "boundaryMean": 1.6666666666666665,
+      "icons": [
+        {
+          "label": "Instagram",
+          "text": "",
+          "x": 24,
+          "y": 742.3125,
+          "width": 44,
+          "height": 44,
+          "svg": true
+        },
+        {
+          "label": "YouTube",
+          "text": "",
+          "x": 76,
+          "y": 742.3125,
+          "width": 44,
+          "height": 44,
+          "svg": true
+        }
+      ],
+      "path": "/tmp/ramsider-footer-compact/public-402-transition.png"
+    },
+    {
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "footerHeight": 384.59375,
+      "footerWidth": 440,
+      "boundary": [
+        {
+          "x": 0.05,
+          "above": [
+            219,
+            187,
+            162
+          ],
+          "below": [
+            215,
+            182,
+            158
+          ],
+          "meanAbsRGB": 4.333333333333333
+        },
+        {
+          "x": 0.25,
+          "above": [
+            218,
+            185,
+            159
+          ],
+          "below": [
+            220,
+            186,
+            160
+          ],
+          "meanAbsRGB": 1.3333333333333333
+        },
+        {
+          "x": 0.5,
+          "above": [
+            217,
+            185,
+            159
+          ],
+          "below": [
+            218,
+            185,
+            158
+          ],
+          "meanAbsRGB": 0.6666666666666666
+        },
+        {
+          "x": 0.75,
+          "above": [
+            213,
+            181,
+            153
+          ],
+          "below": [
+            214,
+            180,
+            152
+          ],
+          "meanAbsRGB": 1
+        },
+        {
+          "x": 0.95,
+          "above": [
+            210,
+            176,
+            147
+          ],
+          "below": [
+            208,
+            174,
+            146
+          ],
+          "meanAbsRGB": 1.6666666666666667
+        }
+      ],
+      "boundaryMean": 1.8,
+      "icons": [
+        {
+          "label": "Instagram",
+          "text": "",
+          "x": 24,
+          "y": 823.703125,
+          "width": 44,
+          "height": 44,
+          "svg": true
+        },
+        {
+          "label": "YouTube",
+          "text": "",
+          "x": 76,
+          "y": 823.703125,
+          "width": 44,
+          "height": 44,
+          "svg": true
+        }
+      ],
+      "path": "/tmp/ramsider-footer-compact/public-440-transition.png"
+    }
+  ],
+  "canonicalSmoke": [
+    {
+      "locale": "en",
+      "status": "PASS",
+      "company": "RAMSIDER SMOKING & TOBACCO HEATING DEVICES TRADING CO. L.L.C",
+      "licence": "License No. 1050925",
+      "address": "Office No. D-28, Mohamed Hashem Alawi Al Saf Building, Al Murar, Dubai, UAE.",
+      "email": "mailto:support@ramsider.com",
+      "social": [
+        {
+          "label": "Instagram",
+          "href": "https://instagram.com/ramsider_official",
+          "text": ""
+        },
+        {
+          "label": "YouTube",
+          "href": "https://youtube.com/@ramsider_official",
+          "text": ""
+        }
+      ],
+      "licenceLinks": 0,
+      "phoneLinks": 0,
+      "dir": "ltr",
+      "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif",
+      "overflow": false,
+      "privatePdfHttpStatus": 404,
+      "companyPdfRequests": 0
+    },
+    {
+      "locale": "ar",
+      "status": "PASS",
+      "company": "RAMSIDER SMOKING & TOBACCO HEATING DEVICES TRADING CO. L.L.C",
+      "licence": "License No. 1050925",
+      "address": "Office No. D-28, Mohamed Hashem Alawi Al Saf Building, Al Murar, Dubai, UAE.",
+      "email": "mailto:support@ramsider.com",
+      "social": [
+        {
+          "label": "Instagram",
+          "href": "https://instagram.com/ramsider_official",
+          "text": ""
+        },
+        {
+          "label": "YouTube",
+          "href": "https://youtube.com/@ramsider_official",
+          "text": ""
+        }
+      ],
+      "licenceLinks": 0,
+      "phoneLinks": 0,
+      "dir": "rtl",
+      "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif",
+      "overflow": false,
+      "privatePdfHttpStatus": 404,
+      "companyPdfRequests": 0
+    }
+  ],
+  "localToCanonicalRGBA": {
+    "402footer": 0,
+    "402transition": 0,
+    "440footer": 0,
+    "440transition": 0
+  },
+  "committedRuntime5HashesExact": true,
+  "privateSource3HashesUnchanged": true,
+  "privateSourcesAbsentFromCommit": true,
+  "rootActualPublicScreenshotsViewed": [
+    "public-402-transition.png",
+    "public-440-footer.png"
+  ],
+  "technicalApproval": "2026-10-21 /root APPROVED; independent /root/footer_records_auditor final transport/canonical/records PASS",
+  "independentFinalAudit": "PASS2026-10-21 /root/footer_records_auditor final transport/canonical/records; fresh GitHub exactmain/bothVercel/Alpha-beta, actualpublicProMaximages, independent4RGBApairs/5committedhashes/3privatehashes/exclusions/records/whitespace",
+  "recordDisposition": "Postpublication receipt updates local; deployed runtime unchanged; no recursive documentation-only deploy."
+}

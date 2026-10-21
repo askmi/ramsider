@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { company, companyCopy } from '@/lib/company';
 import type { Locale } from '@/lib/i18n';
 
@@ -5,6 +6,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
   const copy = companyCopy[locale];
 
   return <footer id="company" className="site-footer">
+    <Image className="site-footer__art" data-media src="/art/footer-paper.webp" alt="" aria-hidden="true" width={941} height={2588} loading="lazy" decoding="async" unoptimized />
     <div className="site-footer__inner">
       <section aria-labelledby="company-heading">
         <h2 id="company-heading">{copy.company}</h2>
@@ -16,6 +18,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         <address>
           <p><bdi dir="ltr">{company.address}</bdi></p>
           <a className="site-footer__link" href={company.emailHref}><bdi dir="ltr">{company.email}</bdi></a>
+          <a className="site-footer__link" href={company.partnersEmailHref}><bdi dir="ltr">{company.partnersEmail}</bdi></a>
         </address>
         <nav className="site-footer__channels" aria-label={copy.channels}>
           <ul>

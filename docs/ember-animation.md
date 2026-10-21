@@ -1,4 +1,10 @@
-# Current reopening — three faces and shared edges
+## Current smoke-free charcoal — 2026-10-22
+
+CHG0127: owner/customer accepts the charcoal animation and requests removing only smoke. This supersedes all historical smoke requirements below. Remove the smoke-only plume helper/composite; preserve shared hash/noise/fbm, thermal breathing, flicker, traveling fissure glints, pedestal reflection, sparse sparks, artwork/geometry, deferred loading and pause/reduced-motion/GPU fallback. Compare actual Pro/Max output at fixed13.7/15.2/18.1s with the old shader independently setting only smokeAlpha=0; all retained pixels must match. Run native-time face motion and lifecycle checks. Verified implementation checks2026-10-22: six fixed-phase Pro/Max comparisons exact against smoke-disabled original; native three-face motion/lifecycle9PASS1duplicateSKIP; assembledProMax4PASS/type/build/native review clean. Independent scope/visual/behavior/quality PASS; finalrecord PASS2026-10-22 footer_records_auditor. Evidence docs/evidence/company-footer/partners-and-smoke.json. Local preview3141, no newpublication.
+
+# Historical reopening — three faces and shared edges (2026-10-15)
+
+## Historical animation and smoke requirements (superseded for smoke)
 
 2026-10-15: CHG0110 three-face correction technically VERIFIED /root; independent Stages1–5 PASS. The right-face-only correction below does not fulfill the earlier request for LEFT, RIGHT, TOP and shared edge fissures. Current work must map visible source cracks and make glints travel locally along them; verify each region separately at actual Pro/Max scale against old baseline, then inspect hottest/static frames for preserved black texture. No continuous cube outline. One-point smoke, static coal/platform and pause/reduced-motion stay supported. Independent ember_faces_audit owns read-only stage audits. Dated approval/evidence are in CHG0110; independent final records PASS; publication remains pending.
 
@@ -10,9 +16,9 @@ CHG0110 reopened correction now scoped technically APPROVED /root 2026-10-15: pr
 
 # Beta procedural ember — CHG0110
 
-## Current preview after user correction — 2026-10-15
+## Historical preview after user correction — 2026-10-15
 
-### Current smoke outlet — 2026-10-15
+### Historical smoke outlet — 2026-10-15
 
 User requests black smoke from one point. Use one plume at local(235,335), source(495,2695), with2.5sourcepx base width. Anchor the bend to zero at rise0; width and lateral drift develop only above the outlet, then dissipate naturally. The narrow inlet may overlay the top's first24sourcepx to avoid the approximate occlusion polygon cutting a gap between coal and smoke; all other smoke remains occluded by the coal. Existing source image, static geometry, approved restrained glow, sparks and motion controls stay unchanged. Verify actual Pro/Max three phases, one fixed inlet, natural wider upper wisp and exact unchanged image below the inlet region.
 

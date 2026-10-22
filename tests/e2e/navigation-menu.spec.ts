@@ -72,7 +72,7 @@ test('navigation links remain inside the panel in every locale', async ({ page }
     await page.evaluate(() => document.fonts.ready);
     await page.locator('#navigation-toggle').click();
     const panel = page.locator('.menu nav');
-    await expect(panel.locator('a[href^="#"]')).toHaveCount(12);
+    await expect(panel.locator('a[href^="#"]')).toHaveCount(13);
     const geometry = await panel.evaluate(element => ({ scroll: element.scrollWidth, width: element.clientWidth }));
     expect(geometry.scroll, `${locale} navigation overflows horizontally`).toBeLessThanOrEqual(geometry.width + 1);
   }

@@ -1,3 +1,7 @@
+## Current Contact navigation — CHG0131 / 2026-10-22
+
+Quick-navigation Contact links to the existing `#company-contact` footer section on the current locale route and closes the menu. It must never launch email or an external app. The explicit support/partners email addresses in the footer and labelled support/business mail actions remain ordinary `mailto:` links. Earlier references below to a menu email destination are historical and superseded.
+
 # Company Footer
 
 CHG0125, supplied by the owner on 2026-10-21. `lib/company.ts` holds the exact legal name, licence number, contact address, public support/partners emails and official channel URLs. Headings and confirmed support/business contact sentences have keys in all eleven locales; legal facts remain in the supplied Latin spelling. The owner specifically approved the fixed legal line `License No. 1050925`, preserved exactly in every locale with LTR isolation.

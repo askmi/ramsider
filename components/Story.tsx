@@ -175,7 +175,7 @@ function Menus({ locale }: { locale: Locale }) {
     <MenuShell label={t(locale, 'menu')}>
       <nav aria-label={t(locale, 'menu')}>
         {(['moment', 'technology', 'choice', 'expressions', 'pro', 'gold', 'set', 'order', 'documents', 'hospitality', 'faq', 'final'] as const).map((id) => <a id={`navigation-${id}`} key={id} href={`#${id}`}>{t(locale, ({ moment: 'moment', technology: 'complexity', choice: 'choice', expressions: 'expressions', pro: 'pro', gold: 'gold', set: 'set', order: 'order', documents: 'documented', hospitality: 'hospitality', faq: 'faqTitle', final: 'final' } as const)[id])}</a>)}
-        <a id="navigation-contact" href={company.emailHref}>{companyCopy[locale].contact}</a>
+        <a id="navigation-contact" href="#company-contact">{companyCopy[locale].contact}</a>
         <div className="locale-links" aria-label={t(locale, 'language')}>
           {locales.map((option) => <Link id={`locale-${option}`} key={option} href={`/${option}`} hrefLang={option} aria-current={locale === option ? 'page' : undefined}>{option.toUpperCase()}</Link>)}
         </div>

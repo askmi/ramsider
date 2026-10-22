@@ -1,0 +1,269 @@
+{
+  "id": "CHG0131",
+  "date": "2026-10-22",
+  "status": "VERIFIED_LOCAL",
+  "actualBefore": "navigation-contact hrefmailto:support@ramsider.com",
+  "expectedAfter": "#company-contact nativeinternalnavigation",
+  "runtimeChange": "one server-rendered href; no style/assets/client component/dependency changes",
+  "negativeControl": "Old4337408 failsnewexpectedanchor test asintended",
+  "browserChecks": {
+    "contactFooterSuite": {
+      "passed": 17,
+      "skipped": 7,
+      "failed": 0,
+      "log": "/tmp/ramsider-contact-fix/browser.log"
+    },
+    "existingNavigationSuite": {
+      "passed": 7,
+      "skipped": 1,
+      "failed": 0,
+      "log": "/tmp/ramsider-contact-fix/navigation.log"
+    },
+    "activationCases": 24,
+    "serverHtmlLocales": 11,
+    "rows": [
+      {
+        "profile": "iphone-17-pro-webkit",
+        "rows": [
+          {
+            "locale": "en",
+            "keyboard": false,
+            "url": "http://127.0.0.1:3141/en#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "en",
+            "keyboard": true,
+            "url": "http://127.0.0.1:3141/en#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "ru",
+            "keyboard": false,
+            "url": "http://127.0.0.1:3141/ru#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "ru",
+            "keyboard": true,
+            "url": "http://127.0.0.1:3141/ru#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "ar",
+            "keyboard": false,
+            "url": "http://127.0.0.1:3141/ar#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "ar",
+            "keyboard": true,
+            "url": "http://127.0.0.1:3141/ar#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          }
+        ],
+        "externalNavigations": []
+      },
+      {
+        "profile": "iphone-17-pro-max-webkit",
+        "rows": [
+          {
+            "locale": "en",
+            "keyboard": false,
+            "url": "http://127.0.0.1:3141/en#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "en",
+            "keyboard": true,
+            "url": "http://127.0.0.1:3141/en#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "ru",
+            "keyboard": false,
+            "url": "http://127.0.0.1:3141/ru#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "ru",
+            "keyboard": true,
+            "url": "http://127.0.0.1:3141/ru#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "ar",
+            "keyboard": false,
+            "url": "http://127.0.0.1:3141/ar#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "ar",
+            "keyboard": true,
+            "url": "http://127.0.0.1:3141/ar#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          }
+        ],
+        "externalNavigations": []
+      },
+      {
+        "profile": "desktop-chromium",
+        "rows": [
+          {
+            "locale": "en",
+            "keyboard": false,
+            "url": "http://127.0.0.1:3141/en#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "en",
+            "keyboard": true,
+            "url": "http://127.0.0.1:3141/en#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "ru",
+            "keyboard": false,
+            "url": "http://127.0.0.1:3141/ru#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "ru",
+            "keyboard": true,
+            "url": "http://127.0.0.1:3141/ru#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "ar",
+            "keyboard": false,
+            "url": "http://127.0.0.1:3141/ar#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "ar",
+            "keyboard": true,
+            "url": "http://127.0.0.1:3141/ar#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          }
+        ],
+        "externalNavigations": []
+      },
+      {
+        "profile": "desktop-firefox",
+        "rows": [
+          {
+            "locale": "en",
+            "keyboard": false,
+            "url": "http://127.0.0.1:3141/en#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "en",
+            "keyboard": true,
+            "url": "http://127.0.0.1:3141/en#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "ru",
+            "keyboard": false,
+            "url": "http://127.0.0.1:3141/ru#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "ru",
+            "keyboard": true,
+            "url": "http://127.0.0.1:3141/ru#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "ar",
+            "keyboard": false,
+            "url": "http://127.0.0.1:3141/ar#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          },
+          {
+            "locale": "ar",
+            "keyboard": true,
+            "url": "http://127.0.0.1:3141/ar#company-contact",
+            "menuClosed": true,
+            "contactHeadingVisible": true
+          }
+        ],
+        "externalNavigations": []
+      }
+    ]
+  },
+  "visual": [
+    {
+      "name": "pro",
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "changedRGBAChannels": 0
+    },
+    {
+      "name": "max",
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "changedRGBAChannels": 0
+    }
+  ],
+  "initialVisualCapture": "Firstaftercapture lackedpaintedtexture; do notcountasvalidunchangedproof. Explicitinstantviewportentry+IMGdecode+2RAF producesProMax0RGBAchangesagainsttexturedoriginal. No runtimepaintfix; broaderCHG0106 remainsopen.",
+  "rootViewed": [
+    "footer-before-pro",
+    "footer-after-pro-invalid",
+    "footer-after-settled-pro",
+    "contact-navigation-MaxAR"
+  ],
+  "typecheck": "PASS /tmp/ramsider-contact-fix/type-final.log",
+  "targetedLint": "PASS0errors0warnings /tmp/ramsider-contact-fix/lint-final.log",
+  "productionBuild": "PASS15staticpaths/11SSGlocales /tmp/ramsider-contact-fix/build.log",
+  "nativeReview": {
+    "result": "CLEAN /tmp/ramsider-contact-fix/native-verdict-final.txt",
+    "fixedFinding": "P2navigation internalanchorcount12\u219213; oldwrongmailtoexpectations also migrated"
+  },
+  "clientDelivery": {
+    "applicationChunksByteExact": 9,
+    "bootstrapCrossEnvironmentDifferent": 1,
+    "receipt": "/tmp/ramsider-contact-fix/client-delivery.json",
+    "limit": "Do notclaimallJSidentityornewLCP/INP; no performanceaffectingsourcechange, reuse priorvalidbaseline. Crossenvironmentbootstrapdifferencecauseunestablished."
+  },
+  "runtimeTestHashes": {
+    "components/Story.tsx": "26a806cc99638522c92026053098ce7976cd4d816b8ca58651e7cbc47b40a3e5",
+    "tests/e2e/company-footer.spec.ts": "f4e18b9d781b55ba694427a722be118fccbdf58a0f27e94a5a40466fee65592a",
+    "tests/e2e/navigation-menu.spec.ts": "3a5bd0b72f6b5cbd6aa59b10aa83450e2d1519cd57235611de89c597c8ba02f6"
+  },
+  "technicalApproval": "2026-10-22 /root APPROVED24actualbrowserchecks/24Contactactivationcases/11HTMLlocales/nativeclean/type/lint/build/ProMaxvisual0diff",
+  "independentAudit": "N/A trivialoneattribute fix; native reviewperformed",
+  "publication": "AUTHORIZEDoriginmain urgentlivefix;pendingcommit/deploy",
+  "userResultApproval": "NOT_RECORDED",
+  "remaining": [
+    "Commitpush exactoriginmain",
+    "BothVerceldeployments exactSHA",
+    "PublicContactactivation verification"
+  ]
+}

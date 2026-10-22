@@ -81,7 +81,7 @@ test('support, business, keyboard and official social links use confirmed destin
   await ready(page);
   await expect(page.locator('#hospitality-explore')).toHaveAttribute('href', `mailto:${email}`);
   await page.locator('.menu summary').click();
-  await expect(page.locator('#navigation-contact')).toHaveAttribute('href', `mailto:${email}`);
+  await expect(page.locator('#navigation-contact')).toHaveAttribute('href', '#company-contact');
   await page.keyboard.press('Escape');
   for (const id of ['support', 'venue']) {
     await page.locator(`#faq-${id}`).click();
@@ -115,6 +115,47 @@ test('support, business, keyboard and official social links use confirmed destin
   }
 });
 
+test('quick-navigation Contact scrolls to site contacts without opening email', async ({ page, context }, info) => {
+  const externalNavigations: string[] = [];
+  page.on('request', request => {
+    if (request.isNavigationRequest() && /^https?:/.test(page.url()) && new URL(request.url()).origin !== new URL(page.url()).origin) externalNavigations.push(request.url());
+  });
+  const rows = [];
+  await mkdir(output, { recursive: true });
+  for (const locale of ['en', 'ru', 'ar']) {
+    await ready(page, locale);
+    const pages = context.pages().length;
+    for (const keyboard of [false, true]) {
+      await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
+      await page.locator('#navigation-toggle').click();
+      const contact = page.locator('#navigation-contact');
+      await expect(contact).toHaveAttribute('href', '#company-contact');
+      if (keyboard) await contact.press('Enter');
+      else await contact.click();
+      await expect(page).toHaveURL(new RegExp(`/${locale}#company-contact$`));
+      await expect(page.locator('.menu')).not.toHaveAttribute('open');
+      await expect(page.locator('#company-contact')).toBeInViewport();
+      await expect.poll(() => page.locator('#contact-heading').evaluate(e => {
+        const b = e.getBoundingClientRect(); return b.top >= 0 && b.bottom <= innerHeight;
+      })).toBe(true);
+      expect(context.pages().length).toBe(pages);
+      rows.push({ locale, keyboard, url: page.url(), menuClosed: true, contactHeadingVisible: true });
+    }
+    await page.screenshot({ path: `${output}/contact-navigation-${info.project.name}-${locale}.png` });
+  }
+  expect(externalNavigations).toEqual([]);
+  await writeFile(`${output}/contact-navigation-${info.project.name}.json`, JSON.stringify({ rows, externalNavigations }, null, 2));
+});
+
+test('all localized server HTML keeps Contact navigation internal', async ({ request }, info) => {
+  test.skip(info.project.name !== 'iphone-17-pro-webkit', 'One server-HTML locale matrix.');
+  for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
+    const response = await request.get(`/${locale}`);
+    expect(response.status()).toBe(200);
+    expect(await response.text()).toMatch(/id="navigation-contact" href="#company-contact"/);
+  }
+});
+
 test('footer adapts at narrow and wide widths without covering final links', async ({ page }, info) => {
   test.skip(info.project.name !== 'iphone-17-pro-webkit', 'one responsive WebKit matrix');
   for (const width of [280, 320, 375, 768, 1440]) {
@@ -141,7 +182,7 @@ for (const failedAsset of ['11.webp', 'footer-paper.webp']) test(`contact mail l
   await page.goto('/en');
   await expect(page.locator('html')).toHaveAttribute('data-media-hydrated', '');
   await page.locator('.menu summary').click();
-  await expect(page.locator('#navigation-contact')).toHaveAttribute('href', `mailto:${email}`);
+  await expect(page.locator('#navigation-contact')).toHaveAttribute('href', '#company-contact');
   await page.keyboard.press('Escape');
   await expect(page.locator('#hospitality-explore')).toHaveAttribute('href', `mailto:${email}`);
   const retry = page.locator('.page-media-overlay').getByRole('button', { name: 'Retry', exact: true });

@@ -238,6 +238,8 @@ html[data-media-js] .page-media-overlay{display:grid}
 .site-footer .site-footer__licence{margin-top:6px}
 .site-footer address{font-style:normal}
 .site-footer__link{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;min-height:44px;width:fit-content;max-width:100%;padding-block:8px;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.site-footer__emails{padding-block:10px}
+.site-footer__emails .site-footer__link{min-height:24px;padding-block:0}
 .site-footer__link:hover{color:#21170f}
 .site-footer__link:focus-visible{outline:3px solid #5b3515;outline-offset:3px;border-radius:4px}
 .site-footer__channels{margin-top:8px}

@@ -1,5 +1,8 @@
 # Ramsider project memory
 
+## Compact footer email spacing — 2026-10-22
+CHG0132 locally VERIFIED/root technicalAPPROVED: support/partners now24px baseline interval instead44, same14px Open Sans/21px lineheight and first-text position; footer408.594px on Pro/Max (-20px). Separate native mailto24px targets, surrounding gaps/social44px/main941/raster unchanged. Actual WebKitDPR3 before/after images viewed;25productionchecksPASS15intentionalSKIP, nativeactualdiffCLEAN/type/lint/buildPASS. [Receipt](docs/evidence/company-footer/email-spacing.json). Publication pending; independentauditorN/Atrivialedit, userresultapprovalNOT_RECORDED.
+
 ## Contact quick-navigation correction — 2026-10-22
 CHG0131 VERIFIEDlocal/roottechnicalAPPROVED; quickmenuContact nowanchors#company-contact oncurrentlocale andclosesmenu, previouslywrongmailtoopenedreportedOutlook. Explicitfooter/support/businessemailactions remainmailto. OneStoryhrefchange; oldtestmapping+menuinternalcount corrected,24productionchecksPASS8intentionalSKIP/0FAIL incl24click/EnterENRUARcasesonPro/Max/Chromium/Firefox+11serverHTMLlocales. Pro/Maxsettledfooter0RGBAchanges, nativeactualdiffreviewCLEAN/type/lint/buildPASS. [Evidence](docs/evidence/contact-navigation/verification.json). IndependentdisciplineauditorN/Atrivialfix; native reviewperformed. Urgentlivefixoriginmainpublicationauthorized/pending. LESSONS/EVAL-MAP-VIEWERextended,controlledNOT_RUN; userresultapprovalNOT_RECORDED. InheritedWellnessoutcomes/privatefilespreserved.
 

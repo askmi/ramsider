@@ -1,0 +1,141 @@
+{
+  "change": "CHG0132",
+  "date": "2026-10-22",
+  "scope": "Compact only the two footer email rows; preserve Open Sans 14px/21px, outer spacing, main max-width941, native mailto, legal data and artwork delivery.",
+  "before": [
+    {
+      "name": "pro",
+      "footerHeight": 428.59375,
+      "width": 402,
+      "links": [
+        {
+          "height": 44,
+          "linkTop": 200.59375,
+          "textTop": 212.09375,
+          "textHeight": 21,
+          "font": "14px",
+          "lineHeight": "21px"
+        },
+        {
+          "height": 44,
+          "linkTop": 244.59375,
+          "textTop": 256.09375,
+          "textHeight": 21,
+          "font": "14px",
+          "lineHeight": "21px"
+        }
+      ]
+    },
+    {
+      "name": "max",
+      "footerHeight": 428.59375,
+      "width": 440,
+      "links": [
+        {
+          "height": 44,
+          "linkTop": 200.59375,
+          "textTop": 212.09375,
+          "textHeight": 21,
+          "font": "14px",
+          "lineHeight": "21px"
+        },
+        {
+          "height": 44,
+          "linkTop": 244.59375,
+          "textTop": 256.09375,
+          "textHeight": 21,
+          "font": "14px",
+          "lineHeight": "21px"
+        }
+      ]
+    }
+  ],
+  "after": [
+    {
+      "name": "pro",
+      "footerHeight": 408.59375,
+      "width": 402,
+      "links": [
+        {
+          "height": 24,
+          "linkTop": 210.59375,
+          "textTop": 212.09375,
+          "textHeight": 21,
+          "font": "14px",
+          "lineHeight": "21px"
+        },
+        {
+          "height": 24,
+          "linkTop": 234.59375,
+          "textTop": 236.09375,
+          "textHeight": 21,
+          "font": "14px",
+          "lineHeight": "21px"
+        }
+      ]
+    },
+    {
+      "name": "max",
+      "footerHeight": 408.59375,
+      "width": 440,
+      "links": [
+        {
+          "height": 24,
+          "linkTop": 210.59375,
+          "textTop": 212.09375,
+          "textHeight": 21,
+          "font": "14px",
+          "lineHeight": "21px"
+        },
+        {
+          "height": 24,
+          "linkTop": 234.59375,
+          "textTop": 236.09375,
+          "textHeight": 21,
+          "font": "14px",
+          "lineHeight": "21px"
+        }
+      ]
+    }
+  ],
+  "screenshots": {
+    "directory": "/tmp/ramsider-email-spacing",
+    "viewed_by": "/root",
+    "files": [
+      "before-pro.png",
+      "after-pro.png",
+      "after-max.png"
+    ],
+    "result": "Actual phone footer images inspected: compact consecutive email rows; separate nonoverlapping 24px hit targets."
+  },
+  "checks": {
+    "production_browser_suite": {
+      "passed": 25,
+      "skipped_intentional_duplicates": 15,
+      "failed": 0,
+      "profiles": [
+        "WebKit Pro402x874 DPR3",
+        "WebKit ProMax440x956 DPR3",
+        "Chromium desktop",
+        "Firefox desktop"
+      ],
+      "coverage": "11 locales on Pro, RTL, native links/keyboard, Contact anchor, noJS, narrow widths, Retry and safe areas"
+    },
+    "build": "PASS15 static paths/11 locales",
+    "typecheck": "PASS",
+    "targeted_lint": "PASS0 errors0 warnings",
+    "native_review": "CLEAN exact three-file diff snapshot; reviewer did not run browser tests, root ran production suite separately.",
+    "css_scope": "Entire stylesheet equals prior HEAD after removing only the two email-group rules.",
+    "performance": "No new media/JS/client component or rendering strategy. Text-only below-fold spacing; no new LCP/INP/Lighthouse measurement claimed."
+  },
+  "technical_approval": {
+    "date": "2026-10-22",
+    "verifier": "/root",
+    "result": "APPROVED local implementation",
+    "independent_auditor": "N/A trivial scoped text-spacing edit"
+  },
+  "user_result_approval": "NOT_RECORDED",
+  "publication": {
+    "status": "PENDING"
+  }
+}

@@ -66,7 +66,16 @@ test('official company facts and localized footer fit the real browser', async (
     expect(result.direction).toBe(locale === 'ar' ? 'rtl' : 'ltr');
     expect(result.legalDirection).toBe('ltr');
     expect(result.overflow).toBe(false);
-    for (const link of result.links) { expect(link.height).toBeGreaterThanOrEqual(44); expect(link.clipped).toBe(false); }
+    for (const link of result.links) { expect(link.height).toBeGreaterThanOrEqual(link.href.startsWith('mailto:') ? 24 : 44); expect(link.clipped).toBe(false); }
+    const emailRows = await footer.locator('.site-footer__emails a').evaluateAll(anchors => anchors.map(a => {
+      const box = a.getBoundingClientRect(), text = a.querySelector('bdi')!.getBoundingClientRect();
+      return { top: box.top, bottom: box.bottom, height: box.height, textTop: text.top,
+        hit: a.contains(document.elementFromPoint(box.left + box.width / 2, box.top + box.height / 2)) };
+    }));
+    expect(emailRows).toHaveLength(2);
+    expect(emailRows[1].top).toBeGreaterThanOrEqual(emailRows[0].bottom);
+    expect(emailRows[1].textTop - emailRows[0].textTop).toBeCloseTo(24, 1);
+    for (const row of emailRows) { expect(row.height).toBe(24); expect(row.hit).toBe(true); }
     if (info.project.name.includes('iphone')) expect(result.dpr).toBe(3);
     if (locale === 'en' && info.project.name.includes('iphone')) expect(result.footerHeight).toBeLessThanOrEqual(info.project.name.includes('max') ? 434 : 444);
     await footer.screenshot({ path: `${output}/${info.project.name}-${locale}.png` });

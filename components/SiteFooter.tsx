@@ -17,8 +17,10 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         <h2 id="contact-heading">{copy.contact}</h2>
         <address>
           <p><bdi dir="ltr">{company.address}</bdi></p>
-          <a className="site-footer__link" href={company.emailHref}><bdi dir="ltr">{company.email}</bdi></a>
-          <a className="site-footer__link" href={company.partnersEmailHref}><bdi dir="ltr">{company.partnersEmail}</bdi></a>
+          <div className="site-footer__emails">
+            <a className="site-footer__link" href={company.emailHref}><bdi dir="ltr">{company.email}</bdi></a>
+            <a className="site-footer__link" href={company.partnersEmailHref}><bdi dir="ltr">{company.partnersEmail}</bdi></a>
+          </div>
         </address>
         <nav className="site-footer__channels" aria-label={copy.channels}>
           <ul>

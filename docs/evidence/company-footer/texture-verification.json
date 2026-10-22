@@ -1,7 +1,7 @@
 {
   "id": "CHG0128",
   "date": "2026-10-22",
-  "status": "VERIFIED_LOCAL; publication pending",
+  "status": "VERIFIED and PUBLISHED",
   "baseSHA": "fcc82043151623ff3755f6f3995ffea0a7dab2bd",
   "request": "Continue original final clean artwork texture under footer; commit/pushmain",
   "includedPriorScope": "ApprovedCHG0127 secondpartneremail and smoke-onlyremoval; inheritedCHG0125/126publicationreceipts",
@@ -519,10 +519,20 @@
     "export": "PASS2026-10-22 footer_records_auditor hashes/source16RGBArows/colouralphaICC",
     "visualBehavior": "PASS2026-10-22 footer_records_auditor actualProMaxentry/transition/fullfooter/280ARsafe/control/images/logs +independent2tailRGBApairs",
     "quality": "PASS2026-10-22 /root/footer_publish_auditor replacement for unresponsive priorqualityturn; actualnativeverdict/static/integration8/priority7/perf/8imagepairs/9source/218public/3privatehashes",
-    "finalRecords": "PASS2026-10-22 /root/footer_publish_auditor exact20stagedscope/currentmemory-index-spec-evidence/JSON/whitespace/9hashes/privateexclusion"
+    "finalRecords": "PASS2026-10-22 /root/footer_publish_auditor exact20stagedscope/currentmemory-index-spec-evidence/JSON/whitespace/9hashes/privateexclusion",
+    "finalTransport": "PASS2026-10-22 /root/footer_publish_auditor freshGitHub exactmain/Alpha-beta/bothcontexts, actualpublicProMax/coal, independently14RGBApairs/9committedhashes/publicassetSHA/privateexclusions/records/JSON/whitespace"
   },
-  "technicalApproval": "2026-10-22 /root APPROVED complete scoped local delivery; independentStages1–6 PASS",
-  "publication": "AUTHORIZED origin/main pending inspectedcommit/exactSHAdeployments/canonical",
+  "technicalApproval": "2026-10-22 /root APPROVED complete published delivery; independent localStages1–6 and finaltransport/canonical/records PASS",
+  "publication": {
+    "status": "PUBLISHED",
+    "sha": "2fd005d71ac66f90cc80aef43c74153afb6a99f2",
+    "branch": "origin/main",
+    "productionDeployment": 7237602915,
+    "previewDeployment": 7237614960,
+    "bothSuccess": true,
+    "canonical": "PASS14RGBApairs and exactasset/twomails/ENAR/noPDF404/nosmoke",
+    "receipt": "texture-publication.json"
+  },
   "limitations": [
     "Generatedcontinuation is newart derivedfromoriginalreference, not literaloriginalpixels beyondanchor",
     "sRGB/browser fidelitymeasured; physicalSafari/P3/calibratedPhotoshopintentunverified",

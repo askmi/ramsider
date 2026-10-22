@@ -21,6 +21,7 @@ import { emberCopy } from '@/lib/ember-copy';
 import { certificates, type CertificateId } from '@/lib/certificates';
 import { company, companyCopy } from '@/lib/company';
 import { SiteFooter } from './SiteFooter';
+import { WellnessRibbon } from './WellnessRibbon';
 
 // Keep the complete FAQ/account artwork in one tile: no image edge through a card.
 const artTiles = Array.from({ length: 12 }, (_, i) => ({
@@ -90,6 +91,7 @@ function OverlayNode({ node, locale }: { node: StoryNode; locale: Locale }) {
     if (node.target) return <Link {...buttonProps} href={node.target}>{content}</Link>;
     if (node.unavailable === 'business') return <a {...buttonProps} href={company.emailHref}>{content}</a>;
     if (node.id === 'fire-learn') return <button {...buttonProps} type="button" aria-haspopup="dialog" aria-controls="charcoal-viewer" data-charcoal-open>{content}</button>;
+    if (node.id === 'beyond-learn') return <button {...buttonProps} type="button" aria-haspopup="dialog" aria-controls="wellness-viewer" data-wellness-open>{content}</button>;
     return <button {...buttonProps} type="button" aria-haspopup="dialog" {...(node.unavailable === 'technology' ? { 'data-technology-open': true } : { popoverTarget: `unavailable-${node.unavailable ?? 'commerce'}` })}>{content}</button>;
   }
   if (node.key === 'hero') return <h1 {...props}>{textLines(text)}</h1>;
@@ -233,6 +235,7 @@ export function Story({ locale }: { locale: Locale }) {
   return <DialogController>
     <TechnologyViewer locale={locale} descriptions={technologyDescriptionCopy[locale]} />
     <CharcoalRibbon locale={locale} />
+    <WellnessRibbon locale={locale} />
     <PageMediaGate locale={locale}><main className="canvas" data-locale={locale}>
       <div className="story-prefix-space" aria-hidden="true" />
       <div className="art" aria-hidden="true">

@@ -1,0 +1,48 @@
+{
+  "id": "CHG0130",
+  "date": "2026-10-22",
+  "repository": "askmi/ramsider",
+  "branch": "main",
+  "status": "AUTHORIZED_PENDING_COMMIT",
+  "baseSHA": "2fd005d71ac66f90cc80aef43c74153afb6a99f2",
+  "ownerAuthorization": "\u0414\u0430, \u0432\u044b\u0433\u043b\u044f\u0434\u0438\u0442 \u043d\u043e\u0440\u043c\u0430\u043b\u044c\u043d\u043e. \u0422\u0435\u043f\u0435\u0440\u044c \u044d\u0442\u043e \u0432\u0441\u0451 \u043d\u0430\u0434\u043e \u0437\u0430\u043a\u043e\u043c\u043c\u0438\u0442\u0438\u0442\u044c \u0438 \u0437\u0430\u0434\u0435\u043f\u043b\u043e\u0438\u0442\u044c.",
+  "visualAcceptance": "APPROVED2026-10-22",
+  "productClaimAuthenticity": "UNVERIFIED; appearanceapproval/publicationdirectionnotindependentfactualvalidation",
+  "expectedContexts": [
+    "Vercel \u2013 ramsider",
+    "Vercel \u2013 ramsider-beta"
+  ],
+  "expectedProductionEnvironment": "Production \u2013 ramsider",
+  "canonicalURL": "https://ramsider-main.vercel.app/en#beyond",
+  "privateExclusions": [
+    "design/references/license/",
+    "design/references/policy/"
+  ],
+  "verifiedCodeReceipt": "final-hashes.json",
+  "previousChecks": "42actualproductionPASS/30intentionalduplicateSKIP;nativeclean/type/build;lint1oldwarning;no runtime changes",
+  "precommitAudit": "PASS2026-10-22 /root/wellness_priority_auditor52paths12hashes4PNGsource/privateexclusion/main/whitespace/history",
+  "deployment": "PENDING",
+  "canonical": "PENDING",
+  "precommitHistory": [
+    {
+      "result": "FAIL",
+      "reason": "Initialcheckpointbeforeindex/updatedauthorization prepared;no publicationadvanced"
+    },
+    {
+      "event": "sandboxgitaddindex.lockdenied",
+      "recovery": "approvedscopedescalatedgitadd52explicitpaths;privateexcluded"
+    },
+    {
+      "result": "FAIL recordsomission",
+      "reason": "handoffclaimedfailurehistoryretainedbeforeactualjournalappend",
+      "responsibility": "rootprematureretentionclaim;missedactualstoredjournalcheck",
+      "repair": "CHG0130datedhistoryandthisreceiptadded;runtimeunchanged;existingEVAL-MAPcontrolledNOT_RUN"
+    },
+    {
+      "result": "PASS",
+      "auditor": "/root/wellness_priority_auditor",
+      "date": "2026-10-22",
+      "evidence": "exact52stagedpaths12hashes4originalPNGsourcepairs/privateexclusions/mainoriginmain/whitespace+history"
+    }
+  ]
+}

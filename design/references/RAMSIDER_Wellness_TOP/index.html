@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Wellness Story — RAMSIDER UNO</title>
+<link rel="icon" href="data:,">
+<style>
+@font-face{font-family:OpenSans;src:url('assets/fonts/opensans-light.ttf') format('truetype');font-weight:300;font-display:swap}
+@font-face{font-family:OpenSans;src:url('assets/fonts/opensans-regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:OpenSans;src:url('assets/fonts/opensans-bold.ttf') format('truetype');font-weight:700;font-display:swap}
+@font-face{font-family:OpenSansButton;src:url('assets/fonts/opensans-button.ttf') format('truetype');font-weight:400;font-display:swap}
+:root{--ink:#241c18;--soft:#5e5047;--accent:#97714b;--paper:#faf7f2;font-family:OpenSans,Arial,sans-serif;color:var(--ink);background:#cdbba5}
+*{box-sizing:border-box}
+body{margin:0}
+button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+
+/* Место на сайте, откуда открывается окно */
+.site{max-width:941px;min-height:100svh;margin:auto;text-align:center;background:#e3cfb6 url('assets/01-ritual.png') center top/cover no-repeat;padding:clamp(120px,20vh,200px) 24px 380px}
+.site h1{font-size:clamp(36px,5vw,56px);font-weight:300;letter-spacing:-.02em;margin:0 0 22px}
+.site p{font-weight:300;line-height:1.3;font-size:clamp(19px,2.6vw,26px);margin:0 auto 28px;max-width:460px}
+.pill{border:1px solid #b8925a;border-radius:100px;background:#fff;font-family:OpenSansButton,OpenSans,sans-serif;font-size:17px;padding:12px 28px;min-height:48px;color:var(--ink);transition:background .2s,box-shadow .2s}
+.pill:hover{background:#fbf6ee;box-shadow:0 4px 18px rgba(36,28,24,.08)}
+
+/* Окно */
+.story{border:0;padding:0;margin:0 auto;inset:0;width:min(100%,640px);max-width:none;height:100dvh;max-height:none;background:var(--paper);color:var(--ink);overflow:hidden}
+.story::backdrop{background:rgba(36,28,24,.72)}
+.close{position:absolute;z-index:5;top:max(14px,env(safe-area-inset-top));right:max(14px,env(safe-area-inset-right));width:44px;height:44px;border-radius:50%;border:1px solid rgba(151,113,75,.45);background:var(--paper);display:grid;place-items:center;box-shadow:0 2px 10px rgba(36,28,24,.10)}
+.close svg{width:16px;height:16px;stroke:var(--ink);stroke-width:1.5}
+.close:hover{background:#fff}
+.scroll{height:100%;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.scroll::-webkit-scrollbar{display:none}
+.ribbon{text-align:center}
+
+/* Фото: чёткий край, без затемнений и размытий */
+.photo{display:block;margin:0;width:100%;aspect-ratio:4/5;overflow:hidden;background:#e9dfd1}
+.photo img{display:block;width:100%;height:100%;object-fit:cover}
+.hero .photo{aspect-ratio:2/3}
+
+/* Текст на чистом фоне */
+.head{padding:44px 18px 26px}
+.eyebrow{margin:0 0 14px;font-size:11px;font-weight:700;letter-spacing:.2em;line-height:1.6;text-transform:uppercase;color:var(--accent)}
+.eyebrow .n{font-weight:400}
+h1,h2{margin:0;font-weight:300;letter-spacing:-.025em;color:var(--ink);text-wrap:balance}
+h1{font-size:43px;line-height:1.1}
+h2{font-size:33px;line-height:1.14}
+h1 span,h2 span{display:block}
+.copy{padding:26px 26px 46px;max-width:640px;margin:0 auto}
+.copy p{margin:0;font-size:18px;font-weight:300;line-height:1.6;color:var(--soft);text-wrap:pretty}
+.copy p+p{margin-top:16px}
+.rule{display:block;width:40px;height:1px;background:var(--accent);opacity:.55;margin:0 auto}
+.hero .head{padding-bottom:22px}
+.hero .copy{padding-top:22px}
+.plain .head{padding-top:38px;padding-bottom:0}
+.plain .copy{padding-top:24px}
+
+.end{padding:4px 26px max(44px,env(safe-area-inset-bottom))}
+.note{max-width:440px;margin:20px auto 26px;font-size:13px;line-height:1.65;color:#7a6a5d}
+.end .eyebrow{margin-bottom:22px}
+
+/* Плавное появление текста (фото без эффектов) */
+.motion .reveal{opacity:0;transform:translateY(12px);transition:opacity .7s ease,transform .7s ease}
+.motion .reveal.visible{opacity:1;transform:none}
+
+@media(min-width:600px){
+ .head{padding:64px 56px 32px}
+ .eyebrow{font-size:12px;margin-bottom:18px}
+ h1{font-size:62px}
+ h2{font-size:50px}
+ .copy{padding:32px 56px 68px}
+ .copy p{font-size:21px}
+ .copy p+p{margin-top:18px}
+ .hero .photo{aspect-ratio:1/1}
+ .hero .photo img{object-position:50% 72%}
+ .hero .head{padding-top:48px}
+ .hero .head{padding-bottom:28px}
+ .hero .copy{padding-top:28px}
+ .plain .head{padding-top:56px}
+ .plain .copy{padding-top:30px}
+ .note{font-size:14px}
+ .site .pill{font-size:22px}
+}
+@media(max-width:359px){h1{font-size:36px}h2{font-size:30px}.copy p{font-size:17px}.head{padding-inline:20px}.copy{padding-inline:22px}}
+@media(prefers-reduced-motion:reduce){.motion .reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<main class="site">
+<h1>Beyond Shisha.</h1>
+<p>UNO was Designed for More than<br>One Kind of Experience.</p>
+<p>A Single Platform for Aromatic,<br>Sensory and Wellness Rituals.</p>
+<button class="pill" id="open-story" aria-haspopup="dialog">Learn more</button>
+</main>
+
+<dialog class="story" id="wellness" aria-labelledby="story-title">
+<button class="close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+<div class="scroll" tabindex="-1">
+<article class="ribbon">
+
+<section class="hero">
+<figure class="photo"><img src="assets/01-ritual_uno_white_v3.png" width="1024" height="1536" alt="RAMSIDER UNO beside a glass vase of olive branches in a sunlit stone interior" fetchpriority="high"></figure>
+<header class="head reveal"><p class="eyebrow">UNO / Wellness Story</p><h1 id="story-title"><span>What a Breath</span><span>Can Bring Back.</span></h1></header>
+<span class="rule"></span>
+<div class="copy"><p class="reveal">Fire, ash and smoke have no place in a moment of calm. UNO releases the aroma of natural botanicals with precise electronic heat — gently, cleanly and the same way every time. A few quiet minutes for calm, focus and recovery, at home.</p></div>
+</section>
+
+<section>
+<header class="head reveal"><p class="eyebrow"><span class="n">01 /</span> Nature, Precisely Released.</p><h2><span>Every Botanical Has</span><span>Its Own Temperature.</span></h2></header>
+<figure class="photo"><img src="assets/03-botanicals.png" width="1024" height="1536" loading="lazy" alt="Chamomile, rose petals and herbs in ceramic bowls on warm stone" style="object-position:50% 55%"></figure>
+<div class="copy"><p class="reveal">Lavender, eucalyptus, chamomile, citrus — each plant releases its character at its own temperature. Too little heat and the aroma stays locked in. Too much and it turns harsh.</p><p class="reveal">UNO controls heat in three independent zones, together with airflow and water. Each composition gets its own programme — repeated exactly, every time, without combustion, ash or open flame.</p></div>
+</section>
+
+<section>
+<header class="head reveal"><p class="eyebrow"><span class="n">02 /</span> Extracts. Compositions. Capsules.</p><h2><span>Natural Extracts,</span><span>Composed for a Mood.</span></h2></header>
+<figure class="photo"><img src="assets/04-capsules_v3.png" width="1024" height="1536" loading="lazy" alt="Three golden RAMSIDER capsules with lavender, eucalyptus and chamomile illustrations" style="object-position:50% 62%"></figure>
+<div class="copy"><p class="reveal">Aromatherapy works with natural plant extracts and specialised aromatic compositions — calming, refreshing, grounding. With UNO they are placed in a capsule and matched with a temperature programme designed for exactly that blend.</p><p class="reveal">The capsule and its profile travel together, so every session starts right: choose the composition, and the device knows how to release it.</p></div>
+</section>
+
+<section>
+<header class="head reveal"><p class="eyebrow"><span class="n">03 /</span> Your Ritual. Your Rhythm.</p><h2><span>Slow Down.</span><span>Breathe with Intention.</span></h2></header>
+<figure class="photo"><img src="assets/02-water_bouquet.png" width="1024" height="1536" loading="lazy" alt="A bouquet of lavender, eucalyptus, chamomile and herbs beside a golden arc on warm stone" style="object-position:50% 60%"></figure>
+<div class="copy"><p class="reveal">At home, UNO becomes a personal space for breathing and aroma practices: a few quiet minutes after a long day, a pause before something important, an evening routine you look forward to.</p><p class="reveal">Slow, unhurried breathing together with a gentle aroma helps many people relax, restore their emotional balance and simply feel more at ease. No flame, no ash — just the session, exactly as you set it.</p></div>
+</section>
+
+<section class="plain">
+<span class="rule"></span>
+<header class="head reveal"><p class="eyebrow"><span class="n">04 /</span> One Ritual. Many Moods.</p><h2><span>Your Space.</span><span>Your Composition.</span></h2></header>
+<div class="copy"><p class="reveal">Calming compositions in the evening, fresh and clear ones in the morning, warm and grounding ones on a slow weekend — each with its own programme.</p><p class="reveal">Share the ritual with the people close to you, or keep it as a quiet moment just for yourself. Programmable profiles, simple touch control and the app keep every session effortless.</p></div>
+</section>
+
+<footer class="end">
+<span class="rule"></span>
+<p class="note">Designed for relaxation, comfort and personal well-being. Not a medical device and not a treatment.</p>
+<p class="eyebrow">RAMSIDER / UNO Wellness</p>
+<button class="pill" id="back">Back to UNO</button>
+</footer>
+
+</article>
+</div>
+</dialog>
+
+<script>
+const modal=document.getElementById('wellness'),scroller=modal.querySelector('.scroll'),opener=document.getElementById('open-story');
+function openStory(){modal.showModal();document.body.style.overflow='hidden';scroller.scrollTop=0;modal.querySelector('.close').focus({preventScroll:true})}
+function closeStory(){modal.close()}
+opener.addEventListener('click',openStory);
+modal.querySelector('.close').addEventListener('click',closeStory);
+document.getElementById('back').addEventListener('click',closeStory);
+modal.addEventListener('click',e=>{if(e.target===modal)closeStory()});
+modal.addEventListener('close',()=>{document.body.style.overflow='';opener.focus({preventScroll:true})});
+if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+ document.documentElement.classList.add('motion');
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{root:scroller,threshold:.15});
+ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}
+if(location.hash==='#wellness')openStory();
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+[
+  {
+    "conditions": "Production Chromium402×874 DPR3,cold4Mbps/100ms/4xCPU",
+    "first": {
+      "lcp": 2720,
+      "cls": 0,
+      "useful": 2478.899999976158,
+      "scriptEncodedBytes": 208880,
+      "wellnessRequests": 0,
+      "ttfb": 23.09999990463257
+    },
+    "heroReadyMs": 10145.399999976158,
+    "allPhotosDecodedMs": 20876.799999952316,
+    "assets": [
+      {
+        "path": "/art/wellness/01-ritual_uno_white_v3.png",
+        "bytes": 2334282,
+        "start": 15563.599999904633,
+        "end": 25128.599999904633,
+        "duration": 9565
+      },
+      {
+        "path": "/art/wellness/03-botanicals.png",
+        "bytes": 2999237,
+        "start": 15659.699999928474,
+        "end": 28230.099999904633,
+        "duration": 12570.399999976158
+      },
+      {
+        "path": "/art/wellness/04-capsules_v3.png",
+        "bytes": 2180259,
+        "start": 25463.399999976158,
+        "end": 35231.59999990463,
+        "duration": 9768.199999928474
+      },
+      {
+        "path": "/art/wellness/02-water_bouquet.png",
+        "bytes": 2635528,
+        "start": 25468.5,
+        "end": 36138.09999990463,
+        "duration": 10669.599999904633
+      }
+    ],
+    "totalPhotoBytes": 10149306,
+    "programmaticRibbonScroll": {
+      "samples": 119,
+      "p95": 16.700000000004366,
+      "over33": 0,
+      "first": 0,
+      "last": 4075,
+      "distinctPositions": 120
+    },
+    "final": {
+      "lcp": 2720,
+      "cls": 0,
+      "useful": 2478.899999976158
+    },
+    "errors": [],
+    "limits": "Synthetic samples, not INP/Lighthouse/physicalSafari or native touch. OriginalPNG encoding optimization explicitly deferred by owner."
+  }
+]

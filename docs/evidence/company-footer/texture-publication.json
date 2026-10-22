@@ -1,0 +1,293 @@
+{
+  "id": "CHG0128",
+  "included": "CHG0127",
+  "date": "2026-10-22",
+  "repository": "askmi/ramsider",
+  "branch": "main",
+  "pushedSHA": "2fd005d71ac66f90cc80aef43c74153afb6a99f2",
+  "remoteMainVerified": "2fd005d71ac66f90cc80aef43c74153afb6a99f2",
+  "preservedBranches": {
+    "Alpha": "158962347d9866ce758bb8e3d83453fa3ed4070f",
+    "beta": "966e25c09fe607715d08285fadeac77f7ccdbb72"
+  },
+  "latestContexts": [
+    {
+      "context": "Vercel – ramsider",
+      "state": "success",
+      "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/D1eKNgR1citWXYM7WNuEP7uMw4H8"
+    },
+    {
+      "context": "Vercel – ramsider-beta",
+      "state": "success",
+      "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/6HBnnE7DcFa7Zfij5VCaNEK3LkMH"
+    }
+  ],
+  "deployments": [
+    {
+      "environment": "Preview – ramsider-beta",
+      "id": 7237614960,
+      "ref": "2fd005d71ac66f90cc80aef43c74153afb6a99f2",
+      "sha": "2fd005d71ac66f90cc80aef43c74153afb6a99f2"
+    },
+    {
+      "environment": "Production – ramsider",
+      "id": 7237602915,
+      "ref": "2fd005d71ac66f90cc80aef43c74153afb6a99f2",
+      "sha": "2fd005d71ac66f90cc80aef43c74153afb6a99f2"
+    }
+  ],
+  "productionStatus": {
+    "created_at": "2026-10-21T21:21:35Z",
+    "environment_url": "https://ramsider-gf9cx3c9c-askmi-6282s-projects.vercel.app",
+    "log_url": "https://ramsider-gf9cx3c9c-askmi-6282s-projects.vercel.app",
+    "state": "success"
+  },
+  "previewStatus": {
+    "created_at": "2026-10-21T21:22:09Z",
+    "environment_url": "https://ramsider-beta-mcjn56qg6-askmi-6282s-projects.vercel.app",
+    "log_url": "https://ramsider-beta-mcjn56qg6-askmi-6282s-projects.vercel.app",
+    "state": "success"
+  },
+  "canonicalURL": "https://ramsider-main.vercel.app/en#company",
+  "canonicalBrowser": [
+    {
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "variant": "delivery",
+      "footer": {
+        "width": 402,
+        "height": 428.59375
+      },
+      "art": {
+        "width": 402,
+        "height": 1105.59375,
+        "naturalWidth": 941,
+        "naturalHeight": 2588,
+        "ready": true
+      },
+      "background": "none",
+      "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif",
+      "mails": [
+        {
+          "text": "support@ramsider.com",
+          "href": "mailto:support@ramsider.com"
+        },
+        {
+          "text": "partners@ramsider.com",
+          "href": "mailto:partners@ramsider.com"
+        }
+      ],
+      "overflow": false,
+      "verticalTextureMeanRGBDelta30px": 2.524600938967136,
+      "errors": []
+    },
+    {
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "variant": "delivery",
+      "footer": {
+        "width": 440,
+        "height": 428.59375
+      },
+      "art": {
+        "width": 440,
+        "height": 1210.109375,
+        "naturalWidth": 941,
+        "naturalHeight": 2588,
+        "ready": true
+      },
+      "background": "none",
+      "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif",
+      "mails": [
+        {
+          "text": "support@ramsider.com",
+          "href": "mailto:support@ramsider.com"
+        },
+        {
+          "text": "partners@ramsider.com",
+          "href": "mailto:partners@ramsider.com"
+        }
+      ],
+      "overflow": false,
+      "verticalTextureMeanRGBDelta30px": 2.5671361502347416,
+      "errors": []
+    }
+  ],
+  "canonicalENARFacts": [
+    {
+      "locale": "en",
+      "status": "PASS",
+      "company": "RAMSIDER SMOKING & TOBACCO HEATING DEVICES TRADING CO. L.L.C",
+      "licence": "License No. 1050925",
+      "address": "Office No. D-28, Mohamed Hashem Alawi Al Saf Building, Al Murar, Dubai, UAE.",
+      "email": "mailto:support@ramsider.com",
+      "partnersEmail": "partners@ramsider.com",
+      "social": [
+        {
+          "label": "Instagram",
+          "href": "https://instagram.com/ramsider_official",
+          "text": ""
+        },
+        {
+          "label": "YouTube",
+          "href": "https://youtube.com/@ramsider_official",
+          "text": ""
+        }
+      ],
+      "licenceLinks": 0,
+      "phoneLinks": 0,
+      "dir": "ltr",
+      "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif",
+      "overflow": false,
+      "privatePdfHttpStatus": 404,
+      "companyPdfRequests": 0
+    },
+    {
+      "locale": "ar",
+      "status": "PASS",
+      "company": "RAMSIDER SMOKING & TOBACCO HEATING DEVICES TRADING CO. L.L.C",
+      "licence": "License No. 1050925",
+      "address": "Office No. D-28, Mohamed Hashem Alawi Al Saf Building, Al Murar, Dubai, UAE.",
+      "email": "mailto:support@ramsider.com",
+      "partnersEmail": "partners@ramsider.com",
+      "social": [
+        {
+          "label": "Instagram",
+          "href": "https://instagram.com/ramsider_official",
+          "text": ""
+        },
+        {
+          "label": "YouTube",
+          "href": "https://youtube.com/@ramsider_official",
+          "text": ""
+        }
+      ],
+      "licenceLinks": 0,
+      "phoneLinks": 0,
+      "dir": "rtl",
+      "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif",
+      "overflow": false,
+      "privatePdfHttpStatus": 404,
+      "companyPdfRequests": 0
+    }
+  ],
+  "canonicalCoal": [
+    {
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "variant": "final",
+      "footerHeight": 428.59375,
+      "emails": [
+        "support@ramsider.com",
+        "partners@ramsider.com"
+      ],
+      "errors": [],
+      "fragmentHasPlume": false
+    },
+    {
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "variant": "final",
+      "footerHeight": 428.59375,
+      "emails": [
+        "support@ramsider.com",
+        "partners@ramsider.com"
+      ],
+      "errors": [],
+      "fragmentHasPlume": false
+    }
+  ],
+  "canonicalRetention": [
+    {
+      "width": 402,
+      "kind": "entry",
+      "changedRGBA": 0
+    },
+    {
+      "width": 402,
+      "kind": "transition",
+      "changedRGBA": 0
+    },
+    {
+      "width": 402,
+      "kind": "footer",
+      "changedRGBA": 0
+    },
+    {
+      "width": 402,
+      "kind": "paper",
+      "changedRGBA": 0
+    },
+    {
+      "width": 402,
+      "coalPhase": 13.7,
+      "changedRGBA": 0
+    },
+    {
+      "width": 402,
+      "coalPhase": 15.2,
+      "changedRGBA": 0
+    },
+    {
+      "width": 402,
+      "coalPhase": 18.1,
+      "changedRGBA": 0
+    },
+    {
+      "width": 440,
+      "kind": "entry",
+      "changedRGBA": 0
+    },
+    {
+      "width": 440,
+      "kind": "transition",
+      "changedRGBA": 0
+    },
+    {
+      "width": 440,
+      "kind": "footer",
+      "changedRGBA": 0
+    },
+    {
+      "width": 440,
+      "kind": "paper",
+      "changedRGBA": 0
+    },
+    {
+      "width": 440,
+      "coalPhase": 13.7,
+      "changedRGBA": 0
+    },
+    {
+      "width": 440,
+      "coalPhase": 15.2,
+      "changedRGBA": 0
+    },
+    {
+      "width": 440,
+      "coalPhase": 18.1,
+      "changedRGBA": 0
+    }
+  ],
+  "publicAsset": {
+    "path": "/art/footer-paper.webp",
+    "bytes": 182184,
+    "sha": "ed5c0a2ecc03abb372c52a82ad831d1174e2a58394e90035af68db5f86a96f4c",
+    "exactCommittedBytes": true
+  },
+  "committed9HashesExact": true,
+  "privateSourcesAbsentFromCommit": true,
+  "rootActualPublicImagesViewed": [
+    "public-delivery-402-transition.png",
+    "public-delivery-440-footer.png",
+    "/tmp/ramsider-partners-no-smoke/public-final-402-15.2.png"
+  ],
+  "technicalApproval": "2026-10-22 /root APPROVED complete published delivery; independent /root/footer_publish_auditor finaltransport/canonical/records PASS",
+  "independentFinalTransportAudit": "PASS2026-10-22 /root/footer_publish_auditor freshGitHub exactmain/Alpha-beta/bothcontexts, actualpublicProMax/coal, independently14RGBApairs/9committedhashes/publicassetSHA/privateexclusions/records/JSON/whitespace",
+  "recordDisposition": "Postpublicationreceipt/current-memory/journal supplements local, no runtime changes or recursive documentation-only deployment",
+  "auditorReadLimitations": "Duplicate independent HTTP download sandboxDNS failed and connector deploymentendpoint unsupported; primary actual deployment receipts and saved canonical response independently validated, fresh connector SHA/contexts/branches successful."
+}

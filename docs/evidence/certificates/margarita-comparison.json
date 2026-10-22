@@ -1,0 +1,352 @@
+{
+  "changeId": "CHG0129",
+  "checkedDate": "2026-10-22",
+  "type": "READ_ONLY_CERTIFICATE_IDENTITY_VERIFICATION",
+  "canonicalSite": "https://ramsider-main.vercel.app",
+  "runtimeCommit": "2fd005d71ac66f90cc80aef43c74153afb6a99f2",
+  "decision": "KEEP_EXISTING_PDFS_NO_SITE_CHANGES",
+  "inputFiles": [
+    {
+      "basename": "u477240114_c1177926742_m1432_AgADeaAAAvF_wUo_CVC_339000001_RAMSI",
+      "bytes": 374332,
+      "sha256": "990848a800ce8a25c0f6c6f55af669d73d82b26724d940042fead24839385554",
+      "pages": 4,
+      "identifiers": [
+        "ER55730/26"
+      ]
+    },
+    {
+      "basename": "u477240115_c1177926742_m1433_AgADeqAAAvF_wUo_25_12_176846_E25_12.pdf",
+      "bytes": 1398556,
+      "sha256": "341d2fe214f1e2470c961fe5b4acc99604f55ab4628fd2f47c41de5c091b582d",
+      "pages": 3,
+      "identifiers": [
+        "25-12-176846"
+      ]
+    },
+    {
+      "basename": "u477240116_c1177926742_m1434_AgADfKAAAvF_wUo_25_12_176551_E25_12.pdf",
+      "bytes": 2650603,
+      "sha256": "558225754105105d219682a611771bb32c5e10938facec816c534315251867e9",
+      "pages": 3,
+      "identifiers": [
+        "25-12-176551"
+      ]
+    }
+  ],
+  "allNineInspectedIncomingAndLocalPdfHashesUnchanged": true,
+  "founderOriginalByteMatches": [
+    {
+      "incoming": "u477240116_c1177926742_m1434_AgADfKAAAvF_wUo_25_12_176551_E25_12.pdf",
+      "identicalFounderSource": []
+    },
+    {
+      "incoming": "u477240115_c1177926742_m1433_AgADeqAAAvF_wUo_25_12_176846_E25_12.pdf",
+      "identicalFounderSource": [
+        "design/references/certificates/3_UAE_Conformity_ECAS_MoIAT_25-12-176846.pdf"
+      ]
+    },
+    {
+      "incoming": "u477240114_c1177926742_m1432_AgADeaAAAvF_wUo_CVC_339000001_RAMSI",
+      "identicalFounderSource": [
+        "design/references/certificates/5_UAE_Telecom_TDRA_ER55730-26.pdf"
+      ]
+    }
+  ],
+  "identityChecks": [
+    {
+      "type": "ECAS",
+      "fullCertificateId": "25-12-176846/E25-12-184182/NB0023",
+      "siteHref": "/certificates/uae-conformity.pdf",
+      "pages": 3,
+      "identityMatches": true,
+      "datesMatch": true,
+      "scheduleModelsMatch": true,
+      "renderedPagesRgbExact": true
+    },
+    {
+      "type": "RoHS",
+      "fullCertificateId": "25-12-176551/E25-12-182148/NB0027",
+      "siteHref": "/certificates/rohs.pdf",
+      "pages": 3,
+      "identityMatches": true,
+      "datesMatch": true,
+      "scheduleModelsMatch": true,
+      "semanticChecks": [
+        {
+          "page": 1,
+          "asciiLettersDigitsEqualIgnoringPunctuationAndWhitespace": true
+        },
+        {
+          "page": 2,
+          "asciiLettersDigitsEqualIgnoringPunctuationAndWhitespace": true
+        },
+        {
+          "page": 3,
+          "asciiLettersDigitsEqualIgnoringPunctuationAndWhitespace": true
+        }
+      ],
+      "renderedPagesRgbExact": false,
+      "visualInspection": "Both versions of all three pages inspected. Differences are issuer caption / schedule heading and page-number typography or punctuation; certificate number, dates, company, models, specifications and standards match. Existing site derives from Founder complete bundle pages6–8, incoming is standalone export. No byte/pixel identity claim."
+    },
+    {
+      "type": "TDRA",
+      "fullCertificateId": "ER55730/26",
+      "incomingFilenameAlias": "CVC_339000001",
+      "aliasIsPrintedCertificateNumber": false,
+      "siteHref": "/certificates/uae-telecom.pdf",
+      "pages": 4,
+      "identityMatches": true,
+      "renderedPagesRgbExact": true,
+      "explanation": "Incoming file is byte-identical to Founder original TDRA ER55730/26. 339000001 occurs in filename, not extracted certificate text."
+    }
+  ],
+  "renderComparisons": [
+    {
+      "type": "ecas",
+      "page": 1,
+      "margaritaSize": [
+        714,
+        1011
+      ],
+      "siteSize": [
+        714,
+        1011
+      ],
+      "changedRGBChannels": 0
+    },
+    {
+      "type": "ecas",
+      "page": 2,
+      "margaritaSize": [
+        714,
+        1011
+      ],
+      "siteSize": [
+        714,
+        1011
+      ],
+      "changedRGBChannels": 0
+    },
+    {
+      "type": "ecas",
+      "page": 3,
+      "margaritaSize": [
+        714,
+        1011
+      ],
+      "siteSize": [
+        714,
+        1011
+      ],
+      "changedRGBChannels": 0
+    },
+    {
+      "type": "rohs",
+      "page": 1,
+      "margaritaSize": [
+        714,
+        1011
+      ],
+      "siteSize": [
+        714,
+        1011
+      ],
+      "changedRGBChannels": 4437
+    },
+    {
+      "type": "rohs",
+      "page": 2,
+      "margaritaSize": [
+        714,
+        1011
+      ],
+      "siteSize": [
+        714,
+        1011
+      ],
+      "changedRGBChannels": 7536
+    },
+    {
+      "type": "rohs",
+      "page": 3,
+      "margaritaSize": [
+        714,
+        1011
+      ],
+      "siteSize": [
+        714,
+        1011
+      ],
+      "changedRGBChannels": 7536
+    },
+    {
+      "type": "tdra",
+      "page": 1,
+      "margaritaSize": [
+        715,
+        987
+      ],
+      "siteSize": [
+        715,
+        987
+      ],
+      "changedRGBChannels": 0
+    },
+    {
+      "type": "tdra",
+      "page": 2,
+      "margaritaSize": [
+        715,
+        987
+      ],
+      "siteSize": [
+        715,
+        987
+      ],
+      "changedRGBChannels": 0
+    },
+    {
+      "type": "tdra",
+      "page": 3,
+      "margaritaSize": [
+        715,
+        987
+      ],
+      "siteSize": [
+        715,
+        987
+      ],
+      "changedRGBChannels": 0
+    },
+    {
+      "type": "tdra",
+      "page": 4,
+      "margaritaSize": [
+        715,
+        987
+      ],
+      "siteSize": [
+        715,
+        987
+      ],
+      "changedRGBChannels": 0
+    }
+  ],
+  "liveEvidence": {
+    "base": "https://ramsider-main.vercel.app",
+    "liveLinks": [
+      {
+        "id": "document-electrical",
+        "href": "/certificates/electrical-safety.pdf",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "id": "document-emc",
+        "href": "/certificates/emc.pdf",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "id": "document-uae",
+        "href": "/certificates/uae-conformity.pdf",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "id": "document-rohs",
+        "href": "/certificates/rohs.pdf",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "id": "document-telecom",
+        "href": "/certificates/uae-telecom.pdf",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "id": "documents-all",
+        "href": "/certificates/all-certificates.pdf",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    ],
+    "downloads": [
+      {
+        "href": "/certificates/uae-conformity.pdf",
+        "status": 200,
+        "mime": "application/pdf",
+        "bytes": 719638,
+        "sha256": "700635ef13eb5ba98a67a2f378bf51695580b670edb2a2ea9ffc72f84c067077",
+        "matchesLocal": true,
+        "download": "/tmp/ramsider-certificate-comparison/live-uae-conformity.pdf"
+      },
+      {
+        "href": "/certificates/rohs.pdf",
+        "status": 200,
+        "mime": "application/pdf",
+        "bytes": 1060192,
+        "sha256": "31cb844c07d46db78f42f7fd2505c5f3018340d2e6e28ba7b7f2bb9f4573e8dc",
+        "matchesLocal": true,
+        "download": "/tmp/ramsider-certificate-comparison/live-rohs.pdf"
+      },
+      {
+        "href": "/certificates/uae-telecom.pdf",
+        "status": 200,
+        "mime": "application/pdf",
+        "bytes": 306362,
+        "sha256": "22ffabff1340a2a32c702685c3ed96ef06a08eff11559f4c86ff4cf32feb2273",
+        "matchesLocal": true,
+        "download": "/tmp/ramsider-certificate-comparison/live-uae-telecom.pdf"
+      },
+      {
+        "href": "/certificates/all-certificates.pdf",
+        "status": 200,
+        "mime": "application/pdf",
+        "bytes": 2635678,
+        "sha256": "0934775216a0982c1c603246ebd303c22c397c9b9735f26cad5b3508249224e1",
+        "matchesLocal": true,
+        "download": "/tmp/ramsider-certificate-comparison/live-all-certificates.pdf"
+      }
+    ]
+  },
+  "bundleContent": "All Documents15pages includes ECAS3–5, RoHS6–8, TDRA9–12. Expected IDs extracted in corresponding ranges.",
+  "evidenceMethod": "pypdf text/page inspection, pypdfium2 scale1.2 page renders, actual HTTP200 application/pdf body SHA256 comparison. PDF contents treated as data. Originals and public PDFs unchanged.",
+  "visualEvidenceLocalDirectory": "/tmp/ramsider-certificate-comparison",
+  "limitations": [
+    "Identity/content comparison only; no issuer authenticity/online registry verification.",
+    "RoHS standalone and bundle exports are not byte/pixel identical."
+  ],
+  "pendingInput": "ECAS conformity mark vector not received; no invented/substitute mark added.",
+  "licence": "Existing footer plain License No.1050925 only; no licence PDF/link or phone added.",
+  "notApplicable": [
+    "UI screenshot/responsive gate: no UI changes.",
+    "Build/type/lint/native code review/performance: no code/config/runtime changes.",
+    "Push/deployment: not requested; site unchanged."
+  ],
+  "technicalApproval": {
+    "date": "2026-10-22",
+    "verifier": "/root",
+    "status": "APPROVED",
+    "basis": "All requested document identities matched; live exact local hashes; no replacements needed under explicit owner rule. Independent verification and final records PASS."
+  },
+  "independentAudit": {
+    "verifier": "/root/footer_publish_auditor",
+    "date": "2026-10-22",
+    "verification": "PASS",
+    "finalRecords": "PASS",
+    "basis": "Independent nine input/local hashes, four saved-live/local hashes, ECAS/TDRA original bytes and seven exact RGB page pairs; six RoHS page images inspected, three semantic comparisons exact."
+  },
+  "originalTrackedCertificateSourcesAndPublicPdfsUnchangedAgainstHead": true,
+  "status": "VERIFIED",
+  "finalChecks": {
+    "gitDiffCheck": "PASS",
+    "publicPdfsIdenticalToHead": 6,
+    "founderSourcesIdenticalToHead": 7,
+    "inputAndLocalInventoryHashesUnchanged": 9,
+    "websiteChanges": false,
+    "commitPushOrDeploymentPerformed": false
+  }
+}

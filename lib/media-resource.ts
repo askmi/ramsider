@@ -8,6 +8,30 @@ export type ImageResource = {
 const images = new Map<string, ImageResource>();
 const failed = new Set<string>();
 const decoded = new WeakMap<HTMLImageElement, Promise<void>>();
+const foregroundPause = 'foreground-reading';
+const optionalTransfers = new Set<AbortController>();
+const optionalWaiters = new Set<() => void>();
+let optionalPauses = 0;
+
+/** Foreground native reading takes bandwidth from unfinished gallery warming. */
+export function pauseOptionalImageTransfers(): () => void {
+  optionalPauses++;
+  optionalTransfers.forEach(controller => controller.abort(foregroundPause));
+  let released = false;
+  return () => {
+    if (released) return;
+    released = true;
+    if (--optionalPauses === 0) {
+      optionalWaiters.forEach(resolve => resolve());
+      optionalWaiters.clear();
+    }
+  };
+}
+
+async function waitForOptionalTransfers() {
+  // A release followed by immediate reopening must retain the new owner's pause.
+  while (optionalPauses) await new Promise<void>(resolve => optionalWaiters.add(resolve));
+}
 /** Optional media waits for decoded story pixels, including below-fold artwork. */
 export function waitForStoryMedia(rejectOnFailure = false): Promise<void> {
   if (document.documentElement.hasAttribute('data-story-media-ready')) return Promise.resolve();
@@ -89,35 +113,57 @@ export function loadImage(src: string, priority: 'low' | 'auto' | 'high' = 'low'
         await waitForStoryMedia();
       }
       update({ error: false });
-      // A corrupt HTTP 200 can survive in the browser cache after decode fails.
-      const response = await fetch(src, { priority, cache: failed.has(src) ? 'reload' : 'default' } as RequestInit);
-      if (!response.ok) throw new Error(`Image response ${response.status}`);
-      // Compressed transfers do not have a reliable decoded byte denominator.
-      const length = Number(response.headers.get('content-length'));
-      const total = !response.headers.get('content-encoding') && length > 0 ? length : null;
-      update({ total });
-      const chunks: Uint8Array<ArrayBuffer>[] = [];
-      const reader = response.body?.getReader();
-      if (reader) {
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          chunks.push(new Uint8Array(value));
-          update({ loaded: resource.progress.loaded + value.byteLength });
+      let interrupted = false;
+      for (;;) {
+        await waitForOptionalTransfers();
+        const controller = new AbortController();
+        optionalTransfers.add(controller);
+        try {
+          update({ loaded: 0, total: null });
+          // A corrupt HTTP 200 can survive in the browser cache after decode fails.
+          // A partially aborted warm response must also restart with complete bytes.
+          const response = await fetch(src, { priority, signal: controller.signal, cache: interrupted || failed.has(src) ? 'reload' : 'default' } as RequestInit);
+          if (!response.ok) throw new Error(`Image response ${response.status}`);
+          // Compressed transfers do not have a reliable decoded byte denominator.
+          const length = Number(response.headers.get('content-length'));
+          const total = !response.headers.get('content-encoding') && length > 0 ? length : null;
+          update({ total });
+          const chunks: Uint8Array<ArrayBuffer>[] = [];
+          const reader = response.body?.getReader();
+          if (reader) {
+            while (true) {
+              const { done, value } = await reader.read();
+              if (done) break;
+              chunks.push(new Uint8Array(value));
+              update({ loaded: resource.progress.loaded + value.byteLength });
+            }
+          } else {
+            chunks.push(new Uint8Array(await response.arrayBuffer()));
+            update({ loaded: chunks[0].byteLength });
+          }
+          if (total !== null && resource.progress.loaded !== total) throw new Error('Incomplete image transfer');
+          // Complete transfers/decodes need no bandwidth and keep their existing cache.
+          optionalTransfers.delete(controller);
+          objectURL = URL.createObjectURL(new Blob(chunks, { type: response.headers.get('content-type') ?? 'application/octet-stream' }));
+          const image = new Image();
+          image.dataset.source = src;
+          image.src = objectURL;
+          await decodeImageElement(image);
+          failed.delete(src);
+          update({ ready: true });
+          return image;
+        } catch (error) {
+          // The reason survives a quick Close before this catch runs. A foreground
+          // pause is pending work, never a failed image or a rejected shared promise.
+          if (controller.signal.aborted && controller.signal.reason === foregroundPause) {
+            interrupted = true;
+            continue;
+          }
+          throw error;
+        } finally {
+          optionalTransfers.delete(controller);
         }
-      } else {
-        chunks.push(new Uint8Array(await response.arrayBuffer()));
-        update({ loaded: chunks[0].byteLength });
       }
-      if (total !== null && resource.progress.loaded !== total) throw new Error('Incomplete image transfer');
-      objectURL = URL.createObjectURL(new Blob(chunks, { type: response.headers.get('content-type') ?? 'application/octet-stream' }));
-      const image = new Image();
-      image.dataset.source = src;
-      image.src = objectURL;
-      await decodeImageElement(image);
-      failed.delete(src);
-      update({ ready: true });
-      return image;
     } catch (error) {
       if (objectURL) URL.revokeObjectURL(objectURL);
       images.delete(src);

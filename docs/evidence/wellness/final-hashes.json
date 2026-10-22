@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-22",
+  "sourcePngsUnchanged": 5,
+  "usedPublicSourceByteExact": 4,
+  "unusedLandingSourceNotServed": true,
+  "fonts": [
+    {
+      "name": "opensans-light.ttf",
+      "sha256": "0ceb0091b5426ef576c9e8f9f17fb010c3bddbb405250742887eeba92b382b4d",
+      "sourceExistingExact": true
+    },
+    {
+      "name": "opensans-regular.ttf",
+      "sha256": "33e93bec67d91c396876db50694213802a39e43a911bb5c22322f0dbdf4d5e43",
+      "sourceExistingExact": true
+    },
+    {
+      "name": "opensans-bold.ttf",
+      "sha256": "5f4c6f0c6beae94863a099a7a538059c480f91587f1abffc06552e9fa3a44f40",
+      "sourceExistingExact": true
+    },
+    {
+      "name": "opensans-button.ttf",
+      "sha256": "c53aceea2dcf5b4098099c0c4d0a061d17e178a049317b42a422b1a9f7f8eb59",
+      "sourceExistingExact": true
+    }
+  ],
+  "priorTrackedPublicFilesByteIdenticalToHead": 217,
+  "nativeReviewCodeTestSnapshotExact": [
+    "app/globals.css",
+    "components/Story.tsx",
+    "lib/story.ts",
+    "lib/media-resource.ts",
+    "components/WellnessPhoto.tsx",
+    "components/WellnessRibbon.tsx",
+    "components/WellnessViewer.tsx",
+    "lib/wellness.ts",
+    "lib/wellness-en.json",
+    "lib/wellness-assets.json",
+    "lib/wellness-translations.ts",
+    "tests/e2e/wellness.spec.ts"
+  ],
+  "sourceNoICCNoGammaPreserved": true,
+  "runtimeFilesSha256": {
+    "app/globals.css": "9af80eab5a38df7727b3d7ef4b02ad3eb1bba5706c1327b60ffa0e10de614edf",
+    "components/Story.tsx": "3686777af29a34d5ec5cd6d70b0f2dcbecba5bf7fb4fff5a78e80c6267f223e1",
+    "lib/story.ts": "cf2a8e39a408ed0882881d19779efb9fb93cea9e0d233b89b83f8a8bb829c8b2",
+    "lib/media-resource.ts": "1404fb2bdd90dc939de439afe4b7dbf65107026820aa832df2be338678b7f449",
+    "components/WellnessPhoto.tsx": "e7c0506bfa885036ac094672e1aa6e5b71b85029eb3e30645d954259fe92a037",
+    "components/WellnessRibbon.tsx": "96144ef33174af0fa1308eee74a73d59d9d0d16b913c2353e71d7a88245b85f2",
+    "components/WellnessViewer.tsx": "cc1ae9e49d80a5c9157a09812262b5ca789d236a51e66baa07082c36e1cb8b55",
+    "lib/wellness.ts": "6df10b5aac043ec4e67fce5da4889e7b915256b5e3c5a0e894a05cf64c54e7c1",
+    "lib/wellness-en.json": "234dade13107f10145f34f1b6193685a5d480aa6a00ee16ba1b6b49458dd806e",
+    "lib/wellness-assets.json": "40a0ecee5a6ba943f9c17cfe0baaeaaa28c7ccc7185e7e96db2090c57959c005",
+    "lib/wellness-translations.ts": "93615a74f4b1064665dcf3cca0a7070a3d7d21c293551120c6e8c4a51de8cf4a",
+    "tests/e2e/wellness.spec.ts": "c2db0784fabcae94b1985105f810a6e219c10d6270a1008bc2553b912234f828"
+  }
+}

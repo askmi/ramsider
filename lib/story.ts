@@ -53,7 +53,7 @@ export const storyNodes: StoryNode[] = [
   n('beyond', 190, 11730, 560, 57, 'title', 'center', undefined, undefined, 'beyond'),
   n('beyondBody', 190, 11818, 560, 29, 'body', 'center'),
   n('beyondMore', 190, 11920, 560, 29, 'body', 'center'),
-  n('learn', 365, 12020, 210, 28, 'button', 'center', '#expressions', undefined, 'beyond-learn'),
+  n('learn', 365, 12020, 210, 28, 'button', 'center', undefined, undefined, 'beyond-learn'),
   n('technologies', 200, 13182, 490, 25, 'button', 'center', undefined, 'technology', 'technology-repeat'),
   n('open', 285, 13258, 330, 16, 'small', 'center'),
   n('expressions', 160, 14710, 620, 57, 'title', 'center', undefined, undefined, 'expressions'),

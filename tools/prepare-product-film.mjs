@@ -1,6 +1,6 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { createReadStream, createWriteStream } from 'node:fs';
-import { readFile, mkdir, rename, rm, stat, readdir, copyFile } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, rename, rm, stat, readdir, copyFile } from 'node:fs/promises';
 import { Readable, Transform } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
 import { spawnSync } from 'node:child_process';
@@ -87,7 +87,14 @@ async function prepare(asset) {
 try {
   await mkdir(path.join(root, 'public/vendor'), { recursive: true });
   await copyFile(path.join(root, 'node_modules/hls.js/dist/hls.worker.js'), path.join(root, 'public/vendor/hls-worker-1.7.3.js'));
-  await copyFile(path.join(root, 'node_modules/hls.js/dist/hls.worker.js.map'), path.join(root, 'public/vendor/hls.worker.js.map'));
+  // Preserve upstream executable bytes; production does not need its optional debug map.
+  // A new URL keeps the previously published immutable worker unchanged.
+  const worker = await readFile(path.join(root, 'node_modules/hls.js/dist/hls.worker.js'));
+  const mapping = Buffer.from('//# sourceMappingURL=hls.worker.js.map');
+  const mappingAt = worker.lastIndexOf(mapping);
+  if (mappingAt < 0 || worker.subarray(mappingAt + mapping.length).toString().trim()) throw new FilmError('Unexpected upstream worker source map trailer.');
+  await writeFile(path.join(root, 'public/vendor/hls-worker-1.7.3-runtime.js'), worker.subarray(0, mappingAt));
+  await rm(path.join(root, 'public/vendor/hls.worker.js.map'), { force: true });
   const active = registry.assets.filter(asset => asset.active).map(asset => `${asset.id}/${asset.audioLocale}`);
   if (new Set(active).size !== active.length) throw new FilmError('Duplicate active film audio version.');
   for (const asset of registry.assets) { await prepare(asset); console.log(`Film package verified: ${asset.id}/${asset.audioLocale}/${asset.version}.`); }

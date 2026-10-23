@@ -1,15 +1,16 @@
 {
   "date": "2026-10-24",
-  "status": "VERIFIED_LOCAL_ROOT_APPROVED_READY_FOR_PUBLICATION",
+  "status": "METADATA_FOLLOWUP_VERIFIED_LOCAL_PUBLICATION_PENDING",
   "scope": "Chrome iPhone identity routing, desktop Safari MSE/replay cache, bounded fallback; native iPhone/iPad retained",
   "sourceHashes": {
-    "lib/film-playback.ts": "8aef59b5282db679e19d99dd643943123353becb66dc194e98e3d3e9ee7d7338",
-    "tools/prepare-product-film.mjs": "ea89454ff63f4884600ef31497a2c0ab5c9c990253ccdf0280dfeebf1a7e9fae",
+    "lib/film-playback.ts": "9ed2108ee76e1a2ca7ea545bf17ee0e8899f48f128ed5cb6b5be251c6c774e9c",
+    "tools/prepare-product-film.mjs": "70855a57357ea943eab32ae01fa288103b95c7ca1cf4c4de99094dd22ab16bbd",
     "eslint.config.mjs": "d1f1d4c80ac76dfb69866d26208dccaf66a963cc0451a27973c166a5c94e1667",
     "playwright.config.mjs": "92ce278bfdb9cf7fc0c1e31b32484494777cf07d59e70a67cd37ca30a5b3f217",
     ".gitignore": "137cee2d381c14427daa9f0f5e0d8a03fbd39f763ddacd8c66dd6fa782f9b68c",
     "tests/e2e/product-film.spec.ts": "a75811f5c3bbb521026b186eb60bc0941919a5497fe92c2bd26131b63fe54730",
-    ".agents/skills/mobile-hls-video/references/specification.md": "509764998a4a2d656ab6424ae6c2ece357992ee2ed174368e176121bcb253b44"
+    ".agents/skills/mobile-hls-video/references/specification.md": "509764998a4a2d656ab6424ae6c2ece357992ee2ed174368e176121bcb253b44",
+    "next.config.mjs": "f15a15f40e9ab5c8e81d7a42ce46f591098ec487481b1571eeb14bb18d5972b4"
   },
   "tests": {
     "finalFilmMatrix": {
@@ -32,6 +33,12 @@
       "passed": 4,
       "failed": 0,
       "log": "/tmp/ramsider-hls-incident-assembled.log"
+    },
+    "be81799Public": {
+      "passed": 7,
+      "skipped": 9,
+      "failed": 0,
+      "log": "/tmp/ramsider-hls-incident-public-checks.log"
     }
   },
   "actualSafari": "hls-incident-real-safari-mse.json",
@@ -51,9 +58,24 @@
     "gate4": "PASS",
     "gate5": "PASS",
     "prepublicationGate6": "PASS 2026-10-24",
-    "postpublicationGate6": "PENDING"
+    "postpublicationGate6": "PENDING",
+    "metadataFollowup": "Scope1 Gate4 Gate5 PrepublicationGate6 PASS2026-10-24"
   },
-  "publication": "PENDING",
+  "publication": {
+    "sha": "be817995ebb6bbaac46d5ad29aa8094d82ece01b",
+    "deployments": {
+      "production": 7290388833,
+      "preview": 7290376627
+    },
+    "providerStatus": "both success",
+    "debugMapPublic": {
+      "status": 403,
+      "bytes": 1,
+      "nativeSafariConfirmed": true,
+      "cause": "UNKNOWN",
+      "notPlaybackFailure": true
+    }
+  },
   "limits": [
     "ExactownerhistoricalfourthstallcauseUNKNOWN",
     "ActualSafariGUIintervalsamplesnotcontinuousstalltrace",
@@ -65,6 +87,23 @@
   "technicalApproval": {
     "verifier": "/root",
     "date": "2026-10-24",
-    "scope": "Chrome/Mac routing andboundedrecovery, qualifiedactualMacreplaybehavior"
+    "scope": "Chrome/Mac routing andboundedrecovery, qualifiedactualMacreplaybehavior",
+    "metadata": "2026-10-24 /root APPROVED exactprefix/newURL/relevantHTTPbrowserstaticreviewevidence"
+  },
+  "metadataFollowup": {
+    "status": "ROOT_TECHNICAL_APPROVED_2026-10-24",
+    "worker": "hls-incident-worker-metadata.json",
+    "actualSafari": "hls-incident-real-safari-metadata.json",
+    "core": {
+      "passed": 5,
+      "skipped": 3,
+      "log": "/tmp/ramsider-hls-metadata-core.log"
+    },
+    "static": {
+      "type": "PASS",
+      "lint": "PASS0errors1inheritedwarning",
+      "build": "PASS11SSG"
+    },
+    "review": "NativeCodexCLEAN /tmp/ramsider-hls-metadata-review-final.log; reviewer checkout lacks dependencies; root independently ran full checks"
   }
 }

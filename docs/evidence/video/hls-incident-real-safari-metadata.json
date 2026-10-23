@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-24",
+  "origin": "http://127.0.0.1:3174",
+  "source": "Actual Mac Safari UI; selected non-sensitive own-site rows",
+  "observedAX": [
+    "\t\t\t\t\t\t\t47 text {\\\"video\\\":[{\\\"time\\\":50.142950834,\\\"height\\\":1080,\\\"engine\\\":\\\"mse-hls\\\"}],\\\"workers\\\":[\\\"/vendor/hls-worker-1.7.3-runtime.js\\\"]}",
+    "\t\t\t\t\t\t\t\t70 text Elapsed: 50 seconds"
+  ],
+  "consoleResourceErrorsObserved": false,
+  "cleanup": {
+    "src": null,
+    "paused": true,
+    "network": 0,
+    "ready": 0
+  },
+  "seek": "Native SkipForward control; observed50.14295s1080p"
+}

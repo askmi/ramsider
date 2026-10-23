@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-24",
+  "status": "PREFIX_SYNTAX_HTTP_MSE_SMOKE_PASS",
+  "originalBytes": 118233,
+  "runtimeBytes": 118194,
+  "exactExecutablePrefix": true,
+  "onlyRemoved": "//# sourceMappingURL=hls.worker.js.map\n",
+  "sha256": "d71badefeaa6e00c679deb68f46f4989959afbc272fdc6e00a6006dc28b2343e",
+  "oldWorkerUnchanged": true,
+  "mapAbsent": true,
+  "localSmoke": {
+    "origin": "http://127.0.0.1:3174",
+    "http": {
+      "status": 200,
+      "type": "application/javascript; charset=UTF-8",
+      "cache": "public, max-age=31536000, immutable",
+      "exact": true,
+      "noMapping": true
+    },
+    "runs": [
+      {
+        "name": "systemChrome",
+        "engine": "mse-hls",
+        "cleared": true,
+        "errors": [],
+        "workers": [
+          "/vendor/hls-worker-1.7.3-runtime.js"
+        ]
+      },
+      {
+        "name": "desktopWebKit",
+        "engine": "mse-hls",
+        "cleared": true,
+        "errors": [],
+        "workers": [
+          "/vendor/hls-worker-1.7.3-runtime.js"
+        ]
+      }
+    ]
+  }
+}

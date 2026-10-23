@@ -154,7 +154,7 @@ export function playProductFilm(video: HTMLVideoElement) {
     video.dataset.playback = 'mse-hls';
     hls = new Engine({
       autoStartLoad: false,
-      workerPath: '/vendor/hls-worker-1.7.3.js',
+      workerPath: '/vendor/hls-worker-1.7.3-runtime.js',
       lowLatencyMode: false,
       maxBufferLength: 6,
       maxMaxBufferLength: 8,

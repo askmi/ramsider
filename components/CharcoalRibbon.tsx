@@ -7,7 +7,7 @@ import { CharcoalArtwork } from './CharcoalArtwork';
 
 export function CharcoalRibbon({ locale }: { locale: Locale }) {
   const copy = charcoalCopy[locale];
-  return <CharcoalViewer closeLabel={t(locale, 'close')}>
+  return <CharcoalViewer locale={locale} closeLabel={t(locale, 'close')}>
     <article className="charcoal-ribbon" data-locale={locale}>
       {charcoalSections.map((section, index) => <section key={section.key} className={`charcoal-section charcoal-section--${index + 1}`}
         aria-labelledby={index === 0 ? 'charcoal-title' : `charcoal-${section.key}`}

@@ -1,12 +1,11 @@
 import { test, expect, type Page } from '@playwright/test';
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
-import { createServer } from 'node:http';
 import sharp from 'sharp';
 
 const dialog = '#wellness-viewer', scroll = '.wellness-scroll';
 const root = 'design/references/RAMSIDER_Wellness_TOP/';
-const photos = ['01-ritual_uno_white_v3.png', '03-botanicals.png', '04-capsules_v3.png', '02-water_bouquet.png'];
+const photos = ['01-ritual_uno_white_v3.webp', '03-botanicals.webp', '04-capsules_v3.webp', '02-water_bouquet.webp'];
 async function landing(page: Page, locale = 'en') {
   await page.goto(`/${locale}`);
   await page.waitForFunction(() => document.documentElement.hasAttribute('data-media-hydrated'));
@@ -24,7 +23,7 @@ async function decoded(page: Page) {
       image.loading = 'eager'; await image.decode();
     }));
   });
-  await expect(page.locator('.wellness-photo').first()).toHaveAttribute('data-state','ready');
+  await expect(page.locator('.wellness-photo img[data-media-ready]')).toHaveCount(4,{timeout:30000});
 }
 async function buttonContrast(button: import('@playwright/test').Locator) {
   return button.evaluate(e => {
@@ -40,7 +39,7 @@ async function frame(page: Page) {
   await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
 }
 
-test('exact source copy, original PNG delivery, every photo entry and complete reading', async ({ page }, info) => {
+test('exact source copy, lossless sRGB WebP delivery, every photo entry and complete reading', async ({ page }, info) => {
   test.setTimeout(120000); await page.emulateMedia({ reducedMotion: 'reduce' });
   const errors: string[] = [], requests: string[] = [];
   page.on('pageerror', e => errors.push(e.message));
@@ -67,15 +66,21 @@ test('exact source copy, original PNG delivery, every photo entry and complete r
   for (let i = 0; i < photos.length; i++) {
     const image = modal.locator('img').nth(i), figure = modal.locator('.wellness-photo').nth(i);
     const response = await page.request.get(`/art/wellness/${photos[i]}`);
-    expect(response.status()).toBe(200); expect(response.headers()['content-type']).toContain('image/png');
-    expect(createHash('sha256').update(await response.body()).digest('hex')).toBe(createHash('sha256').update(await readFile(`${root}assets/${photos[i]}`)).digest('hex'));
+    expect(response.status()).toBe(200); expect(response.headers()['content-type']).toContain('image/webp');
+    const body = await response.body();
+    expect(createHash('sha256').update(body).digest('hex')).toBe(createHash('sha256').update(await readFile(`public/art/wellness/${photos[i]}`)).digest('hex'));
+    const metadata = await sharp(body).metadata();
+    expect(metadata.format).toBe('webp'); expect(metadata.icc?.length).toBeGreaterThan(0);
+    const decodedPixels = await sharp(body, { ignoreIcc: true }).ensureAlpha().raw().toBuffer();
+    const master = await sharp(`${root}assets/${photos[i].replace('.webp', '.png')}`, { ignoreIcc: true }).ensureAlpha().raw().toBuffer();
+    expect(decodedPixels.equals(master)).toBe(true);
     const size = await image.evaluate(element => { const e=element as HTMLImageElement,b=e.getBoundingClientRect(),s=getComputedStyle(e); return {width:b.width,height:b.height,natural:[e.naturalWidth,e.naturalHeight],fit:s.objectFit,position:s.objectPosition}; });
     expect(size.natural).toEqual([1024,1536]); expect(size.width).toBeCloseTo(width, 0);expect(size.fit).toBe('cover');
     expect(size.height).toBeCloseTo(width * (i === 0 ? (viewport.width >= 600 ? 1 : 1.5) : 1.25), 0);
     const y = await figure.evaluate(e => (e as HTMLElement).offsetTop);
     // First128px entry must contain the actual image, not a flat decoded placeholder.
     await page.locator(scroll).evaluate((s, top) => s.scrollTo({top,behavior:'instant'}), Math.max(0,y-viewport.height+128)); await frame(page);
-    await expect(figure).toHaveAttribute('data-state','ready');
+    await expect(figure.locator('img')).toHaveAttribute('data-media-ready','');
     const box = (await figure.boundingBox())!, shot = await page.screenshot({path:`screenshots/wellness/entry-${info.project.name}-${i}.png`,scale:'css'});
     const top = Math.max(0,Math.ceil(box.y)), h = Math.min(100,viewport.height-top-2);
     const pixels = await sharp(shot).extract({left:Math.ceil(box.x)+4,top,width:Math.floor(box.width)-8,height:h}).removeAlpha().raw().toBuffer({resolveWithObject:true});
@@ -122,17 +127,17 @@ test('keyboard, page lock, three close paths and immediate repeated reopen', asy
   if(page.viewportSize()!.width>640){await page.mouse.click(20,200);await expect(modal).not.toBeVisible();}
 });
 
-test('failed photo Retry recovers unchanged PNG; Close works while pending', async ({page}) => {
-  test.setTimeout(120000);await page.emulateMedia({reducedMotion:'reduce'});let fail=true;const bytes=await readFile(`${root}assets/${photos[0]}`);
-  await page.route(`**/art/wellness/${photos[0]}*`,route=> fail?route.fulfill({status:503,body:'Unavailable'}):route.fulfill({status:200,contentType:'image/png',body:bytes}));
+test('failed photo Retry recovers lossless WebP; Close works while pending', async ({page}) => {
+  test.setTimeout(120000);await page.emulateMedia({reducedMotion:'reduce'});let fail=true;const bytes=await readFile(`public/art/wellness/${photos[0]}`);
+  await page.route(`**/art/wellness/${photos[0]}*`,route=> fail?route.fulfill({status:503,body:'Unavailable'}):route.fulfill({status:200,contentType:'image/webp',body:bytes}));
   await open(page);const modal=page.locator(dialog),photo=modal.locator('.wellness-photo').first();
-  await expect(photo.locator('button')).toHaveText('Retry');
-  expect(await buttonContrast(photo.locator('button'))).toBeGreaterThanOrEqual(4.5);
+  await expect(modal.getByRole('button',{name:'Retry',exact:true})).toBeVisible();
+  expect(await buttonContrast(modal.getByRole('button',{name:'Retry',exact:true}))).toBeGreaterThanOrEqual(4.5);
   await page.screenshot({path:'screenshots/wellness/error.png',scale:'css'});
-  fail=false;await photo.getByRole('button',{name:'Retry',exact:true}).click();await expect(photo).toHaveAttribute('data-state','ready');
+  fail=false;await modal.getByRole('button',{name:'Retry',exact:true}).click();await expect(photo.locator('img')).toHaveAttribute('data-media-ready','');
   await page.keyboard.press('Escape');await expect(modal).not.toBeVisible();
   let release!:()=>void;const wait=new Promise<void>(resolve=>release=resolve);
-  await page.route(`**/art/wellness/${photos[0]}*`,async route=>{await wait;await route.fulfill({status:200,contentType:'image/png',body:bytes}).catch(()=>{});});
+  await page.route(`**/art/wellness/${photos[0]}*`,async route=>{await wait;await route.fulfill({status:200,contentType:'image/webp',body:bytes}).catch(()=>{});});
   await page.locator('#beyond-learn').click();await expect(modal.locator('.wellness-close')).toBeVisible();
   await modal.locator('.wellness-close').click();await expect(modal).not.toBeVisible();release();
 });
@@ -171,20 +176,8 @@ test('text reveal and reduced motion react to preference changes',async({page},i
   for(const text of await page.locator('.wellness-reveal').all()){expect(await text.evaluate(e=>getComputedStyle(e).opacity)).toBe('1');expect(await text.evaluate(e=>getComputedStyle(e).transform)).toBe('none');}
 });
 
-test('early opening waits for failed landing artwork and one Retry resumes without closing',async({page},info)=>{
-  test.skip(info.project.name!=='iphone-17-pro-webkit','Prerequisite recovery sampled once; media priority suite covers other viewers.');test.setTimeout(120000);
-  let fail=true;const requests:string[]=[];
-  await page.route('**/art/11.webp*',route=>fail?route.fulfill({status:503,body:'Unavailable'}):route.continue());
-  page.on('request',r=>{if(r.url().includes('/art/wellness/'))requests.push(r.url());});
-  await page.goto('/en');await page.waitForFunction(()=>document.documentElement.hasAttribute('data-media-hydrated'));
-  // Controlled early activation while the normal main-media gate owns pointer access.
-  await page.locator('#beyond-learn').evaluate(e=>(e as HTMLButtonElement).click());
-  await expect(page.locator(`${dialog}[open]`)).toBeVisible();
-  await expect(page.locator('.wellness-wait button')).toHaveText('Retry');expect(requests).toEqual([]);
-  expect(await buttonContrast(page.locator('.wellness-wait button'))).toBeGreaterThanOrEqual(4.5);
-  fail=false;await page.locator('.wellness-wait button').click();await expect(page.locator('.wellness-ribbon')).toBeVisible();
-  await expect(page.locator('.wellness-photo').first()).toHaveAttribute('data-state','ready');expect(requests.length).toBeGreaterThan(0);
-  await page.locator('.wellness-close').click();await expect(page.locator(dialog)).not.toBeVisible();
+test('early opening shows a preview independently of failed later landing artwork',async({page},info)=>{
+ test.skip(info.project.name!=='iphone-17-pro-webkit','Priority acceptance also runs loading-flow on all profiles.');await page.route('**/art/11.webp*',route=>route.fulfill({status:503,body:'Unavailable'}));await page.goto('/en');await page.waitForFunction(()=>document.documentElement.hasAttribute('data-media-hydrated'));await page.locator('#beyond-learn').evaluate((e:HTMLElement)=>e.click());await expect(page.locator('.wellness-ribbon')).toBeVisible();await expect(page.locator('.wellness-photo img').first()).toHaveAttribute('data-preview','ready');await page.locator('.wellness-close').click();
 });
 
 test('delayed next photo retains geometry and paints on release, safe-area controls stay usable',async({page},info)=>{
@@ -193,9 +186,9 @@ test('delayed next photo retains geometry and paints on release, safe-area contr
   await page.route(`**/art/wellness/${photos[1]}*`,async route=>{await waiting;await route.continue().catch(()=>{});});
   await open(page);const photo=page.locator('.wellness-photo').nth(1),viewport=page.locator(scroll);
   const y=await photo.evaluate(e=>(e as HTMLElement).offsetTop);await viewport.evaluate((s,top)=>s.scrollTo({top,behavior:'instant'}),y);
-  await expect(photo).toHaveAttribute('data-state','pending');const before=(await photo.boundingBox())!;
-  await expect(photo.getByRole('status')).toBeVisible();await page.screenshot({path:`screenshots/wellness/delayed-${info.project.name}.png`,scale:'css'});
-  release();await expect(photo).toHaveAttribute('data-state','ready');const after=(await photo.boundingBox())!;expect(after.height).toBeCloseTo(before.height,0);expect(after.y).toBeCloseTo(before.y,0);
+  await expect(photo.locator('img')).not.toHaveAttribute('data-media-ready','');const before=(await photo.boundingBox())!;
+  await expect(photo.locator('img')).toHaveAttribute('data-preview','ready');await expect(page.locator(`${dialog} .media-orbit`)).toHaveCount(0);await page.screenshot({path:`screenshots/wellness/delayed-${info.project.name}.png`,scale:'css'});
+  release();await expect(photo.locator('img')).toHaveAttribute('data-media-ready','');const after=(await photo.boundingBox())!;expect(after.height).toBeCloseTo(before.height,0);expect(after.y).toBeCloseTo(before.y,0);
   await frame(page);await page.screenshot({path:`screenshots/wellness/recovered-${info.project.name}.png`,scale:'css'});
   // Synthetic inset geometry supplements, never certifies physical browser chrome.
   await page.addStyleTag({content:'.wellness-close{top:59px;right:24px}.wellness-end{padding-bottom:70px}'});
@@ -223,117 +216,6 @@ test('320 and 375 EN/AR preserve photo, controls and full end access',async({pag
   await writeFile('screenshots/wellness/narrow-geometry.json',JSON.stringify(rows,null,2));
 });
 
-test('foreground reading pauses gallery warming and resumes intact resources after closing',async({page},info)=>{
-  test.skip(!info.project.name.includes('iphone'),'Foreground priority on both required mobile profiles.');test.setTimeout(120000);
-  await page.addInitScript(()=>{
-    const original=window.fetch;
-    type Trace={event:string;path:string;wellnessOpen:boolean};
-    const trace:Trace[]=[];(window as unknown as {wellnessTransferTrace:Trace[]}).wellnessTransferTrace=trace;
-    window.fetch=(input,options)=>{
-      const path=new URL(typeof input==='string'?input:input instanceof URL?input.href:input.url,location.href).pathname;
-      if(/\/art\/(charcoal\/|technology\/slides\/)/.test(path)){
-        const record=(event:string)=>trace.push({event,path,wellnessOpen:!!document.querySelector('#wellness-viewer[open]')});record('fetch');
-        options?.signal?.addEventListener('abort',()=>record('abort'),{once:true});
-      }
-      return original(input,options);
-    };
-  });
-  let release!:()=>void;const held=new Promise<void>(resolve=>release=resolve);
-  await page.route('**/art/charcoal/1-0.webp',async route=>{await held;await route.continue().catch(()=>{});});
-  try{
-    await landing(page);await page.waitForFunction(()=>document.documentElement.hasAttribute('data-story-media-ready'));
-    await page.waitForFunction(()=>(window as unknown as {wellnessTransferTrace:{event:string;path:string}[]}).wellnessTransferTrace.some(e=>e.event==='fetch'&&e.path.endsWith('/1-0.webp')));
-    await page.locator('#beyond-learn').click();await expect(page.locator('.wellness-photo').first()).toHaveAttribute('data-state','ready');
-    await page.waitForFunction(()=>(window as unknown as {wellnessTransferTrace:{event:string}[]}).wellnessTransferTrace.some(e=>e.event==='abort'));
-    await page.locator('.wellness-close').click();await page.locator('#beyond-learn').press('Enter');await expect(page.locator(dialog)).toBeVisible();
-    release();await frame(page);
-    const trace=await page.evaluate(()=>(window as unknown as {wellnessTransferTrace:{event:string;path:string;wellnessOpen:boolean}[]}).wellnessTransferTrace);
-    expect(trace.filter(e=>e.event==='fetch'&&e.wellnessOpen)).toEqual([]);
-    await expect(page.locator(`${dialog} .media-loading button`)).toHaveCount(0);
-    await page.locator('.wellness-close').click();
-    await page.locator('#fire-learn').evaluate(e=>e.scrollIntoView({block:'center',behavior:'instant'}));await page.locator('#fire-learn').click();
-    await expect(page.locator('.charcoal-art[data-charcoal-ready=true]')).toHaveCount(12,{timeout:30000});
-    await expect(page.locator('#charcoal-viewer .media-loading button')).toHaveCount(0);
-    await writeFile(`screenshots/wellness/foreground-priority-${info.project.name}.json`,JSON.stringify(await page.evaluate(()=>(window as unknown as {wellnessTransferTrace:unknown}).wellnessTransferTrace),null,2));
-  }finally{release();}
-});
-
-test('partial native transfer survives release before abort rejection and synchronous reopen', async ({ page }, info) => {
-  test.skip(!info.project.name.includes('iphone'), 'Native stream cancellation on both required phones.');
-  const bytes = await readFile('public/art/charcoal/1-0.webp');
-  let requests = 0;
-  const server = createServer((_request, response) => {
-    requests++;
-    response.writeHead(200, { 'Content-Type': 'image/webp', 'Content-Length': bytes.length,
-      'Access-Control-Allow-Origin': '*', 'Access-Control-Expose-Headers': 'Content-Length', 'Cache-Control': 'no-store' });
-    if (requests === 1) response.write(bytes.subarray(0, 256));
-    else response.end(bytes);
-  });
-  await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve));
-  const address = server.address();
-  if (!address || typeof address === 'string') throw new Error('Missing stream fixture address');
-  try {
-    await page.addInitScript(({ url }) => {
-      const original = window.fetch;
-      const state = { partialBytes: 0, abortHeld: false, releasedBeforeCatch: false, staleCloses: 0, caches: [] as string[] };
-      let release!: () => void;
-      const held = new Promise<void>(resolve => { release = resolve; });
-      Object.assign(window, { streamCancellation: state, releaseStreamAbort: release });
-      document.addEventListener('close', event => {
-        if (event.target instanceof HTMLDialogElement && event.target.id === 'wellness-viewer' && event.target.open) state.staleCloses++;
-      }, true);
-      window.fetch = async (input, options) => {
-        const path = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url, location.href).pathname;
-        if (path !== '/art/charcoal/1-0.webp') return original(input, options);
-        state.caches.push(options?.cache ?? 'default');
-        const response = await original(url, options);
-        if (state.caches.length > 1) return response;
-        const reader = response.body!.getReader();
-        return new Response(new ReadableStream<Uint8Array>({
-          async pull(controller) {
-            try {
-              const { done, value } = await reader.read();
-              if (done) controller.close();
-              else { state.partialBytes += value.byteLength; controller.enqueue(value); }
-            } catch (error) {
-              state.abortHeld = true;
-              await held;
-              state.releasedBeforeCatch = !document.querySelector('#wellness-viewer[open]');
-              controller.error(error);
-            }
-          },
-        }), { status: response.status, headers: response.headers });
-      };
-    }, { url: `http://127.0.0.1:${address.port}/partial.webp` });
-    await landing(page);
-    await page.waitForFunction(() => (window as unknown as { streamCancellation: { partialBytes: number } }).streamCancellation.partialBytes > 0);
-    await frame(page);
-    await page.locator('#beyond-learn').click();
-    await page.waitForFunction(() => (window as unknown as { streamCancellation: { abortHeld: boolean } }).streamCancellation.abortHeld);
-    await page.locator('.wellness-close').click(); await frame(page);
-    await page.evaluate(() => {
-      const trigger = document.querySelector<HTMLButtonElement>('#beyond-learn')!;
-      trigger.click();
-      document.querySelector<HTMLDialogElement>('#wellness-viewer')!.close();
-      trigger.click();
-    });
-    await frame(page);
-    await expect(page.locator(`${dialog}[open] .wellness-ribbon`)).toBeVisible();
-    await page.locator('.wellness-close').click(); await frame(page);
-    await page.evaluate(() => (window as unknown as { releaseStreamAbort: () => void }).releaseStreamAbort());
-    await page.locator('#fire-learn').evaluate(e => e.scrollIntoView({ block: 'center', behavior: 'instant' }));
-    await page.locator('#fire-learn').click();
-    await expect(page.locator('.charcoal-art[data-charcoal-ready=true]')).toHaveCount(12, { timeout: 30000 });
-    await expect(page.locator('#charcoal-viewer .media-loading button')).toHaveCount(0);
-    const result = await page.evaluate(() => (window as unknown as { streamCancellation: { partialBytes: number; releasedBeforeCatch: boolean; staleCloses: number; caches: string[] } }).streamCancellation);
-    expect(result.partialBytes).toBe(256);
-    expect(result.releasedBeforeCatch).toBe(true);
-    expect(result.staleCloses).toBeGreaterThan(0);
-    expect(result.caches).toEqual(['default', 'reload']);
-    expect(requests).toBe(2);
-    await writeFile(`screenshots/wellness/partial-cancellation-${info.project.name}.json`, JSON.stringify(result, null, 2));
-  } finally {
-    server.closeAllConnections();
-    await new Promise<void>((resolve, reject) => server.close(error => error ? reject(error) : resolve()));
-  }
-});
+// CHG0134 supersedes abort/restart gallery warming. The shared bounded, demand-prioritized,
+// no-abort queue, partial native stream, early section and repeat-close contracts are exercised
+// by loading-flow.spec.ts instead of keeping assertions for the removed story barrier.

@@ -1,0 +1,519 @@
+{
+  "date": "2026-10-23",
+  "scope": "single synthetic trial per condition, no INP/Lighthouse/physical Safari claim; requestCount includes deferred/provisional requests, transferBytes includes completed network data only",
+  "rows": [
+    {
+      "version": "before",
+      "condition": "loopback",
+      "compiler": "Turbopack both; baselineHEAD+same4WellnessWebP",
+      "mainAt4": {
+        "lcp": 528,
+        "cls": 0,
+        "longTasks": [
+          95
+        ],
+        "hero": 449.7999999523163,
+        "firstPhoto": null,
+        "wellnessOriginal": null,
+        "paint": [
+          {
+            "name": "first-paint",
+            "start": 304
+          },
+          {
+            "name": "first-contentful-paint",
+            "start": 304
+          }
+        ],
+        "navigation": [
+          {
+            "ttfb": 108.59999990463257,
+            "dom": 148.5,
+            "htmlBytes": 164963
+          }
+        ]
+      },
+      "click": 4040.1999999284744,
+      "firstPhotoAfterClick": 62.200000047683716,
+      "finalOriginalAfterClick": 62.300000071525574,
+      "atFinal": {
+        "lcp": 528,
+        "cls": 0,
+        "longTasks": [
+          95
+        ],
+        "hero": 449.7999999523163,
+        "firstPhoto": 4102.399999976158,
+        "wellnessOriginal": 4102.5
+      },
+      "networkAtFinal": {
+        "total": 49263743,
+        "javascript": 218958,
+        "images": 48445550
+      },
+      "requestCount": 171,
+      "artPaths": [
+        "/art/00.webp",
+        "/art/brand-mark-white.webp",
+        "/art/feature-divider-control.webp",
+        "/art/feature-divider-draw.webp",
+        "/art/feature-divider-intensity.webp",
+        "/art/technology-connector-triple.webp",
+        "/art/technology-connector-core.webp",
+        "/art/technology-connector-touch.webp",
+        "/art/technology-connector-water.webp",
+        "/art/technology-connector-light.webp",
+        "/art/technology-connector-armor.webp",
+        "/art/technology-connector-flow.webp",
+        "/art/icon-kit/01.webp",
+        "/art/icon-kit/02.webp",
+        "/art/icon-kit/03.webp",
+        "/art/icon-kit/04.webp",
+        "/art/icon-kit/05.webp",
+        "/art/icon-kit/07.webp",
+        "/art/icon-kit/08.webp",
+        "/art/icon-kit/09.webp",
+        "/art/icon-kit/10.webp",
+        "/art/icon-kit/11.webp",
+        "/art/icon-kit/12.webp",
+        "/art/tech-ring.svg",
+        "/art/01.webp",
+        "/art/02.webp",
+        "/art/03.webp",
+        "/art/04.webp",
+        "/art/05.webp",
+        "/art/06.webp",
+        "/art/07.webp",
+        "/art/08.webp",
+        "/art/09-10.webp",
+        "/art/expression-waves.webp",
+        "/art/doc-electrical.webp",
+        "/art/doc-emc.webp",
+        "/art/doc-uae.webp",
+        "/art/doc-rohs.webp",
+        "/art/doc-telecom.webp",
+        "/art/faq-row-1.webp",
+        "/art/faq-row-2.webp",
+        "/art/faq-row-3.webp",
+        "/art/faq-row-4.webp",
+        "/art/faq-row-5.webp",
+        "/art/faq-row-6.webp",
+        "/art/11.webp",
+        "/art/rams-group-diamond.webp",
+        "/art/footer-paper.webp",
+        "/art/technology/slides/noble-01.webp",
+        "/art/technology/slides/noble-02.webp",
+        "/art/technology/slides/heat-02.webp",
+        "/art/technology/slides/heat-03.webp",
+        "/art/technology/slides/heat-04.webp",
+        "/art/technology/slides/heat-05.webp",
+        "/art/technology/slides/capsule-01.webp",
+        "/art/technology/slides/capsule-02.webp",
+        "/art/technology/slides/capsule-03.webp",
+        "/art/technology/slides/cyber-01.webp",
+        "/art/technology/slides/cyber-02.webp",
+        "/art/technology/slides/touch-01.webp",
+        "/art/technology/slides/touch-02.webp",
+        "/art/technology/slides/touch-03.webp",
+        "/art/technology/slides/mood-01.webp",
+        "/art/technology/slides/mood-02.webp",
+        "/art/technology/slides/aqua-01.webp",
+        "/art/technology/slides/aqua-02.webp",
+        "/art/technology/slides/air-01.webp",
+        "/art/technology/slides/air-02.webp",
+        "/art/technology/slides/quick-01.webp",
+        "/art/technology/slides/quick-02.webp",
+        "/art/technology/slides/poly-01.webp",
+        "/art/charcoal/1-0.webp",
+        "/art/charcoal/1-1.webp",
+        "/art/charcoal/1-2.webp",
+        "/art/charcoal/2-0.webp",
+        "/art/charcoal/2-1.webp",
+        "/art/charcoal/2-2.webp",
+        "/art/charcoal/3-0.webp",
+        "/art/charcoal/3-1.webp",
+        "/art/charcoal/3-2.webp",
+        "/art/charcoal/4-0.webp",
+        "/art/charcoal/4-1.webp",
+        "/art/charcoal/4-2.webp",
+        "/art/wellness/01-ritual_uno_white_v3.webp",
+        "/art/wellness/03-botanicals.webp",
+        "/art/wellness/04-capsules_v3.webp",
+        "/art/wellness/02-water_bouquet.webp",
+        "/art/ember/mask.webp"
+      ],
+      "scroll": {
+        "frames": 119,
+        "p95": 16.700000000000728,
+        "over33": 1
+      }
+    },
+    {
+      "version": "after",
+      "condition": "loopback",
+      "compiler": "Turbopack both; baselineHEAD+same4WellnessWebP",
+      "mainAt4": {
+        "lcp": 128,
+        "cls": 0,
+        "longTasks": [],
+        "hero": 170.89999997615814,
+        "firstPhoto": null,
+        "wellnessOriginal": null,
+        "paint": [
+          {
+            "name": "first-paint",
+            "start": 128
+          },
+          {
+            "name": "first-contentful-paint",
+            "start": 128
+          }
+        ],
+        "navigation": [
+          {
+            "ttfb": 28,
+            "dom": 105.89999997615814,
+            "htmlBytes": 229849
+          }
+        ]
+      },
+      "click": 4030.6999999284744,
+      "firstPhotoAfterClick": 1.7000000476837158,
+      "finalOriginalAfterClick": 88.40000009536743,
+      "atFinal": {
+        "lcp": 4092,
+        "cls": 0,
+        "longTasks": [],
+        "hero": 170.89999997615814,
+        "firstPhoto": 4032.399999976158,
+        "wellnessOriginal": 4119.100000023842
+      },
+      "networkAtFinal": {
+        "total": 12147648,
+        "javascript": 219347,
+        "images": 11234402
+      },
+      "requestCount": 150,
+      "artPaths": [
+        "/art/00.webp",
+        "/art/brand-mark-white.webp",
+        "/art/feature-divider-control.webp",
+        "/art/feature-divider-draw.webp",
+        "/art/feature-divider-intensity.webp",
+        "/art/technology-connector-triple.webp",
+        "/art/technology-connector-core.webp",
+        "/art/technology-connector-touch.webp",
+        "/art/technology-connector-water.webp",
+        "/art/technology-connector-light.webp",
+        "/art/technology-connector-armor.webp",
+        "/art/technology-connector-flow.webp",
+        "/art/icon-kit/01.webp",
+        "/art/icon-kit/02.webp",
+        "/art/icon-kit/03.webp",
+        "/art/icon-kit/04.webp",
+        "/art/icon-kit/05.webp",
+        "/art/icon-kit/07.webp",
+        "/art/icon-kit/08.webp",
+        "/art/icon-kit/09.webp",
+        "/art/icon-kit/10.webp",
+        "/art/icon-kit/11.webp",
+        "/art/icon-kit/12.webp",
+        "/art/tech-ring.svg",
+        "/art/01.webp",
+        "/art/02.webp",
+        "/art/03.webp",
+        "/art/faq-row-1.webp",
+        "/art/04.webp",
+        "/art/faq-row-2.webp",
+        "/art/05.webp",
+        "/art/faq-row-3.webp",
+        "/art/06.webp",
+        "/art/faq-row-4.webp",
+        "/art/07.webp",
+        "/art/faq-row-5.webp",
+        "/art/08.webp",
+        "/art/faq-row-6.webp",
+        "/art/09-10.webp",
+        "/art/expression-waves.webp",
+        "/art/doc-electrical.webp",
+        "/art/doc-emc.webp",
+        "/art/doc-uae.webp",
+        "/art/doc-rohs.webp",
+        "/art/doc-telecom.webp",
+        "/art/11.webp",
+        "/art/footer-paper.webp",
+        "/art/wellness/01-ritual_uno_white_v3.webp",
+        "/art/wellness/03-botanicals.webp",
+        "/art/wellness/04-capsules_v3.webp",
+        "/art/wellness/02-water_bouquet.webp",
+        "/art/ember/mask.webp"
+      ],
+      "scroll": {
+        "frames": 119,
+        "p95": 16.800000000000182,
+        "over33": 2
+      }
+    },
+    {
+      "version": "before",
+      "condition": "4Mbps_100ms_4xCPU",
+      "compiler": "Turbopack both; baselineHEAD+same4WellnessWebP",
+      "mainAt4": {
+        "lcp": 2404,
+        "cls": 0,
+        "longTasks": [
+          125,
+          85
+        ],
+        "hero": 2336.1999999284744,
+        "firstPhoto": null,
+        "wellnessOriginal": null,
+        "paint": [
+          {
+            "name": "first-paint",
+            "start": 356
+          },
+          {
+            "name": "first-contentful-paint",
+            "start": 356
+          }
+        ],
+        "navigation": [
+          {
+            "ttfb": 19.600000023841858,
+            "dom": 1157.6000000238419,
+            "htmlBytes": 164963
+          }
+        ]
+      },
+      "click": 4054.399999976158,
+      "firstPhotoAfterClick": 16488.700000047684,
+      "finalOriginalAfterClick": 16488.700000047684,
+      "atFinal": {
+        "lcp": 20532,
+        "cls": 0,
+        "longTasks": [
+          125,
+          85,
+          157
+        ],
+        "hero": 2336.1999999284744,
+        "firstPhoto": 20543.100000023842,
+        "wellnessOriginal": 20543.100000023842
+      },
+      "networkAtFinal": {
+        "total": 8765843,
+        "javascript": 218958,
+        "images": 7947650
+      },
+      "requestCount": 133,
+      "artPaths": [
+        "/art/00.webp",
+        "/art/brand-mark-white.webp",
+        "/art/feature-divider-control.webp",
+        "/art/feature-divider-draw.webp",
+        "/art/feature-divider-intensity.webp",
+        "/art/technology-connector-triple.webp",
+        "/art/technology-connector-core.webp",
+        "/art/technology-connector-touch.webp",
+        "/art/technology-connector-water.webp",
+        "/art/technology-connector-light.webp",
+        "/art/technology-connector-armor.webp",
+        "/art/technology-connector-flow.webp",
+        "/art/icon-kit/01.webp",
+        "/art/icon-kit/02.webp",
+        "/art/icon-kit/03.webp",
+        "/art/icon-kit/04.webp",
+        "/art/icon-kit/05.webp",
+        "/art/icon-kit/07.webp",
+        "/art/icon-kit/08.webp",
+        "/art/icon-kit/09.webp",
+        "/art/icon-kit/10.webp",
+        "/art/icon-kit/11.webp",
+        "/art/icon-kit/12.webp",
+        "/art/01.webp",
+        "/art/tech-ring.svg",
+        "/art/02.webp",
+        "/art/03.webp",
+        "/art/04.webp",
+        "/art/05.webp",
+        "/art/06.webp",
+        "/art/07.webp",
+        "/art/08.webp",
+        "/art/09-10.webp",
+        "/art/expression-waves.webp",
+        "/art/doc-electrical.webp",
+        "/art/doc-emc.webp",
+        "/art/doc-uae.webp",
+        "/art/doc-rohs.webp",
+        "/art/doc-telecom.webp",
+        "/art/faq-row-1.webp",
+        "/art/faq-row-2.webp",
+        "/art/faq-row-3.webp",
+        "/art/faq-row-4.webp",
+        "/art/faq-row-5.webp",
+        "/art/faq-row-6.webp",
+        "/art/11.webp",
+        "/art/rams-group-diamond.webp",
+        "/art/footer-paper.webp",
+        "/art/wellness/01-ritual_uno_white_v3.webp",
+        "/art/wellness/03-botanicals.webp",
+        "/art/technology/slides/noble-01.webp",
+        "/art/technology/slides/noble-02.webp",
+        "/art/technology/slides/heat-02.webp",
+        "/art/technology/slides/heat-03.webp",
+        "/art/technology/slides/heat-04.webp",
+        "/art/technology/slides/heat-05.webp",
+        "/art/technology/slides/capsule-01.webp",
+        "/art/technology/slides/capsule-02.webp",
+        "/art/technology/slides/capsule-03.webp",
+        "/art/technology/slides/cyber-01.webp",
+        "/art/technology/slides/cyber-02.webp",
+        "/art/technology/slides/touch-01.webp",
+        "/art/technology/slides/touch-02.webp",
+        "/art/technology/slides/touch-03.webp",
+        "/art/technology/slides/mood-01.webp",
+        "/art/technology/slides/mood-02.webp",
+        "/art/technology/slides/aqua-01.webp",
+        "/art/technology/slides/aqua-02.webp",
+        "/art/technology/slides/air-01.webp",
+        "/art/technology/slides/air-02.webp",
+        "/art/technology/slides/quick-01.webp",
+        "/art/technology/slides/quick-02.webp",
+        "/art/technology/slides/poly-01.webp",
+        "/art/charcoal/1-0.webp",
+        "/art/charcoal/1-1.webp",
+        "/art/charcoal/1-2.webp",
+        "/art/charcoal/2-0.webp",
+        "/art/charcoal/2-1.webp",
+        "/art/charcoal/2-2.webp",
+        "/art/charcoal/3-0.webp",
+        "/art/charcoal/3-1.webp",
+        "/art/charcoal/3-2.webp",
+        "/art/charcoal/4-0.webp",
+        "/art/charcoal/4-1.webp",
+        "/art/charcoal/4-2.webp"
+      ],
+      "scroll": {
+        "frames": 119,
+        "p95": 16.799999999999272,
+        "over33": 2
+      }
+    },
+    {
+      "version": "after",
+      "condition": "4Mbps_100ms_4xCPU",
+      "compiler": "Turbopack both; baselineHEAD+same4WellnessWebP",
+      "mainAt4": {
+        "lcp": 648,
+        "cls": 0.00022206073455854325,
+        "longTasks": [
+          263,
+          296,
+          101
+        ],
+        "hero": 2313.7000000476837,
+        "firstPhoto": null,
+        "wellnessOriginal": null,
+        "paint": [
+          {
+            "name": "first-paint",
+            "start": 608
+          },
+          {
+            "name": "first-contentful-paint",
+            "start": 608
+          }
+        ],
+        "navigation": [
+          {
+            "ttfb": 18.800000071525574,
+            "dom": 1754.5,
+            "htmlBytes": 229849
+          }
+        ]
+      },
+      "click": 4065.2000000476837,
+      "firstPhotoAfterClick": 6.200000047683716,
+      "finalOriginalAfterClick": 5757.299999952316,
+      "atFinal": {
+        "lcp": 9836,
+        "cls": 0.00022206073455854325,
+        "longTasks": [
+          263,
+          296,
+          101,
+          50,
+          121
+        ],
+        "hero": 2313.7000000476837,
+        "firstPhoto": 4071.4000000953674,
+        "wellnessOriginal": 9822.5
+      },
+      "networkAtFinal": {
+        "total": 3362974,
+        "javascript": 219347,
+        "images": 2449728
+      },
+      "requestCount": 147,
+      "artPaths": [
+        "/art/00.webp",
+        "/art/brand-mark-white.webp",
+        "/art/feature-divider-control.webp",
+        "/art/feature-divider-draw.webp",
+        "/art/feature-divider-intensity.webp",
+        "/art/technology-connector-triple.webp",
+        "/art/technology-connector-core.webp",
+        "/art/technology-connector-touch.webp",
+        "/art/technology-connector-water.webp",
+        "/art/technology-connector-light.webp",
+        "/art/technology-connector-armor.webp",
+        "/art/technology-connector-flow.webp",
+        "/art/icon-kit/01.webp",
+        "/art/icon-kit/02.webp",
+        "/art/icon-kit/03.webp",
+        "/art/icon-kit/04.webp",
+        "/art/icon-kit/05.webp",
+        "/art/icon-kit/07.webp",
+        "/art/icon-kit/08.webp",
+        "/art/icon-kit/09.webp",
+        "/art/icon-kit/10.webp",
+        "/art/icon-kit/11.webp",
+        "/art/icon-kit/12.webp",
+        "/art/tech-ring.svg",
+        "/art/01.webp",
+        "/art/02.webp",
+        "/art/faq-row-1.webp",
+        "/art/wellness/01-ritual_uno_white_v3.webp",
+        "/art/wellness/03-botanicals.webp",
+        "/art/03.webp",
+        "/art/faq-row-2.webp",
+        "/art/faq-row-3.webp",
+        "/art/faq-row-4.webp",
+        "/art/faq-row-5.webp",
+        "/art/faq-row-6.webp",
+        "/art/04.webp",
+        "/art/05.webp",
+        "/art/06.webp",
+        "/art/07.webp",
+        "/art/08.webp",
+        "/art/09-10.webp",
+        "/art/expression-waves.webp",
+        "/art/doc-electrical.webp",
+        "/art/doc-emc.webp",
+        "/art/doc-uae.webp",
+        "/art/doc-rohs.webp",
+        "/art/doc-telecom.webp",
+        "/art/11.webp",
+        "/art/footer-paper.webp",
+        "/art/wellness/04-capsules_v3.webp",
+        "/art/ember/mask.webp"
+      ],
+      "scroll": {
+        "frames": 119,
+        "p95": 16.799999999999272,
+        "over33": 1
+      }
+    }
+  ]
+}

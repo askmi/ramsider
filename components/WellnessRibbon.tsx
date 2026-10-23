@@ -1,3 +1,4 @@
+import previews from '@/lib/media-previews.json';
 import { t, type Locale } from '@/lib/i18n';
 import { wellnessCopy, wellnessSections } from '@/lib/wellness';
 import assets from '@/lib/wellness-assets.json';
@@ -11,7 +12,7 @@ export function WellnessRibbon({ locale }: { locale: Locale }) {
       {wellnessSections.map((key, index) => {
         const hero = index === 0, plain = index === 4, image = assets[index];
         const title = <>{copy[`${key}Title`].split('\n').map((line, i) => <span key={i}>{line}</span>)}</>;
-        const photo = image && <WellnessPhoto {...image} hero={hero} alt={copy[`${key}Alt` as keyof typeof copy]} locale={locale} />;
+        const photo = image && <WellnessPhoto {...image} preview={previews[image.src as keyof typeof previews].src} hero={hero} alt={copy[`${key}Alt` as keyof typeof copy]} locale={locale} />;
         return <section key={key} className={`${hero ? 'wellness-hero' : ''}${plain ? 'wellness-plain' : ''}`} aria-labelledby={`wellness-${key}-title`}>
           {hero && photo}
           {plain && <span className="wellness-rule" />}

@@ -1,6 +1,44 @@
-# Media readiness and technology viewer — 2026-10-08
+# Preview-first media loading — current specification and history
 
-**Width follow-up:** the customer subsequently prioritized full photo width without distortion. The current geometry below follows [the width analysis](technology-viewer.md#width-analysis) and [final width evidence](technology-viewer.md#width-verification); The latest loading/preload policy is specified below and supersedes the earlier first2/group and near-viewport-only policies; source bytes and successful-resource reuse are unchanged.
+## CHG0134 — Approved implementation specification, 2026-10-23
+
+Current authority: owner explicitly selected blurred previews + unchanged final WebP, advance warming, common bounded queue, progressive scroll resistance, and replacement of every old bar with a milky clockwise shrinking circle. This supersedes conflicting historical all-eager/all-story barriers and research-only suggestions below. Implementation VERIFIED locally2026-10-23; independent scope, preview/spinner, ready visual, behavior/adaptation, review/performance and final record gates passed. See [implementation verification and measured tradeoffs](evidence/loading-flow/report.md). User result approval NOT_RECORDED.
+
+### State and asset contract
+
+- Every substantial main raster block (long tiles, FAQ surfaces, document photos, expression artwork), each of 23 technology slides, 12 charcoal strips and 4 Wellness photos gets an inline color-managed tiny preview. Existing tiny SVG/decorative icons retain native delivery; they are not slide/photo blocks. First main preview is visible in server HTML without hydration or a network image request. First preview of every extra section and technology group is serialized in initial HTML; remaining previews also stay tiny and available before original requests.
+- Preview → original transition changes only image detail, not dimensions, crops, text, source-positioned overlays, section boundaries or controls. Full WebP payloads remain byte-for-byte unchanged; source masters untouched. Preview explicitly loses detail temporarily and is not final fidelity approval.
+- States: preview pending original = preview visible, no spinner, bounded slow forward movement; original decoded = normal movement; no decoded preview and no original = milky spinner + forward boundary; failed original = keep preview plus localized Retry, no endless fake progress; preview+original failure = spinner replaced by error/Retry with same forward boundary. Close and reverse/previous ready content remain usable.
+- Native eager/preloaded original hero retains early browser discovery; its preview appears behind it immediately. Other large originals use shared deduplicated resources and decoded Blob URLs. Need measured bytes for managed downloads; unknown total keeps radius steady until completion. 100% downloaded is not decode-ready: reserve final disappearance for successful decode.
+
+### Scheduler and scrolling
+
+- One scheduler across main and optional views: at most 3 managed transfers overall, at most 1 low background transfer and 1 near transfer; foreground pending tasks outrank near tasks, near outrank far. Existing native hero is a separate documented eager request. Promote queued resources without duplicate transfer. Do not abort on ordinary scroll/section change; completed resources cached, error explicit Retry. No resume-byte promise.
+- Required original begins immediately on reaching viewport/opening section; next viewport/next slide warmed ahead. Far work progresses asynchronously in remaining slots. Closed optional sections must not mount all originals. Opening any section never waits for every main-page image.
+- Ready native scrolling stays native. Approaching pending original with preview: resistance grows continuously over approximately 0.75 viewport, from factor1 to minimum0.18, eased with smoothstep; filtered wheel/touch deltas over ~90ms. Reverse input remains normal. Keyboard uses the same curve; scroll/programmatic overshoot is reconciled and missing-preview frontier bounded. Touch zoom/multitouch and modified wheel are not hijacked. Reduced-motion removes spin/inertia, keeps bounded input resistance and status.
+- Technical slide transitions commit preview immediately; navigation stays available with preview, with a paced ~450ms gesture/transition interval while original pending; no-preview locks slide navigation until decode/error recovery but Close remains usable. Vertical photo scrolling follows same resistance; no accidental pan-to-group switching. Existing source ratio, fixed frame/control geometry, RTL source order remain intact.
+
+### Spinner geometry
+
+- A circular frosted milk disc, max diameter72px mobile (responsive bounded), translucent warm white with blur; asymmetrical soft highlight makes clockwise rotation visible. No black ribbon, track, percent text, or linear bar anywhere.
+- Real progress p shrinks radius proportionally from36px to a small nonzero decode hold, then to0 after decoded completion (CSS transition). Unknown total uses clockwise rotation with constant radius; never invent percentages. Reduced-motion uses static disc and accessible loading label. Localized screen-reader status and Retry remain.
+
+### Work and acceptance gates
+
+1. Snapshot dirty baseline and hashes, inspect main clean/text reference crops and current section geometry; independent scope audit.
+2. Generate only tiny preview derivatives/manifest with reproducible recipe, ICC/alpha/dimension/hash receipt; verify originals unchanged. Implement shared scheduler/spinner first and inspect actual Pro/Max states.
+3. Integrate main preview/native hero/deferred originals and resistance; screenshot ready reference comparison and held/missing-preview states, fix/recheck.
+4. Integrate Wellness/charcoal/technology without all-story barrier, section first previews inline; screenshot every distinct pending/ready composition and all controls, error/Retry/close/races.
+5. Repeatable Pro402×874/Max440×956 WebKit DPR3, desktop/tablet/short heights, all11locale overflow/Arabic, wheel/touch/keyboard/programmatic/reverse/reduced-motion/no-JS fallback. Test held originals, broken previews, unknown total and progressive chunk delivery; bound active queue, promotion/dedup/retry and original hashes. Capture real browser images and compare ready state with frozen baseline/reference.
+6. Type/lint/build, native CLI review actual diff; production isolated cold network before/after first useful/LCP/CLS/JS/bytes/preview/final latency/scroll frame timing. Fix findings and rerun affected checks; independent final integration/records audit. Publish nothing without request.
+
+**Research update, 2026-10-22:** [CHG0134 research and options](#chg0134-loading-research--2026-10-22) records the owner’s rejection of the visible black loader. It is a proposal for selection, not an implementation or replacement of the historical runtime policy below.
+
+**Width follow-up:** the customer subsequently prioritized full photo width without distortion. The current geometry below follows [the width analysis](technology-viewer.md#width-analysis) and [final width evidence](technology-viewer.md#width-verification); Width geometry remains current. Loading/preload policies in the historical runtime sections below are superseded by the approved2026-10-23 specification above; source bytes and successful-resource reuse remain unchanged.
+
+## Historical runtime contract — superseded by the approved2026-10-23 loading specification
+
+Geometry notes remain applicable where expressly retained above. The following old readiness/preload/bar policies are historical.
 
 ## Request and acceptance map
 
@@ -46,3 +84,183 @@ Current scope: after the first block decodes, warm all main data-media resources
 - Isolated production Chromium402×874DPR3 cold contexts: useful first view276.6ms loopback /2245.2ms at4Mbps100mslatency4×CPU; LCP312/2280ms,CLS0,JS164687B. Initial long tasks none/77ms. Main and gallery inner synthetic159-frame scroll each p9516.7ms,0frames>33ms in both conditions. Cached gallery open90.3/229.9ms is synthetic click latency, not INP. Details in `retained-performance.json` and its script. Concurrent first measurement (p9566.7ms) is historical, excluded from the isolated verdict.
 - Isolated background sample with art04 held (`retained-background.json`): all6 optional photos actually decoded while the main remained visible/non-inert with no overlay and scroll0. CDP requests report hero/art11 High and gallery02 Low;179frames p9516.8ms,0>33ms, no observed long tasks.
 - All six original PNGs total29952430B (~30MB), now deliberately warmed in background; main artwork/resources are additional (~7MB). A low fetch priority is a browser hint, not an absolute scheduler guarantee. No repeat successful transfer/decode; failed resources remain explicitly retryable. No Lighthouse, hardware or representative INP claim. Existing CHG0065 hardware symptom and CHG0035favicon remain outside this scoped approval; controlled EVAL-VIEWER NOT_RUN, user acceptance NOT_RECORDED.
+
+<a id="chg0134-loading-research--2026-10-22"></a>
+
+## CHG0134: Loading research — 2026-10-22
+
+Статус: исправленный inventory и новый zero-state VERIFIED /root2026-10-22, independent renewedGate2PASS и renewedfinalGate3PASS2026-10-22. Старые A/B/C отвергнуты пользователем. Runtime-дефект OPEN; приложение, текущие lossless WebP и порядок запросов **не изменены**. Рекомендации ниже не являются обещанием уже достигнутой скорости или разрешением заменить утверждённые оригиналы lossy-файлами. Историческая техническая приёмка первого исследования сохранена в CHG0134, но не является приёмкой понятности отвергнутых A/B/C. Коррекция прошла отдельные renewedGate2PASS и renewedfinalGate3PASS; runtime остаётся без изменений.
+
+### Коррекция: первый файл, фактический inventory и прокрутка
+
+**Прежняя рекомендация A преждевременна:** исследование одного Wellness hero не заменяет учёт всего сайта. A/B были альтернативами качества маленького файла, C — дополнительной обратной связью; подавать их как три равных решения с уже готовой фотографией было ошибкой агента. Ни для A, ни для B первая фотография не возникает до получения данных.
+
+**Откуда берётся preview:** его создают из исходника заранее при подготовке/сборке сайта. У посетителя потом два независимых ресурса: маленькое производное и большой оригинал. Посетителю не требуется сначала скачать оригинал, чтобы серверное превью существовало. Однако сам маленький файл/его inline bytes тоже нужно получить. Пока не получены ни они, ни оригинал, показываем только HTML-текст, фон и геометрию места под фото. CSS blur большого изображения не уменьшает скачивание. **В текущем Wellness отдельного preview нет.** В основной истории уже есть16inline placeholders (JSON80784B, decoded image bytes60116B), это другая группа.
+
+Актуальный подсчёт2026-10-22: local production3141 Chromium Pro402×874 и Max440×956 DPR3 cold cache, DOM-ready → main-ready+8s без прокрутки → Wellness open → конец Wellness. Отдельно тот же путь на **публичном https://ramsider-main.vercel.app/en**, Pro402×874DPR3. Считаются уникальные запрошенные URL-пути, не DOM IMG-элементы и не количество объектов внутри составного artwork. Размер — сумма payload-файлов; это не фактический полный сетевой трафик с HTML/fonts/JS/headers и не замер окончания всех передач.
+
+| Группа | Уже запрошено до прокрутки/открытия доп. разделов | Payload файлов | Wellness-open добавление |
+| --- | --- | --- | --- |
+| Растровая графика основной страницы, включая мелкие иконки |47файлов|6,608,692B|0|
+| Слайды технологий |23из23|27,910,892B|0|
+| История про уголь, один длинный artwork из фрагментов |12из12|7,550,146B|0|
+| Wellness |0из4|0B|**4из4**, публичныеPNG10,149,306B / локальныеlosslessWebP6,341,858B|
+| SVG-декор/кнопки |12URL|учёт отдельно, малые XML-файлы|0|
+
+До открытия Wellness **82растровых файла,42,069,730B≈42.07MB**, плюс12SVG. Публичное открытие Wellness доводит набор до **86растровых файлов,52,219,036B≈52.22MB**, плюс те же12SVG (**98уникальныхimageURL всего**). Локально при тех же86raster —48,411,588B≈48.41MB благодаря ещё не опубликованным4WebP. Уже до прокрутки опциональные23+12ресурсов составляют **35файлов/35,461,038B≈35.46MB**. В этом Chromium-проходе все4Wellness URL были запрошены уже при открытии, несмотря на authored lazy остальных фото; это не универсальный порог всех браузеров. На диске в public —88raster48,447,814B и112SVG137,336B; два не запрошенных в этих фазах raster — offscreen ember mask и неиспользованный icon-kit/06, поэтому диск не равен сетевому inventory.
+
+Размеры всех запрошенных публичных raster независимо проверены HTTP HEAD200/MIME/content-length; SVG с отсутствующим Content-Length не считаются нулевыми — отдельный маленький GET даёт decoded XML length. Local/public raster размеры совпадают, кроме4Wellness PNG/WebP. Ни original source, ни production runtime не менялись. Evidence: `screenshots/loading-research/image-inventory-{source,browser,public,public-all-sizes}.json`; [компактный tracked receipt](evidence/loading-research/inventory-correction.json).
+
+**Почему очередь такова сейчас:** PageMediaGate после первого decoded IMG выставляет eager/high всему набору основной истории. TechnologyViewer на window.load ставит в прогрев все23slides, CharcoalViewer — все12tiles; shared loadImage ждёт story-ready и запускает их low. Wellness только при открытии mount-ит фото; оно также ждёт story-ready и временно приостанавливает незавершённый optional warming. Сам размер35MB не доказывает, что именно он определяет конкретную modal-latency при работающей паузе; нужен отдельный замер альтернативной очереди. Но исключать его из рекомендации нельзя.
+
+**Скролл:** спиннер сам по себе ничего не блокирует. Сейчас PageMediaGate действительно ограничивает основной документ перед незагруженной графикой, оставляя обратную прокрутку; Wellness имеет собственный scroller. Это разные механизмы. Предложение для обычной ленты — не запрещать двигаться дальше из-за следующего фото, оставить текст/место/пришедшее превью доступными. Это пока предложение, не применённая правка.
+
+**Исправленная схема в concepts.html:** по умолчанию нулевой кадр без фото → вручную выбранное состояние «маленький файл получен» → «оригинал получен». Нет трёх равноправных A/B/C и нет spinner поверх готового фото. CSSblur/full-source во втором состоянии остаётся только явно подписанной иллюстрацией, не настоящим preview/export или network test. Технический выбор откладывается до оценки очереди и её измеренных вариантов; прежнее «сразу фото» заменено на «после получения маленького файла».
+
+### Конкуренция загрузок: preview и оригинал — 2026-10-22
+
+Вопрос владельца: может ли массовая параллельная асинхронная загрузка задержать маленький preview, и как одновременно продолжать оригинал? Да: async не создаёт дополнительную пропускную способность; запрос может ждать планирования, получать мало сетевого ресурса, а полученные изображения конкурировать за CPU/decode. Это возможный механизм, не измеренный диагноз конкретной задержки. `fetchpriority` — относительная подсказка, не гарантия/резервирование канала; preload помогает раннему обнаружению, но не заменяет очередь. [Chrome team, Fetch Priority](https://web.dev/articles/fetch-priority), [WHATWG fetch priority](https://html.spec.whatwg.org/multipage/urls-and-fetching.html#fetch-priority-attributes).
+
+Предлагаемая, пока НЕ внедрённая схема для отдельного preview + неизменённого lossless WebP:
+
+1. Доставлять миниатюры первого экрана в раннем HTML, последующих — заранее в HTML/компактных данных нужного раздела. Данные должны быть доступны до открытия/достижения фото; не прятать их за большим JS, полной загрузкой основной истории или оригинала. Для 39 исследованных optionalimages общий rawdataURL16pxq20=37,345B (из benchmark), не размер всей страницы и не измеренный compressed transfer. Inline исключает отдельную очередь HTTP image для preview, но HTML/данные всё равно должны прийти и декодироваться. Не блокировать первую отрисовку ожиданием всех39preview.
+2. Запускать оригинал видимого фото сразу, параллельно показу уже полученного preview; eager/high только действительно важным видимым ресурсам. Не ждать скачивания всей галереи или прохождения страницы до конца. Критический первый original не lazy. В движении заранее ставить ближайшие фото по направлению прокрутки; дистанцию выбирать по slow-network/fast-scroll измерениям.
+3. Ввести общий для главной/галерей бюджет фоновых запросов, не отдельный независимый пул в каждом компоненте. Начальный кандидат для эксперимента — 1–2 фоновых оригинала одновременно; оптимальное число НЕ измерено и не является browser limit. Пока видимый original не готов, не начинать новые дальние загрузки; уже идущие ограниченные low-запросы оценивать отдельно. При быстром скролле менять порядок ещё не начатых задач. Не обещать, что любое количество одновременно видимых originals будет готово мгновенно.
+4. Не использовать постоянный abort как бесплатную паузу. Текущий fetch/Blob loader после отмены перезапрашивает полный незавершённый файл (`cache: reload`), возобновление с прежнего byte не реализовано; частые отмены расходуют повторные bytes. Дедупликация loadImage возвращает ранее созданный resource, не меняя приоритет активного low-fetch при новом вызове с high; будущая очередь должна учитывать promotion без второго запроса. Сохранять готовый результат/не скачивать одинаковый URL второй раз в управляемом loader.
+
+Текущее состояние (source inspection): PageMediaGate после первого decode назначает всем отслеживаемым mainimages eager/high. TechnologyViewer/CharcoalViewer на window.load вызывают loadImage для всех23+12; actual fetch ждёт story-ready. WellnessViewer при открытии вызывает pauseOptionalImageTransfers, которая abort-ит незавершённые optionalfetch и не даёт начать их повторно до release; но сам Wellness также ждёт story-ready. Это уже существующее ограничение фоновой конкуренции, а не доказательство отсутствия задержки в общем пути. Нужное preview не должно наследовать такой all-story barrier.
+
+Acceptance будущего эксперимента: одинаковая cold-cache/ограниченная сеть, открытие раздела во время warming, быстрый скролл в обе стороны; отдельно измерить время preview paint и final original paint, bytes/restarts/concurrency и decode/long tasks; проверить WebKit Pro402×874/Max440×956 и реальные промежуточные кадры. Все финальные WebP сохраняются byte-for-byte, decoded/color contract прежний. В этой итерации приложение/очередь/ассеты не менялись; performance/browser/build/review implementation gates N/A, экономия времени НЕ измерена. Preview не отменяет потери сети, но при ранней inline-доставке не ждёт отдельного image request среди оригиналов.
+
+### Один файл с уточнением и строго без новых потерь — 2026-10-22
+
+Владелец уточнил обязательное условие: финал должен сохранять пиксели текущего WebP без дополнительной деградации. Это уточнение выбора, не разрешение перекодировать production. Обычный progressive JPEG исключён. Критерий будущего экспорта: размеры и decoded RGBA совпадают с текущим delivery, цветовой профиль/его интерпретация сохранены; визуального «почти одинаково» недостаточно.
+
+Принцип накопительных уточнений существует: один подготовленный codestream, ранее полученные данные используются при последующих уточнениях. Это не три произвольных куска готового WebP и не три прозрачных CSS-слоя; число проходов, bytes и улучшение качества не обязаны быть равными. До первых достаточных данных изображения всё равно нет.
+
+- Текущий WebP не имеет progressive/interlaced refresh всей картинки; его incremental row decoding — другой механизм. [Google WebP FAQ](https://developers.google.com/speed/webp/faq).
+- Interlaced PNG (Adam7) кодирует изображение без потерь в семь проходов: сначала редкая выборка пикселей, затем недостающие пиксели. Полного повторного скачивания изображения в этом механизме нет. Это возможный lossless-кандидат, но не обещание меньшего объёма: стандарт отмечает overhead interlacing, а размер относительно нашего WebP и реальное промежуточное отображение Safari ещё не измерены. [W3C PNG 3, sections 4.6 and 8](https://www.w3.org/TR/png-3/).
+- JPEG XL предусматривает lossless и progressive coding. Однако открытый WebKit issue 272350 про progressive decoding не позволяет обещать нужный эффект на iPhone без отдельной проверки конкретного экспорта/браузера. Поддержка финального формата сама по себе не доказывает промежуточную отрисовку. [JPEG committee](https://jpeg.org/jpegxl/), [WebKit issue](https://bugs.webkit.org/show_bug.cgi?id=272350).
+
+Для существующих файлов вариант «отдельный маленький preview → неизменённый WebP» также сохраняет финальные пиксели: preview временно грубое, полный WebP не пережимается. Его цена — дополнительные bytes preview. Сравнивать нужно измеренный полный progressive-файл с WebP+preview, а не считать отсутствие отдельного preview автоматической экономией.
+
+Граница реализации: shared `lib/media-resource.ts` для technology/charcoal сначала накапливает все chunks в Blob и только затем декодирует Image; этот путь мешает native progressive paint и потребует изменения при выборе подхода. WellnessPhoto использует прямой Next Image unoptimized, не этот Blob loader; там отдельно действуют story-ready и overlay до onLoad. В этой исследовательской итерации код, assets и сеть приложения не изменены. Encoding/bytes-at-first-paint/physical Safari тесты НЕ ПРОВОДИЛИСЬ; browser/build/review gates для реализации N/A. Техническая приёмка относится только к проверенным источникам и ограничениям вывода; выбор формата и внедрение остаются открытыми.
+
+### Реальный benchmark размытых preview — CHG0134, 2026-10-22
+
+Запрос владельца: показать конкретные минимальные bytes, а не условную CSS-картинку, и проверить, может ли preview тоже не загрузиться. Созданы **585реальных WebP**:39optionalimages ×5размеров ×3настройки(q20/q70/lossless). Источники — неизменённые PNG masters, decodedRGBAпроверены против текущих lossless WebP. Выводы относятся к проверенной выборке/рецепту, не абсолютному минимуму всех форматов. Productionнеизменён. [Receipt](evidence/loading-research/preview-benchmark.json).
+
+Рецепт: Lanczosresize, thumbnailGaussianBlur0.65, cwebp1.6.0-q20 или-q70-sharp_yuv либо-lossless-exact-q100, -m6-metadataicc. В каждом файле588B pinned sRGBICC. Полный originalнеперекодируется; thumbnailнамереннотеряетдетали. Heightrounding<=0.5px для не2:3исходников;1×1 — среднийцвет, не фотография и не geometricallyvalidpreview. CSSblur10px только сглаживает уже маленький файл при увеличении; он не участвует в уменьшении передаваемыхbytes.
+
+Первая Wellness-фотография1024×1536: опубликованный PNG **2,334,282B**, локальный losslessWebP **1,315,836B**. Фактически созданные previews:
+
+| Размер | Минимальный q20, файл | q70, меньше потерь от сжатия | q20 какdataURL, безHTML-сжатия |
+| --- | ---: | ---: | ---: |
+|8×12|676B|690B|927B|
+|16×24|720B|764B|983B|
+|32×48|792B|928B|1079B|
+|64×96|1024B|1442B|1391B|
+
+Проверенный нижний floor1×1 lossless=646B — только одно цветовое пятно, непригодно для обещания узнаваемого продукта. Практический визуальный выбор нужно делать по реальным увеличенным кадрам:8px почти абстрактный фон,16px грубый силуэт,32/64pxпоказывают больше состава фотографии. Это не приёмка точности previewцвета/деталей как финального product-art. В receipt есть реальные ошибки относительно намеренно уменьшенного/размытого control, а losslesscandidateexactтолько к этомуcontrol, не к полноразмерномуоригиналу.
+
+| Один профиль для всех39файлов | Все39q20preview | Из них4Wellness | Все39rawdataURL |
+| --- | ---: | ---: | ---: |
+|8pxширина|26358B|2732B|36097B|
+|16pxширина|27290B|2900B|37345B|
+|32pxширина|29666B|3308B|40497B|
+|64pxширина|36258B|4612B|49301B|
+
+Все39 — только23technology+12charcoal+4Wellness, **не вся графика главной** (у неё уже16inlinepreview). Их публичные originals45,610,344B. Для более щадящегоq70:32pxвсе39=33464B,4Wellness=3972B. Для первого кадра hero2,334,282→720B≈3242раза меньше. Но если потомскачатьoriginal, передача будет original+preview: это **ускоряющий маленький первый слой, а не удаление45.61MB финальных ресурсов**. Без изменения очереди heavybackgroundrequestsмогут мешать и thumbnail.
+
+ВстраиваниеdataURLувеличивает rawразмер примернона1/3+URLprefix, но исключает отдельныйimageHTTPrequest. Повторяющиеся ICCхорошо жмутся общейHTML-компрессией: тестовыйфрагмент39IMG16px=37813Braw/2863Bgzip9,32px=40965Braw/5656Bgzip9. Это отдельныйсинтетическийфрагмент, не размервсейстраницы и не измеренныйCDNtransfer; нельзя выдавать его за новыйреальный LCP. Формат см.[MDNdataURLs](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes/data), encoderoptions [Googlecwebp](https://developers.google.com/speed/webp/docs/cwebp).
+
+**Да, отдельныйpreview тоже может ждать/не прийти.** Контроль Chromium: удержали четыре thumbnailответа — naturalWidthвсех0; отпустили —8/16/32/64. При искусственнойсетевойошибке внешние4previewнеполучены; тот же набор встроенныйвHTMLпоказывается с0HTTPimageзапросов. ПолучениесамогоHTML/поддержкаdata/CSP/decode всё равно нужны; гарантии наличияфотобезполученныхданныхнет. Продакшночередьнеизменялась.
+
+Реальныйbrowserпример:127.0.0.1:3154/preview-bytes.html, толькосозданныемаленькиефайлы, originalheroне запрашивается. Режим?inline=1показываетвстроенныеданные. WebKitPro402×874/Max440×956DPR3 иdesktop1440 проверяют actualtinydecode, qualityswitch/nooverflow/noJSerrors; ProMaxphoto402×603/440×660. Screenshots `actual-previews{-q70}-{402,440,1440}.png`, single16pxProMax, held/failedexternal/inline; browserreceipt `screenshots/loading-research/preview-browser-checks.json`. Экспорт/rawsourcehash/ICC/alpha/controlchecks пройдены; technicalAPPROVED /root2026-10-22 по измереннымbytes/export/control/browser; independentquantitativeGate2PASS и quantitativefinalGate3PASS2026-10-22. QualityselectionNOT_SELECTED, производственноевнедрение/полевыезамеры N/A.
+
+### Историческая рекомендация до полного inventory — пересмотрена
+
+
+Для Ramsider рекомендую **осмысленный первый кадр + опережающую загрузку + сохранение готового изображения при переходах**. Посетитель сразу видит узнаваемый UNO и может читать; большая фотография тихо добавляет детализацию. На быстрой сети индикатор вообще не появляется; на медленной остаётся пригодный для просмотра кадр. Локальный статус и Retry нужны при длительном ожидании/ошибке. Это сочетание подходов 1, 2, 3 и резервного 5 из таблицы, а не одна новая анимация полосы.
+
+Главное решение владельца: допустимо ли **временное маленькое производное превью**, пока финальным изображением остаётся утверждённый lossless WebP. Если да — направление A наиболее подходит продажному сайту. Если промежуточная мягкость предпочтительнее видимой смены детализации — направление B. Если временные производные запрещены, возможны только заранее загруженный оригинал/сохранение предыдущего кадра/честный локальный feedback; обещать мгновенную новую фотографию при холодном кэше нельзя. Подготовленные концепты показывают внешний вид, не снимают это ограничение.
+
+### Что не так с текущим ожиданием
+
+На пользовательском screenshot под пустым hero виден `UNO / WELLNESS STORY`. Поэтому это ожидание **самой фотографии**, а не только начальная блокировка модального окна. `WellnessPhoto` использует `next/image unoptimized`, eager/high для hero и native lazy для остальных; пока `state=pending`, `.wellness-photo__status` центрирует общий `LoadingStatus` на бежевом фоне. Его тёмная поверхность, надпись и indeterminate-полоса становятся самым заметным элементом. У полосы здесь нет измеренного процентного прогресса.
+
+Есть ещё отдельное ожидание: `WellnessViewer` до появления children ждёт `waitForStoryMedia(true)`, то есть готовности основной истории, включая её нижние изображения. Это последовательная зависимость от чужого контента; её нужно отдельно измерить при будущем пересмотре очереди. `pauseOptionalImageTransfers` уже останавливает незавершённое фоновое прогревание галерей при открытии Wellness — эта действующая оптимизация сама по себе не даёт первого кадра фото.
+
+В текущем production-preview3141 проблема воспроизведена на **WebKit Pro402×874 и Max440×956, DPR3**: удерживали только ответ hero, остальная история уже готова; pending-область **402×603 / 440×660**, `Loading image…`, чёрный status. После освобождения ответа появилось фото. Это контроль сетевого состояния, не реальный замер задержки. Артефакты: `screenshots/loading-research/ramsider-{pending,ready}-{pro,max}.png`, `local-observations.json`.
+
+Предыдущий контролируемый production-замер CHG0133: hero1,315,836B, четыре фото6,341,858B; cold4Mbps/100ms/4×CPU — hero готов через5904ms, все фото13328ms после открытия; ранее с PNG10119/20878ms. Это один сохранённый синтетический проход, **не свежий полевой замер** и не доказательство плавного ожидания. Lossless уже уменьшил передачу на37.51%, но почти6s до первого изображения всё ещё заметны. Источник: [lossless-performance.json](evidence/wellness/lossless-performance.json). Скриншот пользователя сам по себе не устанавливает формат доставленного файла или версию развёртывания.
+
+### Что фактически делает Bugatti
+
+Проверены [главная Bugatti](https://www.bugatti.com/) и [Tourbillon](https://www.bugatti.com/en/models/tourbillon) в обычном Codex Chromium-браузере: Pro402×874, затем адаптация Tourbillon440×956. Это CSS-размеры; DPR IAB не объявляем равным3. Cookie-баннер закрыт через Refuse. Начальный Vercel browser verification разрешился самостоятельно; CAPTCHA/защита не обходились.
+
+- **Главная:** полноэкранное muted autoplay-видео, затем фото/видео в чёрной композиции. В исследованных состояниях нет видимой глобальной полосы загрузки. В начале DOM содержал одно видео, после прокрутки — второе; ушедшее за экран hero было paused. Это прямое наблюдение управления медиасценами, не доказательство конкретного алгоритма предзагрузки.
+- **Tourbillon:** помимо autoplay hero есть отдельное scroll-video-mobile.mp4. При `scrollY1748` у него `paused=true,currentTime≈1.929`, при `scrollY2185` — `paused=true,currentTime≈4.595`; сцена оставалась у верхней границы экрана. Изменение времени остановленного видео вместе с прокруткой подтверждает управляемое перемещение по кадрам. Это **scroll-scrubbing / презентация**, а не полоса скачивания. Нельзя выдавать положение прокрутки за процент готовности файла.
+- **Доставка:** реальные `currentSrc` ведут на Imgix с параметрами `auto=format,compress`, `cs=srgb`, шириной/кадрированием/DPR; мобильные видео используют отдельные portrait/mobile URL. У первого hero в DOM не было `poster`; здесь не следует приписывать Bugatti подход poster-first. У проверенных IMG `loading=auto`, поэтому утверждать «Bugatti просто ставит всем loading=lazy» нельзя.
+- **Оформление переходов:** наблюдалось краткое размытие изображения/текста, после чего кадр стал чётким; соответствующие IMG уже были `complete` с ненулевым `naturalWidth`. Это не доказательство LQIP; размытие может быть эффектом перехода. При переходе на Tourbillon также один раз наблюдался чёрный начальный экран, без измерения его длительности.
+
+Что брать: непрерывную композицию, управление видимыми медиа и отсутствие постоянного технического HUD. Что требует отдельного обоснования: тяжёлое scroll-video, собственная плавная прокрутка, объём декодируемых медиа и поведение при слабой сети. Официальный [пресс-релиз Bugatti](https://newsroom.bugatti.com/press-releases/a-dynamic-immersive-and-captivating-experience-bugatti-presents-its-new-website) описывает immersive scroll, но датирован **24.07.2023**: он не устанавливает внутренний движок сайта2026.
+
+Ограничение: отдельный Playwright Chromium с cold cache и профилем4Mbps/100ms/4×CPU получил Vercel Security Checkpoint вместо сайта. Эти кадры исключены из оценки продуктовой скорости Bugatti. Обычный браузер дал живые visual/DOM-наблюдения, но контролируемый slow-network результат **именно Bugatti недоступен**. Не измерены его LCP/INP/CLS, полный вес, полевой Safari, использование памяти и GPU. Не делаем утверждения о GSAP/WebGL/библиотеке без исходных доказательств.
+
+### Сравнение с другими продуктовыми сайтами
+
+Одинаковая исследовательская ширина402×874DPR3 в отдельных Chromium cold contexts, обычная сеть; для Apple и Porsche дополнительно4Mbps/100ms/4×CPU. Capture после DOMContentLoaded, затем через6s обычного/12s замедленного ожидания и после wheel1100px+1.8s. Это **снимки поведения в заданные моменты**, не Lighthouse и не соревнование скоростей. Каждая попытка — один проход; сторонние запросы могут срываться. Завершённые bytes на контрольной точке не равны весу всего сайта.
+
+| Референс | Прямое наблюдение | Полезный принцип / ограничение |
+| --- | --- | --- |
+| [Apple AirPods Pro](https://www.apple.com/airpods-pro/) | В hero есть отдельные start/endframe IMG мобильного размера и VIDEO. Большинство16video в начальном DOM ещё не готовы; после прокрутки image/media requests12/1→34/8 в обычном проходе. Для многих VIDEO `preload=none`; запуск управляется отдельно. | Осмысленный статический первый кадр и отложенные сцены. Не называем весь сайт полностью загруженным. **В замедленном проходе первая highlights-карточка осталась пустой на screenshot**; готового запасного кадра в этом снимке нет. Это важный антипример для наших acceptance checks. |
+| [Porsche Taycan](https://www.porsche.com/usa/models/taycan/taycan-models/taycan/) | Видимые hero/product IMG `loading=eager,fetchPriority=high`; следующие фото `lazy`, у ряда фото `srcset`. CTA и информация читаются независимо от нижних сцен. Верхнее video играет, после ухода с экрана paused. | Приоритет первого экрана и независимые коммерческие блоки. Можно сохранить прямое действие, пока сложная демонстрация подгружается. Не переносим их объём scripts и собственные показатели на Ramsider. |
+| [Bang & Olufsen Beosound A5](https://www.bang-olufsen.com/en/us/speakers/beosound-a5) | Открыта живая страница с lifestyle hero и responsive Contentful/WebP image. Первые автоматические ready/scroll кадры закрыты cookie-диалогом. В дополнительном проходе Decline all сработал: после scroll1000px на снятом кадре галерея оставалась белой, рядом с коммерческим блоком был локальный spinner. | Даже премиальный пример не гарантирует непрерывности при конкретном холодном открытии; один снимок не доказывает постоянный дефект. Дополнительная целевая проверка и её результат — в `bo-observed.json` и `bo-observed-{ready,scroll}.png`. |
+| [Dyson Airwrap](https://www.dyson.com/hair-care/hair-stylers/airwrap) | Публичная страница читается web-инструментом, отдельный Playwright показывает Cloudflare Attention Required. | Исключён из выводов о живой анимации/скорости. Не подменяем исполнение сайта маркетинговым описанием. |
+
+Все просмотренные кадры и короткие DOM-наблюдения перечислены в [research receipt](evidence/loading-research/research.json). Ошибочные первые «clean»-имена B&O не означают успешное закрытие cookie: судим по изображению; сохраняем и ограничение, и дополнительную попытку. Сборщики не записывают cookies/headers/storage/credentials.
+
+### Пять решений: порядок пригодности для Ramsider
+
+Это инженерная оценка под наш контент, **не универсальный рейтинг популярности**. Подходы совместимы; оценка сложности относительная, сроки без реализации не обещаются.
+
+| № | Решение | Что видит посетитель | Как ускоряет / цена | Где применять |
+| --- | --- | --- | --- | --- |
+| 1 | **Загрузка заранее, без видимого loader** | При скролле следующий блок уже выглядит готовым | Первый кадр eager/high, нижние блоки — с lookahead; очередь отдаёт приоритет видимому/явно открытому контенту, а не всем ресурсам сразу. Нужен измеренный запас времени; слишком ранний preload расходует трафик и конкурирует с hero. Сложность средняя. | Основа главной и Wellness. На холодном быстром прыжке/очень слабой сети одна предзагрузка не гарантирует готовности — нужен2/5. |
+| 2 | **Реальное превью → полная детализация** | Сразу тот же кадр UNO; затем изображение становится чётче | Маленькое производное имеет меньший transfer/decode. Чёткое среднее превью лучше продаёт сам продукт; крошечный LQIP быстрее, но явно размыт. Нужно два слоя/варианта и небольшие дополнительные bytes; оригинал заменяет превью только после готовности. Сложность средняя. | Лучший ответ на приложенный скриншот. A — чёткий промежуточный кадр; B — мягкий LQIP. Не CSS blur большого файла в production. |
+| 3 | **Сохранить готовый кадр до замены** | Во время перехода остаётся текущая фотография, затем появляется следующая целиком | Переход зависит от готовности нужного ресурса, не всей галереи. Это снижает визуальную пустоту, но само не уменьшает сеть. Требуются согласованные caption/dots/selection и ограниченный decode-cache; большие текстуры расходуют память. Сложность средняя. | Галереи/переключение сцен; при первом открытии нужен2. Для вертикального скролла нельзя подменять следующий товар предыдущим или блокировать обратный ход. |
+| 4 | **Фото-постер сначала, кино/3D потом** | Сначала полноценная фотография; движение появляется при готовности/интересе | Постер делается полезным без видео; offscreen/paused/reduced-motion fallback статичен. Video/3D добавляют bytes, decode и сложную синхронизацию; scroll-scrubbing требует seekable/подготовленного медиа. Сложность высокая. | Отдельная премиальная сцена в будущем. Эффект Tourbillon не решает сегодняшнее ожидание статических Wellness-фото. Сейчас не рекомендую добавлять видео ради loader. |
+| 5 | **Отложенный локальный статус + восстановление** | Если ожидание затянулось — небольшой status в пределах фото; при сбое понятный Retry | Не ускоряет сеть; даёт честную обратную связь. Не закрывает контент/Close. Точные проценты только с измеренными loaded/total конкретного ресурса; 100% transfer ещё не означает decode/paint. Сложность небольшая для локального UI, выше для достоверных процентов. | Резерв к1–3; вариант C. Не заменять им смысловой первый кадр и не симулировать проценты. |
+
+Техническая база: [browser image lazy loading](https://web.dev/articles/browser-level-image-lazy-loading), [Fetch Priority](https://web.dev/articles/fetch-priority), [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), [HTMLImageElement.decode](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/decode). Native lazy полезен ниже первого экрана, но browser threshold не гарантирует нашу готовность; `fetchpriority` — относительная подсказка, не жёсткая очередь. `decode()` относится к проверяемому изображению; fetched URL сам по себе не доказывает painted readiness.
+
+В [Next Image](https://nextjs.org/docs/app/api-reference/components/image) есть blur-placeholder; для динамического пути `blurDataURL` задаётся отдельно, большой data URL может замедлить страницу. У нас `unoptimized=true`, поэтому сам факт использования Next Image **не даёт** responsive resize/автоматической оптимизации. Наличие WebP/AVIF тоже не означает постепенную прорисовку: здесь обсуждается отдельное preview, а не обещание progressive decode конкретного lossless WebP. Для видео см. [web.dev](https://web.dev/articles/lazy-loading-video): poster и preload — разные задачи; поддержку media lazy нужно проверять, а hero poster нельзя откладывать.
+
+### Почему не выбираю ещё три популярных эффекта
+
+**Полноэкранная заставка с логотипом/процентами** прячет продукт и добавляет обязательное ожидание; красивый отсчёт не уменьшает время передачи. **Бесконечный shimmer/skeleton** полезен для неизвестной структуры каталога/данных, но для заранее известной hero-фотографии узнаваемое превью полезнее серого прямоугольника. **Постоянная тонкая полоска сверху** легче нынешней чёрной, но при обычном скролле остаётся техническим HUD и не создаёт содержимое пустого экрана. Это могут быть уместные индикаторы отдельной операции, но не основной ответ для нашего fixed-content лендинга.
+
+[NN/g](https://www.nngroup.com/articles/skeleton-screens/) отдельно предостерегает от почти пустого frame-only skeleton и от мигания индикаторов при коротком ожидании. Это поддерживает направленность решения, но не устанавливает универсальный таймер для нашего интерфейса. Статус нужен при действительно длительной паузе; скрывать за анимацией отсутствие восстановления нельзя.
+
+Для продаж оцениваем поведение и результат: в опубликованном A/B-кейсе [Vodafone](https://web.dev/case-studies/vodafone)31% улучшения LCP сопровождались8% ростом продаж, в [Rakuten24](https://web.dev/case-studies/rakuten) A/B performance-вариант дал33.13% прироста конверсии. Это данные других продуктов, а не прогноз Ramsider и не доказательство полезности какого-либо спиннера.
+
+### Предлагаемые параметры будущей реализации — не измеренные результаты
+
+- **Первый кадр:** tiny fallback ориентировочно2–8KB или чёткое промежуточное изображение30–100KB; byte-бюджет проверять экспортом, цветовыми/детальными сравнениями. На4Mbps чистая передача100KB≈0.2s; это арифметика без latency, TTFB, очереди и decode, **не обещанное время появления**. Если финал должен остаться pixel-exact, оставляем оригинальный lossless, а производное используем только временно. Отдельно согласуем, насколько мягкое временное превью допустимо.
+- **Приоритет:** eager/high только первому нужному кадру; на намерении открытия прогревать Wellness hero, не всю историю; на touch click нельзя рассчитывать на предварительный hover. Lookahead1–2 экрана как стартовая гипотеза, затем адаптировать по измеренной скорости прокрутки и p95 transfer/decode. За500ms пользователь может пройти дальше этого окна — поэтому preview обязательно. При ограниченной сети не запускать все полноразмерные изображения в одном высоком приоритете.
+- **Переход:** ориентир150–220ms после готовности, без минимального принудительного ожидания. Для reduced-motion моментальная замена. На iOS проверить первый реальный paint, а не только Promise decode. Удержать соседние готовые кадры, ограничить decode-cache, не кэшировать все десятки текстур без измерения памяти.
+- **Feedback:** рассмотреть локальный status после примерно800–1200ms, если preview не даёт достаточно понятного результата; при быстрой готовности он вообще не появляется. Длительное ожидание3–5s — пояснение/восстановление, но не автоматическое объявление сети сломанной: транспортная ошибка, таймаут и успешное продолжение различаются. Retry+Close всегда доступны, `aria-busy`/однократное polite-сообщение, без озвучивания каждого процента. Состояние на языке страницы, RTL,44px touch targets.
+- **Измерение:** официальные полевые цели p75 **LCP≤2.5s, INP≤200ms, CLS≤0.1** — [Core Web Vitals](https://web.dev/articles/vitals). Отдельно, потому что поздний клик по modal не измеряется исходным navigation LCP: tap→first meaningful image, viewport-entry→meaningful image, blank-frame duration, full-detail readiness, bytes до/после действия, repeated transfer, memory и кадры при скролле. Эти значения сейчас не измерены для нового решения.
+
+Будущая приёмка: Pro402×874/Max440×956DPR3 WebKit; cold/warm/offline/error/held partial body; медленная сеть4Mbps100ms4×CPU и дополнительный более слабый профиль; открытие до готовности основной истории; быстрый прыжок вниз и возврат; repeated open/close; scroll во время декодирования; native Back/Escape/keyboard/focus;11locale overflow и AR RTL; reduced-motion; сохранение геометрии/утверждённого оригинала/цвета и SEO-семантики. Основной критерий: **после готовности preview ни одного пустого промежуточного кадра**; абсолютный ноль ожидания от самого первого HTML на любой сети не обещается. Сравнить первую полезную отрисовку, а не только score или исчезновение loader.
+
+### Визуальные концепты и границы доказательства
+
+Исторические A/B/C-снимки сохранены как отклонённая explanatorydelivery: они показывали состояние после возможного preview, пропуская его получение. Текущий `deliverables/loading-research/concepts.html` (127.0.0.1:3154/concepts.html) заменён последовательностью zero → preview-received → original-received, изначально фото отсутствует. Это ручная схема, не production-компонент и не новая delivery-реализация. Одновременно показывается фактический local/public inventory.
+
+Существующая WebP скопирована байт-в-байт в изолированную папку вместе с двумя публичными шрифтами, без crop/resize/ICC-конверсии. Геометрия1024×1536→402×603/440×660, полный фото-кадр; CSS-размытие B только имитирует вид маленького preview. В старых A/B/C и в новой схеме **для визуальной иллюстрации используется большая фотография**, поэтому они не доказывают меньшие bytes, скорость или pixel-exact замены. Заявлять выигрыш можно только после отдельной выбранной реализации и замеров.
+
+Старый WebKit-проход402/440/1440 относится к отклонённым A/B/C. Новый WebKit проверил исходный zero-state, переключения zero→preview→original→zero, nooverflow/noJSerrors на402/440/1280; фото402×603/440×660 без искажения, root просмотрел новые actualshots Pro/Max, включая нулевой кадр, preview и original. Внутрикадровые Close/status декоративные: это фото-примеры, не тестируемая интерактивная копия сайта. Исторические скриншоты `concepts-1440.png`, `concept-{A,B,C}-{402,440}.png`/`concept-checks.json`; текущие `corrected-{zero,preview,original}-{402,440}.png`/`zero-state-checks.json`. Сборка/нативный review/полный regression неприменимы к неизменённому runtime в рамках research-only задачи. Следующая реализация пройдёт все проектные gates заново.
+
+Безопасность preview: первый запрос запуска сервера из корня репозитория отклонён автоматической проверкой как слишком широкий доступ. Вместо него одобрен сервер только из перечисленной папки с4публичными файлами; приватные источники/репозиторий не обслуживаются. Это не blocker исследования.

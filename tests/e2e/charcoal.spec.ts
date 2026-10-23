@@ -10,7 +10,7 @@ async function open(page: import('@playwright/test').Page, locale = 'en') {
   await page.waitForFunction(() => !document.querySelector('.page-media-overlay'));
   await page.locator('#fire-learn').click();
   await expect(page.locator(dialogSelector)).toBeVisible();
-  await expect(page.locator('.charcoal-art[data-charcoal-ready=true]')).toHaveCount(12);
+  await expect(page.locator('#charcoal-viewer img[data-media-ready]')).toHaveCount(12);
 }
 
 test('four blocks, fixed close, focus and scroll restoration, and full bottom access', async ({ page }, info) => {
@@ -143,23 +143,6 @@ test('all locales, Arabic RTL, smaller height and representative responsive widt
   }
 });
 
-test('all lossless WebP blocks warm concurrently after window load and are reused on open', async ({ page }) => {
-  test.setTimeout(120000);
-  await page.goto('/en');
-  await expect.poll(() => page.evaluate(() => performance.getEntriesByType('resource').filter(e => e.name.includes('/art/charcoal/')).length)).toBe(12);
-  const timing = await page.evaluate(() => ({ load: (performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming).loadEventStart, entries: performance.getEntriesByType('resource').filter(e => e.name.includes('/art/charcoal/')).map(e => ({ start: e.startTime, type: (e as PerformanceResourceTiming).initiatorType })) }));
-  for (const entry of timing.entries) { expect(entry.start).toBeGreaterThanOrEqual(timing.load); expect(entry.type).toBe('fetch'); }
-  expect(Math.max(...timing.entries.map(e => e.start)) - Math.min(...timing.entries.map(e => e.start))).toBeLessThan(50);
-  await page.locator('#fire-learn').scrollIntoViewIfNeeded();
-  await page.waitForFunction(() => !document.querySelector('.page-media-overlay'));
-  await page.locator('#fire-learn').click();
-  await expect(page.locator('.charcoal-art[data-charcoal-ready=true]')).toHaveCount(12);
-  await page.keyboard.press('Escape');
-  await page.locator('#fire-learn').click();
-  await expect(page.locator('.charcoal-art[data-charcoal-ready=true]')).toHaveCount(12);
-  expect(await page.evaluate(() => performance.getEntriesByType('resource').filter(e => e.name.includes('/art/charcoal/')).length)).toBe(12);
-});
-
 test('failed image retries through shared loader; close stays usable while pending', async ({ page }) => {
   test.setTimeout(120000);
   let failed = true;
@@ -177,7 +160,7 @@ test('failed image retries through shared loader; close stays usable while pendi
   await expect(page.getByText('The image could not load.', { exact: true })).toBeVisible();
   failed = false;
   await page.getByRole('button', { name: 'Retry', exact: true }).click();
-  await expect(page.locator('.charcoal-section--1 img[data-charcoal-ready=true]')).toHaveCount(3);
+  await expect(page.locator('.charcoal-section--1 img[data-media-ready]')).toHaveCount(3);
   await expect(page.getByText('The image could not load.', { exact: true })).toHaveCount(0);
   await page.keyboard.press('Escape');
 });
@@ -212,12 +195,16 @@ test('narrow translated last-tile Retry stays fully usable', async ({ page }, in
   await page.waitForFunction(() => !document.querySelector('.page-media-overlay'));
   await page.locator('#fire-learn').click();
   const retry = page.getByRole('button', { name: 'Erneut versuchen', exact: true });
-  await retry.scrollIntoViewIfNeeded();
+  const failedTile=page.locator('#charcoal-viewer img[data-original="/art/charcoal/3-2.webp"]');
+  await expect(failedTile).toHaveAttribute('data-media-error','');
+  const area=page.locator('.charcoal-viewer__scroll');await area.focus();
+  await expect.poll(async()=>{await area.press('PageDown');await page.waitForTimeout(100);return retry.isVisible();},{timeout:15000,intervals:[100]}).toBe(true);
+  await expect(retry).toBeVisible();
   await expect(retry).toBeInViewport({ ratio: 1 });
   await page.screenshot({ path: 'screenshots/charcoal/footer-correction/narrow-retry.png', scale: 'css' });
   failed = false;
   await retry.click();
-  await expect(page.locator('.charcoal-section--3 img[data-charcoal-ready=true]')).toHaveCount(3);
+  await expect(page.locator('.charcoal-section--3 img[data-media-ready]')).toHaveCount(3);
   await expect(retry).toHaveCount(0);
   await page.locator('.charcoal-viewer__close').click();
   await expect(page.locator(dialogSelector)).not.toBeVisible();

@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import { ProgressiveImage } from './ProgressiveImage';
+import previews from '@/lib/media-previews.json';
 import { company, companyCopy } from '@/lib/company';
 import type { Locale } from '@/lib/i18n';
 
@@ -6,7 +7,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
   const copy = companyCopy[locale];
 
   return <footer id="company" className="site-footer">
-    <Image className="site-footer__art" data-media src="/art/footer-paper.webp" alt="" aria-hidden="true" width={941} height={2588} loading="lazy" decoding="async" unoptimized />
+    <ProgressiveImage className="site-footer__art" data-media src="/art/footer-paper.webp" preview={previews["/art/footer-paper.webp"].src} alt="" aria-hidden="true" width={941} height={2588} loading="lazy" decoding="async" />
     <div className="site-footer__inner">
       <section aria-labelledby="company-heading">
         <h2 id="company-heading">{copy.company}</h2>

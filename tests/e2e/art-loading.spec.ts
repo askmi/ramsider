@@ -13,50 +13,6 @@ async function luminanceRange(png: Buffer, box: { left: number; top: number; wid
   return max - min;
 }
 
-test('protected fast scroll waits for decoded WebP then reaches distant art', async ({ page }, testInfo) => {
-  let releaseImages!: () => void;
-  const imageGate = new Promise<void>(resolve => { releaseImages = resolve; });
-  await page.route('**/art/*.webp', async route => { await imageGate; await route.continue(); });
-  try {
-    await page.goto('/en', { waitUntil: 'domcontentloaded' });
-    const first = await page.locator('.art img').first().evaluate(image => ({
-      complete: (image as HTMLImageElement).complete,
-      preview: getComputedStyle(image).backgroundImage,
-    }));
-    expect(first.complete).toBe(false);
-    expect(first.preview).toBe('none');
-
-    await page.evaluate(() => scrollTo({ top: 6500, behavior: 'instant' }));
-    // The protected story frontier intentionally prevents a jump into missing art.
-    await page.waitForFunction(() => document.documentElement.hasAttribute('data-media-hydrated'));
-    await expect(page.locator('.page-media-overlay .media-loading')).toBeVisible();
-    expect(await page.evaluate(() => scrollY)).toBe(0);
-    await expect(page.locator('.page-media-content')).toHaveAttribute('inert', '');
-  } finally {
-    releaseImages();
-  }
-  await page.waitForFunction(() => document.documentElement.hasAttribute('data-story-media-ready'));
-  await page.evaluate(() => scrollTo({top:6500,behavior:'instant'}));
-  await expect.poll(() => page.evaluate(() => Math.abs(scrollY-6500))).toBeLessThan(2);
-  await expect.poll(async () => page.locator('.art img, .tail-art img').evaluateAll(images => {
-    const visible = images.filter(image => {
-      const box = image.getBoundingClientRect();
-      return box.top < innerHeight && box.bottom > 0;
-    });
-    return visible.length > 0 && visible.every(image => (image as HTMLImageElement).complete && (image as HTMLImageElement).naturalWidth > 0);
-  }), { timeout: 30000 }).toBe(true);
-  await page.evaluate(() => Promise.all([...document.querySelectorAll<HTMLImageElement>('.art img, .tail-art img')]
-    .filter(image => { const box = image.getBoundingClientRect(); return box.top < innerHeight && box.bottom > 0; })
-    .map(image => image.decode())));
-  await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
-  await expect.poll(() => page.locator('.art img').evaluateAll(images => images
-    .filter(image => { const r = image.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0; })
-    .every(image => getComputedStyle(image).backgroundImage === 'none'))).toBe(true);
-  const final = await page.screenshot({ scale: 'css', path: testInfo.outputPath('fast-scroll-loaded.png') });
-  const width = testInfo.project.use.viewport!.width;
-  expect(await luminanceRange(final, { left: 0, top: 210, width: Math.round(width * .42), height: 420 })).toBeGreaterThan(25);
-});
-
 for (const language of [{ code: 'ru', dir: 'ltr' }, { code: 'ar', dir: 'rtl' }]) test(`${language.code} change keeps WebP artwork available after scrolling`, async ({ page }, testInfo) => {
   await page.goto('/en');
   await page.route(`**/${language.code}`, async route => { await new Promise(resolve => setTimeout(resolve, 600)); await route.continue(); });
@@ -90,13 +46,9 @@ for (const language of [{ code: 'ru', dir: 'ltr' }, { code: 'ar', dir: 'rtl' }])
 });
 
 test('a stalled image cannot hold language navigation indefinitely', async ({ page }) => {
-  await page.addInitScript(() => {
-    const original = HTMLImageElement.prototype.decode;
-    HTMLImageElement.prototype.decode = function() {
-      if(document.documentElement.lang === 'en' && this.src.includes('/art/08.webp')) return new Promise(() => {});
-      return original.call(this);
-    };
-  });
+  let release!:()=>void;const held=new Promise<void>(resolve=>{release=resolve;});
+  await page.route('**/art/11.webp',async route=>{await held;await route.continue().catch(()=>{});});
+  try {
   await page.goto('/en');
   await page.waitForFunction(() => document.documentElement.hasAttribute('data-media-hydrated'));
   await expect(page.locator('.art img').first()).toHaveAttribute('data-media-ready','');
@@ -105,4 +57,5 @@ test('a stalled image cannot hold language navigation indefinitely', async ({ pa
   await page.getByRole('link', { name: 'Русский' }).click();
   await page.waitForURL('**/ru', { waitUntil: 'domcontentloaded', timeout: 7000 });
   await expect(page.locator('html')).toHaveAttribute('lang', 'ru');
+  } finally {release();}
 });

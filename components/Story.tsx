@@ -13,7 +13,8 @@ import { technologyDescriptionCopy } from '@/lib/technology-descriptions';
 import buttonMap from '@/lib/button-map.json';
 import iconMap from '@/lib/icon-map.json';
 import localizedButtonWidths from '@/lib/button-localized-widths.json';
-import artPreviews from '@/lib/art-previews.json';
+import previews from '@/lib/media-previews.json';
+import { ProgressiveImage } from './ProgressiveImage';
 import { PageMediaGate } from './PageMediaGate';
 import { CharcoalRibbon } from './CharcoalRibbon';
 import { EmberScene } from './EmberScene';
@@ -118,7 +119,7 @@ const docs: { key: Exclude<CertificateId, 'all'>; detail: string; x: number; y: 
 function DocumentCards({ locale }: { locale: Locale }) {
   return <>
     {docs.map((doc) => <div className={`doc-card doc-card--${doc.key} source-panel`} key={doc.key} style={sourceStyle(doc.x, doc.y, 356)}>
-      <Image data-media className="doc-thumb" src={`/art/doc-${doc.key}.webp`} width={95} height={140} alt="" unoptimized loading="lazy" fetchPriority="high" />
+      <ProgressiveImage data-media className="doc-thumb" src={`/art/doc-${doc.key}.webp`} preview={previews[(`/art/doc-${doc.key}.webp`) as keyof typeof previews].src} width={95} height={140} alt="" loading="lazy" fetchPriority="high" />
       <strong>{textLines(t(locale, doc.key))}</strong>
       <small>{textLines(doc.detail)}</small>
       <a id={`document-${doc.key}`} href={certificates[doc.key].href} target="_blank" rel="noopener noreferrer" aria-label={`${t(locale, 'docView')}: ${t(locale, doc.key).replaceAll('\n', ' ')}`}><span className="doc-action-label">{t(locale, 'docView')}</span><ActionArrow /></a>
@@ -152,8 +153,8 @@ function Faq({ locale }: { locale: Locale }) {
     } as React.CSSProperties}>
       <div className="faq-row-art" aria-hidden="true">
         {['top', 'middle', 'bottom'].map(part => <div className={`faq-art-${part}`} key={part}>
-          <Image data-media src={`/art/faq-row-${index + 1}.webp`} fetchPriority="high" width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />
-          {part === 'middle' && <Image data-media className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} fetchPriority="high" width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" unoptimized loading="lazy" placeholder={artPreviews[`faq-row-${index + 1}` as keyof typeof artPreviews] as `data:image/${string}`} />}
+          <ProgressiveImage data-media src={`/art/faq-row-${index + 1}.webp`} preview={previews[(`/art/faq-row-${index + 1}.webp`) as keyof typeof previews].src} fetchPriority="high" width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" loading="lazy" />
+          {part === 'middle' && <ProgressiveImage data-media className="faq-minus-cover" src={`/art/faq-row-${index + 1}.webp`} preview={previews[(`/art/faq-row-${index + 1}.webp`) as keyof typeof previews].src} fetchPriority="high" width={941} height={(questions[index + 1]?.y ?? question.y + question.height) - question.y + 8} alt="" loading="lazy" />}
         </div>)}
       </div>
       <details>
@@ -233,24 +234,25 @@ function Popovers({ locale }: { locale: Locale }) {
 
 export function Story({ locale }: { locale: Locale }) {
   return <DialogController>
+    <link rel="preload" as="image" href="/art/00.webp" fetchPriority="high" />
+    <script type="application/json" data-section-previews dangerouslySetInnerHTML={{__html:JSON.stringify(Object.fromEntries(Object.entries(previews).filter(([src])=>src.includes("/technology/"))))}} />
     <TechnologyViewer locale={locale} descriptions={technologyDescriptionCopy[locale]} />
     <CharcoalRibbon locale={locale} />
     <WellnessRibbon locale={locale} />
     <PageMediaGate locale={locale}><main className="canvas" data-locale={locale}>
       <div className="story-prefix-space" aria-hidden="true" />
       <div className="art" aria-hidden="true">
-        {artTiles.filter(({ file }) => file !== '11').map(({ file, height }, i) => <Image
+        {artTiles.filter(({ file }) => file !== '11').map(({ file, height }, i) => <ProgressiveImage
           key={i}
           data-media
-          src={`/art/${file}.webp`}
+          src={`/art/${file}.webp`} preview={previews[(`/art/${file}.webp`) as keyof typeof previews].src}
           width={941}
           height={height}
           alt=""
-          unoptimized
-          preload={i === 0}
+
+          hero={i === 0}
           loading={i === 0 ? 'eager' : 'lazy'}
           fetchPriority="high"
-          placeholder={i === 0 ? 'empty' : artPreviews[file as keyof typeof artPreviews] as `data:image/${string}`}
         />)}
       </div>
       <Menus locale={locale} />
@@ -280,16 +282,16 @@ export function Story({ locale }: { locale: Locale }) {
         loading="eager"
         fetchPriority="low"
       />)}
-      <Image
+      <ProgressiveImage
         data-media
         className="expression-waves-art"
-        src="/art/expression-waves.webp"
+        src="/art/expression-waves.webp" preview={previews["/art/expression-waves.webp"].src}
         width={701}
         height={401}
         style={sourceStyle(120, 14665, 701)}
         alt=""
         aria-hidden="true"
-        unoptimized
+
         loading="lazy"
         fetchPriority="high"
       />
@@ -315,8 +317,8 @@ export function Story({ locale }: { locale: Locale }) {
       <Faq locale={locale} />
       <section className="story-tail" aria-label={t(locale, 'account')}>
         <div className="tail-art" aria-hidden="true"><div className="tail-art-track">
-          <Image data-media src="/art/09-10.webp" width={941} height={5602} alt="" unoptimized loading="lazy" fetchPriority="high" placeholder={artPreviews['09-10'] as `data:image/${string}`} />
-          <Image data-media src="/art/11.webp" width={941} height={1329} alt="" unoptimized loading="lazy" fetchPriority="high" placeholder={artPreviews['11'] as `data:image/${string}`} />
+          <ProgressiveImage data-media src="/art/09-10.webp" preview={previews["/art/09-10.webp"].src} width={941} height={5602} alt="" loading="lazy" fetchPriority="high" />
+          <ProgressiveImage data-media src="/art/11.webp" preview={previews["/art/11.webp"].src} width={941} height={1329} alt="" loading="lazy" fetchPriority="high" />
         </div></div>
         {storyNodes.filter(node => node.y >= 28207).map((node, index) => <OverlayNode node={node} locale={locale} key={`${node.key}-${index}`} />)}
       <button id="account-personal" type="button" className="account-hit" style={sourceStyle(45, 28230, 850)} popoverTarget="unavailable-account" aria-label={t(locale, 'account')} />

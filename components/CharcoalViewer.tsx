@@ -2,12 +2,12 @@
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { flushSync } from 'react-dom';
-import { useScrollLock } from './MediaLoading';
-import { charcoalTiles } from '@/lib/charcoal-assets';
-import { loadImage } from '@/lib/media-resource';
+import { MediaFeedback, useScrollLock } from './MediaLoading';
+import {useMediaScroll} from '@/lib/media-scroll';
+import type {Locale} from '@/lib/i18n';
 
 /** The reading content stays server-rendered; this shell owns only modal state. */
-export function CharcoalViewer({ children, closeLabel }: { children: ReactNode; closeLabel: string }) {
+export function CharcoalViewer({ children, closeLabel, locale }: { children: ReactNode; closeLabel: string; locale:Locale }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const scroller = useRef<HTMLDivElement>(null);
   const opener = useRef<HTMLElement | null>(null);
@@ -15,15 +15,7 @@ export function CharcoalViewer({ children, closeLabel }: { children: ReactNode; 
   const keyboard = useRef(false);
   const [open, setOpen] = useState(false);
   useScrollLock(open);
-
-  useEffect(() => {
-    const warm = () => {
-      for (const tile of charcoalTiles.flat()) void loadImage(tile.src, 'low').ready.catch(() => {});
-    };
-    if (document.readyState === 'complete') warm();
-    else window.addEventListener('load', warm, { once: true });
-    return () => window.removeEventListener('load', warm);
-  }, []);
+  const media=useMediaScroll(scroller,false,open);
 
   useEffect(() => {
     const activate = (event: MouseEvent) => {
@@ -51,6 +43,7 @@ export function CharcoalViewer({ children, closeLabel }: { children: ReactNode; 
   }, []);
 
   return <dialog ref={dialog} id="charcoal-viewer" className="charcoal-viewer" aria-labelledby="charcoal-title" onKeyDown={event => {
+      if(event.defaultPrevented)return;
     if (event.key !== 'Tab') {
       const viewport = scroller.current;
       if (!viewport || event.target !== viewport || event.ctrlKey || event.metaKey || event.altKey) return;
@@ -75,7 +68,8 @@ export function CharcoalViewer({ children, closeLabel }: { children: ReactNode; 
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19" /></svg>
     </button>
     <div ref={scroller} className="charcoal-viewer__scroll" tabIndex={0}>
-      {open ? children : null}
+      {children}
+      <MediaFeedback className="flow-media-overlay" active={media.blocked||media.error} locale={locale} progress={media.progress} error={media.error} onRetry={media.retry}/>
     </div>
   </dialog>;
 }

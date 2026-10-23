@@ -1,0 +1,1235 @@
+{
+  "change": "CHG0134",
+  "date": "2026-10-22",
+  "scope": "Research correction, actual inventory and honest zero-file sequence; no production implementation",
+  "countDefinition": "Unique requested image path dedupe, after main ready+8s without scroll, before optional viewer open. Not distinct photographic subjects, not all files on disk, not instantaneous first-viewport completion.",
+  "byteDefinition": "Sum of individual asset file sizes, MB=1e6; no HTML/fonts/scripts/PDF/headers. Not total network bytes. Public raster HEAD200/content-length; SVG HEAD missing lengths repaired by decoded GET body byte length.",
+  "staticInventory": {
+    "svg": {
+      "count": 112,
+      "bytes": 137336
+    },
+    "mainRaster": {
+      "count": 49,
+      "bytes": 6644918
+    },
+    "wellness": {
+      "count": 4,
+      "bytes": 6341858
+    },
+    "charcoal": {
+      "count": 12,
+      "bytes": 7550146
+    },
+    "technology": {
+      "count": 23,
+      "bytes": 27910892
+    }
+  },
+  "mainInlinePreviews": {
+    "entries": 16,
+    "jsonBytes": 80784,
+    "decodedImageBytes": 60116,
+    "keys": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09-10",
+      "11",
+      "faq-row-1",
+      "faq-row-2",
+      "faq-row-3",
+      "faq-row-4",
+      "faq-row-5",
+      "faq-row-6"
+    ]
+  },
+  "wellnessHasPreview": false,
+  "local": [
+    {
+      "name": "pro",
+      "width": 402,
+      "height": 874,
+      "engine": "Chromium DPR3",
+      "checkpoints": [
+        {
+          "label": "DOM ready",
+          "scrollY": 0,
+          "uniqueRequestedURLs": 23,
+          "requestCount": 23,
+          "rasterCount": 23,
+          "rasterFileBytes": 301104,
+          "allImageFileBytes": 301104,
+          "groups": {
+            "svg": {
+              "count": 0,
+              "bytes": 0
+            },
+            "mainRaster": {
+              "count": 23,
+              "bytes": 301104
+            },
+            "charcoal": {
+              "count": 0,
+              "bytes": 0
+            },
+            "technology": {
+              "count": 0,
+              "bytes": 0
+            }
+          },
+          "wellnessFiles": []
+        },
+        {
+          "label": "No scroll; main ready; +8s background warming",
+          "scrollY": 0,
+          "uniqueRequestedURLs": 94,
+          "requestCount": 94,
+          "rasterCount": 82,
+          "rasterFileBytes": 42069730,
+          "allImageFileBytes": 42083497,
+          "groups": {
+            "svg": {
+              "count": 12,
+              "bytes": 13767
+            },
+            "mainRaster": {
+              "count": 47,
+              "bytes": 6608692
+            },
+            "charcoal": {
+              "count": 12,
+              "bytes": 7550146
+            },
+            "technology": {
+              "count": 23,
+              "bytes": 27910892
+            }
+          },
+          "wellnessFiles": []
+        },
+        {
+          "label": "Wellness open at top; first viewport",
+          "scrollY": 4719,
+          "uniqueRequestedURLs": 98,
+          "requestCount": 98,
+          "rasterCount": 86,
+          "rasterFileBytes": 48411588,
+          "allImageFileBytes": 48425355,
+          "groups": {
+            "svg": {
+              "count": 12,
+              "bytes": 13767
+            },
+            "mainRaster": {
+              "count": 47,
+              "bytes": 6608692
+            },
+            "charcoal": {
+              "count": 12,
+              "bytes": 7550146
+            },
+            "technology": {
+              "count": 23,
+              "bytes": 27910892
+            }
+          },
+          "wellnessFiles": [
+            {
+              "path": "/art/wellness/01-ritual_uno_white_v3.webp",
+              "bytes": 1315836
+            },
+            {
+              "path": "/art/wellness/03-botanicals.webp",
+              "bytes": 1923046
+            },
+            {
+              "path": "/art/wellness/04-capsules_v3.webp",
+              "bytes": 1392408
+            },
+            {
+              "path": "/art/wellness/02-water_bouquet.webp",
+              "bytes": 1710568
+            }
+          ]
+        },
+        {
+          "label": "Wellness scrolled to end; all four ready",
+          "scrollY": 4719,
+          "uniqueRequestedURLs": 98,
+          "requestCount": 98,
+          "rasterCount": 86,
+          "rasterFileBytes": 48411588,
+          "allImageFileBytes": 48425355,
+          "groups": {
+            "svg": {
+              "count": 12,
+              "bytes": 13767
+            },
+            "mainRaster": {
+              "count": 47,
+              "bytes": 6608692
+            },
+            "charcoal": {
+              "count": 12,
+              "bytes": 7550146
+            },
+            "technology": {
+              "count": 23,
+              "bytes": 27910892
+            }
+          },
+          "wellnessFiles": [
+            {
+              "path": "/art/wellness/01-ritual_uno_white_v3.webp",
+              "bytes": 1315836
+            },
+            {
+              "path": "/art/wellness/03-botanicals.webp",
+              "bytes": 1923046
+            },
+            {
+              "path": "/art/wellness/04-capsules_v3.webp",
+              "bytes": 1392408
+            },
+            {
+              "path": "/art/wellness/02-water_bouquet.webp",
+              "bytes": 1710568
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "max",
+      "width": 440,
+      "height": 956,
+      "engine": "Chromium DPR3",
+      "checkpoints": [
+        {
+          "label": "DOM ready",
+          "scrollY": 0,
+          "uniqueRequestedURLs": 37,
+          "requestCount": 37,
+          "rasterCount": 26,
+          "rasterFileBytes": 1930920,
+          "allImageFileBytes": 1944384,
+          "groups": {
+            "svg": {
+              "count": 11,
+              "bytes": 13464
+            },
+            "mainRaster": {
+              "count": 26,
+              "bytes": 1930920
+            },
+            "charcoal": {
+              "count": 0,
+              "bytes": 0
+            },
+            "technology": {
+              "count": 0,
+              "bytes": 0
+            }
+          },
+          "wellnessFiles": []
+        },
+        {
+          "label": "No scroll; main ready; +8s background warming",
+          "scrollY": 0,
+          "uniqueRequestedURLs": 94,
+          "requestCount": 94,
+          "rasterCount": 82,
+          "rasterFileBytes": 42069730,
+          "allImageFileBytes": 42083497,
+          "groups": {
+            "svg": {
+              "count": 12,
+              "bytes": 13767
+            },
+            "mainRaster": {
+              "count": 47,
+              "bytes": 6608692
+            },
+            "charcoal": {
+              "count": 12,
+              "bytes": 7550146
+            },
+            "technology": {
+              "count": 23,
+              "bytes": 27910892
+            }
+          },
+          "wellnessFiles": []
+        },
+        {
+          "label": "Wellness open at top; first viewport",
+          "scrollY": 5166,
+          "uniqueRequestedURLs": 98,
+          "requestCount": 98,
+          "rasterCount": 86,
+          "rasterFileBytes": 48411588,
+          "allImageFileBytes": 48425355,
+          "groups": {
+            "svg": {
+              "count": 12,
+              "bytes": 13767
+            },
+            "mainRaster": {
+              "count": 47,
+              "bytes": 6608692
+            },
+            "charcoal": {
+              "count": 12,
+              "bytes": 7550146
+            },
+            "technology": {
+              "count": 23,
+              "bytes": 27910892
+            }
+          },
+          "wellnessFiles": [
+            {
+              "path": "/art/wellness/01-ritual_uno_white_v3.webp",
+              "bytes": 1315836
+            },
+            {
+              "path": "/art/wellness/03-botanicals.webp",
+              "bytes": 1923046
+            },
+            {
+              "path": "/art/wellness/04-capsules_v3.webp",
+              "bytes": 1392408
+            },
+            {
+              "path": "/art/wellness/02-water_bouquet.webp",
+              "bytes": 1710568
+            }
+          ]
+        },
+        {
+          "label": "Wellness scrolled to end; all four ready",
+          "scrollY": 5166,
+          "uniqueRequestedURLs": 98,
+          "requestCount": 98,
+          "rasterCount": 86,
+          "rasterFileBytes": 48411588,
+          "allImageFileBytes": 48425355,
+          "groups": {
+            "svg": {
+              "count": 12,
+              "bytes": 13767
+            },
+            "mainRaster": {
+              "count": 47,
+              "bytes": 6608692
+            },
+            "charcoal": {
+              "count": 12,
+              "bytes": 7550146
+            },
+            "technology": {
+              "count": 23,
+              "bytes": 27910892
+            }
+          },
+          "wellnessFiles": [
+            {
+              "path": "/art/wellness/01-ritual_uno_white_v3.webp",
+              "bytes": 1315836
+            },
+            {
+              "path": "/art/wellness/03-botanicals.webp",
+              "bytes": 1923046
+            },
+            {
+              "path": "/art/wellness/04-capsules_v3.webp",
+              "bytes": 1392408
+            },
+            {
+              "path": "/art/wellness/02-water_bouquet.webp",
+              "bytes": 1710568
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "public": {
+    "url": "https://ramsider-main.vercel.app/en",
+    "profile": "Chromium402x874DPR3/coldcache/unthrottled",
+    "checkpoints": [
+      {
+        "label": "DOM ready",
+        "scrollY": 0,
+        "uniqueRequestedURLs": 37,
+        "requestCount": 37,
+        "rasterCount": 26,
+        "rasterFileBytes": 1930920,
+        "allImageFileBytes": 1944384,
+        "groups": {
+          "svg": {
+            "count": 11,
+            "bytes": 13464
+          },
+          "mainRaster": {
+            "count": 26,
+            "bytes": 1930920
+          },
+          "charcoal": {
+            "count": 0,
+            "bytes": 0
+          },
+          "technology": {
+            "count": 0,
+            "bytes": 0
+          }
+        },
+        "wellnessFiles": []
+      },
+      {
+        "label": "No scroll; main ready; +8s background warming",
+        "scrollY": 0,
+        "uniqueRequestedURLs": 94,
+        "requestCount": 94,
+        "rasterCount": 82,
+        "rasterFileBytes": 42069730,
+        "allImageFileBytes": 42083497,
+        "groups": {
+          "svg": {
+            "count": 12,
+            "bytes": 13767
+          },
+          "mainRaster": {
+            "count": 47,
+            "bytes": 6608692
+          },
+          "charcoal": {
+            "count": 12,
+            "bytes": 7550146
+          },
+          "technology": {
+            "count": 23,
+            "bytes": 27910892
+          }
+        },
+        "wellnessFiles": []
+      },
+      {
+        "label": "Wellness open at top; first viewport",
+        "scrollY": 4719,
+        "uniqueRequestedURLs": 98,
+        "requestCount": 98,
+        "rasterCount": 86,
+        "rasterFileBytes": 52219036,
+        "allImageFileBytes": 52232803,
+        "groups": {
+          "svg": {
+            "count": 12,
+            "bytes": 13767
+          },
+          "mainRaster": {
+            "count": 47,
+            "bytes": 6608692
+          },
+          "charcoal": {
+            "count": 12,
+            "bytes": 7550146
+          },
+          "technology": {
+            "count": 23,
+            "bytes": 27910892
+          }
+        },
+        "wellnessFiles": [
+          {
+            "path": "/art/wellness/01-ritual_uno_white_v3.png",
+            "bytes": 2334282
+          },
+          {
+            "path": "/art/wellness/03-botanicals.png",
+            "bytes": 2999237
+          },
+          {
+            "path": "/art/wellness/04-capsules_v3.png",
+            "bytes": 2180259
+          },
+          {
+            "path": "/art/wellness/02-water_bouquet.png",
+            "bytes": 2635528
+          }
+        ]
+      },
+      {
+        "label": "Wellness scrolled to end; all four ready",
+        "scrollY": 4719,
+        "uniqueRequestedURLs": 98,
+        "requestCount": 98,
+        "rasterCount": 86,
+        "rasterFileBytes": 52219036,
+        "allImageFileBytes": 52232803,
+        "groups": {
+          "svg": {
+            "count": 12,
+            "bytes": 13767
+          },
+          "mainRaster": {
+            "count": 47,
+            "bytes": 6608692
+          },
+          "charcoal": {
+            "count": 12,
+            "bytes": 7550146
+          },
+          "technology": {
+            "count": 23,
+            "bytes": 27910892
+          }
+        },
+        "wellnessFiles": [
+          {
+            "path": "/art/wellness/01-ritual_uno_white_v3.png",
+            "bytes": 2334282
+          },
+          {
+            "path": "/art/wellness/03-botanicals.png",
+            "bytes": 2999237
+          },
+          {
+            "path": "/art/wellness/04-capsules_v3.png",
+            "bytes": 2180259
+          },
+          {
+            "path": "/art/wellness/02-water_bouquet.png",
+            "bytes": 2635528
+          }
+        ]
+      }
+    ],
+    "verifiedFiles": [
+      {
+        "path": "/art/00.webp",
+        "status": 200,
+        "bytes": 248236,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/01.webp",
+        "status": 200,
+        "bytes": 390082,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/02.webp",
+        "status": 200,
+        "bytes": 416176,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/03.webp",
+        "status": 200,
+        "bytes": 823558,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/04.webp",
+        "status": 200,
+        "bytes": 880778,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/05.webp",
+        "status": 200,
+        "bytes": 594492,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/06.webp",
+        "status": 200,
+        "bytes": 608310,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/07.webp",
+        "status": 200,
+        "bytes": 694070,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/08.webp",
+        "status": 200,
+        "bytes": 601174,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/09-10.webp",
+        "status": 200,
+        "bytes": 756258,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/11.webp",
+        "status": 200,
+        "bytes": 169642,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/brand-mark-white.webp",
+        "status": 200,
+        "bytes": 1082,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/charcoal/1-0.webp",
+        "status": 200,
+        "bytes": 680320,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/charcoal/1-1.webp",
+        "status": 200,
+        "bytes": 629922,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/charcoal/1-2.webp",
+        "status": 200,
+        "bytes": 512108,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/charcoal/2-0.webp",
+        "status": 200,
+        "bytes": 696590,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/charcoal/2-1.webp",
+        "status": 200,
+        "bytes": 761994,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/charcoal/2-2.webp",
+        "status": 200,
+        "bytes": 510750,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/charcoal/3-0.webp",
+        "status": 200,
+        "bytes": 829414,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/charcoal/3-1.webp",
+        "status": 200,
+        "bytes": 607548,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/charcoal/3-2.webp",
+        "status": 200,
+        "bytes": 279378,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/charcoal/4-0.webp",
+        "status": 200,
+        "bytes": 836294,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/charcoal/4-1.webp",
+        "status": 200,
+        "bytes": 770604,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/charcoal/4-2.webp",
+        "status": 200,
+        "bytes": 435224,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/doc-electrical.webp",
+        "status": 200,
+        "bytes": 10618,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/doc-emc.webp",
+        "status": 200,
+        "bytes": 7360,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/doc-rohs.webp",
+        "status": 200,
+        "bytes": 5826,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/doc-telecom.webp",
+        "status": 200,
+        "bytes": 3532,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/doc-uae.webp",
+        "status": 200,
+        "bytes": 5212,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/expression-waves.webp",
+        "status": 200,
+        "bytes": 67220,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/faq-row-1.webp",
+        "status": 200,
+        "bytes": 9950,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/faq-row-2.webp",
+        "status": 200,
+        "bytes": 7834,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/faq-row-3.webp",
+        "status": 200,
+        "bytes": 8988,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/faq-row-4.webp",
+        "status": 200,
+        "bytes": 12290,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/faq-row-5.webp",
+        "status": 200,
+        "bytes": 11720,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/faq-row-6.webp",
+        "status": 200,
+        "bytes": 11930,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/feature-divider-control.webp",
+        "status": 200,
+        "bytes": 710,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/feature-divider-draw.webp",
+        "status": 200,
+        "bytes": 746,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/feature-divider-intensity.webp",
+        "status": 200,
+        "bytes": 802,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/footer-paper.webp",
+        "status": 200,
+        "bytes": 182184,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/icon-kit/01.webp",
+        "status": 200,
+        "bytes": 944,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/icon-kit/02.webp",
+        "status": 200,
+        "bytes": 816,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/icon-kit/03.webp",
+        "status": 200,
+        "bytes": 1002,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/icon-kit/04.webp",
+        "status": 200,
+        "bytes": 860,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/icon-kit/05.webp",
+        "status": 200,
+        "bytes": 950,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/icon-kit/07.webp",
+        "status": 200,
+        "bytes": 888,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/icon-kit/08.webp",
+        "status": 200,
+        "bytes": 908,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/icon-kit/09.webp",
+        "status": 200,
+        "bytes": 1632,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/icon-kit/10.webp",
+        "status": 200,
+        "bytes": 2040,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/icon-kit/11.webp",
+        "status": 200,
+        "bytes": 1360,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/icon-kit/12.webp",
+        "status": 200,
+        "bytes": 2020,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/rams-group-diamond.webp",
+        "status": 200,
+        "bytes": 28384,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/tech-ring.svg",
+        "status": 200,
+        "bytes": 1093,
+        "type": "image/svg+xml",
+        "sizeMethod": "decoded GET body length; HEAD Content-Length may be absent"
+      },
+      {
+        "path": "/art/technology-connector-armor.webp",
+        "status": 200,
+        "bytes": 4782,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology-connector-core.webp",
+        "status": 200,
+        "bytes": 1712,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology-connector-flow.webp",
+        "status": 200,
+        "bytes": 11570,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology-connector-light.webp",
+        "status": 200,
+        "bytes": 4296,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology-connector-touch.webp",
+        "status": 200,
+        "bytes": 10026,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology-connector-triple.webp",
+        "status": 200,
+        "bytes": 1642,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology-connector-water.webp",
+        "status": 200,
+        "bytes": 2080,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/air-01.webp",
+        "status": 200,
+        "bytes": 1194580,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/air-02.webp",
+        "status": 200,
+        "bytes": 1305880,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/aqua-01.webp",
+        "status": 200,
+        "bytes": 1312672,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/aqua-02.webp",
+        "status": 200,
+        "bytes": 1103852,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/capsule-01.webp",
+        "status": 200,
+        "bytes": 1496166,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/capsule-02.webp",
+        "status": 200,
+        "bytes": 1420494,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/capsule-03.webp",
+        "status": 200,
+        "bytes": 1332698,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/cyber-01.webp",
+        "status": 200,
+        "bytes": 1265318,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/cyber-02.webp",
+        "status": 200,
+        "bytes": 673606,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/heat-02.webp",
+        "status": 200,
+        "bytes": 1210042,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/heat-03.webp",
+        "status": 200,
+        "bytes": 1311648,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/heat-04.webp",
+        "status": 200,
+        "bytes": 1200408,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/heat-05.webp",
+        "status": 200,
+        "bytes": 1298888,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/mood-01.webp",
+        "status": 200,
+        "bytes": 1113892,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/mood-02.webp",
+        "status": 200,
+        "bytes": 1270768,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/noble-01.webp",
+        "status": 200,
+        "bytes": 863512,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/noble-02.webp",
+        "status": 200,
+        "bytes": 1458516,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/poly-01.webp",
+        "status": 200,
+        "bytes": 1048772,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/quick-01.webp",
+        "status": 200,
+        "bytes": 1148554,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/quick-02.webp",
+        "status": 200,
+        "bytes": 1423536,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/touch-01.webp",
+        "status": 200,
+        "bytes": 1172272,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/touch-02.webp",
+        "status": 200,
+        "bytes": 1112090,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/technology/slides/touch-03.webp",
+        "status": 200,
+        "bytes": 1172728,
+        "type": "image/webp"
+      },
+      {
+        "path": "/art/wellness/01-ritual_uno_white_v3.png",
+        "status": 200,
+        "bytes": 2334282,
+        "type": "image/png"
+      },
+      {
+        "path": "/art/wellness/02-water_bouquet.png",
+        "status": 200,
+        "bytes": 2635528,
+        "type": "image/png"
+      },
+      {
+        "path": "/art/wellness/03-botanicals.png",
+        "status": 200,
+        "bytes": 2999237,
+        "type": "image/png"
+      },
+      {
+        "path": "/art/wellness/04-capsules_v3.png",
+        "status": 200,
+        "bytes": 2180259,
+        "type": "image/png"
+      },
+      {
+        "path": "/buttons/Arrow_Right.svg",
+        "status": 200,
+        "bytes": 303,
+        "type": "image/svg+xml",
+        "sizeMethod": "decoded GET body length; HEAD Content-Length may be absent"
+      },
+      {
+        "path": "/buttons/beyond-learn.svg",
+        "status": 200,
+        "bytes": 1118,
+        "type": "image/svg+xml",
+        "sizeMethod": "decoded GET body length; HEAD Content-Length may be absent"
+      },
+      {
+        "path": "/buttons/choice-learn.svg",
+        "status": 200,
+        "bytes": 1118,
+        "type": "image/svg+xml",
+        "sizeMethod": "decoded GET body length; HEAD Content-Length may be absent"
+      },
+      {
+        "path": "/buttons/expressions-compare.svg",
+        "status": 200,
+        "bytes": 1319,
+        "type": "image/svg+xml",
+        "sizeMethod": "decoded GET body length; HEAD Content-Length may be absent"
+      },
+      {
+        "path": "/buttons/final-create.svg",
+        "status": 200,
+        "bytes": 1317,
+        "type": "image/svg+xml",
+        "sizeMethod": "decoded GET body length; HEAD Content-Length may be absent"
+      },
+      {
+        "path": "/buttons/fire-learn.svg",
+        "status": 200,
+        "bytes": 1120,
+        "type": "image/svg+xml",
+        "sizeMethod": "decoded GET body length; HEAD Content-Length may be absent"
+      },
+      {
+        "path": "/buttons/gold-explore.svg",
+        "status": 200,
+        "bytes": 1315,
+        "type": "image/svg+xml",
+        "sizeMethod": "decoded GET body length; HEAD Content-Length may be absent"
+      },
+      {
+        "path": "/buttons/hero-reserve.svg",
+        "status": 200,
+        "bytes": 1120,
+        "type": "image/svg+xml",
+        "sizeMethod": "decoded GET body length; HEAD Content-Length may be absent"
+      },
+      {
+        "path": "/buttons/order-create.svg",
+        "status": 200,
+        "bytes": 1315,
+        "type": "image/svg+xml",
+        "sizeMethod": "decoded GET body length; HEAD Content-Length may be absent"
+      },
+      {
+        "path": "/buttons/pro-explore.svg",
+        "status": 200,
+        "bytes": 1311,
+        "type": "image/svg+xml",
+        "sizeMethod": "decoded GET body length; HEAD Content-Length may be absent"
+      },
+      {
+        "path": "/buttons/set-explore.svg",
+        "status": 200,
+        "bytes": 1318,
+        "type": "image/svg+xml",
+        "sizeMethod": "decoded GET body length; HEAD Content-Length may be absent"
+      }
+    ]
+  },
+  "importantCurrentBehavior": [
+    "PageMediaGate promotes all main images eager/high after first decode",
+    "TechnologyViewer window.load warms all23; CharcoalViewer window.load warms all12; shared loader waits storyReady",
+    "Wellness0requests before opening,4requested on opening in observed Chromium; not universal lazy threshold",
+    "Current main frontier does cap scroll before missing artwork; proposal to avoid that is not applied",
+    "Small preview must be precomputed before publishing and still received by visitor; no preview from unavailable original"
+  ],
+  "presentation": {
+    "file": "deliverables/loading-research/concepts.html",
+    "initial": "zero / no photograph",
+    "phases": [
+      "zero",
+      "preview received (conditional future proposal)",
+      "original received"
+    ],
+    "oldLetters": "A/B alternatives of preview quality, C supplementary feedback, not three stages",
+    "limits": "Manual diagram; display:none/full existing original plusCSSblur for proposedpreview appearance; no new derivative/no real cold-preview optimization/no speed result",
+    "screenshots": "screenshots/loading-research/corrected-mobile-contact.png",
+    "checks": [
+      {
+        "width": 402,
+        "initial": "zero",
+        "overflow": false,
+        "errors": [],
+        "states": "zero→preview→original→zero PASS"
+      },
+      {
+        "width": 402,
+        "state": "zero",
+        "photo": {
+          "x": 0,
+          "y": 0,
+          "width": 402,
+          "height": 603
+        },
+        "ratioError": 0
+      },
+      {
+        "width": 402,
+        "state": "preview",
+        "photo": {
+          "x": 0,
+          "y": 0,
+          "width": 402,
+          "height": 603
+        },
+        "ratioError": 0
+      },
+      {
+        "width": 402,
+        "state": "original",
+        "photo": {
+          "x": 0,
+          "y": 0,
+          "width": 402,
+          "height": 603
+        },
+        "ratioError": 0
+      },
+      {
+        "width": 440,
+        "initial": "zero",
+        "overflow": false,
+        "errors": [],
+        "states": "zero→preview→original→zero PASS"
+      },
+      {
+        "width": 440,
+        "state": "zero",
+        "photo": {
+          "x": 0,
+          "y": 0,
+          "width": 440,
+          "height": 660
+        },
+        "ratioError": 0
+      },
+      {
+        "width": 440,
+        "state": "preview",
+        "photo": {
+          "x": 0,
+          "y": 0,
+          "width": 440,
+          "height": 660
+        },
+        "ratioError": 0
+      },
+      {
+        "width": 440,
+        "state": "original",
+        "photo": {
+          "x": 0,
+          "y": 0,
+          "width": 440,
+          "height": 660
+        },
+        "ratioError": 0
+      },
+      {
+        "width": 1280,
+        "initial": "zero",
+        "overflow": false,
+        "errors": [],
+        "states": "zero→preview→original→zero PASS"
+      }
+    ]
+  },
+  "previousApproval": "Research presentation REOPENED by user; original Bugatti observations remain historical evidence, no user acceptance",
+  "approval": {
+    "technical": "APPROVED /root2026-10-22 on corrected inventory/zero-state evidence; no runtime fix",
+    "auditor": "reopened scope PASS; renewed Gate2 inventory/explanation PASS; renewed final Gate3 PASS /root/loading_research_auditor2026-10-22",
+    "userSelection": "NOT_RECORDED",
+    "runtimeFix": "OPEN",
+    "finalTechnical": "APPROVED /root2026-10-22 corrected explanation/counts only"
+  },
+  "controlledAgentEval": "EVAL-VIEWER NOT_RUN",
+  "runtimeUnchanged": true
+}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import type { Locale } from '@/lib/i18n';
 
 const copy: Record<Locale, [string, string, string]> = {
@@ -20,15 +20,26 @@ const copy: Record<Locale, [string, string, string]> = {
 export function LoadingStatus({ locale, progress = null, error = false, onRetry }: {
   locale: Locale; progress?: number | null; error?: boolean; onRetry?: () => void;
 }) {
-  const value = progress === null ? null : Math.max(0, Math.min(100, Math.floor(progress)));
+  const value = progress === null ? null : Math.max(0, Math.min(100, progress));
   const [loading, failed, retry] = copy[locale];
   return <div className="media-loading" role="status" aria-live="polite" dir={locale === 'ar' ? 'rtl' : undefined}>
-    <p>{error ? failed : loading}{!error && value !== null && <span aria-hidden="true"> {value}%</span>}</p>
-    {!error && <div className="media-loading__track" role="progressbar" aria-label={loading} aria-valuemin={0} aria-valuemax={100} {...(value !== null ? { 'aria-valuenow': value } : {})}>
-      <span className={value === null ? 'media-loading__bar is-indeterminate' : 'media-loading__bar'} style={value !== null ? { width: `${value}%` } : undefined} />
+    {!error && <div className="media-orbit" role="progressbar" aria-label={loading} aria-valuemin={0} aria-valuemax={100} {...(value !== null ? {'aria-valuenow':Math.floor(value)} : {})}>
+      <span className="media-orbit__scale" style={{transform:`scale(${value===null?1:Math.max(0,1-value/100)})`}}><span className="media-orbit__milk" /></span>
     </div>}
+    <p className={error?'media-loading__error':'visually-hidden'}>{error?failed:loading}</p>
     {error && onRetry && <button type="button" onClick={onRetry}>{retry}</button>}
   </div>;
+}
+
+/** Keep the final zero-radius frame long enough to animate before removing the indicator. */
+export function MediaFeedback({active,className,...props}:Parameters<typeof LoadingStatus>[0]&{active:boolean;className?:string}){
+ const [visible,setVisible]=useState(active),[finished,setFinished]=useState(false);
+ useEffect(()=>{let timer:ReturnType<typeof setTimeout>|undefined;
+  if(active){queueMicrotask(()=>{setVisible(true);setFinished(false);});}
+  else{queueMicrotask(()=>setFinished(true));timer=setTimeout(()=>setVisible(false),320);}
+  return()=>clearTimeout(timer);
+ },[active]);
+ return visible?<div className={className}><LoadingStatus {...props} progress={finished?100:props.progress}/></div>:null;
 }
 
 let locks = 0;

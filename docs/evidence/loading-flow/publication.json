@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-23",
+  "change": "CHG0134 with requiredCHG0133 assets",
+  "repository": "askmi/ramsider",
+  "branch": "main",
+  "status": "AUTHORIZED_PENDING_COMMIT_PUSH",
+  "targets": [
+    "Vercel \u2013 ramsider / Production \u2013 ramsider",
+    "Vercel \u2013 ramsider-beta / Preview \u2013 ramsider-beta"
+  ],
+  "technicalApproval": "Verified implementation/root2026-10-23, independentStages1-6PASS; recent type/lint/build/native/sourcehash evidence applies",
+  "userAuthorization": "explicit request to deploy current work",
+  "excluded": "private licence/policy source folders; unrelated footer/contact/publication/viewport records"
+}

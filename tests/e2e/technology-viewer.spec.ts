@@ -111,10 +111,10 @@ test('photos move horizontally; technologies move vertically; source ratio and t
  }
 });
 
-test('pending photo retains old frame; retry and close remain usable',async({page})=>{
+test('failed original retains new photo preview; retry and close remain usable',async({page})=>{
  let valid=false;await page.route('**/art/technology/slides/noble-02.webp',route=>valid?route.continue():route.fulfill({status:503,body:'failed'}));
  await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
- await page.keyboard.press('ArrowRight');await expect(viewer.getByRole('button',{name:'Retry',exact:true})).toBeVisible();await expect(viewer).toHaveAttribute('data-photo-index','0');await expect(viewer.locator('article')).toHaveCount(1);
+ await page.keyboard.press('ArrowRight');await expect(viewer.getByRole('button',{name:'Retry',exact:true})).toBeVisible();await expect(viewer).toHaveAttribute('data-photo-index','1');await expect(viewer.locator('.technology-viewer__photo img')).toHaveAttribute('data-preview','ready');await expect(viewer.locator('article')).toHaveCount(1);
  valid=true;await viewer.getByRole('button',{name:'Retry',exact:true}).click();await expect(viewer).toHaveAttribute('data-photo-index','1');await expect(viewer).toHaveAttribute('aria-busy','false');await page.keyboard.press('Escape');await expect(viewer).not.toBeVisible();
 });
 

@@ -1,39 +1,7 @@
-import { expect, test } from '@playwright/test';
-
-test('loading status has readable contrast and respects reduced motion', async ({ page }, info) => {
-  await page.emulateMedia({ reducedMotion: 'reduce' });
-  // Hold the actual DOM decode promise after native network loading completes.
-  // A separate test covers pending response bytes; this isolates reduced-motion paint.
-  await page.addInitScript(() => {
-    const qa = window as Window & { releaseMediaDecode?: () => void };
-    const held = new Promise<void>(resolve => { qa.releaseMediaDecode = resolve; });
-    const decode = HTMLImageElement.prototype.decode;
-    HTMLImageElement.prototype.decode = async function () {
-      await decode.call(this);
-      if (new URL(this.currentSrc || this.src).pathname === '/art/00.webp') await held;
-    };
-  });
-  try {
-    await page.goto('/en');
-    const status = page.locator('.page-media-overlay .media-loading');
-    await expect(status).toBeVisible();
-    await expect(status.getByRole('progressbar')).not.toHaveAttribute('aria-valuenow');
-    const colors = await status.evaluate(element => {
-      const css = (selector: string) => getComputedStyle(element.querySelector(selector)!);
-      return { text: getComputedStyle(element).color, surface: getComputedStyle(element.parentElement!).backgroundColor, bar: css('.media-loading__bar').backgroundColor, track: css('.media-loading__track').backgroundColor, animation: css('.media-loading__bar').animationName, opacity: css('.media-loading__bar').opacity };
-    });
-    const luminance = (color: string) => {
-      const [r, g, b] = color.match(/[\d.]+/g)!.slice(0, 3).map(Number).map(value => value / 255).map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4);
-      return r * .2126 + g * .7152 + b * .0722;
-    };
-    const contrast = (a: string, b: string) => (Math.max(luminance(a), luminance(b)) + .05) / (Math.min(luminance(a), luminance(b)) + .05);
-    expect(contrast(colors.text, colors.surface)).toBeGreaterThanOrEqual(4.5);
-    expect(contrast(colors.bar, colors.track)).toBeGreaterThanOrEqual(3);
-    expect(colors.animation).toBe('none');
-    expect(colors.opacity).toBe('1');
-    await page.screenshot({ path: `${process.env.LOADING_EVIDENCE ?? 'docs/evidence/media-loading'}/${info.project.name}-reduced-motion.png` });
-  } finally {
-    await page.evaluate(() => (window as Window & { releaseMediaDecode?: () => void }).releaseMediaDecode?.());
-  }
-  await expect(page.locator('.page-media-overlay')).toHaveCount(0);
+import {expect,test} from '@playwright/test';
+test('loading has localized screen-reader status; error Retry is readable and keyboard accessible',async({page},info)=>{
+ await page.emulateMedia({reducedMotion:'reduce'});let fail=true;await page.route('**/art/wellness/01-ritual_uno_white_v3.webp',route=>fail?route.abort():route.continue());await page.goto('/en');await expect(page.locator('html')).toHaveAttribute('data-media-hydrated','');await page.locator('[data-wellness-open]').first().evaluate((e:HTMLElement)=>e.click());const status=page.locator('#wellness-viewer [role=status]'),retry=status.getByRole('button',{name:'Retry',exact:true});await expect(retry).toBeVisible();await expect(status).toHaveAttribute('aria-live','polite');
+ const colors=await status.evaluate(el=>{const error=getComputedStyle(el.querySelector('.media-loading__error')!),button=getComputedStyle(el.querySelector('button')!);return {text:getComputedStyle(el).color,surface:error.backgroundColor,buttonText:button.color,buttonSurface:button.backgroundColor};});
+ const luminance=(color:string)=>{const [r,g,b]=color.match(/[\d.]+/g)!.slice(0,3).map(Number).map(n=>{const v=n/255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4;});return r*.2126+g*.7152+b*.0722;};const contrast=(a:string,b:string)=>(Math.max(luminance(a),luminance(b))+.05)/(Math.min(luminance(a),luminance(b))+.05);expect(contrast(colors.text,colors.surface)).toBeGreaterThan(4.5);expect(contrast(colors.buttonText,colors.buttonSurface)).toBeGreaterThan(4.5);
+ await retry.focus();await expect(retry).toBeFocused();expect(await retry.evaluate(e=>getComputedStyle(e).outlineStyle)).not.toBe('none');await page.screenshot({path:`screenshots/loading-flow/accessible-retry-${info.project.name}.png`});fail=false;await page.keyboard.press('Enter');await expect(page.locator('.wellness-photo img').first()).toHaveAttribute('data-media-ready','');await expect(retry).toHaveCount(0);await page.keyboard.press('Escape');await expect(page.locator('#wellness-viewer')).not.toBeVisible();
 });

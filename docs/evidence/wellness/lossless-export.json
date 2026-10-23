@@ -1,0 +1,132 @@
+{
+  "change": "CHG0133",
+  "date": "2026-10-22",
+  "status": "VERIFIED",
+  "encoder": "1.6.0\nlibsharpyuv: 0.4.2",
+  "options": [
+    "-lossless",
+    "-exact",
+    "-q",
+    "100",
+    "-m",
+    "6",
+    "-mt",
+    "-metadata",
+    "icc"
+  ],
+  "sourceBytes": 10149306,
+  "outputBytes": 6341858,
+  "assets": [
+    {
+      "source": "design/references/RAMSIDER_Wellness_TOP/assets/01-ritual_uno_white_v3.png",
+      "output": "public/art/wellness/01-ritual_uno_white_v3.webp",
+      "sourceSHA256": "e98cef021ba3a9f4c143a35fffbabe15c33035acbc80d67cd8ba3b3fff217f8f",
+      "outputSHA256": "3613f267ab3900ff2a1dcf07215fec8f615556a34776dfa5896b8fead69fd513",
+      "sourceBytes": 2334282,
+      "outputBytes": 1315836,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "sourceMode": "RGB",
+      "sourceICC": null,
+      "sourceProfileIntent": "UNKNOWN",
+      "policy": "Preserve existing untagged browser-sRGB interpretation; embed sRGB without RGB transform",
+      "codec": "VP8L lossless",
+      "chunks": [
+        "VP8X",
+        "ICCP",
+        "VP8L"
+      ],
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e",
+      "decodedRGBAEqual": true,
+      "maximumChannelError": 0,
+      "alphaExact": true
+    },
+    {
+      "source": "design/references/RAMSIDER_Wellness_TOP/assets/03-botanicals.png",
+      "output": "public/art/wellness/03-botanicals.webp",
+      "sourceSHA256": "87662640ab413bf61f632df00121771adedc01a6e118584ddd7b6d93f42f56e4",
+      "outputSHA256": "787971474838ce6f2cc3eb443731b79f6da2d085317dc03d7cfd425a5c0888cd",
+      "sourceBytes": 2999237,
+      "outputBytes": 1923046,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "sourceMode": "RGB",
+      "sourceICC": null,
+      "sourceProfileIntent": "UNKNOWN",
+      "policy": "Preserve existing untagged browser-sRGB interpretation; embed sRGB without RGB transform",
+      "codec": "VP8L lossless",
+      "chunks": [
+        "VP8X",
+        "ICCP",
+        "VP8L"
+      ],
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e",
+      "decodedRGBAEqual": true,
+      "maximumChannelError": 0,
+      "alphaExact": true
+    },
+    {
+      "source": "design/references/RAMSIDER_Wellness_TOP/assets/04-capsules_v3.png",
+      "output": "public/art/wellness/04-capsules_v3.webp",
+      "sourceSHA256": "aba57b8ee8a3825f4faef1a44c477ab474c94b8ac99e6051d7e4df8d604a030f",
+      "outputSHA256": "fa66ae9b7281e890dbbbf6728a46505464bb4381edf80b0c4691b680a21b6692",
+      "sourceBytes": 2180259,
+      "outputBytes": 1392408,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "sourceMode": "RGB",
+      "sourceICC": null,
+      "sourceProfileIntent": "UNKNOWN",
+      "policy": "Preserve existing untagged browser-sRGB interpretation; embed sRGB without RGB transform",
+      "codec": "VP8L lossless",
+      "chunks": [
+        "VP8X",
+        "ICCP",
+        "VP8L"
+      ],
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e",
+      "decodedRGBAEqual": true,
+      "maximumChannelError": 0,
+      "alphaExact": true
+    },
+    {
+      "source": "design/references/RAMSIDER_Wellness_TOP/assets/02-water_bouquet.png",
+      "output": "public/art/wellness/02-water_bouquet.webp",
+      "sourceSHA256": "cf2fdc8d8631a52682fee367817ebf70a7702cc08b2d090fd76ecf4eb8d70cba",
+      "outputSHA256": "a42b1dcafb6b70565fbb606176c1b3c23516d30771fb8d598b92069d15923f0d",
+      "sourceBytes": 2635528,
+      "outputBytes": 1710568,
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "sourceMode": "RGB",
+      "sourceICC": null,
+      "sourceProfileIntent": "UNKNOWN",
+      "policy": "Preserve existing untagged browser-sRGB interpretation; embed sRGB without RGB transform",
+      "codec": "VP8L lossless",
+      "chunks": [
+        "VP8X",
+        "ICCP",
+        "VP8L"
+      ],
+      "iccSHA256": "74ab7710541511d745bdaa97365677aea4e5757b658b8c45be7518cc3085db4e",
+      "decodedRGBAEqual": true,
+      "maximumChannelError": 0,
+      "alphaExact": true
+    }
+  ],
+  "browserVerification": "lossless-verification.json",
+  "technicalApproval": {
+    "date": "2026-10-22",
+    "verifier": "/root",
+    "result": "APPROVED; independent Stages1\u20135 PASS /root/wellness_lossless_auditor"
+  },
+  "reproductionNote": "Two initial generator manifests and all output bytes were identical. Added post-QA status/approval metadata after generation; output payload hashes remain generator-exact."
+}

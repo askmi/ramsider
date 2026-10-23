@@ -1,0 +1,371 @@
+{
+  "change": "CHG0134",
+  "date": "2026-10-22",
+  "scope": "Research and isolated concepts only; runtime defect OPEN; no product implementation, commit, push or deployment",
+  "runtimePreserved": true,
+  "runtimeHashes": {
+    "app/globals.css": "931f17f44a51a74154a3ee5f29eade90c3930adfe99b98214e2c286a0cd7668b",
+    "components/WellnessPhoto.tsx": "35194c5439577ff9cf20b713a1b5059e38413f4d6fed0e25d8a0a30075df4481",
+    "components/WellnessViewer.tsx": "cc1ae9e49d80a5c9157a09812262b5ca789d236a51e66baa07082c36e1cb8b55",
+    "components/MediaLoading.tsx": "9a8198babf4ae2254edf217c555b86fccf58434c99410293493f47e4e3f9ed76",
+    "lib/wellness-assets.json": "7b2844d7d9fbbe425682b950271dbabae2dee72ccd31ae58cccf4824058a030d",
+    "public/art/wellness/02-water_bouquet.webp": "a42b1dcafb6b70565fbb606176c1b3c23516d30771fb8d598b92069d15923f0d",
+    "public/art/wellness/04-capsules_v3.webp": "fa66ae9b7281e890dbbbf6728a46505464bb4381edf80b0c4691b680a21b6692",
+    "public/art/wellness/03-botanicals.webp": "787971474838ce6f2cc3eb443731b79f6da2d085317dc03d7cfd425a5c0888cd",
+    "public/art/wellness/01-ritual_uno_white_v3.webp": "3613f267ab3900ff2a1dcf07215fec8f615556a34776dfa5896b8fead69fd513"
+  },
+  "geometry": [
+    {
+      "width": 402,
+      "single": "A",
+      "photo": {
+        "x": 0,
+        "y": 0,
+        "width": 402,
+        "height": 603
+      },
+      "ratioError": 0
+    },
+    {
+      "width": 402,
+      "single": "B",
+      "photo": {
+        "x": 0,
+        "y": 0,
+        "width": 402,
+        "height": 603
+      },
+      "ratioError": 0
+    },
+    {
+      "width": 402,
+      "single": "C",
+      "photo": {
+        "x": 0,
+        "y": 0,
+        "width": 402,
+        "height": 603
+      },
+      "ratioError": 0
+    },
+    {
+      "width": 402,
+      "actualWidth": 402,
+      "overflow": false,
+      "ready": "ready",
+      "error": "error",
+      "errors": []
+    },
+    {
+      "width": 440,
+      "single": "A",
+      "photo": {
+        "x": 0,
+        "y": 0,
+        "width": 440,
+        "height": 660
+      },
+      "ratioError": 0
+    },
+    {
+      "width": 440,
+      "single": "B",
+      "photo": {
+        "x": 0,
+        "y": 0,
+        "width": 440,
+        "height": 660
+      },
+      "ratioError": 0
+    },
+    {
+      "width": 440,
+      "single": "C",
+      "photo": {
+        "x": 0,
+        "y": 0,
+        "width": 440,
+        "height": 660
+      },
+      "ratioError": 0
+    },
+    {
+      "width": 440,
+      "actualWidth": 440,
+      "overflow": false,
+      "ready": "ready",
+      "error": "error",
+      "errors": []
+    },
+    {
+      "width": 1440,
+      "actualWidth": 1440,
+      "overflow": false,
+      "ready": "ready",
+      "error": "error",
+      "errors": []
+    }
+  ],
+  "currentLoaderControl": [
+    {
+      "name": "pro",
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "engine": "WebKit",
+      "controlledHeldHero": true,
+      "requested": true,
+      "pending": {
+        "state": "pending",
+        "width": 402,
+        "height": 603,
+        "loader": "Loading image…"
+      },
+      "actualWidth": 402,
+      "limits": "Controlled withheld response, not an observed real-network timing. Existing runtime only."
+    },
+    {
+      "name": "max",
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "engine": "WebKit",
+      "controlledHeldHero": true,
+      "requested": true,
+      "pending": {
+        "state": "pending",
+        "width": 440,
+        "height": 660,
+        "loader": "Loading image…"
+      },
+      "actualWidth": 440,
+      "limits": "Controlled withheld response, not an observed real-network timing. Existing runtime only."
+    }
+  ],
+  "bugatti": {
+    "ordinaryBrowser": "Codex IAB Chromium; live home and Tourbillon, CSS402x874 and440x956; actual IAB DPR in final sample",
+    "finalSnapshot": {
+      "dpr": 1,
+      "height": 956,
+      "progressCount": 0,
+      "scrollY": 2185,
+      "url": "https://www.bugatti.com/en/models/tourbillon",
+      "video": [
+        {
+          "currentTime": 4.586349,
+          "paused": true,
+          "readyState": 4,
+          "src": "https://bugatti.imgix.net/677e5583dfc8a22d8949863c/tourbillon-hero-2025-hero-portrait.mp4?fm=mp4&w=1200&video-codec=av1&video-bitrate=2m",
+          "top": -1960.8101806640625
+        },
+        {
+          "currentTime": 4.13393,
+          "paused": true,
+          "readyState": 4,
+          "src": "https://bugatti.imgix.net/6763387bed6f98152f573f2d/tourbillon-modelpage-02-scrollvideo-mobile.mp4",
+          "top": 3.3906249882420525e-05
+        }
+      ],
+      "width": 440
+    },
+    "scrollSamples": [
+      {
+        "scrollY": 1748,
+        "paused": true,
+        "currentTime": 1.92896
+      },
+      {
+        "scrollY": 2185,
+        "paused": true,
+        "currentTime": 4.595036
+      }
+    ],
+    "scrollSampleOrigin": "Direct IAB read-only DOM observations in this turn; screenshot filenames scroll-b/scroll-c; live playback times are sample values, not deterministic benchmark",
+    "slowNetwork": "BLOCKED: separate Playwright Chromium receives Vercel Security Checkpoint; not Bugatti product-load measurements; no challenge bypass",
+    "otherLimits": [
+      "one untimed black initial product frame observed in tool screenshot, not a measured duration",
+      "brief blur with complete IMG is not proof of LQIP",
+      "no site internals/library attribution or WebGL claim",
+      "no Bugatti LCP/INP/CLS/score/full payload/memory/physicalSafari evidence"
+    ]
+  },
+  "comparators": {
+    "Apple": "Normal and cold4Mbps100ms4CPU; normal highlights ready, slow highlights blank at captured checkpoint. Not a speed score or field measure.",
+    "Porsche": "Normal and cold4Mbps100ms4CPU; high/eager hero, lower lazy/srcset, ready commercial content; offscreen video paused.",
+    "BO": {
+      "dismissed": true,
+      "title": "Beosound A5 - Powerful portable speaker - Bang & Olufsen",
+      "scrollY": 1000,
+      "imgs": [
+        {
+          "alt": "Beosound A5 in oak from the back",
+          "src": "",
+          "ready": false
+        },
+        {
+          "alt": "Beosound A5 in oak",
+          "src": "",
+          "ready": false
+        },
+        {
+          "alt": "Beosound A5 in oak",
+          "src": "https://images.ctfassets.net/8cd2csgvqd3m/18q5B9Mo33OZYrdKWi5R1F/9b2cd14640edd3b78f296def418e0d9e/123__1_.png?q=85&fm=png&w=375&h=375&fit=fill",
+          "ready": true
+        },
+        {
+          "alt": "Beosound A5 in Oak",
+          "src": "",
+          "ready": false
+        },
+        {
+          "alt": "Beosound A5 in oak with handle pointing up",
+          "src": "",
+          "ready": false
+        },
+        {
+          "alt": "Beosound A5 in oak from the back",
+          "src": "",
+          "ready": false
+        },
+        {
+          "alt": "Beosound A5 in oak",
+          "src": "",
+          "ready": false
+        },
+        {
+          "alt": "Beosound A5 in oak",
+          "src": "https://images.ctfassets.net/8cd2csgvqd3m/18q5B9Mo33OZYrdKWi5R1F/9b2cd14640edd3b78f296def418e0d9e/123__1_.png?q=85&fm=png&w=375&h=375&fit=fill",
+          "ready": true
+        },
+        {
+          "alt": "Beosound A5 in Oak",
+          "src": "",
+          "ready": false
+        },
+        {
+          "alt": "Beosound A5 in oak with handle pointing up",
+          "src": "",
+          "ready": false
+        },
+        {
+          "alt": "Beosound A5 in oak from the back",
+          "src": "",
+          "ready": false
+        }
+      ],
+      "buttons": [
+        "Accept all",
+        "Decline all",
+        "Required",
+        "Functional",
+        "Statistical",
+        "Marketing",
+        "Unclassified",
+        "Decline all",
+        "Save settings",
+        "Accept all",
+        "Settings",
+        "Accept all"
+      ]
+    },
+    "Dyson": "Cloudflare Attention Required in scripted browser; excluded from runtime conclusions"
+  },
+  "methodology": "Chromium402x874DPR3; DOMContentLoaded then6s normal/12s throttled; wheel1100px then1.8s. Snapshots do not determine completed site size, first usable time or cache behavior. Cookie-obscured first attempts retained; clean Porsche and BO follow-up viewed.",
+  "report": "docs/media-loading-plan.md#chg0134-loading-research--2026-10-22",
+  "concepts": {
+    "file": "deliverables/loading-research/concepts.html",
+    "url": "http://127.0.0.1:3154/concepts.html",
+    "sourcePhotoByteExact": true,
+    "simulation": "All concepts use full existing image; CSS blur only demonstrates appearance; no production preview compression/delivery optimization applied. Decorative in-frame controls; functional presentation-state switches only.",
+    "geometry": "Full image1024x1536→402x603 and440x660, ratio error0 for A/B/C; no raster conversion",
+    "previewServer": "First broad root-server request auto-review rejected. Safer replacement approved: isolated explicit directory with HTML and public photo/font copies only."
+  },
+  "artifacts": [
+    "screenshots/loading-research/apple-early.png",
+    "screenshots/loading-research/apple-ready.png",
+    "screenshots/loading-research/apple-scroll.png",
+    "screenshots/loading-research/apple-slow-early.png",
+    "screenshots/loading-research/apple-slow-ready.png",
+    "screenshots/loading-research/apple-slow-scroll.png",
+    "screenshots/loading-research/bo-clean-early.png",
+    "screenshots/loading-research/bo-clean-ready.png",
+    "screenshots/loading-research/bo-clean-scroll.png",
+    "screenshots/loading-research/bo-early.png",
+    "screenshots/loading-research/bo-observed-ready.png",
+    "screenshots/loading-research/bo-observed-scroll.png",
+    "screenshots/loading-research/bo-observed.json",
+    "screenshots/loading-research/bo-ready.png",
+    "screenshots/loading-research/bo-scroll.png",
+    "screenshots/loading-research/browser-observations.json",
+    "screenshots/loading-research/bugatti-cold-early.png",
+    "screenshots/loading-research/bugatti-cold-ready.png",
+    "screenshots/loading-research/bugatti-cold-scroll.png",
+    "screenshots/loading-research/bugatti-home-pro.jpg",
+    "screenshots/loading-research/bugatti-home-scroll-pro.jpg",
+    "screenshots/loading-research/bugatti-home-scroll-settled-pro.jpg",
+    "screenshots/loading-research/bugatti-iab-final.json",
+    "screenshots/loading-research/bugatti-slow-early.png",
+    "screenshots/loading-research/bugatti-slow-ready.png",
+    "screenshots/loading-research/bugatti-slow-scroll.png",
+    "screenshots/loading-research/bugatti-tourbillon-max-settled.jpg",
+    "screenshots/loading-research/bugatti-tourbillon-max.jpg",
+    "screenshots/loading-research/bugatti-tourbillon-pro.jpg",
+    "screenshots/loading-research/bugatti-tourbillon-scroll-a.jpg",
+    "screenshots/loading-research/bugatti-tourbillon-scroll-b.jpg",
+    "screenshots/loading-research/bugatti-tourbillon-scroll-c.jpg",
+    "screenshots/loading-research/concept-A-402.png",
+    "screenshots/loading-research/concept-A-440.png",
+    "screenshots/loading-research/concept-B-402.png",
+    "screenshots/loading-research/concept-B-440.png",
+    "screenshots/loading-research/concept-C-402.png",
+    "screenshots/loading-research/concept-C-440.png",
+    "screenshots/loading-research/concept-checks.json",
+    "screenshots/loading-research/concepts-1440.png",
+    "screenshots/loading-research/concepts-402.png",
+    "screenshots/loading-research/concepts-440.png",
+    "screenshots/loading-research/concepts-mobile-contact.png",
+    "screenshots/loading-research/dyson-early.png",
+    "screenshots/loading-research/dyson-ready.png",
+    "screenshots/loading-research/dyson-scroll.png",
+    "screenshots/loading-research/local-observations.json",
+    "screenshots/loading-research/porsche-clean-early.png",
+    "screenshots/loading-research/porsche-clean-ready.png",
+    "screenshots/loading-research/porsche-clean-scroll.png",
+    "screenshots/loading-research/porsche-early.png",
+    "screenshots/loading-research/porsche-ready.png",
+    "screenshots/loading-research/porsche-scroll.png",
+    "screenshots/loading-research/porsche-slow-early.png",
+    "screenshots/loading-research/porsche-slow-ready.png",
+    "screenshots/loading-research/porsche-slow-scroll.png",
+    "screenshots/loading-research/ramsider-pending-max.png",
+    "screenshots/loading-research/ramsider-pending-pro.png",
+    "screenshots/loading-research/ramsider-ready-max.png",
+    "screenshots/loading-research/ramsider-ready-pro.png",
+    "screenshots/loading-research/runtime-scope-before.json",
+    "screenshots/loading-research/sources-clean-contact.jpg",
+    "screenshots/loading-research/sources-contact.jpg"
+  ],
+  "approval": {
+    "researchTechnical": "APPROVED /root 2026-10-22 on observed research/concept evidence, not a runtime fix",
+    "runtimeFix": "NONE / OPEN",
+    "userChoice": "NOT_RECORDED",
+    "auditor": "/root/loading_research_auditor scope PASS; research/concept Gate2 PASS; finalrecords Gate3 PASS after anchor correction2026-10-22",
+    "finalTechnical": "APPROVED /root2026-10-22 research/concepts only",
+    "history": [
+      "Gate1 initially FAIL missing journal, repaired scope PASS",
+      "Gate2 PASS research/concepts",
+      "Gate3 initially FAIL missing journal #chg0134 anchor; repaired, unique owned anchors checked; Gate3 PASS after correction"
+    ]
+  },
+  "notApplicable": [
+    "No production source changes: build/type/lint/native code review/full UI regression not rerun",
+    "No new raster encoding: production ICC/decoded-color QA not rerun; concept photo byte-exact"
+  ],
+  "controlledAgentEval": "EVAL-VIEWER NOT_RUN",
+  "checks": {
+    "gitDiffCheck": "PASS2026-10-22",
+    "independentHashRecompute": "all9runtime/media baseline matches and concept photo byte exact, auditor Gate2"
+  },
+  "currentStatus": "Original explanatory delivery SUPERSEDED after user rejection; original evidence/approval retained historically; corrected inventory/zero-state separately approved in inventory-correction.json",
+  "correction": "Old A/B/C omitted zero-file state and sitewide inventory; replaced by explicit sequence, no runtime fix"
+}

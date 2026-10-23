@@ -1,0 +1,122 @@
+{
+  "change": "CHG0133",
+  "before": {
+    "conditions": "Production Chromium402\u00d7874 DPR3,cold4Mbps/100ms/4xCPU",
+    "first": {
+      "lcp": 2736,
+      "cls": 0,
+      "useful": 2559.3000000715256,
+      "scriptEncodedBytes": 209150,
+      "wellnessRequests": 0,
+      "ttfb": 11.400000095367432
+    },
+    "heroReadyMs": 10119.100000023842,
+    "allPhotosDecodedMs": 20877.799999952316,
+    "assets": [
+      {
+        "path": "/art/wellness/01-ritual_uno_white_v3.png",
+        "bytes": 2334282,
+        "start": 15463.800000071526,
+        "end": 25129.900000095367,
+        "duration": 9666.100000023842
+      },
+      {
+        "path": "/art/wellness/03-botanicals.png",
+        "bytes": 2999237,
+        "start": 15530.700000047684,
+        "end": 28411.400000095367,
+        "duration": 12880.700000047684
+      },
+      {
+        "path": "/art/wellness/04-capsules_v3.png",
+        "bytes": 2180259,
+        "start": 25379.5,
+        "end": 35182.300000071526,
+        "duration": 9802.800000071526
+      },
+      {
+        "path": "/art/wellness/02-water_bouquet.png",
+        "bytes": 2635528,
+        "start": 25380.400000095367,
+        "end": 36097.40000009537,
+        "duration": 10717
+      }
+    ],
+    "totalPhotoBytes": 10149306,
+    "programmaticRibbonScroll": {
+      "samples": 119,
+      "p95": 16.80000000000291,
+      "over33": 0,
+      "first": 0,
+      "last": 4075,
+      "distinctPositions": 120
+    },
+    "final": {
+      "lcp": 2736,
+      "cls": 0,
+      "useful": 2559.3000000715256
+    },
+    "errors": [],
+    "limits": "Synthetic samples, not INP/Lighthouse/physicalSafari or native touch. PNG to lossless WebP controlled migration; one cold synthetic sample each, not field performance."
+  },
+  "after": {
+    "conditions": "Production Chromium402\u00d7874 DPR3,cold4Mbps/100ms/4xCPU",
+    "first": {
+      "lcp": 2744,
+      "cls": 0,
+      "useful": 2525.1999999284744,
+      "scriptEncodedBytes": 209150,
+      "wellnessRequests": 0,
+      "ttfb": 32.39999997615814
+    },
+    "heroReadyMs": 5904.200000047684,
+    "allPhotosDecodedMs": 13328.200000047684,
+    "assets": [
+      {
+        "path": "/art/wellness/01-ritual_uno_white_v3.webp",
+        "bytes": 1315836,
+        "start": 15541.600000023842,
+        "end": 21133.5,
+        "duration": 5591.899999976158
+      },
+      {
+        "path": "/art/wellness/03-botanicals.webp",
+        "bytes": 1923046,
+        "start": 15602.699999928474,
+        "end": 24415.299999952316,
+        "duration": 8812.600000023842
+      },
+      {
+        "path": "/art/wellness/04-capsules_v3.webp",
+        "bytes": 1392408,
+        "start": 21216.299999952316,
+        "end": 27922.600000023842,
+        "duration": 6706.300000071526
+      },
+      {
+        "path": "/art/wellness/02-water_bouquet.webp",
+        "bytes": 1710568,
+        "start": 21216.399999976158,
+        "end": 28561.100000023842,
+        "duration": 7344.700000047684
+      }
+    ],
+    "totalPhotoBytes": 6341858,
+    "programmaticRibbonScroll": {
+      "samples": 119,
+      "p95": 16.799999999999272,
+      "over33": 1,
+      "first": 0,
+      "last": 4075,
+      "distinctPositions": 120
+    },
+    "final": {
+      "lcp": 2744,
+      "cls": 0,
+      "useful": 2525.1999999284744
+    },
+    "errors": [],
+    "limits": "Synthetic samples, not INP/Lighthouse/physicalSafari or native touch. PNG to lossless WebP controlled migration; one cold synthetic sample each, not field performance."
+  },
+  "interpretation": "One serial cold synthetic sample each. First useful2559\u21922525ms/LCP2736\u21922744ms/CLS0/JS209150B/0wellnessbeforeclick; no first-view speed improvement claimed. Hero10119\u21925904ms/all20878\u219213328ms for same unchanged pixels. Scrollp95~16.8ms both; after1/119frames>33ms (before0), isolated cause UNKNOWN; not a field/INP/Lighthouse or physicalSafari measure."
+}

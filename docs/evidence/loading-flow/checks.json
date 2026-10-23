@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-23",
+  "change": "CHG0134",
+  "core": {
+    "log": "/tmp/loading-flow-final2-tests.log",
+    "pass": 75,
+    "explicitSkip": 9,
+    "scope": "all4profiles before final admission-only optimization",
+    "skipReasons": [
+      "Mobile WebKit native mouse wheel unsupported (6)",
+      "Single-owner adaptation matrix (3)"
+    ]
+  },
+  "admissionAffected": {
+    "log": "/tmp/loading-flow-admission-recheck.log",
+    "pass": 36,
+    "explicitSkip": 2,
+    "fixtureFail": 2,
+    "recovery": "/tmp/loading-flow-lane-recheck.log4PASS; fixed402px layout arrangement in all4engines; runtime unchanged"
+  },
+  "readyAdaptation": {
+    "log": "/tmp/loading-flow-short-recheck.log",
+    "pass": 1,
+    "scope": "five sizes, all3optional, awaitoriginal+fonts, technology aspect/bottom"
+  },
+  "retainedRegression": {
+    "log": "/tmp/loading-flow-contract-tests.log",
+    "pass": 53,
+    "explicitSkip": 10,
+    "fixtureFail": 1,
+    "recovery": "/tmp/loading-flow-narrow2-recheck.log1PASS; actualnativePageDown at280x600",
+    "skipReasons": [
+      "Native trackpad/touch tests single desktop owner",
+      "Locale/motion/narrow cases single mobile matrix owner"
+    ]
+  },
+  "nativeReview": {
+    "fullInitial": "8actionable fixes, then composite/lifetime/boundary/bootstrapping findings fixed; historical failures retained in CHG0134",
+    "scopedClean": [
+      "4boundary+Wellness",
+      "5earlyCTA",
+      "6firstgesture",
+      "7activeforegroundfaradmission actualmodulemocks",
+      "10finalnarrowRetryfixture"
+    ],
+    "migration8": "one fixtureP2, fixed and realbrowser rechecked; coverage migration accepted",
+    "review9": "staticclean but browserfixture failed; not treated as browser evidence"
+  },
+  "type": "PASS /tmp/loading-flow-type-final.log",
+  "lint": "PASS0errors,1inherited integrations/telegram/controller.mjs unused verifyLinkFormatting warning /tmp/loading-flow-lint-final.log",
+  "productionBuild": "PASS15static/11localeSSG /tmp/loading-flow-build.log",
+  "diffCheck": "PASS",
+  "coverageMigration": "coverage-migration.md",
+  "limitations": [
+    "No physicalSafari/Telegramchrome",
+    "No Lighthouse/fieldINP",
+    "WebKit touch event contract plus ChromiumCDPnativeTouch, nativeChromium/Firefoxwheel; no nativeWebKitmousewheel claim",
+    "Producttests are not controlled AgentEval; EVAL-VIEWERNOT_RUN"
+  ],
+  "auditContinuity": "Research scope/previewPASS; deliveryreadyGate3PASS after fixtureFAIL repair. DeliveryGate4 stalled withoutfinding; sameevidence finalauditor independently Gate4+5PASS. No adversefinding bypassed. FinalGate6PASS /root/loading_final_auditor2026-10-23.",
+  "independentBehaviorApproval": {
+    "date": "2026-10-23",
+    "verifier": "/root/loading_final_auditor",
+    "verdict": "PASS",
+    "scope": "CHG0134 browser emulation behavior/adaptation",
+    "inspected": [
+      "actual test implementations",
+      "all named primary testlogs/recovery",
+      "coverage-migration.md",
+      "CHG0134",
+      "spinner and streamed-progress Pro screenshots"
+    ],
+    "limitations": "no nativeWebKitwheel or physicalSafari chrome claim"
+  },
+  "independentReviewPerformanceApproval": {
+    "date": "2026-10-23",
+    "verifier": "/root/loading_final_auditor",
+    "verdict": "PASS",
+    "inspected": [
+      "15source/90originalSHA independently rehashed",
+      "native4/5/6/7/10 verdicts",
+      "actualtype/lint/build/diff",
+      "performance.json/performance-replay.json/report/rawfinalafterlog"
+    ],
+    "limits": "single synthetic samples; costs disclosed; no field/physicalclaim"
+  },
+  "independentFinalRecordApproval": {
+    "date": "2026-10-23",
+    "verifier": "/root/loading_final_auditor",
+    "verdict": "PASS",
+    "scope": "CHG0134 records and qualified finaldelivery; assembled50ProMaxpositions nooverflow",
+    "userResultApproval": "NOT_RECORDED",
+    "controlledAgentEval": "NOT_RUN"
+  }
+}

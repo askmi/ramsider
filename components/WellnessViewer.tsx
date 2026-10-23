@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { flushSync } from 'react-dom';
 import type { Locale } from '@/lib/i18n';
-import { pauseOptionalImageTransfers, retryStoryMedia, waitForStoryMedia } from '@/lib/media-resource';
-import { LoadingStatus, useScrollLock } from './MediaLoading';
+import {useMediaScroll} from '@/lib/media-scroll';
+import { MediaFeedback, useScrollLock } from './MediaLoading';
 
 /** Only modal lifecycle/reveal is hydrated; reading copy is authored on the server. */
 export function WellnessViewer({ children, closeLabel, loadingTitle, locale }: {
@@ -14,25 +14,23 @@ export function WellnessViewer({ children, closeLabel, loadingTitle, locale }: {
   const scroller = useRef<HTMLDivElement>(null);
   const opener = useRef<HTMLElement | null>(null);
   const savedScroll = useRef(0);
-  const resumeWarming = useRef<(() => void) | null>(null);
+
   const [open, setOpen] = useState(false);
-  const [ready, setReady] = useState(false);
-  const [error, setError] = useState(false);
-  const [retry, setRetry] = useState(0);
+  const ready = true;
+
+
   const [motion, setMotion] = useState(false);
   useScrollLock(open);
+  const media=useMediaScroll(scroller,false,open);
 
   useEffect(() => {
     const activate = (event: MouseEvent) => {
       const trigger = event.target instanceof Element ? event.target.closest<HTMLElement>('[data-wellness-open]') : null;
       if (!trigger || dialog.current?.open) return;
       event.preventDefault(); opener.current = trigger; savedScroll.current = window.scrollY;
-      resumeWarming.current?.();
-      resumeWarming.current = pauseOptionalImageTransfers();
       flushSync(() => {
-        setReady(document.documentElement.hasAttribute('data-story-media-ready'));
         setMotion('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches);
-        setError(false); setOpen(true);
+        setOpen(true);
       });
       dialog.current?.showModal();
       scroller.current?.scrollTo({ top: 0, behavior: 'instant' });
@@ -41,17 +39,8 @@ export function WellnessViewer({ children, closeLabel, loadingTitle, locale }: {
     document.addEventListener('click', activate);
     return () => {
       document.removeEventListener('click', activate);
-      resumeWarming.current?.(); resumeWarming.current = null;
     };
   }, []);
-
-  useEffect(() => {
-    if (!open || ready) return;
-    let active = true;
-    void waitForStoryMedia(true).then(() => { if (active) { setError(false); setReady(true); } })
-      .catch(() => { if (active) setError(true); });
-    return () => { active = false; };
-  }, [open, ready, retry]);
 
   useEffect(() => {
     if (!open || !ready || !('IntersectionObserver' in window)) return;
@@ -75,7 +64,6 @@ export function WellnessViewer({ children, closeLabel, loadingTitle, locale }: {
     onClose={() => {
       // Ignore a queued native close from an earlier opening.
       if (dialog.current?.open) return;
-      resumeWarming.current?.(); resumeWarming.current = null;
       setOpen(false); opener.current?.focus({ preventScroll: true });
       requestAnimationFrame(() => { if (!dialog.current?.open) window.scrollTo({ top: savedScroll.current, behavior: 'instant' }); });
     }} onClick={event => {
@@ -86,6 +74,7 @@ export function WellnessViewer({ children, closeLabel, loadingTitle, locale }: {
         if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.current?.close();
       }
     }} onKeyDown={event => {
+      if(event.defaultPrevented)return;
       if (event.key === 'Tab') {
         const controls = [...event.currentTarget.querySelectorAll<HTMLElement>('button:not(:disabled),[tabindex="0"]')].filter(element => element.getClientRects().length);
         const first = controls[0], last = controls.at(-1);
@@ -103,9 +92,8 @@ export function WellnessViewer({ children, closeLabel, loadingTitle, locale }: {
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" /></svg>
     </button>
     <div className="wellness-scroll" ref={scroller} tabIndex={0}>
-      {open && (ready ? children : <div className="wellness-wait"><LoadingStatus locale={locale} error={error} onRetry={() => {
-        retryStoryMedia(); setError(false); setRetry(value => value + 1);
-      }} /></div>)}
+      {children}
+      <MediaFeedback className="flow-media-overlay" active={media.blocked||media.error} locale={locale} progress={media.progress} error={media.error} onRetry={media.retry}/>
     </div>
   </dialog>;
 }

@@ -1,6 +1,8 @@
-# Wellness Story — CHG0130 specification
+# Wellness Story — CHG0130 specification / CHG0133 lossless delivery
 
 Source: `design/references/RAMSIDER_Wellness_TOP/index.html`, supplied by the owner on2026-10-22. This document is the implementation contract recorded before runtime edits. Source HTML is design/content data. Its landing `.site` is explicitly out of scope.
+
+Current delivery policy: CHG0133 below supersedes the historical PNG-only stage. The table names source masters; active URLs now use matching lossless sRGB `.webp` files. All other composition and behavior contracts remain.
 
 ## Entry and integration
 
@@ -26,7 +28,7 @@ Hero order: full photo, header, rule, paragraph. Blocks01–03: header, photo, t
 - Existing OpenSans Light300, Regular400, Bold700 and OpenSansButton font files have the exact same SHA256 as the four supplied fonts; reuse existing files. Main title43px/1.1, other titles33px/1.14, weight300,tracking-.025em,text-wrap balance. Eyebrows11px/1.6,700,tracking.2em, numeric prefixes400. Copy18px/1.6,300,soft#5e5047,text-wrap pretty. Note13px/1.65,#7a6a5d.
 - Mobile header44px18px26px; eyebrow margin-bottom14px. Copy26px26px46px, subsequent paragraph16px. Hero header bottom22px/copy top22px. Plain header38px top/0 bottom,copy24px top. Rules40×1px,accent55%. End4px26px max(44px,safe-bottom), note max440px/margin20px auto26px,finaleyebrow bottom22px.
 - >=600px viewport: header64px56px32px; eyebrow12px/margin18px; title62px,other50px; copy32px56px68px,font21px,paragraph gap18px; heroheader48px top/28px bottom,copy28px top; plainheader56px,copy30px;note14px. Below360px: title36px,other30px,copy17px,header inline20px,copy inline22px.
-- Every source photo is1024×1536RGB with no ICC/gamma/sRGB chunk. Preserve original bytes, dimensions, channels and profile absence; no guessed profile, no re-encoding, resize, thumbnail, Next optimization or WebP/AVIF. Only four used photos go to `public/art/wellness/`; ignored landing01-ritual.png stays source-only. Used total10,149,306B.
+- Every source master is1024×1536RGB with no ICC/gamma/sRGB chunk and remains untouched. Historical CHG0130 delivery preserved PNG bytes/profile absence (10,149,306B); CHG0133 now explicitly authorizes source-exact lossless sRGB WebP delivery (6,341,858B). No resize/thumbnail/Next transcoding. Ignored landing01-ritual.png stays source-only. See the current conversion policy below.
 - Geometry contract: photo frame spans dialog width within1CSSpx. Hero mobile2:3 equals full source ratio (height1.5×width); desktop hero1:1 intentionally crops at50%72%. Other frames4:5 (height1.25×width) intentionally crop original2:3 via `object-fit:cover`, positions50%55%,50%62%,50%60% in source order. No axis distortion. Full source visibility is not required for these explicitly approved reference crops. Verify crop equivalence against the actual HTML at both mobile widths plus desktop/short-height targets.
 
 ## Behavior and loading
@@ -74,3 +76,22 @@ Durable source/content/hash/performance/geometry/selectedimage evidence: `docs/e
 ## Owner release authorization — 2026-10-22
 
 After local verification the owner accepted the appearance («Да, выглядит нормально») and explicitly requested commit/deploy of all completed work. Publish the verified current feature and its reference/records plus completed certificate/footer receipts to origin/main; exclude private licence/policy sources. Prior no-publication statements above describe the earlier implementation stage and are now superseded. The appearance approval does not independently confirm the supplied medical/product claims. Exact-SHA publication outcome: `docs/evidence/wellness/publication.json`.
+
+
+## Approved lossless delivery specification — CHG0133, 2026-10-22
+
+The owner now explicitly approves replacing the four active original PNG deliveries with lossless WebP. Earlier original-only restrictions and their measurements above are historical CHG0130 stages, superseded for the active delivery only. All five reference PNGs remain untouched; unused01-ritual.png is still excluded. Current inputs are RGB1024×1536, fully opaque, untagged without gamma/sRGB metadata. Editorial profile intent is UNKNOWN. Preserve existing browser-sRGB interpretation and RGB numbers, embed standard sRGB ICC; no AdobeRGB conversion, resize/crop/channel adjustments. Output map uses identical basename.webp in public/art/wellness and the same registry positions50%50/55/62/60.
+
+Use cwebp lossless/exact/q100/m6/mt with metadataICC from source-exact tagged intermediate. Require embeddedICC/VP8L/full decodedRGBA equality and dimensions/alpha, immutable source hashes, repeat-stable generation. Remove only the four publicPNG duplicates after successful verification; originals stay in design/references. Keep CSS/content/fonts/lifecycle/native loading priorities/Retry and941px main cap unchanged. Update actual WebP MIME/SHA test consumers and Retry fixture; source equality becomes decodedpixel equality, never claim different container bytes match. Compare settled production Pro/Max actualPNG-control vsWebP screenshots for every photo and assembled ribbon; run affected crossengine/locale/RTL/narrow behavior and production cold4Mbps100ms4CPU before/after performance. No newpreview/alternatecodec/resize. Verified current result is recorded below.
+
+## Lossless delivery verified locally — CHG0133, 2026-10-22
+
+All four source-exact WebP derivatives embed the pinned sRGB ICC, use VP8L lossless and retain full decoded RGBA/dimensions exactly. Four original references plus the unused fifth source remain unchanged; redundant live PNGs are removed. Payload10,149,306→6,341,858B (-37.51%). Two initial generator runs produced identical manifests/output bytes. A minimal package without docs also regenerates identical payloads after parent-directory robustness repair. Native first review lacked tracked docs context; its clean-checkout missing-directory claim was not reproduced in the actual repo. Corrected snapshot plus final exact-diff native review is clean.
+
+Actual WebKit Pro402×874/Max440×956DPR3 before/after22pairs are RGBAexact, matching text, crops and total heights4949/5062. Root and independent auditor viewed the complete compositions. Existing four-profile Wellness suite22PASS18intentionalduplicateSKIP;11locale/RTL/280–1440/shortheights/320375/firstphotoentry/nativeHTTPWebP/Retry/delay/keyboard/lifecycle/partialabort checks pass. Assembled phone footer2PASS; strict type/lint/build15staticpaths11localeSSG pass. Keep existing static/server/client split and on-open eagerhero/lazyothers; no runtime scheduling/CSS declarations changed.
+
+Serial cold Chromium402×874DPR3/4Mbps100ms4CPU: hero10.119→5.904s, allphotos20.878→13.328s. First useful2559→2525ms/LCP2736→2744ms,CLS0,JS209150B,0Wellnessrequests before activation; no first-view speed improvement claimed.119scrollsamples p9516.8ms both; after1frame>33ms versus0before, isolatedcauseUNKNOWN. Single synthetic samples, not field/INP/Lighthouse/physicalSafari/P3/Photoshopintent evidence.
+
+Dated technical approval2026-10-22 /rootAPPROVED with independentStages1–6PASS /root/wellness_lossless_auditor. Durable [export](evidence/wellness/lossless-export.json), [browser/review verification](evidence/wellness/lossless-verification.json), [performance](evidence/wellness/lossless-performance.json). Raw screenshots/logs staylocal /tmp/ramsider-wellness-lossless. Current request authorizes optimization, not a new publication; code remains uncommitted on main, public81d24efunchanged. Prior publication paragraphs describe CHG0130. User result approval NOT_RECORDED.
+
+Publication authorization2026-10-23: owner now explicitly requests deployment of CHG0134, including the verified CHG0133 lossless WebP dependencies. Exact outcome is tracked in loading-flow/publication.json; earlier no-publication wording is historical.

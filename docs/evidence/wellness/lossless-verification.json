@@ -1,0 +1,295 @@
+{
+  "change": "CHG0133",
+  "date": "2026-10-22",
+  "status": "VERIFIED_LOCAL",
+  "branch": "main",
+  "baseCommit": "81d24ef8626b335442a217e2d10e331787946829",
+  "scope": "Only4Wellness PNG deliveries\u2192lossless sRGB WebP. Dimensions/positions/crops/copy/fonts/CSS declarations/priority/lifecycle/main941/footer unchanged. Original5referencePNG untouched.",
+  "export": "lossless-export.json",
+  "sourceIntent": "UNKNOWN untagged; preserve existing browser-sRGB interpretation, no RGB transform",
+  "browser": {
+    "directory": "/tmp/ramsider-wellness-lossless",
+    "actualViewport": [
+      {
+        "name": "pro",
+        "viewport": {
+          "width": 402,
+          "height": 874,
+          "dpr": 3
+        },
+        "dialogWidth": 402,
+        "scrollHeight": 4949
+      },
+      {
+        "name": "max",
+        "viewport": {
+          "width": 440,
+          "height": 956,
+          "dpr": 3
+        },
+        "dialogWidth": 440,
+        "scrollHeight": 5062
+      }
+    ],
+    "comparison": {
+      "metricsEqual": true,
+      "pairs": [
+        {
+          "name": "pro",
+          "position": 0,
+          "width": 1206,
+          "height": 2622,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "pro",
+          "position": 1,
+          "width": 1206,
+          "height": 2622,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "pro",
+          "position": 2,
+          "width": 1206,
+          "height": 2622,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "pro",
+          "position": 3,
+          "width": 1206,
+          "height": 2622,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "pro",
+          "position": 4,
+          "width": 1206,
+          "height": 2622,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "pro",
+          "position": 5,
+          "width": 1206,
+          "height": 2622,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "pro",
+          "position": 6,
+          "width": 1206,
+          "height": 2622,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "pro",
+          "position": 7,
+          "width": 1206,
+          "height": 2622,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "pro",
+          "position": 8,
+          "width": 1206,
+          "height": 2622,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "pro",
+          "position": 9,
+          "width": 1206,
+          "height": 2622,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "pro",
+          "position": 10,
+          "width": 1206,
+          "height": 2622,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "max",
+          "position": 0,
+          "width": 1320,
+          "height": 2868,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "max",
+          "position": 1,
+          "width": 1320,
+          "height": 2868,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "max",
+          "position": 2,
+          "width": 1320,
+          "height": 2868,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "max",
+          "position": 3,
+          "width": 1320,
+          "height": 2868,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "max",
+          "position": 4,
+          "width": 1320,
+          "height": 2868,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "max",
+          "position": 5,
+          "width": 1320,
+          "height": 2868,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "max",
+          "position": 6,
+          "width": 1320,
+          "height": 2868,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "max",
+          "position": 7,
+          "width": 1320,
+          "height": 2868,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "max",
+          "position": 8,
+          "width": 1320,
+          "height": 2868,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "max",
+          "position": 9,
+          "width": 1320,
+          "height": 2868,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        },
+        {
+          "name": "max",
+          "position": 10,
+          "width": 1320,
+          "height": 2868,
+          "changedChannels": 0,
+          "maxChannelError": 0
+        }
+      ],
+      "allRGBAExact": true
+    },
+    "viewedBy": [
+      "/root",
+      "/root/wellness_lossless_auditor"
+    ],
+    "beforeAfterSheets": [
+      "before-pro-sheet.png",
+      "after-pro-sheet.png",
+      "before-max-sheet.png",
+      "after-max-sheet.png"
+    ],
+    "statesViewed": [
+      "desktophero",
+      "Arabiccapsules",
+      "Maxpending",
+      "errorRetry"
+    ],
+    "suite": {
+      "passed": 22,
+      "skippedIntentionalDuplicates": 18,
+      "failed": 0,
+      "profiles": [
+        "Pro402x874DPR3WebKit",
+        "Max440x956DPR3WebKit",
+        "desktopChromium1440",
+        "desktopFirefox1440"
+      ],
+      "adaptation": "11locales\u00d7280/402x560/440x650/768/1440 plus320/375ENAR",
+      "coverage": "All4HTTPWebP+SHA+sourceRGBA+firstentry/copy/crops; lifecycle/keyboard/scroll/focus/reopen/Close/Back;503Retry/pendingClose/delay/prerequisiteRetry/reveal/reducedmotion/backgroundpause/partialabort races."
+    },
+    "assembledFooter": {
+      "passed": 2,
+      "failed": 0,
+      "profiles": "Pro11locales/MaxENRUDEAR",
+      "result": "Existing official facts/nativecontacts/compactemails/social/texture/overflow checks PASS"
+    }
+  },
+  "static": {
+    "build": "PASS15staticpaths/11localeSSG",
+    "typecheck": "PASS",
+    "targetedLint": "PASS0errors0warnings",
+    "nativeReview": "CLEAN final exact5codefiles+4assetreplacements; firstP2receiptparent robustness fixed/tested; reviewer browserchecks notrun; root ran them separately.",
+    "reviewedCodeSHA256": {
+      "app/globals.css": "931f17f44a51a74154a3ee5f29eade90c3930adfe99b98214e2c286a0cd7668b",
+      "components/WellnessPhoto.tsx": "35194c5439577ff9cf20b713a1b5059e38413f4d6fed0e25d8a0a30075df4481",
+      "lib/wellness-assets.json": "7b2844d7d9fbbe425682b950271dbabae2dee72ccd31ae58cccf4824058a030d",
+      "tests/e2e/wellness.spec.ts": "f227402b761b2a0319cfb803953ce8eeac6d604dde90ddcadaf18cec8a8f474e",
+      "tools/convert-wellness-lossless.py": "e9414d5fc720719bf61fcc402423c2fe00ac24946a8fb0096923ba6e0e6d3dc3"
+    },
+    "repeatGeneration": "PASSbyte-identicalmanifest/outputSHA, including standalonepackage with initiallyabsentdocs."
+  },
+  "renderingDecision": "Retain prerendered11locale shell, server ribbon copy and existing client modal/photo lifecycle. Codec payload reduction resolves measured bottleneck; no new request-time rendering or client dependency. Native unoptimized images deliver exact approved derivatives, firsteager/laterlazy/conditional-on-open unchanged.",
+  "performance": "lossless-performance.json",
+  "limits": [
+    "single synthetic cold sample perversion",
+    "physicalSafari/Telegramchrome/P3/calibrateddisplay/Photoshopintent unverified",
+    "INP/field/Lighthouse not measured",
+    "after scroll1/119frames>33ms vsbefore0; p95same16.8ms, cause UNKNOWN"
+  ],
+  "technicalApproval": {
+    "date": "2026-10-22",
+    "verifier": "/root",
+    "status": "APPROVED",
+    "evidence": "Full4sourceRGBA/ICC/VP8L/profile/payload checks;22exactactualWebKitpairs;22Wellness+2assembledbrowserPASS;type/lint/build/nativeCLEAN;serialproductionbefore/after speed.",
+    "independentFinalAudit": "PASS2026-10-22 /root/wellness_lossless_auditor"
+  },
+  "independentAudit": {
+    "agent": "/root/wellness_lossless_auditor",
+    "scope": "PASS",
+    "exportImplementation": "PASS",
+    "visual": "PASS",
+    "behaviorAdaptation": "PASS",
+    "qualityPerformance": "PASS",
+    "finalRecords": "PASS"
+  },
+  "userApproval": {
+    "conversion": "EXPLICIT2026-10-22",
+    "result": "NOT_RECORDED"
+  },
+  "publication": "AUTHORIZED2026-10-23 as required dependency of CHG0134 deployment; exact outcome in loading-flow/publication.json"
+}

@@ -1,4 +1,4 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests/e2e',
@@ -12,11 +12,11 @@ export default defineConfig({
   projects: [
     {
       name: 'iphone-17-pro-webkit',
-      use: { browserName: 'webkit', viewport: { width: 402, height: 874 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true },
+      use: { browserName: 'webkit', userAgent: devices['iPhone 17 Pro'].userAgent, viewport: { width: 402, height: 874 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true },
     },
     {
       name: 'iphone-17-pro-max-webkit',
-      use: { browserName: 'webkit', viewport: { width: 440, height: 956 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true },
+      use: { browserName: 'webkit', userAgent: devices['iPhone 17 Pro Max'].userAgent, viewport: { width: 440, height: 956 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true },
     },
     {
       name: 'desktop-chromium',

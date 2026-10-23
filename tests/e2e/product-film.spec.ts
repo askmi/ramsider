@@ -62,6 +62,7 @@ test('both film controls play, seek, pause and release with modal focus restorat
   for (const id of ['film-play','film-label']) {
     const trigger=page.locator(`#${id}`);await trigger.focus();const before=await page.evaluate(()=>scrollY);
     await trigger.press('Enter');await expect(page.locator('#product-film')).toBeVisible();await playing(page);
+    await expect(page.locator('video')).toHaveAttribute('data-playback', info.project.name.includes('iphone') ? 'native-hls' : 'mse-hls');
     expect(await page.$eval('video', v=>v.videoWidth>=256&&v.videoHeight>=144&&v.controls&&v.hasAttribute('playsinline'))).toBe(true);
     expect(mediaRequests.length).toBeGreaterThan(0);
     await page.$eval('video', v=>v.pause());
@@ -276,4 +277,116 @@ test('a short segment outage recovers HLS without a permanent MP4 downgrade',asy
   await expect(page.locator('video')).toHaveAttribute('data-playback','mse-hls');
   await expect(page.locator('.product-film__notes button')).toHaveCount(0);
   await page.locator('.product-film__close').click();
+});
+
+// Chrome's DevTools iPhone identity is neither the desktop UA nor real WebKit.
+test('Chrome-family iPhone identity uses MSE and completes cold and cached films', async ({}, info) => {
+  test.skip(info.project.name !== 'desktop-chromium', 'One Chrome-family device-mode owner');
+  test.setTimeout(240000);
+  const { chromium, devices } = await import('@playwright/test');
+  // Default runs use the configured Playwright browser; local incident checks
+  // can also exercise installed Chrome without making it a CI prerequisite.
+  const systemChrome = process.env.HLS_SYSTEM_CHROME === '1';
+  const browser = await chromium.launch(systemChrome ? { channel: 'chrome' } : {});
+  const context = await browser.newContext({ ...devices['iPhone 16'], viewport: { width: 393, height: 852 } });
+  const page = await context.newPage();
+  const rows: Array<Record<string, unknown>> = [];
+  const errors: string[] = []; page.on('pageerror', e => errors.push(e.message));
+  try {
+    for (const cache of ['cold', 'warm']) {
+      await page.goto(`${process.env.BASE_URL ?? 'http://127.0.0.1:3000'}/en`);
+      await expect.poll(() => page.locator('.art img:not([data-media-ready])').count(), { timeout: 40000 }).toBe(0);
+      await page.locator('#film-play').scrollIntoViewIfNeeded();
+      await page.evaluate(() => {
+        const v = document.querySelector('video')!;
+        const w = window as typeof window & { filmProbe?: { clicked: number; first: number; waits: number[] } };
+        const probe: { clicked: number; first: number; waits: number[] } = w.filmProbe = { clicked: performance.now(), first: 0, waits: [] };
+        v.addEventListener('playing', () => { probe.first ||= performance.now(); });
+        v.addEventListener('waiting', () => { if (probe.first) probe.waits.push(v.currentTime); });
+      });
+      await page.locator(cache === 'cold' ? '#film-play' : '#film-label').click();
+      await playing(page);
+      await expect(page.locator('video')).toHaveAttribute('data-playback', 'mse-hls');
+      await expect.poll(() => page.$eval('video', v => v.ended), { timeout: 90000 }).toBe(true);
+      await expect(page.locator('.product-film__notes button')).toHaveCount(0);
+      const result = await page.evaluate(() => {
+        const v = document.querySelector('video')!;
+        const probe = (window as typeof window & { filmProbe: { clicked: number; first: number; waits: number[] } }).filmProbe;
+        return { ua: navigator.userAgent, vendor: navigator.vendor, time: v.currentTime, ended: v.ended, engine: v.dataset.playback, error: v.error?.message ?? null, firstPlayingMs: probe.first - probe.clicked, waits: probe.waits };
+      });
+      expect(result.vendor).toBe('Google Inc.'); expect(result.ua).not.toMatch(/Chrome/);
+      expect(result.waits).toEqual([]); expect(result.error).toBeNull();
+      rows.push({ cache, ...result });
+      await page.screenshot({ path: `${root}/incident-chrome-${cache}.png`, scale: 'css' });
+      await page.locator('.product-film__close').click();
+      await expect.poll(() => page.$eval('video', v => [v.paused, v.networkState, v.readyState])).toEqual([true, 0, 0]);
+    }
+    expect(errors).toEqual([]);
+    await writeFile(`docs/evidence/video/hls-incident-${systemChrome ? 'system-chrome' : 'chromium'}.json`, JSON.stringify({ browserVersion: browser.version(), systemChrome, rows, errors }, null, 2));
+  } finally { await browser.close(); }
+});
+
+test('a stalled HLS seek without MediaError automatically falls back and preserves position', async ({ page }, info) => {
+  test.skip(!['iphone-17-pro-webkit', 'desktop-chromium'].includes(info.project.name), 'One native and one MSE recovery owner');
+  let release!: () => void;
+  const gate = new Promise<void>(r => { release = r; });
+  let held = 0;
+  await page.route('**/*.m4s', async route => {
+    const index = Number(route.request().url().match(/segment-(\d+)\.m4s/)?.[1]);
+    if (index >= 3) { held++; await gate; }
+    await route.continue().catch(() => {});
+  });
+  try {
+    await visit(page); await page.locator('#film-play').click(); await playing(page);
+    await page.$eval('video', v => { v.currentTime = 30; });
+    await expect.poll(() => held).toBeGreaterThan(0);
+    await expect.poll(() => page.$eval('video', v => v.error)).toBeNull();
+    await expect(page.locator('video')).toHaveAttribute('data-playback', 'mp4-fallback', { timeout: 20000 });
+    await expect.poll(() => page.$eval('video', v => !v.paused && v.readyState >= 2 && v.currentTime >= 30), { timeout: 20000 }).toBe(true);
+    await expect(page.locator('.product-film__notes button')).toHaveCount(0);
+    await page.locator('.product-film__close').click();
+    await expect.poll(() => page.$eval('video', v => [v.paused, v.networkState, v.readyState])).toEqual([true, 0, 0]);
+  } finally { release(); }
+});
+
+test('a late streaming-library load cannot replace an already playing fallback', async ({ page }, info) => {
+  test.skip(info.project.name !== 'desktop-chromium', 'One dynamic-import lifecycle owner');
+  let release!: () => void;
+  const gate = new Promise<void>(r => { release = r; });
+  let held = false;
+  await page.route('**/_next/static/**/*.js', async route => {
+    const response = await route.fetch();
+    const body = await response.body();
+    if (body.includes(Buffer.from('abrEwmaDefaultEstimate'))) { held = true; await gate; }
+    await route.fulfill({ response, body }).catch(() => {});
+  });
+  try {
+    await visit(page); await expect.poll(() => held).toBe(true);
+    await page.locator('#film-play').click();
+    await expect(page.locator('video')).toHaveAttribute('data-playback', 'mp4-fallback', { timeout: 20000 });
+    await playing(page);
+    release(); await page.waitForTimeout(1000);
+    await expect(page.locator('video')).toHaveAttribute('data-playback', 'mp4-fallback');
+    await playing(page); await page.locator('.product-film__close').click();
+  } finally { release(); }
+});
+
+test('desktop WebKit uses MSE while desktop-identity iPad keeps native HLS', async ({ browser }, info) => {
+  test.skip(info.project.name !== 'iphone-17-pro-webkit', 'One WebKit platform-identity matrix owner');
+  const { devices } = await import('@playwright/test');
+  for (const ipad of [false, true]) {
+    const context = await browser.newContext({ userAgent: devices['Desktop Safari'].userAgent, viewport: { width: 1024, height: 768 }, isMobile: false, hasTouch: ipad });
+    const page = await context.newPage();
+    if (ipad) await page.addInitScript(() => {
+      Object.defineProperty(navigator, 'platform', { configurable: true, value: 'MacIntel' });
+      Object.defineProperty(navigator, 'maxTouchPoints', { configurable: true, value: 5 });
+    });
+    try {
+      await page.goto(`${process.env.BASE_URL ?? 'http://127.0.0.1:3000'}/en`);
+      await page.locator('#film-play').click(); await playing(page);
+      await expect(page.locator('video')).toHaveAttribute('data-playback', ipad ? 'native-hls' : 'mse-hls');
+      await page.locator('.product-film__close').click();
+      await expect.poll(() => page.$eval('video', v => [v.paused, v.networkState, v.readyState])).toEqual([true, 0, 0]);
+    } finally { await context.close(); }
+  }
 });

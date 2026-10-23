@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-24",
+  "source": "Actual macOS Safari UI; selected film-only AX rows; no headers/credentials",
+  "observedAX": [
+    "\t\t\t\t\t\t32 checkbox (settable, integer) Disable Caches, Value: 0",
+    "\t\t\t\t\t\t61 container 0 resources",
+    "\t\t\t\t\t\t63 container 0 B total",
+    "\t\t\t\t\t\t\t64 text 0 B",
+    "\t\t\t\t\t\t65 container 0 B transferred",
+    "\t\t\t\t\t\t\t66 text 0 B",
+    "\t\t\t\t\t\t97 text [{\\\"time\\\":60.12,\\\"height\\\":1080,\\\"ended\\\":true,\\\"ready\\\":2,\\\"engine\\\":\\\"mse-hls\\\",\\\"buffer\\\":[[44.08,60.12]]}]",
+    "\t\t\t\t\t\t104 text [{\\\"time\\\":37.129176598,\\\"height\\\":1080,\\\"ended\\\":false,\\\"engine\\\":\\\"mse-hls\\\"}]",
+    "\t\t\t\t\t\t109 text [{\\\"time\\\":60.12,\\\"height\\\":1080,\\\"ended\\\":true,\\\"engine\\\":\\\"mse-hls\\\"}]",
+    "\t\t\t\t\t112 text entry area (settable) Console prompt, Value: [text entry area: Console prompt], Secondary Actions: Show Writing Tools",
+    "\t\t\t\t\t\t\t\t130 button Play",
+    "\t\t\t\t\t\t\t\t132 text Elapsed: 1 minute",
+    "The focused UI element is 112 text entry area (settable) Console prompt, Value: [text entry area: Console prompt], Secondary Actions: Show Writing Tools"
+  ]
+}

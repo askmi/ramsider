@@ -1,0 +1,50 @@
+{
+  "browser": "Actual macOS Safari via native CUA UI, no browser engine emulation",
+  "origin": "http://127.0.0.1:3171/en#film-play",
+  "cacheDisabled": false,
+  "sameElement": true,
+  "reloadBetweenPlays": false,
+  "observations": [
+    {
+      "play": 1,
+      "ended": true,
+      "time": 60.12,
+      "height": 1080,
+      "networkPanelTransferred": "30.9 MB",
+      "evidence": "CUA console first completed playback read at2026-10-24 client date; root tool trace retained; firstresult also visibleinreplay4screenshot"
+    },
+    {
+      "play": 2,
+      "endedControlObserved": true,
+      "elapsedLabel": "1 minute",
+      "networkPanelTransferred": "25.3 MB",
+      "heightAtEnd": "not independently sampled",
+      "note": "Additional/new-rendition request mapping not retained; nozero-networkclaim"
+    },
+    {
+      "play": 3,
+      "endedControlObserved": true,
+      "elapsedLabel": "1 minute",
+      "networkResources": 0,
+      "networkBytes": 0,
+      "evidence": "hls-incident-real-safari-mse-replay3.json"
+    },
+    {
+      "play": 4,
+      "midpoint": {
+        "time": 37.129176598,
+        "height": 1080,
+        "ended": false
+      },
+      "end": {
+        "time": 60.12,
+        "height": 1080,
+        "ended": true
+      },
+      "networkResources": 0,
+      "networkBytes": 0,
+      "evidence": "hls-incident-real-safari-mse-replay4.json"
+    }
+  ],
+  "limits": "Actual GUI observations at intervals, not continuous event trace/nozero-stall universal claim. EarliernativeMac firstend360/buffer22.873..60.04 andsecond31freshsegments/4.53MB withcachesenabled. ExactoriginalownerfourthstallcauseUNKNOWN; measuredMSEreplaybehavior improved. PhysicaliPhone/Androidnotcertified."
+}

@@ -7,10 +7,18 @@ const sessions = new WeakMap<HTMLVideoElement, Session>();
 let engine: Promise<typeof Hls> | undefined;
 
 function nativeHls(video: HTMLVideoElement) {
-  // A known native WebKit path plus an actual media probe. Other engines may
-  // report "maybe" for HLS without reliably playing it; use their MSE path.
+  // Chrome device mode replaces the UA with Safari's, but retains Google's
+  // vendor. Its native HLS is not the iPhone/WebKit path tested here.
+  // Other iOS browsers still use WebKit and may identify their own vendor.
+  const ua = navigator.userAgent;
+  const ios = /iPhone|iPad|iPod/.test(ua) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const appleEngine = ios && (navigator.vendor === 'Apple Computer, Inc.' ||
+    /CriOS|FxiOS|EdgiOS/.test(ua));
+  // Desktop Safari's native HLS can re-download an entire repeated film.
+  // Use its standard MSE/HTTP-cache path; retain native iPhone/iPad playback.
   return !!video.canPlayType('application/vnd.apple.mpegurl') &&
-    /AppleWebKit/.test(navigator.userAgent) && !/Chrome|Chromium|Android|Edg\//.test(navigator.userAgent);
+    appleEngine && /AppleWebKit/.test(ua) && !/Chrome|Chromium|Android|Edg\//.test(ua);
 }
 
 function loadEngine() {
@@ -60,9 +68,8 @@ export function playProductFilm(video: HTMLVideoElement) {
   const waiting = () => {
     if (!current() || video.paused || document.hidden) return;
     status('loading');
-    clearWatchdog();
-    // A failed delivery must not leave an infinite black "Loading" state.
-    watchdog = setTimeout(fail, 15000);
+    // Repeated waiting notifications must not extend the same stall forever.
+    if (!watchdog) watchdog = setTimeout(timedOut, 15000);
   };
   const attemptPlay = () => {
     if (!current()) return;
@@ -95,7 +102,14 @@ export function playProductFilm(video: HTMLVideoElement) {
     video.src = video.dataset.fallback;
     video.load(); status(shouldPlay ? 'loading' : 'blocked');
     playIntent = shouldPlay;
-    if (shouldPlay) { if (!document.hidden) watchdog = setTimeout(fail, 15000); attemptPlay(); }
+    if (shouldPlay) { if (!document.hidden) watchdog = setTimeout(timedOut, 15000); attemptPlay(); }
+  };
+  const timedOut = () => {
+    clearWatchdog();
+    if (!current() || document.hidden || !playIntent || video.ended) return;
+    // A native stall need not emit MediaError. Exhaust the small fallback
+    // before offering Retry; fallbackUsed bounds this to one source change.
+    fallback();
   };
   const onError = () => { if (current()) fallback(); };
   const onPlay = () => { if (current()) playIntent = true; };
@@ -104,7 +118,7 @@ export function playProductFilm(video: HTMLVideoElement) {
   const onVisibility = () => {
     clearWatchdog();
     if (current() && !document.hidden && playIntent && video.readyState < 3) {
-      status('loading'); watchdog = setTimeout(fail, 15000);
+      status('loading'); watchdog = setTimeout(timedOut, 15000);
     }
   };
   const session: Session = { close() {
@@ -128,14 +142,14 @@ export function playProductFilm(video: HTMLVideoElement) {
   document.addEventListener('visibilitychange', onVisibility);
   status('loading');
   // Also bound manifest/library startup, before a native waiting event exists.
-  if (!document.hidden) watchdog = setTimeout(fail, 15000);
+  if (!document.hidden) watchdog = setTimeout(timedOut, 15000);
   if (nativeHls(video)) {
     video.dataset.playback = 'native-hls';
     video.src = video.dataset.src!; video.load(); attemptPlay();
     return;
   }
   void loadEngine().then(Engine => {
-    if (!current()) return;
+    if (!current() || fallbackUsed) return;
     if (!Engine.isSupported()) { fallback(); return; }
     video.dataset.playback = 'mse-hls';
     hls = new Engine({
@@ -176,11 +190,11 @@ export function playProductFilm(video: HTMLVideoElement) {
         if (networkRestarts++ < 1) {
           status('loading');
           recovery = setTimeout(() => { if (current()) hls?.startLoad(video.currentTime); }, 1000);
-        } else fail();
+        } else fallback();
       } else fallback();
     });
     hls.loadSource(video.dataset.src!);
     hls.attachMedia(video);
     attemptPlay();
-  }).catch(() => { if (current()) fallback(); });
+  }).catch(() => { if (current() && !fallbackUsed) fallback(); });
 }

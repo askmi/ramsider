@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-24",
+  "samples": [
+    {
+      "label": "before-de43e9e",
+      "port": 3166,
+      "conditions": "cold Chromium402x874 DPR3 /4Mbps100ms4xCPU, first snapshot5s afterDOMContentLoaded; scroll unthrottled",
+      "lcp": 884,
+      "cls": 0.00022206073455854325,
+      "fcp": 620,
+      "ttfb": 194.79999995231628,
+      "htmlBytes": 230376,
+      "heroReady": true,
+      "videoRequests": 0,
+      "totalCompletedBytes": 2851610,
+      "jsCompletedBytes": 221444,
+      "videoCompletedBytes": 0,
+      "scroll": {
+        "frames": 99,
+        "p95": 16.799999999999272,
+        "over33": 1
+      }
+    },
+    {
+      "label": "after-incident-fix",
+      "port": 3170,
+      "conditions": "cold Chromium402x874 DPR3 /4Mbps100ms4xCPU, first snapshot5s afterDOMContentLoaded; scroll unthrottled",
+      "lcp": 1464,
+      "cls": 0.00022206073455854325,
+      "fcp": 840,
+      "ttfb": 265.39999997615814,
+      "htmlBytes": 230378,
+      "heroReady": true,
+      "videoRequests": 0,
+      "totalCompletedBytes": 2851677,
+      "jsCompletedBytes": 221508,
+      "videoCompletedBytes": 0,
+      "scroll": {
+        "frames": 99,
+        "p95": 16.80000000000109,
+        "over33": 2
+      }
+    }
+  ],
+  "limits": "One synthetic sample per version; no fieldINP, physical Safari or Lighthouse score. Completed bytes are phase-limited, not eventual total."
+}

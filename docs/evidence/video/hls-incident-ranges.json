@@ -1,0 +1,29 @@
+[
+  {
+    "path": "master.m3u8",
+    "status": 206,
+    "range": "bytes 0-935/936",
+    "type": "application/vnd.apple.mpegurl",
+    "bytes": 936,
+    "expected": 936,
+    "exact": true
+  },
+  {
+    "path": "360p/init.mp4",
+    "status": 206,
+    "range": "bytes 0-1023/1394",
+    "type": "video/mp4",
+    "bytes": 1024,
+    "expected": 1024,
+    "exact": true
+  },
+  {
+    "path": "1080p/segment-00001.m4s",
+    "status": 206,
+    "range": "bytes 0-1023/1125891",
+    "type": "video/mp4",
+    "bytes": 1024,
+    "expected": 1024,
+    "exact": true
+  }
+]

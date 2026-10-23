@@ -1,0 +1,16 @@
+[
+  {
+    "upstream": "node_modules/hls.js/dist/hls.worker.js",
+    "public": "public/vendor/hls-worker-1.7.3.js",
+    "bytes": 118233,
+    "sha256": "42794b9ca89d78c54407c6a0e46cdcde9fbd976e476259428e506be857cb16ea",
+    "exact": true
+  },
+  {
+    "upstream": "node_modules/hls.js/dist/hls.worker.js.map",
+    "public": "public/vendor/hls.worker.js.map",
+    "bytes": 641691,
+    "sha256": "f7547f52fbe21d0b080ec473342db112b1a32c8e716b9441625955f38706fba9",
+    "exact": true
+  }
+]

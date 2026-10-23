@@ -87,6 +87,7 @@ async function prepare(asset) {
 try {
   await mkdir(path.join(root, 'public/vendor'), { recursive: true });
   await copyFile(path.join(root, 'node_modules/hls.js/dist/hls.worker.js'), path.join(root, 'public/vendor/hls-worker-1.7.3.js'));
+  await copyFile(path.join(root, 'node_modules/hls.js/dist/hls.worker.js.map'), path.join(root, 'public/vendor/hls.worker.js.map'));
   const active = registry.assets.filter(asset => asset.active).map(asset => `${asset.id}/${asset.audioLocale}`);
   if (new Set(active).size !== active.length) throw new FilmError('Duplicate active film audio version.');
   for (const asset of registry.assets) { await prepare(asset); console.log(`Film package verified: ${asset.id}/${asset.audioLocale}/${asset.version}.`); }

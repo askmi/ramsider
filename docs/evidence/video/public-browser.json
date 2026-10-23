@@ -1,0 +1,222 @@
+{
+  "date": "2026-10-23",
+  "base": "https://ramsider-main.vercel.app",
+  "commit": "7e66adc671e01145862c148e8ea4f9fb3b7ce75e",
+  "http": [
+    {
+      "start": 0,
+      "end": 1023,
+      "status": 206,
+      "bytes": 1024,
+      "exact": true
+    },
+    {
+      "start": 1000000,
+      "end": 1001023,
+      "status": 206,
+      "bytes": 1024,
+      "exact": true
+    },
+    {
+      "start": 344656015,
+      "end": 344657038,
+      "status": 206,
+      "bytes": 1024,
+      "exact": true
+    }
+  ],
+  "rows": [
+    {
+      "name": "pro",
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "metadata": {
+        "width": 3840,
+        "height": 2160,
+        "controls": true,
+        "time": 0.45007716767524725
+      },
+      "rangeRequests": [
+        {
+          "range": "bytes=0-1"
+        },
+        {
+          "range": "bytes=0-344657038"
+        },
+        {
+          "range": "bytes=786432-344657038"
+        },
+        {
+          "range": "bytes=33780-786431"
+        },
+        {
+          "range": "bytes=854878-344657038"
+        },
+        {
+          "range": "bytes=719330-720895"
+        },
+        {
+          "range": "bytes=720896-786431"
+        },
+        {
+          "range": "bytes=32440320-344657038"
+        },
+        {
+          "range": "bytes=851968-917503"
+        },
+        {
+          "range": "bytes=27787264-27852799"
+        },
+        {
+          "range": "bytes=1048576-1179647"
+        },
+        {
+          "range": "bytes=32571392-32636927"
+        },
+        {
+          "range": "bytes=26083328-26148863"
+        },
+        {
+          "range": "bytes=165019648-344657038"
+        },
+        {
+          "range": "bytes=177012736-177078271"
+        },
+        {
+          "range": "bytes=177078272-177143807"
+        },
+        {
+          "range": "bytes=177143808-177209343"
+        },
+        {
+          "range": "bytes=177209344-177274879"
+        },
+        {
+          "range": "bytes=177274880-177340415"
+        },
+        {
+          "range": "bytes=177340416-177405951"
+        },
+        {
+          "range": "bytes=177405952-177471487"
+        },
+        {
+          "range": "bytes=177471488-177537023"
+        },
+        {
+          "range": "bytes=168296448-168361983"
+        },
+        {
+          "range": "bytes=170983424-171048959"
+        },
+        {
+          "range": "bytes=173473792-173539327"
+        }
+      ],
+      "seek30": true,
+      "closeReleased": true,
+      "noJSerrors": true,
+      "noOverflow": true,
+      "image": "screenshots/video/published-pro.png"
+    },
+    {
+      "name": "max",
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "metadata": {
+        "width": 3840,
+        "height": 2160,
+        "controls": true,
+        "time": 0.7046408752793191
+      },
+      "rangeRequests": [
+        {
+          "range": "bytes=0-1"
+        },
+        {
+          "range": "bytes=0-344657038"
+        },
+        {
+          "range": "bytes=786432-344657038"
+        },
+        {
+          "range": "bytes=113756-786431"
+        },
+        {
+          "range": "bytes=924759-344657038"
+        },
+        {
+          "range": "bytes=113756-131071"
+        },
+        {
+          "range": "bytes=131072-196607"
+        },
+        {
+          "range": "bytes=196608-262143"
+        },
+        {
+          "range": "bytes=262144-327679"
+        },
+        {
+          "range": "bytes=327680-393215"
+        },
+        {
+          "range": "bytes=393216-458751"
+        },
+        {
+          "range": "bytes=458752-524287"
+        },
+        {
+          "range": "bytes=524288-589823"
+        },
+        {
+          "range": "bytes=589824-655359"
+        },
+        {
+          "range": "bytes=655360-720895"
+        },
+        {
+          "range": "bytes=720896-786431"
+        },
+        {
+          "range": "bytes=32505856-344657038"
+        },
+        {
+          "range": "bytes=917504-1179647"
+        },
+        {
+          "range": "bytes=27787264-27852799"
+        },
+        {
+          "range": "bytes=165019648-344657038"
+        },
+        {
+          "range": "bytes=177012736-177078271"
+        },
+        {
+          "range": "bytes=177078272-177143807"
+        },
+        {
+          "range": "bytes=177143808-177209343"
+        },
+        {
+          "range": "bytes=177209344-177274879"
+        },
+        {
+          "range": "bytes=177274880-177340415"
+        },
+        {
+          "range": "bytes=177340416-177405951"
+        }
+      ],
+      "seek30": true,
+      "closeReleased": true,
+      "noJSerrors": true,
+      "noOverflow": true,
+      "image": "screenshots/video/published-max.png"
+    }
+  ],
+  "limits": "PhysicaliOSsystemfullscreen/rotation notchecked; remoteidentity provedapprovedbuildSHA/size/3exactranges andactual4Kplayback, notfullremotefilehash."
+}

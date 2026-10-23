@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-23",
+  "skill": "mobile-hls-video",
+  "frontmatter": "PASS officialquick_validate with temporaryPyYAMLenv",
+  "python": "3.14.4; requires3.11+",
+  "ffmpeg": "9.0.2",
+  "fixture": "synthetic1280x72025fps6.04sBT709limited+AAC",
+  "prepare": "PASS3renditions,4segments each,archive+receipt",
+  "validate": {
+    "status": "PASS",
+    "receiptSHA256": "37bcf8d2b3adb1dd94e282be0dc5346a52e5d2ff7f7417d33d2420fbcd9e295b",
+    "checks": [
+      "complete file set",
+      "all SHA/size",
+      "archive regular-file set",
+      "closed master/media/init/segment graph",
+      "actual CODECS/RESOLUTION/FPS/peak/average",
+      "VOD init/endlist",
+      "variant boundaries",
+      "all segment IDR NALs",
+      "full decode",
+      "AAC-LC/actual packet timeline",
+      "BT709/range",
+      "fast-start fallback"
+    ],
+    "renditions": [
+      {
+        "name": "144p",
+        "segments": 4,
+        "duration": 6.04,
+        "keyframes": 4,
+        "decode": "PASS",
+        "level": 12
+      },
+      {
+        "name": "360p",
+        "segments": 4,
+        "duration": 6.04,
+        "keyframes": 4,
+        "decode": "PASS",
+        "level": 30
+      },
+      {
+        "name": "720p",
+        "segments": 4,
+        "duration": 6.04,
+        "keyframes": 4,
+        "decode": "PASS",
+        "level": 31
+      }
+    ],
+    "limits": "Packaging/decoding only; not perceived-quality, browser, network or physical-phone approval"
+  },
+  "corruptFileRejection": "PASS",
+  "immutableVersionRejection": "PASS",
+  "negativeIntake": "PASS rejected synthetic fixture initiallymissingprimaries/transfer; corrected fixture generatedwith explicitx264VUI",
+  "limits": "Fixtures/package/decode and registration checks; browser/performance/publication have separate receipts",
+  "discovery": "projectskill + ~/.codex/skills/mobile-hls-video symlink",
+  "reuseSearch": "independent userrequestedsearch found MITMediaOS+FramerLabs references; no codecopied",
+  "semanticNegativeFixtures": {
+    "master-uri": "PASS semantic-invalid master rejected even with matching updated receipt hash",
+    "master-codecs": "PASS semantic-invalid master rejected even with matching updated receipt hash",
+    "master-resolution": "PASS semantic-invalid master rejected even with matching updated receipt hash",
+    "master-fps": "PASS semantic-invalid master rejected even with matching updated receipt hash"
+  },
+  "independentGate2": "PASS re-audit /root/video_auditor2026-10-23; original FAIL retained inCHANGELOG",
+  "registerHelper": {
+    "validatedReceiptBinding": "PASS",
+    "idempotentRepeat": "PASS",
+    "staleValidationRejection": "PASS",
+    "incompleteLabelsRejection": "PASS",
+    "previousVersionRetainedInactive": "PASS final re-run distinct archive/directory paths, oldretainedinactive"
+  },
+  "reviewNegativeFixtures": {
+    "missing-format": "PASS rejected semantic-invalid package despite matching updated receipt hashes",
+    "fake-fallback": "PASS rejected semantic-invalid package despite matching updated receipt hashes",
+    "archive-member-content": "PASS rejected semantic-invalid package despite matching updated receipt hashes",
+    "directory-collision": "PASS rejected immutable URL reuse"
+  },
+  "truncatedAudioRejection": "PASS actual AAC packet timeline, positivevideo6.04s/audio1.08s rejected; initialultrafast fixture rejectedearlierbaselineprofile, correctedfastHigh",
+  "highFrameRateFixture": "PASS actual1080p60 encodedlevel4.2; fullvalidatorPASS /tmp/ramsider-hls-60fps/validation.json",
+  "realAsset": "PASS final6qualities31segments with actualaudio packet endpoints; independentmediaGate2PASS",
+  "fractionalFrameRateFixture": "PASS actual30000/1001fps encode, TARGETDURATION2 with2.002ssegments; validatorbandwidth/audio/decodePASS"
+}

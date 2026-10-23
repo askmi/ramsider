@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-23",
+  "version": "en-v2",
+  "rootViewedFrames": [
+    "screenshots/video/hls/quality/source-frame375.png",
+    "screenshots/video/hls/quality/4k-frame375-v2.png"
+  ],
+  "visualVerdict": "No material visible loss/color/geometry difference at paired frame375 downscaled1280x720; relative comparison, not hardwarecolorcertification",
+  "vmaf": {
+    "2160p4Kmodel": {
+      "sampledFrames": 151,
+      "pooled": {
+        "min": 94.827016,
+        "max": 100.0,
+        "mean": 98.809195,
+        "harmonic_mean": 98.793822
+      }
+    },
+    "1080pHDmodel": {
+      "sampledFrames": 151,
+      "pooled": {
+        "min": 94.138038,
+        "max": 100.0,
+        "mean": 97.70133,
+        "harmonic_mean": 97.680078
+      }
+    }
+  },
+  "limits": "Fullsource4Kreference; every10frames sampling; not lossless or all-frameperceivedquality guarantee"
+}

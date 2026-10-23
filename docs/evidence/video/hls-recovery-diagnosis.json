@@ -1,0 +1,210 @@
+{
+  "date": "2026-10-24",
+  "status": "DIAGNOSED_MEASURED",
+  "method": "Disposable interceptedQAchunk exposes standardhlsproperties/debug; shippedsourceunchanged; no publicdebug",
+  "samples": [
+    {
+      "ms": 1201.2999999523163,
+      "time": 0.393537,
+      "bw": 15558715.255693577,
+      "auto": 2,
+      "current": 1,
+      "cap": 2,
+      "max": 2,
+      "bufferEnd": 3.967999
+    },
+    {
+      "ms": 5203.100000023842,
+      "time": 4.395273,
+      "bw": 22913263.206233174,
+      "auto": 2,
+      "current": 2,
+      "cap": 2,
+      "max": 2,
+      "bufferEnd": 17.983999
+    },
+    {
+      "ms": 9203.799999952316,
+      "time": 8.396059,
+      "bw": 23302610.26444177,
+      "auto": 2,
+      "current": 2,
+      "cap": 2,
+      "max": 2,
+      "bufferEnd": 21.973333
+    },
+    {
+      "ms": 13201.899999976158,
+      "time": 12.394112,
+      "bw": 23467569.26835348,
+      "auto": 2,
+      "current": 2,
+      "cap": 2,
+      "max": 2,
+      "bufferEnd": 23.978666
+    },
+    {
+      "ms": 17201.799999952316,
+      "time": 16.394046,
+      "bw": 3379864.72331521,
+      "auto": 2,
+      "current": 2,
+      "cap": 2,
+      "max": 2,
+      "bufferEnd": 25.983999
+    },
+    {
+      "ms": 21202,
+      "time": 20.394287,
+      "bw": 1101713.8317055474,
+      "auto": 1,
+      "current": 2,
+      "cap": 2,
+      "max": 2,
+      "bufferEnd": 27.967999
+    },
+    {
+      "ms": 25202.399999976158,
+      "time": 24.394631,
+      "bw": 1014903.3409655882,
+      "auto": 1,
+      "current": 2,
+      "cap": 2,
+      "max": 2,
+      "bufferEnd": 33.983999
+    },
+    {
+      "ms": 29203.899999976158,
+      "time": 28.396184,
+      "bw": 1007120.9738023952,
+      "auto": 1,
+      "current": 1,
+      "cap": 2,
+      "max": 2,
+      "bufferEnd": 39.978666
+    },
+    {
+      "ms": 33203.39999997616,
+      "time": 32.395769,
+      "bw": 1005182.0928764811,
+      "auto": 1,
+      "current": 1,
+      "cap": 2,
+      "max": 2,
+      "bufferEnd": 43.967999
+    },
+    {
+      "ms": 37203.199999928474,
+      "time": 36.395439,
+      "bw": 1513251.7929819378,
+      "auto": 1,
+      "current": 1,
+      "cap": 2,
+      "max": 2,
+      "bufferEnd": 49.983999
+    },
+    {
+      "ms": 41202.10000002384,
+      "time": 40.394455,
+      "bw": 2013900.7799142986,
+      "auto": 1,
+      "current": 1,
+      "cap": 2,
+      "max": 2,
+      "bufferEnd": 53.973333
+    },
+    {
+      "ms": 45203.799999952316,
+      "time": 44.396128,
+      "bw": 2273312.421853227,
+      "auto": 1,
+      "current": 1,
+      "cap": 2,
+      "max": 2,
+      "bufferEnd": 57.983999
+    },
+    {
+      "ms": 49203.199999928474,
+      "time": 48.395549,
+      "bw": 2335522.7751865294,
+      "auto": 1,
+      "current": 1,
+      "cap": 2,
+      "max": 2,
+      "bufferEnd": 60.12
+    },
+    {
+      "ms": 53203.10000002384,
+      "time": 52.395522,
+      "bw": 2335522.7751865294,
+      "auto": 1,
+      "current": 1,
+      "cap": 2,
+      "max": 2,
+      "bufferEnd": 60.12
+    },
+    {
+      "ms": 57201.799999952316,
+      "time": 56.394194,
+      "bw": 2335522.7751865294,
+      "auto": 1,
+      "current": 1,
+      "cap": 2,
+      "max": 2,
+      "bufferEnd": 60.12
+    }
+  ],
+  "qualities": [
+    {
+      "ms": 695.1000000238419,
+      "time": 0,
+      "height": 360
+    },
+    {
+      "ms": 2861.6999999284744,
+      "time": 2.054014,
+      "height": 720
+    },
+    {
+      "ms": 26880.299999952316,
+      "time": 26.072542,
+      "height": 360
+    }
+  ],
+  "finding": "cap/max remain720p(index2); afterlink25Mbpsrestored35s bandwidthestimateonly1.51\u21922.33Mbps, below720p peak/upfactor.12saheadlowbufferaddsvisibilitydelay. Notserverpartialdelivery or permanentlevelcap. Smallfastsegmentsprovidefewweighteddownloadsamples toslowEWMA.",
+  "change": "Measured short-VOD candidate fast.5s/slow1s EWMA, forward6/max8s buffer; rerunfullnetwork criteria beforeapproval",
+  "candidateResult": {
+    "configuration": {
+      "forwardBuffer": 6,
+      "maxMaxBufferLength": 8,
+      "EWMAfast": 0.5,
+      "EWMAslow": 1,
+      "down": 0.85,
+      "up": 0.8
+    },
+    "qualities": [
+      {
+        "ms": 761.5999999046326,
+        "time": 0,
+        "height": 360
+      },
+      {
+        "ms": 2962.2999999523163,
+        "time": 2.060608,
+        "height": 720
+      },
+      {
+        "ms": 22962.5,
+        "time": 22.060843,
+        "height": 360
+      },
+      {
+        "ms": 46977.5,
+        "time": 46.075953,
+        "height": 720
+      }
+    ],
+    "stalls": [],
+    "interpretation": "Actualupshift restored; about11safterlinkrestoration includingalreadybufferedlowquality. Preliminary10sresearchorient notstrictlymet; preservecontinuousplaybackinstead ofdiscardinggoodbuffer. Finaluninstrumentedfullmatrixpending."
+  }
+}

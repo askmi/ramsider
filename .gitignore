@@ -99,3 +99,9 @@ next-env.d.ts
 
 !/public/films/uno-introduction.mp4
 /public/films/*.partial
+
+# HLS packages are verified build outputs, versioned as an LFS archive.
+/public/films/*/
+/public/films/.prepare-*/
+/design/derived/product-films/*.partial
+/public/vendor/hls-worker-*.js

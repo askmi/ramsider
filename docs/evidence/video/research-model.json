@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-23",
+  "kind": "ANALYTICAL_ESTIMATES_NOT_ENCODE_OR_DEVICE_BENCHMARK",
+  "durationSeconds": 60.04,
+  "assumptions": {
+    "bitrates": "combined audio+video target averages, overhead excluded; not quality-approved; VBR peaks require separate measurement",
+    "segmentSeconds": 2,
+    "averageDeliveredMbpsForCost": 4,
+    "requestsPerFullView": 40,
+    "vercelUSDPerGBIllustrativeRegion": 0.15,
+    "vercelUSDPerMillionRequests": 2,
+    "excludes": "plan subscriptions, flat-rate bundles, included credits, tax, domain, encoder power, developer labor, retries/overfetch/partial viewers"
+  },
+  "ladder": [
+    {
+      "name": "360p",
+      "totalTargetMbps": 0.6,
+      "estimatedFullViewDecimalMB": 4.503,
+      "estimated2sSegmentDecimalKB": 150.0
+    },
+    {
+      "name": "720p",
+      "totalTargetMbps": 1.8,
+      "estimatedFullViewDecimalMB": 13.509,
+      "estimated2sSegmentDecimalKB": 450.0
+    },
+    {
+      "name": "1080p",
+      "totalTargetMbps": 4,
+      "estimatedFullViewDecimalMB": 30.02,
+      "estimated2sSegmentDecimalKB": 1000.0
+    },
+    {
+      "name": "1440p",
+      "totalTargetMbps": 7,
+      "estimatedFullViewDecimalMB": 52.535,
+      "estimated2sSegmentDecimalKB": 1750.0
+    },
+    {
+      "name": "2160p",
+      "totalTargetMbps": 14,
+      "estimatedFullViewDecimalMB": 105.07,
+      "estimated2sSegmentDecimalKB": 3500.0
+    }
+  ],
+  "allRenditionsEstimatedDecimalMB": 205.637,
+  "startupIdealDataOnlySeconds": {
+    "first2sLowAt4Mbps": 0.3,
+    "first2sLowAt1Mbps": 1.2,
+    "first6sLowAt4Mbps": 0.8999999999999999,
+    "first2sOriginalAt4Mbps": 22.961828047968023
+  },
+  "costScenarios": [
+    {
+      "fullViews": 1000,
+      "estimatedDecimalGB": 30.02,
+      "estimatedCDNRequests": 40000,
+      "vercelIllustrativeTransferUSD": 4.503,
+      "vercelIllustrativeRequestsUSD": 0.08,
+      "r2StandardReadUnitsNoCacheMillion": 1,
+      "r2WithinFreeReadAllowanceIfOtherwiseUnused": true,
+      "cloudflareStreamEstimateUSDIncluding5StorageMinimumAnd64sPerViewRounding": 6.066666666666666
+    },
+    {
+      "fullViews": 10000,
+      "estimatedDecimalGB": 300.2,
+      "estimatedCDNRequests": 400000,
+      "vercelIllustrativeTransferUSD": 45.029999999999994,
+      "vercelIllustrativeRequestsUSD": 0.8,
+      "r2StandardReadUnitsNoCacheMillion": 1,
+      "r2WithinFreeReadAllowanceIfOtherwiseUnused": true,
+      "cloudflareStreamEstimateUSDIncluding5StorageMinimumAnd64sPerViewRounding": 15.666666666666666
+    },
+    {
+      "fullViews": 100000,
+      "estimatedDecimalGB": 3002.0,
+      "estimatedCDNRequests": 4000000,
+      "vercelIllustrativeTransferUSD": 450.3,
+      "vercelIllustrativeRequestsUSD": 8.0,
+      "r2StandardReadUnitsNoCacheMillion": 4,
+      "r2WithinFreeReadAllowanceIfOtherwiseUnused": true,
+      "cloudflareStreamEstimateUSDIncluding5StorageMinimumAnd64sPerViewRounding": 111.66666666666667
+    }
+  ]
+}

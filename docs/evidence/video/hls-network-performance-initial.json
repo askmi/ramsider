@@ -1,0 +1,322 @@
+{
+  "date": "2026-10-23",
+  "conditions": "Production build; actual Chromium mobile emulation402x874DPR3;100msCDP; media HTTP cache disabled; site artwork decoded/library warmed before intent; repeated fresh HLS sessions on one page; no physical phone claim",
+  "browser": "153.0.8010.12",
+  "beforeIntentMediaRequests": 0,
+  "startup": [
+    {
+      "rateMbps": 1,
+      "trials": 20,
+      "p50FirstFrameMs": 1951.3999999761581,
+      "p95FirstFrameMs": 1953.2000000476837,
+      "allFirstFrameMs": [
+        2129,
+        1951.1000000238419,
+        1949.5,
+        1935.5,
+        1947.6000000238419,
+        1935.5,
+        1952.1000000238419,
+        1951.5999999046326,
+        1952,
+        1951.5,
+        1951.3999999761581,
+        1951.1000000238419,
+        1951.8999999761581,
+        1934.6000000238419,
+        1953.2000000476837,
+        1949.2999999523163,
+        1930.8999999761581,
+        1951.7999999523163,
+        1951.7000000476837,
+        1952.5
+      ]
+    },
+    {
+      "rateMbps": 4,
+      "trials": 20,
+      "p50FirstFrameMs": 834.6000000238419,
+      "p95FirstFrameMs": 837.0999999046326,
+      "allFirstFrameMs": [
+        834.6000000238419,
+        834.8000000715256,
+        834.8000000715256,
+        833.7999999523163,
+        835,
+        835.0999999046326,
+        834.1000000238419,
+        834.7999999523163,
+        831.2000000476837,
+        834.6000000238419,
+        835.2000000476837,
+        831.8000000715256,
+        837.0999999046326,
+        830.7999999523163,
+        851.1999999284744,
+        835.6999999284744,
+        816.3000000715256,
+        833.7999999523163,
+        835,
+        833.1999999284744
+      ]
+    },
+    {
+      "rateMbps": 10,
+      "trials": 20,
+      "p50FirstFrameMs": 617.8999999761581,
+      "p95FirstFrameMs": 619.1000000238419,
+      "allFirstFrameMs": [
+        618,
+        617.8000000715256,
+        617.7999999523163,
+        598.2999999523163,
+        618.5,
+        617.5,
+        619.6999999284744,
+        618.2999999523163,
+        616.7000000476837,
+        616.3999999761581,
+        617.8999999761581,
+        617.8000000715256,
+        617.8999999761581,
+        618.6000000238419,
+        617.1000000238419,
+        617.8999999761581,
+        619.1000000238419,
+        619.1000000238419,
+        618,
+        618
+      ]
+    }
+  ],
+  "stableFullPlayback": [
+    {
+      "rateMbps": 1,
+      "firstFrameMs": 1954.7000000476837,
+      "firstPlayingMs": 1939.8000000715256,
+      "events": [
+        {
+          "event": "waiting",
+          "ms": 15.399999976158142,
+          "time": 0,
+          "height": 0
+        },
+        {
+          "event": "playing",
+          "ms": 1939.8000000715256,
+          "time": 0,
+          "height": 360
+        },
+        {
+          "event": "pause",
+          "ms": 62179.700000047684,
+          "time": 60.12,
+          "height": 360
+        },
+        {
+          "event": "ended",
+          "ms": 62197.800000071526,
+          "time": 60.12,
+          "height": 360
+        }
+      ],
+      "qualities": [
+        {
+          "ms": 1954.7000000476837,
+          "time": 0,
+          "height": 360
+        },
+        {
+          "ms": 4114.399999976158,
+          "time": 2.070289,
+          "height": 144
+        },
+        {
+          "ms": 12129.899999976158,
+          "time": 10.085767,
+          "height": 360
+        }
+      ],
+      "contentTime": 60.12,
+      "ended": true,
+      "buffered": [
+        [
+          42.08,
+          60.12
+        ]
+      ],
+      "playback": "mse-hls",
+      "mediaReceivedBytes": 4051519,
+      "stalls": []
+    },
+    {
+      "rateMbps": 4,
+      "firstFrameMs": 847.5999999046326,
+      "firstPlayingMs": 846.6999999284744,
+      "events": [
+        {
+          "event": "waiting",
+          "ms": 22.09999990463257,
+          "time": 0,
+          "height": 0
+        },
+        {
+          "event": "playing",
+          "ms": 846.6999999284744,
+          "time": 0,
+          "height": 360
+        },
+        {
+          "event": "pause",
+          "ms": 61118.799999952316,
+          "time": 60.12,
+          "height": 720
+        },
+        {
+          "event": "ended",
+          "ms": 61122.799999952316,
+          "time": 60.12,
+          "height": 720
+        }
+      ],
+      "qualities": [
+        {
+          "ms": 847.5999999046326,
+          "time": 0,
+          "height": 360
+        },
+        {
+          "ms": 5080.899999976158,
+          "time": 4.127799,
+          "height": 720
+        }
+      ],
+      "contentTime": 60.12,
+      "ended": true,
+      "buffered": [
+        [
+          40.08,
+          60.12
+        ]
+      ],
+      "playback": "mse-hls",
+      "mediaReceivedBytes": 13642783,
+      "stalls": []
+    },
+    {
+      "rateMbps": 10,
+      "firstFrameMs": 667.8000000715256,
+      "firstPlayingMs": 658.7000000476837,
+      "events": [
+        {
+          "event": "waiting",
+          "ms": 36.5,
+          "time": 0,
+          "height": 0
+        },
+        {
+          "event": "playing",
+          "ms": 658.7000000476837,
+          "time": 0,
+          "height": 360
+        },
+        {
+          "event": "pause",
+          "ms": 60896.10000002384,
+          "time": 60.12,
+          "height": 720
+        },
+        {
+          "event": "ended",
+          "ms": 60896.40000009537,
+          "time": 60.12,
+          "height": 720
+        }
+      ],
+      "qualities": [
+        {
+          "ms": 667.8000000715256,
+          "time": 0,
+          "height": 360
+        },
+        {
+          "ms": 2848.100000023842,
+          "time": 2.083217,
+          "height": 720
+        }
+      ],
+      "contentTime": 60.12,
+      "ended": true,
+      "buffered": [
+        [
+          42.08,
+          60.12
+        ]
+      ],
+      "playback": "mse-hls",
+      "mediaReceivedBytes": 14011441,
+      "stalls": []
+    }
+  ],
+  "adaptation": {
+    "trajectory": "25Mbps for12s →1Mbps for23s →25Mbps toend",
+    "firstFrameMs": 551.2999999523163,
+    "firstPlayingMs": 535.5,
+    "events": [
+      {
+        "event": "waiting",
+        "ms": 21.700000047683716,
+        "time": 0,
+        "height": 0
+      },
+      {
+        "event": "playing",
+        "ms": 535.5,
+        "time": 0,
+        "height": 360
+      },
+      {
+        "event": "pause",
+        "ms": 60764.39999997616,
+        "time": 60.12,
+        "height": 360
+      },
+      {
+        "event": "ended",
+        "ms": 60764.5,
+        "time": 60.12,
+        "height": 360
+      }
+    ],
+    "qualities": [
+      {
+        "ms": 551.2999999523163,
+        "time": 0,
+        "height": 360
+      },
+      {
+        "ms": 2714.100000023842,
+        "time": 2.089519,
+        "height": 720
+      },
+      {
+        "ms": 30695.100000023842,
+        "time": 30.070527,
+        "height": 360
+      }
+    ],
+    "contentTime": 60.12,
+    "ended": true,
+    "buffered": [
+      [
+        42.08,
+        60.12
+      ]
+    ],
+    "playback": "mse-hls",
+    "mediaReceivedBytes": 9526783,
+    "stalls": []
+  },
+  "errors": [],
+  "limits": "Synthetic CDP delivery, not real wireless/cellular radio or nativeiOS;20sample p95 exploratory; downloadedbytes CDPdataLength excludes protocoloverhead"
+}

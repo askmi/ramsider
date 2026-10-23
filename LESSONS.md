@@ -582,3 +582,15 @@ CHG0135 journalcloseout: blindtailappend aftercreatinganotherCHG header misattri
 - Problem: CHG0135 response categorically requiredseparatehosting for344MBvideo; usercorrected thatGit→Vercelcouldserveit.
 - Cause: agent conflatedordinaryGitHub100MBobjectlimit withGitLFScapability anddidnotcheckVercelGitLFSsettings.
 - Prevention: checksourcecontrol large-file support andproviderGit/buildoutputlimits separately; validateactualartifactavailability/Range afterdeployment beforecallingexternalstorageessential. CHG0138/EVAL-VIEWERpublicationextension, controlledNOT_RUN.
+
+## Distinguish partial delivery from smooth playback
+- Problem: CHG0139 user sees a published film stalled despite the earlier functional approval.
+- Cause: publication reporting did not prominently repeat known constrained-network stalls; a successful Range/playback check cannot establish adequate throughput for the original46Mbps video.
+- Prevention: report startup/stalls/bytes under the tested network alongside functional success; distinguish byte ranges, time segments and buffer duration. Before proposing a Next proxy, inspect real deployed Range responses. Exact user-session cause remains unknown. Linked docs/agent-evals.md EVAL-VIEWER/CHG0139; controlled run NOT_RUN.
+
+## Validate a media entrypoint graph, not only its neighboring files
+- Problem: CHG0141 independent skill audit found that the HLS validator accepted decoded variant files while trusting master-playlist declarations. A K packet flag was also treated as IDR proof.
+- Cause: /root verified artifacts listed by the receipt instead of following the player's actual master→media→init/segment references; omitted a bad-master fixture with updated valid hashes.
+- Prevention: parse safe closed references and compare actual codecs/resolution/frame rate/bandwidth; verify actual first VCL IDR NALs. Test semantically broken master URLs/declarations even when file hashes match. Link EVAL-HLS-ENTRYPOINT in docs/agent-evals.md; controlled agent run NOT_RUN, executable validator fixtures PASS separately.
+
+CHG0141 follow-up — Whole-file checksums and playlist duration do not prove archive member bytes or actual audio length. Validate each archived payload, actual audio/video packet endpoints/gaps, fallback decode, fractional-FPS playlist TARGETDURATION and FPS-compatible H264 levels. Browser media properties change synchronously while play/pause events are queued: test same-task pause/resume plus populated MediaError, respect paused state and show manual Play after a paused fallback. Hidden error/fallback must not rearm foreground watchdogs. Verify postbuild lint against generated vendor output, and test ABR recovery after a constrained period instead of treating downshift/no-stall as complete adaptation. EVAL-HLS-ENTRYPOINT extended; controlled agent run NOT_RUN, executable fixtures/product tests have separate recorded outcomes.

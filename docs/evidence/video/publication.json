@@ -1,7 +1,7 @@
 {
   "date": "2026-10-23",
   "change": "CHG0138",
-  "state": "LOCALLY_APPROVED awaitingexactpush/deployment",
+  "state": "VERIFIED_PUBLISHED2026-10-23",
   "source": {
     "bytes": 344657039,
     "sha256": "71891983591abac3e44a076bf58a031ec8d6aa070a2e1acf046d3bb58c44bf25",
@@ -38,8 +38,54 @@
     "tools/prepare-product-film.mjs": "d2ce8d388e9ee997641ed3afce5b017697f0feec905a60bdcd4f4742c830e186",
     "tests/e2e/product-film.spec.ts": "7bac5e09bdecfee025978f300f004c0b6c948411086ba1ba02a0913a58923d37"
   },
-  "technicalApproval": "APPROVED2026-10-23/root localpublicationpipeline; releaseapprovalpendingexactpush/bothproviderresults/publicQA",
+  "technicalApproval": "APPROVED2026-10-23/root; exact7e66adc\u2192origin/main/bothVercelSUCCESS+Production/Previewrecords/canonicalHTTP206+actualProMaxplayback; independentGate6PASS",
   "userResultApproval": "NOT_RECORDED",
   "agentEval": "controlledEVAL-VIEWER NOT_RUN",
-  "audit": "Gate1PASS/Gate5pipelinePASS /root/video_auditor2026-10-23"
+  "audit": "Gate1PASS/Gate5pipelinePASS/Gate6publication+recordsPASS /root/video_auditor2026-10-23",
+  "commit": "7e66adc671e01145862c148e8ea4f9fb3b7ce75e",
+  "remoteExact": true,
+  "deployments": [
+    {
+      "project": "ramsider",
+      "context": "Vercel \u2013 ramsider",
+      "state": "success",
+      "environment": "Production \u2013 ramsider",
+      "id": 7282937781,
+      "providerURL": "https://vercel.com/askmi-6282s-projects/ramsider/HNzfmaReDHruGcNMutrpWtvznSLv",
+      "generatedURL": "https://ramsider-jen2c4mef-askmi-6282s-projects.vercel.app"
+    },
+    {
+      "project": "ramsider-beta",
+      "context": "Vercel \u2013 ramsider-beta",
+      "state": "success",
+      "environment": "Preview \u2013 ramsider-beta",
+      "id": 7282914080,
+      "providerURL": "https://vercel.com/askmi-6282s-projects/ramsider-beta/4CgDRG3a2pHjQXj9PgtKQpGiUrkW",
+      "generatedURL": "https://ramsider-beta-1eioxsayd-askmi-6282s-projects.vercel.app"
+    }
+  ],
+  "canonicalHEAD": {
+    "hosts": [
+      "https://ramsider-main.vercel.app",
+      "https://ramsider-bice.vercel.app"
+    ],
+    "pageStatus": 200,
+    "nativeFilm": true,
+    "filmStatus": 200,
+    "contentType": "video/mp4",
+    "bytes": 344657039,
+    "acceptRanges": "bytes"
+  },
+  "publicBrowser": "PASS docs/evidence/video/public-browser.json; actualPro402/Max440DPR3WebKit0filmrequests beforeclick/4K3840\u00d72160play/seek30/closeEmpty/focus/nooverflow/noJSerrors +3HTTP206exactranges",
+  "screenshotsViewedByRoot": [
+    "screenshots/video/published-pro.png",
+    "screenshots/video/published-max.png"
+  ],
+  "postPublicationRecords": "Localoutcomesupplement; no extraruntimechange/push",
+  "limits": [
+    "No physicaliPhoneSafari nativefullscreen/rotation or embeddedbrowser guarantee",
+    "Original4K45.924Mbps/noABR unchanged; known10Mbpsstallsretained",
+    "No fieldINP/Lighthouse claim",
+    "CorporateChromeVerceldashboardblocked/notbypassed; no claimofpanelsettinginspection"
+  ]
 }

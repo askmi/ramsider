@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-23",
+  "verifier": "/root/hls_skill_search; explicitly userrequested parallel search",
+  "installed": "No existing HLS/ABR skill among home/project+53pluginSKILL.md, excluding currentnewskill",
+  "candidates": [
+    {
+      "url": "https://github.com/damionrashford/media-os/blob/main/skills/ffmpeg-streaming/SKILL.md",
+      "license": "MIT checked bysearchagent",
+      "reuse": "packaging/keyframes/verification concepts",
+      "limits": "stream.py ABR TS/30fps/optional-audio mismatch"
+    },
+    {
+      "url": "https://github.com/fredm00n/framerlabs/blob/main/skills/framer-code-components-overrides/references/hls-video.md",
+      "license": "MIT checked bysearchagent",
+      "reuse": "dynamic import/cancellation/player-size topics",
+      "limits": "Framer/runtimeunlockedremoteimport/hlsbeforeNative/recovery"
+    },
+    {
+      "url": "https://github.com/bitmovin/skills",
+      "license": "MIT checked bysearchagent",
+      "limits": "vendor account/licensedplayer workflow"
+    }
+  ],
+  "decision": "Keep customprojectskill; no thirdpartycodecopied orunreviewedskillinstalled; upstreamspecssourceoftruth"
+}

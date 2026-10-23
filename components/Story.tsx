@@ -25,6 +25,7 @@ import { SiteFooter } from './SiteFooter';
 import { WellnessRibbon } from './WellnessRibbon';
 import { ProductFilm } from './ProductFilm';
 import { productFilmCopy } from '@/lib/product-film';
+import { selectProductFilm } from '@/lib/product-film-catalog';
 
 // Keep the complete FAQ/account artwork in one tile: no image edge through a card.
 const artTiles = Array.from({ length: 12 }, (_, i) => ({
@@ -344,7 +345,7 @@ export function Story({ locale }: { locale: Locale }) {
       <LocaleSwitcher locale={locale} label={t(locale, 'language')} />
     </main><SiteFooter locale={locale} /></PageMediaGate>
     <BackToTop label={t(locale, 'backToTop')} />
-    <ProductFilm locale={locale} copy={productFilmCopy[locale]} closeLabel={t(locale, 'close')} />
+    <ProductFilm locale={locale} copy={productFilmCopy[locale]} closeLabel={t(locale, 'close')} film={selectProductFilm('uno-introduction', locale)} />
     <Popovers locale={locale} />
   </DialogController>;
 }

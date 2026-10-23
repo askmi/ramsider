@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-24",
+  "realAnonymousLfsHydration": "PASS approvedarchiveSHA/size +allobjects; /tmp/ramsider-hls-lfs-hydration.log",
+  "validDestinationRetention": "PASS forcedhydration/extraction withlocalfetchfixture; existingmasterinodeunchanged",
+  "cleanExport": "PASS stagedcheckout LFSpointer<200B/nooriginal/noignoredpackage",
+  "cleanBuild": "PASS /private/tmp/ramsider-hls-cleanbuild npmrunbuild exit0; anonymoushydrate+15SSGpaths withoutFFmpeg/privatevideo",
+  "limits": "Localcleanbuild, not Verceldeployment result",
+  "finalCleanBuild": "PASS exact final staged code in /private/tmp/ramsider-hls-final-cleanbuild; pointer-only/nooriginal/nogeneratedassertions, anonymoushydrate+allobjecthashes+SSGbuild exit0 /tmp/ramsider-hls-final-cleanbuild.log",
+  "finalSourceEquality": "PASS14reviewed runtime/tool/config/asset pathsbyteexact withworkingsource",
+  "finalCleanBrowser": "PASS4/2duplicateSKIP Pro+Max+Chromium, all200objects/MIME/cache/ranges; /tmp/ramsider-hls-final-clean-browser.log"
+}

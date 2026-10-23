@@ -9,7 +9,23 @@ type Job = { priority: Priority; sequence: number; run: () => Promise<void> };
 const queue: Job[] = [];
 const running = new Set<Job>();
 let active = 0, background = 0, near = 0, sequence = 0;
+let suspended = 0;
+const resumeReaders = new Set<() => void>();
+/** Media playback owns the foreground connection; retain reader state to resume. */
+export function suspendImageTransfers() {
+  suspended++;
+  let released = false;
+  return () => {
+    if (released) return;
+    released = true;
+    if (--suspended === 0) { for (const resume of resumeReaders) resume(); resumeReaders.clear(); pump(); }
+  };
+}
+async function waitForImages() {
+  while (suspended) await new Promise<void>(resolve => resumeReaders.add(resolve));
+}
 function pump() {
+  if (suspended) return;
   queue.sort((a,b) => rank[b.priority] - rank[a.priority] || a.sequence - b.sequence);
   while (active < 3) {
     const index = queue.findIndex(job => job.priority === 'high' || (job.priority === 'auto' ? near < 1 : background < 1 && ![...running].some(active => active.priority === 'high')));
@@ -36,13 +52,14 @@ export function loadImage(src: string, priority: Priority = 'low'): ImageResourc
   const job: Job={priority,sequence:sequence++,run:async()=>{
     let url:string|undefined;
     try {
+      while (suspended) await waitForImages();
       const response=await fetch(src,{priority:job.priority,cache:failedSources.has(src)?'reload':'default'});
       if(!response.ok) throw new Error(`Image response ${response.status}`);
       const length=Number(response.headers.get('content-length'));
       update({total:!response.headers.get('content-encoding') && length>0 ? length : null});
       const chunks:Uint8Array<ArrayBuffer>[]=[];
       const reader=response.body?.getReader();
-      if(reader) { for(;;) { const {value,done}=await reader.read(); if(done) break; chunks.push(new Uint8Array(value)); update({loaded:resource.progress.loaded+value.byteLength}); } }
+      if(reader) { for(;;) { while (suspended) await waitForImages(); const {value,done}=await reader.read(); if(done) break; chunks.push(new Uint8Array(value)); update({loaded:resource.progress.loaded+value.byteLength}); } }
       else { chunks.push(new Uint8Array(await response.arrayBuffer())); update({loaded:chunks[0].byteLength}); }
       if(resource.progress.total!==null && resource.progress.loaded!==resource.progress.total) throw new Error('Incomplete image transfer');
       url=URL.createObjectURL(new Blob(chunks,{type:response.headers.get('content-type')??'application/octet-stream'}));

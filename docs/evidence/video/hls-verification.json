@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-24",
+  "change": "CHG0141",
+  "status": "LOCALLY_VERIFIED_PUBLICATION_PENDING",
+  "scope": "Reusable skill then existing film HLS, truthful localized audio selection and explicit production deployment",
+  "devices": {
+    "pro": "WebKit402x874DPR3",
+    "max": "WebKit440x956DPR3",
+    "additional": "Chromium/Firefox desktop,280/375/768/landscape/1440 adaptations,11UIlocales/ArabicRTL"
+  },
+  "visual": {
+    "closedComparedWithNativeBaseline": "PASS zero RGBA channel changes Pro/Max",
+    "actualImagesViewed": [
+      "screenshots/video/hls/closed-iphone-17-pro-webkit.png",
+      "screenshots/video/hls/closed-iphone-17-pro-max-webkit.png",
+      "screenshots/video/hls/open-film-play-iphone-17-pro-webkit.png",
+      "screenshots/video/hls/open-film-play-iphone-17-pro-max-webkit.png"
+    ],
+    "reference": "screenshots/video/reference-text.png",
+    "independent": "PASS /root/video_auditor Gate3",
+    "fullscreen": "PASS actualimageviewedroot; screenshots/video/hls/fullscreen-geometry.json1440x900element=viewport/decoded1080"
+  },
+  "behavior": {
+    "base": "23PASS9explicitSKIP beforeadditionalguardfixes",
+    "extended": "35PASS1manualinputfixtureFAIL12SKIP; preservedfailure, correctedinputthenretested",
+    "manualPlayFinal": "4PASS /tmp/ramsider-hls-manual-play-final.log",
+    "affectedLifecycleFinal": "21PASS3platformSKIP /tmp/ramsider-hls-guards-final.log",
+    "sharedImageAndAssembly": "6PASS Pro+Max /tmp/ramsider-hls-image-regression.log",
+    "coverage": [
+      "actualplay/seek30/pause",
+      "bothCTA/keyboard/focus/Escape",
+      "sourcecleanup/sametaskreopen",
+      "boundederrorRetry/smallMP4fallback",
+      "pausedposition/MediaError/synchronousresume",
+      "NotAllowedlocalizedhint/manualgesture",
+      "backgroundwatchdogcancel/rearm",
+      "pendingimagereaders/queuedtransfersresume/otherviewers",
+      "11locales/RTL/7sizes/nooverflow/reducedmotion"
+    ],
+    "independent": "PASS Gate4 re-audit /root/video_auditor2026-10-24; initialFAILretained",
+    "finalIntegration": "6PASS6explicitownerskips /tmp/ramsider-hls-integration-final.log: bothCTA4engines, fullscreen1080/1440x900, 2.4s503recoverybeyondcachedend"
+  },
+  "review": {
+    "native": "Initial8P2+2P2+2P2+2P2 accepted/fixed; finalguardCLEAN /tmp/ramsider-hls-native-review-final.log",
+    "typecheck": "PASS /tmp/ramsider-hls-type-release.log",
+    "lint": "PASS0errors1inheritedwarning /tmp/ramsider-hls-lint-release.log",
+    "productionBuild": "PASS final exact cleanstagedbuild /tmp/ramsider-hls-final-cleanbuild.log",
+    "cleanPipeline": "PASS seehls-build-validation.json",
+    "nativePolicy": "CLEAN /tmp/ramsider-hls-native-policy-review.log",
+    "nativeBenchmarkAndOutage": "CLEAN /tmp/ramsider-hls-tools-final-review.log",
+    "cleanBrowser": "4PASS2explicitduplicateskips /tmp/ramsider-hls-final-clean-browser.log"
+  },
+  "limits": [
+    "Physical iPhone/Android hardware unavailable",
+    "Native hardware fullscreen/rotation not certified; Chromium fullscreen API tested",
+    "No supplied captions/subtitles",
+    "No field INP, Lighthouse score, lossless or universal zero-stall claim",
+    "Published artifact proof pending"
+  ],
+  "performance": {
+    "network": "PASS seehls-network-performance.json; 60startups/3completefilms/25\u21921\u219225adaptive zero poststartstalls",
+    "startupP95ms": {
+      "1Mbps": 1955.3,
+      "4Mbps": 836.9,
+      "10Mbps": 619.8
+    },
+    "adaptiveVisibleRecovery": "~11.2s inclcachedbuffer, preliminary10sorientnotstrictlymet",
+    "initial": "LCP736ms FCP584ms CLS.000222,0media,221445BcompletedJS(+1510B),scrollp9516.8ms; single-runcomparisonnotcausalproof"
+  },
+  "assetIntegrity": {
+    "sourceSHA256": "71891983591abac3e44a076bf58a031ec8d6aa070a2e1acf046d3bb58c44bf25",
+    "masterUnchanged": "PASS344657039B",
+    "worker": "PASS byteexact pinnednpmupstream",
+    "license": "PASS byteexact pinnednpmupstream",
+    "receiptRegistryBinding": "PASS archiveSHA/bytes/files/source"
+  },
+  "technicalApproval": {
+    "date": "2026-10-24",
+    "verifier": "/root",
+    "result": "APPROVED localimplementation stages1\u20135",
+    "independent": "/root/video_auditor Gates1\u20135PASS afterrecordedre-audits",
+    "publication": "PENDING",
+    "prepublicationAudit": "PASS /root/video_auditor2026-10-24"
+  },
+  "changedPaths": [
+    ".agents/skills/mobile-hls-video/SKILL.md",
+    ".agents/skills/mobile-hls-video/agents/openai.yaml",
+    ".agents/skills/mobile-hls-video/references/specification.md",
+    ".agents/skills/mobile-hls-video/scripts/encode.py",
+    ".agents/skills/mobile-hls-video/scripts/register.py",
+    ".agents/skills/mobile-hls-video/scripts/validate.py",
+    ".gitattributes",
+    ".gitignore",
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "LESSONS.md",
+    "MEMORY.md",
+    "components/DialogController.tsx",
+    "components/ProductFilm.tsx",
+    "components/Story.tsx",
+    "config/product-films.json",
+    "design/derived/product-films/uno-introduction-en-v2.tar",
+    "docs/agent-evals.md",
+    "docs/evidence/video/hls-build-validation.json",
+    "docs/evidence/video/hls-closed-comparison.json",
+    "docs/evidence/video/hls-encoding-en-v1.json",
+    "docs/evidence/video/hls-encoding-en-v2.json",
+    "docs/evidence/video/hls-initial-performance.json",
+    "docs/evidence/video/hls-network-performance-initial.json",
+    "docs/evidence/video/hls-network-performance-recovery-v2.json",
+    "docs/evidence/video/hls-network-performance.json",
+    "docs/evidence/video/hls-package-validation-v2.json",
+    "docs/evidence/video/hls-quality.json",
+    "docs/evidence/video/hls-recovery-diagnosis.json",
+    "docs/evidence/video/hls-skill-reuse-search.json",
+    "docs/evidence/video/hls-skill-validation.json",
+    "docs/evidence/video/hls-verification.json",
+    "docs/evidence/video/public-browser.json",
+    "docs/evidence/video/publication.json",
+    "docs/evidence/video/research-model.json",
+    "docs/evidence/video/research-package.json",
+    "docs/evidence/video/research-source-extra.json",
+    "docs/evidence/video/research-verification.json",
+    "docs/product-film.md",
+    "eslint.config.mjs",
+    "lib/film-playback.ts",
+    "lib/media-resource.ts",
+    "lib/product-film-catalog.ts",
+    "lib/product-film.ts",
+    "next.config.mjs",
+    "package-lock.json",
+    "package.json",
+    "public/films/uno-introduction.mp4",
+    "public/vendor/hls-1.7.3-LICENSE.txt",
+    "tests/e2e/product-film.spec.ts",
+    "tools/measure-product-film.mjs",
+    "tools/prepare-product-film.mjs",
+    "types/hls-light.d.ts"
+  ]
+}

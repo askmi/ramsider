@@ -1,68 +1,98 @@
 import { createHash, randomUUID } from 'node:crypto';
 import { createReadStream, createWriteStream } from 'node:fs';
-import { copyFile, mkdir, rename, rm, stat } from 'node:fs/promises';
+import { readFile, mkdir, rename, rm, stat, readdir, copyFile } from 'node:fs/promises';
 import { Readable, Transform } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
+import { spawnSync } from 'node:child_process';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const size = 344657039;
-const oid = '71891983591abac3e44a076bf58a031ec8d6aa070a2e1acf046d3bb58c44bf25';
-const destination = new URL('../public/films/uno-introduction.mp4', import.meta.url);
-const source = new URL('../design/video/english ramsider uno (product introduction).mp4', import.meta.url);
-const temporary = new URL(`../public/films/.uno-${randomUUID()}.partial`, import.meta.url);
+const root = fileURLToPath(new URL('../', import.meta.url));
+const registry = JSON.parse(await readFile(new URL('../config/product-films.json', import.meta.url), 'utf8'));
 class FilmError extends Error {}
-
-async function verified(file) {
-  if (await stat(file).then(value => value.size).catch(() => 0) !== size) return false;
+const temporary = new Set();
+function relative(value) {
+  if (typeof value !== 'string' || !/^[a-zA-Z0-9_./-]+$/.test(value) || path.isAbsolute(value) || value.split('/').some(part => !part || part === '.' || part === '..')) throw new FilmError('Unsafe film package path.');
+  return value;
+}
+async function verified(file, expected) {
+  if (await stat(file).then(s => s.size).catch(() => 0) !== expected.bytes) return false;
   const hash = createHash('sha256');
   for await (const chunk of createReadStream(file)) hash.update(chunk);
-  return hash.digest('hex') === oid;
+  return hash.digest('hex') === expected.sha256;
 }
-
-async function prepare() {
-  await mkdir(new URL('../public/films/', import.meta.url), { recursive: true });
-  if (!process.argv.includes('--from-lfs')) {
-    if (await verified(destination)) return;
-    if (await verified(source)) {
-      await copyFile(source, temporary);
-      if (!await verified(temporary)) throw new FilmError('Local film copy failed integrity validation.');
-      await rename(temporary, destination);
-      return;
-    }
-  }
-  // Public-repository LFS hydration also works when Vercel's optional LFS setting is off.
-  // Signed action URLs/headers stay in memory; never print them in build logs.
-  const batch = await fetch('https://github.com/askmi/ramsider.git/info/lfs/objects/batch', {
-    method: 'POST',
-    headers: { Accept: 'application/vnd.git-lfs+json', 'Content-Type': 'application/vnd.git-lfs+json' },
-    body: JSON.stringify({ operation: 'download', transfers: ['basic'], objects: [{ oid, size }] }),
-    signal: AbortSignal.timeout(30000),
+async function complete(directory, files) {
+  for (const file of files) if (!await verified(path.join(directory, relative(file.path)), file)) return false;
+  const count = async dir => { let n = 0; for (const item of await readdir(dir, { withFileTypes: true })) n += item.isDirectory() ? await count(path.join(dir, item.name)) : 1; return n; };
+  return await count(directory).catch(() => -1) === files.length;
+}
+async function hydrate(archive) {
+  const oid = archive.sha256;
+  if (!/^[a-f0-9]{64}$/.test(oid) || !Number.isSafeInteger(archive.bytes) || archive.bytes <= 0) throw new FilmError('Invalid film archive identity.');
+  if (!/^[a-zA-Z0-9_.-]+\/[a-zA-Z0-9_.-]+$/.test(registry.repository)) throw new FilmError('Invalid film repository.');
+  const destination = path.join(root, relative(archive.path));
+  if (!process.argv.includes('--from-lfs') && await verified(destination, archive)) return destination;
+  // Official public Git LFS hydration; signed URLs and headers never enter logs.
+  const batch = await fetch(`https://github.com/${registry.repository}.git/info/lfs/objects/batch`, {
+    method: 'POST', headers: { Accept: 'application/vnd.git-lfs+json', 'Content-Type': 'application/vnd.git-lfs+json' },
+    body: JSON.stringify({ operation: 'download', transfers: ['basic'], objects: [{ oid, size: archive.bytes }] }), signal: AbortSignal.timeout(30000),
   });
-  if (!batch.ok) throw new FilmError(`Public Git LFS lookup failed (HTTP ${batch.status}).`);
-  const object = (await batch.json()).objects?.find(value => value.oid === oid && value.size === size);
+  if (!batch.ok) throw new FilmError(`Film LFS lookup failed (HTTP ${batch.status}).`);
+  const object = (await batch.json()).objects?.find(value => value.oid === oid && value.size === archive.bytes);
   const action = object?.actions?.download;
-  if (!action?.href || new URL(action.href).protocol !== 'https:') throw new FilmError('Approved film is unavailable from public Git LFS.');
+  if (!action?.href || new URL(action.href).protocol !== 'https:') throw new FilmError('Approved film archive is unavailable.');
   const response = await fetch(action.href, { headers: action.header ?? {}, signal: AbortSignal.timeout(600000) });
-  if (!response.ok || !response.body) throw new FilmError(`Git LFS film download failed (HTTP ${response.status}).`);
-  const hash = createHash('sha256');
-  let received = 0;
+  if (!response.ok || !response.body) throw new FilmError(`Film archive download failed (HTTP ${response.status}).`);
+  await mkdir(path.dirname(destination), { recursive: true });
+  const partial = destination + `.${randomUUID()}.partial`; temporary.add(partial);
+  let bytes = 0; const hash = createHash('sha256');
   const check = new Transform({ transform(chunk, encoding, callback) {
-    received += chunk.length;
-    if (received > size) return callback(new FilmError('Git LFS film exceeds approved size.'));
-    hash.update(chunk);
-    callback(null, chunk);
+    bytes += chunk.length;
+    if (bytes > archive.bytes) return callback(new FilmError('Film archive exceeds approved size.'));
+    hash.update(chunk); callback(null, chunk);
   } });
-  await pipeline(Readable.fromWeb(response.body), check, createWriteStream(temporary, { flags: 'wx' }));
-  if (received !== size || hash.digest('hex') !== oid) throw new FilmError('Git LFS film failed size/SHA-256 validation.');
-  await rename(temporary, destination);
+  await pipeline(Readable.fromWeb(response.body), check, createWriteStream(partial, { flags: 'wx' }));
+  if (bytes !== archive.bytes || hash.digest('hex') !== oid) throw new FilmError('Film archive failed size/SHA validation.');
+  await rename(partial, destination); temporary.delete(partial);
+  return destination;
 }
-
+async function prepare(asset) {
+  if (relative(asset.directory).split('/').length !== 2) throw new FilmError('A film directory must be a versioned package.');
+  if (!registry.uiLocales?.every(locale => typeof asset.audioLabels?.[locale] === 'string' && asset.audioLabels[locale].trim())) throw new FilmError('Film audio labels are incomplete.');
+  if (!asset.files?.length || !asset.files.some(f => f.path === 'master.m3u8') || !asset.files.some(f => f.path === 'fallback.mp4')) throw new FilmError('Incomplete film registry.');
+  const destination = path.join(root, 'public/films', relative(asset.directory));
+  if (!process.argv.includes('--from-lfs') && await complete(destination, asset.files)) return;
+  const archive = await hydrate(asset.archive);
+  const listing = spawnSync('tar', ['-tf', archive], { encoding: 'utf8', maxBuffer: 4 * 1024 * 1024 });
+  if (listing.status !== 0) throw new FilmError('Cannot inspect film archive.');
+  const names = listing.stdout.trim().split('\n').map(relative);
+  const expected = new Set(asset.files.map(f => relative(f.path)));
+  if (names.length !== expected.size || !names.every(name => expected.has(name))) throw new FilmError('Film archive file set differs from approved registry.');
+  const types = spawnSync('tar', ['-tvf', archive], { encoding: 'utf8', maxBuffer: 4 * 1024 * 1024 });
+  if (types.status !== 0 || types.stdout.trim().split('\n').some(line => !line.startsWith('-'))) throw new FilmError('Film archive must contain regular files only.');
+  const staging = path.join(root, 'public/films', `.prepare-${randomUUID()}`); temporary.add(staging);
+  await mkdir(staging, { recursive: true });
+  if (spawnSync('tar', ['-xf', archive, '-C', staging], { stdio: 'pipe' }).status !== 0) throw new FilmError('Film archive extraction failed.');
+  if (!await complete(staging, asset.files)) throw new FilmError('Extracted film objects failed integrity verification.');
+  // --from-lfs proves remote integrity, not permission to mutate a valid URL.
+  if (await complete(destination, asset.files)) return;
+  await mkdir(path.dirname(destination), { recursive: true });
+  const backup = path.join(root, 'public/films', `.prepare-backup-${randomUUID()}`);
+  const existed = await stat(destination).then(() => true).catch(() => false);
+  if (existed) await rename(destination, backup);
+  try { await rename(staging, destination); temporary.delete(staging); }
+  catch (error) { if (existed) await rename(backup, destination); throw error; }
+  if (existed) await rm(backup, { recursive: true, force: true });
+}
 try {
-  await prepare();
-  console.log(`Product film verified: ${size} bytes, SHA-256 ${oid}.`);
+  await mkdir(path.join(root, 'public/vendor'), { recursive: true });
+  await copyFile(path.join(root, 'node_modules/hls.js/dist/hls.worker.js'), path.join(root, 'public/vendor/hls-worker-1.7.3.js'));
+  const active = registry.assets.filter(asset => asset.active).map(asset => `${asset.id}/${asset.audioLocale}`);
+  if (new Set(active).size !== active.length) throw new FilmError('Duplicate active film audio version.');
+  for (const asset of registry.assets) { await prepare(asset); console.log(`Film package verified: ${asset.id}/${asset.audioLocale}/${asset.version}.`); }
 } catch (error) {
-  // A network exception may contain a signed URL. Report only controlled diagnostics.
-  console.error(error instanceof FilmError ? error.message : 'Film preparation failed: network or file operation error.');
+  console.error(error instanceof FilmError ? error.message : 'Film preparation failed: network, archive or file operation error.');
   process.exitCode = 1;
 } finally {
-  await rm(temporary, { force: true });
+  for (const file of temporary) await rm(file, { recursive: true, force: true });
 }

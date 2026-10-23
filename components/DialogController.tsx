@@ -1,7 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { playNativeFilm } from './ProductFilm';
+import { playProductFilm } from '@/lib/film-playback';
 
 /** Server-rendered content, with native modal focus containment and Escape. */
 export function DialogController({ children }: { children: ReactNode }) {
@@ -18,7 +18,7 @@ export function DialogController({ children }: { children: ReactNode }) {
           const video = panel.querySelector<HTMLVideoElement>('video[data-src]');
           if (video) {
             panel.dataset.opener = trigger.id;
-            playNativeFilm(video);
+            playProductFilm(video);
           }
         }
       }

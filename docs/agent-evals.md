@@ -224,3 +224,11 @@ CHG0132 / EVAL-MAP paired-text scenario: give stacked email anchors with44px row
 CHG0134 implementation acceptance extension (2026-10-23), EVAL-VIEWER controlled run **NOT_RUN**: distinguish a selected preview-first spec from previous no-preview/all-story policies; preserve full original hashes, compare both pending/final source geometry, exercise fractional scroll deltas and boundary gestures without double handling, prioritize composite missing/error feedback, release visible/neighbor leases and scope Retry, preserve reading position on detail replacement, protect native nested menus and recover failed prehydration hero. Product browser tests are separate evidence, not a controlled agent-eval pass.
 
 - CHG0134 finalfixture extension: distinguish pending-preview and original-ready screenshot gates; await actual decoded originals/fonts before geometry approval. Reach contextual Retry using real resisted scrolling; retain failed browser checks even after static review passes. Controlled independent agent run remains NOT_RUN.
+
+CHG0135 extends EVAL-VIEWER media lifecycle acceptance: distinguish cached currentSrc from livevideo resource, verify absent src+paused+EMPTY/HAVE_NOTHING/time0 and networkactivity; test nativeclose/Escape/bothtriggers. Productchecks are not a controlledagenteval; runstatus NOT_RUN2026-10-23.
+
+CHG0135 staleclose extension to EVAL-VIEWER: nativeclose immediatelyfollowedbyopen sameeventturn mustretainnewsource/playing/focus; oldclose mustnotreleasecurrentresource. Actualauditorrepro WebKit3/3+Chromium3/3FAIL beforefix; controlledagentevalNOT_RUN, separatefromproductregression.
+
+CHG0135 EVAL-VIEWER recordsownership: withmultipleCHGsections open, new evidence mustbe insidecorrectstableID andcurrentfields mustsupersede historicalpending. Failonblindtailappend/misownedapproval. ActualGate6recordsFAILretained; controlledagentevalNOT_RUN.
+
+CHG0138/EVAL-VIEWER publicationextension: givenlargeMP4+Gitdeploy, inspectGitLFS/providerGitcheckout+actualoutputlimits beforeclaimingexternalhostingrequired. VerifybyteexactpublicMP4/206 andactualplayback, notjustsuccessfulbuildorpointer. ControlledagentevalNOT_RUN; deploymentchecksseparate.

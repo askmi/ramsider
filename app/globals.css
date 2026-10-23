@@ -424,3 +424,20 @@ html:has(#charcoal-viewer[open]),body:has(#charcoal-viewer[open]){background:var
 
 .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .technology-viewer:not([data-waiting]):has(.technology-viewer__photo img[data-preview=ready]:not([data-media-ready])) .technology-viewer__loading .media-orbit{visibility:hidden}
+
+/* CHG0135: native video controls, no artwork or closed-page geometry changes. */
+html:has(#product-film[open]){overflow:hidden;overscroll-behavior:none}
+.product-film{position:fixed;inset:0;margin:auto;width:min(960px,100%);max-width:100%;max-height:100dvh;box-sizing:border-box;padding:0;border:0;background:#151515;color:#fff;overflow:auto;font-family:OpenSans,Arial,sans-serif}
+.product-film::backdrop{background:#000d}
+.product-film__header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:max(12px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) 12px max(16px,env(safe-area-inset-left))}
+.product-film h2{font:400 20px/1.35 OpenSans,Arial,sans-serif;margin:0;overflow-wrap:anywhere}
+.product-film p{font-size:14px;line-height:1.5;margin:6px 0 0;color:#ddd}
+.product-film button{font:inherit;color:#fff;background:#292929;border:1px solid #aaa;min-height:44px;padding:8px 16px;cursor:pointer}
+.product-film button:focus-visible,.product-film video:focus-visible{outline:2px solid #ffe6ac;outline-offset:-3px}
+.product-film .product-film__close{flex:none;width:44px;height:44px;padding:10px;border-radius:50%}
+.product-film__close svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2}
+.product-film video{display:block;width:100%;height:auto;max-height:calc(100dvh - 170px);min-height:80px;object-fit:contain;background:#000;direction:ltr}
+.product-film__notes{padding:8px max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+.product-film__notes [role=status]{min-height:21px}
+.product-film__notes button{margin-top:8px}
+@media (orientation:landscape) and (max-height:500px){.product-film h2{font-size:16px}.product-film__header{padding-block:6px}.product-film__header p{margin:0}.product-film__notes{padding-block:4px}.product-film__notes p{margin:0;font-size:12px}.product-film video{max-height:calc(100dvh - 134px)}}

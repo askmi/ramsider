@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-23",
+  "change": "CHG0138",
+  "state": "LOCALLY_APPROVED awaitingexactpush/deployment",
+  "source": {
+    "bytes": 344657039,
+    "sha256": "71891983591abac3e44a076bf58a031ec8d6aa070a2e1acf046d3bb58c44bf25",
+    "git": "GitLFS exactpublicpath",
+    "noTranscode": true
+  },
+  "authorization": "OwnerexplicitGit\u2192Vercelpublication2026-10-23",
+  "destination": "origin/main askmi/ramsider",
+  "knownTargets": [
+    "Vercel \u2013 ramsider",
+    "Vercel \u2013 ramsider-beta"
+  ],
+  "checks": {
+    "objectUpload": "gitlfspush --object-id origin SHA exit0",
+    "anonymousFullHydration": "node tools/prepare-product-film.mjs --from-lfs exit0; /tmp/ramsider-film-anonymous-hydration.log exact344657039B/SHA; liveanonymousdownloadfullSHAvalidated",
+    "stagedPointer": "gitshow:public/films/uno-introduction.mp4 is134B LFSv1/SHA/size, not344MBordinaryGitblob",
+    "cleanExport": "Cleanstagedindexexport: noignoredmaster/134Bpointer; gitlfssmudgefromapprovedobjectcache\u2192npmrunbuildPASS(staticroot+11SSG), /tmp/ramsider-film-clean-build-final.log; externaldependency-symlink fixture failure retained/fixedwithsamephysicaldeps",
+    "nativeReview": "Nativecodexreview /tmp/ramsider-video-publish-review.log CLEAN; mockstream/hashfailure/atomic/sanitizedpathsPASS byreviewer",
+    "type": "/tmp/ramsider-video-publish-type.logPASS",
+    "lint": "/tmp/ramsider-video-publish-lint.log0errors1inheritedwarning",
+    "cleanBrowser": "/tmp/ramsider-film-clean-browser.log4PASS2explicitduplicateSKIP; Pro402/Max440DPR3 nativeplay/seek/close +ChromiumHEAD/206/fullsourceSHA"
+  },
+  "nativeReviewInvocation": {
+    "command": "codex review",
+    "scope": "ActualCHG0138 .gitattributes/.gitignore/packagebuild/preparescript/publicsourceSHA test, no edits/subagents",
+    "rawIgnoredLog": "/tmp/ramsider-video-publish-review.log"
+  },
+  "inheritedEvidence": "CHG0135/137 player/UI/visual/behavior/perf unchanged; docs/evidence/video/verification.json",
+  "access": "CorporateChromeVerceldashboardblocked, notbypassed; documentedpublicLFSbuildfallback requiresno dashboardtoggle/secrets",
+  "sha256": {
+    ".gitattributes": "74129cbaecb0e21fd5b090e3d288bc30eec92e115e43f265aebbd16c72a25f5c",
+    ".gitignore": "a360a3f368ac3e18f34e659eee474d3250c14efc31a439ecdf27739bfd44e4b9",
+    "package.json": "c0d46842006c982a5f9c5807876396aebd4f44ba4804461136644c21e52fc91d",
+    "tools/prepare-product-film.mjs": "d2ce8d388e9ee997641ed3afce5b017697f0feec905a60bdcd4f4742c830e186",
+    "tests/e2e/product-film.spec.ts": "7bac5e09bdecfee025978f300f004c0b6c948411086ba1ba02a0913a58923d37"
+  },
+  "technicalApproval": "APPROVED2026-10-23/root localpublicationpipeline; releaseapprovalpendingexactpush/bothproviderresults/publicQA",
+  "userResultApproval": "NOT_RECORDED",
+  "agentEval": "controlledEVAL-VIEWER NOT_RUN",
+  "audit": "Gate1PASS/Gate5pipelinePASS /root/video_auditor2026-10-23"
+}

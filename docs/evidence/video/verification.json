@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-23",
+  "change": "CHG0135",
+  "state": "VERIFIED_LOCAL2026-10-23; no publication",
+  "localURL": "http://127.0.0.1:3160/en#film-play",
+  "publication": "notrequested/notperformed",
+  "source": "docs/evidence/video/source.json",
+  "closedComparison": "docs/evidence/video/closed-comparison.json",
+  "matrix": "screenshots/video/matrix.json",
+  "checks": {
+    "coreAndAssembled": "/tmp/ramsider-video-complete.log \u201419PASS9explicitSKIP beforeguard; unchangedcontracts",
+    "finalLifecycle": "/tmp/ramsider-video-lifecycle-final.log \u201412PASS0SKIP, including3immediatecycles perprofile",
+    "nativeFullReview": "/tmp/ramsider-video-review-recheck.log CLEAN afterP1typefixes",
+    "nativeGuardReview": "/tmp/ramsider-video-review-lifecycle.log CLEAN",
+    "type": "/tmp/ramsider-video-type-final.log PASS",
+    "lint": "/tmp/ramsider-video-lint-final.log 0errors1inheritedTelegramwarning",
+    "build": "/tmp/ramsider-video-build-final.log PASS staticroot/11SSGlocales",
+    "finalGuardVisual": "/tmp/ramsider-video-compare-final.log Pro/Max0RGBAchannelchanges",
+    "additionalConsumers": "/tmp/ramsider-video-additional-consumers.log22PASS2BackToTopfixtureFAIL; correctedfinalbacktotop4PASS /tmp/ramsider-video-backtotop-final.log; all24consumerprofilescovered",
+    "latestTestsReview": "/tmp/ramsider-video-review-consumers.log CLEAN/nativecodexreview, typecheckPASS"
+  },
+  "history": {
+    "initialTests": "/tmp/ramsider-video-tests.log 5PASS9SKIP6FAIL cachedcurrentSrc/FirefoxIDL/matrixbudget/invalidRange",
+    "correctedMedia": "/tmp/ramsider-video-tests-final.log11PASS9SKIP",
+    "visualRetake": "/tmp/ramsider-video-visual-final.log2PASS",
+    "initialRegression": "/tmp/ramsider-video-regression.log4modalPASS4globalhiddenbarrierFAIL",
+    "auditGate4": "FAIL sourceunconditionallyreleased onqueuedclose/reopen; fixedguardanddeterministicregression"
+  },
+  "audits": {
+    "scope": "PASS /root/video_auditor",
+    "visual": "PASS emulated /root/video_auditor",
+    "behavior": "PASS re-audit /root/video_auditor afterFAIL andguardfix; independentWebKit3/3+Chromium3/3",
+    "quality": "PASS /root/video_auditor2026-10-23",
+    "final": "FAILrecordsorganization\u2192corrected\u2192PASS /root/video_auditor2026-10-23",
+    "qualitySupplement": "PASS /root/video_auditor2026-10-23 latesttestconsumersand10hashes"
+  },
+  "limits": [
+    "No physicaliPhone Safari systemfullscreen/rotation/embeddedbrowser check; WebKitautomationdoesnotexposenativefullscreenAPI",
+    "ChromiumactualfullscreenAPIpassed; desktopnativecontrolsvisible",
+    "Single4KH264Englishsource/noABR/noqualityselection/nosubtitlesprovided",
+    "CHG0136OPEN: standardNextunsatisfiableRange500insteadof416;validrangesexact206",
+    "LargeMP4andoriginalignoredoutsideGit;publicationrequiresapprovedlargefilehosting",
+    "Singlecoldsyntheticsample perversion; scrollunthrottled; noLighthouse/fieldINPclaim."
+  ],
+  "sha256": {
+    "components/ProductFilm.tsx": "9ab44c30eef7e5f8d52f50f918455d5a42e8032d00e73a8af46f7194de92013e",
+    "components/DialogController.tsx": "da28117129c548edf50dc4b54b11077e2d60a7c875c99da28fc533f9d207abab",
+    "components/Story.tsx": "7417f815426ffb4e81eae62003479522bda83f937b9fd142435a95ccb72e3ca8",
+    "lib/product-film.ts": "8fdaf70e1833f5616c5bd4d79b3a6c2f7e735825b4de81130725a3f524fe39bd",
+    "lib/i18n.ts": "45916a9a4c313e6858ff773eeb7ef12ce3d434fae84cbbbcc6fe8ae6979afe6a",
+    "app/globals.css": "69b558ec278f6cc77d05d7c7bde53aeb69e47e8c9932cb558dca9c8716536631",
+    "tools/prepare-product-film.mjs": "182343aef233e44590dc95d4e22e5d475e169a58653ae7da4e65bf47db561d79",
+    "tests/e2e/product-film.spec.ts": "f6b9433776edfbc6dbe300ce072bafa7b89778b0701a80fffa566caad1ca675b",
+    "tests/e2e/site.spec.ts": "bcd3150e2852fa21e840aed164a4673cf5f1a25900d58460d9f18fd5ab8aa6bc",
+    ".gitignore": "652fd7b647af78164709efd5e3c9fbf733a9925fa8af0cd7537282136d1a4770"
+  },
+  "performance": "docs/evidence/video/performance.json",
+  "nativeReviewProvenance": "docs/evidence/video/review-provenance.json",
+  "slowNetwork": "docs/evidence/video/slow-network.json",
+  "technicalApproval": {
+    "date": "2026-10-23",
+    "verifier": "/root",
+    "status": "APPROVED allapplicablestages1\u20136 localstandardimplementation; limitsretained",
+    "basis": "Scope/visualPASS, behaviorFAIL\u2192fix\u2192PASS, qualityPASS /root/video_auditor; actualscreenshotinspection/coreandaffectedtests/build/static/nativecode review/sourceidentity; intentionallyretainedsourcebitratelimit disclosed"
+  },
+  "userResultApproval": "NOT_RECORDED",
+  "agentEval": "EVAL-VIEWERcontrolledNOT_RUN",
+  "relatedChanges": {
+    "CHG0137": "VERIFIED allmodifiedconsumerchecks/independentqualitysupplement/finalrecordPASS",
+    "CHG0136": "OPEN standardNextinvalidRange500; nofixapproval"
+  }
+}

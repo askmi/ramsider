@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-23",
+  "route": "Native Codex CLI review subcommand via functions.exec/tools.exec_command; not ordinarycodexexec",
+  "sandbox": "require_escalated approved",
+  "prefixRule": [
+    "codex",
+    "review"
+  ],
+  "modelOverride": null,
+  "records": [
+    {
+      "log": "/tmp/ramsider-video-review-recheck.log",
+      "argv": [
+        "codex",
+        "review",
+        "Re-review final CHG0135 andCHG0137 actualdiff; no edits/subagents. PreviousP1 tests fixed: tagtypedpage.$eval(\"video\") callbacks, imageHTMLImageElement cast, separateviewportobject; verify tsc --noEmit. Files components/ProductFilm.tsx components/DialogController.tsx components/Story.tsx lib/product-film.ts lib/i18n.ts app/globals.css .gitignore tools/prepare-product-film.mjs tests/e2e/product-film.spec.ts tests/e2e/site.spec.ts. Site primarytest previously waitedhiddenoptionalmedia globally; nowonlyactualvisibleoriginals andretainsfullscroll/actions. Review correctness andtestvalidity; nativeRuntimeunchangedsincecleanfirstreview. KnownNextinvalidRange500 trackedCHG0136unfixed, validrangespass. Ignoreunrelatedinheriteddocs. Returnactionablefindings or explicitclean."
+      ],
+      "verdict": "CLEAN afterpreviousP1repairs"
+    },
+    {
+      "log": "/tmp/ramsider-video-review-lifecycle.log",
+      "argv": [
+        "codex",
+        "review",
+        "Review latestCHG0135 lifecyclefix only against actual files components/ProductFilm.tsx and tests/e2e/product-film.spec.ts. Priorfullreviewclean; auditthenreproduced queuedoldclose clearingreopenedvideo. Added onClose if(dialog.current?.open)return guard and deterministic3same-turnclose/reopen cycles assertingnewsrc/actualplaying/focus/noRetry/finalrelease. Inspectdiffandactualfiles; no edits/subagents. Returnactionablefindings or cleanverdict."
+      ],
+      "verdict": "CLEAN guardfix"
+    },
+    {
+      "log": "/tmp/ramsider-video-review-consumers.log",
+      "argv": [
+        "codex",
+        "review",
+        "Review only latest tests/e2e/site.spec.ts actualdiff CHG0137. No edits/subagents. Same stale globalallmedia barrier removed in primary,backtotop,localizedbutton,technologygroups,FAQ/wheel consumers. Wholepageprimary nowwaitsactualvisibleoriginals; BackToTop settledgeometrytest nowwaits only main .art originals before its programmaticjump toexclude legitimatependingartresistance. Otherassertions unchanged. Inspectdiff/testscope for regressions; runtypecheck if needed; return actionablefindings or clean. Previousfullcode/guardnative reviews clean; runtimeunchanged."
+      ],
+      "verdict": "CLEAN latesttestconsumerdiff; typecheckPASS"
+    }
+  ],
+  "provenance": "Exact argv transcribed from actual tools.exec_command calls in this session; shell only redirected stdout/stderr to ignoredlocalrawlogs."
+}

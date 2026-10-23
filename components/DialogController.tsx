@@ -1,6 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
+import { playNativeFilm } from './ProductFilm';
 
 /** Server-rendered content, with native modal focus containment and Escape. */
 export function DialogController({ children }: { children: ReactNode }) {
@@ -12,7 +13,14 @@ export function DialogController({ children }: { children: ReactNode }) {
       if (panel instanceof HTMLDialogElement) {
         event.preventDefault();
         if (trigger.getAttribute('popovertargetaction') === 'hide') panel.close();
-        else panel.showModal();
+        else {
+          panel.showModal();
+          const video = panel.querySelector<HTMLVideoElement>('video[data-src]');
+          if (video) {
+            panel.dataset.opener = trigger.id;
+            playNativeFilm(video);
+          }
+        }
       }
     } else if (target.closest('a[href^="#"]')) {
       target.closest('dialog')?.close();

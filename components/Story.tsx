@@ -23,6 +23,8 @@ import { certificates, type CertificateId } from '@/lib/certificates';
 import { company, companyCopy } from '@/lib/company';
 import { SiteFooter } from './SiteFooter';
 import { WellnessRibbon } from './WellnessRibbon';
+import { ProductFilm } from './ProductFilm';
+import { productFilmCopy } from '@/lib/product-film';
 
 // Keep the complete FAQ/account artwork in one tile: no image edge through a card.
 const artTiles = Array.from({ length: 12 }, (_, i) => ({
@@ -91,6 +93,7 @@ function OverlayNode({ node, locale }: { node: StoryNode; locale: Locale }) {
     </>;
     if (node.target) return <Link {...buttonProps} href={node.target}>{content}</Link>;
     if (node.unavailable === 'business') return <a {...buttonProps} href={company.emailHref}>{content}</a>;
+    if (node.id === 'film-label') return <button {...buttonProps} type="button" aria-haspopup="dialog" aria-controls="product-film" popoverTarget="product-film">{content}</button>;
     if (node.id === 'fire-learn') return <button {...buttonProps} type="button" aria-haspopup="dialog" aria-controls="charcoal-viewer" data-charcoal-open>{content}</button>;
     if (node.id === 'beyond-learn') return <button {...buttonProps} type="button" aria-haspopup="dialog" aria-controls="wellness-viewer" data-wellness-open>{content}</button>;
     return <button {...buttonProps} type="button" aria-haspopup="dialog" {...(node.unavailable === 'technology' ? { 'data-technology-open': true } : { popoverTarget: `unavailable-${node.unavailable ?? 'commerce'}` })}>{content}</button>;
@@ -187,7 +190,6 @@ function Menus({ locale }: { locale: Locale }) {
 
 const blocked = [
   ['commerce', 'unavailableCommerce'],
-  ['film', 'unavailableFilm'],
   ['account', 'unavailableAccount'],
 ] as const;
 
@@ -311,7 +313,7 @@ export function Story({ locale }: { locale: Locale }) {
         fetchPriority="low"
       />)}
       {storyNodes.filter(node => node.y < 28207).map((node, index) => <Fragment key={`${node.key}-${index}`}><OverlayNode node={node} locale={locale} />{node.id === 'fire-learn' && <EmberScene labels={emberCopy[locale]} />}</Fragment>)}
-      <button id="film-play" type="button" className="film-play" style={sourceStyle(390, 11439, 160)} popoverTarget="unavailable-film" aria-label={t(locale, 'film')}><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M12 7L34 20L12 33Z" fill="currentColor" /></svg></button>
+      <button id="film-play" type="button" className="film-play" style={sourceStyle(390, 11439, 160)} popoverTarget="product-film" aria-haspopup="dialog" aria-controls="product-film" aria-label={t(locale, 'film')}><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M12 7L34 20L12 33Z" fill="currentColor" /></svg></button>
       <div className="order-panels" aria-hidden="true">{[20140, 20370, 20650].map((y, i) => <div key={y} className="source-panel" data-step={`0${i + 1}`} style={sourceStyle(95, y, 750)} />)}</div>
       <DocumentCards locale={locale} />
       <Faq locale={locale} />
@@ -342,6 +344,7 @@ export function Story({ locale }: { locale: Locale }) {
       <LocaleSwitcher locale={locale} label={t(locale, 'language')} />
     </main><SiteFooter locale={locale} /></PageMediaGate>
     <BackToTop label={t(locale, 'backToTop')} />
+    <ProductFilm locale={locale} copy={productFilmCopy[locale]} closeLabel={t(locale, 'close')} />
     <Popovers locale={locale} />
   </DialogController>;
 }

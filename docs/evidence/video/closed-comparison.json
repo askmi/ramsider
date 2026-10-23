@@ -1,0 +1,104 @@
+{
+  "status": "finalvalid",
+  "rows": [
+    {
+      "n": "pro",
+      "width": 402,
+      "height": 874,
+      "shots": [
+        {
+          "label": "baseline",
+          "path": "screenshots/video/compare-baseline-pro.png",
+          "metrics": {
+            "innerWidth": 402,
+            "devicePixelRatio": 3,
+            "scrollY": 4484,
+            "film": {
+              "x": 166.609375,
+              "y": 402.796875,
+              "width": 68.34375,
+              "height": 68.34375,
+              "top": 402.796875,
+              "right": 234.953125,
+              "bottom": 471.140625,
+              "left": 166.609375
+            },
+            "overflow": false
+          }
+        },
+        {
+          "label": "final",
+          "path": "screenshots/video/compare-final-pro.png",
+          "metrics": {
+            "innerWidth": 402,
+            "devicePixelRatio": 3,
+            "scrollY": 4484,
+            "film": {
+              "x": 166.609375,
+              "y": 402.796875,
+              "width": 68.34375,
+              "height": 68.34375,
+              "top": 402.796875,
+              "right": 234.953125,
+              "bottom": 471.140625,
+              "left": 166.609375
+            },
+            "overflow": false
+          }
+        }
+      ],
+      "changedChannels": 0,
+      "maxError": 0
+    },
+    {
+      "n": "max",
+      "width": 440,
+      "height": 956,
+      "shots": [
+        {
+          "label": "baseline",
+          "path": "screenshots/video/compare-baseline-max.png",
+          "metrics": {
+            "innerWidth": 440,
+            "devicePixelRatio": 3,
+            "scrollY": 4908,
+            "film": {
+              "x": 182.34375,
+              "y": 440.734375,
+              "width": 74.8125,
+              "height": 74.8125,
+              "top": 440.734375,
+              "right": 257.15625,
+              "bottom": 515.546875,
+              "left": 182.34375
+            },
+            "overflow": false
+          }
+        },
+        {
+          "label": "final",
+          "path": "screenshots/video/compare-final-max.png",
+          "metrics": {
+            "innerWidth": 440,
+            "devicePixelRatio": 3,
+            "scrollY": 4908,
+            "film": {
+              "x": 182.34375,
+              "y": 440.734375,
+              "width": 74.8125,
+              "height": 74.8125,
+              "top": 440.734375,
+              "right": 257.15625,
+              "bottom": 515.546875,
+              "left": 182.34375
+            },
+            "overflow": false
+          }
+        }
+      ],
+      "changedChannels": 0,
+      "maxError": 0
+    }
+  ],
+  "method": "Same browser/viewport/DPR3/CSSpixel screenshot/readyoriginals/fonts/postscrollpaint; source comparisonProY11200–11700 scale402/941 integercropalignment."
+}

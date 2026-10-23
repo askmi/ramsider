@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-23",
+  "samples": [
+    {
+      "label": "baseline",
+      "port": 3161,
+      "conditions": "cold Chromium402x874 DPR3 /4Mbps100ms4xCPU, first snapshot5s afterDOMContentLoaded; scroll unthrottled",
+      "lcp": 472,
+      "cls": 0.00022206073455854325,
+      "fcp": 408,
+      "ttfb": 58.60000002384186,
+      "htmlBytes": 229849,
+      "heroReady": true,
+      "videoRequests": 0,
+      "totalCompletedBytes": 2848410,
+      "jsCompletedBytes": 219347,
+      "videoCompletedBytes": 0,
+      "scroll": {
+        "frames": 99,
+        "p95": 16.800000000000182,
+        "over33": 1
+      }
+    },
+    {
+      "label": "native-film",
+      "port": 3160,
+      "conditions": "cold Chromium402x874 DPR3 /4Mbps100ms4xCPU, first snapshot5s afterDOMContentLoaded; scroll unthrottled",
+      "lcp": 448,
+      "cls": 0.00022206073455854325,
+      "fcp": 384,
+      "ttfb": 11,
+      "htmlBytes": 230222,
+      "heroReady": true,
+      "videoRequests": 0,
+      "totalCompletedBytes": 2849851,
+      "jsCompletedBytes": 219931,
+      "videoCompletedBytes": 0,
+      "scroll": {
+        "frames": 99,
+        "p95": 16.800000000000182,
+        "over33": 1
+      }
+    }
+  ],
+  "limits": "One synthetic sample per version; no fieldINP, physical Safari or Lighthouse score. Completed bytes are phase-limited, not eventual total."
+}

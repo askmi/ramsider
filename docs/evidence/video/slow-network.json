@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-23",
+  "conditions": "Chromium402x874DPR3; mainartready beforeintent; coldMP4/10Mbps100ms;CPUunthrottled;25s playbackwindow",
+  "events": [
+    {
+      "name": "waiting",
+      "ms": 64.89999997615814,
+      "time": 0,
+      "ready": 0
+    },
+    {
+      "name": "loadstart",
+      "ms": 65.19999992847443,
+      "time": 0,
+      "ready": 0
+    },
+    {
+      "name": "loadedmetadata",
+      "ms": 623.3999999761581,
+      "time": 0,
+      "ready": 1
+    },
+    {
+      "name": "canplay",
+      "ms": 3116.1999999284744,
+      "time": 0,
+      "ready": 3
+    },
+    {
+      "name": "playing",
+      "ms": 3116.399999976158,
+      "time": 0,
+      "ready": 3
+    },
+    {
+      "name": "waiting",
+      "ms": 5161.100000023842,
+      "time": 1.966746,
+      "ready": 2
+    },
+    {
+      "name": "canplay",
+      "ms": 13188.100000023842,
+      "time": 2.046667,
+      "ready": 3
+    },
+    {
+      "name": "playing",
+      "ms": 13189.199999928474,
+      "time": 2.046667,
+      "ready": 3
+    },
+    {
+      "name": "waiting",
+      "ms": 15341,
+      "time": 4.120301,
+      "ready": 2
+    },
+    {
+      "name": "canplay",
+      "ms": 23786.799999952316,
+      "time": 4.18,
+      "ready": 3
+    },
+    {
+      "name": "playing",
+      "ms": 23787.199999928474,
+      "time": 4.18,
+      "ready": 3
+    }
+  ],
+  "currentTime": 5.57904,
+  "paused": false,
+  "readyState": 3,
+  "buffered": [
+    [
+      0,
+      5.571
+    ]
+  ],
+  "error": null,
+  "elapsed": 25272.399999976158,
+  "mediaReceivedBytes": 31879530,
+  "mediaRequests": 2,
+  "afterClose": {
+    "paused": true,
+    "ready": 0,
+    "network": 0
+  },
+  "limits": "Singlelocalemulatedsample, nativebrowserbufferpolicy; not fieldiPhoneperformance."
+}

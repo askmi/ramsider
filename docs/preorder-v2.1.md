@@ -83,3 +83,6 @@ Terms/Returns/обе Privacy воспроизводятся как supplied prev
 Финальный одиночный лабораторный Chromium402DPR3/4Mbps/100ms/CPU×4: LCP предзаказ620ms, сравнение348ms, главная428ms; CLS .002784/.003023/.000222. JS transfer151304B новых страниц,377290B главной; новые страницы0 raster requests. Scroll framep95<=16.8ms. Выбор модели до двух следующих кадров18.9ms — это НЕ fieldINP. Нет Lighthouse/физического Safari/VoiceOver обещания. Подробности `docs/evidence/preorder/performance.json`; параллельный exploratory замер сохранён отдельно и не выдан за финальный.
 
 Native review, окончательный technicalapproval и exactSHA Beta publication фиксируются далее в CHANGELOG и verification/publication receipts; этот раздел не подменяет их.
+
+
+Публикация 24.10: код1fe45d8 находится только в origin/beta, оба Vercel deployment успешны. Постоянный Beta проверен реальным WebKit на обоих телефонах:9 страниц, модель GOLD/RU/ограниченный рынок и вход с главной; изображение формы побайтово совпало по декодированным каналам с проверенной локальной версией. Существующий загрузчик главной при жёстком переходе выдаёт сообщения WebKit об исходящих запросах; тот же эффект воспроизведён на неизменённом Main, ошибок страницы назначения нет. Это отдельный открытый CHG0145, не заявленный исправленным. См. public-browser/navigation-diagnostic/publication receipts.

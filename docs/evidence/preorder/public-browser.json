@@ -1,0 +1,312 @@
+{
+  "date": "2026-10-24",
+  "base": "https://ramsider-beta.vercel.app",
+  "commit": "1fe45d80613909feba81f6e06c0c0ba7b5b7df3a",
+  "result": "PASS with explicitly retained pre-existing outgoing-page limitation CHG0145",
+  "profiles": [
+    {
+      "width": 402,
+      "height": 874,
+      "routes": [
+        {
+          "route": "reserve",
+          "width": 402,
+          "dpr": 3,
+          "overflow": 0,
+          "footerCount": 1,
+          "noindex": "noindex, nofollow",
+          "localPublicDifferentChannels": 0,
+          "publicDimensions": [
+            1206,
+            17862
+          ]
+        },
+        {
+          "route": "pro",
+          "width": 402,
+          "dpr": 3,
+          "overflow": 0,
+          "footerCount": 1,
+          "noindex": "noindex, nofollow"
+        },
+        {
+          "route": "gold",
+          "width": 402,
+          "dpr": 3,
+          "overflow": 0,
+          "footerCount": 1,
+          "noindex": "noindex, nofollow"
+        },
+        {
+          "route": "compare",
+          "width": 402,
+          "dpr": 3,
+          "overflow": 0,
+          "footerCount": 1,
+          "noindex": "noindex, nofollow"
+        },
+        {
+          "route": "product-info",
+          "width": 402,
+          "dpr": 3,
+          "overflow": 0,
+          "footerCount": 1,
+          "noindex": "noindex, nofollow"
+        },
+        {
+          "route": "terms",
+          "width": 402,
+          "dpr": 3,
+          "overflow": 0,
+          "footerCount": 1,
+          "noindex": "noindex, nofollow"
+        },
+        {
+          "route": "returns",
+          "width": 402,
+          "dpr": 3,
+          "overflow": 0,
+          "footerCount": 1,
+          "noindex": "noindex, nofollow"
+        },
+        {
+          "route": "privacy",
+          "width": 402,
+          "dpr": 3,
+          "overflow": 0,
+          "footerCount": 1,
+          "noindex": "noindex, nofollow"
+        },
+        {
+          "route": "privacy-ru",
+          "width": 402,
+          "dpr": 3,
+          "overflow": 0,
+          "footerCount": 1,
+          "noindex": "noindex, nofollow"
+        }
+      ],
+      "goldBindings": [
+        "UNO Gold Line",
+        "Gold Line finish",
+        "Transparent reservoir",
+        "White braided hose · titanium mouthpiece",
+        "UNO Gold Line",
+        "$999",
+        "≈ AED 3,670 · reference, prices are in USD",
+        "UNO Gold Line",
+        "UNO Gold Line",
+        "$1,000",
+        "≈ AED 3,670 · reference, prices are in USD",
+        "UNO Gold Line",
+        "$1,999",
+        "UNO Gold Line",
+        "$1,000"
+      ],
+      "restrictedMarket": "IN hidesinvoice/payment",
+      "russianGold": "PASS",
+      "landingThreeLinks": [
+        {
+          "id": "hero-reserve",
+          "href": "/en/reserve"
+        },
+        {
+          "id": "order-create",
+          "href": "/en/reserve"
+        },
+        {
+          "id": "final-create",
+          "href": "/en/reserve"
+        }
+      ],
+      "actualCreateKeyboard": "PASS",
+      "classifiedOutgoingWarnings": [
+        "/ramsider-beta.vercel.app/art/04.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/faq-row-2.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/05.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/faq-row-3.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/06.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/faq-row-4.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/07.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/faq-row-5.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/08.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/faq-row-6.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/09-10.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/expression-waves.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/doc-electrical.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/doc-emc.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/doc-uae.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/doc-rohs.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/doc-telecom.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/11.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/footer-paper.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/film-start-sw.js due to access control checks."
+      ],
+      "errors": [],
+      "rawTrialErrors": [],
+      "additionalClassifiedWarnings": [],
+      "classification": "Exact unchanged outgoing URL + navigation phase + baseline cancelled request or pageerror; CHG0145 OPEN. Target page errors zero; no loader repair claimed."
+    },
+    {
+      "width": 440,
+      "height": 956,
+      "routes": [
+        {
+          "route": "reserve",
+          "width": 440,
+          "dpr": 3,
+          "overflow": 0,
+          "footerCount": 1,
+          "noindex": "noindex, nofollow",
+          "localPublicDifferentChannels": 0,
+          "publicDimensions": [
+            1320,
+            17310
+          ]
+        },
+        {
+          "route": "pro",
+          "width": 440,
+          "dpr": 3,
+          "overflow": 0,
+          "footerCount": 1,
+          "noindex": "noindex, nofollow"
+        },
+        {
+          "route": "gold",
+          "width": 440,
+          "dpr": 3,
+          "overflow": 0,
+          "footerCount": 1,
+          "noindex": "noindex, nofollow"
+        },
+        {
+          "route": "compare",
+          "width": 440,
+          "dpr": 3,
+          "overflow": 0,
+          "footerCount": 1,
+          "noindex": "noindex, nofollow"
+        },
+        {
+          "route": "product-info",
+          "width": 440,
+          "dpr": 3,
+          "overflow": 0,
+          "footerCount": 1,
+          "noindex": "noindex, nofollow"
+        },
+        {
+          "route": "terms",
+          "width": 440,
+          "dpr": 3,
+          "overflow": 0,
+          "footerCount": 1,
+          "noindex": "noindex, nofollow"
+        },
+        {
+          "route": "returns",
+          "width": 440,
+          "dpr": 3,
+          "overflow": 0,
+          "footerCount": 1,
+          "noindex": "noindex, nofollow"
+        },
+        {
+          "route": "privacy",
+          "width": 440,
+          "dpr": 3,
+          "overflow": 0,
+          "footerCount": 1,
+          "noindex": "noindex, nofollow"
+        },
+        {
+          "route": "privacy-ru",
+          "width": 440,
+          "dpr": 3,
+          "overflow": 0,
+          "footerCount": 1,
+          "noindex": "noindex, nofollow"
+        }
+      ],
+      "goldBindings": [
+        "UNO Gold Line",
+        "Gold Line finish",
+        "Transparent reservoir",
+        "White braided hose · titanium mouthpiece",
+        "UNO Gold Line",
+        "$999",
+        "≈ AED 3,670 · reference, prices are in USD",
+        "UNO Gold Line",
+        "UNO Gold Line",
+        "$1,000",
+        "≈ AED 3,670 · reference, prices are in USD",
+        "UNO Gold Line",
+        "$1,999",
+        "UNO Gold Line",
+        "$1,000"
+      ],
+      "restrictedMarket": "IN hidesinvoice/payment",
+      "russianGold": "PASS",
+      "landingThreeLinks": [
+        {
+          "id": "hero-reserve",
+          "href": "/en/reserve"
+        },
+        {
+          "id": "order-create",
+          "href": "/en/reserve"
+        },
+        {
+          "id": "final-create",
+          "href": "/en/reserve"
+        }
+      ],
+      "actualCreateKeyboard": "PASS",
+      "classifiedOutgoingWarnings": [
+        "/ramsider-beta.vercel.app/art/faq-row-2.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/04.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/faq-row-3.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/05.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/faq-row-4.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/06.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/faq-row-5.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/07.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/faq-row-6.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/08.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/09-10.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/expression-waves.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/doc-electrical.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/doc-emc.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/doc-uae.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/doc-rohs.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/doc-telecom.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/11.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/art/footer-paper.webp due to access control checks.",
+        "/ramsider-beta.vercel.app/film-start-sw.js due to access control checks."
+      ],
+      "errors": [],
+      "rawTrialErrors": [
+        {
+          "phase": "outgoing-landing",
+          "message": "/ramsider-beta.vercel.app/art/faq-row-1.webp due to access control checks."
+        },
+        {
+          "phase": "outgoing-landing",
+          "message": "/ramsider-beta.vercel.app/art/03.webp due to access control checks."
+        }
+      ],
+      "additionalClassifiedWarnings": [
+        {
+          "phase": "outgoing-landing",
+          "message": "/ramsider-beta.vercel.app/art/faq-row-1.webp due to access control checks."
+        },
+        {
+          "phase": "outgoing-landing",
+          "message": "/ramsider-beta.vercel.app/art/03.webp due to access control checks."
+        }
+      ],
+      "classification": "Exact unchanged outgoing URL + navigation phase + baseline cancelled request or pageerror; CHG0145 OPEN. Target page errors zero; no loader repair claimed."
+    }
+  ]
+}

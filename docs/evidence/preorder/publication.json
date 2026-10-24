@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-24",
+  "change": "CHG0144",
+  "repository": "askmi/ramsider",
+  "branch": "beta",
+  "commit": "1fe45d80613909feba81f6e06c0c0ba7b5b7df3a",
+  "remoteBetaExact": true,
+  "mainUnchanged": "d4a94eb418c396f0a091c1cfbe6f317307c40a9e",
+  "push": "SUCCESS",
+  "deployments": [
+    {
+      "context": "Vercel – ramsider-beta",
+      "state": "success",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/8Y6Bgk3aaTaXCX9zJL7Gn3oiv612",
+      "environment": "Production – ramsider-beta",
+      "deployment": 7299086170,
+      "environmentURL": "https://ramsider-beta-i4vfims6f-askmi-6282s-projects.vercel.app"
+    },
+    {
+      "context": "Vercel – ramsider",
+      "state": "success",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider/2WMi7nnoprYKxXkMXCJgvDD2AqsV",
+      "environment": "Preview – ramsider",
+      "deployment": 7299092584,
+      "environmentURL": "https://ramsider-fsplquwlv-askmi-6282s-projects.vercel.app"
+    }
+  ],
+  "canonical": "https://ramsider-beta.vercel.app",
+  "publicChecks": "PASS bothPro402/Max440 WebKitDPR3;9routes each; queryGOLD/RU/IN/nativeCreateEnter; reserveLocalPublic0differentChannels both;22oldresourcesHEAD200",
+  "technicalApproval": "APPROVED /root2026-10-24 publicfrontendpreview; independent /root/beta_auditor Gate6PUBLIC PASS exactremote/provider/canonical/images",
+  "userResultApproval": "NOT_RECORDED",
+  "limitation": "CHG0145 OPEN: unchanged outgoing-page loader warnings20/22, baselineMain18; zero targeterrors; preciseWebKit mechanismUNKNOWN; no repairclaimed",
+  "notifications": "Founder SENT/Telegram accepted/memorySaved/clickableLinksVerified; notification.json. Owner final result in this chat.",
+  "recordsFollowup": "Documentation-only Beta commit planned to preserve final outcomes; no runtime files changed"
+}

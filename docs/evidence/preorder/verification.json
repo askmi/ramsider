@@ -3,7 +3,7 @@
   "change": "CHG0144",
   "branch": "beta",
   "baseMain": "d4a94eb418c396f0a091c1cfbe6f317307c40a9e",
-  "state": "VERIFIED_LOCAL_FRONTEND_PREVIEW_PUBLICATION_PENDING",
+  "state": "VERIFIED_PUBLISHED_FRONTEND_PREVIEW",
   "scopeAudit": "PASS /root/beta_auditor",
   "visualAudits": {
     "reserve": "PASS /root/beta_auditor including final60pxselector",
@@ -107,7 +107,7 @@
     "verifier": "/root",
     "status": "APPROVED frontendpreviewonly",
     "independentAuditor": "/root/beta_auditor",
-    "gates": "1/3/4re-audit/5/6PREPUBLICATION PASS; initial4FAIL preserved; publication checks pending"
+    "gates": "1/3/4re-audit/5/6PREPUBLICATION/6PUBLIC PASS; initial4FAIL/publicdiagnosisFAIL retained; finalrecordscommitpublication pending"
   },
   "userResultApproval": "NOT_RECORDED",
   "behaviorAudit": "PASS re-audit2026-10-24 /root/beta_auditor; initial missingimageFAIL retained",
@@ -119,6 +119,8 @@
     "CHG0136",
     "CHG0121",
     "CHG0106",
-    "CHG0103"
-  ]
+    "CHG0103",
+    "CHG0145"
+  ],
+  "publication": "publication.json/public-browser.json; runtime1fe45d8 bothproviderSUCCESS/canonicalProMaxPASS; independentGate6PUBLIC PASS; FounderSENT notification.json"
 }

@@ -43,6 +43,14 @@ For HLS `BANDWIDTH`, measure peak segment bitrate using the RFC duration-window 
 - Bounded recovery: ordinary network/ABR behavior first; explicit error/retry after exhaustion. Do not replace a slow low-bitrate HLS stream with the original master or create infinite retry/fallback loops. A small progressive fallback covers unsupported media paths and selected fatal errors, with its own final error state. Closing cancels timers, requests and audio.
 - Pause optional artwork transfers while a film is active, preserving current site readiness/scroll behavior and resuming on close. Check for shared-resource lifecycle regressions.
 
+## Optional background startup preload
+
+When explicitly requested, warm a bounded startup rendition after the hero/fonts have rendered, independently of page readiness. State segment count, seconds and actual bytes including manifests/init. Fetch priority is a scheduling hint, not a separate connection or bandwidth guarantee. Never assign a hidden native video source for a bounded preload: it may download the whole film.
+
+Ordinary JS fetch/HTTP caching does not establish native HLS reuse. Prove reuse on the actual wire. If necessary use a narrowly scoped Service Worker read-through cache for only the startup objects; store complete verified 200 responses with decoded lengths, support native single-byte Range/206/416 and HEAD, and let unsupported ranges, cache misses and storage failures use ordinary delivery. Version media immutably; bound/prune owned storage without touching other caches. Test activation/update and failed registration/storage. Do not await preload or registration in the user's Play gesture; abort pending optional transfers on intent, hidden page or unmount, retaining complete cached objects. Test before/during/after warm-up and partial failure.
+
+Native Safari may choose a different initial rendition despite master ordering. A cached startup variant improves the matching path but cannot promise instant playback on every browser, on an early click, after eviction or under an outage. Use separate SW-enabled wire tests when existing fault-injection tests block workers to retain request interception.
+
 ## Static delivery
 
 Serve HTTPS versioned complete packages directly from a static CDN. Correct playlist MIME is `application/vnd.apple.mpegurl`; fMP4 init/video uses appropriate MP4 MIME. Verify actual responses, Content-Length, no HTML fallback/redirect, all referenced objects and seek. Long immutable caching is safe only for never-mutated versioned URLs. Keep old versions for in-progress sessions; invalidate by new URL. Next public defaults do not establish long browser caching.

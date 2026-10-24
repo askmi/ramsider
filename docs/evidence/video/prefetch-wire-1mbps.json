@@ -1,0 +1,388 @@
+{
+  "date": "2026-10-24",
+  "conditions": "Proxy film response 1Mbps+100ms simulated, single cold/warm sample perengine; not physicaliPhone",
+  "rows": [
+    {
+      "name": "native",
+      "warm": false,
+      "frameMs": 1742,
+      "before": [],
+      "playWire": [
+        {
+          "phase": "native-false-play",
+          "path": "/films/uno-introduction/en-v3/master.m3u8",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-false-play",
+          "path": "/films/uno-introduction/en-v3/360p/index.m3u8",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-false-play",
+          "path": "/films/uno-introduction/en-v3/360p/init.mp4",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-false-play",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-false-play",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-false-play",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-false-play",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-false-play",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+          "range": null,
+          "warm": false
+        }
+      ],
+      "metrics": {
+        "engine": "native-hls",
+        "width": 640,
+        "resources": [
+          {
+            "path": "/films/uno-introduction/en-v3/master.m3u8",
+            "start": 839,
+            "bytes": 1237
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/index.m3u8",
+            "start": 955,
+            "bytes": 1583
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/init.mp4",
+            "start": 1094,
+            "bytes": 1694
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+            "start": 1240,
+            "bytes": 135071
+          }
+        ],
+        "hero": 32,
+        "dom": 222
+      }
+    },
+    {
+      "name": "native",
+      "warm": true,
+      "frameMs": 89,
+      "before": [
+        {
+          "phase": "native-true-load",
+          "path": "/films/uno-introduction/en-v3/master.m3u8",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "native-true-load",
+          "path": "/films/uno-introduction/en-v3/360p/index.m3u8",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "native-true-load",
+          "path": "/films/uno-introduction/en-v3/360p/init.mp4",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "native-true-load",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "native-true-load",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "native-true-load",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00002.m4s",
+          "range": null,
+          "warm": true
+        }
+      ],
+      "playWire": [],
+      "metrics": {
+        "engine": "native-hls",
+        "width": 640,
+        "resources": [
+          {
+            "path": "/films/uno-introduction/en-v3/master.m3u8",
+            "start": 578,
+            "bytes": 1237
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/index.m3u8",
+            "start": 691,
+            "bytes": 1583
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/init.mp4",
+            "start": 806,
+            "bytes": 1694
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+            "start": 921,
+            "bytes": 135071
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+            "start": 2110,
+            "bytes": 149874
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/segment-00002.m4s",
+            "start": 3422,
+            "bytes": 152772
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/master.m3u8",
+            "start": 4876,
+            "bytes": 0
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/index.m3u8",
+            "start": 4878,
+            "bytes": 0
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/init.mp4",
+            "start": 4891,
+            "bytes": 0
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+            "start": 4894,
+            "bytes": 0
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+            "start": 4908,
+            "bytes": 0
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/segment-00002.m4s",
+            "start": 4913,
+            "bytes": 0
+          }
+        ],
+        "hero": 26,
+        "dom": 206
+      }
+    },
+    {
+      "name": "mse",
+      "warm": false,
+      "frameMs": 1660.2000000476837,
+      "before": [],
+      "playWire": [
+        {
+          "phase": "mse-false-play",
+          "path": "/films/uno-introduction/en-v3/master.m3u8",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "mse-false-play",
+          "path": "/films/uno-introduction/en-v3/360p/index.m3u8",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "mse-false-play",
+          "path": "/films/uno-introduction/en-v3/360p/init.mp4",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "mse-false-play",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "mse-false-play",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+          "range": null,
+          "warm": false
+        }
+      ],
+      "metrics": {
+        "engine": "mse-hls",
+        "width": 640,
+        "resources": [
+          {
+            "path": "/films/uno-introduction/en-v3/master.m3u8",
+            "start": 2111.899999976158,
+            "bytes": 1237
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/index.m3u8",
+            "start": 2224.5999999046326,
+            "bytes": 1583
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/init.mp4",
+            "start": 2340,
+            "bytes": 1694
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+            "start": 2340.2999999523163,
+            "bytes": 135071
+          }
+        ],
+        "hero": 29.09999990463257,
+        "dom": 119.29999995231628
+      }
+    },
+    {
+      "name": "mse",
+      "warm": true,
+      "frameMs": 99.69999992847443,
+      "before": [
+        {
+          "phase": "mse-true-load",
+          "path": "/films/uno-introduction/en-v3/master.m3u8",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "mse-true-load",
+          "path": "/films/uno-introduction/en-v3/360p/index.m3u8",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "mse-true-load",
+          "path": "/films/uno-introduction/en-v3/360p/init.mp4",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "mse-true-load",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "mse-true-load",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "mse-true-load",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00002.m4s",
+          "range": null,
+          "warm": true
+        }
+      ],
+      "playWire": [
+        {
+          "phase": "mse-true-play",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00003.m4s",
+          "range": null,
+          "warm": false
+        }
+      ],
+      "metrics": {
+        "engine": "mse-hls",
+        "width": 640,
+        "resources": [
+          {
+            "path": "/films/uno-introduction/en-v3/master.m3u8",
+            "start": 172.39999997615814,
+            "bytes": 1237
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/index.m3u8",
+            "start": 289.10000002384186,
+            "bytes": 1583
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/init.mp4",
+            "start": 405.7000000476837,
+            "bytes": 1694
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+            "start": 520.5,
+            "bytes": 135071
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+            "start": 1705,
+            "bytes": 149874
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/segment-00002.m4s",
+            "start": 3011.899999976158,
+            "bytes": 152772
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/master.m3u8",
+            "start": 4426.200000047684,
+            "bytes": 0
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/index.m3u8",
+            "start": 4471.799999952316,
+            "bytes": 0
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/init.mp4",
+            "start": 4475.700000047684,
+            "bytes": 0
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+            "start": 4475.899999976158,
+            "bytes": 0
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+            "start": 4492.299999952316,
+            "bytes": 0
+          },
+          {
+            "path": "/films/uno-introduction/en-v3/360p/segment-00002.m4s",
+            "start": 4494.600000023842,
+            "bytes": 0
+          }
+        ],
+        "hero": 18.899999976158142,
+        "dom": 64.89999997615814
+      }
+    }
+  ],
+  "limits": "Whole-response delay synthetic startup-only comparison; not streamed aggregate bandwidth/ABR validation. Single sample per engine; no physical phone claim."
+}

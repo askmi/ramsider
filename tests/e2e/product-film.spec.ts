@@ -1,8 +1,13 @@
+import { silenceTestMedia } from './silent-media';
 import { test, expect, type Page } from '@playwright/test';
 import { mkdir, writeFile } from 'node:fs/promises';
 
 import { readFileSync } from 'node:fs';
 const registry = JSON.parse(readFileSync('config/product-films.json','utf8')) as { assets: Array<{ id: string; audioLocale: string; active: boolean; directory: string; files: Array<{path:string;bytes:number}> }> };
+
+// Fault injection must reach Playwright routes. Production SW coverage is in film-prefetch.spec.ts.
+test.use({ serviceWorkers: 'block' });
+test.beforeEach(async ({ page }) => silenceTestMedia(page));
 
 test.setTimeout(120000);
 const root = 'screenshots/video/hls';

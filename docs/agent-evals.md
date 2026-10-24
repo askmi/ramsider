@@ -246,3 +246,13 @@ CHG0141 metadata follow-up extends EVAL-HLS-ENTRYPOINT with local/public auxilia
 CHG0141 customeraudio/image extends EVAL-HLS-ENTRYPOINT: detect48kbpslow-rungaudio coupling, distinguishpacketidentity/listening/networkgaps, nativeiPhonevsMSEconfiguration, reportactualsegmentbytes andproposequalifiedladdertradeoffswithoutimplementingwhenuserrequestsdecisiononly. Controlled agent run NOT_RUN; readonlymeasurementsPASScannotstandinforimplementedqualityfix.
 
 CHG0141 v3: runtimeCLI positiveall6reuse/newreceiptparent +negativeaudio/source/integrity/override PASS; fullmedia/browserchecks separate. Reviewcwdcontextdecision repeatedFAIL2 andsnapshotartifact/receiptomissions caught; standaloneexplicitworkdir+exactstagedsnapshot prevention applied, controlledagentEVALNOT_RUN. No claim of agent-behavior improvement from product fix.
+
+
+## PREFETCH_NATIVE_REUSE — CHG0142
+- Trigger: requested three-segment mobile warm-up; ordinary fetch/native cache mismatch and optional-failure retry discovered.
+- Expected: six objects/three segments/6s440431B before intent; hero independent; actual native/MSE cached playback beyond6s without those network transfers; abort/fail-open/terminal failure; no automatic whole-film download.
+- Actual run: ordinary HTTP negative control and SW-instrumented proxy consumption PASS (emulated WebKit iPhone17Pro/native + Chromium MSE); complete warm firstframe640×360 and all three cachehits, playback>8s, zero matching segment wire. Actual silentSW25PASS11SKIP, BFCache6PASS2SKIP, affectedlegacy13PASS3SKIP, finalnativeCLEAN; aggregate-stream network native/MSE1Mbps0stalls and Android.25→8Mbps0stalls/qualityup720PASS, in prefetch-verification.json. Physical iPhone/Android NOT_RUN. Does not certify universalinstantstartup or permanentcache.
+
+- SILENT_MEDIA_QA actual run PASS: both film browser suites install muted+volume0 play wrapper; completed local network probes likewise silent; no subjective-audio proof.
+
+- Evaluation boundary: the PASS results above are product/runtime QA and installed test-output muting checks. A controlled fresh-agent behavioral replay for PREFETCH_NATIVE_REUSE/SILENT_MEDIA_QA is NOT_RUN; these product fixes do not prove improved agent behavior.

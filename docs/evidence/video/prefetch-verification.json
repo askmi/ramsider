@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-24",
+  "change": "CHG0142",
+  "status": "VERIFIED_LOCAL / independent Gates3\u20135 PASS / publication pending",
+  "baseCommit": "6310c28e9eefb74100047b628d7bacb7cd0bf4fe",
+  "sourceSHA256": {
+    "lib/film-preload.ts": "040e4426ef6f37c289b54b1f37c5cdd6480e446977d38ccf44ab9ae624ac56a8",
+    "lib/film-cache-abr.ts": "70e991bbf3192984e90135a2bca76c4f353cfebebf323a18bfe75aa3b710f24e",
+    "lib/film-playback.ts": "e242326f83f334af7d4ade7812d29136c69f7792ef7cdef60b299266ee7798e8",
+    "lib/product-film-catalog.ts": "deea7dd011fc5c63196d6bfb30481ddb2d8dd94ac349db0256161c6b4519b141",
+    "components/ProductFilm.tsx": "c522dc3142729d08dac3862fcd2b423df1d52c5969c45135262cc3420c9ab879",
+    "public/film-start-sw.js": "16180758b6422920376aa241089fb8511df19876f8dfeef6e9dd563dd2481257",
+    "next.config.mjs": "9c81bc527707a5a27377140429d3e770fa407bec0a4ccf7aa8190e59a89bf1e9",
+    "tests/e2e/film-prefetch.spec.ts": "bf77bc7dcd248a0d12ee6d2dd4454075488d70cfa5513c9ea81b9ad0f517062c",
+    "tests/e2e/film-cache-abr.spec.ts": "62ce000ba11c1a0679db9b521f4b84f04bb32605646423b8492ce7a10b2b483c",
+    "tests/e2e/product-film.spec.ts": "6d497d6030a2c45ee4d2549a9443b095dcf156c8ed0c79c19e7f1241eb6db588",
+    "tests/e2e/silent-media.ts": "793957850b149ffae3e1d769dfbb2da6668b95f01d14c7813a565e237fe9a802",
+    ".agents/skills/mobile-hls-video/SKILL.md": "6b3c0796eacd5806fbb1c413bedc1dab826d4f8221727640d2d1cda72596d904",
+    ".agents/skills/mobile-hls-video/references/specification.md": "7b6125525f4f95df7c9e42844eefc618ac89e1d842da1275cde722e3333addb1"
+  },
+  "contract": {
+    "rendition": "360p",
+    "segments": 3,
+    "seconds": 6,
+    "metadataObjects": 3,
+    "bytes": 440431,
+    "beforeIntentFourthSegment": false,
+    "autoplayBeforeIntent": false,
+    "firstViewportWaitsForPreload": false,
+    "audioPackage": "unchanged en-v3 original AAC"
+  },
+  "browserChecks": {
+    "silentSWLifecycle": {
+      "pass": 25,
+      "skip": 11,
+      "failure": 0,
+      "log": "/tmp/preload-pw-silent.log"
+    },
+    "finalBFCacheNavigation": {
+      "pass": 6,
+      "skip": 2,
+      "failure": 0,
+      "log": "/tmp/preload-bfcache-silent.log"
+    },
+    "affectedSilentLegacy": {
+      "pass": 13,
+      "skip": 3,
+      "failure": 0,
+      "log": "/tmp/preload-legacy-silent.log"
+    },
+    "localesAndAdaptation": {
+      "pass": 1,
+      "skip": 3,
+      "locales": 11,
+      "additionalViewports": 7,
+      "log": "/tmp/preload-locales-fixed.log"
+    },
+    "fullEarlierCandidate": {
+      "pass": 53,
+      "skip": 29,
+      "failure": 2,
+      "failureReason": "nested test.use introduced by scope edit; fixed; full actual locale matrix supersedes failed cases",
+      "log": "/tmp/preload-pw-final.log"
+    },
+    "physicalPhones": "NOT_AVAILABLE",
+    "silentPolicy": "QA-only muted+volume0 play wrapper; no unmuted autoplay or subjective listening claim"
+  },
+  "network": {
+    "consumption": "prefetch-cache-consumption.json",
+    "aggregate1MbpsFullFilm": "prefetch-adaptation-streaming-1mbps.json",
+    "aggregate025MbpsAndroidFullFilm": "prefetch-adaptation-streaming-0.25mbps.json",
+    "native1MbpsFirstFrameMs": 240,
+    "mse1MbpsFirstFrameMs": 327.7,
+    "postStartupStalls1Mbps": 0,
+    "android025MbpsFirstFrameMs": 615.2,
+    "postStartupStallsAndroid025Mbps": 0,
+    "androidQualityTimeline": "360p startup \u2192144p at8.07s; linkrestored8Mbps at20s \u2192360p30.09s \u2192720p34.07s",
+    "limits": "Synthetic streamed aggregate film bytes,100ms headers, artwork excluded. Single exploratory run per path; no field p95. Native controls own rendition/buffer; its1Mbps run stayed360p and did not demonstrate upswitch. Earlier whole-response delay receipt diagnostic-only."
+  },
+  "visual": "prefetch-visual.json:402x874/440x956DPR3;0RGBAchanged; images inspected",
+  "performance": "prefetch-performance.json:final LCP512/FCP448/CLS0.000222/JS337290B(+115740 vs prior v3; engine warming moves hls.js earlier)/media442204wireB; scrollp9516.7ms",
+  "staticChecks": {
+    "typecheck": "PASS /tmp/preload-types-bfcache.log",
+    "lint": "PASS zeroerrors, inheritedTelegramunusedwarning /tmp/preload-lint-bfcache.log",
+    "productionBuild": "PASS 11SSG locales /tmp/preload-build-bfcache.log",
+    "skillValidator": "PASS via temporary PyYAML; no project dependency change"
+  },
+  "nativeReview": {
+    "initial": "P2 nestedtest.use + cache-throughput pollution; fixed",
+    "second": "P2 locale evidence lost across full navigation; fixed",
+    "third": "P2 BFCache permanent stop; fixed",
+    "final": "CLEAN /tmp/preload-native-review-bfcache.log; isolated exact source diff, reviewer dependency absence not counted as browser verification"
+  },
+  "technicalApproval": {
+    "verifier": "/root",
+    "date": "2026-10-24",
+    "status": "APPROVED_LOCAL; independent Gates3\u20136 prepublication PASS",
+    "evidence": "actual browser, cache wire consumption, Range/lifecycle/failure tests, full constrained playback, visual, static/build and resolved native review"
+  },
+  "publication": "PENDING",
+  "independentAudit": {
+    "verifier": "/root/hls_incident_auditor",
+    "date": "2026-10-24",
+    "scope": "PASS",
+    "visual": "PASS",
+    "behavior": "PASS",
+    "reviewPerformance": "PASS",
+    "prepublicationRecords": "PASS exact28scopedpaths/index13sourcehashes/whitespace/main+origin",
+    "public": "PENDING"
+  }
+}

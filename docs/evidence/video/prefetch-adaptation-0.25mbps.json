@@ -1,0 +1,487 @@
+{
+  "date": "2026-10-24",
+  "initialRateMbps": 0.25,
+  "conditions": "Proxy applies 100ms+body bytes/configured initial rate per film response until playtime20s, then8Mbps throughend; whole response delayed, per-request cap not aggregate link. NativeWebKit emulated, notphysicaldevice",
+  "rows": [
+    {
+      "name": "native",
+      "probe": {
+        "events": [
+          {
+            "e": "waiting",
+            "ms": 29,
+            "time": 0
+          },
+          {
+            "e": "playing",
+            "ms": 427,
+            "time": 3e-06
+          },
+          {
+            "e": "waiting",
+            "ms": 441,
+            "time": 4e-06
+          },
+          {
+            "e": "playing",
+            "ms": 445,
+            "time": 7.675e-05
+          },
+          {
+            "e": "waiting",
+            "ms": 6453,
+            "time": 6.00745566255188
+          },
+          {
+            "e": "playing",
+            "ms": 7695,
+            "time": 6.001537875
+          },
+          {
+            "e": "ended",
+            "ms": 61730,
+            "time": 59.9996176244775
+          }
+        ],
+        "qualities": [
+          {
+            "time": 3e-06,
+            "height": 360,
+            "ms": 434
+          },
+          {
+            "time": 6.0016035,
+            "height": 144,
+            "ms": 7707
+          }
+        ],
+        "started": 15527,
+        "first": 433
+      },
+      "engine": "native-hls",
+      "ended": true,
+      "time": 59.9996176244775,
+      "slowWire": [
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00003.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/720p/index.m3u8",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/720p/init.mp4",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00001.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/index.m3u8",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/init.mp4",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00002.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00003.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00004.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00005.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00006.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00007.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00008.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00009.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00010.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00011.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00012.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00013.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00014.m4s",
+          "range": null
+        }
+      ],
+      "fastWire": [
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00015.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00016.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00017.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00018.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00019.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00020.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00021.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00022.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00023.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00024.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00025.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00026.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00027.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00028.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00029.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00030.m4s",
+          "range": null
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "mse",
+      "probe": {
+        "events": [
+          {
+            "e": "waiting",
+            "ms": 135,
+            "time": 0
+          },
+          {
+            "e": "playing",
+            "ms": 615.2000000476837,
+            "time": 0.000276
+          },
+          {
+            "e": "waiting",
+            "ms": 18605.300000071526,
+            "time": 17.941534
+          },
+          {
+            "e": "playing",
+            "ms": 19469.300000071526,
+            "time": 17.984413
+          },
+          {
+            "e": "waiting",
+            "ms": 21454.200000047684,
+            "time": 19.925453
+          },
+          {
+            "e": "playing",
+            "ms": 22175.600000023842,
+            "time": 19.968174
+          },
+          {
+            "e": "ended",
+            "ms": 62389,
+            "time": 60.12
+          }
+        ],
+        "qualities": [
+          {
+            "time": 0.006813,
+            "height": 360,
+            "ms": 621.7000000476837
+          },
+          {
+            "time": 8.080205,
+            "height": 144,
+            "ms": 8738.400000095367
+          },
+          {
+            "time": 18.07426,
+            "height": 360,
+            "ms": 19603.900000095367
+          },
+          {
+            "time": 20.085085,
+            "height": 144,
+            "ms": 22337.100000023842
+          },
+          {
+            "time": 26.050819,
+            "height": 360,
+            "ms": 28304
+          }
+        ],
+        "started": 15230,
+        "first": 621.7000000476837
+      },
+      "engine": "mse-hls",
+      "ended": true,
+      "time": 60.12,
+      "slowWire": [
+        {
+          "phase": "mse-1mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00003.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/index.m3u8",
+          "range": null
+        },
+        {
+          "phase": "mse-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/init.mp4",
+          "range": null
+        },
+        {
+          "phase": "mse-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00003.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00004.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00005.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00006.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00007.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00008.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-1mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00009.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00009.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00010.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-1mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00011.m4s",
+          "range": null
+        }
+      ],
+      "fastWire": [
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/144p/segment-00012.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00013.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00014.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00015.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00016.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00017.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00018.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00019.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00020.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00021.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00022.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00023.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00024.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00025.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00026.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00027.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00028.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00029.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00030.m4s",
+          "range": null
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "validForBandwidthAcceptance": false,
+  "limitation": "Whole-response delay appears as TTFB and does not model streamed aggregate bandwidth; retained diagnostic only, superseded by aggregate byte-stream receipt."
+}

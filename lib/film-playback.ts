@@ -1,3 +1,5 @@
+import { stopFilmPreload } from './film-preload';
+import { filmCacheAbr } from './film-cache-abr';
 import type Hls from 'hls.js';
 import { suspendImageTransfers } from './media-resource';
 
@@ -46,6 +48,7 @@ export function releaseFilm(video: HTMLVideoElement) {
 
 /** Standard HLS engines own ABR; this adapter owns the site's modal lifecycle. */
 export function playProductFilm(video: HTMLVideoElement) {
+  stopFilmPreload(video);
   releaseFilm(video);
   let alive = true, fallbackUsed = false, hls: Hls | undefined;
   let watchdog: ReturnType<typeof setTimeout> | undefined;
@@ -153,6 +156,10 @@ export function playProductFilm(video: HTMLVideoElement) {
     if (!Engine.isSupported()) { fallback(); return; }
     video.dataset.playback = 'mse-hls';
     hls = new Engine({
+      abrController: filmCacheAbr(Engine),
+      // Cached startup has no network samples yet. This conservative prior
+      // supports 360p but cannot justify an uncached HD upswitch.
+      abrEwmaDefaultEstimate: video.dataset.preload === 'ready' ? 1100000 : 500000,
       autoStartLoad: false,
       workerPath: '/vendor/hls-worker-1.7.3-runtime.js',
       lowLatencyMode: false,

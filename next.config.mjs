@@ -2,6 +2,7 @@
 const config = {
   async headers() {
     return [
+      { source: '/film-start-sw.js', headers: [{ key: 'Cache-Control', value: 'no-cache' }] },
       { source: '/films/:film/:version/:path*', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
       { source: '/vendor/hls-worker-1.7.3.js', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },
       { source: '/vendor/hls-worker-1.7.3-runtime.js', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] },

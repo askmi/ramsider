@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-24",
+  "conditions": "Compared unchanged approved v3 closed-player composition to final preload candidate; both screenshot images also inspected by root",
+  "rows": [
+    {
+      "profile": "iphone-17-pro-webkit",
+      "dimensions": {
+        "format": "raw",
+        "width": 402,
+        "height": 874,
+        "channels": 4,
+        "depth": "uchar",
+        "premultiplied": false,
+        "hasAlpha": true,
+        "size": 1405392
+      },
+      "changedChannelBytes": 0
+    },
+    {
+      "profile": "iphone-17-pro-max-webkit",
+      "dimensions": {
+        "format": "raw",
+        "width": 440,
+        "height": 956,
+        "channels": 4,
+        "depth": "uchar",
+        "premultiplied": false,
+        "hasAlpha": true,
+        "size": 1682560
+      },
+      "changedChannelBytes": 0
+    }
+  ]
+}

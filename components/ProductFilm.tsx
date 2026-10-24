@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { FilmCopy } from '@/lib/product-film';
 import type { FilmAsset } from '@/lib/product-film-catalog';
+import { prepareFilmStart } from '@/lib/film-preload';
 import { playProductFilm, releaseFilm, warmFilmEngine } from '@/lib/film-playback';
 
 export function ProductFilm({ copy, closeLabel, locale, film }: { copy: FilmCopy; closeLabel: string; locale: string; film: FilmAsset }) {
@@ -14,12 +15,13 @@ export function ProductFilm({ copy, closeLabel, locale, film }: { copy: FilmCopy
     if (!media) return;
     const feedback = (event: Event) => { if (dialog.current?.open) setStatus((event as CustomEvent<'loading' | 'blocked' | 'error'>).detail); };
     media.addEventListener('film-status', feedback);
+    const stopPreload = prepareFilmStart(media, film.preload, () => warmFilmEngine(media));
     const observer = new IntersectionObserver(entries => {
       if (entries.some(entry => entry.isIntersecting)) { warmFilmEngine(media); observer.disconnect(); }
     }, { rootMargin: '600px' });
     const opener = document.getElementById('film-play'); if (opener) observer.observe(opener);
-    return () => { observer.disconnect(); media.removeEventListener('film-status', feedback); releaseFilm(media); };
-  }, []);
+    return () => { stopPreload(); observer.disconnect(); media.removeEventListener('film-status', feedback); releaseFilm(media); };
+  }, [film.preload]);
   return <dialog ref={dialog} id="product-film" className="product-film" lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} aria-labelledby="product-film-title" aria-describedby="product-film-hint" onClose={() => {
     // close is queued: a new open gesture may already have reopened this dialog.
     if (dialog.current?.open) return;

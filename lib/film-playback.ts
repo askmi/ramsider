@@ -32,8 +32,17 @@ function loadEngine() {
   });
 }
 
-export function warmFilmEngine(video: HTMLVideoElement) {
-  if (!nativeHls(video)) void loadEngine().catch(() => {});
+export function warmFilmEngine(video: HTMLVideoElement, signal?: AbortSignal): Promise<void> {
+  if (nativeHls(video)) return Promise.resolve();
+  // The standalone worker is requested only when the first fragment arrives.
+  // Warm its ordinary HTTP cache too; this is JS, not another video segment.
+  const worker = signal ? fetch('/vendor/hls-worker-1.7.3-runtime.js', {
+    priority: 'low', cache: 'force-cache', signal,
+  }).then(async response => {
+    if (!response.ok) throw new Error('Film worker warm unavailable');
+    await response.arrayBuffer();
+  }) : Promise.resolve();
+  return Promise.allSettled([loadEngine(), worker]).then(() => {});
 }
 
 export function releaseFilm(video: HTMLVideoElement) {

@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-24",
+  "samples": [
+    {
+      "label": "three-segment-preload",
+      "port": 3176,
+      "conditions": "cold Chromium402x874 DPR3 /4Mbps100ms4xCPU, first snapshot5s afterDOMContentLoaded; scroll unthrottled",
+      "lcp": 944,
+      "cls": 0.00022206073455854325,
+      "fcp": 632,
+      "ttfb": 293.3000000715256,
+      "htmlBytes": 230487,
+      "heroReady": true,
+      "videoRequests": 6,
+      "totalCompletedBytes": 2627365,
+      "jsCompletedBytes": 337372,
+      "videoCompletedBytes": 442204,
+      "scroll": {
+        "frames": 99,
+        "p95": 16.799999999999272,
+        "over33": 2
+      }
+    }
+  ],
+  "limits": "One synthetic sample per version; no fieldINP, physical Safari or Lighthouse score. Completed bytes are phase-limited, not eventual total. Concurrent worker-followup QA; this historical overwritten sample retained separately, not the original baseline."
+}

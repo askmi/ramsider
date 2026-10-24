@@ -256,3 +256,5 @@ CHG0141 v3: runtimeCLI positiveall6reuse/newreceiptparent +negativeaudio/source/
 - SILENT_MEDIA_QA actual run PASS: both film browser suites install muted+volume0 play wrapper; completed local network probes likewise silent; no subjective-audio proof.
 
 - Evaluation boundary: the PASS results above are product/runtime QA and installed test-output muting checks. A controlled fresh-agent behavioral replay for PREFETCH_NATIVE_REUSE/SILENT_MEDIA_QA is NOT_RUN; these product fixes do not prove improved agent behavior.
+
+- CHG0142 workerfollowup productQA:27PASS17SKIP/CLEANreviews, actual worker onepreintent/zeroafter/nativezero, sourceaudio unchanged; controlledfresh-agentbehaviorNOT_RUN. Publicfollowupverificationpending.

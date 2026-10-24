@@ -22,7 +22,7 @@ function controlPage() {
 }
 
 /** Optional bounded warm-up, independent of page readiness and playback gesture. */
-export function prepareFilmStart(video: HTMLVideoElement, files: FilmPreloadFile[], warmEngine: () => void) {
+export function prepareFilmStart(video: HTMLVideoElement, files: FilmPreloadFile[], warmEngine: (signal: AbortSignal) => Promise<void>) {
   stopFilmPreload(video);
   let stopped = false, running = false, fonts = false, scheduled = false, frozen = false;
   let transfer: AbortController | undefined;
@@ -51,7 +51,7 @@ export function prepareFilmStart(video: HTMLVideoElement, files: FilmPreloadFile
     try {
       await controlPage();
       if (signal.aborted || stopped) return;
-      warmEngine();
+      const engineReady = warmEngine(signal);
       const cache = await caches.open(CACHE);
       const urls = new Set(files.map(file => new URL(file.url, location.href).href));
       for (const request of await cache.keys()) if (!urls.has(request.url)) await cache.delete(request);
@@ -70,6 +70,7 @@ export function prepareFilmStart(video: HTMLVideoElement, files: FilmPreloadFile
         headers.set('content-length', String(body.byteLength));
         await cache.put(file.url, new Response(body, { status: 200, headers }));
       }
+      await engineReady;
       if (!stopped && !signal.aborted) { video.dataset.preload = 'ready'; stop(); }
     } catch {
       if (!stopped) video.dataset.preload = signal.aborted ? 'waiting' : 'unavailable';

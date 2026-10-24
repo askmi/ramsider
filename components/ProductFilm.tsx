@@ -15,7 +15,7 @@ export function ProductFilm({ copy, closeLabel, locale, film }: { copy: FilmCopy
     if (!media) return;
     const feedback = (event: Event) => { if (dialog.current?.open) setStatus((event as CustomEvent<'loading' | 'blocked' | 'error'>).detail); };
     media.addEventListener('film-status', feedback);
-    const stopPreload = prepareFilmStart(media, film.preload, () => warmFilmEngine(media));
+    const stopPreload = prepareFilmStart(media, film.preload, signal => warmFilmEngine(media, signal));
     const observer = new IntersectionObserver(entries => {
       if (entries.some(entry => entry.isIntersecting)) { warmFilmEngine(media); observer.disconnect(); }
     }, { rootMargin: '600px' });

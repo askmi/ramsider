@@ -1,17 +1,17 @@
 {
   "date": "2026-10-24",
   "change": "CHG0142",
-  "status": "VERIFIED_LOCAL / independent Gates3\u20135 PASS / publication pending",
+  "status": "VERIFIED_LOCAL worker followup / independent affected Gates4\u20136 prepublication PASS",
   "baseCommit": "6310c28e9eefb74100047b628d7bacb7cd0bf4fe",
   "sourceSHA256": {
-    "lib/film-preload.ts": "040e4426ef6f37c289b54b1f37c5cdd6480e446977d38ccf44ab9ae624ac56a8",
+    "lib/film-preload.ts": "f89fd7de698efa6f6c05821c83c78fe46084cc4d76fd24315546da06969551c0",
     "lib/film-cache-abr.ts": "70e991bbf3192984e90135a2bca76c4f353cfebebf323a18bfe75aa3b710f24e",
-    "lib/film-playback.ts": "e242326f83f334af7d4ade7812d29136c69f7792ef7cdef60b299266ee7798e8",
+    "lib/film-playback.ts": "fd61bc2e8796f012db65c91ca1f39ce65cc36690b3ef55516a147414a63e3a5f",
     "lib/product-film-catalog.ts": "deea7dd011fc5c63196d6bfb30481ddb2d8dd94ac349db0256161c6b4519b141",
-    "components/ProductFilm.tsx": "c522dc3142729d08dac3862fcd2b423df1d52c5969c45135262cc3420c9ab879",
+    "components/ProductFilm.tsx": "7f38a17cb55db694a0d6ba0a4a231b59b45608ea3054a858f7258c81cfebd3c6",
     "public/film-start-sw.js": "16180758b6422920376aa241089fb8511df19876f8dfeef6e9dd563dd2481257",
     "next.config.mjs": "9c81bc527707a5a27377140429d3e770fa407bec0a4ccf7aa8190e59a89bf1e9",
-    "tests/e2e/film-prefetch.spec.ts": "bf77bc7dcd248a0d12ee6d2dd4454075488d70cfa5513c9ea81b9ad0f517062c",
+    "tests/e2e/film-prefetch.spec.ts": "dff762b075acd58ad9a39d295b26a1a03a3790b49c14e2809fa88a627dbba1f0",
     "tests/e2e/film-cache-abr.spec.ts": "62ce000ba11c1a0679db9b521f4b84f04bb32605646423b8492ce7a10b2b483c",
     "tests/e2e/product-film.spec.ts": "6d497d6030a2c45ee4d2549a9443b095dcf156c8ed0c79c19e7f1241eb6db588",
     "tests/e2e/silent-media.ts": "793957850b149ffae3e1d769dfbb2da6668b95f01d14c7813a565e237fe9a802",
@@ -27,7 +27,10 @@
     "beforeIntentFourthSegment": false,
     "autoplayBeforeIntent": false,
     "firstViewportWaitsForPreload": false,
-    "audioPackage": "unchanged en-v3 original AAC"
+    "audioPackage": "unchanged en-v3 original AAC",
+    "optionalMseWorkerDecodedBytes": 118194,
+    "mediaObjects": 6,
+    "budgetLimit": "440431B media bootstrap plus optional MSE engine and worker JavaScript; not six overall network requests"
   },
   "browserChecks": {
     "silentSWLifecycle": {
@@ -107,5 +110,24 @@
     "reviewPerformance": "PASS",
     "prepublicationRecords": "PASS exact28scopedpaths/index13sourcehashes/whitespace/main+origin",
     "public": "PENDING"
+  },
+  "workerFollowup": {
+    "previousPublishedCommit": "d3f9c709c4e19d1d2df1be87bf87067fa6a48b5f",
+    "previousPublicReceipt": "prefetch-public-browser-d3f9c70.json",
+    "cause": "Six media objects were warm but worker script was first requested on Play. Background readiness did not await engine settlement. PublicMSEfirstframe1694ms triggered followup.",
+    "mechanismProbe": "prefetch-public-startup-probe.json: one control996ms/workerHTTPwarm184ms; postclickworker42994wireB\u21920; exploratory not sole-causality or population proof",
+    "change": "MSE background worker lowpriorityforce-cache fetch uses producer AbortSignal; library+worker promises settle before backgroundready. Native no worker. Foreground Play never awaits optional producer.",
+    "budget": "worker118194B decoded/~43KB compressed public wire + existing enginewarm; six mediaobjects440431B unchanged",
+    "wire": "prefetch-worker-consumption.json: MSE exactlyoneworkerbeforeWatch/zeroafter; nativezeroworker; bothall3cachedsegments/time>8/zero matchingmediawire",
+    "browserSuite": "27PASS17SKIP /tmp/preload-worker-pw.log; optionalworkerfailure + pendingworkerabortWatch included, QA muted",
+    "nativeReview": "CLEAN /tmp/preload-worker-review.log plus finaltestonlyCLEAN /tmp/preload-worker-handoff-review.log; runtimechecksperformedinmain not reviewer dependency-limited checkout",
+    "static": "type/lintPASS /tmp/preload-worker-types-final.log + lint-final; buildPASS /tmp/preload-worker-build-final.log; inheritedTelegramwarning",
+    "performance": "prefetch-worker-performance.json: LCP500/FCP484/CLS.000222; JSassetbytes378583 includesworkerfetch (+157033 vs priorv3 baseline221550); media442204wire; scrollp9516.7ms. Priorconcurrent944ms sample retained, firstTTFB293ms, not causality proof.",
+    "technicalApproval": {
+      "verifier": "/root",
+      "date": "2026-10-24",
+      "status": "APPROVED_LOCAL; independent /root/hls_incident_auditor affected Gates4/5/exact15pathGate6 PASS"
+    },
+    "publication": "PENDING"
   }
 }

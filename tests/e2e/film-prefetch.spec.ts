@@ -154,6 +154,43 @@ test('evicted startup cache uses ordinary delivery and still plays', async ({ pa
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(1);
 });
 
+test('an optional worker warm failure cannot poison ordinary MSE playback', async ({ page }, info) => {
+  test.skip(info.project.name !== 'desktop-chromium', 'MSE worker-specific owner');
+  await page.addInitScript(() => {
+    const original = window.fetch;
+    window.fetch = async (input, init) => {
+      if (String(input).includes('/vendor/hls-worker-') && init?.cache === 'force-cache') throw new TypeError('Optional worker fetch failed');
+      return original(input, init);
+    };
+  });
+  await page.goto('/en');
+  await expect(page.locator('video')).toHaveAttribute('data-preload', 'ready', { timeout: 40000 });
+  await page.locator('#film-play').click();
+  await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(.2);
+});
+
+test('Watch cancels a pending worker warm without waiting for optional preparation', async ({ page }, info) => {
+  test.skip(info.project.name !== 'desktop-chromium', 'MSE worker-specific owner');
+  await page.addInitScript(() => {
+    const original = window.fetch;
+    const state = window as Window & { workerAborted?: boolean };
+    window.fetch = async (input, init) => {
+      if (String(input).includes('/vendor/hls-worker-') && init?.cache === 'force-cache') {
+        await new Promise((_, reject) => {
+          init.signal?.addEventListener('abort', () => { state.workerAborted = true; reject(new DOMException('Cancelled', 'AbortError')); }, { once: true });
+        });
+      }
+      return original(input, init);
+    };
+  });
+  await page.goto('/en');
+  await expect.poll(() => page.evaluate(async () => (await (await caches.open('film-start-v1')).keys()).length), { timeout: 40000 }).toBe(6);
+  await expect(page.locator('video')).toHaveAttribute('data-preload', 'loading');
+  await page.locator('#film-play').click();
+  await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 15000 }).toBeGreaterThan(.2);
+  expect(await page.evaluate(() => (window as Window & { workerAborted?: boolean }).workerAborted)).toBe(true);
+});
+
 test('locale navigation unmounts and aborts the pending optional producer', async ({ page }) => {
   await page.addInitScript(() => {
     const original = window.fetch;

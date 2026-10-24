@@ -1,0 +1,124 @@
+{
+  "date": "2026-10-24",
+  "commit": "d3f9c709c4e19d1d2df1be87bf87067fa6a48b5f",
+  "url": "https://ramsider-main.vercel.app/en?v=d3f9c70#film-play",
+  "http": {
+    "status": 200,
+    "mime": "application/javascript; charset=utf-8",
+    "cache": "no-cache",
+    "sha256": "16180758b6422920376aa241089fb8511df19876f8dfeef6e9dd563dd2481257"
+  },
+  "rows": [
+    {
+      "name": "native",
+      "before": {
+        "src": null,
+        "paused": true,
+        "time": 0,
+        "keys": [
+          "/films/uno-introduction/en-v3/master.m3u8",
+          "/films/uno-introduction/en-v3/360p/index.m3u8",
+          "/films/uno-introduction/en-v3/360p/init.mp4",
+          "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+          "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+          "/films/uno-introduction/en-v3/360p/segment-00002.m4s"
+        ],
+        "sizes": [
+          937,
+          1283,
+          1394,
+          134771,
+          149574,
+          152472
+        ]
+      },
+      "warm": [
+        "/films/uno-introduction/en-v3/master.m3u8",
+        "/films/uno-introduction/en-v3/360p/index.m3u8",
+        "/films/uno-introduction/en-v3/360p/init.mp4",
+        "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+        "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+        "/films/uno-introduction/en-v3/360p/segment-00002.m4s"
+      ],
+      "playing": {
+        "engine": "native-hls",
+        "time": 8.012662249949068,
+        "width": 1280,
+        "firstFrame": {
+          "at": 15962,
+          "width": 640,
+          "height": 360,
+          "delay": 663
+        },
+        "muted": true,
+        "volume": 0
+      },
+      "cacheHitResponses": [
+        "/films/uno-introduction/en-v3/master.m3u8",
+        "/films/uno-introduction/en-v3/360p/index.m3u8",
+        "/films/uno-introduction/en-v3/360p/init.mp4",
+        "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+        "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+        "/films/uno-introduction/en-v3/360p/segment-00002.m4s"
+      ],
+      "closed": true,
+      "errors": []
+    },
+    {
+      "name": "mse",
+      "before": {
+        "src": null,
+        "paused": true,
+        "time": 0,
+        "keys": [
+          "/films/uno-introduction/en-v3/master.m3u8",
+          "/films/uno-introduction/en-v3/360p/index.m3u8",
+          "/films/uno-introduction/en-v3/360p/init.mp4",
+          "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+          "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+          "/films/uno-introduction/en-v3/360p/segment-00002.m4s"
+        ],
+        "sizes": [
+          937,
+          1283,
+          1394,
+          134771,
+          149574,
+          152472
+        ]
+      },
+      "warm": [
+        "/films/uno-introduction/en-v3/master.m3u8",
+        "/films/uno-introduction/en-v3/360p/index.m3u8",
+        "/films/uno-introduction/en-v3/360p/init.mp4",
+        "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+        "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+        "/films/uno-introduction/en-v3/360p/segment-00002.m4s"
+      ],
+      "playing": {
+        "engine": "mse-hls",
+        "time": 8.008963,
+        "width": 1280,
+        "firstFrame": {
+          "at": 17630.299999952316,
+          "width": 640,
+          "height": 360,
+          "delay": 1693.6999999284744
+        },
+        "muted": true,
+        "volume": 0
+      },
+      "cacheHitResponses": [
+        "/films/uno-introduction/en-v3/master.m3u8",
+        "/films/uno-introduction/en-v3/360p/index.m3u8",
+        "/films/uno-introduction/en-v3/360p/init.mp4",
+        "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+        "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+        "/films/uno-introduction/en-v3/360p/segment-00002.m4s"
+      ],
+      "closed": true,
+      "errors": []
+    }
+  ],
+  "limits": "Fresh emulated browser contexts; QA muted only, not physicalphone/unmutedautoplay proof. Native media hit response events may be opaque; localinstrumentedwire consumption+publicidenticalworker establishmechanism."
+}

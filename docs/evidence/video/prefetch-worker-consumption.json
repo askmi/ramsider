@@ -1,0 +1,431 @@
+{
+  "date": "2026-10-24",
+  "conditions": "Loopback proxy injects cache-hit postMessage into worker only for this probe; shipped worker has no telemetry; emulatednative notphysicaliPhone",
+  "rows": [
+    {
+      "name": "native",
+      "firstFrame": {
+        "at": 1093,
+        "width": 640,
+        "height": 360,
+        "delay": 230
+      },
+      "hits": [
+        {
+          "path": "/films/uno-introduction/en-v3/master.m3u8",
+          "range": null,
+          "method": "GET"
+        },
+        {
+          "path": "/films/uno-introduction/en-v3/360p/index.m3u8",
+          "range": null,
+          "method": "GET"
+        },
+        {
+          "path": "/films/uno-introduction/en-v3/360p/init.mp4",
+          "range": null,
+          "method": "GET"
+        },
+        {
+          "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+          "range": null,
+          "method": "GET"
+        },
+        {
+          "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+          "range": null,
+          "method": "GET"
+        },
+        {
+          "path": "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+          "range": null,
+          "method": "GET"
+        },
+        {
+          "path": "/films/uno-introduction/en-v3/360p/segment-00002.m4s",
+          "range": null,
+          "method": "GET"
+        }
+      ],
+      "time": 8.01303449929776,
+      "width": 1280,
+      "engine": "native-hls",
+      "preWire": [
+        {
+          "phase": "native-load",
+          "path": "/films/uno-introduction/en-v3/master.m3u8",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "native-load",
+          "path": "/films/uno-introduction/en-v3/360p/index.m3u8",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "native-load",
+          "path": "/films/uno-introduction/en-v3/360p/init.mp4",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "native-load",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "native-load",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "native-load",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00002.m4s",
+          "range": null,
+          "warm": true
+        }
+      ],
+      "playWire": [
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00003.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00004.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/index.m3u8",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/init.mp4",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00000.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00001.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00002.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00003.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00004.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00005.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00006.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00007.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00008.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00009.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00010.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00011.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00012.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00013.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00014.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00015.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00016.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00017.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00018.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00019.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00020.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00021.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00022.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00023.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00024.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00025.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00026.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00027.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00028.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00029.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "native-play",
+          "path": "/films/uno-introduction/en-v3/720p/segment-00030.m4s",
+          "range": null,
+          "warm": false
+        }
+      ]
+    },
+    {
+      "name": "mse",
+      "firstFrame": {
+        "at": 1422.3999999761581,
+        "width": 640,
+        "height": 360,
+        "delay": 390.2999999523163
+      },
+      "hits": [
+        {
+          "path": "/films/uno-introduction/en-v3/master.m3u8",
+          "range": null,
+          "method": "GET"
+        },
+        {
+          "path": "/films/uno-introduction/en-v3/360p/index.m3u8",
+          "range": null,
+          "method": "GET"
+        },
+        {
+          "path": "/films/uno-introduction/en-v3/360p/init.mp4",
+          "range": null,
+          "method": "GET"
+        },
+        {
+          "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+          "range": null,
+          "method": "GET"
+        },
+        {
+          "path": "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+          "range": null,
+          "method": "GET"
+        },
+        {
+          "path": "/films/uno-introduction/en-v3/360p/segment-00002.m4s",
+          "range": null,
+          "method": "GET"
+        }
+      ],
+      "time": 8.139118,
+      "width": 640,
+      "engine": "mse-hls",
+      "preWire": [
+        {
+          "phase": "mse-load",
+          "path": "/vendor/hls-worker-1.7.3-runtime.js",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "mse-load",
+          "path": "/films/uno-introduction/en-v3/master.m3u8",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "mse-load",
+          "path": "/films/uno-introduction/en-v3/360p/index.m3u8",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "mse-load",
+          "path": "/films/uno-introduction/en-v3/360p/init.mp4",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "mse-load",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "mse-load",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+          "range": null,
+          "warm": true
+        },
+        {
+          "phase": "mse-load",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00002.m4s",
+          "range": null,
+          "warm": true
+        }
+      ],
+      "playWire": [
+        {
+          "phase": "mse-play",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00003.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "mse-play",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00004.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "mse-play",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00005.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "mse-play",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00006.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "mse-play",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00007.m4s",
+          "range": null,
+          "warm": false
+        },
+        {
+          "phase": "mse-play",
+          "path": "/films/uno-introduction/en-v3/360p/segment-00008.m4s",
+          "range": null,
+          "warm": false
+        }
+      ]
+    }
+  ]
+}

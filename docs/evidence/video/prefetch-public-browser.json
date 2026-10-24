@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-24",
+  "commit": "2ffecd782ab47701158ab5aec121e08b13db5675",
+  "url": "https://ramsider-main.vercel.app/en?v=2ffecd7#film-play",
+  "http": {
+    "status": 200,
+    "mime": "application/javascript; charset=utf-8",
+    "cache": "no-cache",
+    "sha256": "16180758b6422920376aa241089fb8511df19876f8dfeef6e9dd563dd2481257"
+  },
+  "rows": [
+    {
+      "name": "native",
+      "before": {
+        "src": null,
+        "paused": true,
+        "time": 0,
+        "keys": [
+          "/films/uno-introduction/en-v3/master.m3u8",
+          "/films/uno-introduction/en-v3/360p/index.m3u8",
+          "/films/uno-introduction/en-v3/360p/init.mp4",
+          "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+          "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+          "/films/uno-introduction/en-v3/360p/segment-00002.m4s"
+        ],
+        "workerBefore": [],
+        "sizes": [
+          937,
+          1283,
+          1394,
+          134771,
+          149574,
+          152472
+        ]
+      },
+      "warm": [
+        "/films/uno-introduction/en-v3/master.m3u8",
+        "/films/uno-introduction/en-v3/360p/index.m3u8",
+        "/films/uno-introduction/en-v3/360p/init.mp4",
+        "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+        "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+        "/films/uno-introduction/en-v3/360p/segment-00002.m4s"
+      ],
+      "playing": {
+        "engine": "native-hls",
+        "time": 8.019327832755124,
+        "width": 640,
+        "firstFrame": {
+          "at": 11057,
+          "width": 640,
+          "height": 360,
+          "delay": 1330
+        },
+        "muted": true,
+        "volume": 0,
+        "workerAfter": []
+      },
+      "cacheHitResponses": [
+        "/films/uno-introduction/en-v3/master.m3u8",
+        "/films/uno-introduction/en-v3/360p/index.m3u8",
+        "/films/uno-introduction/en-v3/360p/init.mp4",
+        "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+        "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+        "/films/uno-introduction/en-v3/360p/segment-00002.m4s"
+      ],
+      "closed": true,
+      "errors": []
+    },
+    {
+      "name": "mse",
+      "before": {
+        "src": null,
+        "paused": true,
+        "time": 0,
+        "keys": [
+          "/films/uno-introduction/en-v3/master.m3u8",
+          "/films/uno-introduction/en-v3/360p/index.m3u8",
+          "/films/uno-introduction/en-v3/360p/init.mp4",
+          "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+          "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+          "/films/uno-introduction/en-v3/360p/segment-00002.m4s"
+        ],
+        "workerBefore": [
+          {
+            "type": "fetch",
+            "start": 5270.899999976158,
+            "transfer": 42994
+          }
+        ],
+        "sizes": [
+          937,
+          1283,
+          1394,
+          134771,
+          149574,
+          152472
+        ]
+      },
+      "warm": [
+        "/films/uno-introduction/en-v3/master.m3u8",
+        "/films/uno-introduction/en-v3/360p/index.m3u8",
+        "/films/uno-introduction/en-v3/360p/init.mp4",
+        "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+        "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+        "/films/uno-introduction/en-v3/360p/segment-00002.m4s"
+      ],
+      "playing": {
+        "engine": "mse-hls",
+        "time": 8.020272,
+        "width": 1280,
+        "firstFrame": {
+          "at": 13387.399999976158,
+          "width": 640,
+          "height": 360,
+          "delay": 822.3000000715256
+        },
+        "muted": true,
+        "volume": 0,
+        "workerAfter": [
+          {
+            "type": "other",
+            "start": 12902.599999904633,
+            "transfer": 0
+          }
+        ]
+      },
+      "cacheHitResponses": [
+        "/films/uno-introduction/en-v3/master.m3u8",
+        "/films/uno-introduction/en-v3/360p/index.m3u8",
+        "/films/uno-introduction/en-v3/360p/init.mp4",
+        "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+        "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+        "/films/uno-introduction/en-v3/360p/segment-00002.m4s"
+      ],
+      "closed": true,
+      "errors": []
+    }
+  ],
+  "limits": "Fresh emulated browser contexts; QA muted only, not physicalphone/unmutedautoplay proof. Native media hit response events may be opaque; localinstrumentedwire consumption+publicidenticalworker establishmechanism."
+}

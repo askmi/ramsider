@@ -10,7 +10,7 @@
       "ended": true,
       "engine": "mse-hls",
       "error": null,
-      "firstPlayingMs": 1307.1000000238419,
+      "firstPlayingMs": 498.39999997615814,
       "waits": []
     },
     {
@@ -21,14 +21,9 @@
       "ended": true,
       "engine": "mse-hls",
       "error": null,
-      "firstPlayingMs": 247.09999990463257,
+      "firstPlayingMs": 228.09999990463257,
       "waits": []
     }
   ],
-  "errors": [],
-  "conditions": {
-    "origin": "https://ramsider-main.vercel.app",
-    "release": "be817995ebb6bbaac46d5ad29aa8094d82ece01b",
-    "run": "7PASS9explicitSKIPpublicverification; premetadatafollowup"
-  }
+  "errors": []
 }

@@ -77,6 +77,7 @@ Durable source/content/hash/performance/geometry/selectedimage evidence: `docs/e
 
 After local verification the owner accepted the appearance («Да, выглядит нормально») and explicitly requested commit/deploy of all completed work. Publish the verified current feature and its reference/records plus completed certificate/footer receipts to origin/main; exclude private licence/policy sources. Prior no-publication statements above describe the earlier implementation stage and are now superseded. The appearance approval does not independently confirm the supplied medical/product claims. Exact-SHA publication outcome: `docs/evidence/wellness/publication.json`.
 
+Publication outcome2026-10-22: main43374087fdfb91fae38f871ba5a416cd4a80114e pushed, bothVercelcontexts and exactSHAProduction7245991113/Preview7246004422SUCCESS. ActualcanonicalPro/Max22RGBApairs equalapprovedlocal; fourPNGHTTPmime/SHA exact, copiedEnglish/geometry/closefocus-scroll/reopenEndBack/ArabicRTL/footerretention/noerrorsPASS. Providerpaneldomainassignmentinspection unavailable (CLIunconfiguredauth, browserbusinesspolicyblock; notbypassed); no suchpanelconfirmationclaimed. GitHubpositiveProductionevidence andactualpublicretention remainvalid. Finalindependenttransport/canonical/recordsPASS /root/wellness_priority_auditor2026-10-22; outcome receiptslocal, no runtimechanges aftercommit.
 
 ## Approved lossless delivery specification — CHG0133, 2026-10-22
 

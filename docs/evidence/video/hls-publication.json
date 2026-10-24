@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-24",
+  "change": "CHG0141",
+  "state": "VERIFIED_PUBLISHED_QUALIFIED_RELEASE",
+  "commit": "de43e9e8486dd9f18ffd13b3761e7c480331fdd1",
+  "repository": "askmi/ramsider",
+  "branch": "main",
+  "remoteExact": true,
+  "targets": [
+    {
+      "project": "ramsider",
+      "context": "Vercel \u2013 ramsider",
+      "state": "success",
+      "providerURL": "https://vercel.com/askmi-6282s-projects/ramsider/92daLRoNfXWFCwdk6KUG4TEHWkoE",
+      "deploymentID": 7288281486,
+      "environment": "Production \u2013 ramsider",
+      "environmentURL": "https://ramsider-boq6cf9sk-askmi-6282s-projects.vercel.app"
+    },
+    {
+      "project": "ramsider-beta",
+      "context": "Vercel \u2013 ramsider-beta",
+      "state": "success",
+      "providerURL": "https://vercel.com/askmi-6282s-projects/ramsider-beta/HDo8t3a1crTzKZMVwGoNZBNwzRc5",
+      "deploymentID": 7288283180,
+      "environment": "Preview \u2013 ramsider-beta",
+      "environmentURL": "https://ramsider-beta-ks2vw2uyk-askmi-6282s-projects.vercel.app"
+    }
+  ],
+  "localEvidence": "hls-verification.json",
+  "publicVerification": "PASS hls-public-verification.json all200objects/canonicalnativeProMax/bothtriggers/seek30/cleanup/0beforeintent/noerrors/oldmaster404",
+  "technicalApproval": "APPROVED /root2026-10-24 exactcommit/bothdeployments/canonicalpublicfunctional+integrity/actualimages withnativequalification; independentfinalGate6PASS /root/video_release_auditor",
+  "userResultApproval": "NOT_RECORDED",
+  "agentEval": "controlledNOT_RUN",
+  "publicScreenshots": [
+    "screenshots/video/hls/public/closed-pro.png",
+    "screenshots/video/hls/public/open-pro.png",
+    "screenshots/video/hls/public/closed-max.png",
+    "screenshots/video/hls/public/open-max.png"
+  ],
+  "closedComparison": "PASS hls-public-comparison.json0RGBAchangesbothphones againstlocallyapproved",
+  "nativeQuality": "Finalpublicnativefullendobserved:360\u2192720atplay2.12s\u2192144at32.75swithremainderprefetchedlow; errors0,8mswaitingpair. Earlier59.7swindowstayed720. Per-runvariancecauseUNKNOWN; nohighest-native-quality/strictbuffer-cap/zero-waitguarantee. Seehls-public-native-playback.json",
+  "canonical": "https://ramsider-main.vercel.app/en#film-play",
+  "freshDemo": "https://ramsider-main.vercel.app/en?v=de43e9e#film-play",
+  "finalAudit": "PASS2026-10-24 /root/video_release_auditor; deploy/publicfunctionality/qualifiedclaims only",
+  "postPublicationRecords": "Localoutcomesupplement, noextraruntimechange/push",
+  "limits": [
+    "PhysicaliPhone/Android/nativeorientationunverified",
+    "NativeABRvarianceUNKNOWNcause; fullrun720\u219214432.75s/prefetchedrestlow/8mswaitingpair",
+    "No nativehighestquality/6\u20138sbuffer-cap/universalzero-waitguarantee",
+    "No fieldINP/Lighthouse/losslessclaim"
+  ]
+}

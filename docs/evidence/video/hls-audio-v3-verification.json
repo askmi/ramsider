@@ -1,6 +1,6 @@
 {
   "date": "2026-10-24",
-  "status": "VERIFIED_LOCAL_PUBLICATION_PENDING",
+  "status": "VERIFIED_PUBLISHED_6310C28",
   "sourceHashes": {
     ".agents/skills/mobile-hls-video/SKILL.md": "ca24b11f03625e715bb0bdc9fe07bc5effdfa871087ecf788b374c2b95ec6a8e",
     ".agents/skills/mobile-hls-video/references/specification.md": "e534d3bf54e252002ed8e7f91326a6c75abd1e50e9a2411765c012097f665869",
@@ -58,7 +58,7 @@
     "gate4": "PASS",
     "gate5": "PASS",
     "prepublicationGate6": "PASS2026-10-24 /root/hls_incident_auditor",
-    "publicGate6": "PENDING"
+    "publicGate6": "PASS2026-10-24 /root/hls_incident_auditor"
   },
   "technicalApproval": {
     "date": "2026-10-24",
@@ -72,6 +72,8 @@
       "0.25Mbpsstartup6.34s/one1.17swait;adaptiveupturn15snot2s",
       "ControlledagentEVALNOT_RUN",
       "UserresultapprovalNOT_RECORDED"
-    ]
-  }
+    ],
+    "publication": "2026-10-24 /root APPROVED exactpublicobjects/native/MSE/retirement/LFS; initialassettimeoutqualified"
+  },
+  "publication": "hls-audio-v3-publication.json"
 }

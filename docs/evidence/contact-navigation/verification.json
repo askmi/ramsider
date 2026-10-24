@@ -1,7 +1,7 @@
 {
   "id": "CHG0131",
   "date": "2026-10-22",
-  "status": "VERIFIED_LOCAL",
+  "status": "VERIFIED_AND_PUBLISHED",
   "actualBefore": "navigation-contact hrefmailto:support@ramsider.com",
   "expectedAfter": "#company-contact nativeinternalnavigation",
   "runtimeChange": "one server-rendered href; no style/assets/client component/dependency changes",
@@ -257,13 +257,147 @@
     "tests/e2e/company-footer.spec.ts": "f4e18b9d781b55ba694427a722be118fccbdf58a0f27e94a5a40466fee65592a",
     "tests/e2e/navigation-menu.spec.ts": "3a5bd0b72f6b5cbd6aa59b10aa83450e2d1519cd57235611de89c597c8ba02f6"
   },
-  "technicalApproval": "2026-10-22 /root APPROVED24actualbrowserchecks/24Contactactivationcases/11HTMLlocales/nativeclean/type/lint/build/ProMaxvisual0diff",
+  "technicalApproval": "2026-10-22 /root APPROVED local24browserchecks/nativeclean/static/build/ProMaxvisual0diff +exactSHAdeploybothsuccess andcanonical12clickEnterENRUAR/11HTMLchecksPASS",
   "independentAudit": "N/A trivialoneattribute fix; native reviewperformed",
-  "publication": "AUTHORIZEDoriginmain urgentlivefix;pendingcommit/deploy",
+  "publication": {
+    "status": "PUBLISHED",
+    "sha": "9105887296f6f0f66949d840affc58e30ca227ad",
+    "branch": "origin/main",
+    "remoteVerified": true,
+    "contexts": [
+      {
+        "context": "Vercel \u2013 ramsider",
+        "state": "success",
+        "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/GY2afbUj1FB1T7rBBVuSevA6eE2G"
+      },
+      {
+        "context": "Vercel \u2013 ramsider-beta",
+        "state": "success",
+        "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/9ybPoPNLGQXwaHC2tMb3PH2JJCjJ"
+      }
+    ],
+    "production": {
+      "id": 7250028875,
+      "environment": "Production \u2013 ramsider",
+      "state": "success",
+      "url": "https://ramsider-if9ouwptu-askmi-6282s-projects.vercel.app"
+    },
+    "preview": {
+      "id": 7250015097,
+      "environment": "Preview \u2013 ramsider-beta",
+      "state": "success",
+      "url": "https://ramsider-beta-irh7zbsuk-askmi-6282s-projects.vercel.app"
+    },
+    "canonical": {
+      "url": "https://ramsider-main.vercel.app",
+      "passed": 3,
+      "skipped": 1,
+      "failed": 0,
+      "durationSeconds": 38.4,
+      "contactActivationCases": 12,
+      "all11LocalizedHTML": "PASS",
+      "rows": [
+        {
+          "rows": [
+            {
+              "locale": "en",
+              "keyboard": false,
+              "url": "https://ramsider-main.vercel.app/en#company-contact",
+              "menuClosed": true,
+              "contactHeadingVisible": true
+            },
+            {
+              "locale": "en",
+              "keyboard": true,
+              "url": "https://ramsider-main.vercel.app/en#company-contact",
+              "menuClosed": true,
+              "contactHeadingVisible": true
+            },
+            {
+              "locale": "ru",
+              "keyboard": false,
+              "url": "https://ramsider-main.vercel.app/ru#company-contact",
+              "menuClosed": true,
+              "contactHeadingVisible": true
+            },
+            {
+              "locale": "ru",
+              "keyboard": true,
+              "url": "https://ramsider-main.vercel.app/ru#company-contact",
+              "menuClosed": true,
+              "contactHeadingVisible": true
+            },
+            {
+              "locale": "ar",
+              "keyboard": false,
+              "url": "https://ramsider-main.vercel.app/ar#company-contact",
+              "menuClosed": true,
+              "contactHeadingVisible": true
+            },
+            {
+              "locale": "ar",
+              "keyboard": true,
+              "url": "https://ramsider-main.vercel.app/ar#company-contact",
+              "menuClosed": true,
+              "contactHeadingVisible": true
+            }
+          ],
+          "externalNavigations": []
+        },
+        {
+          "rows": [
+            {
+              "locale": "en",
+              "keyboard": false,
+              "url": "https://ramsider-main.vercel.app/en#company-contact",
+              "menuClosed": true,
+              "contactHeadingVisible": true
+            },
+            {
+              "locale": "en",
+              "keyboard": true,
+              "url": "https://ramsider-main.vercel.app/en#company-contact",
+              "menuClosed": true,
+              "contactHeadingVisible": true
+            },
+            {
+              "locale": "ru",
+              "keyboard": false,
+              "url": "https://ramsider-main.vercel.app/ru#company-contact",
+              "menuClosed": true,
+              "contactHeadingVisible": true
+            },
+            {
+              "locale": "ru",
+              "keyboard": true,
+              "url": "https://ramsider-main.vercel.app/ru#company-contact",
+              "menuClosed": true,
+              "contactHeadingVisible": true
+            },
+            {
+              "locale": "ar",
+              "keyboard": false,
+              "url": "https://ramsider-main.vercel.app/ar#company-contact",
+              "menuClosed": true,
+              "contactHeadingVisible": true
+            },
+            {
+              "locale": "ar",
+              "keyboard": true,
+              "url": "https://ramsider-main.vercel.app/ar#company-contact",
+              "menuClosed": true,
+              "contactHeadingVisible": true
+            }
+          ],
+          "externalNavigations": []
+        }
+      ],
+      "log": "/tmp/ramsider-contact-fix/canonical.log",
+      "rootPublicImageViewed": "screenshots/company-footer/contact-navigation-iphone-17-pro-webkit-en.png"
+    },
+    "providerPanelAliasInspection": "Notrepeated;priorCLIauthunavailable/businesspolicyblockretained. ExactGitHubProduction/Previewsuccess+publicContactbehaviorverified.",
+    "recordDisposition": "Publicationoutcome supplementlocalafterpush; no recursive receipt-onlypush."
+  },
   "userResultApproval": "NOT_RECORDED",
-  "remaining": [
-    "Commitpush exactoriginmain",
-    "BothVerceldeployments exactSHA",
-    "PublicContactactivation verification"
-  ]
+  "remaining": []
 }

@@ -131,11 +131,141 @@
   "technical_approval": {
     "date": "2026-10-22",
     "verifier": "/root",
-    "result": "APPROVED local implementation",
-    "independent_auditor": "N/A trivial scoped text-spacing edit"
+    "result": "APPROVED local and published implementation",
+    "independent_auditor": "N/A trivial scoped text-spacing edit",
+    "evidence": "25 local browser PASS/15intentional duplicate SKIP, native/type/lint/build PASS; exactSHA both Vercel success and3canonical profiles plus actual viewed Pro/Max images."
   },
   "user_result_approval": "NOT_RECORDED",
   "publication": {
-    "status": "PENDING"
+    "status": "VERIFIED",
+    "repository": "askmi/ramsider",
+    "branch": "main",
+    "sha": "81d24ef8626b335442a217e2d10e331787946829",
+    "remote_main_exact": true,
+    "staged_scope": "9 explicit paths; only CHG0132 portions of four shared records staged. Private inputs/prior diagnostic and publication changes excluded.",
+    "approval_review": "First broader proposal rejected before execution for including unrelated viewport record; narrowed commit accepted.",
+    "date": "2026-10-22",
+    "targets": [
+      {
+        "project": "ramsider",
+        "context": "Vercel \u2013 ramsider",
+        "state": "success",
+        "environment": "Production \u2013 ramsider",
+        "deployment_id": 7250749042,
+        "evidence_url": "https://vercel.com/askmi-6282s-projects/ramsider/9gTVFVFfyfWtisS4WkrFGKXs9pPw",
+        "generated_url": "https://ramsider-792f1v9wz-askmi-6282s-projects.vercel.app"
+      },
+      {
+        "project": "ramsider-beta",
+        "context": "Vercel \u2013 ramsider-beta",
+        "state": "success",
+        "environment": "Preview \u2013 ramsider-beta",
+        "deployment_id": 7250763238,
+        "evidence_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/85BTcxJB6cNr4aQ1L5gK8qKiV63s",
+        "generated_url": "https://ramsider-beta-6bbbrllnk-askmi-6282s-projects.vercel.app"
+      }
+    ],
+    "canonical_url": "https://ramsider-main.vercel.app/en#company-contact",
+    "canonical_checks": [
+      {
+        "name": "pro",
+        "width": 402,
+        "dpr": 3,
+        "canvas": 402,
+        "overflow": false,
+        "footerHeight": 408.59375,
+        "links": [
+          {
+            "href": "mailto:support@ramsider.com",
+            "height": 24,
+            "textTop": 212.09375,
+            "lineHeight": "21px",
+            "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif",
+            "fontSize": "14px",
+            "hit": true
+          },
+          {
+            "href": "mailto:partners@ramsider.com",
+            "height": 24,
+            "textTop": 236.09375,
+            "lineHeight": "21px",
+            "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif",
+            "fontSize": "14px",
+            "hit": true
+          }
+        ],
+        "contactHref": true,
+        "pageErrors": []
+      },
+      {
+        "name": "max",
+        "width": 440,
+        "dpr": 3,
+        "canvas": 440,
+        "overflow": false,
+        "footerHeight": 408.59375,
+        "links": [
+          {
+            "href": "mailto:support@ramsider.com",
+            "height": 24,
+            "textTop": 212.09375,
+            "lineHeight": "21px",
+            "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif",
+            "fontSize": "14px",
+            "hit": true
+          },
+          {
+            "href": "mailto:partners@ramsider.com",
+            "height": 24,
+            "textTop": 236.09375,
+            "lineHeight": "21px",
+            "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif",
+            "fontSize": "14px",
+            "hit": true
+          }
+        ],
+        "contactHref": true,
+        "pageErrors": []
+      },
+      {
+        "name": "desktop",
+        "width": 1440,
+        "dpr": 1,
+        "canvas": 941,
+        "overflow": false,
+        "footerHeight": 302.796875,
+        "links": [
+          {
+            "href": "mailto:support@ramsider.com",
+            "height": 24,
+            "textTop": 106.296875,
+            "lineHeight": "21px",
+            "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif",
+            "fontSize": "14px",
+            "hit": true
+          },
+          {
+            "href": "mailto:partners@ramsider.com",
+            "height": 24,
+            "textTop": 130.296875,
+            "lineHeight": "21px",
+            "font": "OpenSans, NotoButtonArabic, NotoButtonSC, NotoButtonJP, NotoButtonKR, sans-serif",
+            "fontSize": "14px",
+            "hit": true
+          }
+        ],
+        "contactHref": true,
+        "pageErrors": []
+      }
+    ],
+    "canonical_images": [
+      "/tmp/ramsider-email-spacing/public-pro.png",
+      "/tmp/ramsider-email-spacing/public-max.png"
+    ],
+    "canonical_images_viewed_by": "/root",
+    "canonical_result": "PASS3 actual browser profiles:24px email interval/native href/hit-testing/OpenSans14px21px/no overflow/errors; phone footer408.59375px; desktop canvas941. Public Pro/Max images viewed.",
+    "initial_harness_failure": "Generic footer selector matched hidden technology toolbar plus company footer; stopped strict locator. Replaced with owned .site-footer and all3profiles passed. No product failure established.",
+    "provider_panel_alias_inspection": "NOT_PERFORMED; GitHub exactSHA Production success plus actual canonical appearance verified.",
+    "outcome_records": "Local supplement after push; no recursive receipt-only publication."
   }
 }

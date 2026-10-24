@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-24",
+  "sha": "ddb17d632802031e9f27170e00410b113eac4c14",
+  "destination": "origin/main",
+  "remoteExact": true,
+  "canonical": "https://ramsider-main.vercel.app/en?v=ddb17d6#film-play",
+  "deployments": [
+    {
+      "project": "ramsider",
+      "environment": "Production",
+      "id": 7290590855,
+      "status": "success",
+      "provider": "https://vercel.com/askmi-6282s-projects/ramsider/BPAgKPjbFiihvFQ1hfoKN3qZFCTJ",
+      "environmentURL": "https://ramsider-buhgvd8rd-askmi-6282s-projects.vercel.app"
+    },
+    {
+      "project": "ramsider-beta",
+      "environment": "Preview",
+      "id": 7290604265,
+      "status": "success",
+      "provider": "https://vercel.com/askmi-6282s-projects/ramsider-beta/5GGMSgBdUFJhbtattUih2uAgrejK",
+      "environmentURL": "https://ramsider-beta-1cbxsam5z-askmi-6282s-projects.vercel.app"
+    }
+  ],
+  "publicObjects": "hls-incident-public-objects.json",
+  "workerSmoke": "hls-incident-worker-metadata.json",
+  "actualSafari": "hls-incident-real-safari-public.json",
+  "chrome": "hls-incident-system-chrome.json",
+  "chromeFullFilms": {
+    "passed": 1,
+    "fullFilms": 2,
+    "postStartWaits": 0,
+    "firstPlayingMs": [
+      2206.2,
+      102.6
+    ],
+    "log": "/tmp/ramsider-hls-final-public-chrome.log"
+  },
+  "technicalApproval": {
+    "verifier": "/root",
+    "date": "2026-10-24",
+    "status": "APPROVED exactpublication/publicobjects/publicChromeMac"
+  },
+  "independentPostpublicationAudit": {
+    "auditor": "/root/hls_incident_auditor",
+    "date": "2026-10-24",
+    "status": "PASS qualifiedincidentfix",
+    "scope": "ExactSHA/bothdeployments/publicobjects/newworker/publicChromeMac/records; historicalcausephysicalphonespermanentcacheunverified"
+  }
+}

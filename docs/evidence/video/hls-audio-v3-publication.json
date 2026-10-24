@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-24",
+  "sha": "6310c28e9eefb74100047b628d7bacb7cd0bf4fe",
+  "destination": "origin/main",
+  "remoteExact": true,
+  "canonical": "https://ramsider-main.vercel.app/en?v=6310c28#film-play",
+  "deployments": [
+    {
+      "project": "ramsider",
+      "environment": "Production",
+      "id": 7296590961,
+      "status": "success",
+      "provider": "https://vercel.com/askmi-6282s-projects/ramsider/AENQFvoxaoRBNDKTFRs37J2QtrhV",
+      "environmentURL": "https://ramsider-fafemcisa-askmi-6282s-projects.vercel.app"
+    },
+    {
+      "project": "ramsider-beta",
+      "environment": "Preview",
+      "id": 7296582124,
+      "status": "success",
+      "provider": "https://vercel.com/askmi-6282s-projects/ramsider-beta/y37EFHDrQsoQjnw92cMYAR2ej7xC",
+      "environmentURL": "https://ramsider-beta-2p3m7o7kd-askmi-6282s-projects.vercel.app"
+    }
+  ],
+  "objects": "hls-audio-v3-public-objects.json",
+  "anonymousHydration": "hls-audio-v3-remote-hydration.json",
+  "native144": "hls-audio-v3-native-public.json",
+  "initialPublicMatrix": {
+    "passed": 4,
+    "skipped": 3,
+    "failed": 1,
+    "failure": "ProMaxawaitoneartimage40sBEFOREfilm; concurrentbulkdownloads; causeUNKNOWN",
+    "log": "/tmp/ramsider-hls-v3-public-browser.log"
+  },
+  "isolatedProMax": {
+    "result": "PASS",
+    "passed": 1,
+    "log": "/tmp/ramsider-hls-v3-public-isolated.log",
+    "seconds": 30.1,
+    "conditions": "Same40sassetreadiness/unchangedtest,1workerafterbulkdownloads; earliercauseUNKNOWN"
+  },
+  "status": "VERIFIED_PUBLISHED",
+  "technicalApproval": {
+    "verifier": "/root",
+    "date": "2026-10-24",
+    "status": "APPROVED exactpublicsoundfix/retirement",
+    "evidence": "BothdeploymentsSUCCESS/all200objectsSHAexact222809577B/anonymousLFSfullSHA/native144fullend/public4cases+isolatedProMaxPASS",
+    "limits": "PhysicaliPhone13unavailable; encodingidentitynotuniversalstallfree; initialarttimeoutretainedUNKNOWN"
+  },
+  "independentAudit": {
+    "auditor": "/root/hls_incident_auditor",
+    "date": "2026-10-24",
+    "status": "FinalPostpublicationGate6PASS",
+    "scope": "SourceAACpreservation/currentretirement/exactpublication; physicalphones/humanlistening/universalstallfreeunverified"
+  }
+}

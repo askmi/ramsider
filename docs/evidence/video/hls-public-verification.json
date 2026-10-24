@@ -1,0 +1,128 @@
+{
+  "date": "2026-10-24",
+  "commit": "de43e9e8486dd9f18ffd13b3761e7c480331fdd1",
+  "canonical": "https://ramsider-main.vercel.app/en#film-play",
+  "status": "PASS",
+  "http": [
+    {
+      "path": "master.m3u8",
+      "status": 200,
+      "bytes": 936,
+      "sha256": "11f2fea6bbeb59c70d318c258770138b2d127ce60769b2052dc9c8da27df429d",
+      "verified": true
+    },
+    {
+      "path": "360p/init.mp4",
+      "status": 200,
+      "bytes": 1394,
+      "sha256": "334a72f2888befd1aafceb0aa827f3954fbefc7d21ebe4ab280bd266ed675fd5",
+      "verified": true
+    },
+    {
+      "path": "360p/segment-00000.m4s",
+      "status": 200,
+      "bytes": 134771,
+      "sha256": "5c64383d6f59f7926a52cdc6d89ddbc83c584c2be9a466c8562a0f2aedfcea9d",
+      "verified": true
+    },
+    {
+      "path": "720p/segment-00015.m4s",
+      "status": 200,
+      "bytes": 574607,
+      "sha256": "8f376e629de58e082d885324d339d41fbd0c868ff0a8fc14b8c872ecc5b3c73f",
+      "verified": true
+    },
+    {
+      "path": "2160p/segment-00030.m4s",
+      "status": 200,
+      "bytes": 6216,
+      "sha256": "709efecb9f5a065ee47c79bb1928d83893b3b66fe20b13b6024c084c93360ebb",
+      "verified": true
+    }
+  ],
+  "phones": [
+    {
+      "name": "pro",
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "zeroMediaBeforeIntent": true,
+      "runs": [
+        {
+          "trigger": "film-play",
+          "width": 640,
+          "height": 360,
+          "playback": "native-hls",
+          "controls": true,
+          "inline": true,
+          "seek": "PASS30s",
+          "release": "PASSempty",
+          "focus": "PASS"
+        },
+        {
+          "trigger": "film-label",
+          "width": 640,
+          "height": 360,
+          "playback": "native-hls",
+          "controls": true,
+          "inline": true,
+          "seek": "PASS30s",
+          "release": "PASSempty",
+          "focus": "PASS"
+        }
+      ],
+      "noOverflow": true,
+      "errors": [],
+      "mediaRequestCount": 25
+    },
+    {
+      "name": "max",
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "zeroMediaBeforeIntent": true,
+      "runs": [
+        {
+          "trigger": "film-play",
+          "width": 256,
+          "height": 144,
+          "playback": "native-hls",
+          "controls": true,
+          "inline": true,
+          "seek": "PASS30s",
+          "release": "PASSempty",
+          "focus": "PASS"
+        },
+        {
+          "trigger": "film-label",
+          "width": 256,
+          "height": 144,
+          "playback": "native-hls",
+          "controls": true,
+          "inline": true,
+          "seek": "PASS30s",
+          "release": "PASSempty",
+          "focus": "PASS"
+        }
+      ],
+      "noOverflow": true,
+      "errors": [],
+      "mediaRequestCount": 40
+    }
+  ],
+  "limits": [
+    "Emulated WebKit, not physical iPhone or Android hardware",
+    "Native hardware orientation/fullscreen not certified",
+    "No public constrained-network timing claim"
+  ],
+  "allObjects": {
+    "count": 200,
+    "head": "PASS200/MIME/immutable/size"
+  },
+  "fallbackRange": {
+    "status": 206,
+    "bytes": 1024,
+    "exact": true
+  },
+  "originalPublicMaster": "PASS404"
+}

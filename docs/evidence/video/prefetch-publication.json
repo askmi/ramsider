@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-24",
+  "commit": "2ffecd782ab47701158ab5aec121e08b13db5675",
+  "repository": "askmi/ramsider",
+  "branch": "origin/main",
+  "remoteExact": true,
+  "status": "VERIFIED_PUBLISHED / final independent public Gate6 PASS",
+  "url": "https://ramsider-main.vercel.app/en?v=2ffecd7#film-play",
+  "deployments": [
+    {
+      "id": 7297324931,
+      "environment": "Production \u2013 ramsider",
+      "state": "success",
+      "environmentURL": "https://ramsider-hn93ivaml-askmi-6282s-projects.vercel.app",
+      "providerURL": "https://vercel.com/askmi-6282s-projects/ramsider/4gDPdWpAPaUkQ971pFAHtjGTMwFw",
+      "createdAt": "2026-10-24T10:24:24Z"
+    },
+    {
+      "id": 7297336001,
+      "environment": "Preview \u2013 ramsider-beta",
+      "state": "success",
+      "environmentURL": "https://ramsider-beta-m3l3ijhad-askmi-6282s-projects.vercel.app",
+      "providerURL": "https://vercel.com/askmi-6282s-projects/ramsider-beta/EPE8PEQW9U6CJqRQ4jakmn88mH7K",
+      "createdAt": "2026-10-24T10:25:23Z"
+    }
+  ],
+  "publicBrowserReceipt": "prefetch-public-browser.json",
+  "workerHTTP": {
+    "status": 200,
+    "mime": "application/javascript; charset=utf-8",
+    "cache": "no-cache",
+    "sha256": "16180758b6422920376aa241089fb8511df19876f8dfeef6e9dd563dd2481257"
+  },
+  "results": [
+    {
+      "path": "native",
+      "preIntentMediaObjects": 6,
+      "preIntentMediaBytes": 440431,
+      "autoplay": false,
+      "firstFrameMs": 1330,
+      "cacheHitResponses": 6,
+      "playBeyond8s": true,
+      "seekBeyond26s": true,
+      "closedAndReleased": true,
+      "errors": [],
+      "mutedQA": true,
+      "workerBefore": [],
+      "workerAfter": []
+    },
+    {
+      "path": "mse",
+      "preIntentMediaObjects": 6,
+      "preIntentMediaBytes": 440431,
+      "autoplay": false,
+      "firstFrameMs": 822.3000000715256,
+      "cacheHitResponses": 6,
+      "playBeyond8s": true,
+      "seekBeyond26s": true,
+      "closedAndReleased": true,
+      "errors": [],
+      "mutedQA": true,
+      "workerBefore": [
+        {
+          "type": "fetch",
+          "start": 5270.899999976158,
+          "transfer": 42994
+        }
+      ],
+      "workerAfter": [
+        {
+          "type": "other",
+          "start": 12902.599999904633,
+          "transfer": 0
+        }
+      ]
+    }
+  ],
+  "audioAssetsUnchanged": "Git diff of both task commits does not change config/product-films.json or prepared archive; existing en-v3 originalAAC validation retained",
+  "technicalApproval": {
+    "date": "2026-10-24",
+    "verifier": "/root",
+    "status": "APPROVED_PUBLISHED observablepreload/JSreuse/playbackcontract",
+    "limits": "Latest publicsingletrials1330msnative/822msMSE; notinstant/notp95/notphysicalphones/unmutedautoplay/listening. Remainingstartupdelaycause not fully isolated."
+  },
+  "independentAudit": {
+    "verifier": "/root/hls_incident_auditor",
+    "date": "2026-10-24",
+    "status": "PASS final public Gate6, scoped three-segment preload contract",
+    "evidence": "independently queried exactSHA/bothsuccessfuldeployments; examinedpublicworker/cache/native&MSEplayseekcleanup/workerreuse receipts",
+    "limits": "Single publicstarts1330msnative/822msMSE, notinstant/notphysicalphone guarantee. Remainingstartupdelaycause not fully isolated."
+  }
+}

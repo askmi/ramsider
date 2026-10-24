@@ -1,0 +1,1631 @@
+{
+  "date": "2026-10-24",
+  "sha": "6310c28e9eefb74100047b628d7bacb7cd0bf4fe",
+  "domain": "https://ramsider-main.vercel.app",
+  "canonicalHTMLCurrent": true,
+  "objectCount": 200,
+  "totalBodyBytes": 222809577,
+  "allSHAExact": true,
+  "files": [
+    {
+      "path": "1080p/index.m3u8",
+      "status": 200,
+      "bytes": 1283,
+      "sha256": "b82096cc1285f030c491188869302e23f258b5c0c9962345e969aa241f45f672",
+      "type": "application/vnd.apple.mpegurl",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/init.mp4",
+      "status": 200,
+      "bytes": 1394,
+      "sha256": "16820d24065f7fc0b2ba367567c0256dc0a4a481f4f5ecdb492e5ec70335fc9b",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00000.m4s",
+      "status": 200,
+      "bytes": 940344,
+      "sha256": "63219da0d1556eccd0af82c54b52c5d4c8b7136c45bb65642a49c0f755d3e829",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00001.m4s",
+      "status": 200,
+      "bytes": 1125891,
+      "sha256": "3ddcca0b4d0863bc10370789f184dc909ae3f8d7ae0d6e826b2d6238f97e83d4",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00002.m4s",
+      "status": 200,
+      "bytes": 1128782,
+      "sha256": "1888240c0655c17ea5a7feeda991c6e0480b462fa5cb2920e6b0beaff5654dc7",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00003.m4s",
+      "status": 200,
+      "bytes": 1156865,
+      "sha256": "3c1abc3a3c9139232c57c10333d381c2d13931bfc6c7a91f165f5ce2d1cb1c95",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00005.m4s",
+      "status": 200,
+      "bytes": 1318403,
+      "sha256": "46dc541b99cf53ff188ce6fd294d64d7645f9a35871fbb5f37d00547b79869f2",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00007.m4s",
+      "status": 200,
+      "bytes": 1079697,
+      "sha256": "ee8ef82f887108a0d8185ce2eb455f25ff7f65734451a3439f2631b804c8d317",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00006.m4s",
+      "status": 200,
+      "bytes": 1271902,
+      "sha256": "b824651ae15280036210d436e57c05658bf45004c25523a481f084b313148d29",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00004.m4s",
+      "status": 200,
+      "bytes": 1184042,
+      "sha256": "fdd2d0a0672839c68904aa480889b939eff33c20eea267cd0a76775261688c63",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00009.m4s",
+      "status": 200,
+      "bytes": 1187837,
+      "sha256": "7c8b996ff5cc7c1b478adf66cf5b97fa389a39166fa58c0222236154e3154ceb",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00008.m4s",
+      "status": 200,
+      "bytes": 1262609,
+      "sha256": "9238d37c967dcc1092ecf0d56f7a79388c727caa2b26dd8b1e03e72c904df74f",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00010.m4s",
+      "status": 200,
+      "bytes": 1072461,
+      "sha256": "36e9fe90fe49bb931ef23efb8929f6d61d81216f4729b79adfd3c9230a0ae006",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00013.m4s",
+      "status": 200,
+      "bytes": 976645,
+      "sha256": "9a2f45dfadcc69a0394578703beb2e13a14db53a0f2f333311534e942d7fb0fd",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00012.m4s",
+      "status": 200,
+      "bytes": 880480,
+      "sha256": "e33c4d8ce8c4da688f22fba7adec974e3471e72eb8727f0eec4a3df9a89595aa",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00011.m4s",
+      "status": 200,
+      "bytes": 1179981,
+      "sha256": "9db7bb6e99754e29dc3717ea0d957877d30c91425204dbebc5e969df1d82362b",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00014.m4s",
+      "status": 200,
+      "bytes": 1316363,
+      "sha256": "2288cf77ae5839b587ff1aa7cf5e612ab07bdca7beb92982b82286f51b5e611b",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00015.m4s",
+      "status": 200,
+      "bytes": 1251148,
+      "sha256": "39560d65820b39cb4e313b53115a268df13fea00910bc577e18c0ed5e2a26b13",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00016.m4s",
+      "status": 200,
+      "bytes": 1055333,
+      "sha256": "05f1ad201e33463a66c37fb6c9f77def9873d43cc0b9a14e47769f97188842d3",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00017.m4s",
+      "status": 200,
+      "bytes": 1043156,
+      "sha256": "46eba5a54f03a441fac0e54fd83be94a26ee050bb99695cf7e1274bcc1f42f8e",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00018.m4s",
+      "status": 200,
+      "bytes": 1083408,
+      "sha256": "2f0a355dea6ce1987261fa4049ce77d3ba3123679bdf5fa09a5d2f33cf275dde",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00019.m4s",
+      "status": 200,
+      "bytes": 1127831,
+      "sha256": "0cead7f7c43081f993935afb3a347dcf46a38794f691058a79415b0555caf065",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00021.m4s",
+      "status": 200,
+      "bytes": 1163186,
+      "sha256": "ee842c31aa9824f1f85b9e2b1d80e28525cc33b5b7418ae4cbd57a30ed9a7965",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00020.m4s",
+      "status": 200,
+      "bytes": 1391242,
+      "sha256": "95ac28af988ef3dc1318868e5b8c3c721e9fece76e0b4e42ddaec7543a1d1e0f",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00022.m4s",
+      "status": 200,
+      "bytes": 1239732,
+      "sha256": "5f36e043c4994060245e141938f5330aa8807ce34d9311ac99c97184f2e5ccda",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00024.m4s",
+      "status": 200,
+      "bytes": 875069,
+      "sha256": "726d90370330609f472c266f7fee02f144ac6f36284fcc58518a8e248bd05aef",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00023.m4s",
+      "status": 200,
+      "bytes": 1207134,
+      "sha256": "2182673c14cb76edb1003c491465b84d3e250b7879432f010f874700d76cdacb",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00025.m4s",
+      "status": 200,
+      "bytes": 906726,
+      "sha256": "a4b63bc056701ce04dce10e48251eb8a0e5182fb009ed011e70eeae48fbd2277",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00028.m4s",
+      "status": 200,
+      "bytes": 55267,
+      "sha256": "b6d874c4554a75722639b9a989ff4cc837a34741af7aa73a73fea710b2aa131e",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00030.m4s",
+      "status": 200,
+      "bytes": 3346,
+      "sha256": "c45e8e3cc8cbec06d96ee0f4e93746a47d489068100a7c895a24f9f9b0834150",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00029.m4s",
+      "status": 200,
+      "bytes": 41395,
+      "sha256": "523c38c59d7f3aa9b7e6ad8e8e2851a0d8d8ea86653cf5d8013e8c63999adc18",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/index.m3u8",
+      "status": 200,
+      "bytes": 1283,
+      "sha256": "b82096cc1285f030c491188869302e23f258b5c0c9962345e969aa241f45f672",
+      "type": "application/vnd.apple.mpegurl",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/init.mp4",
+      "status": 200,
+      "bytes": 1394,
+      "sha256": "c2dc88f23b31df4f74312eacbf47da6e3f7bbab3e2f6c0b9cdcd59c811b1451e",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00026.m4s",
+      "status": 200,
+      "bytes": 1180729,
+      "sha256": "1a9f1d32c692399e432f5da0885a1e77539dd49386f2d109c32d30d872d9e1c6",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1080p/segment-00027.m4s",
+      "status": 200,
+      "bytes": 986435,
+      "sha256": "8d07f7c771f5e29b738c551777af5b33608cc326677a59e9de4bdd444733a067",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00001.m4s",
+      "status": 200,
+      "bytes": 1964028,
+      "sha256": "f1d18b5fe46771f0420cdf3364443cabedb00c944861aeb330d8070d29e92577",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00003.m4s",
+      "status": 200,
+      "bytes": 2036220,
+      "sha256": "69fadde73ac9e238b56605140926805af8fb079f3da78864ad1a0e7a183ed393",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00004.m4s",
+      "status": 200,
+      "bytes": 2020369,
+      "sha256": "000166a479c8eafaf3dbeff6c61a3d39266755e4ffe6063f58bdf5e502f7cf51",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00005.m4s",
+      "status": 200,
+      "bytes": 2271892,
+      "sha256": "7846d69a8745297192546f150c266cb3254e463cb06595c9fc0f11366cd75c92",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00000.m4s",
+      "status": 200,
+      "bytes": 1647596,
+      "sha256": "c081d07b4ab1e9bde5c17c45621be399250e26351cfd1a5b6444b49f901b1007",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00006.m4s",
+      "status": 200,
+      "bytes": 2299565,
+      "sha256": "06f2a55961eddc9b840da046cb5808ddef45dc69bd0c08be6b15e7cc4aa9f2b3",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00002.m4s",
+      "status": 200,
+      "bytes": 1991036,
+      "sha256": "c8a7d9f61aaff28ccea340820007048677be9aeaa3901008e77700325a6f156e",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00007.m4s",
+      "status": 200,
+      "bytes": 1991328,
+      "sha256": "c81a67f6bc85d84ec3ec64b7f0ecb88dafee9a12d9c621f6d5eb9ef01fca75bd",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00008.m4s",
+      "status": 200,
+      "bytes": 2207323,
+      "sha256": "f8344fe618210418e1e0a9c44f270a7ab5799d7ebc492a77150f751b8cbbc1e2",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00010.m4s",
+      "status": 200,
+      "bytes": 1908747,
+      "sha256": "9a2ce47fe3f907c913d87d3012f65ad2dd7b08837c5c33d60507022b58bd6af1",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00009.m4s",
+      "status": 200,
+      "bytes": 2075498,
+      "sha256": "25cd3aec3171c1aa31c75e97916333f08d491ce16b8310d15fd9ec226a0e8e2a",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00013.m4s",
+      "status": 200,
+      "bytes": 1772273,
+      "sha256": "a62d005ff42a3a921f124babc7514c5f30683ddc0f8436dc39987654fbe66eef",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00011.m4s",
+      "status": 200,
+      "bytes": 2079624,
+      "sha256": "17816d58551c2220765947bb7aee27b2b16f13a7c78eba3a92f8b7927763dd42",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00012.m4s",
+      "status": 200,
+      "bytes": 1638018,
+      "sha256": "2e8021eae98719e8da8d324b0b0192c5c0e19c072bcc2f27282074ac6cf615d8",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00016.m4s",
+      "status": 200,
+      "bytes": 1991894,
+      "sha256": "94be93a891320216d666293a2a672da94eab9564701e63590cfbbb01ba865a2c",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00014.m4s",
+      "status": 200,
+      "bytes": 2408010,
+      "sha256": "970efaa56463f1076f1a330732877f530f8f879db5c58ba41fbec5aaf90ea7df",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00017.m4s",
+      "status": 200,
+      "bytes": 1938648,
+      "sha256": "7d4e53654b6f615694b8de2e1eab79cd498eceed3c790336933c9e397af3a19e",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00019.m4s",
+      "status": 200,
+      "bytes": 2048173,
+      "sha256": "80b26d1344d655c5261df1b36637cecfc230a2b2bbb5fa2aef4586c60ee62838",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00015.m4s",
+      "status": 200,
+      "bytes": 2120664,
+      "sha256": "c094fc56f869036fc8b5b3791c40e9408cef41971d166b0da91f545d0c1e264d",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00018.m4s",
+      "status": 200,
+      "bytes": 2004504,
+      "sha256": "0da0c84d4657861ce9181c414e9b91a2d560a735d1afcfff52b0f2e3a114e23f",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00022.m4s",
+      "status": 200,
+      "bytes": 2139741,
+      "sha256": "18ad5a7788d2ebe7c51aa93e7c4433bd326d4a31ae99306c0b87e2736406a3ba",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00020.m4s",
+      "status": 200,
+      "bytes": 2231064,
+      "sha256": "257e8f16616e4229385fe21ce366b1c3687deb51cbb2cba53327aaf5506de3b6",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00025.m4s",
+      "status": 200,
+      "bytes": 1617314,
+      "sha256": "63f2e75e65feecade02c1dd042ed90e0cfb717858ed3b0264b861f7b4200c3d0",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00021.m4s",
+      "status": 200,
+      "bytes": 2040711,
+      "sha256": "993076e2df0653bd7e21b695392138bc00673793abdf3234cbfe82beaeba8272",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00024.m4s",
+      "status": 200,
+      "bytes": 1561291,
+      "sha256": "13f26d86645b5bf28be31bf9dd2a71035722686c474f8834def8a6c4b88d0d56",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00027.m4s",
+      "status": 200,
+      "bytes": 1777806,
+      "sha256": "007cdc46a71bdbc7ce85cb4645bdf1074448c8edc9f52359e83aa1ed5975b79c",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00029.m4s",
+      "status": 200,
+      "bytes": 45629,
+      "sha256": "6d3054694b72f23e35182c4927d88accd2ca55c63a8b88d75ab1d7de7cd84677",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00028.m4s",
+      "status": 200,
+      "bytes": 62970,
+      "sha256": "54f812abeb2237df8e909e12958043537aaaeeab51fd6da8165e8d19c71e1989",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00030.m4s",
+      "status": 200,
+      "bytes": 4485,
+      "sha256": "1d0ca396c5d6b58ffada40c75514461daeccc5c036834c1da9ab24347115b2b0",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/index.m3u8",
+      "status": 200,
+      "bytes": 1283,
+      "sha256": "b82096cc1285f030c491188869302e23f258b5c0c9962345e969aa241f45f672",
+      "type": "application/vnd.apple.mpegurl",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/init.mp4",
+      "status": 200,
+      "bytes": 1391,
+      "sha256": "b73ee7a00688fc5a0776e96e1df5127d3eb8089c15899eaa1ab451f60ffd80b8",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00000.m4s",
+      "status": 200,
+      "bytes": 37573,
+      "sha256": "79a992cd7913147b4f86d3013f0d014cbce26b955ebff221ac57a006ec6a07ea",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00001.m4s",
+      "status": 200,
+      "bytes": 44183,
+      "sha256": "09a1a72148df5fde1634b8a105737dd96f77225b6b64b1f9fdb4d6bb4b54e41b",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00002.m4s",
+      "status": 200,
+      "bytes": 41594,
+      "sha256": "8e9a4e22f86a718116eb08d59a91182c7590c35e53405771ae0021ebacaa30dd",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00003.m4s",
+      "status": 200,
+      "bytes": 34638,
+      "sha256": "15115cd39b1f929b2e3938fb3535d0db5e0c018bdb9f7a7d7f52051777706b9c",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00023.m4s",
+      "status": 200,
+      "bytes": 2128413,
+      "sha256": "05d7a5ae24030e221beaa63bf88cbc4c5d6ce5e78ff252f92df00c85dd8583b8",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00004.m4s",
+      "status": 200,
+      "bytes": 38065,
+      "sha256": "c89ceb027168f7cc0ea0c41d7043934dd5456ff0e18bace989f84573d7dee1f9",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00005.m4s",
+      "status": 200,
+      "bytes": 39587,
+      "sha256": "0ca77dbdc86caa5dd304774fa9a1b55809c5e003dbca565daea9df1ff09a65d8",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00006.m4s",
+      "status": 200,
+      "bytes": 42580,
+      "sha256": "0f00112daa68f7cbf1f8ab1db1228bf90ff4b017c5ecaa7bb079df89a17b4169",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00007.m4s",
+      "status": 200,
+      "bytes": 40251,
+      "sha256": "eb790a41aa66e93da64660d795606dbe4baa83dc0812b530e2a265057a0a3ce8",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00008.m4s",
+      "status": 200,
+      "bytes": 39165,
+      "sha256": "55498abcde803dc41ba1eea483d8497380853cdcfae4c545f3b606ae27980c9a",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00010.m4s",
+      "status": 200,
+      "bytes": 37202,
+      "sha256": "f14259a5af6bd3ec03d82bc5d0203d7a7fd464b2e91dcadda471ff0aef8f3377",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00009.m4s",
+      "status": 200,
+      "bytes": 40882,
+      "sha256": "82df4d902c186ceb50a69cfe8b66cab78317b35596a7521e04f621463c76c58a",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00011.m4s",
+      "status": 200,
+      "bytes": 37615,
+      "sha256": "9369d475183425b68adaaf43e4f55728debe0925795658222905a1b4f84fab09",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00013.m4s",
+      "status": 200,
+      "bytes": 34507,
+      "sha256": "531f3ff85ed6d55a55019b936600dcd2a0ab6109824e2cb3613fdb283607dca5",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00012.m4s",
+      "status": 200,
+      "bytes": 45468,
+      "sha256": "faa88f353ca0e32ee6fac6c8dc7820a5f955a6c71c02a1f0031eb8ca1c8cf7f8",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00014.m4s",
+      "status": 200,
+      "bytes": 42351,
+      "sha256": "35a563f418fb79086c3610006a6e104aeec60ef29e87a8d8f2712884065576fe",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00016.m4s",
+      "status": 200,
+      "bytes": 36629,
+      "sha256": "c0d227d60ae45b63338e584d25fb33d2c799ad6daea03f4483682111f5624826",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00018.m4s",
+      "status": 200,
+      "bytes": 40001,
+      "sha256": "c77e55fdc143a01f78747ae527c938943d7d5e269c0e47bf4e5684eb7bf33a63",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00017.m4s",
+      "status": 200,
+      "bytes": 39769,
+      "sha256": "7f7744e10950e1eb5043bab59885c61cadabf24dca71d7b3d34d0d3248cb9dec",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00019.m4s",
+      "status": 200,
+      "bytes": 37298,
+      "sha256": "f815f76a6b3144e2d05afee637b9ed1578befc1290cf0f4c8e3f22c66d8909b9",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "1440p/segment-00026.m4s",
+      "status": 200,
+      "bytes": 2105123,
+      "sha256": "6eeb580dcb9acbca8d54ff4825cc9a6dd71ba28ad676f75599469c5ef3270d97",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00020.m4s",
+      "status": 200,
+      "bytes": 39639,
+      "sha256": "c7da6687f09ab0d090f54d713b1fd366405f3c2bd8c6a99dd434494fc350d6d3",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00022.m4s",
+      "status": 200,
+      "bytes": 36834,
+      "sha256": "eda0538fa8be29feb1f04d8de835d11922fddfbf9f15b52bf945435ff3092113",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00023.m4s",
+      "status": 200,
+      "bytes": 38838,
+      "sha256": "49574c22df5ecfdc74eb9f0ebaadce0442aa38674f891a836951dbfc00fd2fe4",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00025.m4s",
+      "status": 200,
+      "bytes": 40855,
+      "sha256": "8a980722c359ba5b44bd22dbdbc28932173871d4e361d45bd7d05a607425b8cd",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00024.m4s",
+      "status": 200,
+      "bytes": 47219,
+      "sha256": "6e9b1dc97c310549ce85b6f8a2aecfd2fc17b87b1b8624be635b26e4e1f5648a",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00021.m4s",
+      "status": 200,
+      "bytes": 41035,
+      "sha256": "4b178ab0bb0f0e5e7a502c1ea7d198f81d64fa6e5279ab346cf987d9b4f90a9e",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00026.m4s",
+      "status": 200,
+      "bytes": 37135,
+      "sha256": "6ba04ce8e7544ad973da95876f87c21ac2d1c1b674b4375b8ee937bfec997d86",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00027.m4s",
+      "status": 200,
+      "bytes": 36194,
+      "sha256": "187b7c2df80068a3b9247679a6d90f2d55c1bf1fa56d1ae383fe8929a6cc128c",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00028.m4s",
+      "status": 200,
+      "bytes": 40339,
+      "sha256": "22a55891f520170bd508f9a64b52cfbe55160256f66b17080378a2ee329d8aad",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00029.m4s",
+      "status": 200,
+      "bytes": 34788,
+      "sha256": "b1ce29ed224b4feed51c3a56a994052d852c7a29f0d2e67643ab0a9d26009d92",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00030.m4s",
+      "status": 200,
+      "bytes": 1247,
+      "sha256": "7a43d3908b7a6da0ff61766810a250b3f8c2c398d2f3676ceb820adac59d9532",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "144p/segment-00015.m4s",
+      "status": 200,
+      "bytes": 39264,
+      "sha256": "5d727d66da966c050093b7287bbb35f23cb3352aba7e6c9412d0c8a76a1ced39",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/index.m3u8",
+      "status": 200,
+      "bytes": 1283,
+      "sha256": "b82096cc1285f030c491188869302e23f258b5c0c9962345e969aa241f45f672",
+      "type": "application/vnd.apple.mpegurl",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/init.mp4",
+      "status": 200,
+      "bytes": 1394,
+      "sha256": "de17cb0c36381ce3ce13ebcd9356f8e6732401361b848c7a37b53dcee4e5b1ab",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00000.m4s",
+      "status": 200,
+      "bytes": 3897940,
+      "sha256": "09034d094058330d6d16cbe4168658943058875fea513af630727a4f940b9b47",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00003.m4s",
+      "status": 200,
+      "bytes": 3445735,
+      "sha256": "6954ff0396746e80d9bf33df09c5566ad823233a6879e26133ec4f7778a91625",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00001.m4s",
+      "status": 200,
+      "bytes": 3858396,
+      "sha256": "5deec6f2873f735792ff822c4692403a16834cc0056417f54178caae6e09dbf7",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00005.m4s",
+      "status": 200,
+      "bytes": 3714382,
+      "sha256": "c68063b3c9b78129ee8908e608c58209b283c4fb36a89f7be5bfcd5739f39827",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00007.m4s",
+      "status": 200,
+      "bytes": 3435866,
+      "sha256": "b9ffb3581378a1387e35f24fc4d2d791a0ee08696516bea2b658c10def7f4227",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00006.m4s",
+      "status": 200,
+      "bytes": 3473875,
+      "sha256": "6fcc1a037d7fd6d60bb862993785eccd5355e55c02421eb2d84f694e0f7baa40",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00004.m4s",
+      "status": 200,
+      "bytes": 3514717,
+      "sha256": "63371174381044fdda59077196b2406051ef4fdda278f07f679d24ea47ab13c6",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00008.m4s",
+      "status": 200,
+      "bytes": 3810263,
+      "sha256": "448898ac16160e34d391c958d30250fe3e8c57ffc90dc7e367cdccfe5f5647a2",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00010.m4s",
+      "status": 200,
+      "bytes": 3418227,
+      "sha256": "5b70b7901763872548f301f38b115921d075d34a15977b12ac4505cc1ad606b9",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00009.m4s",
+      "status": 200,
+      "bytes": 3621732,
+      "sha256": "36b53d556856cb4bb162407120a04056ca6ef7893eafb9f900c2e4b4439e6ad1",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00011.m4s",
+      "status": 200,
+      "bytes": 3332847,
+      "sha256": "a3d217358e9b81256ceebffaeb667e8f016dded7e49ee57fdc8edd51f7cd3a5f",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00002.m4s",
+      "status": 200,
+      "bytes": 3777101,
+      "sha256": "91bbacc092a44b5953b6fcac1507593d2167ec5dfcaf36fee9810a81e7bf73b8",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00013.m4s",
+      "status": 200,
+      "bytes": 3572692,
+      "sha256": "8af6d70d6d23ec7087eb2ccfe7f41d032bc3d1cf97f00d742d1030cd7e9b4fa5",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00012.m4s",
+      "status": 200,
+      "bytes": 3487918,
+      "sha256": "92005061b05005a577c729a11d69c10423eb92d8af386b7fd137c84d53aca7c6",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00015.m4s",
+      "status": 200,
+      "bytes": 3503002,
+      "sha256": "32ea08ed936dd59bfcca07dd9ffecf9f5c56ee26e338cd828ca1c472b0daf448",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00014.m4s",
+      "status": 200,
+      "bytes": 3586660,
+      "sha256": "875f8f6359139b72b9b60227327bdf11ed555e98f7e6ba9a3bf3a2a835d90491",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00017.m4s",
+      "status": 200,
+      "bytes": 3255161,
+      "sha256": "e0faf8a6f54f42af2c3aa59d7b0fd5c6bb7002e5b8eb2b3863c02788b91fdd87",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00018.m4s",
+      "status": 200,
+      "bytes": 3579144,
+      "sha256": "2e8e200e7c3404ff53c7157145d87f98dfd9320fd1f448b51eaa4a737702237d",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00019.m4s",
+      "status": 200,
+      "bytes": 3773313,
+      "sha256": "e6ae5ee529a38a854dfd2c96cd275c63d528693e0fda493d8ada4a6d149adde5",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00020.m4s",
+      "status": 200,
+      "bytes": 3435804,
+      "sha256": "bdfcc54f24adb7ec68706d98e42efc975d2ededb56f96846fbd260584b65de2f",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00022.m4s",
+      "status": 200,
+      "bytes": 3714117,
+      "sha256": "d604d2872253ae405100e6609328e7ffcc2b2a31f472f977a233770bc069cd97",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00021.m4s",
+      "status": 200,
+      "bytes": 3367812,
+      "sha256": "b2f2cec2d0607cb24cf10fce4744f098f6578c827b103da7d91917b5d71841c4",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00016.m4s",
+      "status": 200,
+      "bytes": 3610690,
+      "sha256": "47faf7e74b7cac4213509fa610cdd72aee0e4970665615702460a104e9713a14",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00023.m4s",
+      "status": 200,
+      "bytes": 3770267,
+      "sha256": "22ab661b5205ce7a793be0c869b01b1d3e1887650ba35dc4f5ff189390f32e84",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00025.m4s",
+      "status": 200,
+      "bytes": 3347171,
+      "sha256": "6a737659fded3dd9660b39620fab71b733925b5034ac1d594cbfe1468c3617df",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00024.m4s",
+      "status": 200,
+      "bytes": 3441196,
+      "sha256": "deddecca3cb7b4e0a45348a7a48e5a66a2ab6c8cbf8d14f6175a599124844ddc",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00028.m4s",
+      "status": 200,
+      "bytes": 78929,
+      "sha256": "74ba6b09277ef37f345f753c40ea5f68269dc626841d44a79cfa872e1b894149",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00029.m4s",
+      "status": 200,
+      "bytes": 55000,
+      "sha256": "e251713dcd61819cd56c2afb258d440ea54b2535422f5d46e451d7bd7c396efe",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00030.m4s",
+      "status": 200,
+      "bytes": 6216,
+      "sha256": "709efecb9f5a065ee47c79bb1928d83893b3b66fe20b13b6024c084c93360ebb",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/index.m3u8",
+      "status": 200,
+      "bytes": 1283,
+      "sha256": "b82096cc1285f030c491188869302e23f258b5c0c9962345e969aa241f45f672",
+      "type": "application/vnd.apple.mpegurl",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/init.mp4",
+      "status": 200,
+      "bytes": 1394,
+      "sha256": "334a72f2888befd1aafceb0aa827f3954fbefc7d21ebe4ab280bd266ed675fd5",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00000.m4s",
+      "status": 200,
+      "bytes": 134771,
+      "sha256": "5c64383d6f59f7926a52cdc6d89ddbc83c584c2be9a466c8562a0f2aedfcea9d",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00001.m4s",
+      "status": 200,
+      "bytes": 149574,
+      "sha256": "0e4c8efd3661755c02cc80c9013ea0e1ada16005578aff3a11493f0139ae6f37",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00002.m4s",
+      "status": 200,
+      "bytes": 152472,
+      "sha256": "e158928bcdde17e64123acdc82d04261437d120034f9b33eef8ffdf83f01c150",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00003.m4s",
+      "status": 200,
+      "bytes": 157436,
+      "sha256": "0a88bf37b4b819503aedbf6ff110a580da9b6dfd92f385d3056891c63f89ab53",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00004.m4s",
+      "status": 200,
+      "bytes": 159995,
+      "sha256": "ace04fe49d48d28f6ba27a0546cf469393367ba5dc504120768cc861edef1ce7",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00005.m4s",
+      "status": 200,
+      "bytes": 193450,
+      "sha256": "af4f6c06d88d299066bda64a7bbfe156c8304a24f3560dca1bcb98e41035a059",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00006.m4s",
+      "status": 200,
+      "bytes": 190415,
+      "sha256": "a3e22ba2a638c88d6059acb15fbccf97b586eb44d975fc5413116e9e4d0d3654",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00007.m4s",
+      "status": 200,
+      "bytes": 168471,
+      "sha256": "fb4e729676b1276ed87f86d8ff6e1a4bdd70ddcde4e2cd26cf482be471cf0353",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00008.m4s",
+      "status": 200,
+      "bytes": 177006,
+      "sha256": "ca5a4bff39d13d75587867ed66658666ad95d62fcda4b93521312ad25059c0fa",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00009.m4s",
+      "status": 200,
+      "bytes": 175038,
+      "sha256": "934fa8016cf55a7f2082aaf4a893cd8966178dffc5587661416038b8d77d5deb",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00010.m4s",
+      "status": 200,
+      "bytes": 135892,
+      "sha256": "c3c7077d7c346b1cb37647ae1f974a4ea7b0cfe54def6ed989a0f77f82a4251b",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00011.m4s",
+      "status": 200,
+      "bytes": 210384,
+      "sha256": "da3fd4994a3ff003cd05cf2593b68c5c3bf397f7da1fc1ce1199375ee8c5d4d1",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00012.m4s",
+      "status": 200,
+      "bytes": 130260,
+      "sha256": "6d984d700d58d9f84e834ac7153a484cca622df6fee865fccaf81bfe8dbb3af8",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00014.m4s",
+      "status": 200,
+      "bytes": 154386,
+      "sha256": "c06e427b67297e4c1ac955ea3e54bc12a3c69b317cedb46972d365d587075a4f",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00026.m4s",
+      "status": 200,
+      "bytes": 3579532,
+      "sha256": "22003a73f03d18f13aaef0c71193cf972c88f753e24a1b42dca58dd54b39f8a8",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00013.m4s",
+      "status": 200,
+      "bytes": 142574,
+      "sha256": "ce40ba9996197a03887998793b21e7e83b5fca300e65b3bb9577fdba51c87a77",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00016.m4s",
+      "status": 200,
+      "bytes": 125947,
+      "sha256": "61087c5b394a016bd6e407b37ce18ec651362733c1744ad98240a34eb5ad999c",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00017.m4s",
+      "status": 200,
+      "bytes": 129940,
+      "sha256": "e6a502749ec6b74ea7dfe6d6795f5d412182f5bd6cc73753cf2155466dfb3eab",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00015.m4s",
+      "status": 200,
+      "bytes": 183909,
+      "sha256": "8648b00ea4b51e087c0e80995b9843d280ab3fbb9bb70b34c53cc2f251422aba",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00019.m4s",
+      "status": 200,
+      "bytes": 148327,
+      "sha256": "cda1ba8f5ea25bda08491b3c585af78462cfb5aceb5f6bc9a02aa3994ac47e32",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00018.m4s",
+      "status": 200,
+      "bytes": 142558,
+      "sha256": "f5431d7a138f478e2504338860f20829a191a453d003dfad7bd2cbda625d696a",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00020.m4s",
+      "status": 200,
+      "bytes": 205558,
+      "sha256": "3a0c1898741802afe546dcc6afd1dcbfda2c6d50daf8fd1198846423d614f041",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00022.m4s",
+      "status": 200,
+      "bytes": 169102,
+      "sha256": "d2b1cdd1b5c4f0299457c21fb75fa3373db952b510c2096e51798db0b840f90f",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00021.m4s",
+      "status": 200,
+      "bytes": 174491,
+      "sha256": "f2c096df6744b1132803fd2a7eca907fb54e587c4a735eb42b60b345e8a1c52c",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00023.m4s",
+      "status": 200,
+      "bytes": 178769,
+      "sha256": "ae3217e606811f60d1c8af9d59db6e6307b5408b72bed848419bbd8a2be89ab8",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00024.m4s",
+      "status": 200,
+      "bytes": 152728,
+      "sha256": "4e220d164e3d905203e491c334f50ed191234504e462efda1cd190f897887483",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00025.m4s",
+      "status": 200,
+      "bytes": 146259,
+      "sha256": "7138b94d656daac027af0c2d5d3502455e9356ef1fca50624d26b3058179e564",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00027.m4s",
+      "status": 200,
+      "bytes": 108071,
+      "sha256": "79cd5ad878afda0d998fbfe7cce732914149cbfefc52e2312c0d9aa28e79710a",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00026.m4s",
+      "status": 200,
+      "bytes": 144112,
+      "sha256": "59b26c474d89b5bfe506f5823c6921fa97677ab1248990d3182875ad730cfdef",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00028.m4s",
+      "status": 200,
+      "bytes": 44592,
+      "sha256": "2b807d2ef63f854936df23476ad04ad80812043c882a4fe6de77255a4cf8b42b",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00029.m4s",
+      "status": 200,
+      "bytes": 36250,
+      "sha256": "6935f3dad1f5063355ef1956e3109bc107f47d688e9e6cddcb2bd511fdb67ee9",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/index.m3u8",
+      "status": 200,
+      "bytes": 1283,
+      "sha256": "b82096cc1285f030c491188869302e23f258b5c0c9962345e969aa241f45f672",
+      "type": "application/vnd.apple.mpegurl",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/init.mp4",
+      "status": 200,
+      "bytes": 1392,
+      "sha256": "d56f5489e644c755c2d0e7e970cfefa57fb3a2cd8e8312fc11e8cc27e325b306",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "360p/segment-00030.m4s",
+      "status": 200,
+      "bytes": 2020,
+      "sha256": "6f608c5fa75ed811ddfe6fbc2bc474c4b0158373e9aa251d37069328641d8a54",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00000.m4s",
+      "status": 200,
+      "bytes": 448810,
+      "sha256": "1bf701089e5bf04ac304b9725ed1ce0db1c47e8a0bfe0d9a6e824c17c2a9adef",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00001.m4s",
+      "status": 200,
+      "bytes": 521130,
+      "sha256": "df888c39567b7e64057a3dbbce5c284e0808e737f8f3b4caed6559c3cd175582",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00002.m4s",
+      "status": 200,
+      "bytes": 514045,
+      "sha256": "4e05bb37e6fdb574e13a442a3cf166560e7a307766323dfbc9683b4d456d0b21",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00004.m4s",
+      "status": 200,
+      "bytes": 544164,
+      "sha256": "69838dfade66cd9166aca83fcc8b3955e76eb4cfda9f5bc94ac5b24bb5b43f81",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00003.m4s",
+      "status": 200,
+      "bytes": 517645,
+      "sha256": "7a565123975d624892c3b1fddd1efca3d053ff3abcfc3e7f7986f7df23b2c3d5",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00005.m4s",
+      "status": 200,
+      "bytes": 591384,
+      "sha256": "b8e9ce7d642aa2e545c70302b1f1f17cb78b31048f542714e313c05afbb3310a",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00007.m4s",
+      "status": 200,
+      "bytes": 506453,
+      "sha256": "c1f451290f673303d1442b336488d0f98ca70975e76fd58bd203ce706d214100",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00006.m4s",
+      "status": 200,
+      "bytes": 594414,
+      "sha256": "f97f2c6db9fd99879e977cf8850a40854dc960b099b0c8e55e6e68295bc4a221",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "2160p/segment-00027.m4s",
+      "status": 200,
+      "bytes": 4442714,
+      "sha256": "0343a5a13efba063a7d740cba3cc6e87c1a934391a435d2c3541dd0ee26a9589",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00008.m4s",
+      "status": 200,
+      "bytes": 570958,
+      "sha256": "d6c8c9f929994e186e42f32a8488d75a9c4c25f996c9b1ff46a3772a3a73e565",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00010.m4s",
+      "status": 200,
+      "bytes": 459832,
+      "sha256": "c780b52fa97af58825683e6ad45a37aa73d2ea53c394ebd8114dc17c8a9d259f",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00011.m4s",
+      "status": 200,
+      "bytes": 620127,
+      "sha256": "26a91a137e5248698c6ee2adec329b49e10f5a773260ab98adf2b9a79d8f7103",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00009.m4s",
+      "status": 200,
+      "bytes": 531733,
+      "sha256": "99a08fdf13aaf26d09f44254e459447edbee7a028d6c036e739bed77b008d1f2",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00012.m4s",
+      "status": 200,
+      "bytes": 366950,
+      "sha256": "747c12b8fc86718fe1370f80e5ab54b714bd7710c54fd7ffae5fb3a3741bdb50",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00013.m4s",
+      "status": 200,
+      "bytes": 424410,
+      "sha256": "a751c58a30205728f3b09f6db107a13df60ac963e58499bae2a5105207f33246",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00014.m4s",
+      "status": 200,
+      "bytes": 529846,
+      "sha256": "07369f280f221b0f50d215b57f711627ee2f545a37309e08eb83fa26ca0320a8",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00016.m4s",
+      "status": 200,
+      "bytes": 403031,
+      "sha256": "df2f000e6fac5c32ea32ccdc7267ee73b7229ab79b6d90b01b2b2377d5ff7210",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00018.m4s",
+      "status": 200,
+      "bytes": 430249,
+      "sha256": "d9d1bc892790a9fc91fea2bc0437038bd6309c614e49f220b46d200a32fa7e60",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00019.m4s",
+      "status": 200,
+      "bytes": 459761,
+      "sha256": "ea18344778852e83480cf31963be6c1aeb773ade17b158a170e12df11be7e193",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00015.m4s",
+      "status": 200,
+      "bytes": 574607,
+      "sha256": "8f376e629de58e082d885324d339d41fbd0c868ff0a8fc14b8c872ecc5b3c73f",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00017.m4s",
+      "status": 200,
+      "bytes": 415680,
+      "sha256": "ceb3c879e4d1395387eaf2256f3553305c9e2417f65d3251d42642937e144fa9",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00020.m4s",
+      "status": 200,
+      "bytes": 649460,
+      "sha256": "20a071d165f6e30f71f10a63d922df21e0875bb2898968844835c15f79ae4451",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00021.m4s",
+      "status": 200,
+      "bytes": 553285,
+      "sha256": "143c3af17e05bd5e894ea96d5c9412dead3b962b256d00139a45406ba66036b0",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00022.m4s",
+      "status": 200,
+      "bytes": 543781,
+      "sha256": "4675af2f8d1a26efd214a3d99b566a2bef80372644ad4f702cfa65e72eacad83",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00025.m4s",
+      "status": 200,
+      "bytes": 408367,
+      "sha256": "acba55dc789f467cb66df0291a7b3f2df34456e591336d5e897c7be0e041d691",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00026.m4s",
+      "status": 200,
+      "bytes": 530180,
+      "sha256": "766d5ba24b1bf333a48fba1a57101c3d6ccf8554d10a0b40e10acac19fcd2a97",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00023.m4s",
+      "status": 200,
+      "bytes": 555132,
+      "sha256": "e31c238601ad4a6790d4ac08c60b3cbfb6448c46bfd3fe50fe2c44bf137a1eaf",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00024.m4s",
+      "status": 200,
+      "bytes": 397417,
+      "sha256": "ba0f50bc4195097cf514da72d879dacae22f40efaade98ba1e8df8633f137844",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00028.m4s",
+      "status": 200,
+      "bytes": 50098,
+      "sha256": "fe7acdc7bb285b9eb7e67d0cd3a445d5efa58eed2236248bb48b03f527fba0f1",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00029.m4s",
+      "status": 200,
+      "bytes": 38697,
+      "sha256": "520f729721009e2a1cc583bf3f0cbd4be3fe82f091cfef99d972314d47135051",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "master.m3u8",
+      "status": 200,
+      "bytes": 937,
+      "sha256": "6ed69119c414b7e3bdf65dbc7b382b496a9dd1c7b1dad2f9f2a34ff193bc9534",
+      "type": "application/vnd.apple.mpegurl",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00030.m4s",
+      "status": 200,
+      "bytes": 2891,
+      "sha256": "3c365493229fe495b1c31b10ed8b78ecd65400db84d856c58f6d92ccfc093e01",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "720p/segment-00027.m4s",
+      "status": 200,
+      "bytes": 415081,
+      "sha256": "a620f156101d44b8183ef28683fd7206cf6e8af6db5fac587bbf3d738337b4e2",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "fallback.mp4",
+      "status": 200,
+      "bytes": 14183648,
+      "sha256": "84f90715a4c86b3d3e1d358f707e4c13eb73c78031c2074235ec9c07eb7a5e01",
+      "type": "video/mp4",
+      "cache": "public, max-age=31536000, immutable"
+    }
+  ],
+  "retired": [
+    {
+      "path": "/films/uno-introduction/en-v1/master.m3u8",
+      "status": 404
+    },
+    {
+      "path": "/films/uno-introduction/en-v2/master.m3u8",
+      "status": 404
+    },
+    {
+      "path": "/films/uno-introduction.mp4",
+      "status": 404
+    }
+  ],
+  "partial": {
+    "status": 206,
+    "bytes": 1024,
+    "contentRange": "bytes 0-1023/14183648",
+    "exact": true
+  }
+}

@@ -1,6 +1,6 @@
 {
   "date": "2026-10-24",
-  "status": "METADATA_FOLLOWUP_VERIFIED_LOCAL_PUBLICATION_PENDING",
+  "status": "VERIFIED_PUBLISHED_DDB17D6",
   "scope": "Chrome iPhone identity routing, desktop Safari MSE/replay cache, bounded fallback; native iPhone/iPad retained",
   "sourceHashes": {
     "lib/film-playback.ts": "9ed2108ee76e1a2ca7ea545bf17ee0e8899f48f128ed5cb6b5be251c6c774e9c",
@@ -58,14 +58,14 @@
     "gate4": "PASS",
     "gate5": "PASS",
     "prepublicationGate6": "PASS 2026-10-24",
-    "postpublicationGate6": "PENDING",
-    "metadataFollowup": "Scope1 Gate4 Gate5 PrepublicationGate6 PASS2026-10-24"
+    "postpublicationGate6": "PASS2026-10-24 /root/hls_incident_auditor qualifiedincidentfix",
+    "metadataFollowup": "Scope1 Gate4 Gate5 PrepublicationGate6 FinalPostpublicationGate6 PASS2026-10-24"
   },
   "publication": {
-    "sha": "be817995ebb6bbaac46d5ad29aa8094d82ece01b",
+    "sha": "ddb17d632802031e9f27170e00410b113eac4c14",
     "deployments": {
-      "production": 7290388833,
-      "preview": 7290376627
+      "production": 7290590855,
+      "preview": 7290604265
     },
     "providerStatus": "both success",
     "debugMapPublic": {
@@ -74,7 +74,9 @@
       "nativeSafariConfirmed": true,
       "cause": "UNKNOWN",
       "notPlaybackFailure": true
-    }
+    },
+    "previousSha": "be817995ebb6bbaac46d5ad29aa8094d82ece01b",
+    "receipt": "hls-incident-publication.json"
   },
   "limits": [
     "ExactownerhistoricalfourthstallcauseUNKNOWN",
@@ -88,10 +90,11 @@
     "verifier": "/root",
     "date": "2026-10-24",
     "scope": "Chrome/Mac routing andboundedrecovery, qualifiedactualMacreplaybehavior",
-    "metadata": "2026-10-24 /root APPROVED exactprefix/newURL/relevantHTTPbrowserstaticreviewevidence"
+    "metadata": "2026-10-24 /root APPROVED exactprefix/newURL/relevantHTTPbrowserstaticreviewevidence",
+    "publication": "2026-10-24 /root APPROVED finalSHA publicobjects/cache/MIME/range andChrome/Macplayback; historicalunknownsretained"
   },
   "metadataFollowup": {
-    "status": "ROOT_TECHNICAL_APPROVED_2026-10-24",
+    "status": "PUBLISHED_PUBLIC_WORKER_BODY_AND_MSE_PASS",
     "worker": "hls-incident-worker-metadata.json",
     "actualSafari": "hls-incident-real-safari-metadata.json",
     "core": {

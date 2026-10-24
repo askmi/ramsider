@@ -37,5 +37,35 @@
         ]
       }
     ]
+  },
+  "publicSmoke": {
+    "origin": "https://ramsider-main.vercel.app",
+    "http": {
+      "status": 200,
+      "type": "application/javascript; charset=utf-8",
+      "cache": "public, max-age=31536000, immutable",
+      "exact": true,
+      "noMapping": true
+    },
+    "runs": [
+      {
+        "name": "systemChrome",
+        "engine": "mse-hls",
+        "cleared": true,
+        "errors": [],
+        "workers": [
+          "/vendor/hls-worker-1.7.3-runtime.js"
+        ]
+      },
+      {
+        "name": "desktopWebKit",
+        "engine": "mse-hls",
+        "cleared": true,
+        "errors": [],
+        "workers": [
+          "/vendor/hls-worker-1.7.3-runtime.js"
+        ]
+      }
+    ]
   }
 }

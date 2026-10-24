@@ -1,7 +1,7 @@
 {
   "date": "2026-10-24",
   "change": "CHG0141",
-  "status": "LOCALLY_VERIFIED_PUBLICATION_PENDING",
+  "status": "VERIFIED_PUBLISHED_QUALIFIED_RELEASE",
   "scope": "Reusable skill then existing film HLS, truthful localized audio selection and explicit production deployment",
   "devices": {
     "pro": "WebKit402x874DPR3",
@@ -55,7 +55,7 @@
     "Native hardware fullscreen/rotation not certified; Chromium fullscreen API tested",
     "No supplied captions/subtitles",
     "No field INP, Lighthouse score, lossless or universal zero-stall claim",
-    "Published artifact proof pending"
+    "NativeWebKitper-runqualityvarianceobserved: secondfullendrunfalls144pafter32.75s; causeUNKNOWN. No nativehighest-quality/buffer-cap/strictzero-waitclaim."
   ],
   "performance": {
     "network": "PASS seehls-network-performance.json; 60startups/3completefilms/25\u21921\u219225adaptive zero poststartstalls",
@@ -79,8 +79,9 @@
     "verifier": "/root",
     "result": "APPROVED localimplementation stages1\u20135",
     "independent": "/root/video_auditor Gates1\u20135PASS afterrecordedre-audits",
-    "publication": "PENDING",
-    "prepublicationAudit": "PASS /root/video_auditor2026-10-24"
+    "publication": "APPROVED /root2026-10-24 exactde43e9e/bothVercel/canonicalfunctional+integrity/qualifiedclaims",
+    "prepublicationAudit": "PASS /root/video_auditor2026-10-24",
+    "finalPostpublicationAudit": "PASS /root/video_release_auditor2026-10-24; no nativehighestquality/physical/universalzero-stallcertification"
   },
   "changedPaths": [
     ".agents/skills/mobile-hls-video/SKILL.md",
@@ -136,5 +137,11 @@
     "tools/measure-product-film.mjs",
     "tools/prepare-product-film.mjs",
     "types/hls-light.d.ts"
+  ],
+  "publicEvidence": [
+    "hls-publication.json",
+    "hls-public-verification.json",
+    "hls-public-comparison.json",
+    "hls-public-native-playback.json"
   ]
 }

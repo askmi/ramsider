@@ -3,7 +3,7 @@
   "date": "2026-10-22",
   "repository": "askmi/ramsider",
   "branch": "main",
-  "status": "AUTHORIZED_PENDING_COMMIT",
+  "status": "PUBLISHED_BOTH_PROVIDER_SUCCESS_CANONICAL_VERIFIED",
   "baseSHA": "2fd005d71ac66f90cc80aef43c74153afb6a99f2",
   "ownerAuthorization": "\u0414\u0430, \u0432\u044b\u0433\u043b\u044f\u0434\u0438\u0442 \u043d\u043e\u0440\u043c\u0430\u043b\u044c\u043d\u043e. \u0422\u0435\u043f\u0435\u0440\u044c \u044d\u0442\u043e \u0432\u0441\u0451 \u043d\u0430\u0434\u043e \u0437\u0430\u043a\u043e\u043c\u043c\u0438\u0442\u0438\u0442\u044c \u0438 \u0437\u0430\u0434\u0435\u043f\u043b\u043e\u0438\u0442\u044c.",
   "visualAcceptance": "APPROVED2026-10-22",
@@ -21,8 +21,8 @@
   "verifiedCodeReceipt": "final-hashes.json",
   "previousChecks": "42actualproductionPASS/30intentionalduplicateSKIP;nativeclean/type/build;lint1oldwarning;no runtime changes",
   "precommitAudit": "PASS2026-10-22 /root/wellness_priority_auditor52paths12hashes4PNGsource/privateexclusion/main/whitespace/history",
-  "deployment": "PENDING",
-  "canonical": "PENDING",
+  "deployment": "SUCCESS bothlatestGitHubVercelcontexts+exactSHAProduction/Previewdeploymentrecords",
+  "canonical": "PASS22RGBAexactvsapprovedlocal/4PNGHTTPmimeSHAexact/ProMaxgeometry-copy/close-focus-scrollrestore/reopenEndBack/ARrtl/footerretention/noerrors",
   "precommitHistory": [
     {
       "result": "FAIL",
@@ -44,5 +44,64 @@
       "date": "2026-10-22",
       "evidence": "exact52stagedpaths12hashes4originalPNGsourcepairs/privateexclusions/mainoriginmain/whitespace+history"
     }
-  ]
+  ],
+  "pushedSHA": "43374087fdfb91fae38f871ba5a416cd4a80114e",
+  "remoteMainVerified": "43374087fdfb91fae38f871ba5a416cd4a80114e",
+  "preservedBranches": {
+    "Alpha": "158962347d9866ce758bb8e3d83453fa3ed4070f",
+    "beta": "966e25c09fe607715d08285fadeac77f7ccdbb72"
+  },
+  "latestContexts": [
+    {
+      "context": "Vercel \u2013 ramsider",
+      "state": "success",
+      "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/BtyvHcF1Jx97bZkc8pBw7pcYPG6r"
+    },
+    {
+      "context": "Vercel \u2013 ramsider-beta",
+      "state": "success",
+      "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/7ep4Wkj4YaUvz7mpvhaL3HKT9Yws"
+    }
+  ],
+  "productionDeployment": {
+    "id": 7245991113,
+    "sha": "43374087fdfb91fae38f871ba5a416cd4a80114e",
+    "environment": "Production \u2013 ramsider",
+    "state": "success",
+    "url": "https://ramsider-new903hf0-askmi-6282s-projects.vercel.app"
+  },
+  "recordDisposition": "ExactSHAoutcome supplement stayslocal afterrelease; no recursive receipt-onlypush required.",
+  "previewDeployment": {
+    "id": 7246004422,
+    "sha": "43374087fdfb91fae38f871ba5a416cd4a80114e",
+    "environment": "Preview \u2013 ramsider-beta",
+    "state": "success",
+    "url": "https://ramsider-beta-12mfn4vwi-askmi-6282s-projects.vercel.app"
+  },
+  "canonicalReceipt": "canonical.json",
+  "canonicalRestoration": {
+    "pro": {
+      "saved": 4720,
+      "atPointerdown": 4720,
+      "after": 4720
+    },
+    "max": {
+      "saved": 5166,
+      "atPointerdown": 5166,
+      "after": 5166
+    }
+  },
+  "providerAliasInspection": {
+    "status": "NOT_AVAILABLE",
+    "reason": "VercelCLIhasnoexistingauth; unexpectedloginflowstoppedwithoutauthentication. In-appVercelpageblockedbybusinesspolicy;didnotbypass.",
+    "positiveEvidence": "GitHubexactSHAProduction/Previewsuccess andactualcanonicalnewruntime/pixels/PNGhashesverified",
+    "limit": "Noindependentproviderpaneldomain-assignmentconfirmationclaimed"
+  },
+  "rootActualPublicImagesViewed": [
+    "/tmp/ramsider-wellness/canonical-pro-1.png",
+    "/tmp/ramsider-wellness/canonical-max-6.png"
+  ],
+  "technicalApproval": "2026-10-22 /root APPROVED exactpush/productiondeployment+publicretention; providerpanelassignmentinspectionunavailable asnoted",
+  "independentFinalTransportAudit": "PASS2026-10-22 /root/wellness_priority_auditor freshGitHubconnectorbothcontexts/exactSHAreceipts/viewedpairedpublic-localProMax/22RGBApairs/4PNGmimeSHA/12committedhashes/privateexclusion/records/whitespace",
+  "auditorReadLimitations": "Independent shellGitHubAPIunavailable; freshGitHubconnectorpositive andprimaryrecordedProduction/PreviewAPIevidence examined. Providerpanelaliasconfirmationunavailable/unclaimed."
 }

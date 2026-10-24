@@ -47,3 +47,5 @@ The added inline previews increase compressed HTML from164,963B to229,849B; this
 ## Publication authorization — 2026-10-23
 
 Owner now explicitly requests deployment. Verified CHG0134 plus its existing CHG0133 lossless asset dependencies are authorized for origin/main. Exact commit and both known deployment targets will be recorded in [publication receipt](publication.json). Prior no-publication statements describe the implementation stage.
+
+Publication completed2026-10-23: commit `2680ff6727228e6a9b4fb0a062d2c7a738fbceb3` is on origin/main, both latest Vercel contexts successful (mainProduction /betaPreview). Public canonical63previews and Pro/Max three optional original views/close/nooverflow/noJavaScript errors passed; root viewed settled original screenshots. [Publication evidence](publication.json).

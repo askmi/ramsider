@@ -1,0 +1,39 @@
+{
+  "sha": "ddb17d632802031e9f27170e00410b113eac4c14",
+  "domain": "https://ramsider-main.vercel.app",
+  "objects": [
+    {
+      "path": "/vendor/hls-worker-1.7.3.js",
+      "status": 200,
+      "bytes": 118233,
+      "exact": true,
+      "type": "application/javascript; charset=utf-8",
+      "cache": "public, max-age=31536000, immutable",
+      "sha256": "42794b9ca89d78c54407c6a0e46cdcde9fbd976e476259428e506be857cb16ea"
+    },
+    {
+      "path": "/vendor/hls-worker-1.7.3-runtime.js",
+      "status": 200,
+      "bytes": 118194,
+      "exact": true,
+      "type": "application/javascript; charset=utf-8",
+      "cache": "public, max-age=31536000, immutable",
+      "sha256": "d71badefeaa6e00c679deb68f46f4989959afbc272fdc6e00a6006dc28b2343e"
+    },
+    {
+      "path": "/films/uno-introduction/en-v2/master.m3u8",
+      "status": 200,
+      "bytes": 936,
+      "exact": true,
+      "type": "application/vnd.apple.mpegurl",
+      "cache": "public, max-age=31536000, immutable",
+      "sha256": "11f2fea6bbeb59c70d318c258770138b2d127ce60769b2052dc9c8da27df429d"
+    }
+  ],
+  "range": {
+    "status": 206,
+    "bytes": 1024,
+    "range": "bytes 0-1023/14183648",
+    "exact": true
+  }
+}

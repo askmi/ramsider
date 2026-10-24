@@ -1,7 +1,7 @@
 {
   "date": "2026-10-24",
   "change": "CHG0142",
-  "status": "VERIFIED_LOCAL worker followup / independent affected Gates4\u20136 prepublication PASS",
+  "status": "VERIFIED_PUBLISHED 2ffecd7 / final independent public Gate6 PASS",
   "baseCommit": "6310c28e9eefb74100047b628d7bacb7cd0bf4fe",
   "sourceSHA256": {
     "lib/film-preload.ts": "f89fd7de698efa6f6c05821c83c78fe46084cc4d76fd24315546da06969551c0",
@@ -100,7 +100,11 @@
     "status": "APPROVED_LOCAL; independent Gates3\u20136 prepublication PASS",
     "evidence": "actual browser, cache wire consumption, Range/lifecycle/failure tests, full constrained playback, visual, static/build and resolved native review"
   },
-  "publication": "PENDING",
+  "publication": {
+    "commit": "2ffecd782ab47701158ab5aec121e08b13db5675",
+    "receipt": "prefetch-publication.json",
+    "state": "both VercelSUCCESS / rootPUBLICAPPROVED"
+  },
   "independentAudit": {
     "verifier": "/root/hls_incident_auditor",
     "date": "2026-10-24",
@@ -109,7 +113,7 @@
     "behavior": "PASS",
     "reviewPerformance": "PASS",
     "prepublicationRecords": "PASS exact28scopedpaths/index13sourcehashes/whitespace/main+origin",
-    "public": "PENDING"
+    "public": "PASS /root/hls_incident_auditor2026-10-24; scoped preload/reuse/playback contract; latest1330/822ms singletrials; remaining delay cause not fully isolated"
   },
   "workerFollowup": {
     "previousPublishedCommit": "d3f9c709c4e19d1d2df1be87bf87067fa6a48b5f",
@@ -128,6 +132,10 @@
       "date": "2026-10-24",
       "status": "APPROVED_LOCAL; independent /root/hls_incident_auditor affected Gates4/5/exact15pathGate6 PASS"
     },
-    "publication": "PENDING"
+    "publication": {
+      "commit": "2ffecd782ab47701158ab5aec121e08b13db5675",
+      "receipt": "prefetch-publication.json",
+      "state": "both VercelSUCCESS / rootPUBLICAPPROVED"
+    }
   }
 }

@@ -3,12 +3,100 @@
   "change": "CHG0134 with requiredCHG0133 assets",
   "repository": "askmi/ramsider",
   "branch": "main",
-  "status": "AUTHORIZED_PENDING_COMMIT_PUSH",
+  "status": "VERIFIED",
   "targets": [
-    "Vercel \u2013 ramsider / Production \u2013 ramsider",
-    "Vercel \u2013 ramsider-beta / Preview \u2013 ramsider-beta"
+    {
+      "project": "ramsider",
+      "context": "Vercel \u2013 ramsider",
+      "state": "success",
+      "environment": "Production \u2013 ramsider",
+      "deploymentId": 7272627766,
+      "evidenceURL": "https://vercel.com/askmi-6282s-projects/ramsider/7xffN5dfKQn46Ydo2tsuxWb7FBA4",
+      "generatedURL": "https://ramsider-1r1angjt7-askmi-6282s-projects.vercel.app"
+    },
+    {
+      "project": "ramsider-beta",
+      "context": "Vercel \u2013 ramsider-beta",
+      "state": "success",
+      "environment": "Preview \u2013 ramsider-beta",
+      "deploymentId": 7272641224,
+      "evidenceURL": "https://vercel.com/askmi-6282s-projects/ramsider-beta/537BQMeEjhGTcRvyzuCKTNChFSm6",
+      "generatedURL": "https://ramsider-beta-b2cuxgih0-askmi-6282s-projects.vercel.app"
+    }
   ],
-  "technicalApproval": "Verified implementation/root2026-10-23, independentStages1-6PASS; recent type/lint/build/native/sourcehash evidence applies",
+  "technicalApproval": {
+    "date": "2026-10-23",
+    "verifier": "/root",
+    "status": "APPROVED publication transport/provider/main public smoke",
+    "evidence": "exact remoteSHA; both latest provider successes and environment records; canonical63previews and all3optional originals/close ProMax, nooverflow/noJSerror, finalscreens viewed"
+  },
   "userAuthorization": "explicit request to deploy current work",
-  "excluded": "private licence/policy source folders; unrelated footer/contact/publication/viewport records"
+  "excluded": "private licence/policy source folders; unrelated footer/contact/publication/viewport records",
+  "sha": "2680ff6727228e6a9b4fb0a062d2c7a738fbceb3",
+  "remoteMainExact": true,
+  "committedPathCount": 64,
+  "canonical": {
+    "url": "https://ramsider-bice.vercel.app/en",
+    "inlinePreviewCount": 63,
+    "technologyPreviewBank": true,
+    "currentWellnessWebP": true,
+    "oldLinearLoaderAbsent": true,
+    "browser": [
+      {
+        "width": 402,
+        "states": [
+          {
+            "name": "wellness",
+            "ready": true,
+            "originalNaturalWidth": 1024
+          },
+          {
+            "name": "charcoal",
+            "ready": true,
+            "originalNaturalWidth": 1080
+          },
+          {
+            "name": "technology",
+            "ready": true,
+            "originalNaturalWidth": 941
+          }
+        ],
+        "overflow": false,
+        "errors": []
+      },
+      {
+        "width": 440,
+        "states": [
+          {
+            "name": "wellness",
+            "ready": true,
+            "originalNaturalWidth": 1024
+          },
+          {
+            "name": "charcoal",
+            "ready": true,
+            "originalNaturalWidth": 1080
+          },
+          {
+            "name": "technology",
+            "ready": true,
+            "originalNaturalWidth": 941
+          }
+        ],
+        "overflow": false,
+        "errors": []
+      }
+    ],
+    "screenshots": [
+      "screenshots/loading-flow/published-402-wellness.png",
+      "screenshots/loading-flow/published-440-wellness.png"
+    ],
+    "paintCaptureNote": "Initial Pro snapshot caught preview despite state marker. Retained published-initial captures; final snapshots await actual DOM decode/fonts/twoRAF, naturalWidth>24 and filter none. Both final originals visually inspected. No runtime change."
+  },
+  "limitations": [
+    "Beta success is Preview environment; no permanent beta production-domain promotion claimed",
+    "No provider-panel alias assignment inspection",
+    "No physicalSafari/Telegram claim"
+  ],
+  "outcomeRecords": "Local postpublication supplement; no additional runtime changes or second push."
 }

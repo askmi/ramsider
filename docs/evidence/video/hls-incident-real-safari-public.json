@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-24",
+  "sha": "ddb17d632802031e9f27170e00410b113eac4c14",
+  "source": "Actual Mac Safari UI; selected own-site rows",
+  "observedAX": [
+    "\t\t\t\t\t\t\t47 text {\\\"video\\\":[{\\\"time\\\":32.909858164,\\\"height\\\":1080,\\\"engine\\\":\\\"mse-hls\\\"}],\\\"workers\\\":[\\\"/vendor/hls-worker-1.7.3-runtime.js\\\"]}",
+    "\t\t\t\t\t\t\t\t70 text Elapsed: 32 seconds",
+    "\t\t\t93 text field (settable) Description: smart search field, Value: https://ramsider-main.vercel.app/en?v=ddb17d6#film-play, ID: WEB_BROWSER_ADDRESS_AND_SEARCH_FIELD"
+  ],
+  "freshConsoleErrorsObserved": false,
+  "cleanup": {
+    "open": false,
+    "video": [
+      {
+        "src": null,
+        "paused": true,
+        "network": 0,
+        "ready": 0
+      }
+    ]
+  },
+  "note": "During UI automation one unfocused console Return reopened CTA afterclose; final explicit console focus and readonlyquery proves releasedstate. Not a player failure."
+}

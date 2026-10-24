@@ -13,7 +13,7 @@ from fractions import Fraction
 
 
 DEFAULT_PROFILES = [
-    {"name": "144p", "height": 144, "maxVideoKbps": 90, "audioKbps": 48, "crf": 30},
+    {"name": "144p", "height": 144, "maxVideoKbps": 28, "crf": 30},
     {"name": "360p", "height": 360, "maxVideoKbps": 550, "crf": 19},
     {"name": "720p", "height": 720, "maxVideoKbps": 2000, "crf": 18},
     {"name": "1080p", "height": 1080, "maxVideoKbps": 4500, "crf": 18, "level": "4.1", "refs": 4},
@@ -75,6 +75,13 @@ def codec_string(init):
     return "avc1." + data[at + 5:at + 8].hex() + ",mp4a.40.2"
 
 
+def audio_identity(path):
+    packets = probe(path, "-select_streams", "a:0", "-show_packets", "-show_data_hash", "sha256",
+                    "-show_entries", "packet=data_hash,size")["packets"]
+    return {"packets": len(packets), "bytes": sum(int(p["size"]) for p in packets),
+            "sha256": hashlib.sha256("\n".join(p["data_hash"] for p in packets).encode()).hexdigest()}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, required=True)
@@ -85,6 +92,8 @@ def main():
     parser.add_argument("--receipt", type=Path, required=True)
     parser.add_argument("--archive", type=Path, required=True)
     parser.add_argument("--profiles", type=Path, help="JSON profile array; omit to use initial candidates")
+    parser.add_argument("--reuse-package", type=Path, help="Previously verified package; reuse only identical profiles/source audio")
+    parser.add_argument("--reuse-receipt", type=Path, help="Exact receipt for --reuse-package")
     parser.add_argument("--segment-seconds", type=float, default=2)
     parser.add_argument("--preset", default="slow")
     parser.add_argument("--threads", type=int, default=6)
@@ -123,6 +132,28 @@ def main():
     selected = [p for p in profiles if p["height"] <= video["height"]]
     if not selected:
         parser.error("Source smaller than every configured rendition")
+    if any("audioKbps" in p for p in selected):
+        parser.error("Audio must preserve the source AAC; audioKbps overrides are not supported")
+    current_encoder = subprocess.check_output(["ffmpeg", "-version"], text=True).splitlines()[0]
+    source_audio = audio_identity(src)
+    reuse = None
+    if bool(args.reuse_package) != bool(args.reuse_receipt):
+        parser.error("Supply both reuse package and receipt")
+    if args.reuse_package:
+        reuse = json.loads(args.reuse_receipt.read_text())
+        if reuse["sourceSHA256"] != sha(src) or reuse["recipe"]["segmentSeconds"] != args.segment_seconds:
+            parser.error("Reuse source or segment duration differs")
+        requested_recipe = {"preset": args.preset, "threads": args.threads, "gopFrames": gop}
+        if reuse.get("encoder") != current_encoder or any(reuse["recipe"].get(k) != v for k, v in requested_recipe.items()):
+            parser.error("Reuse encoder settings differ; omit reuse to re-encode")
+        expected = {r["path"] for r in reuse["files"]}
+        if expected != {str(p.relative_to(args.reuse_package)) for p in args.reuse_package.rglob("*") if p.is_file()}:
+            parser.error("Reuse file set differs")
+        for record in reuse["files"]:
+            file = args.reuse_package / record["path"]
+            if file.is_symlink() or not file.resolve().is_relative_to(args.reuse_package.resolve()) or file.stat().st_size != record["bytes"] or sha(file) != record["sha256"]:
+                parser.error("Reuse package integrity mismatch")
+    args.receipt.parent.mkdir(parents=True, exist_ok=True)
     folder.mkdir(parents=True)
     renditions = []
     for profile in selected:
@@ -132,6 +163,12 @@ def main():
         height = profile["height"]
         width = round(video["width"] * height / video["height"] / 2) * 2
         dest = folder / name
+        previous = next((r for r in reuse["renditions"] if r["name"] == name and r["profile"] == profile), None) if reuse else None
+        if previous and audio_identity(args.reuse_package / name / "index.m3u8") == source_audio:
+            shutil.copytree(args.reuse_package / name, dest)
+            renditions.append(previous)
+            print(f"Reused byte-identical {name}: verified source audio and package", flush=True)
+            continue
         dest.mkdir()
         command = [
             "ffmpeg", "-hide_banner", "-nostdin", "-y", "-i", str(src),
@@ -146,10 +183,7 @@ def main():
             "-vf", f"scale={width}:{height}:flags=lanczos:in_color_matrix=bt709:out_color_matrix=bt709:in_range=tv:out_range=tv,setsar=1",
             "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", "-color_range", "tv",
         ]
-        if "audioKbps" in profile:
-            command += ["-c:a", "aac", "-b:a", str(profile["audioKbps"]) + "k", "-ac", "2"]
-        else:
-            command += ["-c:a", "copy"]
+        command += ["-c:a", "copy"]
         if "level" in profile:
             macroblocks = math.ceil(width / 16) * math.ceil(height / 16)
             preferred = round(float(profile["level"]) * 10)
@@ -198,7 +232,9 @@ def main():
     keep = {"index", "codec_name", "codec_type", "profile", "level", "width", "height", "pix_fmt", "color_range", "color_space", "color_transfer", "color_primaries", "r_frame_rate", "avg_frame_rate", "duration", "sample_aspect_ratio", "sample_rate", "channels"}
     sanitized_source = {"streams": [{k:v for k,v in stream.items() if k in keep} for stream in source["streams"]], "duration": source["format"]["duration"]}
     receipt = {"schema": 1, "id": args.id, "audioLocale": args.language, "version": args.version,
-               "sourceSHA256": sha(src), "source": sanitized_source, "encoder": subprocess.check_output(["ffmpeg", "-version"], text=True).splitlines()[0],
+               "sourceSHA256": sha(src), "source": sanitized_source, "encoder": current_encoder,
+               "audioPolicy": "source-copy", "sourceAudio": source_audio,
+               "reuseReceiptSHA256": sha(args.reuse_receipt) if args.reuse_receipt else None,
                "recipe": {"segmentSeconds": args.segment_seconds, "gopFrames": gop, "preset": args.preset, "threads": args.threads},
                "width": video["width"], "height": video["height"], "duration": float(video["duration"]), "renditions": renditions,
                "files": files, "archive": {"bytes": args.archive.stat().st_size, "sha256": sha(args.archive)},

@@ -1,0 +1,239 @@
+{
+  "date": "2026-10-24",
+  "status": "READ_ONLY_MEASUREMENT",
+  "package": "en-v2",
+  "runtime": "ddb17d6 unchanged",
+  "sourceAudio": {
+    "stream": {
+      "codec_name": "aac",
+      "profile": "LC",
+      "sample_rate": "48000",
+      "channels": 2,
+      "bit_rate": "126363"
+    },
+    "packetCount": 2817,
+    "payloadBytes": 949239,
+    "packetDuration": 60.095061,
+    "payloadKbps": 126.36499362235442,
+    "orderedPayloadHash": "4381d9e87a59b3259e00cf40bc6d808f29a8ba43eaaa73ea5a1acf9a9ebbf3e2"
+  },
+  "segments": [
+    {
+      "quality": "144p",
+      "full2sCount": 30,
+      "meanBytes": 24094.5,
+      "minBytes": 14488,
+      "maxBytes": 40936,
+      "firstBytes": 21808,
+      "tail": {
+        "path": "segment-00030.m4s",
+        "duration": 0.04,
+        "bytes": 1450
+      },
+      "audio": {
+        "stream": {
+          "codec_name": "aac",
+          "profile": "LC",
+          "sample_rate": "48000",
+          "channels": 2,
+          "bit_rate": "48255"
+        },
+        "packetCount": 2816,
+        "payloadBytes": 362445,
+        "packetDuration": 60.06039500000001,
+        "payloadKbps": 48.27740476898295,
+        "orderedPayloadHash": "6be51e2b9dcd72bef11f6a2fe23e38e1c33000de6444d69e5e928342e56dc786",
+        "packetPayloadsEqualSource": false
+      }
+    },
+    {
+      "quality": "360p",
+      "full2sCount": 30,
+      "meanBytes": 150757.9,
+      "minBytes": 36250,
+      "maxBytes": 210384,
+      "firstBytes": 134771,
+      "tail": {
+        "path": "segment-00030.m4s",
+        "duration": 0.04,
+        "bytes": 2020
+      },
+      "audio": {
+        "stream": {
+          "codec_name": "aac",
+          "profile": "LC",
+          "sample_rate": "48000",
+          "channels": 2,
+          "bit_rate": "126543"
+        },
+        "packetCount": 2817,
+        "payloadBytes": 949239,
+        "packetDuration": 60.095061,
+        "payloadKbps": 126.36499362235442,
+        "orderedPayloadHash": "4381d9e87a59b3259e00cf40bc6d808f29a8ba43eaaa73ea5a1acf9a9ebbf3e2",
+        "packetPayloadsEqualSource": true
+      }
+    },
+    {
+      "quality": "720p",
+      "full2sCount": 30,
+      "meanBytes": 472224.23333333334,
+      "minBytes": 38697,
+      "maxBytes": 649460,
+      "firstBytes": 448810,
+      "tail": {
+        "path": "segment-00030.m4s",
+        "duration": 0.04,
+        "bytes": 2891
+      },
+      "audio": {
+        "stream": {
+          "codec_name": "aac",
+          "profile": "LC",
+          "sample_rate": "48000",
+          "channels": 2,
+          "bit_rate": "126543"
+        },
+        "packetCount": 2817,
+        "payloadBytes": 949239,
+        "packetDuration": 60.095061,
+        "payloadKbps": 126.36499362235442,
+        "orderedPayloadHash": "4381d9e87a59b3259e00cf40bc6d808f29a8ba43eaaa73ea5a1acf9a9ebbf3e2",
+        "packetPayloadsEqualSource": true
+      }
+    },
+    {
+      "quality": "1080p",
+      "full2sCount": 30,
+      "meanBytes": 1056336.4333333333,
+      "minBytes": 41395,
+      "maxBytes": 1391242,
+      "firstBytes": 940344,
+      "tail": {
+        "path": "segment-00030.m4s",
+        "duration": 0.04,
+        "bytes": 3346
+      },
+      "audio": {
+        "stream": {
+          "codec_name": "aac",
+          "profile": "LC",
+          "sample_rate": "48000",
+          "channels": 2,
+          "bit_rate": "126543"
+        },
+        "packetCount": 2817,
+        "payloadBytes": 949239,
+        "packetDuration": 60.095061,
+        "payloadKbps": 126.36499362235442,
+        "orderedPayloadHash": "4381d9e87a59b3259e00cf40bc6d808f29a8ba43eaaa73ea5a1acf9a9ebbf3e2",
+        "packetPayloadsEqualSource": true
+      }
+    },
+    {
+      "quality": "1440p",
+      "full2sCount": 30,
+      "meanBytes": 1870849.0666666667,
+      "minBytes": 45629,
+      "maxBytes": 2408010,
+      "firstBytes": 1647596,
+      "tail": {
+        "path": "segment-00030.m4s",
+        "duration": 0.04,
+        "bytes": 4485
+      },
+      "audio": {
+        "stream": {
+          "codec_name": "aac",
+          "profile": "LC",
+          "sample_rate": "48000",
+          "channels": 2,
+          "bit_rate": "126543"
+        },
+        "packetCount": 2817,
+        "payloadBytes": 949239,
+        "packetDuration": 60.095061,
+        "payloadKbps": 126.36499362235442,
+        "orderedPayloadHash": "4381d9e87a59b3259e00cf40bc6d808f29a8ba43eaaa73ea5a1acf9a9ebbf3e2",
+        "packetPayloadsEqualSource": true
+      }
+    },
+    {
+      "quality": "2160p",
+      "full2sCount": 30,
+      "meanBytes": 3363406.7666666666,
+      "minBytes": 55000,
+      "maxBytes": 4442714,
+      "firstBytes": 3897940,
+      "tail": {
+        "path": "segment-00030.m4s",
+        "duration": 0.04,
+        "bytes": 6216
+      },
+      "audio": {
+        "stream": {
+          "codec_name": "aac",
+          "profile": "LC",
+          "sample_rate": "48000",
+          "channels": 2,
+          "bit_rate": "126543"
+        },
+        "packetCount": 2817,
+        "payloadBytes": 949239,
+        "packetDuration": 60.095061,
+        "payloadKbps": 126.36499362235442,
+        "orderedPayloadHash": "4381d9e87a59b3259e00cf40bc6d808f29a8ba43eaaa73ea5a1acf9a9ebbf3e2",
+        "packetPayloadsEqualSource": true
+      }
+    }
+  ],
+  "limits": [
+    "Actualcustomer rendition/network/timing/audio-symptomtypeUNKNOWN; deviceiPhone13Safari confirmed",
+    "Screenshotcannotidentifyexactrendition",
+    "Packetidentityprovesencodedpayloadidentitynotaudibilityoroutageabsence",
+    "2smeans30fullsegmentsplus0.04stail;initexcluded;decimalKBMB"
+  ],
+  "scope": "No reencode/runtime/deploy changes; temporary concat files only for read-only probe",
+  "findings": {
+    "all360pAndHigherAACPacketsExactSource": true,
+    "144pAACReencoded": "AAC-LC stereo48.28kbpspayload vs126.365kbpssource",
+    "uniformAudioExtraBytesPerMinute": 586794,
+    "audioBadSessionCause": "UNKNOWN; plausible144pswitch iftimbre/artifacts, interruptionsrequiretiming/networkdiagnosis",
+    "client": "MSEinitial360p, ABRthroughput+buffer+viewport/FPS,6starget8scap; nativeiOSindependent",
+    "ladderGaps": "144to360;360to720, no240/480"
+  },
+  "recommendation": {
+    "minimal": "KeepmuxedHLS,copyoriginalAACallvariants; per-titleH264ladderadd240/480 withmeasuredpeak/visualquality; thenbufferABRtuningwithconstrainedtests",
+    "optionalLater": "SeparateconstantAACtrackoneperlanguage viaEXT-X-MEDIA; fullhls.jsnotlight; extraHTTP/syncvalidation",
+    "futureOnly": "Noimplementation/encode/push; candidatetargetsnotvalidated",
+    "tradeoff": "Originalaudioadds~78.09kbps/0.586794MBperfilm;144pmean~96.5to174.6kbps estimate, peakmustremeasure;192kbpsfloor notretainedbyassumption"
+  },
+  "primarySources": [
+    "https://www.ffmpeg.org/ffmpeg.html#Streamcopy",
+    "https://developer.apple.com/streaming/hls-authoring-specification-for-apple-devices.html",
+    "https://github.com/video-dev/hls.js/tree/v1.7.3",
+    "https://www.rfc-editor.org/rfc/rfc8216"
+  ],
+  "customerContext": {
+    "device": "iPhone13",
+    "browser": "Safari",
+    "country": "Belarus",
+    "connection": "Owner says possibly bad; not measured",
+    "path": "nativeHLS; hls.js ABR/buffer settings do not control this path",
+    "exactRendition": "UNKNOWN",
+    "audioSymptomType": "UNKNOWN; only worsened reported"
+  },
+  "technicalApproval": {
+    "date": "2026-10-24",
+    "verifier": "/root",
+    "status": "APPROVED read-only facts andqualifiedproposal only; qualitydefectnotfixed",
+    "evidence": "All6packetprobes/perquality30fullsegments/currentmanifest/encoder/playercode/primarydocs"
+  },
+  "independentAudit": {
+    "auditor": "/root/hls_incident_auditor",
+    "date": "2026-10-24",
+    "status": "PASS analysis andfinalrecords only",
+    "defect": "OPEN noimplementation",
+    "futureAcceptance": "Reconsideremergency\u2264192kbpspeakbeforeimplementation;originalAACleaveslessvideobudget"
+  }
+}

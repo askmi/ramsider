@@ -242,3 +242,7 @@ EVAL-HLS-ENTRYPOINT extension2026-10-24: supply correct outerarchivehashwithchan
 CHG0141 reopened2026-10-24 extends EVAL-HLS-ENTRYPOINT with Chrome device-mode SafariUA/Googlevendor engine selection, complete playback, waiting-without-MediaError bounded fallback and preserved pause/seek/close. Include actual MacSafari same-element repeatedownload versus MSEcache, realmobileUA anddesktop-UAiPad selection; distinguish emulatorcache andrealbrowser. Controlled independent agent evaluation NOT_RUN; actual runtime regressions are separate evidence.
 
 CHG0141 metadata follow-up extends EVAL-HLS-ENTRYPOINT with local/public auxiliary-asset mismatch, exact executable-prefix verification and immutable URL preservation. Controlled agent evaluation NOT_RUN; runtime HTTP/browser evidence is separate.
+
+CHG0141 customeraudio/image extends EVAL-HLS-ENTRYPOINT: detect48kbpslow-rungaudio coupling, distinguishpacketidentity/listening/networkgaps, nativeiPhonevsMSEconfiguration, reportactualsegmentbytes andproposequalifiedladdertradeoffswithoutimplementingwhenuserrequestsdecisiononly. Controlled agent run NOT_RUN; readonlymeasurementsPASScannotstandinforimplementedqualityfix.
+
+CHG0141 v3: runtimeCLI positiveall6reuse/newreceiptparent +negativeaudio/source/integrity/override PASS; fullmedia/browserchecks separate. Reviewcwdcontextdecision repeatedFAIL2 andsnapshotartifact/receiptomissions caught; standaloneexplicitworkdir+exactstagedsnapshot prevention applied, controlledagentEVALNOT_RUN. No claim of agent-behavior improvement from product fix.

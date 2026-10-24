@@ -1,0 +1,107 @@
+{
+  "date": "2026-10-24",
+  "status": "MEASURED_PENDING_BROWSER_REVIEW",
+  "rows": [
+    {
+      "quality": "144p",
+      "width": 256,
+      "height": 144,
+      "durationSeconds": 60.04,
+      "segmentSeconds": 2,
+      "fullSegments": 30,
+      "tailSeconds": 0.04,
+      "average2sBytes": 39383.26666666667,
+      "max2sBytes": 47219,
+      "wholeVariantBytes": 1185419,
+      "peakBps": 188876,
+      "averageBps": 157594
+    },
+    {
+      "quality": "360p",
+      "width": 640,
+      "height": 360,
+      "durationSeconds": 60.04,
+      "segmentSeconds": 2,
+      "fullSegments": 30,
+      "tailSeconds": 0.04,
+      "average2sBytes": 150757.9,
+      "max2sBytes": 210384,
+      "wholeVariantBytes": 4527434,
+      "peakBps": 841536,
+      "averageBps": 602899,
+      "allVariantFilesByteIdenticalOld": true
+    },
+    {
+      "quality": "720p",
+      "width": 1280,
+      "height": 720,
+      "durationSeconds": 60.04,
+      "segmentSeconds": 2,
+      "fullSegments": 30,
+      "tailSeconds": 0.04,
+      "average2sBytes": 472224.23333333334,
+      "max2sBytes": 649460,
+      "wholeVariantBytes": 14172293,
+      "peakBps": 2597840,
+      "averageBps": 1888024,
+      "allVariantFilesByteIdenticalOld": true
+    },
+    {
+      "quality": "1080p",
+      "width": 1920,
+      "height": 1080,
+      "durationSeconds": 60.04,
+      "segmentSeconds": 2,
+      "fullSegments": 30,
+      "tailSeconds": 0.04,
+      "average2sBytes": 1056336.4333333333,
+      "max2sBytes": 1391242,
+      "wholeVariantBytes": 31696116,
+      "peakBps": 5564968,
+      "averageBps": 4222977,
+      "allVariantFilesByteIdenticalOld": true
+    },
+    {
+      "quality": "1440p",
+      "width": 2560,
+      "height": 1440,
+      "durationSeconds": 60.04,
+      "segmentSeconds": 2,
+      "fullSegments": 30,
+      "tailSeconds": 0.04,
+      "average2sBytes": 1870849.0666666667,
+      "max2sBytes": 2408010,
+      "wholeVariantBytes": 56132634,
+      "peakBps": 9632040,
+      "averageBps": 7479008,
+      "allVariantFilesByteIdenticalOld": true
+    },
+    {
+      "quality": "2160p",
+      "width": 3840,
+      "height": 2160,
+      "durationSeconds": 60.04,
+      "segmentSeconds": 2,
+      "fullSegments": 30,
+      "tailSeconds": 0.04,
+      "average2sBytes": 3363406.7666666666,
+      "max2sBytes": 4442714,
+      "wholeVariantBytes": 100911096,
+      "peakBps": 17770856,
+      "averageBps": 13445492,
+      "allVariantFilesByteIdenticalOld": true
+    }
+  ],
+  "sourceAudio": {
+    "packets": 2817,
+    "bytes": 949239,
+    "sha256": "4381d9e87a59b3259e00cf40bc6d808f29a8ba43eaaa73ea5a1acf9a9ebbf3e2"
+  },
+  "fallback": "Validatedseparatelysourcepacketidentity",
+  "negativeRegression": {
+    "changed": "144p audio replacedwithold48kbps andupdatedfileSHA/master/bitrate sointegritypasses",
+    "expected": "Rendition audio differs from original AAC",
+    "result": "PASS rejectedsemanticregression"
+  },
+  "archiveBytes": 222965760
+}

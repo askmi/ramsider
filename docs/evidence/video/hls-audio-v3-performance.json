@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-24",
+  "samples": [
+    {
+      "label": "sound-preserving-v3",
+      "port": 3175,
+      "conditions": "cold Chromium402x874 DPR3 /4Mbps100ms4xCPU, first snapshot5s afterDOMContentLoaded; scroll unthrottled",
+      "lcp": 388,
+      "cls": 0.00022206073455854325,
+      "fcp": 352,
+      "ttfb": 11.200000047683716,
+      "htmlBytes": 230377,
+      "heroReady": true,
+      "videoRequests": 0,
+      "totalCompletedBytes": 2851719,
+      "jsCompletedBytes": 221550,
+      "videoCompletedBytes": 0,
+      "scroll": {
+        "frames": 99,
+        "p95": 16.800000000000182,
+        "over33": 1
+      }
+    }
+  ],
+  "limits": "One synthetic sample per version; no fieldINP, physical Safari or Lighthouse score. Completed bytes are phase-limited, not eventual total."
+}

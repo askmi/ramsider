@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-24",
+  "rows": [
+    {
+      "case": "source",
+      "expected": "Reuse source or segment duration differs",
+      "result": "PASS rejected"
+    },
+    {
+      "case": "integrity",
+      "expected": "Reuse package integrity mismatch",
+      "result": "PASS rejected"
+    },
+    {
+      "case": "audioOverride",
+      "expected": "audioKbps overrides are not supported",
+      "result": "PASS rejected"
+    }
+  ],
+  "allReusedNewReceiptDirectory": {
+    "result": "PASS",
+    "reusedVariants": 6,
+    "receiptCreated": true,
+    "log": "/tmp/ramsider-hls-v3-allreuse.log"
+  },
+  "changedPreset": {
+    "result": "PASS rejected beforeoutputs",
+    "requested": "veryslow",
+    "verified": "slow",
+    "error": "Reuse encoder settings differ; omit reuse to re-encode"
+  },
+  "allReuseAfterRecipeGuard": {
+    "result": "PASS",
+    "variants": 6,
+    "preset": "slow",
+    "encoder": "ffmpeg version 9.0.2 Copyright (c) 2000-2026 the FFmpeg developers"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-24",
+  "status": "VERIFIED_LOCAL_PUBLICATION_PENDING",
+  "sourceHashes": {
+    ".agents/skills/mobile-hls-video/SKILL.md": "ca24b11f03625e715bb0bdc9fe07bc5effdfa871087ecf788b374c2b95ec6a8e",
+    ".agents/skills/mobile-hls-video/references/specification.md": "e534d3bf54e252002ed8e7f91326a6c75abd1e50e9a2411765c012097f665869",
+    ".agents/skills/mobile-hls-video/scripts/encode.py": "061c4503b2e218dfa2be5d3cee8fd81351ac6b8ea129e000ea8d2abd732bd959",
+    ".agents/skills/mobile-hls-video/scripts/validate.py": "eccd633d81a851c0959f15cab18632183b0f9e3dfc38bd6d54fc632f0a16b9b2",
+    ".gitignore": "cb124139e1684a3f7677bd4d8baf93d8825f8847697c540c322f75ee8f6f8ef2",
+    "config/product-films.json": "bf34c1ab6af05ae5ae70a9084b2db5019d11d409f563dd4f66e1b72069b49ecb"
+  },
+  "artifact": {
+    "version": "en-v3",
+    "archiveBytes": 222965760,
+    "archiveSHA256": "75a1c6fb228a091e34d93f0337313677a44b87ace565e2785fa27774343b4aeb",
+    "audio": "All6+fallback ordered2817AACpackets949239Bsha4381d9e87a59b3259e00cf40bc6d808f29a8ba43eaaa73ea5a1acf9a9ebbf3e2 exactlyoriginal",
+    "mainFive": "Allvariantfilesbyteexactv2",
+    "emergencyPeakBps": 188876
+  },
+  "package": "hls-package-validation-v3.json",
+  "browser": {
+    "full": {
+      "passed": 42,
+      "skipped": 26,
+      "failed": 0,
+      "log": "/tmp/ramsider-hls-v3-browser.log"
+    },
+    "postRetirement": {
+      "passed": 6,
+      "skipped": 6,
+      "failed": 0,
+      "log": "/tmp/ramsider-hls-v3-postcleanup.log"
+    },
+    "native144": "hls-audio-v3-native-low.json"
+  },
+  "visual": "hls-audio-v3-visual.json",
+  "network": "hls-audio-v3-network.json",
+  "performance": "hls-audio-v3-performance.json",
+  "guards": "hls-audio-v3-guards.json",
+  "retirement": "hls-audio-v3-cleanup.json",
+  "cleanbuild": "hls-audio-v3-cleanbuild.json",
+  "static": {
+    "type": "PASS",
+    "lint": "PASS0errors1inheritedTelegramwarning",
+    "build": "PASS11localeSSG",
+    "pythonSyntax": "PASS"
+  },
+  "nativeReview": {
+    "completeDiff": "/tmp/ramsider-hls-v3-review-exact.log soleP2presetfixed",
+    "affected": "/tmp/ramsider-hls-v3-review-guard.log CLEAN",
+    "limits": "Reviewer syntax/mockedguards; fullmedia/browser/buildrunindependentlybyroot"
+  },
+  "independentAudit": {
+    "auditor": "/root/hls_incident_auditor",
+    "scope": "PASS",
+    "package": "PASS",
+    "gate3": "PASS",
+    "gate4": "PASS",
+    "gate5": "PASS",
+    "prepublicationGate6": "PASS2026-10-24 /root/hls_incident_auditor",
+    "publicGate6": "PENDING"
+  },
+  "technicalApproval": {
+    "date": "2026-10-24",
+    "verifier": "/root",
+    "status": "APPROVED soundencodingfix/retirement/localchecks",
+    "limits": [
+      "Notuniversalstallfree",
+      "Customerhistoricalsessionrendition/causeunknown",
+      "NoactualphysicaliPhone13access",
+      "WebAudioactivitynotears/listeningproof",
+      "0.25Mbpsstartup6.34s/one1.17swait;adaptiveupturn15snot2s",
+      "ControlledagentEVALNOT_RUN",
+      "UserresultapprovalNOT_RECORDED"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-24",
+  "candidates": [
+    {
+      "videoCapKbps": 35,
+      "peakBps": 196300,
+      "averageBps": 163874,
+      "structuralValidation": "PASS",
+      "floor192kbps": "FAIL",
+      "published": false
+    },
+    {
+      "videoCapKbps": 28,
+      "peakBps": 188876,
+      "averageBps": 157594,
+      "structuralValidation": "PASS",
+      "floor192kbps": "PASS",
+      "published": false
+    }
+  ]
+}

@@ -36,14 +36,29 @@ def aligned_audio(path, video_bounds):
     return bounds
 
 
+def audio_identity(path):
+    data = json.loads(subprocess.check_output(["ffprobe", "-v", "error", "-select_streams", "a:0",
+        "-show_packets", "-show_data_hash", "sha256", "-show_entries", "packet=data_hash,size", "-of", "json", str(path)]))
+    packets = data["packets"]
+    return {"packets": len(packets), "bytes": sum(int(p["size"]) for p in packets),
+            "sha256": hashlib.sha256("\n".join(p["data_hash"] for p in packets).encode()).hexdigest()}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--max-emergency-peak-kbps", type=float, help="Optional combined peak budget, e.g.192 for cellular acceptance")
+    parser.add_argument("--source", type=Path, help="Required for source-copy audio policy")
     parser.add_argument("--package", type=Path, required=True)
     parser.add_argument("--receipt", type=Path, required=True)
     parser.add_argument("--archive", type=Path)
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     data = json.loads(args.receipt.read_text())
+    source_audio = None
+    if data.get("audioPolicy") == "source-copy":
+        assert args.source and sha(args.source) == data["sourceSHA256"], "Original source required for audio verification"
+        source_audio = audio_identity(args.source)
+        assert source_audio == data["sourceAudio"], "Source audio identity differs"
     root = args.package.resolve(strict=True)
     expected = {record["path"] for record in data["files"]}
     actual = {str(p.relative_to(root)) for p in root.rglob("*") if p.is_file()}
@@ -148,6 +163,8 @@ def main():
             assert any(abs(x - cursor) < .002 for x in keyframes), f"Missing IDR at{cursor}"
             cursor += length
         aligned_audio(folder / "index.m3u8", packet_bounds(frames))
+        if source_audio:
+            assert audio_identity(folder / "index.m3u8") == source_audio, "Rendition audio differs from original AAC"
         init_bytes = init.read_bytes()
         at = init_bytes.find(b"avcC")
         assert at >= 0
@@ -171,6 +188,8 @@ def main():
         subprocess.run(["ffmpeg", "-v", "error", "-xerror", "-nostdin", "-i", str(folder / "index.m3u8"), "-f", "null", "-"], check=True, stdout=subprocess.DEVNULL)
         assert f'BANDWIDTH={rendition["bandwidth"]},' in master
         results.append({"name": rendition["name"], "segments": len(lengths), "duration": sum(lengths), "keyframes": len(keyframes), "decode": "PASS", "level": stream.get("level")})
+    if args.max_emergency_peak_kbps is not None:
+        assert args.max_emergency_peak_kbps > 0 and any(r["bandwidth"] <= args.max_emergency_peak_kbps * 1000 for r in data["renditions"]), "No emergency variant fits requested combined peak budget"
     fallback = root / "fallback.mp4"
     assert referenced == expected, "Orphan/unreachable package files"
     b = fallback.read_bytes()
@@ -183,9 +202,11 @@ def main():
     assert abs(float(fp["format"]["duration"]) - data["duration"]) < .15, "Fallback duration mismatch"
     fallback_video = json.loads(subprocess.check_output(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_packets", "-show_entries", "packet=pts_time,duration_time", "-of", "json", str(fallback)]))
     aligned_audio(fallback, packet_bounds(fallback_video["packets"]))
+    if source_audio:
+        assert audio_identity(fallback) == source_audio, "Fallback audio differs from original AAC"
     subprocess.run(["ffmpeg", "-v", "error", "-xerror", "-nostdin", "-i", str(fallback), "-f", "null", "-"], check=True, stdout=subprocess.DEVNULL)
     assert any(r["level"] <= 41 and r["name"] != "144p" for r in results), "Provide a useful lower-level compatible rendition"
-    result = {"status": "PASS", "receiptSHA256": sha(args.receipt), "checks": ["complete file set", "all SHA/size", "archive regular-file set" if args.archive else "archive not supplied", "closed master/media/init/segment graph", "actual CODECS/RESOLUTION/FPS/peak/average", "VOD init/endlist", "variant boundaries", "all segment IDR NALs", "full decode", "AAC-LC/actual packet timeline", "BT709/range", "fast-start fallback"], "renditions": results,
+    result = {"status": "PASS", "maxEmergencyPeakKbps": args.max_emergency_peak_kbps, "receiptSHA256": sha(args.receipt), "checks": (["all rendition/fallback AAC packet payloads exactly match original source"] if source_audio else []) + ["complete file set", "all SHA/size", "archive regular-file set" if args.archive else "archive not supplied", "closed master/media/init/segment graph", "actual CODECS/RESOLUTION/FPS/peak/average", "VOD init/endlist", "variant boundaries", "all segment IDR NALs", "full decode", "AAC-LC/actual packet timeline", "BT709/range", "fast-start fallback"], "renditions": results,
               "limits": "Packaging/decoding only; not perceived-quality, browser, network or physical-phone approval"}
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)

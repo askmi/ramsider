@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-24",
+  "removed": [
+    {
+      "path": "public/films/uno-introduction/en-v1",
+      "bytes": 222380740
+    },
+    {
+      "path": "public/films/uno-introduction/en-v2",
+      "bytes": 222351119
+    },
+    {
+      "path": "design/derived/product-films/uno-introduction-en-v1.tar",
+      "bytes": 222535680
+    },
+    {
+      "path": "design/derived/product-films/uno-introduction-en-v2.tar",
+      "bytes": 222504960
+    }
+  ],
+  "generatedBeforeBytes": 889772499,
+  "generatedAfterBytes": 445775337,
+  "netSavedBytes": 443997162,
+  "keptSourceMaster": true,
+  "catalogVersions": [
+    "v3"
+  ],
+  "scope": "Currentcheckoutandnewbuild only; noGitLFShistoryrewrite/nohistoricaldeploymentdeletion",
+  "oldSessions": "Reloadrequiredforretiredv1/v2URLs"
+}

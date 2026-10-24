@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-24",
+  "status": "PRE_IMPLEMENTATION_ESTIMATE",
+  "rows": [
+    {
+      "quality": "144p",
+      "filmSeconds": 60.04,
+      "segmentSeconds": 2,
+      "mean2sKB": 24.1,
+      "max2sKB": 40.9,
+      "currentWholeVariantMB": 0.727,
+      "estimatedWholeVariantMBWithOriginalAudio": 1.314,
+      "estimatedMean2sKB": 43.7
+    },
+    {
+      "quality": "360p",
+      "filmSeconds": 60.04,
+      "segmentSeconds": 2,
+      "mean2sKB": 150.8,
+      "max2sKB": 210.4,
+      "currentWholeVariantMB": 4.527,
+      "estimatedWholeVariantMBWithOriginalAudio": 4.527,
+      "estimatedMean2sKB": 150.8
+    },
+    {
+      "quality": "720p",
+      "filmSeconds": 60.04,
+      "segmentSeconds": 2,
+      "mean2sKB": 472.2,
+      "max2sKB": 649.5,
+      "currentWholeVariantMB": 14.172,
+      "estimatedWholeVariantMBWithOriginalAudio": 14.172,
+      "estimatedMean2sKB": 472.2
+    },
+    {
+      "quality": "1080p",
+      "filmSeconds": 60.04,
+      "segmentSeconds": 2,
+      "mean2sKB": 1056.3,
+      "max2sKB": 1391.2,
+      "currentWholeVariantMB": 31.696,
+      "estimatedWholeVariantMBWithOriginalAudio": 31.696,
+      "estimatedMean2sKB": 1056.3
+    },
+    {
+      "quality": "1440p",
+      "filmSeconds": 60.04,
+      "segmentSeconds": 2,
+      "mean2sKB": 1870.8,
+      "max2sKB": 2408.0,
+      "currentWholeVariantMB": 56.133,
+      "estimatedWholeVariantMBWithOriginalAudio": 56.133,
+      "estimatedMean2sKB": 1870.8
+    },
+    {
+      "quality": "2160p",
+      "filmSeconds": 60.04,
+      "segmentSeconds": 2,
+      "mean2sKB": 3363.4,
+      "max2sKB": 4442.7,
+      "currentWholeVariantMB": 100.911,
+      "estimatedWholeVariantMBWithOriginalAudio": 100.911,
+      "estimatedMean2sKB": 3363.4
+    }
+  ],
+  "note": "Estimate holds144video unchanged; if192kbpspeakrequiresloweremergencyvideoactualsizewillbesmaller; fiveotherqualitiesalreadyoriginalaudio",
+  "oldPublicGeneratedBytes": 444731859,
+  "oldArchivesBytes": 445040640
+}

@@ -93,11 +93,10 @@ next-env.d.ts
 !/docs/evidence/beta-media/440-technology-retry.png
 !/docs/evidence/beta-media/440-technology-recovered.png
 
-# Retain private original locally; version the approved public film with Git LFS.
+# Retain the private source locally; publish only registered HLS archives via Git LFS.
 /design/video/
 /public/films/*.mp4
 
-!/public/films/uno-introduction.mp4
 /public/films/*.partial
 
 # HLS packages are verified build outputs, versioned as an LFS archive.

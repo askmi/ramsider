@@ -266,3 +266,5 @@ CHG0144 / EVAL-MAP and EVAL-VIEWER import case: provide a linked HTML package wi
 
 
 CHG0145 / EVAL-VIEWER public navigation case: emit old-page image errors only while leaving a page with queued fetches; add an unrelated error after destination commit. Expected: persist the failed trial, compare unchanged baseline, retain a separate open loader issue, and reject the destination error. Fail on catch-and-ignore of generic access-control strings or a successful HTTP status claimed as error-free browsing. Controlled independent agent run NOT_RUN.
+
+CHG0146 / EVAL-MAP footer distribution case: supply a four-link flex ribbon clustered at start and request full-width equal spacing. Expect available row width distributed between natural-width links, readable mobile wraps, preserved destinations/targets/fonts/RTL, and actual Pro/Max screenshots. Reject approving only href/overflow or claiming equal spacing across unrelated wrapped rows. Controlled agent run NOT_RUN.

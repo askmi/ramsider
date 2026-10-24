@@ -641,3 +641,6 @@ CHG0144 adaptation follow-up: overflow/dir assertions do not certify visual adap
 - Problem: public smoke threw before saving error details; subsequent WebKit navigation emitted old landing-art errors.
 - Cause: root treated the whole browser session as one undifferentiated error bucket and first omitted a finally/persist-before-throw receipt. Existing image queue also lacks outgoing lifecycle cancellation; exact browser mechanism is unproven.
 - Prevention: save phase, resource and timing for every failed trial; compare unchanged baseline and verify actual destination independently. Test hard navigation with active media work. Only classify evidenced outgoing resources in the navigation window; do not suppress general CORS errors or claim the loader repaired. EVAL-VIEWER controlled agent run NOT_RUN.
+
+
+CHG0146 /2026-10-24 — Root added footer destinations with default flex-start and a fixedgap, then checked links/overflow but missed the available-width composition. For requested distributed ribbons, verify first/last link at row edges and equal gaps within each multi-link row; inspect mobile wrapping and RTL with actual screenshots. EVAL-MAP extended; controlled agent run NOT_RUN.

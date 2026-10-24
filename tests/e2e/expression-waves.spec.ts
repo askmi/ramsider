@@ -1,25 +1,25 @@
+import { waitForVisibleMedia } from './helpers/media';
 import { expect, test } from '@playwright/test';
 
 const localeCodes = ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko'] as const;
 
 test('expression waves frame centered localized copy and keep comparison usable', async ({ page }) => {
+  test.setTimeout(90_000);
   for (const locale of localeCodes) {
     await page.goto(`/${locale}`);
     await page.evaluate(() => document.fonts.ready);
-    const canvas = page.locator('.canvas');
+    await waitForVisibleMedia(page);
     const wave = page.locator('.expression-waves-art');
     await wave.scrollIntoViewIfNeeded();
-    const canvasBox = await canvas.boundingBox();
-    if (!canvasBox) throw new Error(`Missing canvas: ${locale}`);
-    await expect(wave).toHaveAttribute('src', '/art/expression-waves.webp');
+    await expect(wave).toHaveAttribute('data-original', '/art/expression-waves.webp');
+    await expect(wave).toHaveAttribute('data-media-ready', '', { timeout: 15000 });
     await expect(wave).toHaveAttribute('aria-hidden', 'true');
     expect(await wave.evaluate(async element => {
       const image = element as HTMLImageElement;
       await image.decode();
       return image.naturalWidth === 701 && image.naturalHeight === 401;
     })).toBe(true);
-    const waveBox = await wave.boundingBox();
-    if (!waveBox) throw new Error(`Missing wave geometry: ${locale}`);
+    const { canvasBox, waveBox } = await page.evaluate(() => ({ canvasBox: document.querySelector('.canvas')!.getBoundingClientRect().toJSON(), waveBox: document.querySelector('.expression-waves-art')!.getBoundingClientRect().toJSON() }));
     expect(Math.abs((waveBox.x - canvasBox.x) / canvasBox.width * 941 - 120)).toBeLessThan(0.1);
     expect(Math.abs((waveBox.y - canvasBox.y) / canvasBox.width * 941 - 14665)).toBeLessThan(0.1);
 
@@ -38,6 +38,10 @@ test('expression waves frame centered localized copy and keep comparison usable'
   }
 
   await page.goto('/ar');
+  await page.locator('#expressions-compare').scrollIntoViewIfNeeded();
+  await waitForVisibleMedia(page);
   await page.locator('#expressions-compare').click();
-  await expect(page.locator('#unavailable-compare')).toBeVisible();
+  await expect(page).toHaveURL(/\/ar\/compare$/);
+  await expect(page.locator('.up-comparison')).toHaveCount(2);
+  await expect(page.locator('.up-beta')).toHaveAttribute('dir', 'rtl');
 });

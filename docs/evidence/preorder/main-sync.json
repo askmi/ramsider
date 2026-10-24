@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-24",
+  "change": "CHG0143",
+  "mainSHA": "d4a94eb418c396f0a091c1cfbe6f317307c40a9e",
+  "remoteMainExact": true,
+  "betaMerge": "fast-forward from966e25c to d4a94eb",
+  "mainDeployments": [
+    {
+      "context": "Vercel – ramsider",
+      "state": "success",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider/2pJumYL1bzbtXtmNAyguzVLSjeMX"
+    },
+    {
+      "context": "Vercel – ramsider-beta",
+      "state": "success",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/qavZMh9KdgLf2NYqKuvrsmTtnrnh"
+    }
+  ],
+  "exclusions": [
+    "private license/policy source",
+    "v2.1 source; beta only"
+  ],
+  "verifier": "/root",
+  "technicalApproval": "APPROVED snapshot/remote/provider evidence; no canonical-domain claim"
+}

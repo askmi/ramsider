@@ -1,5 +1,9 @@
 # Ramsider project memory
 
+## Beta v2.1 Preorder — 2026-10-24
+Current owner overrides main-only default: develop/commit/push v2.1 ONLY beta. Existing main records saved/pushed d4a94eb418c396f0a091c1cfbe6f317307c40a9e, bothVercelSUCCESS; beta fast-forwarded from966e25c. Main must remain pinned.
+CHG0144 VERIFIED_LOCAL frontendBeta preview; docs/preorder-v2.1.md is detailed source→routes/spec. Nine static document routes×11 locale paths, sourceOpenSans/fonts5/5exact; bothCreate+hero→reserve,Compare/PRO/GOLD/Set→linkedpages, fourFAQupdated/v2.1sixoptions, legalfooteronce. IsolatedsourceCSS/serverReacttree, onlyformclient. ExplicitBeta/noindex localpreview: noAPI/storage/mail/payment/liveID; backend absent. EN/RUproducttext, originalENlegal+RUPrivacy; other9localizedchrome/explicitEnglishlongcopylang, notfulltranslation. IndependentGate1/3/4(re-audit)/5PASS/nativeCLEAN; feature25PASS3SKIP,affected14PASS+desktop1PASS,final200%/policy8PASS. Type/build/lintPASS(1oldwarning); lab4Mbps100ms4×CPUreserveLCP620/compare348/main428,CLS.002784/.003023/.000222,scrollp95<=16.8,notfieldINP/Lighthouse. Gate6PREPUBLICATIONPASS; commit/push/exactBeta deploy PENDING. Evidence docs/evidence/preorder includesreviewedimages; allfailures/causes retainedjournal/LESSONS+EVALNOT_RUN. FounderTelegramdestinationfound in existingprivateintegration, notificationafterpublicverification. Private licence/policy remainlocal/untracked.
+
 Standing user preference2026-10-24: local video tests/probes MUST run silently (QA-only muted+volume0); user works on same computer. Production audio unchanged.
 
 ## Three-Segment Startup Preload — 2026-10-24

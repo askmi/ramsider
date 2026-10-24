@@ -1,0 +1,18 @@
+@font-face{font-family:OpenSans;src:url('fonts/opensans-light.ttf') format('truetype');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:OpenSans;src:url('fonts/opensans-regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:OpenSans;src:url('fonts/opensans-bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:OpenSansButton;src:url('fonts/opensans-button.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:BankGothic;src:url('fonts/bankgothic.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+:root {
+  color-scheme:light; scroll-behavior:smooth;
+  --sand:#efe4d3; --paper:#faf7f2; --ink:#261d18; --body:#5d5149;
+  --label:#8b6b4f; --line:#d6c3aa; --gold:#b58c4e;
+  --font-body:OpenSans,Arial,sans-serif;
+  --text-body:22px; --weight-body:300; --line-body:1.22;
+  --text-label:17px; --weight-label:400; --line-label:1.4;
+  --text-h1:clamp(60px,16vw,68px); --text-h2:clamp(42px,11vw,50px); --text-h3:28px;
+  --weight-heading:400; --line-heading:1.2;
+}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+h1,h2,h3{overflow-wrap:anywhere}
+@media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}}

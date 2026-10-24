@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light"><title>Age confirmation · RAMSIDER</title>
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="legal.css">
+</head><body class="legal-page" data-page="age-gate" data-locale="en">
+<header class="legal-topbar legal-wrap"><span class="legal-brand">RAMSIDER</span>
+</header>
+<main class="legal-wrap legal-age-main">
+<section class="legal-age-card" data-age-gate aria-labelledby="age-title" aria-describedby="age-copy">
+<div class="legal-age-badge" aria-hidden="true">18+</div>
+<h1 id="age-title" data-i18n="age-gate.title">Adults only.</h1>
+<p id="age-copy" data-i18n="age-gate.copy">You must be 18 or older to enter this Website and purchase RAMSIDER products.</p>
+<div class="legal-age-actions"><button class="legal-pill legal-pill-primary" type="button" data-age-confirm data-i18n="age-gate.confirm">I am 18+</button><button class="legal-pill" type="button" data-age-leave data-i18n="age-gate.leave">Leave</button>
+</div>
+<p class="legal-age-links"><a href="/en/privacy#privacy-section-4" data-i18n="age-gate.privacy">Privacy Policy · Age restriction</a>
+</p>
+<noscript>
+<p data-i18n="age-gate.no-script">Please enable JavaScript to confirm your age, or close this page to leave.</p></noscript>
+</section>
+</main>
+<!-- Shared footer v2. Include common.css and legal.css once. -->
+<footer class="legal-footer" data-legal-footer>
+<div class="legal-wrap">
+<nav class="legal-footer-nav" aria-label="Legal information"><a href="/en/terms" data-i18n="footer.terms">Terms</a>
+<a href="/en/returns" data-i18n="footer.returns">Returns</a>
+<a href="/en/privacy" data-i18n="footer.privacy">Privacy</a>
+<a href="/en/privacy-ru" lang="ru">Конфиденциальность</a>
+<a href="/en/product-info" data-i18n="footer.product">Product information</a>
+<!-- Enable only after connecting the site's consent manager. No cookies are set by this package. -->
+<button class="legal-cookie" type="button" data-cookie-settings disabled data-i18n="footer.cookies">Cookie settings</button>
+</nav>
+<p class="legal-company">RAMSIDER SMOKING &amp; TOBACCO HEATING DEVICES TRADING CO. L.L.C</p>
+<p>License No. 1050925</p>
+<p>Office No. D-28, Mohamed Hashem Alawi Al Saf Building, Al Murar, Dubai, UAE</p>
+<p>Support: <a href="mailto:support@ramsider.com">support@ramsider.com</a><br>Business: <a href="mailto:partners@ramsider.com">partners@ramsider.com</a>
+</p>
+<div class="legal-payments" aria-label="Payment networks">
+<figure class="legal-payment"><span class="legal-payment-slot" data-payment-logo="visa" aria-hidden="true"></span><figcaption>Visa</figcaption></figure>
+<figure class="legal-payment"><span class="legal-payment-slot" data-payment-logo="mastercard" aria-hidden="true"></span><figcaption>Mastercard</figcaption></figure>
+</div>
+</div>
+</footer>
+
+<script>
+// Standalone screen only: no cookie, no age persistence, no ID collection.
+// In production, replace navigation with the site's verified gate/session flow.
+document.querySelector('[data-age-confirm]').addEventListener('click', function () {
+  window.location.assign('/en');
+});
+document.querySelector('[data-age-leave]').addEventListener('click', function () {
+  window.location.replace('about:blank');
+});
+</script></body></html>

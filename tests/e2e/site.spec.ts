@@ -70,9 +70,12 @@ test('responsive viewport, artwork, and primary actions', async ({ page }, testI
   await mkdir('screenshots/actual', { recursive: true });
   await page.screenshot({ path: `screenshots/actual/full-${profile}.png`, fullPage: true, scale: 'css' });
 
-  await page.getByRole('button', { name: /reserve now/i }).click();
-  await expect(page.getByText('The configurator, current prices')).toBeVisible();
-  await page.getByRole('button', { name: 'Close' }).click();
+  await page.locator('#hero-reserve').click();
+  await expect(page).toHaveURL(/\/en\/reserve$/);
+  await expect(page.locator('#model-controls')).toBeVisible();
+  await page.goBack();
+  await page.waitForLoadState('networkidle');
+  await waitForVisibleMedia(page);
   await page.locator('.menu summary').click();
   await expect(page.getByRole('navigation', { name: 'Menu' })).toBeVisible();
   await page.keyboard.press('Escape');
@@ -97,21 +100,23 @@ test('responsive viewport, artwork, and primary actions', async ({ page }, testI
   await expect(page.locator('#project-detail-1')).toBeVisible();
   await expect(page.locator('#project-detail-1')).toContainText('Premium Intelligent');
   await page.keyboard.press('Escape');
-  await page.locator('.key-explorePro').click();
-  await expect(page.locator('#unavailable-pro')).toContainText('TiN-Coated Heater');
-  await page.keyboard.press('Escape');
-  await page.locator('.key-exploreGold').click();
-  await expect(page.locator('#unavailable-gold')).toContainText('Platinum Sensors');
-  await page.keyboard.press('Escape');
-  await page.locator('.key-exploreSet').click();
-  await expect(page.locator('#unavailable-set')).toContainText('accessory list');
-  await page.keyboard.press('Escape');
+  for (const [selector, destination, text] of [
+    ['.key-explorePro', '/en/pro', 'TiN-Coated Heater'],
+    ['.key-exploreGold', '/en/gold', 'Platinum Sensors'],
+    ['.key-exploreSet', '/en/product-info#included', 'Included in the set'],
+  ]) {
+    await page.locator(selector).scrollIntoViewIfNeeded(); await waitForVisibleMedia(page);
+    await page.locator(selector).click();
+    expect(new URL(page.url()).pathname + new URL(page.url()).hash).toBe(destination);
+    await expect(page.locator('#uno-document')).toContainText(text);
+    await page.goBack(); await page.waitForLoadState('networkidle'); await waitForVisibleMedia(page);
+  }
   await page.locator('.account-hit').nth(1).click();
   await expect(page.locator('#unavailable-account')).toBeVisible();
   await page.keyboard.press('Escape');
   await page.locator('.faq-stack details').first().locator('summary').click();
   await settleVisibleMedia();
-  await expect(page.locator('.faq-stack details').first().getByText('Confirmed details are not available')).toBeVisible();
+  await expect(page.locator('.faq-stack details').first().getByText('Choose PRO or GOLD.', { exact: false })).toBeVisible();
   expect(errors).toEqual([]);
 });
 
@@ -273,7 +278,7 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
     expect((await link.boundingBox())!.height).toBeGreaterThanOrEqual(44);
   }
   await page.keyboard.press('Escape');
-  for (const id of ['technology-experience', 'technology-repeat', 'expressions-compare', 'hero-reserve']) {
+  for (const id of ['technology-experience', 'technology-repeat']) {
     const trigger = page.locator(`#${id}`);
     await trigger.scrollIntoViewIfNeeded();
     await waitForVisibleMedia(page);
@@ -283,11 +288,6 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
     await expect(dialog).toBeVisible();
     await expect(dialog).toHaveAccessibleName(/.+/);
     if (id.startsWith('technology')) { await expect(dialog.locator('.technology-viewer__frame')).toHaveCount(0); await expect(dialog.locator('.technology-viewer__photo-dots i')).toHaveCount(2); }
-    if (id === 'expressions-compare') {
-      await expect(dialog.getByRole('columnheader')).toHaveCount(2);
-      await expect(dialog).toContainText('TiN-Coated Heater');
-      await expect(dialog).toContainText('Platinum Sensors');
-    }
     // Wrap both directions: native dialogs make the underlying page inert.
     const close = dialog.getByRole('button', { name: id.startsWith('technology') ? 'Close technology viewer' : 'Close' });
     await close.focus();
@@ -297,7 +297,6 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
     await page.keyboard.press('Shift+Tab');
     await page.keyboard.press('Shift+Tab');
     expect(await page.evaluate(() => !!document.activeElement?.closest('dialog[open]'))).toBe(true);
-    if (id === 'expressions-compare') await page.screenshot({ path: `screenshots/actual/comparison-${testInfo.project.name}.png`, scale: 'css' });
     await page.keyboard.press('Escape');
     await expect(dialog).toHaveCount(0);
     await expect(trigger).toBeFocused();
@@ -314,14 +313,12 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
   await page.locator('#technology-viewer .technology-viewer__close').click();
   await expect(page.locator('dialog:modal')).toHaveCount(0);
   await page.goto('/ar');
-  await page.locator('#expressions-compare').scrollIntoViewIfNeeded();
-  await waitForVisibleMedia(page);
+  await page.locator('#expressions-compare').scrollIntoViewIfNeeded(); await waitForVisibleMedia(page);
   await page.locator('#expressions-compare').click();
-  await expect(page.locator('dialog:modal')).toBeVisible();
-  expect(await page.locator('dialog:modal').evaluate(el => getComputedStyle(el).direction)).toBe('rtl');
-  expect(await page.locator('.model-comparison').evaluate(el => el.scrollWidth <= el.clientWidth + 1)).toBe(true);
+  await expect(page).toHaveURL(/\/ar\/compare$/);
+  await expect(page.locator('.up-beta')).toHaveAttribute('dir', 'rtl');
+  for (const table of await page.locator('.up-comparison').all()) expect(await table.evaluate(el => el.scrollWidth <= el.clientWidth + 1)).toBe(true);
   await page.screenshot({ path: `screenshots/actual/comparison-ar-${testInfo.project.name}.png`, scale: 'css' });
-  await page.keyboard.press('Escape');
 });
 
 test('FAQ icons are independent and answers expand the page without an inner scroller', async ({ page }) => {

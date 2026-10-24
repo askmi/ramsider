@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-24",
+  "change": "CHG0144",
+  "repository": "askmi/ramsider",
+  "allowedBranch": "beta",
+  "allowedRefspec": "HEAD:beta",
+  "frozenMain": "d4a94eb418c396f0a091c1cfbe6f317307c40a9e",
+  "expectedDeployments": [
+    "Production – ramsider-beta",
+    "Preview – ramsider"
+  ],
+  "canonicalBeta": "https://ramsider-beta.vercel.app",
+  "publicationState": "PENDING",
+  "notifications": {
+    "authorization": "Owner current request explicitly asks to notify owner and Founder after changes ready",
+    "destination": "Existing configured RAMSIDER Telegram group/Founder, plus owner in this chat; no recipient IDs/tokens recorded",
+    "state": "PENDING verifiedBeta publication",
+    "contentScope": "Beta frontend ready for review, transaction API/mail/payments remain unconnected; do not claim actual preorder acceptance"
+  }
+}

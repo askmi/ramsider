@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light"><title>Create Your UNO · RAMSIDER</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-size:var(--text-body);font-family:var(--font-body);font-weight:var(--weight-body);line-height:var(--line-body);color:var(--body);background:var(--sand);}
+[hidden]{display:none!important}a{color:inherit;text-underline-offset:4px}button,input,select{font:inherit}button,a,input,select{-webkit-tap-highlight-color:transparent}:focus-visible{outline:3px solid #815013;outline-offset:5px}
+h1,h2,h3,p,ol,ul{margin:0}h1,h2,h3{font-family:OpenSans,Arial,sans-serif;font-weight:400;line-height:1.2;color:#261d18}h1{font-size:var(--text-h1);letter-spacing:0}h1 span{display:block}h2{font-size:var(--text-h2);letter-spacing:0}h3{font-size:var(--text-h3)}b,strong{font-weight:400;color:var(--ink)}small,.small{font-size:var(--text-label);line-height:1.4;font-weight:400}fieldset{border:0;padding:0;margin:0;min-width:0}section,[id]{scroll-margin-top:24px}
+.wrap{width:calc(100% - 36px);max-width:1080px;margin-inline:auto}.topbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding-block:24px}.overlay.brand{font-family:BankGothic,OpenSans,Arial,sans-serif;letter-spacing:.18em;font-size:24px;color:var(--ink)}.back{font-size:var(--text-label);font-weight:400;min-height:44px;display:flex;align-items:center}.hero{padding-block:22px 38px}.hero .lead{margin-top:18px;max-width:650px}.hero .button-pill{margin-top:24px}.overlay.title{font-weight:400;line-height:1.2;color:#261d18}.overlay.body{font-weight:300;line-height:1.22;color:#5d5149}.overlay.label,.eyebrow{font-size:var(--text-label);font-weight:400;letter-spacing:.08em;color:var(--label);line-height:1.35}.overlay.small,.small{letter-spacing:.12em;color:var(--label)}.eyebrow{margin-bottom:12px}.step{padding-block:36px;border-top:1px solid var(--line)}.paper{background:var(--paper)}.step-head{margin-bottom:26px}.step-head .lead{margin-top:14px;max-width:760px}.step-number{display:inline-block;margin-right:14px;color:#815b30}.model-context{margin-top:14px;font-size:var(--text-label);font-weight:400}.section-label{margin-bottom:18px}
+.button-pill{font-family:OpenSansButton,OpenSans,Arial,sans-serif;font-weight:400;font-size:20px;line-height:1.2;min-height:64px;border-radius:999px;border:1px solid #b99d75;padding:16px 24px;display:inline-flex;gap:8px;align-items:center;justify-content:center;text-align:center;text-decoration:none;cursor:pointer;color:#39332b;max-width:100%;box-shadow:inset 0 1px 1px #fff9,0 3px 10px #39281812}.theme-Ivory,.pay-button{background:linear-gradient(180deg,#fffdf6,#e7ddcc 60%,#f8f1e5)}.theme-Black_Glass{color:#f3ebd7;background:linear-gradient(180deg,#51483f,#29251f 58%,#3d362e);border-color:#70604a;box-shadow:inset 0 1px #ffffff45,0 4px 12px #241c181c}.button-pill:hover:not(:disabled){filter:brightness(1.04)}.button-pill:disabled{cursor:not-allowed;box-shadow:none;color:#5d5149;background:#e8dfd2}.skip{position:absolute;left:18px;top:-150px;background:var(--paper);padding:16px;z-index:20}.skip:focus{top:10px}
+.models{display:grid;gap:18px}.model{position:relative;min-width:0;cursor:pointer}.model input{position:absolute;right:22px;top:27px;width:26px;height:26px;accent-color:#815b30;z-index:2;margin:0}.model-face{display:block;padding:24px 22px;background:#f5eee3;border:1px solid #cbbba6;border-radius:22px;min-height:100%;transition:border-color .15s,box-shadow .15s}.model input:checked+.model-face{border-color:#956b34;box-shadow:inset 0 0 0 2px #b58c4e}.model input:focus-visible+.model-face{outline:3px solid #815013;outline-offset:4px}.model-title{display:block;font-size:30px;font-weight:400;color:var(--ink);padding-right:32px;line-height:1.2}.radio-mark{display:none}.swatch{display:block;height:5px;border-radius:6px;margin:18px 0;background:linear-gradient(90deg,#393638,#a2a1a0,#403c3d)}.gold .swatch{background:linear-gradient(90deg,#9c6b29,#f0cf8d,#b58c4e)}.model-prices{display:block;margin-bottom:20px}.model-total{font-size:42px;font-weight:400;color:var(--ink);line-height:1.2}.reference{display:block;font-size:var(--text-label);font-weight:400;line-height:1.4;margin-top:5px;color:var(--body)}.features{display:grid;gap:10px}.feature{display:block;font-size:22px;padding-left:34px;position:relative;font-weight:400;color:var(--ink)}.feature:before{content:'';position:absolute;left:4px;top:.55em;width:14px;height:14px;border-radius:50%;background:#b58c4e;box-shadow:0 0 0 3px #efe4d3,0 0 0 4px #b58c4e}.selection-line{margin-top:16px;font-size:var(--text-label);font-weight:400}.set{margin-top:28px;padding:26px 22px 24px;border:2px solid #b58c4e;border-radius:18px;background:#faf7f2}.kit{list-style:none;padding:0;display:grid;gap:18px;margin-top:20px}.kit li{padding-left:40px;position:relative;font-weight:400;color:var(--ink);font-size:24px;line-height:1.25}.kit li:before{content:'✓';position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:#b58c4e;color:#faf7f2;font-size:18px;font-weight:700;line-height:28px;text-align:center}.kit small{display:block;margin-top:4px;font-size:20px;font-weight:300;line-height:1.22;color:#5d5149}.options{margin-top:20px}.price-footnote{margin-top:20px;font-size:var(--text-label);font-weight:400;line-height:1.4}.payment-summary{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;margin-bottom:24px}.amount{font-size:42px;font-weight:400;line-height:1.2;color:var(--ink)}.payment-summary .small{display:block;margin-top:4px}.refund{margin:22px 0 0;font-size:var(--text-label);line-height:1.4;font-weight:400}
+.form-fields{display:grid;gap:20px}.field{min-width:0}.field label{display:block;font-size:var(--text-label);font-weight:400;color:var(--ink);margin-bottom:8px}.field input,.field select{width:100%;min-width:0;min-height:60px;font-size:21px;font-weight:400;line-height:1.3;color:#261d18;background:var(--paper);border:1px solid #a9967c;border-radius:12px;padding:13px 14px}.field select{padding-right:30px}.optional{font-size:var(--text-label);color:var(--body)}.checks{display:grid;gap:20px;margin-top:24px}.check{display:flex;align-items:flex-start;gap:13px;min-height:44px;cursor:pointer}.check input{width:26px;height:26px;flex:0 0 26px;margin:1px 0 0;accent-color:#815b30}.error{display:block;color:#922b23;font-size:var(--text-label);font-weight:400;line-height:1.4;margin-top:5px}.error:empty{display:none}.form-error,.market-notice{padding:16px;border:1px solid #b58c4e;border-radius:12px;background:#faf7f2;margin-bottom:20px;font-size:var(--text-label);font-weight:400;line-height:1.4}.form-error{color:#922b23}.privacy-note,.demo-note,.reservation-note,.launch-note{font-size:var(--text-label);font-weight:400;line-height:1.4}.privacy-note{margin-top:16px}.actions{margin-top:24px}.actions .button-pill{width:100%}.launch-note{margin:8px 0 18px;text-align:center}.reservation-note{margin-top:12px}.demo-note{margin-top:18px}.form-layout{display:grid}.legal-links{margin-top:18px;font-size:var(--text-label);font-weight:400;line-height:1.4}.ready-copy{max-width:760px}.ready-copy p+p{margin-top:18px}
+.success-header{display:grid;gap:20px}.reservation-number{font-size:28px;font-weight:400;color:var(--ink);margin-top:16px;overflow-wrap:anywhere}.success-email{margin-top:14px;overflow-wrap:anywhere}.success-summary{margin-block:20px}.next-title{margin-bottom:18px}.timeline{list-style:none;padding:0;display:grid;gap:16px}.timeline li{border-left:2px solid var(--gold);padding-left:16px}.timeline b{display:block;font-size:22px}.timeline p{font-size:var(--text-label);font-weight:400;line-height:1.4;margin-top:5px}.success-footer{margin-top:24px;font-size:var(--text-label);font-weight:400;overflow-wrap:anywhere}.footer{font-size:var(--text-label);padding-block:24px;font-weight:400}body:has(.field input:focus) .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+@media(min-width:801px){.wrap{width:calc(100% - 96px)}.hero{padding-block:40px 52px}.hero h1 span{display:inline}.hero h1 span+span:before{content:' '}.step{padding-block:48px}.models{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.kit{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 32px}.form-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.timeline{grid-template-columns:repeat(4,minmax(0,1fr))}.success-header{grid-template-columns:minmax(0,1fr) auto;align-items:center}body{}}
+@media(min-width:1100px){.form-layout{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:40px}.actions{margin-top:0}}
+@media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+@media print{body{padding:0}.wrap{width:100%}}
+</style>
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="legal.css">
+</head><body>
+<noscript>
+<div class="wrap market-notice"><strong>Open in Safari to configure</strong><br>JavaScript is off. You are viewing UNO Pro Line. Selection and reservations are unavailable here.</div></noscript>
+<a class="skip" href="#reserve">Skip to reservation</a>
+<header class="topbar wrap">
+<div class="overlay brand">RAMSIDER</div><a class="back" href="/en">← Back to UNO</a>
+</header>
+<main>
+<header class="hero wrap">
+<h1 class="overlay title" id="page-title"><span>Create</span><span>Your UNO.</span>
+</h1>
+<p class="lead overlay body">We Build Your UNO to Order.<br>You Make It Yours.</p><a class="button-pill theme-Black_Glass" href="#reserve">Reserve now</a>
+</header>
+<section class="step paper" id="configure" aria-labelledby="configure-title">
+<div class="wrap">
+<div class="step-head">
+<p class="eyebrow"><span class="step-number">01</span> Configuration</p>
+<h2 class="overlay title" id="configure-title">Configure Your UNO.</h2>
+<p class="lead overlay body">Select PRO or GOLD, then Choose from Available Accessories and Options.</p>
+</div>
+<h3 class="section-label" id="models-title">Choose Your Fograiser</h3>
+<fieldset id="model-controls" disabled aria-labelledby="models-title" aria-describedby="selection-note"><legend class="sr-only">UNO model</legend>
+<div class="models">
+<label class="model pro"><input type="radio" name="model" form="reservation-form" id="model-pro" value="pro" checked aria-labelledby="pro-title" aria-describedby="pro-prices pro-features"><span class="model-face"><span class="radio-mark" aria-hidden="true"></span><span class="model-title" id="pro-title">PRO LINE</span><span class="swatch" aria-hidden="true"></span><span class="model-prices" id="pro-prices"><span><span class="model-total">$999</span><span class="reference">≈ AED 3,670 · reference, prices are in USD</span></span></span><span class="features" id="pro-features"><span class="feature">TiN-Coated Heater</span><span class="feature">Teflon Grille</span><span class="feature">Carbon-Fiber Handle</span><span class="feature">Black Braided Hose</span><span class="feature">Tinted Reservoir</span></span></span></label>
+<label class="model gold"><input type="radio" name="model" form="reservation-form" id="model-gold" value="gold" aria-labelledby="gold-title" aria-describedby="gold-prices gold-features"><span class="model-face"><span class="radio-mark" aria-hidden="true"></span><span class="model-title" id="gold-title">GOLD LINE</span><span class="swatch" aria-hidden="true"></span><span class="model-prices" id="gold-prices"><span><span class="model-total">$1,999</span><span class="reference">≈ AED 7,340 · reference, prices are in USD</span></span></span><span class="features" id="gold-features"><span class="feature">Platinum Sensors</span><span class="feature">360° Gold-Coated Heater</span><span class="feature">Titanium Accessories</span><span class="feature">White Braided Hose</span><span class="feature">Transparent Reservoir</span></span></span></label>
+</div></fieldset>
+<p class="selection-line" id="selection-note" role="status" aria-live="polite" aria-atomic="true">Selected: <span data-bind="name" id="bind-name-1">UNO Pro Line</span>
+</p>
+<div class="set">
+<h3 id="kit-title" style="font-size:34px;margin:0 0 6px">Included in your set.</h3>
+<p style="margin:0;font-size:20px;color:#5d5149;font-weight:300">Everything below comes in the box with your UNO.</p><ol class="kit">
+<li>
+<div><b>UNO device</b><small data-bind="finish" id="bind-finish-1">Pro Line finish</small>
+</div>
+</li>
+<li>
+<div><b>Illuminated 1 L reservoir</b><small data-bind="reservoir" id="bind-reservoir-1">Tinted reservoir</small>
+</div>
+</li>
+<li>
+<div><b>UNO-FX05 battery</b>
+</div>
+</li>
+<li>
+<div><b>Charger</b>
+</div>
+</li>
+<li>
+<div><b>Reusable self-fill capsule</b>
+</div>
+</li>
+<li>
+<div><b>Hose, mouthpiece &amp; connector</b><small data-bind="hose" id="bind-hose-1">Black braided hose · carbon-fiber mouthpiece</small>
+</div>
+</li>
+<li>
+<div><b>Cleaning brushes &amp; tweezers</b>
+</div>
+</li>
+<li>
+<div><b>Spare ceramic bowl</b>
+</div>
+</li>
+<li>
+<div><b>5 spare membrane valves</b>
+</div>
+</li>
+<li>
+<div><b>Instructions &amp; branded packaging</b>
+</div>
+</li>
+</ol>
+<p class="options"><strong>Options available at order:</strong> extra battery; Pro capsule with four zones; separate charger; ceramic bowl; trial set of disposable capsules (several pieces); hose, mouthpiece and connector set.</p>
+</div>
+<p class="price-footnote">Prices exclude taxes and duties.<br>AED reference, prices are in USD · USD 1 = AED 3.6725 · rounded to the nearest AED 10.</p>
+</div>
+</section>
+<section class="step" id="reserve" aria-labelledby="reserve-title">
+<div class="wrap">
+<div class="step-head">
+<p class="eyebrow"><span class="step-number">02</span> Reservation</p>
+<h2 class="overlay title" id="reserve-title" tabindex="-1">Confirm Your Order.</h2>
+<p class="lead overlay body">Your Initial Payment Secures Your Configuration.</p>
+</div>
+<div class="payment-summary">
+<div><span data-bind="name" id="bind-name-2">UNO Pro Line</span><span class="small">Initial payment</span>
+</div>
+<div><span class="amount"><span data-bind="initial" id="bind-initial-1">$599</span></span><span class="reference"><span data-bind="initialAed" id="bind-initialAed-1">≈ AED 2,200 · reference, prices are in USD</span></span>
+</div>
+</div>
+<form id="reservation-form" novalidate>
+<fieldset id="reservation-controls" disabled><legend class="sr-only">Reservation details</legend>
+<p id="form-error" class="form-error" role="alert" hidden>
+</p>
+<div class="form-layout">
+<div>
+<div class="form-fields">
+<div class="field"><label for="full-name">Full name</label><input id="full-name" name="name" type="text" autocomplete="name" maxlength="120" required aria-describedby="name-error"><span class="error" id="name-error"></span>
+</div>
+<div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" spellcheck="false" autocapitalize="none" required aria-describedby="email-error"><span class="error" id="email-error"></span>
+</div>
+<div class="field"><label for="country">Country of delivery</label><select id="country" name="country" autocomplete="country-name" required aria-describedby="country-error market-notice"><option value="">Select country</option><option value="AE">United Arab Emirates</option><option value="AZ">Azerbaijan</option><option value="BH">Bahrain</option><option value="BY">Belarus</option><option value="CY">Cyprus</option><option value="FR">France</option><option value="DE">Germany</option><option value="IN">India</option><option value="IT">Italy</option><option value="KZ">Kazakhstan</option><option value="KW">Kuwait</option><option value="OM">Oman</option><option value="PL">Poland</option><option value="QA">Qatar</option><option value="RU">Russia</option><option value="SA">Saudi Arabia</option><option value="ES">Spain</option><option value="TH">Thailand</option><option value="TR">Turkey</option><option value="GB">United Kingdom</option><option value="US">United States</option><option value="OTHER">Other</option></select><span class="error" id="country-error"></span>
+</div>
+<div class="field"><label for="phone">Phone <span class="optional">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40">
+</div>
+</div>
+<div class="checks">
+<div><label class="check"><input id="age" name="age" type="checkbox" required aria-describedby="age-error"><span>I am 18 or older (18+).</span></label><span class="error" id="age-error"></span>
+</div>
+<div><label class="check"><input id="terms" name="terms" type="checkbox" required aria-describedby="terms-error privacy-note"><span>I accept the <a href="/en/terms">pre-order terms</a> and the <a href="/en/privacy">privacy policy</a>.</span></label><span class="error" id="terms-error"></span>
+</div>
+</div>
+
+<p class="privacy-note" id="privacy-note">Read the <a href="/en/privacy">Privacy Policy</a> for information about personal data.</p>
+</div>
+<div class="actions" id="reservation-actions">
+<p class="market-notice" id="market-notice" role="status" hidden>We will contact you about delivery options</p>
+<button class="button-pill theme-Black_Glass" id="reserve-button" type="submit">Reserve now</button>
+<p class="reservation-note" id="invoice-note">No payment now. We’ll email an invoice and hold your place for 7 days.</p>
+<div id="payment-option"><button class="button-pill pay-button" id="pay-now" type="button" disabled aria-describedby="launch-note">Pay initial payment</button>
+<p class="launch-note" id="launch-note">opens at launch</p>
+</div>
+</div>
+</div>
+</fieldset>
+</form>
+<p class="demo-note">Preview only — no reservation is sent and no payment is taken.</p>
+<p class="refund" id="preorder-terms">For voluntary cancellation, refund of the initial payment: 100 % if you cancel before production starts, 50 % after production has started.</p>
+<p class="legal-links">Read the <a href="/en/terms">Pre-order Terms</a>, <a href="/en/returns">Returns &amp; Refunds</a> and <a href="/en/product-info">Product information</a>.</p>
+</div>
+</section>
+<section class="step paper" id="ready" aria-labelledby="ready-title">
+<div class="wrap">
+<div class="step-head">
+<p class="eyebrow"><span class="step-number">03</span> Completion</p>
+<h2 class="overlay title" id="ready-title">Ready to Ship.</h2>
+<p class="lead overlay body">We Notify You When Your UNO Is Complete and Inspected.</p>
+</div>
+<div class="ready-copy">
+<p><span data-bind="name" id="bind-name-3">UNO Pro Line</span> · 4 months from the initial payment.</p>
+</div>
+</div>
+</section>
+<section class="step" id="final-payment" aria-labelledby="final-title">
+<div class="wrap">
+<div class="step-head">
+<p class="eyebrow"><span class="step-number">04</span> Balance &amp; delivery</p>
+<h2 class="overlay title" id="final-title">Final Payment.</h2>
+</div>
+<div class="payment-summary">
+<div><span data-bind="name" id="bind-name-4">UNO Pro Line</span><span class="small">Remaining balance</span>
+</div>
+<div><span class="amount"><span data-bind="final" id="bind-final-1">$400</span></span><span class="reference"><span data-bind="finalAed" id="bind-finalAed-1">≈ AED 1,470 · reference, prices are in USD</span></span>
+</div>
+</div>
+<div class="ready-copy">
+<p>Final payment within 10 days of the ready notice, plus 5 more days after a reminder.</p>
+<p>Shipping is calculated and paid with the balance. We dispatch after payment.</p>
+</div>
+</div>
+</section>
+<section class="step paper" id="confirmation" aria-labelledby="confirmation-title" hidden>
+<div class="wrap">
+<div class="success-header">
+<div>
+<p class="eyebrow">Your reservation · preview</p>
+<h2 id="confirmation-title" tabindex="-1">Reservation preview.</h2>
+<p class="reservation-number" id="reservation-number">RS-2026-00001</p>
+<p class="success-email">Confirmation preview for <b id="confirmation-email">your email</b>.</p>
+</div><button class="button-pill theme-Ivory" id="copy-number" type="button">Copy number</button>
+</div>
+<p id="copy-status" class="small" role="status">
+</p>
+<div class="success-summary"><span data-bind="name" id="bind-name-5">UNO Pro Line</span><span class="reference" id="confirmation-country">Your delivery country</span><span class="reference">Total <span data-bind="total" id="bind-total-1">$999</span></span>
+</div>
+<h3 class="next-title">What happens next</h3><ol class="timeline">
+<li><b id="next-payment-title">Invoice</b>
+<p id="next-payment-copy">Check your email.</p>
+</li>
+<li><b>Production</b>
+<p><span data-bind="name" id="bind-name-6">UNO Pro Line</span>
+</p>
+</li>
+<li><b>Ready &amp; balance</b>
+<p><span data-bind="final" id="bind-final-2">$400</span> + shipping</p>
+</li>
+<li><b>Dispatch</b>
+</li></ol>
+<p class="success-footer">Questions: <a href="mailto:support@ramsider.com">support@ramsider.com</a>
+</p>
+</div>
+</section>
+</main><!-- Shared footer v2. Include common.css and legal.css once. -->
+<footer class="legal-footer" data-legal-footer>
+<div class="legal-wrap">
+<nav class="legal-footer-nav" aria-label="Legal information"><a href="/en/terms" data-i18n="footer.terms">Terms</a>
+<a href="/en/returns" data-i18n="footer.returns">Returns</a>
+<a href="/en/privacy" data-i18n="footer.privacy">Privacy</a>
+<a href="/en/privacy-ru" lang="ru">Конфиденциальность</a>
+<a href="/en/product-info" data-i18n="footer.product">Product information</a>
+<!-- Enable only after connecting the site's consent manager. No cookies are set by this package. -->
+<button class="legal-cookie" type="button" data-cookie-settings disabled data-i18n="footer.cookies">Cookie settings</button>
+</nav>
+<p class="legal-company">RAMSIDER SMOKING &amp; TOBACCO HEATING DEVICES TRADING CO. L.L.C</p>
+<p>License No. 1050925</p>
+<p>Office No. D-28, Mohamed Hashem Alawi Al Saf Building, Al Murar, Dubai, UAE</p>
+<p>Support: <a href="mailto:support@ramsider.com">support@ramsider.com</a><br>Business: <a href="mailto:partners@ramsider.com">partners@ramsider.com</a>
+</p>
+<div class="legal-payments" aria-label="Payment networks">
+<figure class="legal-payment"><span class="legal-payment-slot" data-payment-logo="visa" aria-hidden="true"></span><figcaption>Visa</figcaption></figure>
+<figure class="legal-payment"><span class="legal-payment-slot" data-payment-logo="mastercard" aria-hidden="true"></span><figcaption>Mastercard</figcaption></figure>
+</div>
+</div>
+</footer>
+
+<div class="sr-only" id="model-announcement" aria-live="polite" aria-atomic="true">
+</div>
+<script>
+(() => {
+  'use strict';
+  const MODELS = Object.freeze({
+    pro: {name:'UNO Pro Line', initial:599, final:400, total:999, finish:'Pro Line finish', reservoir:'Tinted reservoir', hose:'Black braided hose · carbon-fiber mouthpiece'},
+    gold: {name:'UNO Gold Line', initial:999, final:1000, total:1999, finish:'Gold Line finish', reservoir:'Transparent reservoir', hose:'White braided hose · titanium mouthpiece'}
+  });
+  const REFERENCE_RATE = 3.6725;
+  const CONTACT_MARKETS = new Set(['IN','TH','TR','QA']);
+  const RESERVATION_NUMBER = 'RS-2026-00001';
+  const $ = id => document.getElementById(id);
+  const usd = n => '$' + n.toLocaleString('en-US');
+  const aedNumber = n => (Math.round(n * REFERENCE_RATE / 10) * 10).toLocaleString('en-US');
+  const aed = n => '≈ AED ' + aedNumber(n) + ' · reference, prices are in USD';
+  let selectedModel = 'pro';
+  let submitted = false;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const fields = [
+    {id:'full-name', error:'name-error', check:el => el.value.trim().length > 0, message:'Enter your full name.'},
+    {id:'email', error:'email-error', check:el => el.validity.valid && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()), message:'Enter a valid e-mail address.'},
+    {id:'country', error:'country-error', check:el => Boolean(el.value), message:'Select the country of delivery.'},
+    {id:'age', error:'age-error', check:el => el.checked, message:'Please confirm you are 18 or older.'},
+    {id:'terms', error:'terms-error', check:el => el.checked, message:'Please accept the pre-order terms and privacy policy.'}
+  ];
+  // Explicit payload contract for the server integration. No client-generated live ID.
+  function collectReservation() {
+    return {
+      model: selectedModel,
+      name: $('full-name').value.trim(),
+      email: $('email').value.trim(),
+      country: $('country').value,
+      phone: $('phone').value.trim(),
+      consents: {age18: $('age').checked, preorderTerms: $('terms').checked, privacyPolicy: $('terms').checked}
+    };
+  }
+  function focusSection(id) {
+    $(id).focus({preventScroll:true});
+    $(id).scrollIntoView({behavior:reduceMotion.matches ? 'auto' : 'smooth',block:'start'});
+  }
+  function paintModel(announce = false) {
+    const m = MODELS[selectedModel];
+    const values = {...m,initial:usd(m.initial),final:usd(m.final),total:usd(m.total),initialAed:aed(m.initial),finalAed:aed(m.final),totalAed:aed(m.total)};
+    document.querySelectorAll('[data-bind]').forEach(el => {el.textContent = values[el.dataset.bind];});
+    if (announce) $('model-announcement').textContent = m.name + ' selected. Initial payment ' + usd(m.initial) + ', total ' + usd(m.total) + '. Your set and all prices have been updated.';
+  }
+  function paintMarket() {
+    const restricted = CONTACT_MARKETS.has($('country').value);
+    $('payment-option').hidden = restricted;
+    $('market-notice').hidden = !restricted;
+    $('invoice-note').hidden = restricted;
+    $('next-payment-title').textContent = restricted ? 'Delivery options' : 'Invoice';
+    $('next-payment-copy').textContent = restricted ? 'We will contact you about delivery options' : 'Check your email.';
+    $('pay-now').disabled = true; // This prototype must never offer a payment.
+  }
+  function resetConfirmation() {
+    if (!submitted) return;
+    submitted = false;
+    $('confirmation').hidden = true;
+    $('reservation-actions').hidden = false;
+    $('copy-status').textContent = '';
+    $('copy-number').textContent = 'Copy number';
+  }
+  function validateField(field) {
+    const el = $(field.id);
+    const valid = field.check(el);
+    $(field.error).textContent = valid ? '' : field.message;
+    if (valid) el.removeAttribute('aria-invalid'); else el.setAttribute('aria-invalid','true');
+    return valid;
+  }
+  document.querySelectorAll('input[name=model]').forEach(radio => radio.addEventListener('change', () => {
+    if (!radio.checked) return;
+    selectedModel = radio.value;
+    // A change is a new draft, not a silent mutation of an already submitted reservation.
+    resetConfirmation();
+    paintModel(true);
+  }));
+  $('country').addEventListener('change', paintMarket);
+  $('reservation-form').addEventListener('input', event => {
+    resetConfirmation();
+    const field = fields.find(item => item.id === event.target.id);
+    if (field && event.target.hasAttribute('aria-invalid')) validateField(field);
+    if (!fields.some(item => $(item.id).hasAttribute('aria-invalid'))) $('form-error').hidden = true;
+  });
+  $('reservation-form').addEventListener('change', resetConfirmation);
+  $('reservation-form').addEventListener('submit', event => {
+    event.preventDefault();
+    $('full-name').value = $('full-name').value.trim();
+    $('email').value = $('email').value.trim();
+    const invalid = fields.filter(field => !validateField(field));
+    $('form-error').hidden = invalid.length === 0;
+    if (invalid.length) {
+      $('form-error').textContent = 'Please check the highlighted fields before reserving.';
+      $(invalid[0].id).focus();
+      return;
+    }
+    if (submitted) return;
+    const payload = collectReservation();
+    /* ALEXANDER — INTEGRATION POINT / submitReservation(payload)
+       Local simulation only: connect your server endpoint here.
+       Send to partners@ramsider.com and email the customer their reservation number.
+       Validate payload and calculate prices on the server; generate reservationNumber
+       as RS-YYYY-NNNNN on the server. Never trust client prices or generate a live ID here.
+       Await server acceptance before revealing confirmation; keep the draft on errors,
+       disable submit while pending, and use an idempotency key to prevent duplicates.
+       Replace RESERVATION_NUMBER and preview copy with the successful server response.
+       Set the production HTTP CSP to allow only the approved server/payment endpoints.
+       No secrets or mail/payment credentials belong in this file.
+    */
+    void payload; // Deliberately no network or storage in this preview.
+    $('confirmation-email').textContent = $('email').value;
+    $('confirmation-country').textContent = $('country').selectedOptions[0].textContent;
+    $('reservation-number').textContent = RESERVATION_NUMBER;
+    paintModel();
+    paintMarket();
+    submitted = true;
+    $('reservation-actions').hidden = true;
+    $('confirmation').hidden = false;
+    focusSection('confirmation-title');
+  });
+  $('copy-number').addEventListener('click', async () => {
+    let copied = false;
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText($('reservation-number').textContent);
+        copied = true;
+      }
+    } catch (_) { /* Local file / denied clipboard: use the selectable fallback below. */ }
+    if (!copied) {
+      const range = document.createRange();
+      range.selectNodeContents($('reservation-number'));
+      const selection = window.getSelection();
+      selection.removeAllRanges(); selection.addRange(range);
+      try {copied = document.execCommand('copy');} catch (_) {copied = false;}
+    }
+    $('copy-number').textContent = copied ? 'Copied' : 'Number selected';
+    $('copy-status').textContent = copied ? 'Reservation number copied.' : 'Select and copy the reservation number: ' + RESERVATION_NUMBER;
+  });
+  // Read the native checked radio too: browser history can restore Gold on reload.
+  selectedModel = [...document.querySelectorAll('input[name=model]')].find(radio => radio.checked)?.value || 'pro';
+  const requestedModel = new URLSearchParams(window.location.search).get('model');
+  if (requestedModel === 'pro' || requestedModel === 'gold') {
+    selectedModel = requestedModel;
+    $('model-' + requestedModel).checked = true;
+  }
+  paintModel();
+  paintMarket();
+  // Until all handlers are installed, static HTML remains a readable, locked Pro preview.
+  $('model-controls').disabled = false;
+  $('reservation-controls').disabled = false;
+})();
+</script></body></html>

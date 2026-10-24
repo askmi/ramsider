@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-24",
+  "change": "CHG0144",
+  "tool": "Native Codex CLI review",
+  "command": "codex review - (scoped actual uncommitted diff prompt)",
+  "base": "d4a94eb418c396f0a091c1cfbe6f317307c40a9e",
+  "branch": "beta",
+  "exitCode": 0,
+  "result": "CLEAN: No actionable findings in the scoped current changes against the pinned base, accounting for the documented preview limitations.",
+  "limitation": "Reviewer sandbox blocked its local server startup/browser launch. Primary real production browser checks were executed separately; native review is not their replacement.",
+  "sourceSHA256": {
+    "app/[locale]/[document]/page.tsx": "90f40029a433a186fce7b1b03f6fb691d3685e87b71b29e11a610fe355d9f7a4",
+    "components/preorder/SourceDocument.tsx": "e935fc414879b412b2ad03ea19e916d80b4e3e93a90f43a78fc78481b71a693e",
+    "components/preorder/ReservationController.tsx": "3133acfa0116d1b767ec1ff0521b7c93f22bde3640fc3a08b80c37590904c062",
+    "components/preorder/package.css": "424ecd27d90f8e590c8369c6b72e6150ae10d5c993805ee6092e534a68cc305f",
+    "components/preorder/adaptation.css": "006202535621184b31f1a15813cc92998af94fc8e9d9a909cf05b99df690e943",
+    "components/Story.tsx": "bf646192cb2e61a16fbb03ea1a6d38662d287be6e31e024b9c01a924c80f1b11",
+    "components/SiteFooter.tsx": "a35ceb42dfab5e32157af812f465aa25b67cd3441edf30f867071fa13d38ee80",
+    "app/globals.css": "3fb05c9505977b7c2d180877cdedacd7b7b521680dfbf5f0119d8c2581cae9d1",
+    "lib/preorder/content.ts": "5b3d0246b1a361a52079f88ebea83fc927d73a672731d30c5e2d048916c16f62",
+    "lib/preorder/chrome.ts": "9e9feee17ad6ce7743c122d10005386d6ac8249ac4981beac22862886d42c285",
+    "lib/preorder/faq.ts": "17fe6d3e1a9207eb42e3da0205d4a74be883d3373c7fd8fe20743f1164eb1056",
+    "lib/preorder/documents.json": "509f64718b7f408583e94d1f4a09c7f92be5ad74076534a7364b05c30a20957f",
+    "lib/preorder/ru-source.json": "8ee1d7dd91e46985630548682977868984dbd0b811551684507bbf72a7c8c884",
+    "tests/e2e/preorder.spec.ts": "1a3410c26ef7f197fa306a964c1218e4b672464996241d5b040fa111a7f511c2",
+    "tests/e2e/site.spec.ts": "7c2556d4d06b176888f944dcbbcff7455a496ae4e57b7083e3d84c3a4ec55149",
+    "tests/e2e/expression-waves.spec.ts": "fd36f32f8596f2d661588c6d0bbd7723b5861a019253d95867899aee9c56e5f9"
+  },
+  "rawLog": "screenshots/preorder/native-review.log (ignored private process log; not published)"
+}

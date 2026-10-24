@@ -1,0 +1,175 @@
+{
+  "date": "2026-10-24",
+  "engine": "realWebKit/DPR3",
+  "safeArea": "Synthetic CSS-variable inset simulation; physical Safari chrome not verified",
+  "screens": [
+    {
+      "name": "ru-320",
+      "locale": "ru",
+      "width": 320,
+      "height": 874,
+      "actualWidth": 320,
+      "dpr": 3,
+      "overflow": 0,
+      "font": "21px",
+      "selectHeight": 60,
+      "padding": [
+        "0px",
+        "0px",
+        "0px",
+        "0px"
+      ],
+      "fieldBounds": {
+        "left": 18,
+        "right": 302
+      },
+      "root": {
+        "left": 0,
+        "right": 320
+      },
+      "htmlDir": "ltr",
+      "chromeDir": "ltr",
+      "contentLang": "ru"
+    },
+    {
+      "name": "ru-768",
+      "locale": "ru",
+      "width": 768,
+      "height": 956,
+      "actualWidth": 768,
+      "dpr": 3,
+      "overflow": 0,
+      "font": "21px",
+      "selectHeight": 60,
+      "padding": [
+        "0px",
+        "0px",
+        "0px",
+        "0px"
+      ],
+      "fieldBounds": {
+        "left": 18,
+        "right": 750
+      },
+      "root": {
+        "left": 0,
+        "right": 768
+      },
+      "htmlDir": "ltr",
+      "chromeDir": "ltr",
+      "contentLang": "ru"
+    },
+    {
+      "name": "ru-1280",
+      "locale": "ru",
+      "width": 1280,
+      "height": 900,
+      "actualWidth": 1280,
+      "dpr": 3,
+      "overflow": 0,
+      "font": "21px",
+      "selectHeight": 60,
+      "padding": [
+        "0px",
+        "0px",
+        "0px",
+        "0px"
+      ],
+      "fieldBounds": {
+        "left": 100,
+        "right": 393.328125
+      },
+      "root": {
+        "left": 0,
+        "right": 1280
+      },
+      "htmlDir": "ltr",
+      "chromeDir": "ltr",
+      "contentLang": "ru"
+    },
+    {
+      "name": "ar-402",
+      "locale": "ar",
+      "width": 402,
+      "height": 874,
+      "actualWidth": 402,
+      "dpr": 3,
+      "overflow": 1,
+      "font": "21px",
+      "selectHeight": 60,
+      "padding": [
+        "0px",
+        "0px",
+        "0px",
+        "0px"
+      ],
+      "fieldBounds": {
+        "left": 18,
+        "right": 384
+      },
+      "root": {
+        "left": 0,
+        "right": 402
+      },
+      "htmlDir": "rtl",
+      "chromeDir": "rtl",
+      "contentLang": "en"
+    },
+    {
+      "name": "text200",
+      "locale": "en",
+      "width": 402,
+      "height": 874,
+      "actualWidth": 402,
+      "dpr": 3,
+      "overflow": 0,
+      "font": "42px",
+      "selectHeight": 82.59375,
+      "padding": [
+        "0px",
+        "0px",
+        "0px",
+        "0px"
+      ],
+      "fieldBounds": {
+        "left": 18,
+        "right": 384
+      },
+      "root": {
+        "left": 0,
+        "right": 402
+      },
+      "htmlDir": "ltr",
+      "chromeDir": "ltr",
+      "contentLang": "en"
+    },
+    {
+      "name": "safe-insets",
+      "locale": "en",
+      "width": 402,
+      "height": 874,
+      "actualWidth": 402,
+      "dpr": 3,
+      "overflow": 0,
+      "font": "21px",
+      "selectHeight": 60,
+      "padding": [
+        "59px",
+        "24px",
+        "34px",
+        "24px"
+      ],
+      "fieldBounds": {
+        "left": 42,
+        "right": 360
+      },
+      "root": {
+        "left": 0,
+        "right": 402
+      },
+      "htmlDir": "ltr",
+      "chromeDir": "ltr",
+      "contentLang": "en"
+    }
+  ]
+}

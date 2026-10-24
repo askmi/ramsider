@@ -1,6 +1,7 @@
 import { ProgressiveImage } from './ProgressiveImage';
 import previews from '@/lib/media-previews.json';
 import { company, companyCopy } from '@/lib/company';
+import { preorderChrome } from '@/lib/preorder/chrome';
 import type { Locale } from '@/lib/i18n';
 
 export function SiteFooter({ locale }: { locale: Locale }) {
@@ -9,6 +10,9 @@ export function SiteFooter({ locale }: { locale: Locale }) {
   return <footer id="company" className="site-footer">
     <ProgressiveImage className="site-footer__art" data-media src="/art/footer-paper.webp" preview={previews["/art/footer-paper.webp"].src} alt="" aria-hidden="true" width={941} height={2588} loading="lazy" decoding="async" />
     <div className="site-footer__inner">
+      <nav className="site-footer__legal" aria-label={preorderChrome[locale].product}>
+        {(['product-info', 'terms', 'returns', locale === 'ru' ? 'privacy-ru' : 'privacy'] as const).map((route, index) => <a className="site-footer__link" href={`/${locale}/${route}`} key={route}>{[preorderChrome[locale].product, preorderChrome[locale].terms, preorderChrome[locale].returns, preorderChrome[locale].privacy][index]}</a>)}
+      </nav>
       <section aria-labelledby="company-heading">
         <h2 id="company-heading">{copy.company}</h2>
         <p className="site-footer__name"><bdi dir="ltr">{company.name}</bdi></p>

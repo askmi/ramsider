@@ -1,0 +1,15 @@
+import { chromium } from '@playwright/test';
+import fs from 'node:fs/promises';
+const base=process.env.BASE_URL??'http://127.0.0.1:3182';const browser=await chromium.launch();const results=[];
+for(const route of ['/en/reserve','/en/compare','/en']){
+ const context=await browser.newContext({viewport:{width:402,height:874},deviceScaleFactor:3,isMobile:true,hasTouch:true});
+ const page=await context.newPage();const session=await context.newCDPSession(page);
+ await session.send('Network.enable');await session.send('Network.emulateNetworkConditions',{offline:false,latency:100,downloadThroughput:4_000_000/8,uploadThroughput:1_000_000/8});await session.send('Emulation.setCPUThrottlingRate',{rate:4});
+ await page.addInitScript(()=>{window.__qa={lcp:0,cls:0};new PerformanceObserver(list=>{for(const e of list.getEntries())window.__qa.lcp=e.startTime}).observe({type:'largest-contentful-paint',buffered:true});new PerformanceObserver(list=>{for(const e of list.getEntries())if(!e.hadRecentInput)window.__qa.cls+=e.value}).observe({type:'layout-shift',buffered:true});document.addEventListener('play',e=>{if(e.target instanceof HTMLMediaElement){e.target.muted=true;e.target.volume=0}},true)});
+ await page.goto(base+route);await page.evaluate(()=>document.fonts.ready);if(route.endsWith('reserve'))await page.locator('[data-reservation-ready]').waitFor();await page.waitForTimeout(1500);
+ const data=await page.evaluate(()=>({metrics:window.__qa,nav:performance.getEntriesByType('navigation').map(n=>({ttfb:n.responseStart,fcp:performance.getEntriesByName('first-contentful-paint')[0]?.startTime,dom:n.domContentLoadedEventEnd}))[0],resources:performance.getEntriesByType('resource').map(r=>({path:new URL(r.name).pathname,type:r.initiatorType,wire:r.transferSize,decoded:r.decodedBodySize}))}));
+ let interactionMs=null;if(route.endsWith('reserve')){interactionMs=await page.evaluate(()=>new Promise(resolve=>{const s=performance.now();document.querySelector('#model-gold').click();requestAnimationFrame(()=>requestAnimationFrame(()=>resolve(performance.now()-s)))}));}
+ const frames=await page.evaluate(()=>new Promise(resolve=>{const out=[];let last=performance.now(),start=last;function tick(now){out.push(now-last);last=now;scrollBy(0,40);if(now-start<1500)requestAnimationFrame(tick);else resolve(out.sort((a,b)=>a-b))}requestAnimationFrame(tick)}));
+ results.push({route,conditions:'Chromium402x874DPR3/4Mbps100ms/4xCPU,cold,single lab sample',...data,interactionNextTwoFramesMs:interactionMs,scrollFrameP95Ms:frames[Math.floor(frames.length*.95)],fieldINP:'NOT_MEASURED',Lighthouse:'NOT_RUN'});await context.close();
+}
+await browser.close();await fs.writeFile('docs/evidence/preorder/performance.json',JSON.stringify(results,null,2)+'\n');console.log(results.map(r=>({route:r.route,...r.metrics,...r.nav,interaction:r.interactionNextTwoFramesMs,scrollP95:r.scrollFrameP95Ms,JS:r.resources.filter(x=>x.path.endsWith('.js')).reduce((n,r)=>n+r.wire,0),images:r.resources.filter(x=>/\.(webp|png|mp4|m4s)/.test(x.path)).length})));

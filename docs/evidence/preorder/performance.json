@@ -1,0 +1,623 @@
+[
+  {
+    "route": "/en/reserve",
+    "conditions": "Chromium402x874DPR3/4Mbps100ms/4xCPU,cold,single lab sample",
+    "metrics": {
+      "lcp": 620,
+      "cls": 0.002784229338464952
+    },
+    "nav": {
+      "ttfb": 27.899999976158142,
+      "fcp": 620,
+      "dom": 614.2000000476837
+    },
+    "resources": [
+      {
+        "path": "/_next/static/chunks/3c0_jnz6gzdgz.css",
+        "type": "link",
+        "wire": 10705,
+        "decoded": 44111
+      },
+      {
+        "path": "/_next/static/chunks/3zkah91pfffz-.css",
+        "type": "link",
+        "wire": 7395,
+        "decoded": 56585
+      },
+      {
+        "path": "/_next/static/chunks/21veqh5xxb-qz.js",
+        "type": "link",
+        "wire": 6413,
+        "decoded": 17697
+      },
+      {
+        "path": "/_next/static/chunks/05-c3ty_6dwfk.js",
+        "type": "script",
+        "wire": 1756,
+        "decoded": 3377
+      },
+      {
+        "path": "/_next/static/chunks/turbopack-156_3b5q5j5gn.js",
+        "type": "script",
+        "wire": 4457,
+        "decoded": 10580
+      },
+      {
+        "path": "/_next/static/chunks/15orcrkp-_9ct.js",
+        "type": "script",
+        "wire": 10864,
+        "decoded": 50702
+      },
+      {
+        "path": "/_next/static/chunks/3_yaym1q7aiwc.js",
+        "type": "script",
+        "wire": 40809,
+        "decoded": 150472
+      },
+      {
+        "path": "/_next/static/chunks/3gzxhq9iq6efl.js",
+        "type": "script",
+        "wire": 71280,
+        "decoded": 227315
+      },
+      {
+        "path": "/_next/static/chunks/14mrh2-p_w84d.js",
+        "type": "script",
+        "wire": 13163,
+        "decoded": 54646
+      },
+      {
+        "path": "/_next/static/chunks/20_8_-37kx0_j.js",
+        "type": "script",
+        "wire": 2562,
+        "decoded": 5103
+      },
+      {
+        "path": "/fonts/opensans-regular.ttf",
+        "type": "css",
+        "wire": 78620,
+        "decoded": 130832
+      },
+      {
+        "path": "/fonts/bankgothic.ttf",
+        "type": "css",
+        "wire": 14370,
+        "decoded": 22656
+      },
+      {
+        "path": "/fonts/opensans-light.ttf",
+        "type": "css",
+        "wire": 78300,
+        "decoded": 130804
+      },
+      {
+        "path": "/fonts/opensans-button.ttf",
+        "type": "css",
+        "wire": 85053,
+        "decoded": 147528
+      },
+      {
+        "path": "/fonts/opensans-bold.ttf",
+        "type": "css",
+        "wire": 76361,
+        "decoded": 130860
+      }
+    ],
+    "interactionNextTwoFramesMs": 18.899999976158142,
+    "scrollFrameP95Ms": 16.799999999999727,
+    "fieldINP": "NOT_MEASURED",
+    "Lighthouse": "NOT_RUN"
+  },
+  {
+    "route": "/en/compare",
+    "conditions": "Chromium402x874DPR3/4Mbps100ms/4xCPU,cold,single lab sample",
+    "metrics": {
+      "lcp": 348,
+      "cls": 0.003022605137991061
+    },
+    "nav": {
+      "ttfb": 16.800000071525574,
+      "fcp": 348,
+      "dom": 343.40000009536743
+    },
+    "resources": [
+      {
+        "path": "/_next/static/chunks/3c0_jnz6gzdgz.css",
+        "type": "link",
+        "wire": 10705,
+        "decoded": 44111
+      },
+      {
+        "path": "/_next/static/chunks/3zkah91pfffz-.css",
+        "type": "link",
+        "wire": 7395,
+        "decoded": 56585
+      },
+      {
+        "path": "/_next/static/chunks/21veqh5xxb-qz.js",
+        "type": "link",
+        "wire": 6413,
+        "decoded": 17697
+      },
+      {
+        "path": "/_next/static/chunks/15orcrkp-_9ct.js",
+        "type": "script",
+        "wire": 10864,
+        "decoded": 50702
+      },
+      {
+        "path": "/_next/static/chunks/05-c3ty_6dwfk.js",
+        "type": "script",
+        "wire": 1756,
+        "decoded": 3377
+      },
+      {
+        "path": "/_next/static/chunks/turbopack-156_3b5q5j5gn.js",
+        "type": "script",
+        "wire": 4457,
+        "decoded": 10580
+      },
+      {
+        "path": "/_next/static/chunks/3_yaym1q7aiwc.js",
+        "type": "script",
+        "wire": 40809,
+        "decoded": 150472
+      },
+      {
+        "path": "/_next/static/chunks/14mrh2-p_w84d.js",
+        "type": "script",
+        "wire": 13163,
+        "decoded": 54646
+      },
+      {
+        "path": "/_next/static/chunks/3gzxhq9iq6efl.js",
+        "type": "script",
+        "wire": 71280,
+        "decoded": 227315
+      },
+      {
+        "path": "/_next/static/chunks/20_8_-37kx0_j.js",
+        "type": "script",
+        "wire": 2562,
+        "decoded": 5103
+      },
+      {
+        "path": "/fonts/opensans-regular.ttf",
+        "type": "css",
+        "wire": 78620,
+        "decoded": 130832
+      },
+      {
+        "path": "/fonts/opensans-light.ttf",
+        "type": "css",
+        "wire": 78300,
+        "decoded": 130804
+      },
+      {
+        "path": "/fonts/bankgothic.ttf",
+        "type": "css",
+        "wire": 14370,
+        "decoded": 22656
+      },
+      {
+        "path": "/fonts/opensans-button.ttf",
+        "type": "css",
+        "wire": 85053,
+        "decoded": 147528
+      }
+    ],
+    "interactionNextTwoFramesMs": null,
+    "scrollFrameP95Ms": 16.700000000000273,
+    "fieldINP": "NOT_MEASURED",
+    "Lighthouse": "NOT_RUN"
+  },
+  {
+    "route": "/en",
+    "conditions": "Chromium402x874DPR3/4Mbps100ms/4xCPU,cold,single lab sample",
+    "metrics": {
+      "lcp": 428,
+      "cls": 0.00022206073455854325
+    },
+    "nav": {
+      "ttfb": 59.89999997615814,
+      "fcp": 368,
+      "dom": 1789.8000000715256
+    },
+    "resources": [
+      {
+        "path": "/art/00.webp",
+        "type": "link",
+        "wire": 248536,
+        "decoded": 248236
+      },
+      {
+        "path": "/art/brand-mark-white.webp",
+        "type": "link",
+        "wire": 1382,
+        "decoded": 1082
+      },
+      {
+        "path": "/_next/static/chunks/3c0_jnz6gzdgz.css",
+        "type": "link",
+        "wire": 10705,
+        "decoded": 44111
+      },
+      {
+        "path": "/_next/static/chunks/21veqh5xxb-qz.js",
+        "type": "link",
+        "wire": 6413,
+        "decoded": 17697
+      },
+      {
+        "path": "/_next/static/chunks/15orcrkp-_9ct.js",
+        "type": "script",
+        "wire": 10864,
+        "decoded": 50702
+      },
+      {
+        "path": "/_next/static/chunks/3gzxhq9iq6efl.js",
+        "type": "script",
+        "wire": 71280,
+        "decoded": 227315
+      },
+      {
+        "path": "/_next/static/chunks/3_yaym1q7aiwc.js",
+        "type": "script",
+        "wire": 40809,
+        "decoded": 150472
+      },
+      {
+        "path": "/_next/static/chunks/turbopack-156_3b5q5j5gn.js",
+        "type": "script",
+        "wire": 4457,
+        "decoded": 10580
+      },
+      {
+        "path": "/_next/static/chunks/05-c3ty_6dwfk.js",
+        "type": "script",
+        "wire": 1756,
+        "decoded": 3377
+      },
+      {
+        "path": "/_next/static/chunks/14mrh2-p_w84d.js",
+        "type": "script",
+        "wire": 13163,
+        "decoded": 54646
+      },
+      {
+        "path": "/_next/static/chunks/0jinzt9vcat70.js",
+        "type": "script",
+        "wire": 1862,
+        "decoded": 3577
+      },
+      {
+        "path": "/_next/static/chunks/1r4sp_h3216k4.js",
+        "type": "script",
+        "wire": 71309,
+        "decoded": 193259
+      },
+      {
+        "path": "/fonts/opensans-regular.ttf",
+        "type": "css",
+        "wire": 78620,
+        "decoded": 130832
+      },
+      {
+        "path": "/art/feature-divider-control.webp",
+        "type": "img",
+        "wire": 1010,
+        "decoded": 710
+      },
+      {
+        "path": "/art/feature-divider-draw.webp",
+        "type": "img",
+        "wire": 1046,
+        "decoded": 746
+      },
+      {
+        "path": "/art/feature-divider-intensity.webp",
+        "type": "img",
+        "wire": 1102,
+        "decoded": 802
+      },
+      {
+        "path": "/art/technology-connector-triple.webp",
+        "type": "img",
+        "wire": 1942,
+        "decoded": 1642
+      },
+      {
+        "path": "/art/technology-connector-core.webp",
+        "type": "img",
+        "wire": 2012,
+        "decoded": 1712
+      },
+      {
+        "path": "/art/technology-connector-touch.webp",
+        "type": "img",
+        "wire": 10326,
+        "decoded": 10026
+      },
+      {
+        "path": "/art/technology-connector-water.webp",
+        "type": "img",
+        "wire": 2380,
+        "decoded": 2080
+      },
+      {
+        "path": "/art/technology-connector-light.webp",
+        "type": "img",
+        "wire": 4596,
+        "decoded": 4296
+      },
+      {
+        "path": "/art/technology-connector-armor.webp",
+        "type": "img",
+        "wire": 5082,
+        "decoded": 4782
+      },
+      {
+        "path": "/art/technology-connector-flow.webp",
+        "type": "img",
+        "wire": 11870,
+        "decoded": 11570
+      },
+      {
+        "path": "/art/icon-kit/01.webp",
+        "type": "img",
+        "wire": 1244,
+        "decoded": 944
+      },
+      {
+        "path": "/art/icon-kit/02.webp",
+        "type": "img",
+        "wire": 1116,
+        "decoded": 816
+      },
+      {
+        "path": "/art/icon-kit/03.webp",
+        "type": "img",
+        "wire": 1302,
+        "decoded": 1002
+      },
+      {
+        "path": "/art/icon-kit/04.webp",
+        "type": "img",
+        "wire": 1160,
+        "decoded": 860
+      },
+      {
+        "path": "/art/icon-kit/05.webp",
+        "type": "img",
+        "wire": 1250,
+        "decoded": 950
+      },
+      {
+        "path": "/art/icon-kit/07.webp",
+        "type": "img",
+        "wire": 1188,
+        "decoded": 888
+      },
+      {
+        "path": "/art/icon-kit/08.webp",
+        "type": "img",
+        "wire": 1208,
+        "decoded": 908
+      },
+      {
+        "path": "/art/icon-kit/09.webp",
+        "type": "img",
+        "wire": 1932,
+        "decoded": 1632
+      },
+      {
+        "path": "/art/icon-kit/10.webp",
+        "type": "img",
+        "wire": 2340,
+        "decoded": 2040
+      },
+      {
+        "path": "/art/icon-kit/11.webp",
+        "type": "img",
+        "wire": 1660,
+        "decoded": 1360
+      },
+      {
+        "path": "/art/icon-kit/12.webp",
+        "type": "img",
+        "wire": 2320,
+        "decoded": 2020
+      },
+      {
+        "path": "/buttons/hero-reserve.svg",
+        "type": "css",
+        "wire": 706,
+        "decoded": 1120
+      },
+      {
+        "path": "/buttons/fire-learn.svg",
+        "type": "css",
+        "wire": 709,
+        "decoded": 1120
+      },
+      {
+        "path": "/art/tech-ring.svg",
+        "type": "css",
+        "wire": 804,
+        "decoded": 1093
+      },
+      {
+        "path": "/buttons/choice-learn.svg",
+        "type": "css",
+        "wire": 705,
+        "decoded": 1118
+      },
+      {
+        "path": "/buttons/beyond-learn.svg",
+        "type": "css",
+        "wire": 704,
+        "decoded": 1118
+      },
+      {
+        "path": "/buttons/expressions-compare.svg",
+        "type": "css",
+        "wire": 797,
+        "decoded": 1319
+      },
+      {
+        "path": "/buttons/pro-explore.svg",
+        "type": "css",
+        "wire": 797,
+        "decoded": 1311
+      },
+      {
+        "path": "/buttons/gold-explore.svg",
+        "type": "css",
+        "wire": 798,
+        "decoded": 1315
+      },
+      {
+        "path": "/buttons/set-explore.svg",
+        "type": "css",
+        "wire": 798,
+        "decoded": 1318
+      },
+      {
+        "path": "/fonts/opensans-button.ttf",
+        "type": "css",
+        "wire": 85053,
+        "decoded": 147528
+      },
+      {
+        "path": "/fonts/opensans-light.ttf",
+        "type": "css",
+        "wire": 78300,
+        "decoded": 130804
+      },
+      {
+        "path": "/fonts/bankgothic.ttf",
+        "type": "css",
+        "wire": 14370,
+        "decoded": 22656
+      },
+      {
+        "path": "/buttons/order-create.svg",
+        "type": "css",
+        "wire": 797,
+        "decoded": 1315
+      },
+      {
+        "path": "/buttons/final-create.svg",
+        "type": "css",
+        "wire": 806,
+        "decoded": 1317
+      },
+      {
+        "path": "/art/01.webp",
+        "type": "fetch",
+        "wire": 390382,
+        "decoded": 390082
+      },
+      {
+        "path": "/art/02.webp",
+        "type": "fetch",
+        "wire": 416476,
+        "decoded": 416176
+      },
+      {
+        "path": "/en",
+        "type": "fetch",
+        "wire": 876,
+        "decoded": 1121
+      },
+      {
+        "path": "/en",
+        "type": "fetch",
+        "wire": 1063,
+        "decoded": 1539
+      },
+      {
+        "path": "/en",
+        "type": "fetch",
+        "wire": 1306,
+        "decoded": 2110
+      },
+      {
+        "path": "/en",
+        "type": "fetch",
+        "wire": 116587,
+        "decoded": 312771
+      },
+      {
+        "path": "/vendor/hls-worker-1.7.3-runtime.js",
+        "type": "fetch",
+        "wire": 41089,
+        "decoded": 118194
+      },
+      {
+        "path": "/_next/static/chunks/43h7fz0_citb4.js",
+        "type": "script",
+        "wire": 114288,
+        "decoded": 362727
+      },
+      {
+        "path": "/films/uno-introduction/en-v3/master.m3u8",
+        "type": "fetch",
+        "wire": 1237,
+        "decoded": 937
+      },
+      {
+        "path": "/films/uno-introduction/en-v3/360p/index.m3u8",
+        "type": "fetch",
+        "wire": 1583,
+        "decoded": 1283
+      },
+      {
+        "path": "/films/uno-introduction/en-v3/360p/init.mp4",
+        "type": "fetch",
+        "wire": 1694,
+        "decoded": 1394
+      },
+      {
+        "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+        "type": "fetch",
+        "wire": 135071,
+        "decoded": 134771
+      },
+      {
+        "path": "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+        "type": "fetch",
+        "wire": 149874,
+        "decoded": 149574
+      },
+      {
+        "path": "/art/faq-row-1.webp",
+        "type": "fetch",
+        "wire": 10250,
+        "decoded": 9950
+      },
+      {
+        "path": "/art/faq-row-2.webp",
+        "type": "fetch",
+        "wire": 8134,
+        "decoded": 7834
+      },
+      {
+        "path": "/art/faq-row-3.webp",
+        "type": "fetch",
+        "wire": 9288,
+        "decoded": 8988
+      },
+      {
+        "path": "/art/faq-row-4.webp",
+        "type": "fetch",
+        "wire": 12590,
+        "decoded": 12290
+      }
+    ],
+    "interactionNextTwoFramesMs": null,
+    "scrollFrameP95Ms": 16.800000000000182,
+    "fieldINP": "NOT_MEASURED",
+    "Lighthouse": "NOT_RUN"
+  }
+]

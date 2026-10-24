@@ -1,0 +1,13 @@
+import { webkit, devices } from '@playwright/test';
+import fs from 'node:fs/promises';
+const dir='screenshots/preorder/adaptation';await fs.mkdir(dir,{recursive:true});
+const b=await webkit.launch();const rows=[];
+for(const [name,locale,width,height] of [['ru-320','ru',320,874],['ru-768','ru',768,956],['ru-1280','ru',1280,900],['ar-402','ar',402,874],['text200','en',402,874],['safe-insets','en',402,874]]){
+ const c=await b.newContext({...devices['iPhone 17 Pro'],viewport:{width,height},deviceScaleFactor:3,isMobile:width<800});const p=await c.newPage();await p.goto(`${process.env.BASE_URL??'http://127.0.0.1:3182'}/${locale}/reserve`);await p.locator('[data-reservation-ready]').waitFor();await p.evaluate(()=>document.fonts.ready);
+ if(name==='text200')await p.evaluate(()=>{const sizes=[...document.querySelectorAll('.uno-package, .uno-package *')].map(el=>[el,parseFloat(getComputedStyle(el).fontSize)]);for(const [el,size]of sizes)el.style.setProperty('font-size',`${size*2}px`,'important')});
+ if(name==='safe-insets')await p.evaluate(()=>{const root=document.querySelector('.uno-package');for(const [key,value]of Object.entries({top:59,right:24,bottom:34,left:24}))root.style.setProperty(`--up-safe-${key}`,`${value}px`)});
+ await p.screenshot({path:`${dir}/${name}-top.png`,scale:'css'});await p.locator('#full-name').scrollIntoViewIfNeeded();await p.screenshot({path:`${dir}/${name}-form.png`,scale:'css'});
+ const metric=await p.evaluate(()=>{const root=document.querySelector('.uno-package');const s=getComputedStyle(root);const r=root.getBoundingClientRect();const f=document.querySelector('#full-name').getBoundingClientRect();return{actualWidth:innerWidth,dpr:devicePixelRatio,overflow:document.documentElement.scrollWidth-innerWidth,font:getComputedStyle(document.querySelector('#full-name')).fontSize,selectHeight:document.querySelector('#country').getBoundingClientRect().height,padding:[s.paddingTop,s.paddingRight,s.paddingBottom,s.paddingLeft],fieldBounds:{left:f.left,right:f.right},root:{left:r.left,right:r.right},htmlDir:document.documentElement.dir,chromeDir:document.querySelector('.up-beta').dir,contentLang:root.lang}});
+ if(metric.overflow>1)throw new Error(`${name} overflow ${metric.overflow}`);if(name==='safe-insets'&&metric.padding.join(',')!=='59px,24px,34px,24px')throw new Error('Safe padding failed');rows.push({name,locale,width,height,...metric});await c.close();
+}
+await b.close();await fs.writeFile('docs/evidence/preorder/adaptation.json',JSON.stringify({date:'2026-10-24',engine:'realWebKit/DPR3',safeArea:'Synthetic CSS-variable inset simulation; physical Safari chrome not verified',screens:rows},null,2)+'\n');console.log(rows);

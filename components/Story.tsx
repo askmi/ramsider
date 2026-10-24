@@ -20,6 +20,7 @@ import { CharcoalRibbon } from './CharcoalRibbon';
 import { EmberScene } from './EmberScene';
 import { emberCopy } from '@/lib/ember-copy';
 import { certificates, type CertificateId } from '@/lib/certificates';
+import { preorderFaqAnswer } from '@/lib/preorder/faq';
 import { company, companyCopy } from '@/lib/company';
 import { SiteFooter } from './SiteFooter';
 import { WellnessRibbon } from './WellnessRibbon';
@@ -92,6 +93,12 @@ function OverlayNode({ node, locale }: { node: StoryNode; locale: Locale }) {
       <span className="button-label">{appearance.kind === 'orbit' ? text.split(/(UNO)/).map((part, index) => part === 'UNO' ? <span className="uno-emphasis" key={index}>{part}</span> : part) : text}</span>
       {appearance.kind === 'outline' && <ActionArrow />}
     </>;
+    const pageRoutes: Record<string, string> = {
+      'hero-reserve': 'reserve', 'order-create': 'reserve', 'final-create': 'reserve',
+      'expressions-compare': 'compare', 'pro-explore': 'pro', 'gold-explore': 'gold', 'set-explore': 'product-info#included',
+    };
+    const pageRoute = node.id ? pageRoutes[node.id] : undefined;
+    if (pageRoute) return <a {...buttonProps} href={`/${locale}/${pageRoute}`}>{content}</a>;
     if (node.target) return <Link {...buttonProps} href={node.target}>{content}</Link>;
     if (node.unavailable === 'business') return <a {...buttonProps} href={company.emailHref}>{content}</a>;
     if (node.id === 'film-label') return <button {...buttonProps} type="button" aria-haspopup="dialog" aria-controls="product-film" popoverTarget="product-film">{content}</button>;
@@ -165,7 +172,7 @@ function Faq({ locale }: { locale: Locale }) {
       <summary id={`faq-${question.id}`}><span className="faq-question">{t(locale, question.key)}</span><span className="faq-symbol" aria-hidden="true" /></summary>
       <p>{question.id === 'support' || question.id === 'venue'
         ? <>{companyCopy[locale][question.id === 'support' ? 'support' : 'business']} <a className="faq-contact-link" href={company.emailHref}><bdi dir="ltr">{company.email}</bdi></a></>
-        : t(locale, 'faqPending')}</p>
+        : <span lang={locale === 'ru' ? 'ru' : 'en'} dir="ltr">{preorderFaqAnswer(question.id, locale)}</span>}</p>
       </details>
     </div>)}
   </div>;
@@ -190,7 +197,6 @@ function Menus({ locale }: { locale: Locale }) {
 }
 
 const blocked = [
-  ['commerce', 'unavailableCommerce'],
   ['account', 'unavailableAccount'],
 ] as const;
 
@@ -202,31 +208,12 @@ function Panel({ id, title, locale, children }: { id: string; title: string; loc
   </dialog>;
 }
 
-const modelDetails = {
-  pro: [['pro1', 'pro1b'], ['pro2', 'pro2b'], ['pro3', 'pro3b'], ['pro4', 'pro4b'], ['pro5', 'pro5b']],
-  gold: [['gold1', 'gold1b'], ['gold2', 'gold2b'], ['gold3', 'gold3b'], ['gold4', 'gold4b'], ['gold5', 'gold5b']],
-} as const;
-
 function Popovers({ locale }: { locale: Locale }) {
   const projects = ['project1', 'project2', 'project3', 'project4'] as const;
   const projectBodies = ['project1Body', 'project2Body', 'project3Body', 'project4Body'] as const;
   return <>{blocked.map(([id, key]) => <Panel key={id} id={`unavailable-${id}`} title={t(locale, 'unavailableTitle')} locale={locale}>
     <p>{t(locale, key)}</p>
   </Panel>)}
-    <Panel id="unavailable-compare" title={t(locale, 'compare')} locale={locale}>
-      <table className="model-comparison"><thead><tr>{(['proLine', 'goldLine'] as const).map(key => <th key={key} scope="col">{t(locale, key).replace('│', ' ')}</th>)}</tr></thead>
-        <tbody>{modelDetails.pro.map((_, i) => <tr key={i}>{(['pro', 'gold'] as const).map(model => {
-          const [name, description] = modelDetails[model][i];
-          return <td key={model}><strong>{t(locale, name)}</strong><p>{t(locale, description)}</p></td>;
-        })}</tr>)}</tbody>
-      </table>
-    </Panel>
-    {(['pro', 'gold'] as const).map(model => <Panel key={model} id={`unavailable-${model}`} title={t(locale, model)} locale={locale}>
-      <ul>{modelDetails[model].map(([name, description]) => <li key={name}><strong>{t(locale, name)}</strong> — {t(locale, description)}</li>)}</ul>
-    </Panel>)}
-    <Panel id="unavailable-set" title={t(locale, 'set')} locale={locale}>
-      <p>{textLines(t(locale, 'setBody'))}</p><p>{t(locale, 'unavailableSet')}</p>
-    </Panel>
     {projects.map((key, i) => <Panel key={key} id={`project-detail-${i + 1}`} title={t(locale, key)} locale={locale}>
       <p>{textLines(t(locale, projectBodies[i]))}</p>
       {i === 1 && <p>{textLines(t(locale, 'project2More'))}</p>}

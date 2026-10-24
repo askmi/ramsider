@@ -441,3 +441,6 @@ html:has(#product-film[open]){overflow:hidden;overscroll-behavior:none}
 .product-film__notes [role=status]{min-height:21px}
 .product-film__notes button{margin-top:8px}
 @media (orientation:landscape) and (max-height:500px){.product-film h2{font-size:16px}.product-film__header{padding-block:6px}.product-film__header p{margin:0}.product-film__notes{padding-block:4px}.product-film__notes p{margin:0;font-size:12px}.product-film video{max-height:calc(100dvh - 134px)}}
+/* v2.1 linked information; retain the existing company/contact footer once. */
+.site-footer__legal{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:0 20px;font-size:17px;line-height:1.4}
+.site-footer__legal a{display:inline-flex;align-items:center;min-height:44px}

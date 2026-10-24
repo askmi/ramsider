@@ -1,0 +1,124 @@
+{
+  "date": "2026-10-24",
+  "change": "CHG0144",
+  "branch": "beta",
+  "baseMain": "d4a94eb418c396f0a091c1cfbe6f317307c40a9e",
+  "state": "VERIFIED_LOCAL_FRONTEND_PREVIEW_PUBLICATION_PENDING",
+  "scopeAudit": "PASS /root/beta_auditor",
+  "visualAudits": {
+    "reserve": "PASS /root/beta_auditor including final60pxselector",
+    "productCompareLegal": "PASS /root/beta_auditor; followup policy/TDRA note verified by actualscreens/tests"
+  },
+  "viewports": {
+    "primary": "402x874DPR3 realWebKit",
+    "secondary": "440x956DPR3 realWebKit",
+    "responsive": [
+      320,
+      375,
+      402,
+      440,
+      768,
+      1280,
+      1440
+    ],
+    "localeRoutes": [
+      "en",
+      "ru",
+      "de",
+      "fr",
+      "es",
+      "it",
+      "tr",
+      "ar",
+      "zh",
+      "ja",
+      "ko"
+    ]
+  },
+  "checks": [
+    {
+      "command": "preorder.spec.ts fourprofiles",
+      "result": "25PASS3intentionalduplicatelocalematrixSKIP0FAIL44.7s",
+      "log": "screenshots/preorder/final-fixed-suite.log"
+    },
+    {
+      "command": "final affected production recheck threeprofiles",
+      "result": "14PASS/1desktopmeasurementfailure, resolved by atomicbounds +90s all11locale budget; desktopfinal1PASS18.1s",
+      "log": "screenshots/preorder/final-affected.log"
+    },
+    {
+      "command": "previouslandingguard/FAQ/dialog regression",
+      "result": "7PASS5FAIL atoldsrcassertion+Backbarrier, repaired+affectedmobiletestsPASS",
+      "log": "screenshots/preorder/landing-regression.log"
+    },
+    {
+      "command": "typecheck",
+      "result": "PASS",
+      "log": "screenshots/preorder/typecheck-final.log"
+    },
+    {
+      "command": "lint",
+      "result": "0errors/1inheritedTelegramwarning",
+      "log": "screenshots/preorder/lint-final.log"
+    },
+    {
+      "command": "productionbuild",
+      "result": "PASS114static/11landing+99documentlocales",
+      "log": "screenshots/preorder/build-final.log"
+    },
+    {
+      "command": "desktop expression-wave all11locale final",
+      "result": "1PASS18.1s",
+      "log": "screenshots/preorder/desktop-waves-final.log"
+    },
+    {
+      "command": "bothpolicyoriginals/PDFHEAD/querylanguage/60pxtarget/keyboard200%",
+      "result": "3profilesPASS in final-affected; noJSall4profilePASS in final-fixed-suite"
+    },
+    {
+      "command": "final actual200% +policy/PDF/GoldEN→RU, all4profiles",
+      "result": "8PASS11.4s",
+      "log": "screenshots/preorder/final-state-recheck.log"
+    }
+  ],
+  "evidence": {
+    "references": "screenshots/preorder/reference",
+    "finalScreens": "screenshots/preorder/final",
+    "assembledLanding": "screenshots/preorder/landing-assembled-402.png and440",
+    "sourceMap": "docs/evidence/preorder/source-map.json",
+    "originalBaselineDiff": "docs/evidence/preorder/visual-diff.json"
+  },
+  "intentionalDifferences": [
+    "Beta/noindex notice+languagecontrols outside source comparison bounds",
+    "normaltextlabel source3.87:1 darkened and inputborderstrengthened",
+    "iOS source33pxselect became60px, downstreamflow+27px",
+    "realPDFhrefs replace missing package names; TDRA/modelscope pendingnote",
+    "fakeRSnumber replaced by PREVIEW; no invoice sent; OTHER contactonly",
+    "source lacks9otherfulltranslations; localizedchrome+Englishmainlang=en/LTR, originallegal retained andEN/RUchoices explicit"
+  ],
+  "externalDependencies": [
+    "NoAPI/persistence/mail/payment: localpreviewonly",
+    "Legalplaceholder/facts/Privacyapproval/TDRAidentity/logos/cookiemanager/globalagegate unresolvedlaunchinputs",
+    "PhysicalSafari/VoiceOver/P3/fieldINP/Lighthouse notrun"
+  ],
+  "nativeReview": "CLEAN/nativeCodeReviewexit0; native-review.json; reviewer runtime sandbox limitation explicit, primary browser QA independently executed",
+  "technicalApproval": {
+    "date": "2026-10-24",
+    "verifier": "/root",
+    "status": "APPROVED frontendpreviewonly",
+    "independentAuditor": "/root/beta_auditor",
+    "gates": "1/3/4re-audit/5/6PREPUBLICATION PASS; initial4FAIL preserved; publication checks pending"
+  },
+  "userResultApproval": "NOT_RECORDED",
+  "behaviorAudit": "PASS re-audit2026-10-24 /root/beta_auditor; initial missingimageFAIL retained",
+  "adaptation": "adaptation.json: actualRU320/768/1280,AR402,allcomputedtext200%,simulated59/24/34/24insets; AR1px roundingoverflowaccepted<=1",
+  "performance": "performance.json isolatedfinalrun: reserveLCP620ms/CLS.002784/JS151304B,compare348ms/.003023/151304B,main428ms/.000222/377290B; scrollP95<=16.8ms; modelchange2RAF18.9ms notINP",
+  "architecture": "All99newlocale-documentroutesSSG stableeditorial/referencecopy; server-onlytrustedmarkup/translationdata; isolatedclientformcontroller. No dynamicAPI/freshness/personalization requirement. Measurednewpages0rasterrequests; noSSR/CSRchange justified by these lab samples.",
+  "remainingOpenIDs": [
+    "CHG0139",
+    "CHG0136",
+    "CHG0121",
+    "CHG0106",
+    "CHG0103"
+  ]
+}

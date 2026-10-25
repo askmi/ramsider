@@ -3462,6 +3462,7 @@
 
 <a id="chg0144"></a>
 ## CHG0144 — Beta Preorder and Linked v2.1 Pages
+- Подтверждение входных данных / 2026-10-25: владелец ответил на отложенный вопрос: «API пока нет — предпросмотр в Beta». Отсутствие API теперь подтверждено владельцем; сохраняется уже реализованный preview без отправки заявок, писем и платежей. Это подтверждение объёма, не новый дефект и не явная приёмка визуального результата. Изменены только CHANGELOG/MEMORY; код и публикация не меняются. Технический аппрув документационной записи: APPROVED 2026-10-25 /root, формулировка сверена с прямым ответом пользователя; diff whitespace PASS. UI/build/native review N/A для этого уточнения.
 - Date / source: 2026-10-24; owner supplied design/references/пакет_сайт_v2.1 and requests detailed specification, exact mobile-first implementation, tests/review/performance/DoD, commit/push/deploy beta only and notify owner/founder.
 - Type / status: ADDITION; VERIFIED (frontend Beta preview locally; publication tracked separately).
 - Actual → expected: 2 Create Your UNO + hero Reserve currently open unavailable-commerce; Compare/PRO/GOLD have limited popovers. Replace with supplied full preorder, comparison and product/legal route set, retaining existing landing composition.

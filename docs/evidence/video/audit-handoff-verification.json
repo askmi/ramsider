@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-25",
+  "change": "CHG0147",
+  "scope": "Documentation and static/package identity only; no playback/transcoding/build/deploy of main",
+  "runtimeBaseline": {
+    "branch": "main",
+    "commit": "d4a94eb418c396f0a091c1cfbe6f317307c40a9e",
+    "betaMerged": false
+  },
+  "betaSaved": {
+    "commit": "569fcb1084aa7e1760c6e762e51db5eeceb9ca10",
+    "destination": "origin/beta",
+    "changes": "Two documentation additions, CHANGELOG.md and MEMORY.md; owner API-preview confirmation",
+    "deployments": [
+      {
+        "id": 7310657943,
+        "environment": "Production – ramsider-beta",
+        "state": "success",
+        "environmentURL": "https://ramsider-beta-guylyzm3h-askmi-6282s-projects.vercel.app"
+      },
+      {
+        "id": 7310668102,
+        "environment": "Preview – ramsider",
+        "state": "success",
+        "environmentURL": "https://ramsider-j13did620-askmi-6282s-projects.vercel.app"
+      }
+    ]
+  },
+  "spec": {
+    "path": "docs/video-player-audit-spec.md",
+    "sha256": "505fa945a8518dc863435c02f506e965e392e6041a23c9154b4b3b5616e3b279",
+    "localLinkOccurrences": 62,
+    "brokenLinks": [],
+    "embeddedMetadataCheck": "PASS: §10A Python snippet executed verbatim by root and independent auditor"
+  },
+  "sourceSHA256": {
+    ".agents/skills/mobile-hls-video/SKILL.md": "6b3c0796eacd5806fbb1c413bedc1dab826d4f8221727640d2d1cda72596d904",
+    ".agents/skills/mobile-hls-video/references/specification.md": "7b6125525f4f95df7c9e42844eefc618ac89e1d842da1275cde722e3333addb1",
+    ".agents/skills/mobile-hls-video/scripts/encode.py": "061c4503b2e218dfa2be5d3cee8fd81351ac6b8ea129e000ea8d2abd732bd959",
+    ".agents/skills/mobile-hls-video/scripts/register.py": "7bc3f4eb0c9049b3a378822b3a4363624b9e25e5f2b3ca861b4166b0f58fb88f",
+    ".agents/skills/mobile-hls-video/scripts/validate.py": "eccd633d81a851c0959f15cab18632183b0f9e3dfc38bd6d54fc632f0a16b9b2",
+    ".gitattributes": "8209f1bb66873229811d2b33c786a0084c8880978f3ea7c95e7bf87520c57d7b",
+    "app/[locale]/page.tsx": "484b91dffbafb166f774d5cc205111a561b1329706265e48abc738b910831c18",
+    "app/globals.css": "69b558ec278f6cc77d05d7c7bde53aeb69e47e8c9932cb558dca9c8716536631",
+    "components/DialogController.tsx": "b08be2a1a176acf44bb059513932d0022974cabd94a93f809ba6c4f8fa5656d1",
+    "components/PageMediaGate.tsx": "095cf019898fb9b1b48916ebfeb852d5cd7296587d3101fcd5c414b400ad6e23",
+    "components/ProductFilm.tsx": "7f38a17cb55db694a0d6ba0a4a231b59b45608ea3054a858f7258c81cfebd3c6",
+    "components/Story.tsx": "a658cf7c314b5957c71d7fb7974aa94aeb11705765d9fb8a8d8c02f231249649",
+    "config/product-films.json": "bf34c1ab6af05ae5ae70a9084b2db5019d11d409f563dd4f66e1b72069b49ecb",
+    "lib/film-cache-abr.ts": "70e991bbf3192984e90135a2bca76c4f353cfebebf323a18bfe75aa3b710f24e",
+    "lib/film-playback.ts": "fd61bc2e8796f012db65c91ca1f39ce65cc36690b3ef55516a147414a63e3a5f",
+    "lib/film-preload.ts": "f89fd7de698efa6f6c05821c83c78fe46084cc4d76fd24315546da06969551c0",
+    "lib/media-resource.ts": "f1b1591374e49cecb33ed6e9baa58a218b0a52f1a7307c57a9b7182daae3c49c",
+    "lib/product-film-catalog.ts": "deea7dd011fc5c63196d6bfb30481ddb2d8dd94ac349db0256161c6b4519b141",
+    "lib/product-film.ts": "8fe6666124a192528547e4eaaa058e2ccf07847ac675eb6208741bdb8bba130a",
+    "next.config.mjs": "9c81bc527707a5a27377140429d3e770fa407bec0a4ccf7aa8190e59a89bf1e9",
+    "package-lock.json": "b2a95d80842fc3947ffc416229206d1dc23d5123c195145d8ecc5156ff628331",
+    "package.json": "290d1078261a53c20dfe851f0cb8563333805ff93db03fea1fab859942453952",
+    "playwright.config.mjs": "92ce278bfdb9cf7fc0c1e31b32484494777cf07d59e70a67cd37ca30a5b3f217",
+    "public/film-start-sw.js": "16180758b6422920376aa241089fb8511df19876f8dfeef6e9dd563dd2481257",
+    "tests/e2e/film-cache-abr.spec.ts": "62ce000ba11c1a0679db9b521f4b84f04bb32605646423b8492ce7a10b2b483c",
+    "tests/e2e/film-prefetch.spec.ts": "dff762b075acd58ad9a39d295b26a1a03a3790b49c14e2809fa88a627dbba1f0",
+    "tests/e2e/product-film.spec.ts": "6d497d6030a2c45ee4d2549a9443b095dcf156c8ed0c79c19e7f1241eb6db588",
+    "tests/e2e/silent-media.ts": "793957850b149ffae3e1d769dfbb2da6668b95f01d14c7813a565e237fe9a802",
+    "tools/measure-product-film.mjs": "617817705c2f9f9f20310c60c1b291e623673a3f13b74684eb3f84912427acd6",
+    "tools/prepare-product-film.mjs": "70855a57357ea943eab32ae01fa288103b95c7ca1cf4c4de99094dd22ab16bbd"
+  },
+  "sourceMatchesHEAD": 30,
+  "historicalFinalSourceHashesMatch": 13,
+  "packageChecks": {
+    "receiptBinding": "PASS",
+    "registryFilesMatchEncodingReceipt": true,
+    "actualPreparedObjectCount": 200,
+    "allPreparedSizeSHA": "PASS",
+    "archiveSizeSHA": "PASS",
+    "startupObjectCount": 6,
+    "startupBodyBytes": 440431,
+    "rungs": 6,
+    "segmentsEach": 31,
+    "sourceDependentAACDecodeValidation": "NOT_RERUN; retained receipt only"
+  },
+  "checksNotRerun": {
+    "runtimeBrowsers": "Documentation only; historical evidence clearly dated",
+    "typeLintBuild": "No code/config/asset changes",
+    "nativeCodeReview": "No code diff; independent document audit not claimed native /review",
+    "performance": "Historical receipts only",
+    "physicalPhonesAndUnmutedListening": "NOT_AVAILABLE / NOT_RUN"
+  },
+  "openDefects": [
+    "CHG0148 legacy nonsilent benchmark; notrun/unmodified"
+  ],
+  "technicalApproval": {
+    "verifier": "/root",
+    "date": "2026-10-25",
+    "status": "APPROVED_DOCUMENTATION_AND_IDENTITY_ONLY",
+    "evidence": "62 local link occurrences,30 disk+HEAD source fingerprints,13 historical receipt fingerprints,200 prepared object sizes/SHA,archive size/SHA,receipt binding,verbatim embedded metadata command; no code/runtime change"
+  },
+  "independentAudit": {
+    "verifier": "/root/hls_incident_auditor",
+    "date": "2026-10-25",
+    "scopeGate": "PASS",
+    "documentSourceAccuracyGate": "PASS after AAC arithmetic/VFR predicate/register contract corrections",
+    "evidence": "Read complete379-line specification and affected sources; independently executed metadata snippet,62links,30 disk+HEAD hashes,lock versions/fallbackSHA/docSHA",
+    "finalRecordsGate": "PASS2026-10-25 /root/hls_incident_auditor; documentation and identity only",
+    "finalEvidence": "Complete spec,receipt,journal,memory,62links,30pinnedsourcefiles,metadata snippet/package identity and Beta exact successful deployments; no material discrepancy"
+  },
+  "userApproval": "NOT_RECORDED",
+  "mainPublication": {
+    "status": "AUTHORIZED_PENDING",
+    "date": "2026-10-25",
+    "source": "Follow-up user explicitly requests commit and push to main",
+    "scope": "Four audit documentation files only; no runtime/media change"
+  },
+  "whitespace": "git diff --check PASS",
+  "initialFailuresCorrected": [
+    "Missing new request journal entry corrected before spec writing; scope re-audit PASS",
+    "Companion receipt link initially absent; receipt created and complete link check rerun PASS",
+    "AAC bit-rate arithmetic corrected to126.48kbps over60.04s",
+    "Frame-rate input guard qualified as metadata heuristic",
+    "Registration contract documented in full"
+  ]
+}

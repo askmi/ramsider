@@ -1,5 +1,9 @@
 # Ramsider project memory
 
+## Video audit handoff — 2026-10-25
+Publication follow-up: owner now explicitly requests committing/pushing the four audit documentation files to origin/main; publication/deployment pending, previous not-requested scope is historical. Runtime/media unchanged.
+CHG0147: Beta remaining two documentation edits saved/pushed569fcb1084aa7e1760c6e762e51db5eeceb9ca10; exactVercel BetaProduction7310657943 + mainPreview7310668102 SUCCESS. Switchedmain d4a94eb418c396f0a091c1cfbe6f317307c40a9e withoutmerge/runtimechange; mainpublication notrequested. Detailed current-state agent-to-agent spec docs/video-player-audit-spec.md and companion evidence/video/audit-handoff-verification.json prepared for independentcustomer-model audit; rootdocumentation/identityAPPROVED2026-10-25; independentScope+completeDocSourceAccuracyPASS, finalrecordsPASS2026-10-25 /root/hls_incident_auditor, documentation/identityonly. 62links/30HEADsourcehashes/13historicalhashes/200objects+archiveSHA/embeddedcheckPASS; no runtimecertification. Historical runtimeevidence explicitlynotrecertified; instantstart/physicalphone/unmuted/listening/fullfilmcache guarantees absent. CHG0148 OPEN: legacy tools/measure-product-film.mjs lacks silentinit; DONOTRUN aswritten onsharedcomputer, addQAonlymuted+volume0 beforefutureexecution. Existing silent suites unchanged.
+
 Standing user preference2026-10-24: local video tests/probes MUST run silently (QA-only muted+volume0); user works on same computer. Production audio unchanged.
 
 ## Three-Segment Startup Preload — 2026-10-24

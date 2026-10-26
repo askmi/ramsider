@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-26",
+  "change": "CHG0149",
+  "repository": "askmi/ramsider",
+  "branch": "beta",
+  "runtimeCommit": "2eb815d20c46998995ae708e2f4d501e8f6634d5",
+  "mainUnchanged": "31a256ec7c99a84fe7740c0badca4dd94c5c142b",
+  "providerEvidence": [
+    {
+      "context": "Vercel – ramsider-beta",
+      "state": "success",
+      "environment": "Production – ramsider-beta",
+      "githubDeployment": 7321457736,
+      "githubProductionEnvironmentFlag": false,
+      "status": "success",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/7xPjCWoATwGGE9xwMKVCJzzXGU2q"
+    },
+    {
+      "context": "Vercel – ramsider",
+      "state": "success",
+      "environment": "Preview – ramsider",
+      "githubDeployment": 7321449162,
+      "githubProductionEnvironmentFlag": false,
+      "status": "success",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider/5nNmjCfwHt7o5fps7tSniqfZy1Nm"
+    }
+  ],
+  "canonical": "https://ramsider-beta.vercel.app",
+  "publicChecks": {
+    "webkit": "22PASS on Pro402x874 andMax440x956DPR3: configuration/age/all13documentsENAR/QR/contact",
+    "screensAndCTA": "10PASS: actualENCompare/reservefields/ARPREVIEW/fullARcontract+mainCreate→reserve bothwidths; rootviewedpublicProCompare/ARcontract/MaxARPREVIEW",
+    "newContent": "Canonical HTTP200, correctCompare title andstaticr69-documentmarker, no redirect; allcurrentdocuments opened andbehaviorpassed",
+    "pendingOrderServices": "NoAPI/order/mail/payment; live controls remain unavailable"
+  },
+  "providerReadLimits": "Optional Vercel CLI had noexistingauth, stoppedloginpromptwithoutlogin. ImmutableProductionURL redirects to Vercel login; cannotcompareitsHTMLtothecanonicalsite. InitialthreefullbodycomparisonsFAILbecausefetchfollowedloginandreceived200; no false byteidentityclaim. Exact provider completion/environment comes fromGitHub deploymentrecords; canonical R6.9 frontend verified independently.",
+  "technicalApproval": "APPROVED2026-10-26 /root for publishedBeta frontend; independent finalGate6PUBLIC runtime/recordsPASS /root/beta_auditor, freshGitHubidentity/statusquery andpublicimages inspected.",
+  "documentationCloseout": "This snapshot changes only6documentation/JSONpaths; runtime unchanged. Its own exactSHA deployment/canonical outcome is verified separately and retained in ignored screenshots/r69j/closeout-publication.json to avoid self-reference."
+}

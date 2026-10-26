@@ -3,7 +3,7 @@
   "change": "CHG0149",
   "branch": "beta",
   "mainFrozen": "31a256ec7c99a84fe7740c0badca4dd94c5c142b",
-  "state": "VERIFIED_LOCAL: prepublication record audit and Beta publication pending",
+  "state": "VERIFIED_PUBLISHED: frontend runtime2eb815d and independent final publication/records audit complete",
   "runtimeSha256": {
     "app/[locale]/[document]/page.tsx": "936d5124ee2346ca5b68b7650a33057a6b5e4e175b67a539ccbc37204b531f3a",
     "components/SiteFooter.tsx": "9007d5f0640484e91a3e640b84bc499efd241183999bd968c13479e25342f3cc",
@@ -43,7 +43,7 @@
     "featureTests": "52PASS2explicit duplicate adaptation SKIP; final54cases on ProWebKit/MaxWebKit/desktopChromium",
     "affectedRegressions": "Old broad105-case run86PASS8FAIL11SKIP; all8 failures superseded by 3 site PASS +1 narrow footer PASS +4 true image failure/Retry PASS. No product failure hidden.",
     "performance": "PASS independent beta_auditor: latest isolated4Mbps100msCPUx4 metrics; final source layout preserved, irrelevant document artwork0; bounded lab only",
-    "finalPublication": "PENDING Beta only",
+    "finalPublication": "Runtime2eb815d pushed onlyBeta; both exact Vercel contexts/environmentsSUCCESS; canonical public22WebKitcases+10screen/CTA smokePASS. Independent finalGate6PUBLIC runtime/recordsPASS2026-10-26. publication.json recordsreadlimits; documentation-only closeout SHA verified separately inignoredreceipt.",
     "independentGate5": "PASS 2026-10-26 /root/beta_auditor; affected Compare visual re-audit PASS"
   },
   "visual": {
@@ -60,5 +60,5 @@
     "Existing CHG0145 outgoing-image warnings and CHG0148 legacy unsafe QA script remain OPEN",
     "Controlled agent EVAL-MAP/EVAL-VIEWER NOT_RUN; product QA is separate"
   ],
-  "technicalApproval": "APPROVED 2026-10-26 /root for local Beta runtime after independent Gates1/3/4/5 PASS; final staged-scope/publication Gate6 pending"
+  "technicalApproval": "APPROVED2026-10-26 /root for local and published Beta frontend; independent Gates1/3/4/5/6 prepublication and finalPUBLIC runtime/recordsPASS. Explicit user result acceptance not inferred."
 }

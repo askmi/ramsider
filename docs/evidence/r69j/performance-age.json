@@ -1,0 +1,107 @@
+[
+  {
+    "route": "/en/compare",
+    "conditions": "Chromium402x874DPR3/4Mbps100ms/4xCPU,cold,single lab sample; age=firstvisit-unconfirmed",
+    "metrics": {
+      "lcp": 496,
+      "cls": 0.0019876564679860388
+    },
+    "nav": {
+      "ttfb": 22.200000047683716,
+      "fcp": 496,
+      "dom": 485.09999990463257,
+      "documentWire": 21012,
+      "documentEncoded": 20712
+    },
+    "resources": [
+      {
+        "path": "/_next/static/chunks/06qtwskgyx6h_.css",
+        "type": "link",
+        "wire": 10707,
+        "decoded": 44141
+      },
+      {
+        "path": "/_next/static/chunks/1i29hje-ejnwl.css",
+        "type": "link",
+        "wire": 10384,
+        "decoded": 85359
+      },
+      {
+        "path": "/_next/static/chunks/21veqh5xxb-qz.js",
+        "type": "link",
+        "wire": 6413,
+        "decoded": 17697
+      },
+      {
+        "path": "/_next/static/chunks/15orcrkp-_9ct.js",
+        "type": "script",
+        "wire": 10864,
+        "decoded": 50702
+      },
+      {
+        "path": "/_next/static/chunks/3_yaym1q7aiwc.js",
+        "type": "script",
+        "wire": 40809,
+        "decoded": 150472
+      },
+      {
+        "path": "/_next/static/chunks/3gzxhq9iq6efl.js",
+        "type": "script",
+        "wire": 71280,
+        "decoded": 227315
+      },
+      {
+        "path": "/_next/static/chunks/05-c3ty_6dwfk.js",
+        "type": "script",
+        "wire": 1756,
+        "decoded": 3377
+      },
+      {
+        "path": "/_next/static/chunks/turbopack-156_3b5q5j5gn.js",
+        "type": "script",
+        "wire": 4457,
+        "decoded": 10580
+      },
+      {
+        "path": "/_next/static/chunks/3u_it_w4h7xz6.js",
+        "type": "script",
+        "wire": 5050,
+        "decoded": 12676
+      },
+      {
+        "path": "/_next/static/chunks/14mrh2-p_w84d.js",
+        "type": "script",
+        "wire": 13163,
+        "decoded": 54646
+      },
+      {
+        "path": "/fonts/opensans-regular.ttf",
+        "type": "css",
+        "wire": 78620,
+        "decoded": 130832
+      },
+      {
+        "path": "/fonts/bankgothic.ttf",
+        "type": "css",
+        "wire": 14370,
+        "decoded": 22656
+      },
+      {
+        "path": "/fonts/opensans-light.ttf",
+        "type": "css",
+        "wire": 78300,
+        "decoded": 130804
+      },
+      {
+        "path": "/fonts/opensans-button.ttf",
+        "type": "css",
+        "wire": 85053,
+        "decoded": 147528
+      }
+    ],
+    "interactionNextTwoFramesMs": null,
+    "scrollFrameP95Ms": 16.700000000000728,
+    "fieldINP": "NOT_MEASURED",
+    "Lighthouse": "NOT_RUN"
+  }
+]

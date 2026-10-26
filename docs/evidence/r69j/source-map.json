@@ -1,0 +1,131 @@
+{
+  "source": "R6.9j/site byteexact currentruntime mirror",
+  "documents": {
+    "reserve": {
+      "sha256": "d8a5ec77600e3023eba661de2480271202fcc0087ea68a36bac804546fc64dae",
+      "route": "reserve",
+      "styles": [
+        "inline",
+        "common.css",
+        "legal.css",
+        "gold.css"
+      ]
+    },
+    "pro": {
+      "sha256": "338de5d7fd2507da6b4ed50bfd39ba7dafaab7085d3ce0f852fa831d2e82abc7",
+      "route": "pro",
+      "styles": [
+        "catalog.css",
+        "common.css",
+        "legal.css",
+        "gold.css"
+      ]
+    },
+    "gold": {
+      "sha256": "6674e852d487a8b47cf836d36cdfce0ac06ad756360f0e0c0dbca33e408f90ad",
+      "route": "gold",
+      "styles": [
+        "catalog.css",
+        "common.css",
+        "legal.css",
+        "gold.css"
+      ]
+    },
+    "compare": {
+      "sha256": "c32d556ca9bf095924025559d38067c6ce3a6b37d83dd6db9ed0ebdb07c87087",
+      "route": "compare",
+      "styles": [
+        "catalog.css",
+        "common.css",
+        "legal.css",
+        "gold.css"
+      ]
+    },
+    "product-card": {
+      "sha256": "ba35ec2b2a6dbc98b59f7e6cc9450567744375ad7cdc06887985f7813c097d23",
+      "route": "product-info",
+      "styles": [
+        "common.css",
+        "legal.css",
+        "gold.css"
+      ]
+    },
+    "capsules": {
+      "sha256": "dd9da2cd86008dd1f72cacf15bebab5afff9ad9868a836564a6145343bd1a6e6",
+      "route": "capsules",
+      "styles": [
+        "catalog.css",
+        "common.css",
+        "legal.css",
+        "gold.css"
+      ]
+    },
+    "terms": {
+      "sha256": "f72a686a066ebf4e15561cd06cd2c93968733370a66fd99708a43baeb640647c",
+      "route": "terms",
+      "styles": [
+        "common.css",
+        "legal.css",
+        "gold.css"
+      ]
+    },
+    "returns": {
+      "sha256": "8ef1e45c15465096f85d0dde24e670dc76a3795c567bc11f56e9c7039636b383",
+      "route": "returns",
+      "styles": [
+        "common.css",
+        "legal.css",
+        "gold.css"
+      ]
+    },
+    "privacy": {
+      "sha256": "867e56f4c9a113e4108b4f768b8e5327c8e06049764c44eba310e7ce62ac271c",
+      "route": "privacy",
+      "styles": [
+        "common.css",
+        "legal.css",
+        "gold.css"
+      ]
+    },
+    "delivery-policy": {
+      "sha256": "14a3b70bd39201d30d155170158765aa71a18ccfa0a5109c9312ee0bd90cf708",
+      "route": "delivery-policy",
+      "styles": [
+        "common.css",
+        "legal.css",
+        "gold.css"
+      ]
+    },
+    "terms-of-sale": {
+      "sha256": "4f574ebd86de00baad4dfa47342eef04f71f7593383558063280bf9ca3ea84e4",
+      "route": "terms-of-sale",
+      "styles": [
+        "common.css",
+        "legal.css",
+        "sale.css",
+        "gold.css"
+      ]
+    },
+    "contact": {
+      "sha256": "9e9d6b8c0b122fbb7dd9a5f64d9d2c0925acafbf0fcc7740b27df12bd6256eb9",
+      "route": "contact",
+      "styles": [
+        "common.css",
+        "legal.css",
+        "contact.css",
+        "gold.css"
+      ]
+    },
+    "age-gate": {
+      "sha256": "ca8b94e58ec9c9988b0ffde9a4aefd8b1b11b4b615346a7d0f6194e914a05b3f",
+      "route": "age-gate",
+      "styles": [
+        "common.css",
+        "legal.css",
+        "gold.css"
+      ]
+    }
+  },
+  "fonts": "all5SHAexact existingpublic/fonts",
+  "sanitization": "scripts/styles/eventattrs excluded from AST; unconfirmeddata-whatsapp-url removed; originalbundle keptlocal"
+}

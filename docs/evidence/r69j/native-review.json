@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-26",
+  "change": "CHG0149",
+  "tool": "Native Codex CLI review (app bundled CLI), the /review CLI equivalent",
+  "invocation": {
+    "command": "codex review -",
+    "input": "Review instructions on stdin; actual git diff plus explicitly named new implementation files",
+    "stdoutAndStderr": "Captured in ignored local diagnostics; raw transcript deliberately excluded from publication",
+    "mutations": "Read-only review assignment; no reviewer code edits"
+  },
+  "runs": [
+    {
+      "phase": "Full actual implementation diff",
+      "exitCode": 0,
+      "result": "FINDINGS",
+      "findings": [
+        {
+          "priority": "P2",
+          "file": "components/preorder/PackageController.tsx",
+          "issue": "Back after hash/language/model replacement restored URL without DOM locale/model reconciliation",
+          "resolution": "Added popstate locale restoration and form.restoreFromUrl, preserving typed fields; genuine browser history cases pass on Pro/Max/Chromium"
+        },
+        {
+          "priority": "P2",
+          "file": "tests/e2e/preorder.spec.ts",
+          "issue": "Contract test used nonexistent hyphenated clause IDs",
+          "resolution": "Use exact dotted IDs/attribute selectors and exact URL hashes; source-verbatim clause/language cases pass on all three profiles"
+        }
+      ]
+    },
+    {
+      "phase": "History lifecycle and affected current diff follow-up",
+      "exitCode": 0,
+      "result": "CLEAN",
+      "conclusion": "No concrete actionable findings in the current diff, including history restoration, CSS animation renaming, footer/FAQ integration, aliases, and age gating."
+    },
+    {
+      "phase": "Measured two-font width reservation and scoped CSS follow-up",
+      "exitCode": 0,
+      "result": "CLEAN",
+      "conclusion": "No actionable correctness, responsive, RTL, or scoper/class-name regressions found within the requested scope."
+    },
+    {
+      "phase": "Final static metadata/background exclusion follow-up",
+      "exitCode": 0,
+      "result": "CLEAN",
+      "conclusion": "No actionable findings in the scoped change. Metadata.other emits the expected marker, and the selector overrides the global background without changing the final document background or matching the main page."
+    }
+  ],
+  "limits": "Browser launch inside reviewer sandbox was unavailable; required actual browser evidence was executed by root separately and inspected by the independent discipline auditor. This receipt does not substitute static review for browser/performance checks.",
+  "verifier": "/root: observed successful native tool completion for all four runs; sanitized only review outcomes, no private runtime diagnostics"
+}

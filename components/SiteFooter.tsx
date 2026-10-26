@@ -11,7 +11,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
     <ProgressiveImage className="site-footer__art" data-media src="/art/footer-paper.webp" preview={previews["/art/footer-paper.webp"].src} alt="" aria-hidden="true" width={941} height={2588} loading="lazy" decoding="async" />
     <div className="site-footer__inner">
       <nav className="site-footer__legal" aria-label={preorderChrome[locale].product}>
-        {(['product-info', 'terms', 'returns', locale === 'ru' ? 'privacy-ru' : 'privacy'] as const).map((route, index) => <a className="site-footer__link" href={`/${locale}/${route}`} key={route}>{[preorderChrome[locale].product, preorderChrome[locale].terms, preorderChrome[locale].returns, preorderChrome[locale].privacy][index]}</a>)}
+        {(['product-info', 'terms', 'returns', 'privacy', 'capsules', 'delivery-policy', 'terms-of-sale', 'contact'] as const).map((route, index) => <a className="site-footer__link" href={`/${locale}/${route}`} key={route}>{[preorderChrome[locale].product, preorderChrome[locale].terms, preorderChrome[locale].returns, preorderChrome[locale].privacy, preorderChrome[locale].capsules, preorderChrome[locale].delivery, preorderChrome[locale].sale, preorderChrome[locale].contact][index]}</a>)}
       </nav>
       <section aria-labelledby="company-heading">
         <h2 id="company-heading">{copy.company}</h2>

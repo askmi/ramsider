@@ -1,0 +1,53 @@
+[
+  {
+    "id": "extra-battery",
+    "name": "Extra battery",
+    "price": 120,
+    "group": "power"
+  },
+  {
+    "id": "pro-capsule-four-zones",
+    "name": "Pro capsule with four zones",
+    "price": 40,
+    "group": "capsules"
+  },
+  {
+    "id": "separate-charger",
+    "name": "Separate charger",
+    "price": 75,
+    "group": "power"
+  },
+  {
+    "id": "ceramic-bowl",
+    "name": "Ceramic bowl",
+    "price": 30,
+    "group": "bowl"
+  },
+  {
+    "id": "self-fill-20",
+    "name": "Disposable self-fill capsules — pack of 20",
+    "price": 30,
+    "group": "self-fill-capsules"
+  },
+  {
+    "id": "self-fill-50",
+    "name": "Disposable self-fill capsules — pack of 50",
+    "price": 50,
+    "group": "self-fill-capsules"
+  },
+  {
+    "id": "self-fill-100",
+    "name": "Disposable self-fill capsules — pack of 100",
+    "price": 80,
+    "group": "self-fill-capsules"
+  },
+  {
+    "id": "hose-mouthpiece-connector-set",
+    "name": "Hose, mouthpiece and connector set — PRO: carbon-fibre handle with a Tritan mouthpiece; GOLD: titanium mouthpiece, 24K gold-plated",
+    "price": {
+      "pro": 100,
+      "gold": 200
+    },
+    "group": "hose-set"
+  }
+]

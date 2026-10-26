@@ -1,0 +1,87 @@
+{
+  "order": [
+    "reserve:inline:0",
+    "catalog.css",
+    "common.css",
+    "legal.css",
+    "sale.css",
+    "contact.css",
+    "gold.css"
+  ],
+  "sequences": {
+    "reserve": [
+      "reserve:inline:0",
+      "common.css",
+      "legal.css",
+      "gold.css"
+    ],
+    "pro": [
+      "catalog.css",
+      "common.css",
+      "legal.css",
+      "gold.css"
+    ],
+    "gold": [
+      "catalog.css",
+      "common.css",
+      "legal.css",
+      "gold.css"
+    ],
+    "compare": [
+      "catalog.css",
+      "common.css",
+      "legal.css",
+      "gold.css"
+    ],
+    "product-info": [
+      "common.css",
+      "legal.css",
+      "gold.css"
+    ],
+    "capsules": [
+      "catalog.css",
+      "common.css",
+      "legal.css",
+      "gold.css"
+    ],
+    "terms": [
+      "common.css",
+      "legal.css",
+      "gold.css"
+    ],
+    "returns": [
+      "common.css",
+      "legal.css",
+      "gold.css"
+    ],
+    "privacy": [
+      "common.css",
+      "legal.css",
+      "gold.css"
+    ],
+    "delivery-policy": [
+      "common.css",
+      "legal.css",
+      "gold.css"
+    ],
+    "terms-of-sale": [
+      "common.css",
+      "legal.css",
+      "sale.css",
+      "gold.css"
+    ],
+    "contact": [
+      "common.css",
+      "legal.css",
+      "contact.css",
+      "gold.css"
+    ],
+    "age-gate": [
+      "common.css",
+      "legal.css",
+      "gold.css"
+    ]
+  },
+  "specificity": "Original html/body tags represented by div:where proxies; shared stylesheet emitted only on its supplied routes",
+  "allPageOrdersPreserved": true
+}

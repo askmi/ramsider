@@ -72,7 +72,7 @@ test('responsive viewport, artwork, and primary actions', async ({ page }, testI
 
   await page.locator('#hero-reserve').click();
   await expect(page).toHaveURL(/\/en\/reserve$/);
-  await expect(page.locator('#model-controls')).toBeVisible();
+  await expect(page.locator('[data-site-age-gate]')).toBeVisible();await page.locator('[data-age-confirm]').click();await expect(page.locator('#model-controls')).toBeVisible();
   await page.goBack();
   await page.waitForLoadState('networkidle');
   await waitForVisibleMedia(page);
@@ -101,9 +101,9 @@ test('responsive viewport, artwork, and primary actions', async ({ page }, testI
   await expect(page.locator('#project-detail-1')).toContainText('Premium Intelligent');
   await page.keyboard.press('Escape');
   for (const [selector, destination, text] of [
-    ['.key-explorePro', '/en/pro', 'TiN-Coated Heater'],
-    ['.key-exploreGold', '/en/gold', 'Platinum Sensors'],
-    ['.key-exploreSet', '/en/product-info#included', 'Included in the set'],
+    ['.key-explorePro', '/en/pro', 'PRO LINE'],
+    ['.key-exploreGold', '/en/gold', 'GOLD LINE'],
+    ['.key-exploreSet', '/en/product-info#included', 'Included in the Set'],
   ]) {
     await page.locator(selector).scrollIntoViewIfNeeded(); await waitForVisibleMedia(page);
     await page.locator(selector).click();
@@ -116,7 +116,7 @@ test('responsive viewport, artwork, and primary actions', async ({ page }, testI
   await page.keyboard.press('Escape');
   await page.locator('.faq-stack details').first().locator('summary').click();
   await settleVisibleMedia();
-  await expect(page.locator('.faq-stack details').first().getByText('Choose PRO or GOLD.', { exact: false })).toBeVisible();
+  await expect(page.locator('.faq-stack details').first().getByText('An order is placed by the first card payment', { exact: false })).toBeVisible();
   expect(errors).toEqual([]);
 });
 

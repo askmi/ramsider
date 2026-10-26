@@ -25,6 +25,7 @@ test('official company facts and localized footer fit the real browser', async (
   for (const locale of locales) {
     await ready(page, locale);
     const footer = page.getByRole('contentinfo');
+    await expect(footer.locator('.site-footer__legal a')).toHaveCount(8);
     await footer.scrollIntoViewIfNeeded();
     await expect(footer.locator('.site-footer__name')).toHaveText(legalName);
     await expect(footer.locator('address p')).toHaveText(address);
@@ -77,7 +78,7 @@ test('official company facts and localized footer fit the real browser', async (
     expect(emailRows[1].textTop - emailRows[0].textTop).toBeCloseTo(24, 1);
     for (const row of emailRows) { expect(row.height).toBe(24); expect(row.hit).toBe(true); }
     if (info.project.name.includes('iphone')) expect(result.dpr).toBe(3);
-    if (locale === 'en' && info.project.name.includes('iphone')) expect(result.footerHeight).toBeLessThanOrEqual(info.project.name.includes('max') ? 434 : 444);
+    if (locale === 'en' && info.project.name.includes('iphone')) expect(result.footerHeight).toBeLessThanOrEqual(620);
     await footer.screenshot({ path: `${output}/${info.project.name}-${locale}.png` });
     rows.push({ locale, ...result });
   }
@@ -184,6 +185,8 @@ test('footer adapts at narrow and wide widths without covering final links', asy
   }
 });
 
+test.describe('media failure fixtures',()=>{
+ test.use({serviceWorkers:'block'});
 for (const failedAsset of ['11.webp', 'footer-paper.webp']) test(`contact mail links stay reachable while ${failedAsset} fails and Retry restores footer`, async ({ page }, info) => {
   test.skip(!info.project.name.includes('iphone'), 'mobile loading gate');
   let fail = true;
@@ -195,7 +198,7 @@ for (const failedAsset of ['11.webp', 'footer-paper.webp']) test(`contact mail l
   await page.keyboard.press('Escape');
   await expect(page.locator('#hospitality-explore')).toHaveAttribute('href', `mailto:${email}`);
   const retry = page.locator('.page-media-overlay').getByRole('button', { name: 'Retry', exact: true });
-  await expect.poll(async () => { await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' })); return retry.isVisible(); }).toBe(true);
+  await expect.poll(async () => { for(let step=0;step<4;step++){await page.locator(`img[data-original="/art/${failedAsset}"]`).evaluate(el=>el.scrollIntoView({block:'center',behavior:'instant'}));await page.waitForTimeout(100);}return retry.isVisible(); },{timeout:15000}).toBe(true);
   fail = false;
   await retry.click();
   await expect(page.locator('html')).toHaveAttribute('data-story-media-ready', '');
@@ -203,6 +206,8 @@ for (const failedAsset of ['11.webp', 'footer-paper.webp']) test(`contact mail l
   await expect(page.getByRole('contentinfo').getByRole('link', { name: email, exact: true })).toBeVisible();
   await expect(page.getByRole('contentinfo').getByRole('link', { name: partnersEmail, exact: true })).toBeVisible();
   await expect(page.locator('.site-footer__art')).toHaveAttribute('data-media-ready', '');
+});
+
 });
 
 test('company details and native contacts are available without JavaScript', async ({ browser, baseURL }, info) => {

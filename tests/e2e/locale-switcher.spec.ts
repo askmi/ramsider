@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 
-const localeNames = ['English', 'Русский', 'Deutsch', 'Français', 'Español', 'Italiano', 'Türkçe', 'العربية', '中文', '日本語', '한국어'];
+const localeNames = ['English', 'Deutsch', 'Français', 'Español', 'Italiano', 'Русский', 'Türkçe', 'العربية', '中文', '日本語', '한국어'];
 const captureDir = process.env.VISUAL_OUTPUT_DIR ?? 'screenshots/actual/locale-switcher';
 
 test('language control stays in the header and works after returning to top', async ({ page }, testInfo) => {
@@ -70,6 +70,7 @@ test('language control stays in the header and works after returning to top', as
   expect(panelMaterial.filter).toContain('blur(');
   expect(panelMaterial.border).toBe('rgb(181, 140, 78)');
   await expect(panel.locator('a')).toHaveCount(11);
+  await expect(panel.locator('a span:nth-child(2)')).toHaveText(localeNames);
   await expect(panel.locator('.locale-check')).toHaveCount(0);
   const compactRows = await panel.evaluate(element => {
     const panelBox = element.getBoundingClientRect();
@@ -186,7 +187,7 @@ test('header controls retain a common line at intermediate widths', async ({ pag
 
 test('every locale has its matching flag and selected language', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'iphone-17-pro-webkit');
-  const locales = ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko'];
+  const locales = ['en', 'de', 'fr', 'es', 'it', 'ru', 'tr', 'ar', 'zh', 'ja', 'ko'];
   for (let index = 0; index < locales.length; index++) {
     await page.goto(`/${locales[index]}`);
     await expect(page.locator('#locale-toggle .locale-code')).toHaveText(locales[index].toUpperCase());
@@ -203,7 +204,7 @@ test('every locale has its matching flag and selected language', async ({ page }
 
 test('every language row accepts center and near-edge touches without choosing a neighbor', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'iphone-17-pro-webkit');
-  const locales = ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko'];
+  const locales = ['en', 'de', 'fr', 'es', 'it', 'ru', 'tr', 'ar', 'zh', 'ja', 'ko'];
   for (let index = 0; index < locales.length; index++) {
     for (const edge of ['top', 'bottom'] as const) {
       await page.goto('/en');

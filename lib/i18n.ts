@@ -1,7 +1,7 @@
 import { narrativeTranslations } from './narrative-translations';
 import { technicalTranslations } from './technical-translations';
 
-export const locales = ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko'] as const;
+export const locales = ['en', 'de', 'fr', 'es', 'it', 'ru', 'tr', 'ar', 'zh', 'ja', 'ko'] as const;
 export type Locale = (typeof locales)[number];
 
 export const english = {

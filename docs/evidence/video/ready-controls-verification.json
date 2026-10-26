@@ -1,0 +1,402 @@
+{
+  "date": "2026-10-27",
+  "change": "CHG0151",
+  "branch": "main",
+  "baseline": "12b1c4e1b34133a2fcdab5b210468bbc27237742",
+  "status": "VERIFIED_LOCAL_APPROVED_AWAITING_PUBLICATION",
+  "requestedResult": "One gear lower-right inside the video; rounded translucent overlay settings with actual quality/Auto, speed and truthful PiP; retained in shared fullscreen or disclosed iPhone full-window; obsolete below-video menu removed.",
+  "implementation": {
+    "ui": "media-chrome4.19.4, UI-only, lazy near CTA/on open",
+    "streaming": "Existing native iPhone HLS and hls.js1.7.3 unchanged; same video DOM node",
+    "readiness": "Native controls retained until controller binds same video and required widget shadow roots exist. Optional/module/render/partial failure keeps native controls.",
+    "menu": "18px radius, rgba(24,24,28,.62), 8px backdrop blur,44px rows; root/submenus scroll on small picture",
+    "fullscreen": "Shared media-controller via Element Fullscreen where available. Otherwise page-viewport full-window with Exit; browser chrome may remain on physical iPhone. No claim of HTML controls in native OS fullscreen.",
+    "preserved": "Source audio packets, prepared assets, six qualities, selected-language preload and playback/cache/ABR engines unchanged."
+  },
+  "sourceSHA256": {
+    "components/FilmControls.tsx": "b3e9928215875d8c9aee47d5bc2068a0bcc0367fa2a78d0147ee7884e76fc10f",
+    "components/ProductFilm.tsx": "83d31b5288fd7e27cc380c90382fe3a5ff9367ccf3ecfef34266857aed7cf4c3",
+    "app/globals.css": "d7112fd50f2a79e6e4e6badc7246650035369aabca747ef03936a9fc5e00fe37",
+    "lib/film-controls-copy.ts": "52966dd838ad44aa7339d3f47b463184d47ad27569ac1860b1665574d58c1e34",
+    "lib/film-controls-loader.ts": "31b13ff5a3d3fbcd2378363da2170b2f085177133f9afa6e99211f11bad0380f",
+    "package.json": "52ce255735b7202edb66d12c0cfbeaa29ce68d63bb82f4e2a7f757e697b373fa",
+    "package-lock.json": "f9a6b41a3edc3600ab6d2cec302b0b82cd518e4617116874252c40f9ca5ffc41",
+    "tests/e2e/film-options.spec.ts": "15caed2bfe4b3327a11a91f8684969fdaddae233ef123fc4b291c348aa922e8f",
+    "tests/e2e/product-film.spec.ts": "7aa87ed6c9c31887239eb6976df1925e09eb4c4be80b30874fb650f09adbc2b3"
+  },
+  "reviewFinalSHA256": {
+    "components/FilmControls.tsx": "b3e9928215875d8c9aee47d5bc2068a0bcc0367fa2a78d0147ee7884e76fc10f",
+    "components/ProductFilm.tsx": "83d31b5288fd7e27cc380c90382fe3a5ff9367ccf3ecfef34266857aed7cf4c3",
+    "app/globals.css": "d7112fd50f2a79e6e4e6badc7246650035369aabca747ef03936a9fc5e00fe37",
+    "lib/film-controls-copy.ts": "52966dd838ad44aa7339d3f47b463184d47ad27569ac1860b1665574d58c1e34",
+    "lib/film-controls-loader.ts": "31b13ff5a3d3fbcd2378363da2170b2f085177133f9afa6e99211f11bad0380f",
+    "tests/e2e/film-options.spec.ts": "15caed2bfe4b3327a11a91f8684969fdaddae233ef123fc4b291c348aa922e8f",
+    "tests/e2e/product-film.spec.ts": "7aa87ed6c9c31887239eb6976df1925e09eb4c4be80b30874fb650f09adbc2b3"
+  },
+  "unchangedFromHEAD": {
+    "lib/film-playback.ts": "bfc73f08c53bcf5f116cb592368eeaabaf44864df4928373cef083763ce29f8b",
+    "lib/film-preload.ts": "f89fd7de698efa6f6c05821c83c78fe46084cc4d76fd24315546da06969551c0",
+    "lib/film-cache-abr.ts": "70e991bbf3192984e90135a2bca76c4f353cfebebf323a18bfe75aa3b710f24e",
+    "config/product-films.json": "50e8d6599d7da0015846447897f8786a6b36ee7841c96800a0c9716abab72e9f"
+  },
+  "browser": {
+    "fullIntegrationBeforeFix": {
+      "log": "/tmp/film-controls-current-suite.log",
+      "passed": 28,
+      "failed": 3,
+      "skipped": 37,
+      "finding": "Space failures explicitly retained; corrected and rerun in final checks."
+    },
+    "finalTargeted": {
+      "log": "/tmp/film-controls-final2-recheck.log",
+      "passed": 9,
+      "failed": 0,
+      "skipped": 6,
+      "coverage": "Actual presented144/720/2160;quality/time/pause/Auto;Space+Back;pending native shortcut/string rate;newer PiP ownership;inactive loading feedback."
+    },
+    "finalRegression": {
+      "log": "/tmp/film-controls-final-regression.log",
+      "passed": 39,
+      "failed": 0,
+      "skipped": 12,
+      "coverage": "Final viewport cap1024x600;Pro/Max;11localevisible recovery/RTL;320+375root/quality scroll;actualshared+forcedfullwindow;Space/rate/recovery;native/MSE prefetch/cancel/denial;bothtriggers/focus/seek/pause/Close;queuedreopen/fallback/resume/blockedPlay;watchdogbackground."
+    },
+    "otherSuccessfulCases": "Current full suite covers optional/partial-widget native fail-open, paused volume restore, unsupported/rejected and late PiP fixtures. Firefox silence preflight only; no Firefox full-playback claim.",
+    "actualFrames": [
+      {
+        "low": {
+          "width": 256,
+          "height": 144,
+          "time": 1.84
+        },
+        "mid": {
+          "width": 1280,
+          "height": 720,
+          "time": 12
+        },
+        "high": {
+          "width": 3840,
+          "height": 2160,
+          "time": 13.2
+        },
+        "geometry": {
+          "player": {
+            "x": 0,
+            "y": 326.9375,
+            "width": 402,
+            "height": 226.125,
+            "top": 326.9375,
+            "right": 402,
+            "bottom": 553.0625,
+            "left": 0
+          },
+          "menu": {
+            "x": 152,
+            "y": 338.9375,
+            "width": 238,
+            "height": 144.125,
+            "top": 338.9375,
+            "right": 390,
+            "bottom": 483.0625,
+            "left": 152
+          },
+          "gear": {
+            "x": 350,
+            "y": 485.0625,
+            "width": 44,
+            "height": 44,
+            "top": 485.0625,
+            "right": 394,
+            "bottom": 529.0625,
+            "left": 350
+          },
+          "range": {
+            "x": 8,
+            "y": 529.0625,
+            "width": 386,
+            "height": 22,
+            "top": 529.0625,
+            "right": 394,
+            "bottom": 551.0625,
+            "left": 8
+          },
+          "video": {
+            "x": 0,
+            "y": 326.9375,
+            "width": 402,
+            "height": 226.125,
+            "top": 326.9375,
+            "right": 402,
+            "bottom": 553.0625,
+            "left": 0
+          },
+          "background": "rgba(24, 24, 28, 0.62)",
+          "radius": "18px",
+          "overflow": false,
+          "width": 402,
+          "dpr": 3,
+          "native": false,
+          "gearIcon": "svg",
+          "fullscreen": false,
+          "fullWindow": false
+        },
+        "errors": []
+      },
+      {
+        "low": {
+          "width": 256,
+          "height": 144,
+          "time": 1.92
+        },
+        "mid": {
+          "width": 1280,
+          "height": 720,
+          "time": 12
+        },
+        "high": {
+          "width": 3840,
+          "height": 2160,
+          "time": 13.2
+        },
+        "geometry": {
+          "player": {
+            "x": 0,
+            "y": 367.75,
+            "width": 440,
+            "height": 247.5,
+            "top": 367.75,
+            "right": 440,
+            "bottom": 615.25,
+            "left": 0
+          },
+          "menu": {
+            "x": 190,
+            "y": 400.875,
+            "width": 238,
+            "height": 144.375,
+            "top": 400.875,
+            "right": 428,
+            "bottom": 545.25,
+            "left": 190
+          },
+          "gear": {
+            "x": 388,
+            "y": 547.25,
+            "width": 44,
+            "height": 44,
+            "top": 547.25,
+            "right": 432,
+            "bottom": 591.25,
+            "left": 388
+          },
+          "range": {
+            "x": 8,
+            "y": 591.25,
+            "width": 424,
+            "height": 22,
+            "top": 591.25,
+            "right": 432,
+            "bottom": 613.25,
+            "left": 8
+          },
+          "video": {
+            "x": 0,
+            "y": 367.75,
+            "width": 440,
+            "height": 247.5,
+            "top": 367.75,
+            "right": 440,
+            "bottom": 615.25,
+            "left": 0
+          },
+          "background": "rgba(24, 24, 28, 0.62)",
+          "radius": "18px",
+          "overflow": false,
+          "width": 440,
+          "dpr": 3,
+          "native": false,
+          "gearIcon": "svg",
+          "fullscreen": false,
+          "fullWindow": false
+        },
+        "errors": []
+      },
+      {
+        "low": {
+          "width": 256,
+          "height": 144,
+          "time": 4.8
+        },
+        "mid": {
+          "width": 1280,
+          "height": 720,
+          "time": 14.76
+        },
+        "high": {
+          "width": 3840,
+          "height": 2160,
+          "time": 18.68
+        },
+        "geometry": {
+          "player": {
+            "x": 240,
+            "y": 193.5,
+            "width": 960,
+            "height": 540,
+            "top": 193.5,
+            "right": 1200,
+            "bottom": 733.5,
+            "left": 240
+          },
+          "menu": {
+            "x": 950,
+            "y": 519.125,
+            "width": 238,
+            "height": 144.375,
+            "top": 519.125,
+            "right": 1188,
+            "bottom": 663.5,
+            "left": 950
+          },
+          "gear": {
+            "x": 1148,
+            "y": 665.5,
+            "width": 44,
+            "height": 44,
+            "top": 665.5,
+            "right": 1192,
+            "bottom": 709.5,
+            "left": 1148
+          },
+          "range": {
+            "x": 248,
+            "y": 709.5,
+            "width": 944,
+            "height": 22,
+            "top": 709.5,
+            "right": 1192,
+            "bottom": 731.5,
+            "left": 248
+          },
+          "video": {
+            "x": 240,
+            "y": 193.5,
+            "width": 960,
+            "height": 540,
+            "top": 193.5,
+            "right": 1200,
+            "bottom": 733.5,
+            "left": 240
+          },
+          "background": "rgba(24, 24, 28, 0.62)",
+          "radius": "18px",
+          "overflow": false,
+          "width": 1440,
+          "dpr": 1,
+          "native": false,
+          "gearIcon": "svg",
+          "fullscreen": false,
+          "fullWindow": false
+        },
+        "errors": []
+      }
+    ]
+  },
+  "visual": {
+    "images": {
+      "screenshots/video/chrome-controls/menu-iphone-17-pro-webkit.png": "a609f5aaa0d9e3aa24d9f85bd37d8dfaab2552a53477eb8865f33e4d379b005b",
+      "screenshots/video/chrome-controls/menu-iphone-17-pro-max-webkit.png": "bcffcf8e0f6d0fe534cb4125f7e1c69caf21ced015c9138e50dccc8dc948e23f",
+      "screenshots/video/chrome-controls/quality-pro.png": "f7b4974a20e45622a38f0c20d06d8780c76804a4b2394a5e0d40fe9660bbbde5",
+      "screenshots/video/chrome-controls/quality-max.png": "f442ef30125b958b3aaf2f5b55eb9423465558a9f8bb1304b4f08863eede19cf",
+      "screenshots/video/chrome-controls/arabic-menu.png": "c607ee00647329a79489e635116a8e284d76745a7955ed1eb7e80376a604ffd3",
+      "screenshots/video/chrome-controls/menu-320x568.png": "cf094905ded9234a5d781d2515f48de754aaf8c2090ab022df30006b7f1d66e5",
+      "screenshots/video/chrome-controls/menu-375x667.png": "440aabbc798a3c2b9960c4680aeea47753debaf4c34937a9c9189bdcb176ac8b",
+      "screenshots/video/chrome-controls/menu-874x402.png": "97d6bdf77b123f0d19b9b6299738ad1fffdff01cad70b6858a53c9a5dbd79380",
+      "screenshots/video/chrome-controls/menu-768x1024.png": "0653d847b42cba235e23ece1b383e53fbb34e63350fa22dbf2d41b2c732a7074",
+      "screenshots/video/chrome-controls/menu-1024x600.png": "57c2ae6750acc5e4bcb9c526ab1b16cca959afea09855e362ce06e12679ac6a5",
+      "screenshots/video/chrome-controls/menu-1440x900.png": "9864041e129f5d0d1d54151b515aac677790455f0c3b2dc14df78ccfba0f66e3",
+      "screenshots/video/chrome-controls/fullscreen-desktop-chromium.png": "1a8006b9bda9ac6dfee68d3be4df01d491ff295e1434c1dc4fc2999804a5ab03",
+      "screenshots/video/chrome-controls/fullscreen-iphone-17-pro-webkit.png": "21280b617f763f02da8a767bcde24eb3bcc15a793b19ff46619b8ea3cf1e12e7",
+      "screenshots/video/chrome-controls/fullscreen-iphone-17-pro-max-webkit.png": "fc903c3392a14b622e01bc6608ed07c1e9ed02231776392c701eff66fc6fd341",
+      "screenshots/video/chrome-controls/closed-pro.png": "7c7afed677d49bc8c1382fff788748737131d15198423ea65fe92482e564eb78",
+      "screenshots/video/chrome-controls/closed-max.png": "8e5ed42245d4c591aeb468718630662a8667bd28c82421816a7bbf2c96111f4d"
+    },
+    "closedComparison": {
+      "date": "2026-10-27",
+      "reference": "Prior approved compare-baseline-pro/max captures, same CSS viewport/scroll region; not a new full-page design certification",
+      "results": [
+        {
+          "name": "pro",
+          "width": 402,
+          "height": 874,
+          "changedRGBAChannels": 0,
+          "channels": 1405392,
+          "scrollY": 4484,
+          "sameViewport": [
+            402,
+            3
+          ]
+        },
+        {
+          "name": "max",
+          "width": 440,
+          "height": 956,
+          "changedRGBAChannels": 0,
+          "channels": 1682560,
+          "scrollY": 4908,
+          "sameViewport": [
+            440,
+            3
+          ]
+        }
+      ]
+    },
+    "verifier": "/root actually viewed finalPro/Max,qualityPro,320/375root+375quality,Arabic,874landscape,1024x600,Chromiumsharedfullscreen; local screenshot paths are ignored QA artifacts. Pro/Max closed0RGBA differences against comparable approved prior captures. No new whole-page pixel-fidelity certification."
+  },
+  "performanceReceipt": "docs/evidence/video/ready-controls-performance.json",
+  "static": {
+    "types": "PASS /tmp/film-controls-types.log",
+    "lint": "PASS scoped final;fullrepoexcludingprivate design sources0errors1inheritedunusedTelegramwarning",
+    "build": "PASS /tmp/film-controls-build-final.log,11localeSSG",
+    "diffCheck": "PASS before final records; rerun before stage"
+  },
+  "nativeReview": {
+    "method": "Native codex review --uncommitted on isolated actual full source diff; full reviewed checkpoint then supplemental exactfinal test diff. Private raw logs ignored, never published.",
+    "findings": "10actionableP2 across iterations, all accepted/corrected and affectedcases rerun. Historical failure verdicts retained in CHANGELOG.",
+    "latestFull": "/tmp/film-controls-native-review-final3.log: only ambiguous old status locator; current migrated visible-status fixture passes11locale legacy matrix.",
+    "supplement": "/tmp/film-controls-native-review-supplement.log CLEAN. Isolated snapshot cannot run app tests; real repository checks are separate, not falsely attributed to reviewer."
+  },
+  "technicalApproval": {
+    "date": "2026-10-27",
+    "verifier": "/root",
+    "verdict": "APPROVED_LOCAL",
+    "evidence": "Real images/frame callbacks,sourcebinding,39+9 final checks,closed0RGBA,static/build,all native findings resolved; independent scope/visual/behavior/native-review-static/performance/final-local-records PASS2026-10-27."
+  },
+  "independentAudit": {
+    "verifier": "/root/hls_incident_auditor",
+    "scope": "PASS",
+    "menuSliceVisual": "PASS",
+    "behavior": "PASS",
+    "reviewStatic": "PASS",
+    "assembledVisual": "PASS2026-10-27",
+    "performance": "PASS2026-10-27",
+    "finalRecords": "PASS_LOCAL_RECORDS2026-10-27"
+  },
+  "publication": {
+    "authorization": "Prior owner requested completed deployed correction on main; current action adjusts chosen ready-made gear UI.",
+    "status": "PENDING_ORIGIN_MAIN_AND_BOTH_VERCEL_TARGETS",
+    "targets": [
+      "Vercel – ramsider Production",
+      "Vercel – ramsider-beta Preview"
+    ],
+    "receiptAfterPush": "screenshots/video/chrome-controls/publication/publication.json"
+  },
+  "userAcceptance": "NOT_RECORDED_FOR_CORRECTION; earlier below-video UX explicitly REJECTED and retained historically.",
+  "limits": [
+    "Physical iPhone/Android,OSPiP window success,subjective listening not run. QA silent.",
+    "Full-window fallback keeps menu and may retain iPhone browser chrome.",
+    "No instant/no-stall/fieldINP/Lighthouse/WCAG certification.",
+    "Known unrelated openCHG0112/CHG0136/CHG0145/CHG0148 retained; no automatic advisory upgrade or customscanner.",
+    "Prior fullsuite failures are not presented as a pristine final fullmatrix; affected successful reruns and skipped profiles are explicit."
+  ]
+}

@@ -16,6 +16,12 @@ The user's requested gate is strict: **do not say “done” when an applicable 
 - [ ] Unused code and unnecessary dependencies introduced by the work are removed.
 - [ ] Refactoring changes were followed by affected visual and behavior checks.
 
+## Requested result and technical constraints
+
+- [ ] The implemented entrypoint, visible result and required states match the user's request; a substitute has not been silently counted as the requested fix.
+- [ ] Any critical platform constraint that requires a materially different result was explained with options, and the user's actual choice is recorded before dependent implementation.
+- [ ] For a reported menu/control defect, the original reported control was rechecked; a separate component does not certify that control. Fullscreen checks include the menu in the actual presentation tree.
+
 ## Rendered visual result
 
 - [ ] The target page opens in a real browser.

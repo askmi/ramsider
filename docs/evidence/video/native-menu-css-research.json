@@ -1,0 +1,143 @@
+{
+  "date": "2026-10-27",
+  "browser": "153.0.8010.12",
+  "supports": {
+    "video::-internal-media-controls-overflow-menu-list": false,
+    "video::-internal-media-controls-overflow-button": false,
+    "video::-webkit-media-controls-overflow-menu-list": false,
+    "video::-webkit-media-controls-panel": true,
+    "video::part(overflow-menu-list)": true
+  },
+  "rows": [
+    {
+      "name": "native-light",
+      "menu": {
+        "nodeId": 211,
+        "pseudo": "-internal-media-controls-overflow-menu-list",
+        "part": null,
+        "background": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "radius": "2px",
+        "colorScheme": "light",
+        "display": "block",
+        "visibility": "visible"
+      },
+      "state": {
+        "paused": true,
+        "muted": true,
+        "volume": 0,
+        "time": 0,
+        "shadowRoot": null,
+        "playEvents": 0
+      },
+      "authorRules": 1
+    },
+    {
+      "name": "native-dark",
+      "menu": {
+        "nodeId": 478,
+        "pseudo": "-internal-media-controls-overflow-menu-list",
+        "part": null,
+        "background": "rgb(59, 59, 59)",
+        "opacity": "1",
+        "radius": "2px",
+        "colorScheme": "dark",
+        "display": "block",
+        "visibility": "visible"
+      },
+      "state": {
+        "paused": true,
+        "muted": true,
+        "volume": 0,
+        "time": 0,
+        "shadowRoot": null,
+        "playEvents": 0
+      },
+      "authorRules": 1
+    },
+    {
+      "name": "author-transparency-attempt",
+      "menu": {
+        "nodeId": 734,
+        "pseudo": "-internal-media-controls-overflow-menu-list",
+        "part": null,
+        "background": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "radius": "2px",
+        "colorScheme": "light",
+        "display": "block",
+        "visibility": "visible"
+      },
+      "state": {
+        "paused": true,
+        "muted": true,
+        "volume": 0,
+        "time": 0,
+        "shadowRoot": null,
+        "playEvents": 0
+      },
+      "authorRules": 3
+    },
+    {
+      "name": "panel-control-exposed",
+      "menu": {
+        "nodeId": 990,
+        "pseudo": "-internal-media-controls-overflow-menu-list",
+        "part": null,
+        "background": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "radius": "2px",
+        "colorScheme": "light",
+        "display": "block",
+        "visibility": "visible"
+      },
+      "state": {
+        "paused": true,
+        "muted": true,
+        "volume": 0,
+        "time": 0,
+        "shadowRoot": null,
+        "playEvents": 0
+      },
+      "authorRules": 2
+    },
+    {
+      "name": "native-video-fullscreen-dark",
+      "menu": {
+        "nodeId": 1251,
+        "pseudo": "-internal-media-controls-overflow-menu-list",
+        "part": null,
+        "background": "rgb(59, 59, 59)",
+        "opacity": "1",
+        "radius": "2px",
+        "colorScheme": "dark",
+        "display": "block",
+        "visibility": "visible"
+      },
+      "fullscreen": "VIDEO"
+    }
+  ],
+  "scope": "Research only, isolated paused video, local media via test routing, no production changes. CDP used solely for privileged read-only diagnostics, not available to website scripts.",
+  "executedProbe": "import {chromium} from '/Users/asmirnou/Projects/g/ramsider/node_modules/@playwright/test/index.mjs';\nimport {silenceTestMedia} from '/Users/asmirnou/Projects/g/ramsider/tests/e2e/silent-media.ts';\nimport {writeFile} from 'node:fs/promises';\nconst out='/Users/asmirnou/Projects/g/ramsider/screenshots/video/native-menu-research';\nconst {mkdir}=await import('node:fs/promises');await mkdir(out,{recursive:true});\nconst browser=await chromium.launch({args:['--mute-audio']});\nconst rows=[];\ntry{\nconst context=await browser.newContext({viewport:{width:960,height:680}});await silenceTestMedia(context);const page=await context.newPage();\nawait page.route('https://native-menu.test/**',async route=>{\n if(route.request().url().endsWith('film.mp4'))return route.fulfill({path:'/Users/asmirnou/Projects/g/ramsider/public/films/uno-introduction/en-v3/fallback.mp4',contentType:'video/mp4'});\n return route.fulfill({contentType:'text/html',body:'<!doctype html><meta name=\"viewport\" content=\"width=device-width\"><style>body{margin:0;background:#171717;color:white;font:16px sans-serif}video{display:block;width:896px;height:504px;margin:24px auto;max-width:95vw}button{margin:10px 32px}</style><video controls muted playsinline preload=\"auto\" src=\"/film.mp4\" controlslist=\"nodownload noremoteplayback noplaybackrate\"></video><button id=\"full\">Fullscreen video</button><script>window.playEvents=0;document.querySelector(\"video\").volume=0;document.querySelector(\"video\").addEventListener(\"play\",()=>window.playEvents++);document.querySelector(\"#full\").onclick=()=>document.querySelector(\"video\").requestFullscreen();<\\/script>'});\n});\nawait page.goto('https://native-menu.test/');await page.waitForFunction(()=>document.querySelector('video').readyState>=2);\nawait page.locator('video').evaluate(v=>{v.currentTime=9;});await page.waitForFunction(()=>!document.querySelector('video').seeking&&document.querySelector('video').readyState>=2);\nconst cdp=await context.newCDPSession(page);await cdp.send('DOM.enable');await cdp.send('CSS.enable');\nfunction flat(n){return[n,...(n.children??[]).flatMap(flat),...(n.shadowRoots??[]).flatMap(flat)]}\nasync function tree(){return flat((await cdp.send('DOM.getDocument',{depth:-1,pierce:true})).root)}\nconst attrs=n=>Object.fromEntries(Array.from({length:(n.attributes?.length??0)/2},(_,i)=>[n.attributes[2*i],n.attributes[2*i+1]]));\nasync function find(pseudo){const list=await tree();return list.find(n=>attrs(n).pseudo===pseudo)}\nasync function getMenu(){const n=await find('-internal-media-controls-overflow-menu-list');if(!n)throw Error('No exact native popup node');const {computedStyle}=await cdp.send('CSS.getComputedStyleForNode',{nodeId:n.nodeId});const s=Object.fromEntries(computedStyle.map(x=>[x.name,x.value]));return{nodeId:n.nodeId,pseudo:attrs(n).pseudo,part:attrs(n).part??null,background:s['background-color'],opacity:s.opacity,radius:s['border-top-left-radius'],colorScheme:s['color-scheme'],display:s.display,visibility:s.visibility};}\nasync function openMenu(){const n=await find('-internal-media-controls-overflow-button');if(!n)throw Error('No native three-dot control');const {model}=await cdp.send('DOM.getBoxModel',{nodeId:n.nodeId});const q=model.content;await page.mouse.click((q[0]+q[2]+q[4]+q[6])/4,(q[1]+q[3]+q[5]+q[7])/4);await page.waitForTimeout(400);}\nconst supports=await page.evaluate(()=>Object.fromEntries(['video::-internal-media-controls-overflow-menu-list','video::-internal-media-controls-overflow-button','video::-webkit-media-controls-overflow-menu-list','video::-webkit-media-controls-panel','video::part(overflow-menu-list)'].map(s=>[s,CSS.supports('selector('+s+')')])));\nfor(const [name,style]of[\n ['native-light','video{color-scheme:light}'],\n ['native-dark','video{color-scheme:dark}'],\n ['author-transparency-attempt','video{color-scheme:light} video::-internal-media-controls-overflow-menu-list{background:rgba(0,0,0,.35)!important;border-radius:20px!important} video::-webkit-media-controls-overflow-menu-list{background:rgba(0,0,0,.35)!important;border-radius:20px!important} video::part(overflow-menu-list){background:rgba(0,0,0,.35)!important;border-radius:20px!important} video::-webkit-media-controls [pseudo=\"-internal-media-controls-overflow-menu-list\"]{background:rgba(0,0,0,.35)!important;border-radius:20px!important}'],\n ['panel-control-exposed','video{color-scheme:light}video::-webkit-media-controls-panel{background:rgba(0,150,100,.5)!important}'],\n]){\n const css=await page.addStyleTag({content:style});await openMenu();const menu=await getMenu();const state=await page.locator('video').evaluate(v=>({paused:v.paused,muted:v.muted,volume:v.volume,time:v.currentTime,shadowRoot:v.shadowRoot,playEvents:window.playEvents}));if(!state.paused||!state.muted||state.volume!==0||state.playEvents)throw Error('Silent no-play invariant failed');await page.screenshot({path:out+'/'+name+'.png'});rows.push({name,menu,state,authorRules:await css.evaluate(s=>s.sheet.cssRules.length)});await page.keyboard.press('Escape');await css.evaluate(s=>s.remove());\n}\nawait page.addStyleTag({content:'video{color-scheme:dark}'});await page.locator('#full').click();await page.waitForFunction(()=>!!document.fullscreenElement);await openMenu();rows.push({name:'native-video-fullscreen-dark',menu:await getMenu(),fullscreen:await page.evaluate(()=>document.fullscreenElement?.tagName)});await page.screenshot({path:out+'/native-fullscreen-dark.png'});await page.keyboard.press('Escape');\nawait writeFile(out+'/probe.json',JSON.stringify({date:'2026-10-27',browser:browser.version(),supports,rows,scope:'Research only, isolated paused video, local media via test routing, no production changes. CDP used solely for privileged read-only diagnostics, not available to website scripts.'},null,2));console.log(JSON.stringify({browser:browser.version(),supports,rows:rows.map(x=>({name:x.name,menu:x.menu,state:x.state,fullscreen:x.fullscreen}))}));\nawait context.close();\n}finally{await browser.close()}\n",
+  "executedProbeSHA256": "5167656b3223b29fb749bb2eda39dd38dbce8b133ee8dd62edd6a78e4c2fc43d",
+  "screenshots": {
+    "author-transparency-attempt.png": "0c2f9d7bab599d014b775ad113a8af3b3b56441d48dd3dce074e2c6354f477ef",
+    "native-dark.png": "082e8ec4f18c484d4393e2ebda43d3726fe0988f05989036006800b9972dc49d",
+    "native-fullscreen-dark.png": "5363378512a136729511b55a682d43de8c6e0f65e4da6e15e70755d4d6633f6e",
+    "native-light.png": "97be05acd0e76173be129fb117ce9c710f04a8750e7feb5691bea248e94b51c8",
+    "panel-control-exposed.png": "63540666e39e5e11c1f8d1c09b96f0c79a130ba6c3d24d6e89d4ab74b94d74d8"
+  },
+  "rootImagesViewed": [
+    "native-light.png",
+    "native-dark.png",
+    "author-transparency-attempt.png",
+    "native-fullscreen-dark.png"
+  ],
+  "result": "CSS native transparency NOT_SUPPORTED_IN_TEST; color-scheme dark works but opaque. Research, not product implementation.",
+  "independentAudit": {
+    "date": "2026-10-27",
+    "verifier": "/root/hls_incident_auditor",
+    "verdict": "PASS_RESEARCH_ONLY",
+    "scope": "Official source claims, probe/source+five screenshotSHA, owner/actualimages, no-Play/mute, runtime byteidentity, process scope. Product defect remainsREOPENED; no implementation approved."
+  }
+}

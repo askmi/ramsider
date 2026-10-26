@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-27",
+  "reference": "Prior approved compare-baseline-pro/max captures, same CSS viewport/scroll region; not a new full-page design certification",
+  "results": [
+    {
+      "name": "pro",
+      "width": 402,
+      "height": 874,
+      "changedRGBAChannels": 0,
+      "channels": 1405392,
+      "scrollY": 4484,
+      "sameViewport": [
+        402,
+        3
+      ]
+    },
+    {
+      "name": "max",
+      "width": 440,
+      "height": 956,
+      "changedRGBAChannels": 0,
+      "channels": 1682560,
+      "scrollY": 4908,
+      "sameViewport": [
+        440,
+        3
+      ]
+    }
+  ]
+}

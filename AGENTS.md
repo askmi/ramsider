@@ -14,6 +14,10 @@ For every defect, explain the agent's observable mistaken decision/action, the m
 
 Small edits may use a short entry, but cannot omit logging or proportionate verification. Group related edits under one logical ID; do not log every tool call. A delivery is incomplete if its journal records or required technical approval are missing. MEMORY describes current state; LESSONS explains reusable prevention; neither replaces CHANGELOG.
 
+## Preserve the requested result
+
+A technical limitation is not permission to substitute a different user experience. If a constraint requires changing the requested visible result, entrypoint, behavior or device capability, explain the concrete limitation and practical options, then obtain the user's choice before dependent implementation. Continue independent investigation. Acceptance checks must name the original reported control and its required states, including fullscreen where relevant. Technical approval of a substitute does not establish that the original request was fulfilled.
+
 ## Work in stages
 
 1. **Understand before coding.** Check repository state, [MEMORY.md](MEMORY.md), relevant lessons, and the requested scope. Inspect `design/references/background.png` first, then `background_text.png`, then relevant fonts, button artwork, and source layers. Crop the 941 × 32,127 reference into legible sections. Map content, controls, art layers, section boundaries, and the source-to-CSS viewport scale; set observable acceptance checks and identify unverified product facts. Use [DESIGN.md](DESIGN.md) and [PRODUCT.md](PRODUCT.md). **Exit:** the target slice, assets, behavior, and comparison method are understood; unresolved inputs are explicit.

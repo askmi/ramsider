@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-27",
+  "samples": [
+    {
+      "conditions": "One cold production Chromium402x874DPR3,4Mbps100msCPU4; first snapshot5s afterDOMContentLoaded; then unthrottled scroll and warmed UI startup",
+      "lcp": 636,
+      "cls": 0.00022206073455854325,
+      "fcp": 436,
+      "ttfb": 22.09999990463257,
+      "htmlBytes": 230790,
+      "heroReady": true,
+      "registeredUI": false,
+      "videoRequests": 6,
+      "totalCompletedBytes": 2630045,
+      "jsCompletedBytes": 379728,
+      "videoCompletedBytes": 442204,
+      "scroll": {
+        "frames": 99,
+        "p95": 16.799999999999272,
+        "over33": 1
+      },
+      "before": {
+        "muted": true,
+        "volume": 0,
+        "ready": "ready"
+      },
+      "frame": {
+        "width": 640,
+        "height": 360,
+        "firstFrameMs": 298.2999999523163
+      },
+      "activated": {
+        "jsCompletedBytes": 444833,
+        "additionalJsCompletedBytes": 65105
+      },
+      "errors": []
+    }
+  ],
+  "limits": "Single synthetic sample under local review load; no causal before-after speed claim, fieldINP, physical Safari or Lighthouse score. Additional JS includes all modules loaded during full-page scroll, not solely controls.",
+  "probeSource": "import {chromium,webkit,devices} from '/Users/asmirnou/Projects/g/ramsider/node_modules/@playwright/test/index.mjs';\nimport {silenceTestMedia} from '/Users/asmirnou/Projects/g/ramsider/tests/e2e/silent-media.ts';\nimport {writeFile,mkdir} from 'node:fs/promises';\nimport {createHash} from 'node:crypto';\nconst out='/Users/asmirnou/Projects/g/ramsider';\nconst browser=await chromium.launch({args:['--mute-audio']});\nconst samples=[];\ntry {\n const context=await browser.newContext({viewport:{width:402,height:874},deviceScaleFactor:3,isMobile:true,hasTouch:true});await silenceTestMedia(context);const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));\n const cdp=await context.newCDPSession(page);await cdp.send('Network.enable');await cdp.send('Network.setCacheDisabled',{cacheDisabled:true});await cdp.send('Network.emulateNetworkConditions',{offline:false,latency:100,downloadThroughput:500000,uploadThroughput:125000});await cdp.send('Emulation.setCPUThrottlingRate',{rate:4});\n const requests=new Map();let bytes=0,js=0,media=0;\n cdp.on('Network.requestWillBeSent',e=>requests.set(e.requestId,{url:e.request.url,type:e.type}));\n cdp.on('Network.loadingFinished',e=>{bytes+=e.encodedDataLength;const r=requests.get(e.requestId);if(r?.type==='Script'||r?.url.includes('/vendor/hls-worker-'))js+=e.encodedDataLength;if(r?.url.includes('/films/'))media+=e.encodedDataLength;});\n await page.addInitScript(()=>{window.__filmQA={lcp:0,cls:0};new PerformanceObserver(l=>{for(const e of l.getEntries())window.__filmQA.lcp=e.startTime}).observe({type:'largest-contentful-paint',buffered:true});new PerformanceObserver(l=>{for(const e of l.getEntries())if(!e.hadRecentInput)window.__filmQA.cls+=e.value}).observe({type:'layout-shift',buffered:true});});\n await page.goto('http://localhost:3188/en',{waitUntil:'domcontentloaded'});await page.waitForTimeout(5000);\n const first=await page.evaluate(()=>({...window.__filmQA,fcp:performance.getEntriesByName('first-contentful-paint')[0]?.startTime,ttfb:performance.getEntriesByType('navigation')[0].responseStart,htmlBytes:performance.getEntriesByType('navigation')[0].encodedBodySize,heroReady:document.querySelector('[data-native-hero]')?.hasAttribute('data-media-ready'),registeredUI:Boolean(customElements.get('media-controller')),controlsReady:document.querySelector('#film-player')?.dataset.controls,videoRequests:performance.getEntriesByType('resource').filter(x=>/\\/films\\//.test(x.name)).length}));\n const initial={totalCompletedBytes:bytes,jsCompletedBytes:js,videoCompletedBytes:media};\n if(first.registeredUI)throw Error('UI must stay deferred in initial hero');\n await cdp.send('Network.emulateNetworkConditions',{offline:false,latency:0,downloadThroughput:-1,uploadThroughput:-1});await cdp.send('Emulation.setCPUThrottlingRate',{rate:1});\n const scroll=await page.evaluate(async()=>{const f=[];let last=performance.now();for(let i=0;i<100;i++)await new Promise(r=>requestAnimationFrame(now=>{if(i)f.push(now-last);last=now;scrollTo(0,i*(document.documentElement.scrollHeight-innerHeight)/99);r()}));f.sort((a,b)=>a-b);return {frames:f.length,p95:f[Math.floor(f.length*.95)],over33:f.filter(n=>n>33).length}});\n await page.locator('#film-play').scrollIntoViewIfNeeded();await page.waitForFunction(()=>document.querySelector('#film-player')?.dataset.controls==='ready');\n const before=await page.evaluate(()=>{const v=document.querySelector('video');if(!v.muted||v.volume!==0)throw Error('Not silent');window.__intent=performance.now();return {muted:v.muted,volume:v.volume,ready:v.parentElement.dataset.controls}});\n await page.locator('#film-play').click();\n const frame=await page.locator('video').evaluate(v=>new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('No frame')),20000);v.requestVideoFrameCallback((_,f)=>{clearTimeout(timer);resolve({width:f.width,height:f.height,firstFrameMs:performance.now()-window.__intent});});}));\n const activated={jsCompletedBytes:js,additionalJsCompletedBytes:js-initial.jsCompletedBytes};\n await page.locator('.product-film__close').click();await context.close();\n samples.push({conditions:'One cold production Chromium402x874DPR3,4Mbps100msCPU4; first snapshot5s afterDOMContentLoaded; then unthrottled scroll and warmed UI startup',...first,...initial,scroll,before,frame,activated,errors});\n}finally{await browser.close()}\nawait writeFile(out+'/docs/evidence/video/ready-controls-performance.json',JSON.stringify({date:'2026-10-27',samples,limits:'Single synthetic sample under local review load; no causal before-after speed claim, fieldINP, physical Safari or Lighthouse score. Additional JS includes all modules loaded during full-page scroll, not solely controls.',probeSource:await (await import('node:fs/promises')).readFile('/tmp/film-controls-performance.mjs','utf8')},null,2));\nconsole.log(JSON.stringify(samples));\n",
+  "probeSHA256": "783fbf8675772ca20c24ab91281f4fcbbe636a325bc4819713f64038b2624e22",
+  "measurementNotes": "frame.firstFrameMs is the first observed callback after an automated click, timed from immediately before that click; includes automation latency and is not a promise of exact first-frame startup. Deferred JS delta includes all modules loaded during whole-page scroll. No causal speed improvement is inferred from older differently localized samples."
+}

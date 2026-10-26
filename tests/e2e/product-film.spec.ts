@@ -68,7 +68,7 @@ test('both film controls play, seek, pause and release with modal focus restorat
     const trigger=page.locator(`#${id}`);await trigger.focus();const before=await page.evaluate(()=>scrollY);
     await trigger.press('Enter');await expect(page.locator('#product-film')).toBeVisible();await playing(page);
     await expect(page.locator('video')).toHaveAttribute('data-playback', info.project.name.includes('iphone') ? 'native-hls' : 'mse-hls');
-    expect(await page.$eval('video', v=>v.videoWidth>=256&&v.videoHeight>=144&&v.controls&&v.hasAttribute('playsinline'))).toBe(true);
+    expect(await page.$eval('video', v=>v.videoWidth>=256&&v.videoHeight>=144&&(v.controls||v.parentElement?.dataset.controls==='ready')&&v.hasAttribute('playsinline'))).toBe(true);
     expect(mediaRequests.length).toBeGreaterThan(0);
     await page.$eval('video', v=>v.pause());
     const paused=await page.$eval('video', v=>v.currentTime);await page.waitForTimeout(150);
@@ -88,27 +88,26 @@ test('both film controls play, seek, pause and release with modal focus restorat
   expect(errors).toEqual([]);
 });
 
-test('slow load stays closable; actual source error offers successful retry',async({page},info)=>{
-  await visit(page);let held=true;
-  await page.route('**/films/**',async route=>{if(held)await route.abort();else await route.continue();});
-  await page.locator('#film-play').click();await expect(page.locator('.product-film__notes button')).toBeVisible();
-  await page.screenshot({path:`${root}/error-${info.project.name}.png`,scale:'css'});
-  held=false;await page.locator('.product-film__notes button').click();await playing(page);
-  await page.locator('.product-film__close').click();
-  let release!:()=>void;const gate=new Promise<void>(r=>release=r);
-  await page.unroute('**/films/**');
-  await page.route('**/films/**',async route=>{await gate;await route.abort().catch(()=>{});});
-  await page.locator('#film-label').click();await expect(page.locator('[role=status]').filter({hasText:'Loading Video'})).toBeVisible();
+test('reported source error offers visible retry and delayed playback remains closable',async({page},info)=>{
+  await visit(page);await page.locator('#film-play').click();await playing(page);
+  await page.locator('video').evaluate(v=>{Object.defineProperty(v,'error',{configurable:true,value:{code:3}});v.dispatchEvent(new Event('error'));v.dispatchEvent(new Event('error'));Reflect.deleteProperty(v,'error');});
+  const retry=page.locator('.film-recovery button:visible,.product-film__notes>button:visible');
+  await expect(retry).toBeVisible();await page.screenshot({path:`${root}/error-${info.project.name}.png`,scale:'css'});
+  await retry.click();await playing(page);
+  // Explicit delayed-media state fixture; cached/SW media must not be misreported as a network abort.
+  await page.locator('video').evaluate(v=>{Object.defineProperty(v,'readyState',{configurable:true,get:()=>1});v.dispatchEvent(new Event('waiting'));});
+  await expect(page.locator('media-loading-indicator')).toHaveAttribute('medialoading');
   await page.screenshot({path:`${root}/loading-${info.project.name}.png`,scale:'css'});
-  await page.locator('.product-film__close').click();release();await expect(page.locator('video')).not.toHaveAttribute('src');
+  await page.locator('.product-film__close').click();await expect(page.locator('video')).not.toHaveAttribute('src');
+  await page.locator('video').evaluate(v=>{Reflect.deleteProperty(v,'readyState');});
 });
 
-test('native fullscreen API in supporting desktop browser and landscape fit',async({page},info)=>{
+test('shared fullscreen API retains ready-made controls and landscape fit',async({page},info)=>{
   test.skip(info.project.name!=='desktop-chromium','Desktop Chromium supports fullscreen in this automation host; physical iOS separately unverified');
   await visit(page);await page.locator('#film-play').click();await playing(page);
-  // User-gesture fullscreen with the same standard API used by native controls.
-  await page.$eval('video', v=>v.addEventListener('click',()=>void v.requestFullscreen(),{once:true}));
-  await page.locator('video').click();await expect.poll(()=>page.evaluate(()=>document.fullscreenElement?.tagName)).toBe('VIDEO');
+  await expect(page.locator('#film-player')).toHaveAttribute('data-controls','ready');
+  await page.locator('.film-fullscreen').click();await expect.poll(()=>page.evaluate(()=>document.fullscreenElement?.tagName)).toBe('MEDIA-CONTROLLER');
+  await expect(page.locator('#film-settings-toggle')).toBeVisible();
   await page.$eval('video',v=>v.play());await playing(page);
   await expect.poll(()=>page.$eval('video',v=>v.videoHeight),{timeout:20000}).toBeGreaterThan(720);
   const geometry=await page.$eval('video',v=>({width:v.clientWidth,height:v.clientHeight,viewportWidth:innerWidth,viewportHeight:innerHeight,decodedHeight:v.videoHeight}));
@@ -123,15 +122,16 @@ test('eleven localized dialogs, RTL, and representative portrait/landscape adapt
   test.skip(info.project.name!=='iphone-17-pro-webkit','One WebKit matrix owner');
   const rows: Array<Record<string, unknown>>=[];
   for(const locale of ['en','ru','de','fr','es','it','tr','ar','zh','ja','ko']){
-    await visit(page,locale);await page.route('**/films/**',route=>route.abort());await page.locator('#film-play').click();
-    await expect(page.locator('.product-film__notes button')).toBeVisible();
+    await visit(page,locale);await page.locator('#film-play').click();await playing(page);
+    await page.locator('video').evaluate(v=>{Object.defineProperty(v,'error',{configurable:true,value:{code:3}});v.dispatchEvent(new Event('error'));v.dispatchEvent(new Event('error'));Reflect.deleteProperty(v,'error');});
+    await expect(page.locator('.film-recovery button:visible,.product-film__notes>button:visible')).toBeVisible();
     const d=page.locator('#product-film');expect(await d.getAttribute('dir')).toBe(locale==='ar'?'rtl':'ltr');
-    expect(await d.locator('h2').textContent()).toBeTruthy();expect(await d.locator('[role=status]').textContent()).toBeTruthy();
+    expect(await d.locator('h2').textContent()).toBeTruthy();expect(await d.locator('.film-recovery:visible,.product-film__notes [role=status]:visible').textContent()).toBeTruthy();
     expect(await d.evaluate(e=>e.scrollWidth<=e.clientWidth)).toBe(true);
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
     rows.push({locale,width:page.viewportSize()!.width,title:await d.locator('h2').textContent()});
     if(locale==='ar')await page.screenshot({path:`${root}/arabic-pro.png`,scale:'css'});
-    await d.locator('button').first().click();await page.unroute('**/films/**');
+    await d.locator('button').first().click();
   }
   for(const [w,h] of [[440,956],[874,402],[956,440],[280,653],[375,812],[768,1024],[1440,900]]){
     await page.setViewportSize({width:w,height:h});await visit(page);await page.locator('#film-play').click();await playing(page);
@@ -158,7 +158,7 @@ test('queued close cannot release an immediately reopened film', async ({page}) 
     await expect(page.locator('video')).toHaveAttribute('src', /master\.m3u8|blob:/);
     await playing(page);
     expect(await page.evaluate(() => !!document.activeElement?.closest('#product-film'))).toBe(true);
-    await expect(page.locator('.product-film__notes button')).toHaveCount(0);
+    await expect(page.locator('.film-recovery button:visible,.product-film__notes>button:visible')).toHaveCount(0);
   }
   await page.locator('.product-film__close').click();
   await expect(page.locator('#film-label')).toBeFocused();
@@ -166,7 +166,7 @@ test('queued close cannot release an immediately reopened film', async ({page}) 
 });
 
 
-test('unavailable HLS uses bounded small-MP4 fallback and keeps native controls', async ({page}) => {
+test('unavailable HLS uses bounded small-MP4 fallback and keeps usable controls', async ({page}) => {
   await visit(page);
   const requested: string[]=[];page.on('request',r=>{if(r.url().includes('/films/'))requested.push(r.url());});
   await page.route('**/*.m3u8',r=>r.abort());
@@ -205,7 +205,7 @@ test('resume intent survives an error before a resumed frame is ready',async({pa
   await playing(page);await page.locator('.product-film__close').click();
 });
 
-test('blocked autoplay gives a localized hint and manual Play succeeds',async({page,browserName})=>{
+test('blocked autoplay gives a localized hint and manual Play succeeds',async({page})=>{
   await page.addInitScript(()=>{
     const original=HTMLMediaElement.prototype.play;let blocked=false;
     HTMLMediaElement.prototype.play=function(){
@@ -214,15 +214,9 @@ test('blocked autoplay gives a localized hint and manual Play succeeds',async({p
     };
   });
   await visit(page,'ru');await page.locator('#film-play').click();
-  await expect(page.locator('.product-film__notes [role=status]')).toHaveText('Нажмите воспроизведение, чтобы запустить видео.');
-  if(browserName==='webkit') {
-    // WebKit's native media controls are outside Playwright's DOM API. Exercise
-    // a fresh real user gesture without synthesizing an autoplay allowance.
-    await page.$eval('video',v=>v.addEventListener('click',e=>{e.preventDefault();void v.play();},{once:true}));
-    await page.locator('video').click({position:{x:100,y:50}});
-  } else { await page.locator('video').focus();await page.keyboard.press('Space'); }
-  await playing(page);
-  await expect(page.locator('.product-film__notes [role=status]')).toHaveText('');
+  await expect(page.locator('.film-recovery')).toHaveText(/Нажмите воспроизведение, чтобы запустить видео/);
+  await page.locator('.film-recovery button').click();await playing(page);
+  await expect(page.locator('.film-recovery')).toBeHidden();
   await page.locator('.product-film__close').click();
 });
 
@@ -237,9 +231,9 @@ test('pending startup suspends its watchdog in background and rearms on return',
     await expect(page.locator('video')).toHaveAttribute('data-playback','mp4-fallback');
     await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'));});
     await page.waitForTimeout(16000);
-    await expect(page.locator('.product-film__notes button')).toHaveCount(0);
+    await expect(page.locator('.film-recovery button:visible,.product-film__notes>button:visible')).toHaveCount(0);
     await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:false});document.dispatchEvent(new Event('visibilitychange'));});
-    await expect(page.locator('.product-film__notes button')).toBeVisible({timeout:18000});
+    await expect(page.locator('.film-recovery button:visible,.product-film__notes>button:visible')).toBeVisible({timeout:18000});
     await page.locator('.product-film__close').click();
   }finally{release();}
 });
@@ -280,7 +274,7 @@ test('a short segment outage recovers HLS without a permanent MP4 downgrade',asy
   await expect.poll(()=>failures).toBeGreaterThan(0);
   await expect.poll(()=>page.$eval('video',v=>v.currentTime),{timeout:25000}).toBeGreaterThan(cachedEnd+2);
   await expect(page.locator('video')).toHaveAttribute('data-playback','mse-hls');
-  await expect(page.locator('.product-film__notes button')).toHaveCount(0);
+  await expect(page.locator('.film-recovery button:visible,.product-film__notes>button:visible')).toHaveCount(0);
   await page.locator('.product-film__close').click();
 });
 
@@ -314,7 +308,7 @@ test('Chrome-family iPhone identity uses MSE and completes cold and cached films
       await playing(page);
       await expect(page.locator('video')).toHaveAttribute('data-playback', 'mse-hls');
       await expect.poll(() => page.$eval('video', v => v.ended), { timeout: 90000 }).toBe(true);
-      await expect(page.locator('.product-film__notes button')).toHaveCount(0);
+      await expect(page.locator('.film-recovery button:visible,.product-film__notes>button:visible')).toHaveCount(0);
       const result = await page.evaluate(() => {
         const v = document.querySelector('video')!;
         const probe = (window as typeof window & { filmProbe: { clicked: number; first: number; waits: number[] } }).filmProbe;
@@ -349,7 +343,7 @@ test('a stalled HLS seek without MediaError automatically falls back and preserv
     await expect.poll(() => page.$eval('video', v => v.error)).toBeNull();
     await expect(page.locator('video')).toHaveAttribute('data-playback', 'mp4-fallback', { timeout: 20000 });
     await expect.poll(() => page.$eval('video', v => !v.paused && v.readyState >= 2 && v.currentTime >= 30), { timeout: 20000 }).toBe(true);
-    await expect(page.locator('.product-film__notes button')).toHaveCount(0);
+    await expect(page.locator('.film-recovery button:visible,.product-film__notes>button:visible')).toHaveCount(0);
     await page.locator('.product-film__close').click();
     await expect.poll(() => page.$eval('video', v => [v.paused, v.networkState, v.readyState])).toEqual([true, 0, 0]);
   } finally { release(); }

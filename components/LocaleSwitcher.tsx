@@ -6,11 +6,11 @@ import type { Locale } from '@/lib/i18n';
 
 const options: { locale: Locale; name: string; flag: string }[] = [
   { locale: 'en', name: 'English', flag: '🇬🇧' },
-  { locale: 'ru', name: 'Русский', flag: '🇷🇺' },
   { locale: 'de', name: 'Deutsch', flag: '🇩🇪' },
   { locale: 'fr', name: 'Français', flag: '🇫🇷' },
   { locale: 'es', name: 'Español', flag: '🇪🇸' },
   { locale: 'it', name: 'Italiano', flag: '🇮🇹' },
+  { locale: 'ru', name: 'Русский', flag: '🇷🇺' },
   { locale: 'tr', name: 'Türkçe', flag: '🇹🇷' },
   { locale: 'ar', name: 'العربية', flag: '🇦🇪' },
   { locale: 'zh', name: '中文', flag: '🇨🇳' },

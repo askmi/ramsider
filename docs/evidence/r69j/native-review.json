@@ -45,8 +45,27 @@
       "exitCode": 0,
       "result": "CLEAN",
       "conclusion": "No actionable findings in the scoped change. Metadata.other emits the expected marker, and the selector overrides the global background without changing the final document background or matching the main page."
+    },
+    {
+      "phase": "Test-only legal snapshot repeatability correction",
+      "exitCode": 0,
+      "result": "FINDINGS",
+      "findings": [
+        {
+          "priority": "P2",
+          "file": "docs/evidence/r69j/legal-originals.json",
+          "issue": "Initial raw-template extraction duplicated English digest for Arabic",
+          "resolution": "Independently capture rendered EN and AR source pages; retain distinct per-file provenance and article digests"
+        }
+      ]
+    },
+    {
+      "phase": "Corrected language-specific source-hash/test follow-up",
+      "exitCode": 0,
+      "result": "CLEAN",
+      "conclusion": "No concrete remaining integrity or repeatability issues found in the latest diff and fixture. EN/AR hashes are distinct, and the test no longer depends on a temporary source server."
     }
   ],
   "limits": "Browser launch inside reviewer sandbox was unavailable; required actual browser evidence was executed by root separately and inspected by the independent discipline auditor. This receipt does not substitute static review for browser/performance checks.",
-  "verifier": "/root: observed successful native tool completion for all four runs; sanitized only review outcomes, no private runtime diagnostics"
+  "verifier": "/root: observed successful native tool completion for all listed runs; sanitized only review outcomes, no private runtime diagnostics"
 }

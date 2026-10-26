@@ -1,4 +1,6 @@
 import {test,expect,type Page} from '@playwright/test';
+import {createHash} from 'node:crypto';
+import legalOriginals from '../../docs/evidence/r69j/legal-originals.json' with {type:'json'};
 const routes=['reserve','pro','gold','compare','product-info','capsules','terms','returns','privacy','delivery-policy','terms-of-sale','contact','age-gate'];
 const locales=['en','ru','de','fr','es','it','tr','ar','zh','ja','ko'];
 test.use({reducedMotion:'reduce'});
@@ -93,17 +95,14 @@ test('contact: mail links, disabled form and sanitized source without persistenc
  await expect(page.locator('a[href^="mailto:partners@ramsider.com"]')).toBeVisible();await expect(page.locator('a[href="mailto:support@ramsider.com"]')).toBeVisible();expect(posts).toEqual([]);
 });
 
-test('contract: source verbatim EN AR originals, proper anchors and language switch',async({page,context})=>{
+test('contract: source verbatim EN AR originals, proper anchors and language switch',async({page})=>{
  test.setTimeout(90000);
- const source=await context.newPage();
  for(const language of['en','ar']){
-  await source.addInitScript(language=>localStorage.setItem('ramsider.locale',language),language);await source.goto(`http://127.0.0.1:3190/${language}/terms-of-sale/index.html`);await source.evaluate(()=>document.fonts.ready);
-  await page.goto(`/${language}/terms-of-sale#clause-4.6.2`);await ready(page);const article=page.locator(`[data-sale-language=${language}]`),original=source.locator(`[data-sale-language=${language}]`);
-  const normalize=(text:string)=>text.replace(/\s+/g,' ').trim();expect(normalize(await article.textContent()??'')).toBe(normalize(await original.textContent()??''));
+  await page.goto(`/${language}/terms-of-sale#clause-4.6.2`);await ready(page);const article=page.locator(`[data-sale-language=${language}]`);
+  const normalize=(text:string)=>text.replace(/\s+/g,' ').trim();expect(createHash('sha256').update(normalize(await article.textContent()??'')).digest('hex')).toBe(legalOriginals.languages[language as 'en'|'ar'].normalizedTextSha256);
   const target=page.locator(`[id="${language==='ar'?'ar-':''}clause-4.6.2"]`);await expect(target).toBeVisible();expect((await target.boundingBox())!.y).toBeGreaterThanOrEqual(-1);expect((await target.boundingBox())!.y).toBeLessThan(80);
   const other=language==='en'?'ar':'en';await page.locator(`[data-language=${other}]`).first().click();await expect(page).toHaveURL(url=>url.pathname===`/${other}/terms-of-sale`&&url.hash===`#${other==='ar'?'ar-':''}clause-4.6.2`);await expect(page.locator(`[data-sale-language=${other}]`)).toBeVisible();
  }
- await source.close();
 });
 
 test('clipboard: rejected API leaves selectable truthful preview and no stale completion',async({page})=>{

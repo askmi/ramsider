@@ -1,0 +1,248 @@
+{
+  "date": "2026-10-26",
+  "locale": "de",
+  "initialRateMbps": 0.25,
+  "conditions": "Film body streams share an aggregate initial Mbps cap (20ms byte pump),100ms before headers; atplaytime20s cap rises8Mbps throughend. Artwork excluded from synthetic cap. Engine identified per row; emulated WebKit iPhone or Chromium Android, not physical devices",
+  "rows": [
+    {
+      "name": "mse",
+      "probe": {
+        "events": [
+          {
+            "e": "waiting",
+            "ms": 163.69999980926514,
+            "time": 0
+          },
+          {
+            "e": "playing",
+            "ms": 1061.7999999523163,
+            "time": 0.000137
+          },
+          {
+            "e": "waiting",
+            "ms": 9050,
+            "time": 7.940999
+          },
+          {
+            "e": "playing",
+            "ms": 9140.699999809265,
+            "time": 7.979083
+          },
+          {
+            "e": "ended",
+            "ms": 61335.299999952316,
+            "time": 60.12
+          }
+        ],
+        "qualities": [
+          {
+            "time": 0.014255,
+            "height": 360,
+            "ms": 1075.8999998569489
+          },
+          {
+            "time": 8.0854,
+            "height": 144,
+            "ms": 9289.399999856949
+          },
+          {
+            "time": 30.065598,
+            "height": 360,
+            "ms": 31272.39999985695
+          },
+          {
+            "time": 34.064757,
+            "height": 720,
+            "ms": 35272.699999809265
+          }
+        ],
+        "started": 16283.600000143051,
+        "first": 1075.7999999523163
+      },
+      "engine": "mse-hls",
+      "ended": true,
+      "time": 60.12,
+      "slowWire": [
+        {
+          "phase": "mse-0.25mbps",
+          "path": "/films/uno-introduction/de-v1/360p/segment-00003.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-0.25mbps",
+          "path": "/films/uno-introduction/de-v1/144p/index.m3u8",
+          "range": null
+        },
+        {
+          "phase": "mse-0.25mbps",
+          "path": "/films/uno-introduction/de-v1/144p/init.mp4",
+          "range": null
+        },
+        {
+          "phase": "mse-0.25mbps",
+          "path": "/films/uno-introduction/de-v1/144p/segment-00003.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-0.25mbps",
+          "path": "/films/uno-introduction/de-v1/144p/segment-00004.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-0.25mbps",
+          "path": "/films/uno-introduction/de-v1/144p/segment-00005.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-0.25mbps",
+          "path": "/films/uno-introduction/de-v1/144p/segment-00006.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-0.25mbps",
+          "path": "/films/uno-introduction/de-v1/144p/segment-00007.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-0.25mbps",
+          "path": "/films/uno-introduction/de-v1/144p/segment-00008.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-0.25mbps",
+          "path": "/films/uno-introduction/de-v1/144p/segment-00009.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-0.25mbps",
+          "path": "/films/uno-introduction/de-v1/144p/segment-00010.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-0.25mbps",
+          "path": "/films/uno-introduction/de-v1/144p/segment-00011.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-0.25mbps",
+          "path": "/films/uno-introduction/de-v1/144p/segment-00012.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-0.25mbps",
+          "path": "/films/uno-introduction/de-v1/144p/segment-00013.m4s",
+          "range": null
+        }
+      ],
+      "fastWire": [
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/144p/segment-00014.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/144p/segment-00015.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/360p/segment-00015.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/360p/segment-00016.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/360p/segment-00017.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/720p/index.m3u8",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/720p/init.mp4",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/720p/segment-00017.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/720p/segment-00018.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/720p/segment-00019.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/720p/segment-00020.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/720p/segment-00021.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/720p/segment-00022.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/720p/segment-00023.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/720p/segment-00024.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/720p/segment-00025.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/720p/segment-00026.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/720p/segment-00027.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/720p/segment-00028.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/720p/segment-00029.m4s",
+          "range": null
+        },
+        {
+          "phase": "mse-8mbps",
+          "path": "/films/uno-introduction/de-v1/720p/segment-00030.m4s",
+          "range": null
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "labelCorrection": "2026-10-26 descriptive engine/rate labels corrected against engine and initialRateMbps; measurements unchanged. Initial probe had hardcoded mse-1mbps and NativeWebKit wording."
+}

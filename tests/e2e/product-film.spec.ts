@@ -362,7 +362,8 @@ test('a late streaming-library load cannot replace an already playing fallback',
   await page.route('**/_next/static/**/*.js', async route => {
     const response = await route.fetch();
     const body = await response.body();
-    if (body.includes(Buffer.from('abrEwmaDefaultEstimate'))) { held = true; await gate; }
+    // Match an upstream event literal unique to the lazy engine, not the same config key in the app's hydration chunk.
+    if (body.includes(Buffer.from('hlsManifestParsed'))) { held = true; await gate; }
     await route.fulfill({ response, body }).catch(() => {});
   });
   try {

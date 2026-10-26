@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-26",
+  "samples": [
+    {
+      "label": "localized-film",
+      "port": 3180,
+      "conditions": "cold Chromium402x874 DPR3 /4Mbps100ms4xCPU, first snapshot5s afterDOMContentLoaded; scroll unthrottled",
+      "lcp": 500,
+      "cls": 0.0002383855690260895,
+      "fcp": 452,
+      "ttfb": 20.90000009536743,
+      "htmlBytes": 238321,
+      "heroReady": true,
+      "videoRequests": 6,
+      "totalCompletedBytes": 2643686,
+      "jsCompletedBytes": 378583,
+      "videoCompletedBytes": 446491,
+      "scroll": {
+        "frames": 99,
+        "p95": 16.799999999999272,
+        "over33": 1
+      }
+    }
+  ],
+  "limits": "One synthetic sample per version; no fieldINP, physical Safari or Lighthouse score. Completed bytes are phase-limited, not eventual total."
+}

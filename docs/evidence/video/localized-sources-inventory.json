@@ -1,0 +1,280 @@
+{
+  "date": "2026-10-26",
+  "change": "CHG0150",
+  "scope": "Read-only FFprobe/SHA inventory, no playback/encoding",
+  "sources": [
+    {
+      "path": "design/video/1/english ramsider uno (product introduction).mp4",
+      "bytes": 344657039,
+      "sha256": "71891983591abac3e44a076bf58a031ec8d6aa070a2e1acf046d3bb58c44bf25",
+      "duration": 60.04,
+      "streams": [
+        {
+          "codec_type": "audio",
+          "codec_name": "aac",
+          "profile": "LC",
+          "r_frame_rate": "0/0",
+          "avg_frame_rate": "0/0",
+          "duration": "60.040000",
+          "bit_rate": "126363",
+          "sample_rate": "48000",
+          "channels": 2,
+          "channel_layout": "stereo",
+          "nb_frames": "2817",
+          "languageTag": "eng",
+          "rotation": []
+        },
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "profile": "High",
+          "level": 51,
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "sample_aspect_ratio": "1:1",
+          "r_frame_rate": "25/1",
+          "avg_frame_rate": "25/1",
+          "duration": "60.040000",
+          "bit_rate": "45684629",
+          "color_range": "tv",
+          "color_space": "bt709",
+          "color_transfer": "bt709",
+          "color_primaries": "bt709",
+          "nb_frames": "1501",
+          "languageTag": "und",
+          "rotation": []
+        }
+      ],
+      "packetIdentities": {
+        "v:0": {
+          "packets": 1501,
+          "payloadBytes": 342863142,
+          "orderedPacketHashSHA256": "e7de61348c7f99516d1ced9e87514e738a0f9b4bf90722fc94b5b77c2c9ef29a"
+        },
+        "a:0": {
+          "packets": 2817,
+          "payloadBytes": 949239,
+          "orderedPacketHashSHA256": "4381d9e87a59b3259e00cf40bc6d808f29a8ba43eaaa73ea5a1acf9a9ebbf3e2"
+        }
+      }
+    },
+    {
+      "path": "design/video/1/german ramsider uno (product introduction).mp4",
+      "bytes": 349223150,
+      "sha256": "ba743d6f99a2728024fc803fe7e3507ef2045044168e444c1c7dc7f82143d298",
+      "duration": 60.04,
+      "streams": [
+        {
+          "codec_type": "audio",
+          "codec_name": "aac",
+          "profile": "LC",
+          "r_frame_rate": "0/0",
+          "avg_frame_rate": "0/0",
+          "duration": "60.040000",
+          "bit_rate": "125520",
+          "sample_rate": "48000",
+          "channels": 2,
+          "channel_layout": "stereo",
+          "nb_frames": "2817",
+          "languageTag": "eng",
+          "rotation": []
+        },
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "profile": "High",
+          "level": 51,
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "sample_aspect_ratio": "1:1",
+          "r_frame_rate": "25/1",
+          "avg_frame_rate": "25/1",
+          "duration": "60.040000",
+          "bit_rate": "46293796",
+          "color_range": "tv",
+          "color_space": "bt709",
+          "color_transfer": "bt709",
+          "color_primaries": "bt709",
+          "nb_frames": "1501",
+          "languageTag": "und",
+          "rotation": []
+        }
+      ],
+      "packetIdentities": {
+        "v:0": {
+          "packets": 1501,
+          "payloadBytes": 347434943,
+          "orderedPacketHashSHA256": "46c80cdffaacb2e0a7ef86a7a2eb5402304725754ed4ee51850ea8753a9d8d23"
+        },
+        "a:0": {
+          "packets": 2817,
+          "payloadBytes": 942909,
+          "orderedPacketHashSHA256": "52e2dffad5ad9ebe9f594018fb07dbd666bacf22952a045fd51611688c3fbd6d"
+        }
+      }
+    },
+    {
+      "path": "design/video/1/russian ramsider uno (product introduction).mp4",
+      "bytes": 349230916,
+      "sha256": "e6eb11153837ffcb0d64a8f309ee18ae83609fd6b5f34077b782ccdd66ba7a9b",
+      "duration": 60.04,
+      "streams": [
+        {
+          "codec_type": "audio",
+          "codec_name": "aac",
+          "profile": "LC",
+          "r_frame_rate": "0/0",
+          "avg_frame_rate": "0/0",
+          "duration": "60.040000",
+          "bit_rate": "126554",
+          "sample_rate": "48000",
+          "channels": 2,
+          "channel_layout": "stereo",
+          "nb_frames": "2817",
+          "languageTag": "eng",
+          "rotation": []
+        },
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "profile": "High",
+          "level": 51,
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "sample_aspect_ratio": "1:1",
+          "r_frame_rate": "25/1",
+          "avg_frame_rate": "25/1",
+          "duration": "60.040000",
+          "bit_rate": "46293796",
+          "color_range": "tv",
+          "color_space": "bt709",
+          "color_transfer": "bt709",
+          "color_primaries": "bt709",
+          "nb_frames": "1501",
+          "languageTag": "und",
+          "rotation": []
+        }
+      ],
+      "packetIdentities": {
+        "v:0": {
+          "packets": 1501,
+          "payloadBytes": 347434943,
+          "orderedPacketHashSHA256": "46c80cdffaacb2e0a7ef86a7a2eb5402304725754ed4ee51850ea8753a9d8d23"
+        },
+        "a:0": {
+          "packets": 2817,
+          "payloadBytes": 950675,
+          "orderedPacketHashSHA256": "3d064f7aaa5055c59cdda5508516a18bcb8315eed9984fc59fe9ee117a8fa5fd"
+        }
+      }
+    },
+    {
+      "path": "design/video/1/spain ramsider uno (product introduction).mp4",
+      "bytes": 349227172,
+      "sha256": "2e04c7f37594a3f1d42cdef4e0ed6197eb134494f333f0d78fff93042db2715d",
+      "duration": 60.04,
+      "streams": [
+        {
+          "codec_type": "audio",
+          "codec_name": "aac",
+          "profile": "LC",
+          "r_frame_rate": "0/0",
+          "avg_frame_rate": "0/0",
+          "duration": "60.040000",
+          "bit_rate": "126055",
+          "sample_rate": "48000",
+          "channels": 2,
+          "channel_layout": "stereo",
+          "nb_frames": "2817",
+          "languageTag": "eng",
+          "rotation": []
+        },
+        {
+          "codec_type": "video",
+          "codec_name": "h264",
+          "profile": "High",
+          "level": 51,
+          "width": 3840,
+          "height": 2160,
+          "pix_fmt": "yuv420p",
+          "sample_aspect_ratio": "1:1",
+          "r_frame_rate": "25/1",
+          "avg_frame_rate": "25/1",
+          "duration": "60.040000",
+          "bit_rate": "46293796",
+          "color_range": "tv",
+          "color_space": "bt709",
+          "color_transfer": "bt709",
+          "color_primaries": "bt709",
+          "nb_frames": "1501",
+          "languageTag": "und",
+          "rotation": []
+        }
+      ],
+      "packetIdentities": {
+        "v:0": {
+          "packets": 1501,
+          "payloadBytes": 347434943,
+          "orderedPacketHashSHA256": "46c80cdffaacb2e0a7ef86a7a2eb5402304725754ed4ee51850ea8753a9d8d23"
+        },
+        "a:0": {
+          "packets": 2817,
+          "payloadBytes": 946931,
+          "orderedPacketHashSHA256": "15a9e1ad7ef9ba8198832dce498d2dc29d08ab5840d256fea5da65f5b4887813"
+        }
+      }
+    }
+  ],
+  "existingActiveAssets": [
+    {
+      "id": "uno-introduction",
+      "audioLocale": "en",
+      "version": "v3",
+      "directory": "uno-introduction/en-v3",
+      "duration": 60.04,
+      "sourceSHA256": "71891983591abac3e44a076bf58a031ec8d6aa070a2e1acf046d3bb58c44bf25",
+      "archive": {
+        "path": "design/derived/product-films/uno-introduction-en-v3.tar",
+        "bytes": 222965760,
+        "sha256": "75a1c6fb228a091e34d93f0337313677a44b87ace565e2785fa27774343b4aeb"
+      }
+    }
+  ],
+  "englishSourceMatchesExisting": true,
+  "actualAudioLanguage": "Owner declares en/ru/de/es; ffprobe language tags are recorded metadata, not independent listening/transcript validation",
+  "silentQA": "No playback; FFprobe metadata only",
+  "newSourcesVideoPacketsIdentical": true,
+  "encoderAvailable": "ffmpeg version 9.0.2 Copyright (c) 2000-2026 the FFmpeg developers",
+  "totalPrivateMasterBytes": 1392338277,
+  "planVerification": {
+    "path": "docs/localized-product-films-plan.md",
+    "localLinks": 17,
+    "brokenLinks": 0,
+    "runtimeBaseline": "31a256ec7c99a84fe7740c0badca4dd94c5c142b",
+    "currentBranch": "main",
+    "runtimeSourcesUnchanged": 13,
+    "scopeGate": "PASS /root/hls_incident_auditor2026-10-26",
+    "independentFinalPlanGate": "PASS2026-10-26 /root/hls_incident_auditor; planning/source inspection only;4fileSHA+FFprobe+8packet identities/17links/docSHA/datedapproval/mainBetaidentities/sourcepreservation",
+    "technicalApproval": {
+      "verifier": "/root",
+      "date": "2026-10-26",
+      "status": "APPROVED_PLAN_AND_SOURCE_INVENTORY_ONLY",
+      "evidence": "4master SHA+FFprobe+8packet identities/ENsource binding,17local links,13runtime files exactHEAD,main branch,independent contentPASS; no encoding/playback/runtimecertification"
+    },
+    "notRun": [
+      "encoding",
+      "browserPlayback",
+      "newPackageValidation",
+      "typeLintBuild",
+      "nativeReview",
+      "performance",
+      "publication"
+    ],
+    "independentContentGate": "PASS2026-10-26 /root/hls_incident_auditor; independently checked4fileSHA+FFprobe+8orderedpacket identities,17links and plan/source contracts; minor sourceSHA wording corrected",
+    "originalPlanSHA256": "fa100475f93f44359e15fff0e3c55481de4a230a22974832de8c04f8c2da8d8e",
+    "scopeNote": "Historical planning-stage approval before user authorized implementation; current execution tracked by localized-verification.json and updated plan results"
+  }
+}

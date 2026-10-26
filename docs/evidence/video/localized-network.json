@@ -1,0 +1,206 @@
+{
+  "date": "2026-10-26",
+  "status": "PASS_QUALIFIED",
+  "method": "Muted fresh emulated contexts; 6-object startup warm first. Film responses only share aggregate20ms bytepump;100ms headers; restore8Mbps at content20s. Native initial1Mbps; MSE initial.25Mbps; no native upshift requirement. Artwork uncapped. All waiting events retained in per-case receipts; reporting poststartup uses content>1s explicitly.",
+  "cases": [
+    {
+      "receipt": "localized-network-de-mse.json",
+      "locale": "de",
+      "engine": "mse-hls",
+      "initialMbps": 0.25,
+      "firstFrameMs": 1075.8,
+      "ended": true,
+      "errors": [],
+      "waitsAfterContent1s": [
+        {
+          "contentSeconds": 7.940999,
+          "durationMs": 90.7
+        }
+      ],
+      "qualityTimeline": [
+        {
+          "time": 0.014255,
+          "height": 360,
+          "ms": 1075.8999998569489
+        },
+        {
+          "time": 8.0854,
+          "height": 144,
+          "ms": 9289.399999856949
+        },
+        {
+          "time": 30.065598,
+          "height": 360,
+          "ms": 31272.39999985695
+        },
+        {
+          "time": 34.064757,
+          "height": 720,
+          "ms": 35272.699999809265
+        }
+      ]
+    },
+    {
+      "receipt": "localized-network-de-native.json",
+      "locale": "de",
+      "engine": "native-hls",
+      "initialMbps": 1,
+      "firstFrameMs": 488,
+      "ended": true,
+      "errors": [],
+      "waitsAfterContent1s": [],
+      "qualityTimeline": [
+        {
+          "time": 4e-06,
+          "height": 360,
+          "ms": 489
+        }
+      ]
+    },
+    {
+      "receipt": "localized-network-es-mse.json",
+      "locale": "es",
+      "engine": "mse-hls",
+      "initialMbps": 0.25,
+      "firstFrameMs": 1048.1,
+      "ended": true,
+      "errors": [],
+      "waitsAfterContent1s": [],
+      "qualityTimeline": [
+        {
+          "time": 0.002156,
+          "height": 360,
+          "ms": 1048.0999999046326
+        },
+        {
+          "time": 8.073823,
+          "height": 144,
+          "ms": 9164
+        },
+        {
+          "time": 34.071474,
+          "height": 360,
+          "ms": 35162.39999985695
+        },
+        {
+          "time": 38.089519,
+          "height": 720,
+          "ms": 39179.200000047684
+        }
+      ]
+    },
+    {
+      "receipt": "localized-network-es-native.json",
+      "locale": "es",
+      "engine": "native-hls",
+      "initialMbps": 1,
+      "firstFrameMs": 579,
+      "ended": true,
+      "errors": [],
+      "waitsAfterContent1s": [],
+      "qualityTimeline": [
+        {
+          "time": 3e-06,
+          "height": 360,
+          "ms": 579
+        }
+      ]
+    },
+    {
+      "receipt": "localized-network-ru-mse.json",
+      "locale": "ru",
+      "engine": "mse-hls",
+      "initialMbps": 0.25,
+      "firstFrameMs": 976.1,
+      "ended": true,
+      "errors": [],
+      "waitsAfterContent1s": [],
+      "qualityTimeline": [
+        {
+          "time": 0.008244,
+          "height": 360,
+          "ms": 976.0999999046326
+        },
+        {
+          "time": 8.061395,
+          "height": 144,
+          "ms": 9073.599999904633
+        },
+        {
+          "time": 34.07919,
+          "height": 360,
+          "ms": 35090.799999952316
+        },
+        {
+          "time": 38.058727,
+          "height": 720,
+          "ms": 39073.09999990463
+        }
+      ]
+    },
+    {
+      "receipt": "localized-network-ru-native.json",
+      "locale": "ru",
+      "engine": "native-hls",
+      "initialMbps": 1,
+      "firstFrameMs": 681,
+      "ended": true,
+      "errors": [],
+      "waitsAfterContent1s": [],
+      "qualityTimeline": [
+        {
+          "time": 3e-06,
+          "height": 360,
+          "ms": 682
+        }
+      ]
+    },
+    {
+      "receipt": "localized-network-de-mse-repeat.json",
+      "locale": "de",
+      "engine": "mse-hls",
+      "initialMbps": 0.25,
+      "firstFrameMs": 598.6,
+      "ended": true,
+      "errors": [],
+      "waitsAfterContent1s": [
+        {
+          "contentSeconds": 7.938856,
+          "durationMs": 349.5
+        }
+      ],
+      "qualityTimeline": [
+        {
+          "time": 0.015056,
+          "height": 360,
+          "ms": 598.6000001430511
+        },
+        {
+          "time": 8.081995,
+          "height": 144,
+          "ms": 9073.200000047684
+        },
+        {
+          "time": 34.082261,
+          "height": 360,
+          "ms": 35072.5
+        },
+        {
+          "time": 38.064997,
+          "height": 720,
+          "ms": 39054.90000009537
+        }
+      ],
+      "repeatOf": "localized-network-de-mse.json"
+    }
+  ],
+  "probeSHA256": "bf58219ed7f4080371da333ed07a4b67d8a1c7500e1ba89ccde1b4ee0d864ce5",
+  "probeSource": "import http from'node:http';import{webkit,chromium,devices}from'/Users/asmirnou/Projects/g/ramsider/node_modules/@playwright/test/index.mjs';import{writeFile}from'node:fs/promises';const locale=process.env.FILM_LOCALE??'ru';const initialRate=Number(process.env.RATE??1);let rate=initialRate,phase='warm';const wire=[];const transfers=[];const pump=setInterval(()=>{let budget=Math.max(1,Math.floor(rate*1000000/8*.02));while(budget>0&&transfers.length){const t=transfers.shift();if(t.s.destroyed)continue;const n=Math.min(budget,t.body.length-t.at);t.s.write(t.body.subarray(t.at,t.at+n));t.at+=n;budget-=n;if(t.at===t.body.length)t.s.end();else transfers.push(t)}},20);const server=http.createServer((q,s)=>{const film=q.url.startsWith('/films/');if(film)wire.push({phase,path:q.url,range:q.headers.range??null});const r=http.request({hostname:'127.0.0.1',port:3180,path:q.url,method:q.method,headers:{...q.headers,host:'127.0.0.1:3180'}},u=>{if(film){const chunks=[];u.on('data',x=>chunks.push(x));u.on('end',()=>{const body=Buffer.concat(chunks);setTimeout(()=>{if(s.destroyed)return;s.writeHead(u.statusCode,u.headers);if(body.length)transfers.push({s,body,at:0});else s.end()},100)})}else{s.writeHead(u.statusCode,u.headers);u.pipe(s)}});q.pipe(r)});await new Promise(r=>server.listen(3181,'127.0.0.1',r));const rows=[];try{for(const[name,type,profile]of(process.env.ENGINE==='native'?[['native',webkit,{...devices['iPhone 17 Pro'],viewport:{width:402,height:874},deviceScaleFactor:3}]]:[['mse',chromium,{viewport:{width:402,height:874},deviceScaleFactor:3,isMobile:true,hasTouch:true,userAgent:'Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36'}]])){const b=await type.launch();try{const c=await b.newContext(profile),p=await c.newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));rate=initialRate;phase=name+'-warm';await p.addInitScript(()=>{const play=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){this.muted=true;this.volume=0;return play.call(this)}});await p.goto(`http://127.0.0.1:3181/${locale}`);await p.waitForFunction(()=>document.querySelector('video')?.dataset.preload==='ready',{},{timeout:50000});await p.evaluate(()=>{window.probe={events:[],qualities:[],started:0,first:null};const v=document.querySelector('video'),s=window.probe;for(const e of ['playing','waiting','error','ended'])v.addEventListener(e,()=>s.events.push({e,ms:performance.now()-s.started,time:v.currentTime}));const frame=(_,meta)=>{if(s.first===null)s.first=performance.now()-s.started;if(s.qualities.at(-1)?.height!==meta.height)s.qualities.push({time:v.currentTime,height:meta.height,ms:performance.now()-s.started});if(!v.ended)v.requestVideoFrameCallback(frame)};document.querySelector('#film-play').addEventListener('click',()=>{s.started=performance.now();v.requestVideoFrameCallback(frame)},{once:true})});phase=name+'-'+initialRate+'mbps';await p.locator('#film-play').click();await p.waitForFunction(()=>document.querySelector('video')?.currentTime>20,{},{timeout:50000});const slowWire=wire.filter(x=>x.phase===phase);rate=8;phase=name+'-8mbps';await p.waitForFunction(()=>document.querySelector('video')?.ended,{},{timeout:70000});const result=await p.evaluate(()=>({probe:window.probe,engine:document.querySelector('video').dataset.playback,ended:document.querySelector('video').ended,time:document.querySelector('video').currentTime}));rows.push({name,...result,slowWire,fastWire:wire.filter(x=>x.phase===phase),errors});console.log(JSON.stringify({name,first:result.probe.first,events:result.probe.events,qualities:result.probe.qualities}));await c.close()}finally{await b.close()}}}finally{clearInterval(pump);server.closeAllConnections();await new Promise(r=>server.close(r))}await writeFile('/Users/asmirnou/Projects/g/ramsider/docs/evidence/video/localized-network-'+locale+'-'+process.env.ENGINE+(process.env.OUTPUT_SUFFIX??'')+'.json',JSON.stringify({date:'2026-10-26',locale,initialRateMbps:initialRate,conditions:'Film body streams share an aggregate initial Mbps cap (20ms byte pump),100ms before headers; atplaytime20s cap rises8Mbps throughend. Artwork excluded from synthetic cap. Engine identified per row; emulated WebKit iPhone or Chromium Android, not physical devices',rows},null,2));\n",
+  "limitations": [
+    "One trial per locale/engine plus one DE MSE repeat; not percentile or field guarantee",
+    "Startup warmed; no cold/instant promise",
+    "Emulated WebKit is not physical Safari",
+    "DE MSE original90.7ms/repeat349.5ms wait at first360→144 transition preserved; initial.25Mbps is below360p rate; all ended without terminalerror.",
+    "Probe original label errors corrected separately without changing measurements"
+  ]
+}

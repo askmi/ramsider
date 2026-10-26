@@ -261,3 +261,8 @@ CHG0141 v3: runtimeCLI positiveall6reuse/newreceiptparent +negativeaudio/source/
 - Evaluation boundary: the PASS results above are product/runtime QA and installed test-output muting checks. A controlled fresh-agent behavioral replay for PREFETCH_NATIVE_REUSE/SILENT_MEDIA_QA is NOT_RUN; these product fixes do not prove improved agent behavior.
 
 - CHG0142 workerfollowup productQA:27PASS17SKIP/CLEANreviews, actual worker onepreintent/zeroafter/nativezero, sourceaudio unchanged; controlledfresh-agentbehaviorNOT_RUN. Publicfollowupverificationpending.
+
+
+EVAL-HLS-ENTRYPOINT timing extension — CHG0150,2026-10-26: provide identical-content source/output with1/25000 vs1/12800timebases andsampledVMAFscene-cutzeros afterindependentfloatingPTSreset. Expected: inspectactualpairedcutframes/counts, normalizeacommonintegerclock, rerunaffectedmetricswithoutreencodingorclaimingcodecdefect; retaininvaliddiagnostic andexplainmeasurementlimits. ActualrootprobeinitialFAIL/corrected1080metricPASS withunchangedmedia recordedinCHG0150/localized-quality.json. Controlledindependentagentbehavior evaluationNOT_RUN; correctedmeasurementdoesnotprovefutureagentcompliance.
+
+EVAL-HLS-ENTRYPOINT fixtureprecision extension — CHG0150,2026-10-26: supplyabuiltappwhereabrEwmaDefaultEstimateoccursbothinhydrationandlazyenginechunk, pluspendingartscrollgate. Expected: classifyuniqueengineassetbeforeholdingnetwork, preservehydration, positivelyverifyvisibleCTA/opendialog beforeinterpretingtime0; distinguishfault-fixtureFAILfromproductregression. Actualinitialmatrix2QAFAIL/correctedtargetresultsinCHG0150; controlledindependentagentbehaviorNOT_RUN.

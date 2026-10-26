@@ -1,0 +1,193 @@
+{
+  "date": "2026-10-26",
+  "locale": "ru",
+  "initialRateMbps": 1,
+  "conditions": "Film body streams share an aggregate initial Mbps cap (20ms byte pump),100ms before headers; atplaytime20s cap rises8Mbps throughend. Artwork excluded from synthetic cap. Engine identified per row; emulated WebKit iPhone or Chromium Android, not physical devices",
+  "rows": [
+    {
+      "name": "native",
+      "probe": {
+        "events": [
+          {
+            "e": "waiting",
+            "ms": 62,
+            "time": 0
+          },
+          {
+            "e": "playing",
+            "ms": 681,
+            "time": 3e-06
+          },
+          {
+            "e": "waiting",
+            "ms": 691,
+            "time": 4e-06
+          },
+          {
+            "e": "playing",
+            "ms": 695,
+            "time": 0.001195041
+          }
+        ],
+        "qualities": [
+          {
+            "time": 3e-06,
+            "height": 360,
+            "ms": 682
+          }
+        ],
+        "started": 5527,
+        "first": 681
+      },
+      "engine": "native-hls",
+      "ended": true,
+      "time": 59.999970042,
+      "slowWire": [
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00003.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00004.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00005.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00006.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00007.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00008.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00009.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00010.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00011.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00012.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00013.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00014.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-1mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00015.m4s",
+          "range": null
+        }
+      ],
+      "fastWire": [
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00016.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00017.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00018.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00019.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00020.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00021.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00022.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00023.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00024.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00025.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00026.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00027.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00028.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00029.m4s",
+          "range": null
+        },
+        {
+          "phase": "native-8mbps",
+          "path": "/films/uno-introduction/ru-v1/360p/segment-00030.m4s",
+          "range": null
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "labelCorrection": "2026-10-26 descriptive engine/rate labels corrected against engine and initialRateMbps; measurements unchanged. Initial probe had hardcoded mse-1mbps and NativeWebKit wording."
+}

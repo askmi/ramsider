@@ -1,0 +1,430 @@
+{
+  "date": "2026-10-26",
+  "rows": [
+    {
+      "locale": "ru",
+      "durationSeconds": 60.04,
+      "archiveBytes": 222289920,
+      "files": 200,
+      "sourceAudio": {
+        "packets": 2817,
+        "bytes": 950675,
+        "sha256": "3d064f7aaa5055c59cdda5508516a18bcb8315eed9984fc59fe9ee117a8fa5fd"
+      },
+      "startupBodyBytes": 444658,
+      "rungs": [
+        {
+          "quality": "144p",
+          "width": 256,
+          "height": 144,
+          "durationSeconds": 60.04,
+          "fullSegmentSeconds": 2,
+          "fullSegments": 30,
+          "tailSeconds": 0.04,
+          "segmentsTotal": 31,
+          "mean2sBytes": 39457.666666666664,
+          "max2sBytes": 47358,
+          "completeVariantBytes": 1187157,
+          "averageBps": 157826,
+          "peakBps": 189432
+        },
+        {
+          "quality": "360p",
+          "width": 640,
+          "height": 360,
+          "durationSeconds": 60.04,
+          "fullSegmentSeconds": 2,
+          "fullSegments": 30,
+          "tailSeconds": 0.04,
+          "segmentsTotal": 31,
+          "mean2sBytes": 150831.2,
+          "max2sBytes": 213041,
+          "completeVariantBytes": 4529131,
+          "averageBps": 603125,
+          "peakBps": 852164
+        },
+        {
+          "quality": "720p",
+          "width": 1280,
+          "height": 720,
+          "durationSeconds": 60.04,
+          "fullSegmentSeconds": 2,
+          "fullSegments": 30,
+          "tailSeconds": 0.04,
+          "segmentsTotal": 31,
+          "mean2sBytes": 471032.9666666667,
+          "max2sBytes": 656540,
+          "completeVariantBytes": 14136068,
+          "averageBps": 1883197,
+          "peakBps": 2626160
+        },
+        {
+          "quality": "1080p",
+          "width": 1920,
+          "height": 1080,
+          "durationSeconds": 60.04,
+          "fullSegmentSeconds": 2,
+          "fullSegments": 30,
+          "tailSeconds": 0.04,
+          "segmentsTotal": 31,
+          "mean2sBytes": 1050995.0,
+          "max2sBytes": 1412945,
+          "completeVariantBytes": 31535470,
+          "averageBps": 4201571,
+          "peakBps": 5651780
+        },
+        {
+          "quality": "1440p",
+          "width": 2560,
+          "height": 1440,
+          "durationSeconds": 60.04,
+          "fullSegmentSeconds": 2,
+          "fullSegments": 30,
+          "tailSeconds": 0.04,
+          "segmentsTotal": 31,
+          "mean2sBytes": 1856749.0333333334,
+          "max2sBytes": 2394471,
+          "completeVariantBytes": 55709090,
+          "averageBps": 7422573,
+          "peakBps": 9577884
+        },
+        {
+          "quality": "2160p",
+          "width": 3840,
+          "height": 2160,
+          "durationSeconds": 60.04,
+          "fullSegmentSeconds": 2,
+          "fullSegments": 30,
+          "tailSeconds": 0.04,
+          "segmentsTotal": 31,
+          "mean2sBytes": 3362604.7,
+          "max2sBytes": 4305184,
+          "completeVariantBytes": 100886723,
+          "averageBps": 13442245,
+          "peakBps": 17220736
+        }
+      ]
+    },
+    {
+      "locale": "de",
+      "durationSeconds": 60.04,
+      "archiveBytes": 222218240,
+      "files": 200,
+      "sourceAudio": {
+        "packets": 2817,
+        "bytes": 942909,
+        "sha256": "52e2dffad5ad9ebe9f594018fb07dbd666bacf22952a045fd51611688c3fbd6d"
+      },
+      "startupBodyBytes": 438881,
+      "rungs": [
+        {
+          "quality": "144p",
+          "width": 256,
+          "height": 144,
+          "durationSeconds": 60.04,
+          "fullSegmentSeconds": 2,
+          "fullSegments": 30,
+          "tailSeconds": 0.04,
+          "segmentsTotal": 31,
+          "mean2sBytes": 39190.36666666667,
+          "max2sBytes": 45190,
+          "completeVariantBytes": 1179138,
+          "averageBps": 156757,
+          "peakBps": 180760
+        },
+        {
+          "quality": "360p",
+          "width": 640,
+          "height": 360,
+          "durationSeconds": 60.04,
+          "fullSegmentSeconds": 2,
+          "fullSegments": 30,
+          "tailSeconds": 0.04,
+          "segmentsTotal": 31,
+          "mean2sBytes": 150509.5,
+          "max2sBytes": 208851,
+          "completeVariantBytes": 4519480,
+          "averageBps": 601839,
+          "peakBps": 835404
+        },
+        {
+          "quality": "720p",
+          "width": 1280,
+          "height": 720,
+          "durationSeconds": 60.04,
+          "fullSegmentSeconds": 2,
+          "fullSegments": 30,
+          "tailSeconds": 0.04,
+          "segmentsTotal": 31,
+          "mean2sBytes": 471008.06666666665,
+          "max2sBytes": 656518,
+          "completeVariantBytes": 14135321,
+          "averageBps": 1883097,
+          "peakBps": 2626072
+        },
+        {
+          "quality": "1080p",
+          "width": 1920,
+          "height": 1080,
+          "durationSeconds": 60.04,
+          "fullSegmentSeconds": 2,
+          "fullSegments": 30,
+          "tailSeconds": 0.04,
+          "segmentsTotal": 31,
+          "mean2sBytes": 1050430.6333333333,
+          "max2sBytes": 1411449,
+          "completeVariantBytes": 31518539,
+          "averageBps": 4199315,
+          "peakBps": 5645796
+        },
+        {
+          "quality": "1440p",
+          "width": 2560,
+          "height": 1440,
+          "durationSeconds": 60.04,
+          "fullSegmentSeconds": 2,
+          "fullSegments": 30,
+          "tailSeconds": 0.04,
+          "segmentsTotal": 31,
+          "mean2sBytes": 1856312.6666666667,
+          "max2sBytes": 2403949,
+          "completeVariantBytes": 55695999,
+          "averageBps": 7420829,
+          "peakBps": 9615796
+        },
+        {
+          "quality": "2160p",
+          "width": 3840,
+          "height": 2160,
+          "durationSeconds": 60.04,
+          "fullSegmentSeconds": 2,
+          "fullSegments": 30,
+          "tailSeconds": 0.04,
+          "segmentsTotal": 31,
+          "mean2sBytes": 3361945.7666666666,
+          "max2sBytes": 4286889,
+          "completeVariantBytes": 100866955,
+          "averageBps": 13439611,
+          "peakBps": 17147556
+        }
+      ]
+    },
+    {
+      "locale": "es",
+      "durationSeconds": 60.04,
+      "archiveBytes": 222310400,
+      "files": 200,
+      "sourceAudio": {
+        "packets": 2817,
+        "bytes": 946931,
+        "sha256": "15a9e1ad7ef9ba8198832dce498d2dc29d08ab5840d256fea5da65f5b4887813"
+      },
+      "startupBodyBytes": 445241,
+      "rungs": [
+        {
+          "quality": "144p",
+          "width": 256,
+          "height": 144,
+          "durationSeconds": 60.04,
+          "fullSegmentSeconds": 2,
+          "fullSegments": 30,
+          "tailSeconds": 0.04,
+          "segmentsTotal": 31,
+          "mean2sBytes": 38417.23333333333,
+          "max2sBytes": 47740,
+          "completeVariantBytes": 1155944,
+          "averageBps": 153667,
+          "peakBps": 190960
+        },
+        {
+          "quality": "360p",
+          "width": 640,
+          "height": 360,
+          "durationSeconds": 60.04,
+          "fullSegmentSeconds": 2,
+          "fullSegments": 30,
+          "tailSeconds": 0.04,
+          "segmentsTotal": 31,
+          "mean2sBytes": 150689.23333333334,
+          "max2sBytes": 210802,
+          "completeVariantBytes": 4524872,
+          "averageBps": 602558,
+          "peakBps": 843208
+        },
+        {
+          "quality": "720p",
+          "width": 1280,
+          "height": 720,
+          "durationSeconds": 60.04,
+          "fullSegmentSeconds": 2,
+          "fullSegments": 30,
+          "tailSeconds": 0.04,
+          "segmentsTotal": 31,
+          "mean2sBytes": 471134.6666666667,
+          "max2sBytes": 659366,
+          "completeVariantBytes": 14139119,
+          "averageBps": 1883603,
+          "peakBps": 2637464
+        },
+        {
+          "quality": "1080p",
+          "width": 1920,
+          "height": 1080,
+          "durationSeconds": 60.04,
+          "fullSegmentSeconds": 2,
+          "fullSegments": 30,
+          "tailSeconds": 0.04,
+          "segmentsTotal": 31,
+          "mean2sBytes": 1050860.1333333333,
+          "max2sBytes": 1407767,
+          "completeVariantBytes": 31531424,
+          "averageBps": 4201032,
+          "peakBps": 5631068
+        },
+        {
+          "quality": "1440p",
+          "width": 2560,
+          "height": 1440,
+          "durationSeconds": 60.04,
+          "fullSegmentSeconds": 2,
+          "fullSegments": 30,
+          "tailSeconds": 0.04,
+          "segmentsTotal": 31,
+          "mean2sBytes": 1857066.7666666666,
+          "max2sBytes": 2398507,
+          "completeVariantBytes": 55718622,
+          "averageBps": 7423843,
+          "peakBps": 9594028
+        },
+        {
+          "quality": "2160p",
+          "width": 3840,
+          "height": 2160,
+          "durationSeconds": 60.04,
+          "fullSegmentSeconds": 2,
+          "fullSegments": 30,
+          "tailSeconds": 0.04,
+          "segmentsTotal": 31,
+          "mean2sBytes": 3364180.5,
+          "max2sBytes": 4363055,
+          "completeVariantBytes": 100933997,
+          "averageBps": 13448544,
+          "peakBps": 17452220
+        }
+      ]
+    }
+  ],
+  "totalNewArchiveBytes": 666818560,
+  "allNewPicturePacketsIdenticalPerRung": false,
+  "picturePacketIdentities": [
+    {
+      "locale": "ru",
+      "quality": "144p",
+      "packets": 1501,
+      "sha256": "ae0e1d7d7461ce3a213182fc97358ffeac2d5201dc6e569a179073408255b5e2"
+    },
+    {
+      "locale": "ru",
+      "quality": "360p",
+      "packets": 1501,
+      "sha256": "48f14bd1b52df825b1b96f522377986411bb3a17507cdc0adc3592ade5d64142"
+    },
+    {
+      "locale": "ru",
+      "quality": "720p",
+      "packets": 1501,
+      "sha256": "f0984b8e9254741556d433bdcf42d02f34e43ef2b5e449a3e3273edebb83a967"
+    },
+    {
+      "locale": "ru",
+      "quality": "1080p",
+      "packets": 1501,
+      "sha256": "59e9a085887664d4f2478944113cf745e54757f7dc581a262e01cd600dac86ba"
+    },
+    {
+      "locale": "ru",
+      "quality": "1440p",
+      "packets": 1501,
+      "sha256": "0b7a5bdf4a760d8ada0113cc64a577314bc48cf3c537a4fe21ba075901e3b8c2"
+    },
+    {
+      "locale": "ru",
+      "quality": "2160p",
+      "packets": 1501,
+      "sha256": "f0ca7937634a324d4175594789f22c9fbd6df7e17c49de085654f4db900a165b"
+    },
+    {
+      "locale": "de",
+      "quality": "144p",
+      "packets": 1501,
+      "sha256": "da32e06416a1d32ef698e4110a36078b78b7da2fc9bedb4674ebb88c0d2187f9"
+    },
+    {
+      "locale": "de",
+      "quality": "360p",
+      "packets": 1501,
+      "sha256": "c71efe98ab53660b4c441c369cd3e58086bbca43ee9f1849eaafc54307e05606"
+    },
+    {
+      "locale": "de",
+      "quality": "720p",
+      "packets": 1501,
+      "sha256": "cf7ee67011180017fb11ca181b1ab58279f5d4020f3e2d0daec9ed7c8d27e1c6"
+    },
+    {
+      "locale": "de",
+      "quality": "1080p",
+      "packets": 1501,
+      "sha256": "f0c298398cf1840fbd8746b37e9c8b6c000d4278c281a314f2a70f8473a561c1"
+    },
+    {
+      "locale": "de",
+      "quality": "1440p",
+      "packets": 1501,
+      "sha256": "7910adefd7338ab68b67b341659c8464f13b3da696c559c816db5f3f13651218"
+    },
+    {
+      "locale": "de",
+      "quality": "2160p",
+      "packets": 1501,
+      "sha256": "8237d101f627133ac688ba1aa5db51daf9e118a743bc2f0f708ffc41d0d28c23"
+    },
+    {
+      "locale": "es",
+      "quality": "144p",
+      "packets": 1501,
+      "sha256": "7c2abc56ddb5d8ceed29e9d9e80daa239fb01811445dda80ce7aba5ff2ff0d5a"
+    },
+    {
+      "locale": "es",
+      "quality": "360p",
+      "packets": 1501,
+      "sha256": "b7d1ec1d2536e31675a24066324efe5dc012608caeaca75b4c3f3f0e4445da61"
+    },
+    {
+      "locale": "es",
+      "quality": "720p",
+      "packets": 1501,
+      "sha256": "ce7188735b2590e16791d37b7b56d12dcdd9369ea22eae90e8ed28df92a0fd85"
+    },
+    {
+      "locale": "es",
+      "quality": "1080p",
+      "packets": 1501,
+      "sha256": "024585ca8bea1da7552a91a519003d5a652029088ffb219e8a2b4d5083ce6081"
+    },
+    {
+      "locale": "es",
+      "quality": "1440p",
+      "packets": 1501,
+      "sha256": "6a58a19598d3287227368ca5d79445232d7f02105da14c4a092137d26f313c23"
+    },
+    {
+      "locale": "es",
+      "quality": "2160p",
+      "packets": 1501,
+      "sha256": "10b0b2968613149c5dbcafc6cd865372324777548be7d9b9197010eace9d7cfe"
+    }
+  ],
+  "units": "bytes decimal; mean/max is ONEFULL2SECONDmuxedsegment; completevariant60.04seconds includesplaylist/init/tail"
+}

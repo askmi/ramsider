@@ -1,0 +1,134 @@
+{
+  "date": "2026-10-26",
+  "change": "CHG0150",
+  "branch": "main",
+  "baseline": "31a256ec7c99a84fe7740c0badca4dd94c5c142b",
+  "status": "VERIFIED_LOCAL_PUBLICATION_PENDING",
+  "activeAssets": [
+    {
+      "audioLocale": "en",
+      "directory": "uno-introduction/en-v3",
+      "archive": {
+        "path": "design/derived/product-films/uno-introduction-en-v3.tar",
+        "bytes": 222965760,
+        "sha256": "75a1c6fb228a091e34d93f0337313677a44b87ace565e2785fa27774343b4aeb"
+      },
+      "files": 200
+    },
+    {
+      "audioLocale": "ru",
+      "directory": "uno-introduction/ru-v1",
+      "archive": {
+        "path": "design/derived/product-films/uno-introduction-ru-v1.tar",
+        "bytes": 222289920,
+        "sha256": "40861b6b41b59a3ae18ffa1293b6ea199d1d3e8f128ea003a55ad54442abcc99"
+      },
+      "files": 200
+    },
+    {
+      "audioLocale": "de",
+      "directory": "uno-introduction/de-v1",
+      "archive": {
+        "path": "design/derived/product-films/uno-introduction-de-v1.tar",
+        "bytes": 222218240,
+        "sha256": "583e2451fc6f2964795e11820bcf4d1e6fd3034b8216790e75c766bdbe91d6fc"
+      },
+      "files": 200
+    },
+    {
+      "audioLocale": "es",
+      "directory": "uno-introduction/es-v2",
+      "archive": {
+        "path": "design/derived/product-films/uno-introduction-es-v2.tar",
+        "bytes": 222310400,
+        "sha256": "93b4bcbdd70656cb2f56d55c3561b32e9c7998d725bed4863343ebac988ea776"
+      },
+      "files": 200
+    }
+  ],
+  "EnglishEntryUnchanged": true,
+  "runtimeSourceSHA256Unchanged": {
+    "lib/film-playback.ts": "fd61bc2e8796f012db65c91ca1f39ce65cc36690b3ef55516a147414a63e3a5f",
+    "lib/film-preload.ts": "f89fd7de698efa6f6c05821c83c78fe46084cc4d76fd24315546da06969551c0",
+    "lib/film-cache-abr.ts": "70e991bbf3192984e90135a2bca76c4f353cfebebf323a18bfe75aa3b710f24e",
+    "lib/product-film-catalog.ts": "deea7dd011fc5c63196d6bfb30481ddb2d8dd94ac349db0256161c6b4519b141",
+    "components/ProductFilm.tsx": "7f38a17cb55db694a0d6ba0a4a231b59b45608ea3054a858f7258c81cfebd3c6",
+    "components/DialogController.tsx": "b08be2a1a176acf44bb059513932d0022974cabd94a93f809ba6c4f8fa5656d1",
+    "components/Story.tsx": "a658cf7c314b5957c71d7fb7974aa94aeb11705765d9fb8a8d8c02f231249649",
+    "app/globals.css": "69b558ec278f6cc77d05d7c7bde53aeb69e47e8c9932cb558dca9c8716536631",
+    "public/film-start-sw.js": "16180758b6422920376aa241089fb8511df19876f8dfeef6e9dd563dd2481257",
+    "next.config.mjs": "9c81bc527707a5a27377140429d3e770fa407bec0a4ccf7aa8190e59a89bf1e9",
+    "tools/prepare-product-film.mjs": "70855a57357ea943eab32ae01fa288103b95c7ca1cf4c4de99094dd22ab16bbd",
+    ".agents/skills/mobile-hls-video/scripts/encode.py": "061c4503b2e218dfa2be5d3cee8fd81351ac6b8ea129e000ea8d2abd732bd959",
+    ".agents/skills/mobile-hls-video/scripts/validate.py": "eccd633d81a851c0959f15cab18632183b0f9e3dfc38bd6d54fc632f0a16b9b2",
+    ".agents/skills/mobile-hls-video/scripts/register.py": "7bc3f4eb0c9049b3a378822b3a4363624b9e25e5f2b3ca861b4166b0f58fb88f"
+  },
+  "packageGate": {
+    "root": "PASS",
+    "independentAuditor": "/root/hls_incident_auditor Gate2PASS2026-10-26",
+    "newFiles": 600,
+    "sourceAudio": "all6qualities+fallbackpacketexactownlanguage",
+    "emergencyPeaksBps": {
+      "ru": 189432,
+      "de": 180760,
+      "es": 190960
+    },
+    "esCorrection": "unpublishedv1peak195168rejected;v2image144cap24kbps;5mainqualities165filesbyteexactreuse;sourceAACunchanged;failedgeneratedv1removed"
+  },
+  "qualityReceipt": "localized-quality.json",
+  "metricsReceipt": "localized-metrics.json",
+  "browserReceipt": "localized-browser.json",
+  "visualReceipt": "localized-visual.json",
+  "browserChecks": {
+    "initialFunctionalMatrix": {
+      "passed": 80,
+      "failed": 2,
+      "explicitSkipped": 54,
+      "log": "/tmp/hls-locales-playwright-authorized.log"
+    },
+    "correctedWorkerFixture": {
+      "passed": 3,
+      "log": "/tmp/hls-locales-worker-recheck.log"
+    },
+    "correctedLazyEngineFixture": {
+      "passed": 3,
+      "log": "/tmp/hls-locales-late-recheck.log"
+    },
+    "distinctApplicableCasesCoveredAfterRechecks": 82,
+    "testFixesOnly": "visibleCTA/opendialogreadiness and uniqueupstreamenginechunkmarker; productionruntimeunchanged",
+    "firstSandboxRun": "serverEPERM/browserlaunchdenied; notproductQA"
+  },
+  "staticChecks": {
+    "types": "PASS /tmp/hls-locales-types-final.log",
+    "lint": "PASS0errors1inheritedTelegramwarning /tmp/hls-locales-lint-final.log;unrelatedprivateR6.9jsourceexcludedCLIonly",
+    "productionBuild": "PASS11SSGlocales /tmp/hls-locales-build.log",
+    "cleanPreparedBuild": "PASS4GitLFSpointerOID/size-boundhydratedartifacts, privateoriginalsabsent /tmp/hls-locales-clean-build-hydrated.log;remoteavailabilitynotyetclaimed",
+    "nativeReview": "CLEAN three exact-code-diff native CLI runs; final /tmp/hls-locales-native-review-final.log"
+  },
+  "network": "PASS_QUALIFIED see localized-network.json: six originals+oneDErepeat, allend/errors0; DE original90.7/repeat349.5mswait; no zero-stall guarantee",
+  "limits": [
+    "PhysicaliPhone/AndroidNOT_AVAILABLE",
+    "Listening/unmutedautoplayNOT_RUN;latestuserpermitsaudiblediagnosisifneeded, allcurrentQA silent",
+    "Firstframeonewarmtrialpercase, notp95/instantguarantee",
+    "VMAF151frames notlossless/allframequalityguarantee",
+    "144pintentionallyseverelyblockyemergency"
+  ],
+  "technicalApproval": {
+    "verifier": "/root",
+    "date": "2026-10-26",
+    "status": "APPROVED_LOCAL packages/quality/mobile/locale/cache/network/types/lint/build/nativeReview; limitations retained"
+  },
+  "independentFinalAudit": "PrepublicationGate6PASS2026-10-26 /root/hls_incident_auditor: exact37stagedpaths/privacy/mainbaseline/14sourcehashes/ENunchanged/3LFSpointers/33labels/7networkbindings; publicGate6pending",
+  "publication": {
+    "status": "AUTHORIZED_PENDING",
+    "destination": "origin/main",
+    "expectedTargets": [
+      "Vercel ramsider Production",
+      "Vercel ramsider-beta Preview"
+    ],
+    "postPushReceipt": "screenshots/video/locales/public/publication.json",
+    "note": "ExactpushedSHA/deployments/all600publichashes+4languagebrowser results recorded locally afterpush; avoids self-referentialcommit-to-deploy receipt loop."
+  },
+  "performanceReceipt": "localized-performance.json",
+  "provenance": "Encoding receipts qualityApproval PENDING describe encoding-time state; actual subsequent approval is this source/recipe/hash-bound consolidated receipt plus localized-quality.json. Clean isolated build hydrated all4archives only after exact staged LFSpointerOID/size matched approved archives; no originals/FFmpeg used. Remoteavailability not asserted until actualpush/deployment/publicchecks."
+}

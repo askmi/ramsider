@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => silenceTestMedia(page));
 
 test.setTimeout(90000);
 const registry = JSON.parse(readFileSync('config/product-films.json', 'utf8'));
-const asset = registry.assets.find((a: { active: boolean; id: string }) => a.active && a.id === 'uno-introduction');
+const asset = registry.assets.find((a: { active: boolean; id: string; audioLocale: string }) => a.active && a.id === 'uno-introduction' && a.audioLocale === 'en');
 const base = `/films/${asset.directory}`;
 const cacheName = 'film-start-v1';
 
@@ -165,7 +165,12 @@ test('an optional worker warm failure cannot poison ordinary MSE playback', asyn
   });
   await page.goto('/en');
   await expect(page.locator('video')).toHaveAttribute('data-preload', 'ready', { timeout: 40000 });
+  // Stabilize the distant control before a pointer click; the image-scroll gate can move it while artwork is still pending.
+  await expect.poll(() => page.locator('.art img:not([data-media-ready])').count(), { timeout: 40000 }).toBe(0);
+  await page.locator('#film-play').scrollIntoViewIfNeeded();
+  await expect(page.locator('#film-play')).toBeInViewport();
   await page.locator('#film-play').click();
+  await expect(page.locator('#product-film')).toBeVisible();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(.2);
 });
 

@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-26",
+  "rows": [
+    {
+      "profile": "iphone-17-pro-webkit",
+      "width": 402,
+      "height": 874,
+      "baseline": "screenshots/video/hls/before-closed-pro.png",
+      "actual": "screenshots/video/hls/closed-iphone-17-pro-webkit.png",
+      "changedRGBAChannels": 0
+    },
+    {
+      "profile": "iphone-17-pro-max-webkit",
+      "width": 440,
+      "height": 956,
+      "baseline": "screenshots/video/hls/before-closed-max.png",
+      "actual": "screenshots/video/hls/closed-iphone-17-pro-max-webkit.png",
+      "changedRGBAChannels": 0
+    }
+  ],
+  "limits": "ClosedEnglishcomposition comparedwithsameviewportapprovedbaseline; newlocalizedopenstatesviewedseparately. Framecontentmotionnotpixel-diffed."
+}

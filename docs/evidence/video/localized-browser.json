@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-26",
+  "conditions": "Localproduction3180; configurednativePro/Max+DPR3 andChromiumMSE; QA muted+volume0;9lang/platformcases",
+  "rows": [
+    {
+      "locale": "ru",
+      "project": "desktop-chromium",
+      "firstFrameMs": 326.2000000476837,
+      "fullFilmEnded": true,
+      "startupBytes": 444658,
+      "seekBeyond31": true,
+      "silent": true,
+      "errors": []
+    },
+    {
+      "locale": "de",
+      "project": "iphone-17-pro-max-webkit",
+      "firstFrameMs": 173,
+      "fullFilmEnded": false,
+      "startupBytes": 438881,
+      "seekBeyond31": true,
+      "silent": true,
+      "errors": []
+    },
+    {
+      "locale": "de",
+      "project": "desktop-chromium",
+      "firstFrameMs": 112.59999990463257,
+      "fullFilmEnded": true,
+      "startupBytes": 438881,
+      "seekBeyond31": true,
+      "silent": true,
+      "errors": []
+    },
+    {
+      "locale": "es",
+      "project": "iphone-17-pro-webkit",
+      "firstFrameMs": 320,
+      "fullFilmEnded": true,
+      "startupBytes": 445241,
+      "seekBeyond31": true,
+      "silent": true,
+      "errors": []
+    },
+    {
+      "locale": "de",
+      "project": "iphone-17-pro-webkit",
+      "firstFrameMs": 167,
+      "fullFilmEnded": true,
+      "startupBytes": 438881,
+      "seekBeyond31": true,
+      "silent": true,
+      "errors": []
+    },
+    {
+      "locale": "ru",
+      "project": "iphone-17-pro-webkit",
+      "firstFrameMs": 264,
+      "fullFilmEnded": true,
+      "startupBytes": 444658,
+      "seekBeyond31": true,
+      "silent": true,
+      "errors": []
+    },
+    {
+      "locale": "es",
+      "project": "iphone-17-pro-max-webkit",
+      "firstFrameMs": 151,
+      "fullFilmEnded": false,
+      "startupBytes": 445241,
+      "seekBeyond31": true,
+      "silent": true,
+      "errors": []
+    },
+    {
+      "locale": "es",
+      "project": "desktop-chromium",
+      "firstFrameMs": 100,
+      "fullFilmEnded": true,
+      "startupBytes": 445241,
+      "seekBeyond31": true,
+      "silent": true,
+      "errors": []
+    },
+    {
+      "locale": "ru",
+      "project": "iphone-17-pro-max-webkit",
+      "firstFrameMs": 496,
+      "fullFilmEnded": false,
+      "startupBytes": 444658,
+      "seekBeyond31": true,
+      "silent": true,
+      "errors": []
+    }
+  ],
+  "limits": "Physicalphonesandunmutedautoplay/listeningNOT_RUN; firstframeeachsinglewarmtrial notp95; Maxseeks/plays, full60sownedbyProandMSE"
+}

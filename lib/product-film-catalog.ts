@@ -2,7 +2,8 @@ import registry from '@/config/product-films.json';
 import type { Locale } from './i18n';
 
 export type FilmPreloadFile = { url: string; bytes: number };
-export type FilmAsset = { preload: FilmPreloadFile[]; manifest: string; fallback: string; width: number; height: number; audioLocale: string; audioLabel: string };
+export type FilmQuality = { height: number; url: string };
+export type FilmAsset = { preload: FilmPreloadFile[]; qualities: FilmQuality[]; manifest: string; fallback: string; width: number; height: number; audioLocale: string; audioLabel: string };
 
 /** Keep the large integrity registry on the server; serialize only playback refs. */
 export function selectProductFilm(id: string, locale: Locale): FilmAsset {
@@ -20,5 +21,9 @@ export function selectProductFilm(id: string, locale: Locale): FilmAsset {
     if (!file) throw new Error(`Missing film startup object: ${path}`);
     return { url: `${base}/${path}`, bytes: file.bytes };
   });
-  return { preload, manifest: `${base}/master.m3u8`, fallback: `${base}/fallback.mp4`, width: asset.width, height: asset.height, audioLocale: asset.audioLocale, audioLabel };
+  const qualities = asset.files.flatMap(file => {
+    const match = /^(\d+)p\/index\.m3u8$/.exec(file.path);
+    return match ? [{ height: Number(match[1]), url: `${base}/${file.path}` }] : [];
+  }).sort((a, b) => a.height - b.height);
+  return { preload, qualities, manifest: `${base}/master.m3u8`, fallback: `${base}/fallback.mp4`, width: asset.width, height: asset.height, audioLocale: asset.audioLocale, audioLabel };
 }

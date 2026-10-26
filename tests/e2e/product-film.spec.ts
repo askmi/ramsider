@@ -292,8 +292,9 @@ test('Chrome-family iPhone identity uses MSE and completes cold and cached films
   // Default runs use the configured Playwright browser; local incident checks
   // can also exercise installed Chrome without making it a CI prerequisite.
   const systemChrome = process.env.HLS_SYSTEM_CHROME === '1';
-  const browser = await chromium.launch(systemChrome ? { channel: 'chrome' } : {});
+  const browser = await chromium.launch({ args: ['--mute-audio'], ...(systemChrome ? { channel: 'chrome' } : {}) });
   const context = await browser.newContext({ ...devices['iPhone 16'], viewport: { width: 393, height: 852 } });
+  await silenceTestMedia(context);
   const page = await context.newPage();
   const rows: Array<Record<string, unknown>> = [];
   const errors: string[] = []; page.on('pageerror', e => errors.push(e.message));
@@ -382,6 +383,7 @@ test('desktop WebKit uses MSE while desktop-identity iPad keeps native HLS', asy
   const { devices } = await import('@playwright/test');
   for (const ipad of [false, true]) {
     const context = await browser.newContext({ userAgent: devices['Desktop Safari'].userAgent, viewport: { width: 1024, height: 768 }, isMobile: false, hasTouch: ipad });
+    await silenceTestMedia(context);
     const page = await context.newPage();
     if (ipad) await page.addInitScript(() => {
       Object.defineProperty(navigator, 'platform', { configurable: true, value: 'MacIntel' });

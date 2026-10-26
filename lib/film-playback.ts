@@ -2,11 +2,34 @@ import { stopFilmPreload } from './film-preload';
 import { filmCacheAbr } from './film-cache-abr';
 import type Hls from 'hls.js';
 import { suspendImageTransfers } from './media-resource';
+import type { FilmQuality } from './product-film-catalog';
 
 type FilmStatus = 'loading' | 'blocked' | 'error';
-type Session = { close: () => void };
+export type FilmSettings = { available: number[]; selected: number | null; adaptive: boolean };
+type Session = { close: () => void; quality: (height: number | null) => void; rate: (value: number) => void };
 const sessions = new WeakMap<HTMLVideoElement, Session>();
+const variants = new WeakMap<HTMLVideoElement, readonly FilmQuality[]>();
 let engine: Promise<typeof Hls> | undefined;
+
+export function configureFilmQualities(video: HTMLVideoElement, qualities: readonly FilmQuality[]) {
+  variants.set(video, qualities);
+  return () => { variants.delete(video); };
+}
+
+export function selectFilmQuality(video: HTMLVideoElement, height: number | null) {
+  sessions.get(video)?.quality(height);
+}
+
+export function selectFilmRate(video: HTMLVideoElement, rate: number) {
+  sessions.get(video)?.rate(rate);
+  video.defaultPlaybackRate = rate;
+  video.playbackRate = rate;
+}
+
+function settings(video: HTMLVideoElement, available: number[], selected: number | null, adaptive = true) {
+  video.dataset.qualityMode = selected === null ? 'auto' : String(selected);
+  video.dispatchEvent(new CustomEvent<FilmSettings>('film-settings', { detail: { available, selected, adaptive } }));
+}
 
 function nativeHls(video: HTMLVideoElement) {
   // Chrome device mode replaces the UA with Safari's, but retains Google's
@@ -53,6 +76,7 @@ export function releaseFilm(video: HTMLVideoElement) {
   delete video.dataset.quality;
   delete video.dataset.playback;
   video.load();
+  settings(video, [], null);
 }
 
 /** Standard HLS engines own ABR; this adapter owns the site's modal lifecycle. */
@@ -63,8 +87,11 @@ export function playProductFilm(video: HTMLVideoElement) {
   let watchdog: ReturnType<typeof setTimeout> | undefined;
   let recovery: ReturnType<typeof setTimeout> | undefined;
   let networkRestarts = 0;
-  let playIntent = true, changingSource = false;
+  let playIntent = true;
   let restoreFallback: (() => void) | undefined;
+  let pendingSource: { time: number; rate: number } | undefined;
+  let selected: number | null = null;
+  const available = variants.get(video) ?? [];
   const resumeImages = suspendImageTransfers();
   const current = () => alive && sessions.get(video) === session;
   const status = (value: FilmStatus) => {
@@ -75,6 +102,7 @@ export function playProductFilm(video: HTMLVideoElement) {
     if (!current()) return;
     status('error');
     session.close();
+    settings(video, [], null);
     video.pause(); video.removeAttribute('src'); video.load();
   };
   const waiting = () => {
@@ -98,19 +126,22 @@ export function playProductFilm(video: HTMLVideoElement) {
     if (!current()) return;
     if (fallbackUsed || !video.dataset.fallback) { fail(); return; }
     fallbackUsed = true;
-    const position = video.currentTime;
+    pendingSource ??= { time: video.currentTime, rate: video.playbackRate };
+    const position = pendingSource;
+    if (restoreFallback) video.removeEventListener('loadedmetadata', restoreFallback);
     // paused changes synchronously; native play/pause events are queued.
     const shouldPlay = !video.paused || (playIntent && !video.hasAttribute('src'));
-    changingSource = true;
     clearWatchdog();
     hls?.destroy(); hls = undefined;
     restoreFallback = () => {
       if (!current()) return;
-      if (position > 0 && Number.isFinite(video.duration)) video.currentTime = Math.min(position, Math.max(0, video.duration - .1));
-      changingSource = false; restoreFallback = undefined;
+      if (position.time > 0 && Number.isFinite(video.duration)) video.currentTime = Math.min(position.time, Math.max(0, video.duration - .1));
+      video.playbackRate = position.rate;
+      pendingSource = undefined; restoreFallback = undefined;
     };
     video.addEventListener('loadedmetadata', restoreFallback, { once: true });
     video.dataset.playback = 'mp4-fallback';
+    settings(video, [720], 720, false);
     video.src = video.dataset.fallback;
     video.load(); status(shouldPlay ? 'loading' : 'blocked');
     playIntent = shouldPlay;
@@ -126,14 +157,53 @@ export function playProductFilm(video: HTMLVideoElement) {
   const onError = () => { if (current()) fallback(); };
   const onPlay = () => { if (current()) playIntent = true; };
   const onPlaying = () => { if (current()) { playIntent = true; clearWatchdog(); } };
-  const onPause = () => { if (current() && video.paused) { clearWatchdog(); if (!changingSource) playIntent = false; } };
+  const onPause = () => { if (current() && video.paused) { clearWatchdog(); playIntent = false; } };
   const onVisibility = () => {
     clearWatchdog();
     if (current() && !document.hidden && playIntent && video.readyState < 3) {
       status('loading'); watchdog = setTimeout(timedOut, 15000);
     }
   };
-  const session: Session = { close() {
+  const session: Session = { quality(height) {
+    if (!current() || fallbackUsed || height === selected) return;
+    if (height !== null && !available.some(quality => quality.height === height)) return;
+    if (hls) {
+      const index = height === null ? -1 : hls.levels.findIndex(level => level.height === height);
+      if (height !== null && index < 0) return;
+      // Manual levels bypass the ABR ceiling in upstream nextLoadLevel. Keep
+      // its viewport observer alive so Auto immediately regains that ceiling.
+      hls.nextLevel = index;
+      selected = height;
+      settings(video, hls.levels.map(level => level.height), selected);
+    } else if (video.dataset.playback === 'native-hls') {
+      const url = height === null ? video.dataset.src! : available.find(quality => quality.height === height)!.url;
+      // A rapid second choice must retain the pre-switch position, not the
+      // temporary zero of a loading source. Native HLS has no manual-level API.
+      if (!pendingSource) {
+        playIntent = !video.paused;
+        pendingSource = { time: video.currentTime, rate: video.playbackRate };
+      }
+      if (restoreFallback) video.removeEventListener('loadedmetadata', restoreFallback);
+      const position = pendingSource;
+      const expectedURL = new URL(url, location.href).href;
+      restoreFallback = () => {
+        if (!current() || video.currentSrc !== expectedURL) return;
+        video.removeEventListener('loadedmetadata', restoreFallback!);
+        video.currentTime = Math.min(position.time, Math.max(0, video.duration - .1));
+        video.playbackRate = position.rate;
+        pendingSource = undefined; restoreFallback = undefined;
+      };
+      video.addEventListener('loadedmetadata', restoreFallback);
+      selected = height;
+      settings(video, available.map(quality => quality.height), selected);
+      clearWatchdog();
+      video.src = url; video.load();
+      status(playIntent ? 'loading' : 'blocked');
+      // Keep the original gesture, including recovery via native Play if the
+      // browser rejects it. A paused source switch must never start playback.
+      if (playIntent) { if (!document.hidden) watchdog = setTimeout(timedOut, 15000); attemptPlay(); }
+    }
+  }, rate(value) { if (pendingSource) pendingSource.rate = value; }, close() {
     if (!alive) return;
     alive = false; clearWatchdog(); if (recovery) clearTimeout(recovery); hls?.destroy(); hls = undefined;
     video.removeEventListener('error', onError);
@@ -157,6 +227,7 @@ export function playProductFilm(video: HTMLVideoElement) {
   if (!document.hidden) watchdog = setTimeout(timedOut, 15000);
   if (nativeHls(video)) {
     video.dataset.playback = 'native-hls';
+    settings(video, available.map(quality => quality.height), null);
     video.src = video.dataset.src!; video.load(); attemptPlay();
     return;
   }
@@ -193,6 +264,7 @@ export function playProductFilm(video: HTMLVideoElement) {
       if (!current() || !hls) return;
       const initial = hls.levels.findIndex(level => level.height >= 360);
       hls.startLevel = Math.max(initial, 0);
+      settings(video, hls.levels.map(level => level.height), selected);
       hls.startLoad(0);
     });
     hls.on(Engine.Events.LEVEL_SWITCHED, (_, data) => {

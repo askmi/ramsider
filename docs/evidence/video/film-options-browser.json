@@ -1,0 +1,256 @@
+{
+  "date": "2026-10-26",
+  "cases": [
+    {
+      "profile": "iphone-17-pro-webkit",
+      "steps": [
+        {
+          "choice": "144",
+          "mode": "144",
+          "src": "/films/uno-introduction/en-v3/144p/index.m3u8",
+          "height": 144,
+          "time": 12.460504525,
+          "rate": 1.5,
+          "paused": false
+        },
+        {
+          "choice": "720",
+          "mode": "720",
+          "src": "/films/uno-introduction/en-v3/720p/index.m3u8",
+          "height": 720,
+          "time": 12.511196362,
+          "rate": 1.5,
+          "paused": false
+        },
+        {
+          "choice": "2160",
+          "mode": "2160",
+          "src": "/films/uno-introduction/en-v3/2160p/index.m3u8",
+          "height": 2160,
+          "time": 12.932234262498175,
+          "rate": 1.5,
+          "paused": false
+        },
+        {
+          "choice": "auto",
+          "mode": "auto",
+          "src": "/films/uno-introduction/en-v3/master.m3u8",
+          "height": 720,
+          "time": 15.812431924580206,
+          "rate": 1.5,
+          "paused": false
+        }
+      ],
+      "boxes": {
+        "video": {
+          "x": 0,
+          "y": 181.1875,
+          "width": 402,
+          "height": 226.125,
+          "top": 181.1875,
+          "right": 402,
+          "bottom": 407.3125,
+          "left": 0
+        },
+        "menu": {
+          "x": 16,
+          "y": 467.3125,
+          "width": 370,
+          "height": 204.5,
+          "top": 467.3125,
+          "right": 386,
+          "bottom": 671.8125,
+          "left": 16
+        },
+        "width": 402,
+        "dpr": 3,
+        "overflow": false
+      },
+      "pausedSwitchTime": 12.511106337256269,
+      "errors": [],
+      "silent": {
+        "muted": true,
+        "volume": 0
+      }
+    },
+    {
+      "profile": "iphone-17-pro-max-webkit",
+      "steps": [
+        {
+          "choice": "144",
+          "mode": "144",
+          "src": "/films/uno-introduction/en-v3/144p/index.m3u8",
+          "height": 144,
+          "time": 12.260263900820291,
+          "rate": 1.5,
+          "paused": false
+        },
+        {
+          "choice": "720",
+          "mode": "720",
+          "src": "/films/uno-introduction/en-v3/720p/index.m3u8",
+          "height": 720,
+          "time": 12.278607463313392,
+          "rate": 1.5,
+          "paused": false
+        },
+        {
+          "choice": "2160",
+          "mode": "2160",
+          "src": "/films/uno-introduction/en-v3/2160p/index.m3u8",
+          "height": 2160,
+          "time": 12.41006264979125,
+          "rate": 1.5,
+          "paused": false
+        },
+        {
+          "choice": "auto",
+          "mode": "auto",
+          "src": "/films/uno-introduction/en-v3/master.m3u8",
+          "height": 720,
+          "time": 14.412928839096649,
+          "rate": 1.5,
+          "paused": false
+        }
+      ],
+      "boxes": {
+        "video": {
+          "x": 0,
+          "y": 222,
+          "width": 440,
+          "height": 247.5,
+          "top": 222,
+          "right": 440,
+          "bottom": 469.5,
+          "left": 0
+        },
+        "menu": {
+          "x": 16,
+          "y": 529.5,
+          "width": 408,
+          "height": 204.5,
+          "top": 529.5,
+          "right": 424,
+          "bottom": 734,
+          "left": 16
+        },
+        "width": 440,
+        "dpr": 3,
+        "overflow": false
+      },
+      "pausedSwitchTime": 12.278607463313392,
+      "errors": [],
+      "silent": {
+        "muted": true,
+        "volume": 0
+      }
+    },
+    {
+      "profile": "desktop-chromium",
+      "steps": [
+        {
+          "choice": "144",
+          "mode": "144",
+          "src": "mse-object-url",
+          "height": 144,
+          "time": 16.905153,
+          "rate": 1.5,
+          "paused": false
+        },
+        {
+          "choice": "720",
+          "mode": "720",
+          "src": "mse-object-url",
+          "height": 720,
+          "time": 18.494799,
+          "rate": 1.5,
+          "paused": false
+        },
+        {
+          "choice": "2160",
+          "mode": "2160",
+          "src": "mse-object-url",
+          "height": 2160,
+          "time": 23.346837,
+          "rate": 1.5,
+          "paused": false
+        },
+        {
+          "choice": "auto",
+          "mode": "auto",
+          "src": "mse-object-url",
+          "height": 720,
+          "time": 28.425818,
+          "rate": 1.5,
+          "paused": false
+        }
+      ],
+      "boxes": {
+        "video": {
+          "x": 240,
+          "y": 78,
+          "width": 960,
+          "height": 540,
+          "top": 78,
+          "right": 1200,
+          "bottom": 618,
+          "left": 240
+        },
+        "menu": {
+          "x": 256,
+          "y": 678,
+          "width": 928,
+          "height": 154.5,
+          "top": 678,
+          "right": 1184,
+          "bottom": 832.5,
+          "left": 256
+        },
+        "width": 1440,
+        "dpr": 1,
+        "overflow": false
+      },
+      "pausedSwitchTime": 17.273831,
+      "errors": [],
+      "silent": {
+        "muted": true,
+        "volume": 0
+      }
+    }
+  ],
+  "all11Locales": "PASS quietfull and affectedoptionsrepeat; ArabicRTL + actualscreens",
+  "adaptation": [
+    "375x667",
+    "874x402",
+    "768x1024",
+    "1440x900"
+  ],
+  "keyboard": "PASS actualArrowRight/Space quality/speed andEscape/refocus/outsideclick",
+  "quietFull": {
+    "passed": 84,
+    "explicitSkipped": 52,
+    "log": "/tmp/film-options-quiet-full.log",
+    "scope": "PreonlyP2pending-fallback-ratefollowup; allothercodecurrent"
+  },
+  "affectedOptionsAfterP2": {
+    "passed": 17,
+    "explicitSkipped": 11,
+    "log": "/tmp/film-options-followup.log"
+  },
+  "affectedSourceAfterP2": {
+    "passed": 14,
+    "explicitSkipped": 2,
+    "log": "/tmp/film-options-source-followup.log"
+  },
+  "silentPreflight": {
+    "passed": 4,
+    "log": "/tmp/film-options-silence-all.log",
+    "conditions": "NoPlay; fixture+independentcontext parsermedia muted/defaultMuted/volume0/srcabsent; all4profiles"
+  },
+  "reportedErrorAndSameTask": "ExplicitMediaErrorinjection and same-taskDOMclick source-state races; no claimofroutefaultinterceptionthroughSW/nativecache",
+  "limits": [
+    "Physicalphones/listening/unmutedautoplayunverified",
+    "Namedplatform/ownerSKIP explicit, notfailsorpasses",
+    "Raw browserobjectURLs retainedonlyignoredlocal; sanitizedhere"
+  ]
+}

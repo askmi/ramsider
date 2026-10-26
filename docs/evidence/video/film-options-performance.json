@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-26",
+  "samples": [
+    {
+      "label": "baseline-c43e88f",
+      "port": 3183,
+      "conditions": "cold Chromium402x874 DPR3 /4Mbps100ms4xCPU, first snapshot5s afterDOMContentLoaded; scroll unthrottled",
+      "lcp": 3852,
+      "cls": 0.0002383855690260895,
+      "fcp": 3308,
+      "ttfb": 2755.899999856949,
+      "htmlBytes": 238319,
+      "heroReady": true,
+      "videoRequests": 6,
+      "totalCompletedBytes": 3467465,
+      "jsCompletedBytes": 378583,
+      "videoCompletedBytes": 446431,
+      "scroll": {
+        "frames": 99,
+        "p95": 16.80000000000109,
+        "over33": 2
+      }
+    },
+    {
+      "label": "quality-menu",
+      "port": 3182,
+      "conditions": "cold Chromium402x874 DPR3 /4Mbps100ms4xCPU, first snapshot5s afterDOMContentLoaded; scroll unthrottled",
+      "lcp": 1004,
+      "cls": 0.0002383855690260895,
+      "fcp": 624,
+      "ttfb": 140,
+      "htmlBytes": 239008,
+      "heroReady": true,
+      "videoRequests": 6,
+      "totalCompletedBytes": 2486475,
+      "jsCompletedBytes": 379850,
+      "videoCompletedBytes": 286662,
+      "scroll": {
+        "frames": 99,
+        "p95": 16.700000000000728,
+        "over33": 0
+      }
+    }
+  ],
+  "limits": "One synthetic sample per version; no fieldINP, physical Safari or Lighthouse score. Completed bytes are phase-limited, not eventual total. Concurrent QA/review and user meeting may affect timings; not isolated causal comparison. JSdelta1267B/HTMLdelta689B; CLS equal; no speedimprovementclaim.",
+  "probeSource": "import {chromium} from '/Users/asmirnou/Projects/g/ramsider/node_modules/@playwright/test/index.mjs';\nimport {writeFile} from 'node:fs/promises';\nconst browser=await chromium.launch({args:['--mute-audio']});const samples=[];\nfor(const [label,port] of [['baseline-c43e88f',3183],['quality-menu',3182]]){\n const context=await browser.newContext({viewport:{width:402,height:874},deviceScaleFactor:3,isMobile:true,hasTouch:true});const page=await context.newPage();await page.addInitScript(()=>{const play=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){this.muted=true;this.volume=0;return play.call(this)}});const cdp=await context.newCDPSession(page);\n await cdp.send('Network.enable');await cdp.send('Network.setCacheDisabled',{cacheDisabled:true});await cdp.send('Network.emulateNetworkConditions',{offline:false,latency:100,downloadThroughput:500000,uploadThroughput:125000});await cdp.send('Emulation.setCPUThrottlingRate',{rate:4});\n const requests=new Map();let bytes=0,js=0,media=0;\n cdp.on('Network.requestWillBeSent',e=>requests.set(e.requestId,{url:e.request.url,type:e.type}));\n cdp.on('Network.loadingFinished',e=>{bytes+=e.encodedDataLength;const r=requests.get(e.requestId);if(r?.type==='Script'||r?.url.includes('/vendor/hls-worker-'))js+=e.encodedDataLength;if(r?.url.includes('/films/'))media+=e.encodedDataLength;});\n await page.addInitScript(()=>{window.__filmQA={lcp:0,cls:0};new PerformanceObserver(l=>{for(const e of l.getEntries())window.__filmQA.lcp=e.startTime}).observe({type:'largest-contentful-paint',buffered:true});new PerformanceObserver(l=>{for(const e of l.getEntries())if(!e.hadRecentInput)window.__filmQA.cls+=e.value}).observe({type:'layout-shift',buffered:true});});\n await page.goto(`http://127.0.0.1:${port}/${process.env.FILM_LOCALE??'ru'}`,{waitUntil:'domcontentloaded'});await page.waitForTimeout(5000);\n const first=await page.evaluate(()=>({ ...window.__filmQA, fcp:performance.getEntriesByName('first-contentful-paint')[0]?.startTime,ttfb:performance.getEntriesByType('navigation')[0].responseStart,htmlBytes:performance.getEntriesByType('navigation')[0].encodedBodySize,heroReady:document.querySelector('[data-native-hero]')?.hasAttribute('data-media-ready'),videoRequests:performance.getEntriesByType('resource').filter(x=>/\\/films\\//.test(x.name)).length}));\n const initial={totalCompletedBytes:bytes,jsCompletedBytes:js,videoCompletedBytes:media,videoRequests:[...requests.values()].filter(x=>x.url.includes('/films/')).length};\n await cdp.send('Network.emulateNetworkConditions',{offline:false,latency:0,downloadThroughput:-1,uploadThroughput:-1});await cdp.send('Emulation.setCPUThrottlingRate',{rate:1});\n const scroll=await page.evaluate(async()=>{const f=[];let last=performance.now();for(let i=0;i<100;i++)await new Promise(r=>requestAnimationFrame(now=>{if(i)f.push(now-last);last=now;scrollTo(0,i*(document.documentElement.scrollHeight-innerHeight)/99);r()}));f.sort((a,b)=>a-b);return {frames:f.length,p95:f[Math.floor(f.length*.95)],over33:f.filter(n=>n>33).length}});\n samples.push({label,port,conditions:'cold Chromium402x874 DPR3 /4Mbps100ms4xCPU, first snapshot5s afterDOMContentLoaded; scroll unthrottled',...first,...initial,scroll});await context.close();\n}\nawait writeFile(`/Users/asmirnou/Projects/g/ramsider/docs/evidence/video/film-options-performance.json`,JSON.stringify({date:'2026-10-26',samples,limits:'One synthetic sample per version; no fieldINP, physical Safari or Lighthouse score. Completed bytes are phase-limited, not eventual total.'},null,2));console.log(JSON.stringify(samples));await browser.close();\n"
+}

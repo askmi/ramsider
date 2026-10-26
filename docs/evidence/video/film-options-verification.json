@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-26",
+  "change": "CHG0151",
+  "baseline": "c43e88f4e922afb450c26d9d873109e45a56a227",
+  "branch": "main",
+  "status": "VERIFIED_LOCAL",
+  "sourceSHA256": {
+    "app/globals.css": "5bb0d8c75fec22a2874ad39f88ecaa19828d335e68d03bd75d78e08f18a38edc",
+    "components/ProductFilm.tsx": "7c66412b4373b944d9b8c15ad3e6ed5fc5ee221a6a42de5d77a05b9e60ff85ad",
+    "components/FilmOptions.tsx": "10f403ff3ea0399fad036dc4fa34e1babf1388c036e6281996a13159be3de4c1",
+    "lib/film-playback.ts": "bfc73f08c53bcf5f116cb592368eeaabaf44864df4928373cef083763ce29f8b",
+    "lib/product-film-catalog.ts": "758b8bda7da901b783ed9cef79f2e68b69ad48206bd251bf9bfcf01501350fc6",
+    "lib/product-film.ts": "184f0418221be93cfafb069fdb8678347f7c468eb4507868a208b157e84a21bf",
+    "tests/e2e/film-options.spec.ts": "511d49fe46660c60b63b6b4ca4c280f529a8e6c9d72ef3c643274c3d7ac6fbe3",
+    "tests/e2e/silent-media.ts": "661953561512e9bef8d98ef65bba50524a2871ab0549fedc854d8609f28515f5",
+    "tests/e2e/product-film.spec.ts": "ad6f7dfd058ea279d372810591f6918550b2938fddb6550026456fc0750af042",
+    "tests/e2e/film-prefetch.spec.ts": "b474f4e5455ee9fe0509712312739cf5ae005a5d231bd08152568be84b0dd56e",
+    "playwright.config.mjs": "de014ff6d39baeb18005e8c38d40e6a080745b6ad831584191183de27948ad1f"
+  },
+  "assetsRegistryUnchanged": true,
+  "browserReceipt": "film-options-browser.json",
+  "visualReceipt": "film-options-visual.json",
+  "networkReceipt": "film-options-network.json",
+  "performanceReceipt": "film-options-performance.json",
+  "static": {
+    "types": "PASS /tmp/film-options-types-final.log",
+    "lint": "PASS0errors1inheritedTelegramwarning /tmp/film-options-lint-final.log;privateR6.9jsourceexcludedCLIonly",
+    "productionBuild": "PASS11SSG /tmp/film-options-build-final.log",
+    "nativeReview": "InitialP2staleratefixed; finalCLEAN /tmp/film-options-native-review-final.log, exactisolatedcode/privateinputsabsent; reviewerbrowserblocked, rootactualQAseparatelypassed",
+    "diffWhitespace": "PASS"
+  },
+  "soundCorrection": {
+    "status": "FIXED_QA_CONTEXT_COVERAGE",
+    "action": "Stoppedallownedplaybackimmediately; fixed2manualcontexts, helperparser/native/scriptedmute,Chromiumprocessmute; all4noPlaypreflightsPASSbeforequietresumption",
+    "systemMeetingAudio": "Notmodified",
+    "policy": "No audibleQA duringcurrentmeeting; no automaticunmute; productionaudio notchanged",
+    "rootCause": "FixturebeforeEachdidnotcovermanualcontexts; rootmissedenumerationdespiteprioruserconstraint",
+    "controlledAgentEval": "NOT_RUN"
+  },
+  "technicalApproval": {
+    "date": "2026-10-26",
+    "verifier": "/root",
+    "status": "APPROVED_LOCAL menus/actualquality/Auto/keyboard/mobile/source-lifecycle/silenceharness/build/review; recordedlimits"
+  },
+  "independentAudit": {
+    "verifier": "/root/hls_incident_auditor",
+    "date": "2026-10-26",
+    "scope": "PASS",
+    "visual": "PASS actualProMax/RTL/adaptationimages+closed0RGBA",
+    "behavior": "PASS baseline84/52 +affectedoptions17/11/source14/2 +actualAuto/keyboard/network",
+    "reviewPerformance": "PASS finalnativeCLEAN/types/lint/build+boundedperformance",
+    "finalRecords": "PASS_LOCAL_DELIVERY; noauditorplaybackperformed",
+    "prepublication": "PASS2026-10-26 /root/hls_incident_auditor exact21stagedpaths/main/11sourceSHA/privacy/JSON/approval"
+  },
+  "publication": {
+    "status": "AUTHORIZED_PENDING2026-10-26",
+    "destination": "origin/main",
+    "expectedTargets": [
+      "Vercel ramsider Production",
+      "Vercel ramsider-beta Preview"
+    ],
+    "postCommitReceipt": "screenshots/video/options/publication/publication.json",
+    "note": "Ownerrequested/expectsdeployedresult; exactSHA/provider/publicchecks recordedafterpushinignoredlocalreceipt toavoidself-referentialcommitloop"
+  },
+  "limits": [
+    "NativeiPhoneOSfullscreen doesnotshowcustomDOMmenu; inlinechoicebeforefullscreen",
+    "Source/nativequalityswitchmaybrieflybuffer; selectedmodeisnotimmediateframeguarantee",
+    "PhysicaliPhone/Android/subjectivelistening/unmutedautoplay notcertified",
+    "Originalmaster/preparedpackages/audio unchanged"
+  ]
+}

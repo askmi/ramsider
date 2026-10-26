@@ -637,3 +637,15 @@ Problem → sampledVMAFreportedscene-cutzeros/means91.5–93.8 fornewHLS despite
 
 
 CHG0150 fault-injection precision: a configpropertyname existed inbothapphydrationandlazyHLSchunks, so holdingallmatchingJSdeadlockedpage readinessinstead oftestinglateenginefallback. Verifyuniqueactualbuiltassetclassification(e.gupstreameventliteral), keepapphydrationworking, andassertthedialogactuallyopenedbeforeinterpretingtime0. A distantpointertargetcanmoveunderpendingartscrollgate; stabilizeactualvisiblecontrolasexistingvisitdoes. Rootinitial2QAFAIL preserved; no productfixinferred. EVAL-HLS-ENTRYPOINTfixtureextension, controlledNOT_RUN.
+
+## Preserve outside control clicks when collapsing in-flow menus
+
+CHG0151,2026-10-26 — Problem: clicking Close with the film options menu open left playback active. Cause: root collapsed the in-flow menu on pointerdown; the centered dialog recentered and its Close button moved before pointerup. Prevention: for disclosures that change surrounding geometry, dismiss on completed outside click (or preserve geometry for the entire gesture), then test a real pointer Close with the menu open and verify source/audio release across native/MSE. Controlled Agent Eval NOT_RUN; product checks must be recorded separately. Link EVAL-VIEWER in docs/agent-evals.md.
+
+## Silence every QA browser context before creating pages
+
+CHG0151 usercorrection2026-10-26 — Problem: video audio played while the owner was in a meeting despite fixture mute. Cause: root launched the broad film suite without checking manual browser.newContext()/newPage() calls; beforeEach muted only the fixture page. Prevention: inventory every manually created context, install silenceTestMedia(context) before newPage/navigation, mute parser-created media/native play as well as scripted play, and add Chromium process --mute-audio as redundant protection. Prove muted/defaultMuted/volume0 before any QA Play. Stop all owned playback immediately on a sound report; leave the user’s meeting/system audio alone. Extend EVAL-HLS-ENTRYPOINT; controlled agent behavior NOT_RUN, silent product preflight results recorded separately.
+
+CHG0151 Auto follow-up — Problem: UI said Auto while a prior manual4K choice remained uncapped. Cause: root toggled pinnedhls capLevelToPlayerSize off/on, assuming setter symmetry; startCapping saw stalefalseconfig and returned before observation restarted. Prevention: use the smallest upstream operation: manualnextLevel bypasses ABR ceiling, so retain viewport observer and returnnextLevel=-1. Verify effective decoded resolution/ABR aftermanual→Auto, not only UIstate/getter. EVAL-HLS-ENTRYPOINT extended; controlledagentNOT_RUN; actualpostfixAuto720+keyboard PASS in film-options-verification.json (2026-10-26), independently approved.
+
+CHG0151 native-review follow-up — A pending fallback restored a captured old speed after the user selected a newer speed. Keep one mutable pending source position/rate intent for native and fallback loads; update that intent on every user rate choice, and test same-task error→ratechange before metadata. EVAL-HLS-ENTRYPOINT controlledagentNOT_RUN; actualproductcase separatelytracked.

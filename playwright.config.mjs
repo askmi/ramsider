@@ -20,7 +20,7 @@ export default defineConfig({
     },
     {
       name: 'desktop-chromium',
-      use: { browserName: 'chromium', viewport: { width: 1440, height: 900 } },
+      use: { browserName: 'chromium', launchOptions: { args: ['--mute-audio'] }, viewport: { width: 1440, height: 900 } },
     },
     {
       name: 'desktop-firefox',

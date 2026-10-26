@@ -140,8 +140,12 @@ for (const registration of ['denied', 'pending'] as const) test(`registration ${
   }, registration);
   await page.goto('/en');
   await expect(page.locator('video')).toHaveAttribute('data-preload', registration === 'denied' ? 'unavailable' : 'loading', { timeout: 40000 });
+  await expect.poll(() => page.locator('.art img:not([data-media-ready])').count(), { timeout: 40000 }).toBe(0);
+  await page.locator('#film-play').scrollIntoViewIfNeeded();
+  await expect(page.locator('#film-play')).toBeInViewport();
   const started = Date.now();
   await page.locator('#film-play').click();
+  await expect(page.locator('#product-film')).toBeVisible();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 6000 }).toBeGreaterThan(.2);
   expect(Date.now() - started).toBeLessThan(6000); // Activation timeout is 8s; intent never waits for it.
 });

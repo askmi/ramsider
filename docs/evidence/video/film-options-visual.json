@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-26",
+  "closedPage": [
+    {
+      "profile": "iphone-17-pro-webkit",
+      "before": "screenshots/video/hls/before-closed-pro.png",
+      "after": "screenshots/video/hls/closed-iphone-17-pro-webkit.png",
+      "size": [
+        402,
+        874
+      ],
+      "changedRGBAChannels": 0
+    },
+    {
+      "profile": "iphone-17-pro-max-webkit",
+      "before": "screenshots/video/hls/before-closed-max.png",
+      "after": "screenshots/video/hls/closed-iphone-17-pro-max-webkit.png",
+      "size": [
+        440,
+        956
+      ],
+      "changedRGBAChannels": 0
+    }
+  ],
+  "openMenuImages": "screenshots/video/options/menu-*.png",
+  "reference": "Existing approved film modal shell preserved; own newmenu has user-requested design, no supplied pixelreference fornewcontrol.",
+  "rootViewed": [
+    "Pro402x874DPR3",
+    "Max440x956DPR3",
+    "ArabicRTL",
+    "landscape874x402"
+  ],
+  "status": "PASS",
+  "independentApproval": "2026-10-26 /root/hls_incident_auditor menu+closedintegration actualimages/0RGBA"
+}

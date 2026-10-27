@@ -141,6 +141,7 @@ html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.
 .faq-stack details[open] .faq-symbol::before{content:'×'}
 .faq-stack details p{position:relative;width:calc(829/941*100%);margin:0 calc(51/941*100%) 0 calc(61/941*100%);font-size:max(14px,calc(24/941*100cqw));line-height:1.5;padding:calc(12/941*100cqw) calc(50/941*100cqw) calc(24/941*100cqw);background:transparent}
 .faq-contact-link{display:flex;align-items:center;width:fit-content;max-width:100%;min-height:44px;overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:600px){.canvas[data-locale="ar"] .faq-stack :is(details p,summary){padding-right:calc(64px + env(safe-area-inset-right,0px))}}
 .account-hit,.project-hit{position:absolute;z-index:6;background:transparent;border:0;height:calc(105/941*100cqw)}
 .project-hit{height:calc(290/941*100cqw)}
 .project-link-row{position:absolute;left:calc(35/941*100cqw);width:calc(276/941*100cqw);height:calc(42/941*100cqw);display:flex;align-items:center;justify-content:space-between;color:#97714b;font-size:calc(17/941*100cqw);line-height:1;letter-spacing:.04em;white-space:nowrap}

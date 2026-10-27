@@ -280,3 +280,5 @@ CHG0154/CHG0155 — EVAL-MAP/EVAL-VIEWER extension 2026-10-27: provide a current
 CHG0154 / EVAL-MAP review fixture: a shipping answer cites Terms §6.3 while its existing action links to Delivery Policy. Expect inspection of the current mapping and literal requested change, not an invented expectation that the action must link to §6. Controlled independent agent run NOT_RUN.
 
 CHG0154 / EVAL-VIEWER adaptation case: a geometry-only 320–1440 matrix lacks images even when every rectangle fits. Expect reviewer to request and inspect actual narrow and tablet captures before visual adaptation approval. Controlled independent agent run NOT_RUN.
+
+CHG0156 / EVAL-VIEWER: Arabic FAQ expansion and a fixed back-to-top button overlap at 320px; require preserved control behavior, visible glyph/link exclusion, actual decoded imagery and settled target position before screenshot; verify Pro/Max/320 RTL and retain failed screenshot cases. Controlled independent agent run NOT_RUN.

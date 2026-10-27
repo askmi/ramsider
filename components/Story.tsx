@@ -20,7 +20,7 @@ import { CharcoalRibbon } from './CharcoalRibbon';
 import { EmberScene } from './EmberScene';
 import { emberCopy } from '@/lib/ember-copy';
 import { certificates, type CertificateId } from '@/lib/certificates';
-import { preorderFaqAnswer, preorderFaqHref } from '@/lib/preorder/faq';
+import { preorderFaqAnswer, preorderFaqHref, preorderFaqLinkLabel } from '@/lib/preorder/faq';
 import { sourceCopy, contentLanguage } from '@/lib/preorder/content';
 import { company, companyCopy } from '@/lib/company';
 import { SiteFooter } from './SiteFooter';
@@ -190,7 +190,7 @@ function Faq({ locale }: { locale: Locale }) {
       <summary id={`faq-${question.id}`}><span className="faq-question">{t(locale, question.key)}</span><span className="faq-symbol" aria-hidden="true" /></summary>
       <p>{question.id === 'support' || question.id === 'venue'
         ? <>{companyCopy[locale][question.id === 'support' ? 'support' : 'business']} <a className="faq-contact-link" href={company.emailHref}><bdi dir="ltr">{company.email}</bdi></a></>
-        : <span lang="en" dir="ltr">{preorderFaqAnswer(question.id)}{' '}<a className="faq-contact-link" href={preorderFaqHref(question.id,locale)}>RAMSIDER · {question.id === 'set' ? 'Product Information' : question.id === 'shipping' ? 'Delivery Policy' : question.id === 'tracking' ? 'Contact' : 'Terms and Conditions of Sale'}</a></span>}</p>
+        : <span lang={locale === 'ar' ? 'ar' : 'en'} dir={locale === 'ar' ? 'rtl' : 'ltr'}>{preorderFaqAnswer(question.id,locale)}{' '}<a className="faq-contact-link" href={preorderFaqHref(question.id,locale)}><bdi dir="ltr">RAMSIDER</bdi> · {preorderFaqLinkLabel(question.id,locale)}</a></span>}</p>
       </details>
     </div>)}
   </div>;

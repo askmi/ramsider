@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-27",
+  "scope": "CHG0155 and CHG0156",
+  "runtimeAndTestSha256": {
+    "app/globals.css": "ffdddfbfd136e53f24c7c05fc2da5505450d5fafe3ca326c2ae251affa2efb7f",
+    "components/Story.tsx": "45bafb181a4237584984abe0751573fd36a924c7b5f6f84505eda371834c9bbb",
+    "lib/preorder/faq.ts": "85a9f8fa2495772c65b6abb313239b088bfff19d6c3c15fef8034cef169cfd43",
+    "lib/preorder/ar.json": "a67eefdf5a4e5cc61b0f40df8e925ec86a39b545e95542c23408c9e5100e2fe5",
+    "tests/e2e/beta-arabic.spec.ts": "5bccb795b6e243ebefa46cefdb4cfe4a7bba66471eed2baba6d9707b95e33004"
+  },
+  "tests": "tests-final6.log: 14 pass, 4 intentional skips; iPhone 17 Pro and Pro Max WebKit DPR3, desktop Chromium, narrow 320px",
+  "evidence": "screenshots/beta-arabic-review (ignored local evidence); six real PDF clicks, response MIME/signatures; bilingual legal body hashes; model/accessories and language switching; no POST and disabled payment",
+  "visualAuditor": "2026-10-27 /root/arabic_auditor Gate 3/4 PASS on final images",
+  "performance": "single local Chromium 402x874 DPR3, 4Mbps/100ms, CPU 4x: EN LCP 536ms CLS 0.000222; AR LCP 408ms CLS 0.000560; JS 377290 bytes, scroll p95 16.8ms; not field INP or Lighthouse",
+  "build": "production build 158 routes; typecheck passed; lint zero errors, one pre-existing warning",
+  "nativeReview": "final3 CLEAN: no actionable findings; review sandbox browser blocked, separately executed browser suite passed",
+  "publication": "pending"
+}

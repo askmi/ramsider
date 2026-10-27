@@ -2,6 +2,8 @@ import {test,expect,type Page} from '@playwright/test';
 import previews from '../../lib/media-previews.json' with {type:'json'};
 import {mkdirSync,readFileSync} from 'node:fs';
 import {createServer} from 'node:http';
+// Art holds must reach Playwright even after the film's unrelated SW claims the page.
+test.use({serviceWorkers:'block'});
 const releases=new Set<()=>void>();test.afterEach(()=>{releases.forEach(release=>release());releases.clear();});
 const shot='screenshots/loading-flow';mkdirSync(shot,{recursive:true});
 async function hold(page:Page){
@@ -49,8 +51,8 @@ test('missing preview uses milk disc, bounded forward input, honest progress, re
  await page.screenshot({path:`${shot}/spinner-${info.project.name}.png`});
  // Exercise progress presentation independently of transport chunk coalescing.
  await page.locator('.wellness-photo img').first().evaluate(image=>{(image as HTMLElement).dataset.mediaProgress='50';document.dispatchEvent(new Event('media-state'));});
- await expect(circle).toHaveAttribute('aria-valuenow','50');await page.waitForTimeout(350);
- const scale=await circle.locator('.media-orbit__scale').evaluate(e=>getComputedStyle(e).transform);expect(scale).toContain('0.5');
+  await expect(circle).toHaveAttribute('aria-valuenow','50');
+  await expect.poll(()=>circle.locator('.media-orbit__scale').evaluate(e=>new DOMMatrixReadOnly(getComputedStyle(e).transform).a)).toBeCloseTo(.5,3);
  held.release();await expect(page.locator('.wellness-photo img').first()).toHaveAttribute('data-media-ready','',{timeout:30000});await expect(circle).toHaveCount(0);
 });
 test('error retains preview and Retry succeeds, close/reopen cached original',async({page})=>{
@@ -71,26 +73,32 @@ test('ready geometry, sections, all locale overflow, reduced motion and assemble
  for(const locale of ['en','ru','de','fr','es','it','tr','ar','zh','ja','ko']){await page.goto('/'+locale);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();if(locale==='ar')await expect(page.locator('html')).toHaveAttribute('dir','rtl');}
 });
 
-test('actual streamed bytes shrink radius; unknown length stays indeterminate',async({page},info)=>{
+for(const unknown of [false,true])test(`actual streamed bytes ${unknown?'without length stay indeterminate':'with length shrink radius'}`,async({page},info)=>{
  test.setTimeout(45000);
  const source='/art/wellness/01-ritual_uno_white_v3.webp',bytes=readFileSync('public'+source);
- const server=createServer((request,response)=>{response.setHeader('Access-Control-Allow-Origin','*');response.setHeader('Content-Type','image/webp');if(!request.url?.includes('unknown'))response.setHeader('Content-Length',bytes.length);let offset=0;const timer=setInterval(()=>{if(offset>=bytes.length){clearInterval(timer);response.end();return;}const end=Math.min(bytes.length,offset+32768);response.write(bytes.subarray(offset,end));offset=end;},90);response.on('close',()=>clearInterval(timer));});
+ let finishUnknown=false,requested=false;
+ const server=createServer((_request,response)=>{
+  response.setHeader('Access-Control-Allow-Origin','*');response.setHeader('Content-Type','image/webp');if(!unknown)response.setHeader('Content-Length',bytes.length);
+  let offset=0;const timer=setInterval(()=>{if(unknown&&offset>=65536&&!finishUnknown)return;if(offset>=bytes.length){clearInterval(timer);response.end();return;}const end=Math.min(bytes.length,offset+32768);response.write(bytes.subarray(offset,end));offset=end;},90);response.on('close',()=>clearInterval(timer));
+ });
  await new Promise<void>(resolve=>server.listen(0,'127.0.0.1',resolve));const address=server.address();if(!address||typeof address==='string')throw new Error('No stream port');
- try{for(const unknown of [false,true]){
-  await page.route('**'+source,route=>route.continue({url:`http://127.0.0.1:${address.port}/${unknown?'unknown':'known'}`}));
-  await page.goto('/en');await open(page,'wellness');await page.locator('.wellness-photo img').first().evaluate((image:HTMLImageElement)=>{image.src='data:image/webp;base64,AA==';});
+ try{
+  await page.route('**'+source,route=>{requested=true;return route.continue({url:`http://127.0.0.1:${address.port}/image`});});
+  await page.goto('/en');await open(page,'wellness');await expect.poll(()=>requested).toBe(true);
+  await page.locator('.wellness-photo img').first().evaluate((image:HTMLImageElement)=>{image.src='data:image/webp;base64,AA==';});
   const orbit=page.locator('#wellness-viewer .media-orbit');await expect(orbit).toBeVisible();
-  if(unknown){await page.waitForTimeout(500);await expect(orbit).not.toHaveAttribute('aria-valuenow');}
+  if(unknown){await page.waitForTimeout(500);await expect(orbit).not.toHaveAttribute('aria-valuenow');finishUnknown=true;}
   else{await expect.poll(async()=>Number(await orbit.getAttribute('aria-valuenow'))).toBeGreaterThan(15);const first=Number(await orbit.getAttribute('aria-valuenow'));await page.waitForTimeout(600);expect(Number(await orbit.getAttribute('aria-valuenow'))).toBeGreaterThan(first);await page.screenshot({path:`${shot}/streamed-progress-${info.project.name}.png`});}
-  await expect(page.locator('.wellness-photo img').first()).toHaveAttribute('data-media-ready','',{timeout:15000});await expect(orbit).toHaveCount(0);await page.unroute('**'+source);
- }}finally{server.closeAllConnections();await new Promise<void>(resolve=>server.close(()=>resolve()));}
+  await expect(page.locator('.wellness-photo img').first()).toHaveAttribute('data-media-ready','',{timeout:15000});await expect(orbit).toHaveCount(0);
+ }finally{server.closeAllConnections();await new Promise<void>(resolve=>server.close(()=>resolve()));}
 });
-test('native wheel resistance is reversible; programmatic jumps cannot cross missing preview',async({page,browserName},info)=>{
+test('native wheel resistance is reversible; missing preview bounds user input without rewinding external positions',async({page,browserName},info)=>{
  test.skip(browserName==='webkit'&&!!info.project.use.isMobile,'Mobile WebKit runner has no native mouse wheel; touch verified separately.');
  const held=await hold(page);await page.goto('/en');await open(page,'wellness');const scroller=page.locator('.wellness-scroll');await scroller.hover();
  await page.mouse.wheel(0,400);await page.waitForTimeout(450);const y=await scroller.evaluate(e=>e.scrollTop);expect(y).toBeGreaterThan(0);expect(y).toBeLessThan(350);
  await page.mouse.wheel(0,-400);await page.waitForTimeout(180);expect(await scroller.evaluate(e=>e.scrollTop)).toBeLessThan(y);
- await page.locator('.wellness-photo img').first().evaluate((e:HTMLImageElement)=>e.src='data:image/webp;base64,AA==');await page.waitForTimeout(150);await scroller.evaluate(e=>e.scrollTop=5000);await page.waitForTimeout(150);expect(await scroller.evaluate(e=>e.scrollTop)).toBe(0);
+ await page.locator('.wellness-photo img').first().evaluate((e:HTMLImageElement)=>e.src='data:image/webp;base64,AA==');await page.waitForTimeout(150);await scroller.focus();await scroller.press('PageDown');await page.waitForTimeout(150);expect(await scroller.evaluate(e=>e.scrollTop)).toBe(0);
+ const external=await scroller.evaluate(e=>{e.scrollTop=5000;return e.scrollTop;});await page.waitForTimeout(150);expect(await scroller.evaluate(e=>e.scrollTop)).toBe(external);
  expect(browserName).toBeTruthy();held.release();
 });
 test('no JavaScript retains readable native original artwork',async({browser},info)=>{
@@ -143,7 +151,11 @@ test('new distant transfers wait while the visible original is active',async({pa
  await page.setViewportSize({width:402,height:874});
  const gates=new Map<string,()=>void>(),started:string[]=[];let unheld=false;
  const releaseAll=()=>{unheld=true;gates.forEach(resolve=>resolve());};releases.add(releaseAll);
- await page.route('**/art/**/*.webp',async route=>{if(route.request().resourceType()==='fetch'&&!unheld){const path=new URL(route.request().url()).pathname;started.push(path);await new Promise<void>(resolve=>gates.set(path,resolve));}try{await route.continue();}catch{}});
+ await page.route('**/art/**/*.webp',async route=>{if(route.request().resourceType()==='fetch'){const path=new URL(route.request().url()).pathname;started.push(path);if(!unheld)await new Promise<void>(resolve=>gates.set(path,resolve));}try{await route.continue();}catch{}});
  await page.goto('/en');await expect.poll(()=>started.includes('/art/02.webp')).toBe(true);await open(page,'wellness');const hero='/art/wellness/01-ritual_uno_white_v3.webp';await expect.poll(()=>started.includes(hero)).toBe(true);
- gates.get('/art/02.webp')!();await page.waitForTimeout(300);expect(started).not.toContain('/art/03.webp');gates.get(hero)!();await expect(page.locator('.wellness-photo img').first()).toHaveAttribute('data-media-ready','');await expect.poll(()=>started.includes('/art/03.webp')).toBe(true);releaseAll();
+ gates.get('/art/01.webp')!();gates.get('/art/02.webp')!();
+ await expect(page.locator('img[data-original="/art/01.webp"]')).toHaveAttribute('data-media-ready','');
+ await expect(page.locator('img[data-original="/art/02.webp"]')).toHaveAttribute('data-media-ready','');
+ await page.waitForTimeout(300);expect(started).not.toContain('/art/03.webp');gates.get(hero)!();await expect(page.locator('.wellness-photo img').first()).toHaveAttribute('data-media-ready','');
+ releaseAll();await expect.poll(()=>started.includes('/art/03.webp')).toBe(true);
 });

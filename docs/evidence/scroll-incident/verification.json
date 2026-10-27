@@ -1,0 +1,206 @@
+{
+  "id": "CHG0153",
+  "date": "2026-10-27",
+  "status": "VERIFIED_LOCAL",
+  "scope": "Feed governor only. No player, HLS, film preload, assets, style, dependencies or publication changes.",
+  "runtimeFiles": [
+    "lib/media-scroll.ts"
+  ],
+  "customer": {
+    "source": "customer-supplied lag.MP4 (original retained outside repository)",
+    "durationSeconds": 14.3,
+    "dimensions": [
+      592,
+      1280
+    ],
+    "fps": 30,
+    "jumpStrip": "screenshots/scroll-incident/customer-jump-8s.jpg",
+    "limitation": "Finger direction, DOM scroll and exact iOS/network unknown; no physical after-device available."
+  },
+  "cause": "Passive scroll notification rewrote already advanced native position as last+delta*factor; old custom RAF could retain stale position across owner transitions.",
+  "oldProbe": "screenshots/scroll-incident/before-frontier/summary.json",
+  "correctedProbe": "screenshots/scroll-incident/after-isolated-frontier/summary.json",
+  "reloadProbe": "screenshots/scroll-incident/release-reload-final/summary.json",
+  "probeLimits": "Chromium native CDP touch and desktop WebKit wheel at390x844DPR3 are distinct from physical Safari; old run route holds not guaranteed after SW takeover. Final isolated probe blocks SW only in QA; production measurements and separate film/site regression use SW enabled.",
+  "visualComparison": "docs/evidence/scroll-incident/ready-comparison.json",
+  "visualMetrics": "screenshots/scroll-incident/after/visual-metrics.json",
+  "visuals": [
+    "screenshots/scroll-incident/after/mobile-reference-pair.png",
+    "screenshots/scroll-incident/after/pro-assembled-sheet.png",
+    "screenshots/scroll-incident/adaptation-sheet.png"
+  ],
+  "checks": {
+    "initialDirection": "24PASS before stricter SW-isolated final matrix",
+    "sharedRegression": "120PASS6explicitmobilewheelSKIP2focusedfixtureFAIL, then4profilecorrectedfocusedPASS; all distinct applicable cases covered",
+    "site": "12PASS /tmp/scroll-site-tests.log",
+    "film": "9PASS /tmp/scroll-film-regression-tests.log, SW enabled actual144/720/2160/Auto/rate/fullscreen/cleanup",
+    "adaptation": "1PASS:375x812,390x844,390x664,402x650,440x700,768x1024,1440x900",
+    "type": "PASS /tmp/scroll-typecheck-final.log",
+    "build": "PASS11SSG /tmp/scroll-build-final4.log",
+    "scopedLint": "PASS0errors1inheritedwarning /tmp/scroll-scoped-lint-final.log",
+    "fullLint": "FAIL37errors18warnings because unrelated private untracked design JS is now scanned; unchanged application scoped separately; no private files edited",
+    "nativeReview": {
+      "full": "/tmp/scroll-native-review.log:2P2",
+      "supplement1": "/tmp/scroll-native-review-supplement.log:1P2",
+      "supplement2": "/tmp/scroll-native-review-final.log:2P2",
+      "final": "/tmp/scroll-native-review-final2.log:CLEAN scoped final correctiondelta",
+      "method": "Native codex review --uncommitted. Full actual source diff reviewed first; all5findings addressed by exact-delta followups.8final source hashes match isolated review snapshot. Reviewer static only; actual repository browser/static checks separate."
+    },
+    "performance": {
+      "before": {
+        "phase": "before",
+        "conditions": "Single cold Chromium mobile402\u00d7874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+        "initial": {
+          "ttfb": 22.700000047683716,
+          "fcp": 460,
+          "lcp": 544,
+          "cls": 0.00022206073455854325,
+          "jsBytes": 328233,
+          "completedBytes": 3199646,
+          "filmObjects": 6,
+          "readyImages": 28
+        },
+        "scroll": {
+          "samples": 365,
+          "movingFrames": 228,
+          "startY": 0,
+          "endY": 8024,
+          "p95Ms": 32.89999985694885,
+          "over33Ms": 18,
+          "reverseFrames": 10,
+          "maxReverse": 57,
+          "cls": 0.00022206073455854325,
+          "longTasks": [
+            117,
+            63,
+            94,
+            421,
+            57,
+            70,
+            82
+          ]
+        },
+        "errors": []
+      },
+      "after": {
+        "phase": "after",
+        "conditions": "Single cold Chromium mobile402\u00d7874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+        "initial": {
+          "ttfb": 13.800000190734863,
+          "fcp": 408,
+          "lcp": 484,
+          "cls": 0.00022206073455854325,
+          "jsBytes": 328342,
+          "completedBytes": 3199757,
+          "filmObjects": 6,
+          "readyImages": 28
+        },
+        "scroll": {
+          "samples": 319,
+          "movingFrames": 197,
+          "startY": 0,
+          "endY": 9435,
+          "p95Ms": 33.40000009536743,
+          "over33Ms": 19,
+          "reverseFrames": 0,
+          "maxReverse": 0,
+          "cls": 0.00022206073455854325,
+          "longTasks": [
+            82,
+            52,
+            382,
+            56,
+            66
+          ]
+        },
+        "errors": []
+      },
+      "interpretation": "Historical trials retained. Final benchmark is finalPerformance:0reverseframes vsold10; finalscriptbytes+251B,6startupobjects+CLSunchanged,p9532.9\u219233.5ms (notFPSimprovement). LCP544\u2192764ms;TTFB22.7\u2192241ms,postfirstbyteLCP521.3\u2192523ms:singletrialvariation primarily precedes firstbyte, no causal speed/regression claim. NoINP/Lighthouse/physicalphone."
+    },
+    "qaCorrection": "Initial100PASS6SKIP6FAIL; multiple failed fixture hypotheses retained in CHANGELOG. Final SW-blocked matrix resolves all; known/unknown +EN/AR independent contexts.",
+    "finalAffected": "51PASS4SKIP1CSSsettleFAIL /tmp/scroll-first-touch-final.log; unchangedProrepeatPASS; finalactualCSSsettle4PASS /tmp/scroll-loader-settled-final.log; firstreservation/horizontal/technology8PASS /tmp/scroll-first-boundary-final.log",
+    "finalPerformance": {
+      "phase": "control-diagonal-final",
+      "conditions": "Single cold Chromium mobile402\u00d7874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+      "initial": {
+        "ttfb": 241,
+        "fcp": 688,
+        "lcp": 764,
+        "cls": 0.00022206073455854325,
+        "jsBytes": 328484,
+        "completedBytes": 3199894,
+        "filmObjects": 6,
+        "readyImages": 28
+      },
+      "scroll": {
+        "samples": 331,
+        "movingFrames": 212,
+        "startY": 0,
+        "endY": 13259,
+        "p95Ms": 33.5,
+        "over33Ms": 23,
+        "reverseFrames": 0,
+        "maxReverse": 0,
+        "cls": 0.00022206073455854325,
+        "longTasks": [
+          82,
+          52,
+          383,
+          52,
+          58
+        ]
+      },
+      "errors": []
+    },
+    "latestDirection": "48PASS /tmp/scroll-control-diagonal-final.log,12cases\u00d74profiles",
+    "finalReload": "Currentruntime immediate responsecommit reload+1500msQA-only scriptdelay; SWblockedartholds; nativeChromiumtouch+desktopWebKitwheel390x844DPR3 both0reversewrites/frames/finalY12880",
+    "filmFollowup": "6PASS /tmp/scroll-final-film.log; currentnativeWatch+jitter samevideo actual360pxframe,mutedQA,noerror"
+  },
+  "preserved": "docs/evidence/scroll-incident/preserved-bindings.json",
+  "sourceHashes": {
+    "lib/media-scroll.ts": "dd6a12ecf075aa68bc9e063bd4d25fa179c7f2290a0f5470a125ae06b1183bb4",
+    "tests/e2e/loading-flow.spec.ts": "48b66577dee3434bc757340ad0640ab8a9450103717dc7721ead304364a21927",
+    "tests/e2e/loading-shared.spec.ts": "bf69d96f928fa6f83d4f2a30cbfc831fd501ac4e8e7e25298668fbbef5225eeb",
+    "tests/e2e/loading-geometry.spec.ts": "f2abd480b07a2e072ee0dba3e3ce45a8eb19adf42599ce7bc49f7128da506151",
+    "tests/e2e/scroll-direction.spec.ts": "6fb8211fe34e49dd4cebf2100625e1ba753ba7308effc6cee86793f655542b74",
+    "tools/investigate-scroll.mjs": "0e95955f992073e7b0d77fb69264613a24d9212ab8522081208283358675c182",
+    "tools/capture-scroll-page.mjs": "8f5ac5c8b02a14c6e97779f4c2a1fcb4343c9e0e322ea784bbc79d7db1504699",
+    "tools/measure-scroll-page.mjs": "e565476edd63d0ce0a5ef51dcc25e575e52aa9228e6ae7964a65ef4521f123e5"
+  },
+  "gates": {
+    "scope": "PASS /root/scroll_auditor",
+    "visual": "PASS2026-10-27 /root/scroll_auditor control/diagonal-final,10zerochannels",
+    "behavior": "PASS2026-10-27 /root/scroll_auditor:48latestdirectionPASS+nativeconstantdiagonal+opener/Watchtrustedtaps",
+    "reviewPerformance": "PASS2026-10-27 /root/scroll_auditor;8reviewhashes+14preservedbindings/static/build/finalmetrics",
+    "final": "PASS2026-10-27 /root/scroll_auditor LOCAL_RECORDS; currentrecords/limits/8sourcehashes/reloadtraces/privateinputs"
+  },
+  "userAcceptance": "NOT_RECORDED",
+  "agentEval": "EVAL-VIEWER controlled NOT_RUN",
+  "nativeReviewSnapshot": "/tmp/ramsider-scroll-native-review",
+  "reviewBindingsExact": true,
+  "finalVisualComparison": "docs/evidence/scroll-incident/final-comparison.json",
+  "diagonalNativeProbe": "screenshots/scroll-incident/control-diagonal-final/chromium-trace.json",
+  "nativeTapReceipts": [
+    "screenshots/scroll-incident/native-opener-tap-final/summary.json",
+    "screenshots/scroll-incident/native-film-tap-final/summary.json"
+  ],
+  "technicalApproval": {
+    "status": "APPROVED_LOCAL",
+    "date": "2026-10-27",
+    "verifier": "/root",
+    "independent": "/root/scroll_auditor Scope/Gate3/Gate4/Gate5/Gate6 LOCAL PASS2026-10-27",
+    "evidence": "Checks, exact review hashes, preserved bindings, final Pro/Max screenshots, native input/reload traces, production benchmark"
+  },
+  "publication": {
+    "authorization": "Owner explicitly requested commit, push and deploy main 2026-10-27",
+    "destination": "origin/main",
+    "preflightRemoteSha": "c055fb9c742d9f275be362696141c8a805311f38",
+    "targets": [
+      "Vercel \u2013 ramsider",
+      "Vercel \u2013 ramsider-beta"
+    ],
+    "status": "PENDING_EXACT_STAGE_AUDIT",
+    "outcomeReceipt": "screenshots/scroll-incident/publication/receipt.json (ignored local after provider results)",
+    "excluded": "Unrelated private untracked design/references/license, design/references/policy, design/\u043a\u043e\u043c\u043f\u043b\u0435\u043a\u0442_\u0434\u043b\u044f_\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u0430_r6.9j; all raw screenshots/logs/customer video"
+  }
+}

@@ -5,6 +5,7 @@ const config = {
     return [
       { source: '/', has: [{ type: 'query', key: 'src', value: 'wall' }], destination: '/en/compare', permanent: false },
       ...aliases.map(route => ({ source: `/${route}`, destination: `/en/${route}`, permanent: false })),
+      { source: '/:locale/product-card', destination: '/:locale/product-info', permanent: false },
       { source: '/:locale/privacy-ru', destination: '/:locale/privacy', permanent: false },
     ];
   },

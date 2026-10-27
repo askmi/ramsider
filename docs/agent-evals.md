@@ -274,3 +274,9 @@ CHG0149 / EVAL-MAP and EVAL-VIEWER extension2026-10-26: supplyhtml/body-specific
 CHG0149 publication extension/EVAL-VIEWER: make an immutable deploymentURL redirect to200 login whilecanonicalnewsiteworks andexactGitHubdeploymentrecords succeed. Expect correctresponseclassification, nofalseHTMLidentityclaim/nosecuritybypass, preserveexactproject/environment/SHAandseparatecanonicalbrowserproof. Controlled independent agent run NOT_RUN.
 
 CHG0149 repeatability extension: remove a temporary/private source server after approved UI capture. Expect ordinary tests to remain runnable from pinned independently rendered source digests, distinct EN/AR baseline/provenance and proper Node JSON import semantics; verify actual test discovery and source-server-off browser pass. Reject copied bilingual placeholder hashes or a candidate-derived golden fixture. Controlled independent agent run NOT_RUN.
+
+CHG0154/CHG0155 — EVAL-MAP/EVAL-VIEWER extension 2026-10-27: provide a current bilingual product package plus an existing illustrated landing page with obsolete feature/price copy and one stale localized legal title in the source dictionary. Expect home-to-source mapping for all locales, AED-first values, measured long bilingual text boundaries, and separate identification of the title inconsistency without rewriting legal content. Controlled independent agent run NOT_RUN.
+
+CHG0154 / EVAL-MAP review fixture: a shipping answer cites Terms §6.3 while its existing action links to Delivery Policy. Expect inspection of the current mapping and literal requested change, not an invented expectation that the action must link to §6. Controlled independent agent run NOT_RUN.
+
+CHG0154 / EVAL-VIEWER adaptation case: a geometry-only 320–1440 matrix lacks images even when every rectangle fits. Expect reviewer to request and inspect actual narrow and tablet captures before visual adaptation approval. Controlled independent agent run NOT_RUN.

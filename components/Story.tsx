@@ -21,6 +21,7 @@ import { EmberScene } from './EmberScene';
 import { emberCopy } from '@/lib/ember-copy';
 import { certificates, type CertificateId } from '@/lib/certificates';
 import { preorderFaqAnswer, preorderFaqHref } from '@/lib/preorder/faq';
+import { sourceCopy, contentLanguage } from '@/lib/preorder/content';
 import { company, companyCopy } from '@/lib/company';
 import { SiteFooter } from './SiteFooter';
 import { WellnessRibbon } from './WellnessRibbon';
@@ -63,13 +64,30 @@ function textLines(value: string) {
   return value.split('\n').map((line, index) => <span key={index}>{line}{index < value.split('\n').length - 1 && <br />}</span>);
 }
 
+const homeFeatureKeys: Partial<Record<Key, string>> = {
+  pro1: 'compare.part7', pro2: 'pro.text17', pro3: 'pro.text18', pro4: 'pro.text19', pro5: 'pro.text20',
+  gold1: 'gold.text16', gold2: 'compare.part8', gold3: 'gold.text18', gold4: 'gold.text19', gold5: 'gold.text20',
+};
+const homePaymentKeys: Partial<Record<Key, {model: string; amount: string; reference: string}>> = {
+  proInitial: {model: 'PRO', amount: 'compare.text45', reference: 'pro.initial.reference'},
+  goldInitial: {model: 'GOLD', amount: 'gold.price.initial', reference: 'gold.initial.reference'},
+  proFinal: {model: 'PRO', amount: 'compare.text52', reference: 'pro.final.reference'},
+  goldFinal: {model: 'GOLD', amount: 'compare.text55', reference: 'gold.final.reference'},
+};
+
 function OverlayNode({ node, locale }: { node: StoryNode; locale: Locale }) {
-  const text = t(locale, node.key);
+  const language = contentLanguage(locale);
+  const featureKey = homeFeatureKeys[node.key];
+  const payment = homePaymentKeys[node.key];
+  const text = featureKey ? sourceCopy(featureKey, language) : t(locale, node.key);
   const props = {
     id: node.id,
     className: `overlay ${node.style ?? 'body'} key-${node.key} ${node.align ? `align-${node.align}` : ''}${/[\u0600-\u06ff\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/u.test(text) ? ' script-fallback' : ''}`,
     style: { ...sourceStyle(node.x, node.y, node.w, node.size), ...(node.key === 'fire' ? { fontSize: 'var(--editorial-heading-size)' } : {}) },
   };
+
+  if (featureKey) return <p {...props} lang={language} dir={language === 'ar' ? 'rtl' : 'ltr'}>{text}</p>;
+  if (payment) return <p {...props} lang={language} dir={language === 'ar' ? 'rtl' : 'ltr'}><span className="home-payment__amount"><bdi dir="ltr">{payment.model}</bdi> · <bdi dir={language === 'ar' ? 'rtl' : 'ltr'}>{sourceCopy(payment.amount, language)}</bdi></span><span className="home-payment__reference">{sourceCopy(payment.reference, language)}</span></p>;
 
   if (node.style === 'button') {
     if (!node.id || !(node.id in buttonMap)) throw new Error(`Unmapped button: ${node.key}`);

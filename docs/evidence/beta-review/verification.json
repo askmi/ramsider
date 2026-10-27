@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-27",
+  "change": "CHG0154",
+  "branch": "beta",
+  "status": "VERIFIED_LOCAL",
+  "files": {
+    "components/Story.tsx": "dcbb506817660cd139abcfa008c910f4b7cd8401b96bef62708826542cfaa14e",
+    "lib/story.ts": "e433fd9567c4771e236a2d5dabc6fc06ebd3a21b3ffc25faf99cf34b0edf520d",
+    "app/globals.css": "8a76fe384113cdb9b8d433e7d58046c7960728a8beaf03445756a08bade9dec5",
+    "next.config.mjs": "4c1b4714f8d2899ff816c6a3635dcc31b7599dddcb4f16e85a0c98a8e1174571",
+    "tests/e2e/beta-review.spec.ts": "8a0a19dd33542b829772f843a7633a5a28f6462172d45e8d4d724b538c36f6ed"
+  },
+  "scope": "All nine reviewer items in docs/beta-review-r69j.md; independent scope gate PASS. No order/payment enabled.",
+  "visual": {
+    "reference": "941x32127 source: y15100-18100 models, y19800-21100 order; explicitly requested copy replaces older reference claims",
+    "profiles": "WebKit Pro402x874 and Max440x956, DPR3, viewport meta checked",
+    "images": "ignored screenshots/beta-review/{pro,max}-{en,ar}-{pro,gold,order}.png; representative images inspected by root; RTL amount/model now isolated",
+    "assembled": "6 real screenshots each Pro/Max and overflow false; root inspected selected sections/footer",
+    "failedHistory": "EN USD nowrap overlap; AR currency overflow; scroll capture wrong position; bidi model ordering; see CHG0154, corrected and reshot",
+    "auditor": "PASS 2026-10-27 /root/beta_auditor after direct Pro/Max comparisons and 320 AR/768 EN adaptation captures",
+    "adaptation": "320x700 AR order and 768x1024 EN PRO/GOLD screenshots inspected; Arabic amounts smaller to fit source grid"
+  },
+  "behavior": {
+    "regression": "30 PASS EN/AR routes, forms, models, accessories and full contract hashes, WebKit Pro/Max and desktop Chromium",
+    "finalChangedScope": "17 PASS 4 intentional matrix SKIP across Pro/Max/Chromium; all11 home locales and 320/375/402/440/768/1440 EN/AR checked",
+    "pdf": "6 PASS EN native navigation + byte-identical six PDFs, AR 3 profiles hrefs; public six HTTP200 application/pdf; issuer authenticity unverified",
+    "faq": "2 PASS after erroneous expectation2 FAIL corrected; existing /en/delivery-policy link and §6.3 answer; old pending notice absent",
+    "card": "EN/AR 200; 158 source keys in same order, 15 sections, zero mismatches with previously accepted EN editorial headings; old locale product-card redirects preserving query/hash",
+    "arabic": "11 requested AR section/legal screenshots, all responses 200; switch tests PASS",
+    "productionServices": "Configuration produces PREVIEW, no POST or live payment",
+    "independent": "PASS 2026-10-27 /root/beta_auditor after actual 320 and 768 captures; initial no-adaptation-images FAIL retained"
+  },
+  "review": {
+    "native": "Final actual scoped diff CLEAN exit0; browser inside reviewer sandbox blocked; separate browser checks executed by root",
+    "typecheck": "PASS",
+    "eslint": "Full npm run lint PASS: 0 errors, 1 inherited unused Telegram integration warning; scoped changed TS/JS 0 warnings",
+    "build": "PASS 158 generated static pages",
+    "independent": "PASS 2026-10-27 /root/beta_auditor, exact 5 code/test SHA matched and native review CLEAN"
+  },
+  "performance": {
+    "method": "Single local Chromium402 DPR3, 4Mbps/100ms/CPU x4; concurrent review process could affect result",
+    "lcpMs": 436,
+    "cls": 0.00022206073455854325,
+    "initialJsWireBytes": 377290,
+    "scrollP95Ms": 16.8,
+    "fieldINP": "NOT_MEASURED",
+    "lighthouse": "NOT_RUN"
+  },
+  "open": [
+    "CHG0155 supplied Arabic legal metadata says incomplete draft despite full original article; source preserved pending authoritative correction",
+    "CHG0145 existing outgoing image warnings",
+    "CHG0148 old unsafe measurement script"
+  ],
+  "approval": "2026-10-27 /root local technical APPROVED; independent visual, behavior/adaptation re-audit, review/performance and final LOCAL records re-audit PASS. Exact Beta publication outcome pending; user acceptance not inferred."
+}

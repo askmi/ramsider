@@ -150,6 +150,9 @@ html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.
 .project-active{position:absolute;z-index:5;display:grid;place-items:center;height:calc(32/941*100cqw);border:1px solid #bc8d51;border-radius:999px;color:#a2723e;font-size:max(10px,calc(14/941*100cqw));letter-spacing:.12em;text-transform:uppercase}
 .overlay.key-step1,.overlay.key-step2,.overlay.key-step3{color:#30251d;font-weight:400}
 .overlay.key-proInitial,.overlay.key-goldInitial,.overlay.key-proFinal,.overlay.key-goldFinal{color:#4f3e32;font-weight:400}
+.overlay .home-payment__amount,.overlay .home-payment__reference{display:block;white-space:normal}
+.overlay .home-payment__reference{font-size:.8em}
+.canvas[data-locale="ar"] .overlay:is(.key-proInitial,.key-goldInitial,.key-proFinal,.key-goldFinal){font-size:calc(22/941*100cqw)!important}
 .key-project1Body,.key-project2Body,.key-project2More,.key-project3Body,.key-project4Body{letter-spacing:.02em!important}
 .key-project1Body span:last-child{display:inline-block;margin-top:calc(15/941*100cqw)}
 .key-projects{font-family:OpenSans,Arial,sans-serif!important;color:#bb854e;letter-spacing:.22em}

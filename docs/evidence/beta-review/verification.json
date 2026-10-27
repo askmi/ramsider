@@ -2,7 +2,7 @@
   "date": "2026-10-27",
   "change": "CHG0154",
   "branch": "beta",
-  "status": "VERIFIED_LOCAL",
+  "status": "VERIFIED_PUBLISHED",
   "files": {
     "components/Story.tsx": "dcbb506817660cd139abcfa008c910f4b7cd8401b96bef62708826542cfaa14e",
     "lib/story.ts": "e433fd9567c4771e236a2d5dabc6fc06ebd3a21b3ffc25faf99cf34b0edf520d",
@@ -51,5 +51,5 @@
     "CHG0145 existing outgoing image warnings",
     "CHG0148 old unsafe measurement script"
   ],
-  "approval": "2026-10-27 /root local technical APPROVED; independent visual, behavior/adaptation re-audit, review/performance and final LOCAL records re-audit PASS. Exact Beta publication outcome pending; user acceptance not inferred."
+  "approval": "2026-10-27 /root technical APPROVED for published Beta runtime a1b98b8; independent visual, behavior/adaptation, review/performance, final LOCAL records and final PUBLIC runtime Gate6 PASS. Publication receipt: publication.json; separate doc-only closeout result recorded in ignored receipt. User acceptance not inferred."
 }

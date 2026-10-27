@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-27",
+  "change": "CHG0154",
+  "repository": "askmi/ramsider",
+  "branch": "beta",
+  "runtimeCommit": "a1b98b88ecf9fcaaefbb648153c3a00685f0964a",
+  "mainUnchanged": "f71fe71a3abbd7936595a63e5dda31b705678857",
+  "providers": [
+    {
+      "context": "Vercel – ramsider-beta",
+      "state": "success",
+      "environment": "Production – ramsider-beta",
+      "githubDeployment": 7354094191,
+      "githubProductionEnvironmentFlag": false,
+      "status": "success",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/2sJpjYVfekGmSkZ9EM6Xv7cS2LsC"
+    },
+    {
+      "context": "Vercel – ramsider",
+      "state": "success",
+      "environment": "Preview – ramsider",
+      "githubDeployment": 7354111074,
+      "githubProductionEnvironmentFlag": false,
+      "status": "success",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider/EVpsMdQwdtmrqK8HgCAi7y8AuJiY"
+    }
+  ],
+  "canonical": "https://ramsider-beta.vercel.app",
+  "publicChecks": "14 PASS Pro/Max WebKit, exact feature copy/AED reference, locale aliases, Arabic anchors and switches, certificate links, FAQ, truthful preview and full EN/AR contract hashes. screenshots/beta-review/public-tests.log",
+  "limitations": "Immutable deployment URL may require Vercel login; provider evidence plus independent canonical behavior, no claim of byte identity or issuer authenticity. No API/order/payment; CHG0155 open.",
+  "publicScreenshots": "Four public Pro/Max EN/AR order screenshots captured; root viewed public Pro AR.",
+  "independentPublicationAudit": "PASS 2026-10-27 /root/beta_auditor: independently checked exact SHA/provider contexts/remote heads and public14PASS log.",
+  "technicalApproval": "APPROVED 2026-10-27 /root for published Beta runtime a1b98b8; user acceptance not inferred.",
+  "closeout": "Documentation-only closeout follows. Its own exact SHA deployment and bounded canonical smoke stored separately in ignored screenshots/beta-review/closeout-publication.json to avoid self-referential commits."
+}

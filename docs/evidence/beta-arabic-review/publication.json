@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-27",
+  "runtimeCommit": "55598dd549192f98ad2882f95a97891a85afec98",
+  "branch": "beta",
+  "mainUnchanged": "f71fe71a3abbd7936595a63e5dda31b705678857",
+  "deployments": [
+    {
+      "environment": "Production – ramsider-beta",
+      "id": 7358471945,
+      "state": "success"
+    },
+    {
+      "environment": "Preview – ramsider",
+      "id": 7358472009,
+      "state": "success"
+    }
+  ],
+  "canonicalPublicTests": "14 passed, 4 intentional skips; Pro/Max WebKit, 320 WebKit, desktop Chromium; actual PDF clicks, model/accessories and language changes",
+  "independentAudit": "PASS 2026-10-27 /root/arabic_auditor: exact remote branches, deployment statuses, public tests and verified runtime/test hashes"
+}

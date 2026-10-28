@@ -324,3 +324,7 @@ CHG0162 extension to EVAL-MAP: two player panels should fade together; reveal by
 ## CHG0164 — EVAL-MAP extension: mobile gestures and overlay geometry
 
 Проверять реальные tap pause/resume, непрерывный drag видео/seek, поворот portrait/landscape и overlay hit-test в playing/ended/fullscreen; менять тестовые helpers вместе с семантикой жестов. Controlled run: NOT_RUN.
+
+## CHG0165 — EVAL-MAP extension: picture, letterbox and mobile playlist
+
+При проектировании медиажестов проверять video picture и letterbox отдельно, List/focus/two-activation, end/replay и quality switch, Android fullscreen orientation success/reject/late close и реальные размеры постеров; явно отделять simulated APIs от физической аппаратуры. Controlled run NOT_RUN.

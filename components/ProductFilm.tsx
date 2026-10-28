@@ -30,6 +30,9 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
   const pendingFocus = useRef<'player' | 'gallery' | null>(null);
   const touchStartedWithHiddenTop = useRef(false);
   const touchPlayEpoch = useRef(0);
+  const listButton = useRef<HTMLButtonElement>(null), listPanel = useRef<HTMLDivElement>(null);
+  const [listOpen, setListOpen] = useState(false);
+  const [listSelection, setListSelection] = useState<number | null>(null);
   const [Controls, setControls] = useState<ComponentType<FilmControlsProps> | null>(null);
   const [index, setIndex] = useState(0);
   const [opened, setOpened] = useState(false);
@@ -77,11 +80,18 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
   useEffect(() => {
     const media = video.current, host = stage.current;
     if (!media || !host) return;
-    let gesture: { id: number; x: number; y: number; time: number; horizontal: boolean; moved: boolean } | null = null;
+    let gesture: { id: number; x: number; y: number; time: number; inPicture: boolean; horizontal: boolean; moved: boolean } | null = null;
     const start = (event: TouchEvent) => {
       if (event.touches.length !== 1 || event.target !== media || host.dataset.controls !== 'ready' || dialog.current?.dataset.view !== 'playing') { gesture = null; return; }
       const touch = event.touches[0];
-      gesture = { id: touch.identifier, x: touch.clientX, y: touch.clientY, time: media.currentTime, horizontal: false, moved: false };
+      const box = media.getBoundingClientRect();
+      // object-fit: contain centers the decoded picture inside the video element.
+      // A letterbox tap is an intent to reveal controls, not a play gesture.
+      const scale = media.videoWidth && media.videoHeight ? Math.min(box.width / media.videoWidth, box.height / media.videoHeight) : 0;
+      const pictureWidth = scale ? media.videoWidth * scale : box.width, pictureHeight = scale ? media.videoHeight * scale : box.height;
+      const left = box.left + (box.width - pictureWidth) / 2, top = box.top + (box.height - pictureHeight) / 2;
+      const inPicture = touch.clientX >= left && touch.clientX <= left + pictureWidth && touch.clientY >= top && touch.clientY <= top + pictureHeight;
+      gesture = { id: touch.identifier, x: touch.clientX, y: touch.clientY, time: media.currentTime, inPicture, horizontal: false, moved: false };
     };
     const move = (event: TouchEvent) => {
       if (!gesture || event.touches.length !== 1) { gesture = null; return; }
@@ -89,7 +99,7 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
       if (!touch) { gesture = null; return; }
       const dx = touch.clientX - gesture.x, dy = touch.clientY - gesture.y;
       if (Math.hypot(dx, dy) > 10) gesture.moved = true;
-      if (!gesture.horizontal && Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy) * 1.25) gesture.horizontal = true;
+      if (gesture.inPicture && !gesture.horizontal && Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy) * 1.25) gesture.horizontal = true;
       if (gesture.horizontal) event.preventDefault();
     };
     const end = (event: TouchEvent) => {
@@ -97,6 +107,10 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
       const current = gesture; gesture = null;
       const touch = Array.from(event.changedTouches).find(item => item.identifier === current.id);
       if (!touch || event.touches.length || dialog.current?.dataset.view !== 'playing') return;
+      if (!current.inPicture) {
+        if (!current.moved) host.dispatchEvent(new PointerEvent('pointermove', { pointerType: 'mouse', bubbles: true }));
+        return;
+      }
       if (current.horizontal) {
         const width = media.getBoundingClientRect().width;
         if (!width || !Number.isFinite(media.duration) || media.duration <= 0) return;
@@ -124,6 +138,29 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
     media.addEventListener('pause', paused);
     return () => { touchPlayEpoch.current++; media.removeEventListener('touchstart', start); media.removeEventListener('touchmove', move); media.removeEventListener('touchend', end); media.removeEventListener('touchcancel', cancel); media.removeEventListener('pause', paused); };
   }, []);
+  useLayoutEffect(() => {
+    const panel = listPanel.current, host = stage.current;
+    const top = panel?.parentElement;
+    if (!listOpen || !panel || !host || !top) return;
+    const fit = () => {
+      const hostRect = host.getBoundingClientRect(), topRect = top.getBoundingClientRect();
+      const below = hostRect.bottom - topRect.bottom - 8;
+      // On very short players, keep the list usable by placing it over the top
+      // chrome; its own close button remains available.
+      const overlayTop = below < 115;
+      panel.style.insetBlockStart = overlayTop ? '8px' : '100%';
+      panel.style.maxHeight = `${Math.max(0, Math.min(240, overlayTop ? hostRect.height - 16 : below))}px`;
+    };
+    fit();
+    const observer = new ResizeObserver(fit);
+    observer.observe(host); observer.observe(top);
+    panel.querySelector<HTMLButtonElement>('button')?.focus({ preventScroll: true });
+    return () => observer.disconnect();
+  }, [listOpen]);
+  const closeList = (restoreFocus = true) => {
+    setListOpen(false); setListSelection(null);
+    if (restoreFocus) listButton.current?.focus({ preventScroll: true });
+  };
   const select = (next: number, start = false) => {
     const media = video.current, item = films[next];
     if (!media || !item) return;
@@ -136,20 +173,11 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
     if (start) playProductFilm(media);
   };
   const start = () => { touchPlayEpoch.current++; pendingFocus.current = 'player'; setView('playing'); if (video.current) playProductFilm(video.current); };
-  const all = () => {
-    touchPlayEpoch.current++;
-    if (video.current) releaseFilm(video.current);
-    stage.current?.dispatchEvent(new Event('film-exit-presentation'));
-    if (document.fullscreenElement === stage.current) void document.exitFullscreen().catch(() => {});
-    stage.current?.removeAttribute('data-full-window'); dialog.current?.removeAttribute('data-film-expanded');
-    document.dispatchEvent(new Event('fullscreenchange'));
-    pendingFocus.current = 'gallery'; setStatus('idle'); setView('gallery');
-  };
   return <dialog ref={dialog} id="product-film" className="product-film" data-view={view} lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} aria-labelledby="product-film-title" onClose={() => {
     if (dialog.current?.open) return;
     touchPlayEpoch.current++;
     if (video.current) releaseFilm(video.current);
-    pendingFocus.current = null; setStatus('idle'); setView('gallery');
+    pendingFocus.current = null; setListOpen(false); setListSelection(null); setStatus('idle'); setView('gallery');
     document.getElementById(dialog.current?.dataset.opener ?? '')?.focus({ preventScroll: true });
   }}>
     <div className="film-gallery">
@@ -172,8 +200,8 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
     }, 'data-qualities': JSON.stringify(film.qualities.map(quality => quality.height)), defaultstreamtype: 'on-demand', suppressHydrationWarning: true },
       <video key="media" slot="media" ref={video} tabIndex={0} controls controlsList="noplaybackrate" playsInline preload="none" width={film.width} height={film.height} data-src={film.manifest} data-fallback={film.fallback} data-audio-locale={film.audioLocale} aria-label={film.title} onEnded={() => setView('ended')} onSeeking={() => { const media = video.current; if (!dialog.current?.open || !media || !Number.isFinite(media.duration) || media.currentTime >= media.duration) return; const target = media.dataset.filmSourceSwitchTarget; if (media.dataset.filmSourceSwitch && target !== undefined && Math.abs(media.currentTime - Number(target)) > .05) cancelFilmSourceSwitch(media, media.currentTime); if (!media.dataset.filmSourceSwitch) setView(current => current === 'ended' ? 'playing' : current); }} onLoadStart={() => { if (dialog.current?.open && video.current?.hasAttribute('src')) setStatus(value => value === 'blocked' ? value : 'loading'); }} onWaiting={() => { if (dialog.current?.open && video.current?.hasAttribute('src') && !video.current.paused) setStatus(value => value === 'blocked' ? value : 'loading'); }} onCanPlay={() => setStatus(value => value === 'blocked' ? value : 'ready')} onPlaying={() => { if (dialog.current?.open && video.current && !video.current.paused && video.current.hasAttribute('src')) { setStatus('ready'); setView('playing'); } }} />,
       Controls && <ControlsBoundary key="controls" media={video} stage={stage}><Controls media={video} stage={stage} copy={copy} locale={locale} status={status} previous={() => select(index - 1, true)} next={() => select(index + 1, true)} hasPrevious={index > 0} hasNext={index < films.length - 1} /></ControlsBoundary>,
-      <div className="film-player__top" dir={locale === 'ar' ? 'rtl' : 'ltr'} slot="top-chrome"><button type="button" onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={all}>{c.all}</button><span className="film-player__identity">{film.title}</span><button type="button" className="film-player__close" aria-label={closeLabel} onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={() => dialog.current?.close()}>×</button></div>,
-      view === 'ended' && <div className="film-ended" dir={locale === 'ar' ? 'rtl' : 'ltr'} slot="centered-chrome" {...{ noautohide: '' }}><strong>{film.title} {c.finished}</strong>{index + 1 < films.length && <div className="film-ended__next"><img src={opened ? films[index + 1].poster : undefined} width={1280} height={591} alt="" /><span>{c.nextUp}<br /><b>{films[index + 1].title}</b><br />{index + 2} / {films.length}</span></div>}<div className="film-ended__actions"><button type="button" onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={start}>{c.replay}</button>{index + 1 < films.length && <button type="button" onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={() => select(index + 1, true)}>{c.next}</button>}</div><button className="film-ended__all" type="button" onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={all}>{c.all}</button></div>)}
+      <div className="film-player__top" dir={locale === 'ar' ? 'rtl' : 'ltr'} slot="top-chrome"><span className="film-player__identity">{film.title}</span><button ref={listButton} type="button" className="film-player__list-toggle" aria-expanded={listOpen} aria-controls="film-playlist" onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={() => { if (listOpen) closeList(); else { setListSelection(null); setListOpen(true); stage.current?.removeAttribute('userinactive'); } }}>{c.list}</button><button type="button" className="film-player__close" aria-label={closeLabel} onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={() => dialog.current?.close()}>×</button>{listOpen && <div ref={listPanel} id="film-playlist" className="film-playlist" role="region" aria-label={c.list} onKeyDown={event => { if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); closeList(); } }}><div className="film-playlist__header"><strong>{c.list}</strong><button type="button" className="film-playlist__close" aria-label={closeLabel} onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={() => closeList()}>×</button></div><div className="film-playlist__items">{films.map((item, position) => <button type="button" key={item.id} className="film-playlist__item" aria-pressed={listSelection === position} aria-current={position === index ? 'true' : undefined} onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={() => { if (listSelection !== position) { setListSelection(position); return; } closeList(false); if (position === index) { video.current?.focus({ preventScroll: true }); if (video.current && (statusRef.current === 'error' || !video.current.hasAttribute('src'))) { touchPlayEpoch.current++; playProductFilm(video.current); } else { if (video.current && (view === 'ended' || video.current.ended)) { cancelFilmSourceSwitch(video.current, 0); video.current.currentTime = 0; } if (video.current?.paused) void video.current.play().catch(() => {}); } if (view === 'ended') setView('playing'); } else select(position, true); }}><img src={opened ? item.poster : undefined} width={1280} height={position === 0 ? 715 : 591} alt="" /><span>{item.title}</span></button>)}</div></div>}</div>,
+      view === 'ended' && <div className="film-ended" slot="centered-chrome" {...{ noautohide: '' }}><button className="film-ended__replay" type="button" aria-label={c.replay} onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={start}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 1-2.3-5.7L20 7.5M20 3v4.5h-4.5" /></svg></button></div>)}
     <div className="product-film__notes"><p id="product-film-hint">{copy.rotate}</p><p role="status" aria-live="polite">{status === 'loading' ? copy.loading : status === 'error' ? copy.error : status === 'blocked' ? copy.playHint : ''}</p>{status === 'error' && <button type="button" onClick={() => { if (video.current) playProductFilm(video.current); }}>{copy.retry}</button>}</div>
   </dialog>;
 }

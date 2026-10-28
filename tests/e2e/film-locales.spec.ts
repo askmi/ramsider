@@ -75,7 +75,7 @@ for (const locale of ['ru', 'de', 'es']) {
     expect(firstFrameMs).toBeGreaterThan(0);
     await video.evaluate(v => { (v as HTMLVideoElement).currentTime = 30; return (v as HTMLVideoElement).play(); });
     await expect.poll(() => video.evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(31);
-    await page.locator('.film-player__top button').last().click();
+    await page.locator('.film-player__close').click();
     await expect.poll(() => video.evaluate(v => ({ src: v.getAttribute('src'), paused: (v as HTMLVideoElement).paused, ready: (v as HTMLVideoElement).readyState }))).toEqual({ src: null, paused: true, ready: 0 });
     expect(errors).toEqual([]);
     await writeFile(`screenshots/video/locales/${locale}-${info.project.name}.json`, JSON.stringify({ locale, project: info.project.name, startupBytes: bytes, startupFiles: warm.slice(0, 6), firstFrameMs, fullFilmEnded: full, seekBeyond31: true, silent: true, errors }, null, 2));
@@ -107,7 +107,7 @@ test('locale navigation and other tabs cannot substitute a different cached audi
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(2);
   await expect(page.locator('video')).toHaveAttribute('data-audio-locale', 'es');
   await expect(page.locator('video')).toHaveAttribute('data-src', `${baseFor('es')}/master.m3u8`);
-  await page.locator('.film-player__top button').last().click();
+  await page.locator('.film-player__close').click();
   await second.close();
 });
 

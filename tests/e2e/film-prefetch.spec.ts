@@ -56,7 +56,7 @@ test('three segments warm without playback; cached range protocol and playback r
   await page.screenshot({ path: `screenshots/video/prefetch/open-${info.project.name}.png`, scale: 'css' });
   await page.locator('video').evaluate(v => { (v as HTMLVideoElement).currentTime = 25; });
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(26);
-  await page.locator('.film-player__top button').last().click();
+  await page.locator('.film-player__close').click();
   await expect(page.locator('video')).not.toHaveAttribute('src');
   expect(errors).toEqual([]);
 });
@@ -100,7 +100,7 @@ test('Watch interrupts an in-flight warm transfer without awaiting it', async ({
   await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 15000 }).toBeGreaterThan(.2);
   expect(await page.evaluate(() => (window as Window & { warmAborted?: boolean }).warmAborted)).toBe(true);
-  await page.locator('.film-player__top button').last().click();
+  await page.locator('.film-player__close').click();
   await page.waitForTimeout(500);
   await expect(page.locator('video')).not.toHaveAttribute('src');
 });

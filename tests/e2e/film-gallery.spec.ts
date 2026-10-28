@@ -78,9 +78,14 @@ test('gallery posters, all seven films, controls and cleanup', async ({ page }, 
       await page.screenshot({ path: `screenshots/video/gallery/playing-${info.project.name}.png` });
     }
     await revealTop(page, info.project.name.includes('iphone'));
-    await dialog.locator('.film-player__top button').first().click();
+    await dialog.locator('.film-player__list-toggle').click();
+    await expect(dialog.locator('#film-playlist')).toBeVisible();
+    await expect(dialog.locator('.film-playlist__item[aria-current=true]')).toContainText(titles[index]);
+    await dialog.locator('.film-playlist__close').click();
+    await dialog.locator('.film-player__close').click();
+    await expect(dialog).not.toBeVisible();
+    await page.locator('#film-play').click();
     await expect(dialog).toHaveAttribute('data-view', 'gallery');
-    await expect(items.nth(index)).toBeFocused();
   }
   await dialog.locator('.product-film__close').click();
   await expect(dialog).not.toBeVisible();
@@ -127,7 +132,7 @@ test('film navigation, end choices and full-window gallery', async ({ page }, in
   await expect(dialog).toHaveAttribute('data-view', 'playing');
   await video.evaluate(element => { const v = element as HTMLVideoElement; v.currentTime = v.duration - .3; });
   await expect(dialog).toHaveAttribute('data-view', 'ended', { timeout: 30000 });
-  await page.locator('.film-ended__actions button').first().click();
+  await page.locator('.film-ended__replay').click();
   await expect(dialog).toHaveAttribute('data-view', 'playing');
   await expect.poll(() => video.evaluate(element => (element as HTMLVideoElement).currentTime), { timeout: 30000 }).toBeGreaterThan(.2);
   await page.locator('.film-fullscreen').click();
@@ -144,10 +149,12 @@ test('film navigation, end choices and full-window gallery', async ({ page }, in
   await page.locator('.film-play-toggle').hover();
   await page.screenshot({ path: `screenshots/video/gallery/fullscreen-ended-${info.project.name}.png` });
   await revealTop(page, info.project.name.includes('iphone'));
-  await page.locator('.film-player__top button').first().click();
-  await expect(dialog).toHaveAttribute('data-view', 'gallery');
-  await expect(dialog.locator('.film-gallery__hero')).toBeVisible();
-  await expect(dialog.locator('.film-gallery__item[aria-pressed=true]')).toBeFocused();
+  await page.locator('.film-player__list-toggle').click();
+  await expect(dialog.locator('#film-playlist')).toBeVisible();
+  await expect(dialog.locator('.film-playlist__item[aria-current=true]')).toContainText('Ramsider Uno (Product Introduction)');
+  await dialog.locator('.film-playlist__close').click();
+  await page.locator('.film-player__close').click();
+  await expect(dialog).not.toBeVisible();
   await expect.poll(() => page.evaluate(() => !document.fullscreenElement && !document.querySelector('#film-player')?.hasAttribute('data-full-window'))).toBe(true);
 });
 
@@ -197,8 +204,8 @@ test('narrow transport keeps full touch targets and seek usable', async ({ page 
     }
     await page.locator('#film-settings-toggle').click();
     await expect(page.locator('#film-options-menu')).toBeVisible();
-    await expect(page.locator('.film-player__top button').last()).toBeVisible();
-    await expect(page.locator('.film-player__top button').first()).toBeVisible();
+    await expect(page.locator('.film-player__close')).toBeVisible();
+    await expect(page.locator('.film-player__list-toggle')).toBeVisible();
     await page.locator('#film-settings-toggle').click();
     const seek = await page.locator('.film-seek').boundingBox();
     await page.mouse.click(seek!.x + seek!.width * .6, seek!.y + seek!.height / 2);
@@ -217,10 +224,13 @@ test('last film ends without inventing a next film', async ({ page }, info) => {
   await expect.poll(() => video.evaluate(element => (element as HTMLVideoElement).currentTime), { timeout: 30000 }).toBeGreaterThan(.2);
   await video.evaluate(element => { const v = element as HTMLVideoElement; v.currentTime = v.duration - .3; });
   await expect(page.locator('#product-film')).toHaveAttribute('data-view', 'ended', { timeout: 30000 });
-  await expect(page.locator('.film-ended__actions button')).toHaveCount(1);
+  await expect(page.locator('.film-ended button')).toHaveCount(1);
+  await expect(page.locator('.film-ended__replay')).toBeVisible();
   await expect(page.locator('.film-ended__next')).toHaveCount(0);
-  await page.locator('.film-ended__all').click();
-  await expect(page.locator('#product-film')).toHaveAttribute('data-view', 'gallery');
+  await expect(page.locator('.film-next')).toBeDisabled();
+  await page.locator('.film-ended__replay').click();
+  await expect(page.locator('#product-film')).toHaveAttribute('data-view', 'playing');
+  await expect(page.locator('.film-player__identity')).toHaveText('Inside Ramsider');
 });
 
 test('keyboard activates player actions with Space', async ({ page }, info) => {
@@ -231,17 +241,19 @@ test('keyboard activates player actions with Space', async ({ page }, info) => {
   await page.locator('.film-gallery__hero').click();
   const dialog = page.locator('#product-film'), video = page.locator('video');
   await expect.poll(() => video.evaluate(element => (element as HTMLVideoElement).currentTime), { timeout: 30000 }).toBeGreaterThan(.2);
-  await page.locator('.film-player__top button').first().focus();
+  await page.locator('.film-player__list-toggle').focus();
   await page.keyboard.press('Space');
-  await expect(dialog).toHaveAttribute('data-view', 'gallery');
-  await page.locator('.film-gallery__hero').click();
+  await expect(page.locator('#film-playlist')).toBeVisible();
+  await page.locator('.film-playlist__close').focus();
+  await page.keyboard.press('Space');
+  await expect(page.locator('#film-playlist')).toHaveCount(0);
   await expect.poll(() => video.evaluate(element => (element as HTMLVideoElement).currentTime), { timeout: 30000 }).toBeGreaterThan(.2);
   await video.evaluate(element => { const v = element as HTMLVideoElement; v.currentTime = v.duration - .3; });
   await expect(dialog).toHaveAttribute('data-view', 'ended', { timeout: 30000 });
-  await page.locator('.film-ended__actions button').first().focus();
+  await page.locator('.film-ended__replay').focus();
   await page.keyboard.press('Space');
   await expect(dialog).toHaveAttribute('data-view', 'playing');
-  await page.locator('.film-player__top button').last().focus();
+  await page.locator('.film-player__close').focus();
   await page.keyboard.press('Space');
   await expect(dialog).not.toBeVisible();
 });

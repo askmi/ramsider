@@ -38,7 +38,7 @@ test('landscape playing and ended compositions in normal and fullscreen', async 
   await capture('playing');
   await end();
   await capture('ended');
-  await page.locator('.film-ended__actions button').first().click();
+  await page.locator('.film-ended__replay').click();
   await expect(dialog).toHaveAttribute('data-view', 'playing');
   await expect.poll(() => video.evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 30000 }).toBeGreaterThan(.2);
   await page.locator('.film-fullscreen').click();
@@ -46,6 +46,6 @@ test('landscape playing and ended compositions in normal and fullscreen', async 
   await capture('fullscreen-playing');
   await end();
   await capture('fullscreen-ended');
-  await page.locator('.film-player__top button').last().click();
+  await page.locator('.film-player__close').click();
   await expect(dialog).not.toBeVisible();
 });

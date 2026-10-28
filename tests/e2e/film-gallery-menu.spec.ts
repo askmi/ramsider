@@ -5,6 +5,12 @@ test.use({ serviceWorkers: 'block' });
 test.beforeEach(async ({ page }) => silenceTestMedia(page));
 test.setTimeout(120000);
 
+async function closePlayer(page: Page) {
+  const close = page.locator('.film-player__close');
+  await close.focus(); // A focused top action wakes the autohidden controls.
+  await close.click();
+}
+
 async function start(page: Page, locale: 'en' | 'ar') {
   await page.goto(`/${locale}`);
   await page.locator('#film-play').scrollIntoViewIfNeeded();
@@ -68,13 +74,13 @@ test('ended card yields to settings and returns after quality, speed and Back', 
   await expect.poll(() => page.locator('video').evaluate(v => !(v as HTMLVideoElement).seeking), { timeout: 30000 }).toBe(true);
   await page.locator('.film-play-toggle').click();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 30000 }).toBeGreaterThan(20.2);
-  await page.locator('.film-player__top button').last().click();
+  await closePlayer(page);
   await expect(page.locator('#product-film')).not.toBeVisible();
   await page.locator('#film-play').click();
   await expect(page.locator('#product-film')).toHaveAttribute('data-view', 'gallery');
   await page.locator('.film-gallery__hero').click();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 30000 }).toBeGreaterThan(.2);
-  await page.locator('.film-player__top button').last().click();
+  await closePlayer(page);
 });
 
 test('a user seek supersedes source restoration when seeked is suppressed', async ({ page }, info) => {
@@ -94,7 +100,7 @@ test('a user seek supersedes source restoration when seeked is suppressed', asyn
   await expect(page.locator('#product-film')).toHaveAttribute('data-view', 'playing');
   await page.locator('.film-play-toggle').click();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 30000 }).toBeGreaterThan(20.2);
-  await page.locator('.film-player__top button').last().click();
+  await closePlayer(page);
 });
 
 test('a direct seek after native restoration supersedes a suppressed seeked event', async ({ page }, info) => {
@@ -118,7 +124,7 @@ test('a direct seek after native restoration supersedes a suppressed seeked even
   await expect.poll(() => video.evaluate(v => Math.abs((v as HTMLVideoElement).currentTime - 20)), { timeout: 30000 }).toBeLessThan(1);
   await page.locator('.film-play-toggle').click();
   await expect.poll(() => video.evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 30000 }).toBeGreaterThan(20.2);
-  await page.locator('.film-player__top button').last().click();
+  await closePlayer(page);
 });
 
 test('short landscape keeps playing and ended settings usable in LTR and RTL', async ({ page }, info) => {
@@ -135,7 +141,7 @@ test('short landscape keeps playing and ended settings usable in LTR and RTL', a
     await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id === 'film-player' || document.querySelector('#film-player')?.getAttribute('data-full-window') === 'true')).toBe(true);
     await end(page);
     await exerciseEndedMenu(page, locale);
-    await page.locator('.film-player__top button').last().click();
+    await closePlayer(page);
     await expect(dialog).not.toBeVisible();
   }
 });
@@ -176,7 +182,7 @@ test('320px portrait and short landscape keep transport targets inside the playe
     await page.locator('#film-settings-toggle').click();
     await page.locator('#film-settings-toggle').click();
     await expect(page.locator('#film-options-menu')).toBeHidden();
-    const close = page.locator('.film-player__top button').last();
+    const close = page.locator('.film-player__close');
     await expect(close).toBeInViewport();
     await close.click();
     await expect(page.locator('#product-film')).not.toBeVisible();

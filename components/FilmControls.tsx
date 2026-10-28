@@ -55,6 +55,7 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
   const presentationEpoch = useRef(0);
   const fullscreenBusy = useRef(false);
   const fullscreenOwner = useRef<number | null>(null);
+  const orientationOwner = useRef<number | null>(null);
   const pipOwner = useRef<number | null>(null);
   const pipRequestSequence = useRef(0);
   const gear = useRef<SettingsButtonElement>(null);
@@ -68,6 +69,12 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
   const c = filmControlsCopy(locale);
   const closeMenu = () => dismissSettings(menu, gear, stage);
   const actions = useRef<{ fullscreen: () => Promise<void>; pip: () => Promise<void> } | null>(null);
+
+  const releaseOrientation = () => {
+    if (orientationOwner.current === null) return;
+    orientationOwner.current = null;
+    try { screen.orientation?.unlock?.(); } catch { /* The browser may not expose orientation control. */ }
+  };
 
   useEffect(() => {
     let alive = true;
@@ -113,6 +120,7 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
     const sync = () => setExpanded(document.fullscreenElement === host || host.dataset.fullWindow === 'true');
     const collapse = () => {
       presentationEpoch.current++; fullscreenBusy.current = false; fullscreenOwner.current = null; pipOwner.current = null; setMessage('');
+      releaseOrientation();
       const video = media.current as PipVideo | null;
       if (video && document.pictureInPictureElement === video) void document.exitPictureInPicture().catch(() => {});
       if (video?.webkitPresentationMode === 'picture-in-picture') video.webkitSetPresentationMode?.('inline');
@@ -129,7 +137,7 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
     const cancel = (event: Event) => {
       if (document.fullscreenElement === host || host.dataset.fullWindow === 'true') { event.preventDefault(); collapse(); }
     };
-    const fullscreen = () => { if (document.fullscreenElement !== host && !host.dataset.fullWindow) dialog.removeAttribute('data-film-expanded'); sync(); };
+    const fullscreen = () => { if (document.fullscreenElement !== host) { releaseOrientation(); if (!host.dataset.fullWindow) dialog.removeAttribute('data-film-expanded'); } sync(); };
     document.addEventListener('fullscreenchange', fullscreen); document.addEventListener('keydown', keyboard);
     const closed = () => { if (!dialog.open) collapse(); };
     dialog.addEventListener('close', closed); dialog.addEventListener('cancel', cancel); host.addEventListener('film-exit-presentation', collapse);
@@ -165,12 +173,27 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
       if (document.fullscreenElement === host) { await document.exitFullscreen(); return; }
       if (host.dataset.fullWindow === 'true') { host.removeAttribute('data-full-window'); dialog.removeAttribute('data-film-expanded'); setExpanded(false); return; }
       entering = true; fullscreenOwner.current = epoch;
+      // Reserve ownership before the asynchronous fullscreen request, so a late lock from
+      // an earlier session cannot unlock a newer one.
+      if (window.matchMedia('(pointer: coarse)').matches && typeof screen.orientation?.lock === 'function') orientationOwner.current = epoch;
       if (typeof host.requestFullscreen !== 'function' || !document.fullscreenEnabled) throw new Error('Use full-window controls');
       await host.requestFullscreen();
-      if (!current()) { if ((fullscreenOwner.current === null || fullscreenOwner.current === epoch) && document.fullscreenElement === host) await document.exitFullscreen(); return; }
+      if (!current() || document.fullscreenElement !== host) { if ((fullscreenOwner.current === null || fullscreenOwner.current === epoch) && document.fullscreenElement === host) await document.exitFullscreen(); return; }
       dialog.setAttribute('data-film-expanded', 'true'); setExpanded(true);
+      if (orientationOwner.current === epoch) {
+        // This is best-effort: unsupported or denied orientation lock still leaves the
+        // native fullscreen usable and the device can rotate normally.
+        try {
+          void screen.orientation.lock('landscape').then(() => {
+            if (orientationOwner.current === null) {
+              try { screen.orientation.unlock(); } catch { /* Already unlocked or unavailable. */ }
+            }
+          }).catch(() => { if (orientationOwner.current === epoch) releaseOrientation(); });
+        } catch { if (orientationOwner.current === epoch) releaseOrientation(); }
+      }
     } catch {
       if (!current()) return;
+      if (orientationOwner.current === epoch) releaseOrientation();
       if (entering) {
         // Keep HTML controls on iPhone instead of switching to the OS video-only player.
         host.setAttribute('data-full-window', 'true'); dialog.setAttribute('data-film-expanded', 'true'); setExpanded(true);

@@ -149,7 +149,7 @@ for (const fullscreen of [false, true]) {
 }
 
 for (const fullscreen of [false, true]) {
-  for (const action of ['replay', 'next', 'all'] as const) {
+  for (const action of ['replay', 'next', 'list'] as const) {
     test(`landscape ended ${action} is visible and works (${fullscreen ? 'fullscreen' : 'normal'})`, async ({ page }, info) => {
       test.skip(!['iphone-17-pro-webkit', 'iphone-17-pro-max-webkit'].includes(info.project.name), 'Mobile WebKit profiles');
       const max = info.project.name === 'iphone-17-pro-max-webkit';
@@ -170,8 +170,9 @@ for (const fullscreen of [false, true]) {
       const card = page.locator('.film-ended'), seek = page.locator('.film-seek');
       const cardBox = await card.boundingBox(), seekBox = await seek.boundingBox();
       expect(cardBox).not.toBeNull(); expect(seekBox).not.toBeNull();
-      const actions = [page.locator('.film-ended__actions button').first(), page.locator('.film-ended__actions button').last(), page.locator('.film-ended__all')];
-      for (const button of actions) {
+      const replay = page.locator('.film-ended__replay');
+      await expect(card.locator('button')).toHaveCount(1);
+      for (const button of [replay]) {
         await expect(button).toBeVisible();
         const box = await button.boundingBox();
         expect(box).not.toBeNull();
@@ -185,9 +186,12 @@ for (const fullscreen of [false, true]) {
       }
       await mkdir('screenshots/video/mobile-layout', { recursive: true });
       await page.screenshot({ path: `screenshots/video/mobile-layout/${info.project.name}-ended-actions-${fullscreen ? 'fullscreen' : 'normal'}.png` });
-      await actions[['replay', 'next', 'all'].indexOf(action)].click();
-      if (action === 'all') await expect(dialog).toHaveAttribute('data-view', 'gallery');
-      else {
+      if (action === 'list') {
+        await page.locator('.film-player__list-toggle').click();
+        await expect(page.locator('#film-playlist')).toBeVisible();
+        await expect(dialog).toHaveAttribute('data-view', 'ended');
+      } else {
+        await (action === 'replay' ? replay : page.locator('.film-next')).click();
         await expect(dialog).toHaveAttribute('data-view', 'playing');
         if (action === 'next') await expect(page.locator('.film-player__identity')).toHaveText('Pure Gold');
         await expect.poll(() => video.evaluate(v => !(v as HTMLVideoElement).paused && (v as HTMLVideoElement).currentTime < 10), { timeout: 30000 }).toBe(true);

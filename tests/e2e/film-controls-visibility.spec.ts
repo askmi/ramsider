@@ -141,12 +141,12 @@ test('touch on video toggles playback and reveals controls, which hide during pl
   await expectOpacity(page, 1);
 });
 
-for (const action of ['all', 'close'] as const) {
+for (const action of ['list', 'close'] as const) {
   test(`invisible ${action} action: first touch reveals and second touch activates`, async ({ page }, info) => {
     test.skip(!info.project.name.includes('iphone'), 'Touch hit testing is checked in mobile WebKit');
     await openFilm(page);
     await expectOpacity(page, 0);
-    const target = action === 'all' ? page.locator('.film-player__top button').first() : page.locator('.film-player__close');
+    const target = action === 'list' ? page.locator('.film-player__list-toggle') : page.locator('.film-player__close');
     const box = await target.boundingBox();
     expect(box).not.toBeNull();
     const point = { x: box!.x + box!.width / 2, y: box!.y + box!.height / 2 };
@@ -156,7 +156,7 @@ for (const action of ['all', 'close'] as const) {
     await expect(page.locator('#product-film')).toHaveAttribute('data-view', 'playing');
     await expectOpacity(page, 1);
     await page.touchscreen.tap(point.x, point.y);
-    if (action === 'all') await expect(page.locator('#product-film')).toHaveAttribute('data-view', 'gallery');
+    if (action === 'list') { await expect(page.locator('#film-playlist')).toBeVisible(); await expect(target).toHaveAttribute('aria-expanded', 'true'); }
     else await expect(page.locator('#product-film')).not.toBeVisible();
   });
 }
@@ -177,13 +177,14 @@ test('keyboard focus restores and activates a hidden top action', async ({ page 
   await openFilm(page);
   await activity(page, false);
   await expectOpacity(page, 0);
-  const all = page.locator('.film-player__top button').first();
+  const all = page.locator('.film-player__list-toggle');
   await page.keyboard.press('Tab');
   await all.focus();
   await expect(all).toBeFocused();
   await expect.poll(() => page.locator('.film-player__top').evaluate(el => Number(getComputedStyle(el).opacity))).toBe(1);
   await page.keyboard.press('Space');
-  await expect(page.locator('#product-film')).toHaveAttribute('data-view', 'gallery');
+  await expect(page.locator('#film-playlist')).toBeVisible();
+  await expect(all).toHaveAttribute('aria-expanded', 'true');
 });
 
 

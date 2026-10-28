@@ -719,3 +719,7 @@ CHG0158 focus visibility → focus may land on the selected thumbnail outside a 
 ## CHG0164 — Проверять телефонные жесты как действия пользователя
 
 Проблема: плеер показал панель при касании, но не исполнил ожидаемые pause/play и свайп; новая панель также пересекалась с end-card. Причина: проверка сводилась к видимости и геометрии отдельного состояния. Предотвращение: воспроизвести tap и непрерывный drag на самом видео и шкале, проверить paused/playing, inline/fullscreen и поворот; при изменении панели повторить hit-test в ended/settings и обновить прежние helpers. Отличать synthetic WebKit от реальных мобильных жестов и физического устройства. EVAL-MAP controlled NOT_RUN.
+
+## CHG0165 — Фактическая область кадра и жизненный цикл списка
+
+Проблема: чёрные поля video с contain воспринимались как кадр, а прежняя проверка Android поворота не воспроизводила поддержку API или реальную аппаратную ориентацию. Причина: тестировали центр DOM-элемента и изменяли viewport без отдельной проверки отрисованного прямоугольника и реального устройства. Предотвращение: измерять decoded aspect и отдельные letterbox hit tests в portrait/landscape/fullscreen, проверять повтор selection, focus и ended после quality switch, cleanup успешного/отклонённого/позднего orientation lock; различать mock/emulation и физический телефон. EVAL-MAP controlled NOT_RUN.

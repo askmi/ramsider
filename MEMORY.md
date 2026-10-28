@@ -355,3 +355,7 @@ CHG0163: при наведении на поддерживающем hover ус�
 ## Mobile film controls — 2026-10-28
 
 CHG0164 local: касание видео переключает pause/play, горизонтальный свайп перематывает; progress над кнопками, при landscape на телефоне плеер занимает доступный viewport, картинка сохраняет пропорции. WebKit Pro/Max эмуляции и Chromium touch drag проверены, физический iPhone и непрерывный WebKit свайп ещё не проверены. Ended landscape освобождает место панели. Build6: native review и независимый visual/behavior audit PASS, технический аппрув /root; публикация pending.
+
+## Film picture gestures, List and Android fullscreen — 2026-10-28
+
+CHG0165 local build5: video picture tap toggles playback, contain letterbox tap reveals controls; title precedes List and close, List overlays a seven-film two-activation selector without releasing playback; ended state uses centred replay icon. Touch fullscreen attempts landscape orientation lock when supported, releases it on exit; actual Android failure cause and physical-device behavior unknown. Build9 browser emulations and independent visual/behavior audit PASS, native exact review PASS, /root technical approval; physical Android unverified and system rotation lock remains external. Publication pending.

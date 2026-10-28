@@ -1,0 +1,81 @@
+{
+  "change": "CHG0170",
+  "date": "2026-10-28",
+  "status": "VERIFIED_LOCAL_PUBLICATION_PENDING",
+  "assets": [
+    {
+      "sourceName": "RAMSIDER_Franchise_Pro_DIY_Hospitality_27.10.2026.pdf",
+      "designPath": "design/PDF/RAMSIDER_Franchise_Pro_DIY_Hospitality_27.10.2026.pdf",
+      "publicPath": "public/pdf/RAMSIDER_Franchise_Pro_DIY_Hospitality_2026.pdf",
+      "urlPath": "/pdf/RAMSIDER_Franchise_Pro_DIY_Hospitality_2026.pdf",
+      "bytes": 7021651,
+      "sha256": "937e74fc46f83e4fcff5a417b40fae1e1ab11815e07c601858595528fad01962"
+    },
+    {
+      "sourceName": "RAMSIDER_Catering_Hospitality_27.10.2026.pdf",
+      "designPath": "design/PDF/RAMSIDER_Catering_Hospitality_27.10.2026.pdf",
+      "publicPath": "public/pdf/RAMSIDER_Catering_Hospitality_2026.pdf",
+      "urlPath": "/pdf/RAMSIDER_Catering_Hospitality_2026.pdf",
+      "bytes": 7017274,
+      "sha256": "eb2d14084d391e1b8f98270913dcfffa73a424481ff029d0883590f37550c159"
+    }
+  ],
+  "target": "Existing Next.js Vercel server https://ramsider-main.vercel.app; explicitly clarified by user 2026-10-28",
+  "noUiIntegration": true,
+  "catalogBefore": {
+    "url": "https://ramsider.com/pdf/Products_Services_v7_final_20261012.pdf",
+    "status": 200,
+    "contentType": "application/pdf",
+    "bytes": 8957100,
+    "server": "BitNinja-WafPro",
+    "fullByteIdentity": "UNVERIFIED: ordinary GET returned403; no external file modifications attempted"
+  },
+  "localVerification": {
+    "status": "PASS",
+    "checks": [
+      {
+        "url": "http://127.0.0.1:43319/pdf/RAMSIDER_Franchise_Pro_DIY_Hospitality_2026.pdf",
+        "status": 200,
+        "contentType": "application/pdf",
+        "bytes": 7021651,
+        "sha256": "937e74fc46f83e4fcff5a417b40fae1e1ab11815e07c601858595528fad01962",
+        "cacheControl": "public, max-age=0",
+        "contentDisposition": null,
+        "range": {
+          "status": 206,
+          "bytes": 1024,
+          "contentRange": "bytes 0-1023/7021651"
+        }
+      },
+      {
+        "url": "http://127.0.0.1:43319/pdf/RAMSIDER_Catering_Hospitality_2026.pdf",
+        "status": 200,
+        "contentType": "application/pdf",
+        "bytes": 7017274,
+        "sha256": "eb2d14084d391e1b8f98270913dcfffa73a424481ff029d0883590f37550c159",
+        "cacheControl": "public, max-age=0",
+        "contentDisposition": null,
+        "range": {
+          "status": 206,
+          "bytes": 1024,
+          "contentRange": "bytes 0-1023/7017274"
+        }
+      }
+    ],
+    "siteCodeChanges": false,
+    "newMenuOrSitemapLinks": false,
+    "catalogPathTouched": false
+  },
+  "publication": "PENDING commit/push",
+  "userResultApproval": "NOT_RECORDED",
+  "localCopy": "PASS source=design=public SHA/bytes/%PDF, no reencoding",
+  "technicalApproval": {
+    "date": "2026-10-28",
+    "verifier": "/root",
+    "verdict": "APPROVED_LOCAL_ONLY",
+    "evidence": "Full source/design/public hashes and production Next HTTP GET200 + Range206 for both files",
+    "independentAuditor": "/root/audit",
+    "independentVerdict": "PASS scope and local static delivery; public requested domain BLOCKED pending target/access",
+    "auditorLimit": "Independent network rerun blocked by sandbox socket EPERM; inspected retained main HTTP evidence and all six binaries"
+  }
+}

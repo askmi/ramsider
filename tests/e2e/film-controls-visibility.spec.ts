@@ -1,3 +1,5 @@
+import { emulateCustomFullscreenLayout } from './fullscreen-layout-adapter';
+test.beforeEach(async ({ page }, info) => { if (info.project.name.includes('iphone')) await emulateCustomFullscreenLayout(page); });
 import { expect, test, type Page } from '@playwright/test';
 import { mkdir, readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -89,7 +91,7 @@ test('top and bottom fade together, reappear on activity, and keep controls acce
   await page.locator('.film-play-toggle').click();
   await expect.poll(() => video.evaluate(el => !(el as HTMLVideoElement).paused)).toBe(true);
   await page.locator('.film-fullscreen').click();
-  await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement) || document.querySelector('#film-player')?.getAttribute('data-full-window') === 'true')).toBe(true);
+  await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement) || document.querySelector('#film-player')?.getAttribute('data-element-fullscreen') === 'true')).toBe(true);
   await expectOpacity(page, 0);
   await activity(page, touch);
   await expectOpacity(page, 1);

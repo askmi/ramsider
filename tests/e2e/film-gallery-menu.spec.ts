@@ -1,3 +1,5 @@
+import { emulateCustomFullscreenLayout } from './fullscreen-layout-adapter';
+test.beforeEach(async ({ page }, info) => { if (info.project.name.includes('iphone')) await emulateCustomFullscreenLayout(page); });
 import { expect, test, type Page } from '@playwright/test';
 import { silenceTestMedia } from './silent-media';
 
@@ -138,7 +140,7 @@ test('short landscape keeps playing and ended settings usable in LTR and RTL', a
     await expect(page.locator('#film-settings-toggle')).toBeInViewport();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.locator('.film-fullscreen').click();
-    await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id === 'film-player' || document.querySelector('#film-player')?.getAttribute('data-full-window') === 'true')).toBe(true);
+    await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id === 'film-player' || document.querySelector('#film-player')?.getAttribute('data-element-fullscreen') === 'true')).toBe(true);
     await end(page);
     await exerciseEndedMenu(page, locale);
     await closePlayer(page);

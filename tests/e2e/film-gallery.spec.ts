@@ -1,3 +1,5 @@
+import { emulateCustomFullscreenLayout } from './fullscreen-layout-adapter';
+test.beforeEach(async ({ page }, info) => { if (info.project.name.includes('iphone')) await emulateCustomFullscreenLayout(page); });
 import { expect, test, type Page } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 import { silenceTestMedia } from './silent-media';
@@ -136,7 +138,7 @@ test('film navigation, end choices and full-window gallery', async ({ page }, in
   await expect(dialog).toHaveAttribute('data-view', 'playing');
   await expect.poll(() => video.evaluate(element => (element as HTMLVideoElement).currentTime), { timeout: 30000 }).toBeGreaterThan(.2);
   await page.locator('.film-fullscreen').click();
-  await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id === 'film-player' || document.querySelector('#film-player')?.getAttribute('data-full-window') === 'true')).toBe(true);
+  await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id === 'film-player' || document.querySelector('#film-player')?.getAttribute('data-element-fullscreen') === 'true')).toBe(true);
   await expect(page.locator('#film-settings-toggle')).toBeVisible();
   await page.locator('.film-play-toggle').hover();
   await page.waitForTimeout(600);
@@ -155,7 +157,7 @@ test('film navigation, end choices and full-window gallery', async ({ page }, in
   await dialog.locator('.film-playlist__close').click();
   await page.locator('.film-player__close').click();
   await expect(dialog).not.toBeVisible();
-  await expect.poll(() => page.evaluate(() => !document.fullscreenElement && !document.querySelector('#film-player')?.hasAttribute('data-full-window'))).toBe(true);
+  await expect.poll(() => page.evaluate(() => !document.fullscreenElement && !document.querySelector('#film-player')?.hasAttribute('data-element-fullscreen'))).toBe(true);
 });
 
 test('landscape gallery and Arabic layout remain usable', async ({ page }, info) => {

@@ -1,3 +1,5 @@
+import { emulateCustomFullscreenLayout } from './fullscreen-layout-adapter';
+test.beforeEach(async ({ page }, info) => { if (info.project.name.includes('iphone')) await emulateCustomFullscreenLayout(page); });
 import { expect, test, type Locator, type Page } from '@playwright/test';
 import { silenceTestMedia } from './silent-media';
 
@@ -62,7 +64,7 @@ test('picture touch toggles once and horizontal swipe seeks without affecting co
   await page.locator('.film-play-toggle').click();
   await expect.poll(() => video.evaluate(v => !(v as HTMLVideoElement).paused)).toBe(true);
   await page.locator('.film-fullscreen').click();
-  await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement) || document.querySelector('#film-player')?.getAttribute('data-full-window') === 'true')).toBe(true);
+  await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement) || document.querySelector('#film-player')?.getAttribute('data-element-fullscreen') === 'true')).toBe(true);
   await tapPicture(page, video);
   await expect.poll(() => video.evaluate(v => (v as HTMLVideoElement).paused)).toBe(true);
   await tapPicture(page, video);

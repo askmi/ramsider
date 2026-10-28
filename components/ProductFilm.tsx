@@ -45,7 +45,7 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
     const applyFocus = () => {
       if (!dialog.current?.open || !pendingFocus.current) return;
       if (pendingFocus.current === 'player' && view === 'playing') { video.current?.focus({ preventScroll: true }); pendingFocus.current = null; }
-      else if (pendingFocus.current === 'gallery' && view === 'gallery' && document.fullscreenElement !== stage.current) {
+      else if (pendingFocus.current === 'gallery' && view === 'gallery' && (document.fullscreenElement ?? (document as Document & { webkitFullscreenElement?: Element }).webkitFullscreenElement) !== stage.current) {
         const item = dialog.current.querySelector<HTMLButtonElement>('.film-gallery__item[aria-pressed=true]');
         const list = item?.closest<HTMLElement>('.film-gallery__list');
         if (item && list) {
@@ -60,7 +60,8 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
     };
     applyFocus();
     document.addEventListener('fullscreenchange', applyFocus);
-    return () => document.removeEventListener('fullscreenchange', applyFocus);
+    document.addEventListener('webkitfullscreenchange', applyFocus);
+    return () => { document.removeEventListener('fullscreenchange', applyFocus); document.removeEventListener('webkitfullscreenchange', applyFocus); };
   }, [view, index]);
   useEffect(() => {
     const media = video.current;
@@ -85,9 +86,10 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
       if (event.touches.length !== 1 || event.target !== media || host.dataset.controls !== 'ready' || dialog.current?.dataset.view !== 'playing') { gesture = null; return; }
       const touch = event.touches[0];
       const box = media.getBoundingClientRect();
-      // object-fit: contain centers the decoded picture inside the video element.
+      // The expanded picture uses cover; inline contain can have letterboxes.
       // A letterbox tap is an intent to reveal controls, not a play gesture.
-      const scale = media.videoWidth && media.videoHeight ? Math.min(box.width / media.videoWidth, box.height / media.videoHeight) : 0;
+      const fit = getComputedStyle(media).objectFit === 'cover' ? Math.max : Math.min;
+      const scale = media.videoWidth && media.videoHeight ? fit(box.width / media.videoWidth, box.height / media.videoHeight) : 0;
       const pictureWidth = scale ? media.videoWidth * scale : box.width, pictureHeight = scale ? media.videoHeight * scale : box.height;
       const left = box.left + (box.width - pictureWidth) / 2, top = box.top + (box.height - pictureHeight) / 2;
       const inPicture = touch.clientX >= left && touch.clientX <= left + pictureWidth && touch.clientY >= top && touch.clientY <= top + pictureHeight;
@@ -182,7 +184,7 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
   }}>
     <div className="film-gallery">
       <header className="product-film__header"><h2 id="product-film-title" tabIndex={-1} autoFocus>{c.title}</h2><button type="button" className="product-film__close" aria-label={closeLabel} onClick={() => dialog.current?.close()}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button></header>
-      <div className="film-gallery__main"><button type="button" className="film-gallery__hero" aria-label={`${c.play}: ${film.title}`} onClick={start}><img src={opened ? film.poster : undefined} width={1280} height={index === 0 ? 715 : 591} alt="" /><span className="film-gallery__play"><PlayIcon /></span><span className="film-gallery__duration">{duration(film.duration)}</span></button><div className="film-gallery__caption"><span>{film.title}<small className="film-gallery__audio">{film.audioLabel}</small></span><span>{index + 1} / {films.length}</span></div></div>
+      <div className="film-gallery__main"><button type="button" className="film-gallery__hero" aria-label={`${c.play}: ${film.title}`} onClick={start}><img src={opened ? film.poster : undefined} width={1280} height={index === 0 ? 715 : 591} alt="" /><span className="film-gallery__play"><PlayIcon /></span><span className="film-gallery__duration">{duration(film.duration)}</span></button><div className="film-gallery__caption"><span>{film.title}</span><span>{index + 1} / {films.length}</span></div></div>
       <div className="film-gallery__list" aria-label={c.select}>{films.map((item, position) => <button type="button" key={item.id} className="film-gallery__item" aria-label={`${c.select}: ${item.title}`} aria-pressed={position === index} onClick={() => select(position)}><span className="film-gallery__thumbnail"><img src={opened ? item.poster : undefined} width={1280} height={position === 0 ? 715 : 591} alt="" /><span className="film-gallery__small-play"><PlayIcon /></span></span><span className="film-gallery__item-copy"><span className="film-gallery__item-title">{item.title}</span><span className="film-gallery__item-number"><span className="film-gallery__mobile-number">{String(position + 1).padStart(2, '0')}</span><span className="film-gallery__wide-number">{position + 1} / {films.length}</span></span></span></button>)}</div>
     </div>
     {createElement('media-controller', { ref: stage, className: 'film-player', id: 'film-player', lang: locale, novolumepref: '', nomutedpref: '', gesturesdisabled: '', nohotkeys: '', autohideovercontrols: '', onPointerDownCapture: (event: ReactPointerEvent<HTMLElement>) => {

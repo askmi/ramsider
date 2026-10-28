@@ -6,7 +6,6 @@ import { silenceTestMedia } from './silent-media';
 type Asset = { id: string; active: boolean; audioLocale: string; directory: string; duration: number; audioLabels: Record<string, string>; files: Array<{ path: string; bytes: number }> };
 const registry = JSON.parse(readFileSync('config/product-films.json', 'utf8')) as { assets: Asset[] };
 const locales = ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko'];
-const nativeLabels: Record<string, string> = { ru: 'Звук на русском', de: 'Deutscher Ton', es: 'Audio en español' };
 const cacheName = 'film-start-v1';
 const assetFor = (audio: string) => registry.assets.find(asset => asset.active && asset.id === 'uno-introduction' && asset.audioLocale === audio)!;
 const expectedAudio = (locale: string) => ['ru', 'de', 'es'].includes(locale) ? locale : 'en';
@@ -30,8 +29,22 @@ test('all eleven page locales select exact supplied audio or the English fallbac
     await expect(video).toHaveAttribute('data-src', `${base}/master.m3u8`);
     await expect(video).toHaveAttribute('data-fallback', `${base}/fallback.mp4`);
     await expect(video).not.toHaveAttribute('src');
-    await expect(page.locator('#product-film .film-gallery__audio')).toHaveText(nativeLabels[locale] ?? assetFor('en').audioLabels[locale]);
+    await expect(page.locator('#product-film .film-gallery__audio')).toHaveCount(0);
+    await expect(page.locator('#product-film')).not.toContainText(/English Audio|Original Audio/i);
     await expect(page.locator('#product-film')).toHaveAttribute('dir', locale === 'ar' ? 'rtl' : 'ltr');
+    await page.locator('#film-play').scrollIntoViewIfNeeded();
+    await page.locator('#film-play').click();
+    await expect(page.locator('.film-gallery__caption')).toBeVisible();
+    if (locale === 'en' || locale === 'ar') {
+      for (const item of await page.locator('.film-gallery__item').all()) {
+        await item.click();
+        await expect(page.locator('.film-gallery__audio')).toHaveCount(0);
+        await expect(page.locator('.film-gallery__caption')).not.toContainText(/English Audio|Original Audio/i);
+      }
+      await mkdir('screenshots/video/no-audio-labels', { recursive: true });
+      await page.screenshot({ path: `screenshots/video/no-audio-labels/${locale}.png` });
+    }
+    await page.locator('.product-film__close').click();
   }
 });
 

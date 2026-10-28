@@ -1,3 +1,5 @@
+import { emulateCustomFullscreenLayout } from './fullscreen-layout-adapter';
+test.beforeEach(async ({ page }, info) => { if (info.project.name.includes('iphone')) await emulateCustomFullscreenLayout(page); });
 import { expect, test, type CDPSession } from '@playwright/test';
 import { silenceTestMedia } from './silent-media';
 
@@ -42,7 +44,7 @@ test('continuous mobile touch swipes seek picture and timeline without toggling 
     await expect.poll(() => video.evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 10000 }).toBeGreaterThan(backward + 1);
     expect(await video.evaluate(v => (v as HTMLVideoElement).paused)).toBe(true);
     await page.locator('.film-fullscreen').click();
-    await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement) || document.querySelector('#film-player')?.getAttribute('data-full-window') === 'true')).toBe(true);
+    await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement) || document.querySelector('#film-player')?.getAttribute('data-element-fullscreen') === 'true')).toBe(true);
     const fullBounds = (await video.boundingBox())!;
     const fullBefore = await video.evaluate(v => (v as HTMLVideoElement).currentTime);
     await drag(session, fullBounds.x + fullBounds.width * .7, fullBounds.y + fullBounds.height / 2, -fullBounds.width * .2);

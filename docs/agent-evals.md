@@ -330,3 +330,5 @@ CHG0162 extension to EVAL-MAP: two player panels should fade together; reveal by
 При проектировании медиажестов проверять video picture и letterbox отдельно, List/focus/two-activation, end/replay и quality switch, Android fullscreen orientation success/reject/late close и реальные размеры постеров; явно отделять simulated APIs от физической аппаратуры. Controlled run NOT_RUN.
 
 CHG0165 public follow-up: проверить что тест ждёт metadata выбранного media и distinguishes exact-duration seek from near-end natural playback. Controlled run NOT_RUN.
+
+2026-10-28 CHG0166 extension to EVAL-VIEWER / EVAL-HLS-ENTRYPOINT: failure trace is silent full-window accepted as fullscreen and custom-owner-only native begin handler. Acceptance now separates system chrome, adapter layout and native controls/pinch; includes actual screenshot+settled opacity and both-axis touch targets after breakpoint migration. Controlled agent run NOT_RUN; product regression outcomes are recorded under CHG0166 and do not certify agent behavioral improvement.

@@ -1,3 +1,5 @@
+import { emulateCustomFullscreenLayout } from './fullscreen-layout-adapter';
+test.beforeEach(async ({ page }, info) => { if (info.project.name.includes('iphone')) await emulateCustomFullscreenLayout(page); });
 import { test, expect, type Page } from '@playwright/test';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { silenceTestMedia } from './silent-media';
@@ -75,7 +77,7 @@ async function presented(page: Page, height: number) {
 async function assertGeometry(page: Page) {
   const boxes = await page.evaluate(() => {
     const p = document.querySelector('#film-player')!, m = document.querySelector('#film-options-menu')!, g = document.querySelector('#film-settings-toggle')!, v = document.querySelector('video')!;
-    return { player: p.getBoundingClientRect().toJSON(), menu: m.getBoundingClientRect().toJSON(), gear: g.getBoundingClientRect().toJSON(), range: document.querySelector('.film-seek')!.getBoundingClientRect().toJSON(), video: v.getBoundingClientRect().toJSON(), background: getComputedStyle(m).backgroundColor, radius: getComputedStyle(m).borderRadius, overflow: p.scrollWidth > p.clientWidth, width: innerWidth, dpr: devicePixelRatio, native: v.hasAttribute('controls'), gearIcon: g.querySelector('.film-gear')?.tagName, fullscreen: document.fullscreenElement === p, fullWindow: p.getAttribute('data-full-window') === 'true' };
+    return { player: p.getBoundingClientRect().toJSON(), menu: m.getBoundingClientRect().toJSON(), gear: g.getBoundingClientRect().toJSON(), range: document.querySelector('.film-seek')!.getBoundingClientRect().toJSON(), video: v.getBoundingClientRect().toJSON(), background: getComputedStyle(m).backgroundColor, radius: getComputedStyle(m).borderRadius, overflow: p.scrollWidth > p.clientWidth, width: innerWidth, dpr: devicePixelRatio, native: v.hasAttribute('controls'), gearIcon: g.querySelector('.film-gear')?.tagName, fullscreen: document.fullscreenElement === p, fullWindow: p.getAttribute('data-element-fullscreen') === 'true' };
   });
   expect(boxes.native).toBe(false); expect(boxes.gearIcon).toBe('svg'); expect(boxes.radius).toBe('18px');
   expect(boxes.background).toBe('rgba(24, 24, 28, 0.62)'); expect(boxes.overflow).toBe(false);
@@ -127,26 +129,30 @@ test('gear overlay retains the video node, real quality frames, speed, pause, Au
   expect(errors).toEqual([]);
 });
 
-test('actual shared fullscreen and forced full-window keep gear, menu and Exit usable', async ({ page }, info) => {
+test('shared fullscreen keeps gear usable; unsupported fullscreen reports error', async ({ page }, info) => {
   test.skip(info.project.name === 'desktop-firefox', 'One MSE desktop and native phone profiles');
   await mkdir(root, { recursive: true });
   await visit(page);
   await page.locator('.film-fullscreen').click();
-  await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id === 'film-player' || document.querySelector('#film-player')?.getAttribute('data-full-window') === 'true')).toBe(true);
+  await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id === 'film-player' || document.querySelector('#film-player')?.getAttribute('data-element-fullscreen') === 'true')).toBe(true);
   await openMenu(page); const first = await assertGeometry(page);
   if (info.project.name === 'desktop-chromium') expect(first.fullscreen).toBe(true);
   await page.screenshot({ path: `${root}/fullscreen-${info.project.name}.png`, scale: 'css' });
   await page.keyboard.press('Escape'); await expect(page.locator('#product-film')).toBeVisible();
   await page.locator('.film-fullscreen').click();
-  await expect.poll(() => page.evaluate(() => !document.fullscreenElement && !document.querySelector('#film-player')?.hasAttribute('data-full-window'))).toBe(true);
-  // Explicit unsupported-API fixture; this is not physical-iPhone proof.
-  await page.locator('#film-player').evaluate(host => Object.defineProperty(host, 'requestFullscreen', { configurable: true, value: undefined }));
-  await page.locator('.film-fullscreen').click(); await expect(page.locator('#film-player')).toHaveAttribute('data-full-window', 'true');
-  await openMenu(page); await assertGeometry(page);
-  await page.keyboard.press('Escape'); await page.keyboard.press('Escape');
-  await expect(page.locator('#film-player')).not.toHaveAttribute('data-full-window'); await expect(page.locator('#product-film')).toBeVisible();
-  await page.locator('.film-fullscreen').click(); await page.locator('#product-film').evaluate((e: HTMLDialogElement) => e.close());
-  await expect(page.locator('#film-player')).not.toHaveAttribute('data-full-window'); await expect(page.locator('video')).not.toHaveAttribute('src');
+  await expect.poll(() => page.evaluate(() => !document.fullscreenElement && !document.querySelector('#film-player')?.hasAttribute('data-element-fullscreen'))).toBe(true);
+  // Explicit unsupported fixture: never silently replace fullscreen with a page-sized box.
+  await page.locator('#film-player').evaluate(host => {
+    Object.defineProperty(host, 'requestFullscreen', { configurable: true, value: undefined });
+    Object.defineProperty(host, 'webkitRequestFullscreen', { configurable: true, value: undefined });
+    Object.defineProperty(host.querySelector('video'), 'webkitEnterFullscreen', { configurable: true, value: undefined });
+  });
+  await page.locator('.film-fullscreen').click();
+  await expect(page.locator('.film-control-message')).toBeVisible();
+  await expect(page.locator('#film-player')).not.toHaveAttribute('data-full-window');
+  await expect(page.locator('#product-film')).not.toHaveAttribute('data-film-expanded');
+  await page.locator('#product-film').evaluate((e: HTMLDialogElement) => e.close());
+  await expect(page.locator('video')).not.toHaveAttribute('src');
 });
 
 test('all locale controls and responsive overlay menus fit without moving the picture', async ({ page }, info) => {
@@ -376,14 +382,16 @@ test('Space activates fullscreen and recovery while pending-rate shortcuts retai
 });
 
 test('a queued old Close cannot collapse a reopened expanded player', async ({ page }, info) => {
-  test.skip(info.project.name !== 'desktop-chromium', 'One deterministic queued-close owner');
+  test.skip(info.project.name !== 'desktop-chromium', 'One deterministic queued-close layout/lifecycle owner');
+  // Reopening a native modal over a still-fullscreen child changes browser top-layer order.
+  // This deliberately same-task stale-event fixture tests adapter ownership, not OS presentation.
+  await emulateCustomFullscreenLayout(page);
   await visit(page);
-  await page.locator('#film-player').evaluate(host => Object.defineProperty(host, 'requestFullscreen', { configurable: true, value: undefined }));
   await page.locator('.film-fullscreen').click();
   await page.evaluate(() => { const dialog = document.querySelector<HTMLDialogElement>('#product-film')!; dialog.close(); dialog.showModal(); });
   await page.waitForTimeout(100);
   await expect(page.locator('#product-film')).toHaveAttribute('open');
-  await expect(page.locator('#film-player')).toHaveAttribute('data-full-window', 'true');
+  await expect(page.locator('#film-player')).toHaveAttribute('data-element-fullscreen', 'true');
   await openMenu(page); await assertGeometry(page); await page.keyboard.press('Escape');
   await page.locator('.film-fullscreen').click(); await revealClose(page, false);
 });

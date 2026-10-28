@@ -1,3 +1,5 @@
+import { emulateCustomFullscreenLayout } from './fullscreen-layout-adapter';
+test.beforeEach(async ({ page }, info) => { if (info.project.name.includes('iphone')) await emulateCustomFullscreenLayout(page); });
 import { expect, test } from '@playwright/test';
 import { silenceTestMedia } from './silent-media';
 
@@ -16,7 +18,7 @@ test('playlist preserves playback and presentation; selection requires a second 
     await expect(host).toHaveAttribute('data-controls', 'ready');
     await expect.poll(() => video.evaluate(v => !(v as HTMLVideoElement).paused && (v as HTMLVideoElement).currentTime > .2), { timeout: 30000 }).toBe(true);
     await page.locator('.film-fullscreen').click();
-    await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement) || document.querySelector('#film-player')?.getAttribute('data-full-window') === 'true')).toBe(true);
+    await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement) || document.querySelector('#film-player')?.getAttribute('data-element-fullscreen') === 'true')).toBe(true);
     await host.evaluate(el => el.removeAttribute('userinactive'));
     const toggle = page.locator('.film-player__list-toggle');
     await toggle.click();
@@ -24,7 +26,7 @@ test('playlist preserves playback and presentation; selection requires a second 
     await expect(list).toBeVisible();
     await expect(list.locator('.film-playlist__item')).toHaveCount(7);
     await expect.poll(() => video.evaluate(v => !(v as HTMLVideoElement).paused)).toBe(true);
-    await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement) || document.querySelector('#film-player')?.getAttribute('data-full-window') === 'true')).toBe(true);
+    await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement) || document.querySelector('#film-player')?.getAttribute('data-element-fullscreen') === 'true')).toBe(true);
     const titleBounds = await page.locator('.film-player__identity').boundingBox();
     const listBounds = await toggle.boundingBox();
     expect(titleBounds).not.toBeNull(); expect(listBounds).not.toBeNull();
@@ -40,7 +42,7 @@ test('playlist preserves playback and presentation; selection requires a second 
     await target.click();
     await expect(list).toHaveCount(0);
     await expect(page.locator('.film-player__identity')).toHaveText('Pure Gold');
-    await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement) || document.querySelector('#film-player')?.getAttribute('data-full-window') === 'true')).toBe(true);
+    await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement) || document.querySelector('#film-player')?.getAttribute('data-element-fullscreen') === 'true')).toBe(true);
     await host.evaluate(el => el.removeAttribute('userinactive'));
     await toggle.click();
     await expect(page.locator('#film-playlist')).toBeVisible();
@@ -134,7 +136,7 @@ test('desktop playlist and ended replay remain clickable in fullscreen', async (
   await expect(host).toHaveAttribute('data-controls', 'ready');
   await expect.poll(() => video.evaluate(v => (v as HTMLVideoElement).currentTime > .2), { timeout: 30000 }).toBe(true);
   await page.locator('.film-fullscreen').click();
-  await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement) || document.querySelector('#film-player')?.getAttribute('data-full-window') === 'true')).toBe(true);
+  await expect.poll(() => page.evaluate(() => Boolean(document.fullscreenElement) || document.querySelector('#film-player')?.getAttribute('data-element-fullscreen') === 'true')).toBe(true);
   await video.evaluate(v => { const m = v as HTMLVideoElement; m.currentTime = m.duration; });
   const replay = page.locator('.film-ended__replay'); await expect(replay).toBeVisible({ timeout: 30000 });
   expect(await replay.evaluate(el => document.elementFromPoint(el.getBoundingClientRect().x + el.clientWidth / 2, el.getBoundingClientRect().y + el.clientHeight / 2)?.closest('.film-ended__replay') === el)).toBe(true);

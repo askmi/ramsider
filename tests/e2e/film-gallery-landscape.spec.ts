@@ -1,3 +1,5 @@
+import { emulateCustomFullscreenLayout } from './fullscreen-layout-adapter';
+test.beforeEach(async ({ page }, info) => { if (info.project.name.includes('iphone')) await emulateCustomFullscreenLayout(page); });
 import { expect, test } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 import { silenceTestMedia } from './silent-media';
@@ -42,7 +44,7 @@ test('landscape playing and ended compositions in normal and fullscreen', async 
   await expect(dialog).toHaveAttribute('data-view', 'playing');
   await expect.poll(() => video.evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 30000 }).toBeGreaterThan(.2);
   await page.locator('.film-fullscreen').click();
-  await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id === 'film-player' || document.querySelector('#film-player')?.getAttribute('data-full-window') === 'true')).toBe(true);
+  await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id === 'film-player' || document.querySelector('#film-player')?.getAttribute('data-element-fullscreen') === 'true')).toBe(true);
   await capture('fullscreen-playing');
   await end();
   await capture('fullscreen-ended');

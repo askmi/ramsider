@@ -1,3 +1,5 @@
+import { emulateCustomFullscreenLayout } from './fullscreen-layout-adapter';
+test.beforeEach(async ({ page }, info) => { if (info.project.name.includes('iphone')) await emulateCustomFullscreenLayout(page); });
 import { expect, test } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 import { silenceTestMedia } from './silent-media';
@@ -8,7 +10,7 @@ test.beforeEach(async ({ page }) => silenceTestMedia(page));
 
 for (const orientation of ['portrait', 'landscape'] as const) {
   for (const locale of ['en', 'ar'] as const) {
-    test(`${orientation} ${locale}: progress precedes controls and settings opens`, async ({ page }, info) => {
+    test(`${orientation} ${locale}: progress adapts to width and settings opens`, async ({ page }, info) => {
       test.skip(!['iphone-17-pro-webkit', 'iphone-17-pro-max-webkit'].includes(info.project.name), 'Mobile WebKit profiles');
       const max = info.project.name === 'iphone-17-pro-max-webkit';
       if (orientation === 'landscape') await page.setViewportSize(max ? { width: 956, height: 440 } : { width: 874, height: 402 });
@@ -33,7 +35,8 @@ for (const orientation of ['portrait', 'landscape'] as const) {
         await expect(control).toBeVisible();
         const box = await control.boundingBox();
         expect(box, selector).not.toBeNull();
-        expect(box!.y, `${selector} must be below progress`).toBeGreaterThanOrEqual(seekBox!.y + seekBox!.height - 1);
+        if (orientation === 'portrait') expect(box!.y, `${selector} must be below progress`).toBeGreaterThanOrEqual(seekBox!.y + seekBox!.height - 1);
+        else expect(Math.abs(box!.y - seekBox!.y), `${selector} must share the progress row`).toBeLessThanOrEqual(2);
         expect(box!.width, `${selector} touch width`).toBeGreaterThanOrEqual(44);
         expect(box!.height, `${selector} touch height`).toBeGreaterThanOrEqual(44);
       }
@@ -95,7 +98,7 @@ test('fullscreen rotation keeps playback and controls usable through exit', asyn
   await expect(player).toHaveAttribute('data-controls', 'ready');
   await expect.poll(() => video.evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 30000 }).toBeGreaterThan(.2);
   await page.locator('.film-fullscreen').click();
-  const expanded = () => page.evaluate(() => document.fullscreenElement?.id === 'film-player' || document.querySelector('#film-player')?.getAttribute('data-full-window') === 'true');
+  const expanded = () => page.evaluate(() => document.fullscreenElement?.id === 'film-player' || document.querySelector('#film-player')?.getAttribute('data-element-fullscreen') === 'true');
   await expect.poll(expanded).toBe(true);
   for (const size of [landscape, portrait]) {
     const before = await video.evaluate(v => (v as HTMLVideoElement).currentTime);
@@ -129,7 +132,7 @@ for (const fullscreen of [false, true]) {
     await expect.poll(() => video.evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 30000 }).toBeGreaterThan(.2);
     if (fullscreen) {
       await page.locator('.film-fullscreen').click();
-      await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id === 'film-player' || document.querySelector('#film-player')?.getAttribute('data-full-window') === 'true')).toBe(true);
+      await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id === 'film-player' || document.querySelector('#film-player')?.getAttribute('data-element-fullscreen') === 'true')).toBe(true);
     }
     await video.evaluate(v => { const media = v as HTMLVideoElement; media.currentTime = media.duration - .3; });
     await expect(page.locator('#product-film')).toHaveAttribute('data-view', 'ended', { timeout: 30000 });
@@ -163,7 +166,7 @@ for (const fullscreen of [false, true]) {
       await expect.poll(() => video.evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 30000 }).toBeGreaterThan(.2);
       if (fullscreen) {
         await page.locator('.film-fullscreen').click();
-        await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id === 'film-player' || document.querySelector('#film-player')?.getAttribute('data-full-window') === 'true')).toBe(true);
+        await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id === 'film-player' || document.querySelector('#film-player')?.getAttribute('data-element-fullscreen') === 'true')).toBe(true);
       }
       await video.evaluate(v => { const media = v as HTMLVideoElement; media.currentTime = media.duration - .3; });
       await expect(dialog).toHaveAttribute('data-view', 'ended', { timeout: 30000 });

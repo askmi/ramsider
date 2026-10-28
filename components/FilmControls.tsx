@@ -16,7 +16,48 @@ type PipVideo = HTMLVideoElement & {
   webkitSupportsPresentationMode?: (mode: string) => boolean;
   webkitSetPresentationMode?: (mode: string) => void;
   webkitPresentationMode?: string;
+  webkitEnterFullscreen?: () => void;
+  webkitExitFullscreen?: () => void;
+  webkitDisplayingFullscreen?: boolean;
+  webkitSupportsFullscreen?: boolean;
 };
+type FullscreenDocument = Document & {
+  webkitFullscreenElement?: Element | null;
+  webkitExitFullscreen?: () => Promise<void> | void;
+};
+type FullscreenHost = HTMLElement & { webkitRequestFullscreen?: () => Promise<void> | void };
+
+function activeFullscreenElement() {
+  const doc = document as FullscreenDocument;
+  return doc.fullscreenElement ?? doc.webkitFullscreenElement ?? null;
+}
+async function exitElementFullscreen() {
+  const doc = document as FullscreenDocument;
+  if (doc.fullscreenElement && typeof doc.exitFullscreen === 'function') await doc.exitFullscreen();
+  else if (doc.webkitFullscreenElement && typeof doc.webkitExitFullscreen === 'function') await doc.webkitExitFullscreen();
+}
+async function enterElementFullscreen(host: HTMLElement) {
+  const target = host as FullscreenHost;
+  if (typeof target.requestFullscreen === 'function' && document.fullscreenEnabled !== false) {
+    await target.requestFullscreen();
+    return;
+  }
+  if (typeof target.webkitRequestFullscreen !== 'function') throw new Error('Element fullscreen unavailable');
+  // Older WebKit returns void and signals completion with an event instead of a promise.
+  await new Promise<void>((resolve, reject) => {
+    const cleanup = () => { clearTimeout(timer); document.removeEventListener('webkitfullscreenchange', changed); document.removeEventListener('webkitfullscreenerror', failed); };
+    const changed = () => { if (activeFullscreenElement() === host) { cleanup(); resolve(); } };
+    const failed = () => { cleanup(); reject(new Error('Element fullscreen rejected')); };
+    document.addEventListener('webkitfullscreenchange', changed);
+    document.addEventListener('webkitfullscreenerror', failed);
+    const timer = setTimeout(failed, 3000);
+    try {
+      const result = target.webkitRequestFullscreen!();
+      if (result && typeof result.then === 'function') void result.then(changed, failed);
+      changed();
+    } catch { failed(); }
+  });
+}
 export type FilmControlsProps = { media: RefObject<HTMLVideoElement | null>; stage: RefObject<HTMLElement | null>; copy: FilmCopy; locale: Locale; status: 'idle' | 'loading' | 'ready' | 'blocked' | 'error'; previous: () => void; next: () => void; hasPrevious: boolean; hasNext: boolean };
 function preserveButtonActivation(event: ReactKeyboardEvent<HTMLButtonElement>) {
   if (event.key === ' ' || event.key === 'Enter') event.stopPropagation();
@@ -55,6 +96,10 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
   const presentationEpoch = useRef(0);
   const fullscreenBusy = useRef(false);
   const fullscreenOwner = useRef<number | null>(null);
+  const nativeRequest = useRef<{ epoch: number; timer: ReturnType<typeof setTimeout> } | null>(null);
+  const nativeGuarded = useRef(false);
+  const nativeGesture = useRef<{ epoch: number; until: number } | null>(null);
+  const nativeActive = useRef(false);
   const orientationOwner = useRef<number | null>(null);
   const pipOwner = useRef<number | null>(null);
   const pipRequestSequence = useRef(0);
@@ -115,33 +160,73 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
   }, [ready, media, stage]);
 
   useEffect(() => {
-    const host = stage.current, dialog = host?.closest('dialog');
-    if (!host || !dialog) return;
-    const sync = () => setExpanded(document.fullscreenElement === host || host.dataset.fullWindow === 'true');
+    const host = stage.current, dialog = host?.closest('dialog'), video = media.current as PipVideo | null;
+    if (!host || !dialog || !video) return;
+    const sync = () => setExpanded(activeFullscreenElement() === host || Boolean(video.webkitDisplayingFullscreen));
     const collapse = () => {
-      presentationEpoch.current++; fullscreenBusy.current = false; fullscreenOwner.current = null; pipOwner.current = null; setMessage('');
+      presentationEpoch.current++; fullscreenBusy.current = false; fullscreenOwner.current = null; nativeActive.current = false; pipOwner.current = null; setMessage('');
       releaseOrientation();
       const video = media.current as PipVideo | null;
       if (video && document.pictureInPictureElement === video) void document.exitPictureInPicture().catch(() => {});
       if (video?.webkitPresentationMode === 'picture-in-picture') video.webkitSetPresentationMode?.('inline');
       menu.current?.querySelectorAll<HTMLElement>('media-chrome-menu').forEach(submenu => { submenu.hidden = true; });
-      host.removeAttribute('data-full-window'); dialog.removeAttribute('data-film-expanded'); setExpanded(false);
-      if (document.fullscreenElement === host) void document.exitFullscreen().catch(() => {});
+      host.removeAttribute('data-element-fullscreen'); dialog.removeAttribute('data-film-expanded'); setExpanded(false);
+      nativeGesture.current = null;
+      if (nativeRequest.current) {
+        nativeGuarded.current = true; clearTimeout(nativeRequest.current.timer);
+        nativeRequest.current = null;
+      }
+      if (video?.webkitDisplayingFullscreen) video.webkitExitFullscreen?.();
+      if (activeFullscreenElement() === host) void exitElementFullscreen().catch(() => {});
       if (menu.current) menu.current.hidden = true;
     };
-    const keyboard = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && host.dataset.fullWindow === 'true' && menu.current?.hidden) {
-        event.preventDefault(); event.stopPropagation(); collapse();
+    const cancel = (event: Event) => {
+      if (activeFullscreenElement() === host || video.webkitDisplayingFullscreen) { event.preventDefault(); collapse(); }
+    };
+    const nativeInput = (event: Event) => {
+      if (!event.isTrusted || !dialog.open || dialog.dataset.view === 'gallery') return;
+      // Native controls are in a closed UA shadow tree. A trusted video-control
+      // input or a two-finger pinch authorizes their following presentation event.
+      const pinch = event.type === 'touchstart' && (event as TouchEvent).touches.length >= 2;
+      if (pinch || video.controls) nativeGesture.current = { epoch: presentationEpoch.current, until: performance.now() + 1500 };
+    };
+    const nativeBegin = () => {
+      const request = nativeRequest.current;
+      if (request) clearTimeout(request.timer);
+      nativeRequest.current = null; fullscreenBusy.current = false;
+      const gesture = nativeGesture.current;
+      const userIntent = gesture?.epoch === presentationEpoch.current && gesture.until >= performance.now();
+      nativeGesture.current = null;
+      // Events have no request IDs. After cancellation, accept only a current
+      // explicit request, a fresh native gesture, or the still-active session.
+      const currentRequest = request?.epoch === presentationEpoch.current;
+      const stale = !currentRequest && !userIntent && !nativeActive.current && (nativeGuarded.current || Boolean(request));
+      if (!dialog.open || dialog.dataset.view === 'gallery' || stale) { video.webkitExitFullscreen?.(); return; }
+      nativeActive.current = true;
+      fullscreenOwner.current ??= presentationEpoch.current;
+      setMessage(''); setExpanded(true);
+    };
+    const nativeEnd = () => {
+      nativeGesture.current = null;
+      nativeActive.current = Boolean(video.webkitDisplayingFullscreen);
+      releaseOrientation();
+      sync();
+      if (dialog.open && dialog.dataset.view !== 'gallery') {
+        const focus = dialog.dataset.view === 'ended' ? host.querySelector<HTMLElement>('.film-ended__replay') : video;
+        focus?.focus({ preventScroll: true });
       }
     };
-    const cancel = (event: Event) => {
-      if (document.fullscreenElement === host || host.dataset.fullWindow === 'true') { event.preventDefault(); collapse(); }
+    const fullscreen = () => {
+      if (activeFullscreenElement() === host) {
+        if (!dialog.open || fullscreenOwner.current === null) { void exitElementFullscreen().catch(() => {}); return; }
+        host.setAttribute('data-element-fullscreen', 'true'); dialog.setAttribute('data-film-expanded', 'true');
+      } else { releaseOrientation(); host.removeAttribute('data-element-fullscreen'); dialog.removeAttribute('data-film-expanded'); }
+      sync();
     };
-    const fullscreen = () => { if (document.fullscreenElement !== host) { releaseOrientation(); if (!host.dataset.fullWindow) dialog.removeAttribute('data-film-expanded'); } sync(); };
-    document.addEventListener('fullscreenchange', fullscreen); document.addEventListener('keydown', keyboard);
+    document.addEventListener('fullscreenchange', fullscreen); document.addEventListener('webkitfullscreenchange', fullscreen); video.addEventListener('pointerdown', nativeInput); video.addEventListener('keydown', nativeInput); video.addEventListener('touchstart', nativeInput, { passive: true }); video.addEventListener('webkitbeginfullscreen', nativeBegin); video.addEventListener('webkitendfullscreen', nativeEnd);
     const closed = () => { if (!dialog.open) collapse(); };
     dialog.addEventListener('close', closed); dialog.addEventListener('cancel', cancel); host.addEventListener('film-exit-presentation', collapse);
-    return () => { collapse(); document.removeEventListener('fullscreenchange', fullscreen); document.removeEventListener('keydown', keyboard); dialog.removeEventListener('close', closed); dialog.removeEventListener('cancel', cancel); host.removeEventListener('film-exit-presentation', collapse); };
+    return () => { collapse(); document.removeEventListener('fullscreenchange', fullscreen); document.removeEventListener('webkitfullscreenchange', fullscreen); video.removeEventListener('pointerdown', nativeInput); video.removeEventListener('keydown', nativeInput); video.removeEventListener('touchstart', nativeInput); video.removeEventListener('webkitbeginfullscreen', nativeBegin); video.removeEventListener('webkitendfullscreen', nativeEnd); dialog.removeEventListener('close', closed); dialog.removeEventListener('cancel', cancel); host.removeEventListener('film-exit-presentation', collapse); };
   }, [stage, media]);
 
   useEffect(() => {
@@ -167,19 +252,43 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
     fullscreenBusy.current = true;
     const epoch = ++presentationEpoch.current;
     const current = () => epoch === presentationEpoch.current && host.isConnected && dialog.open;
-    let entering = false;
     setMessage('');
     try {
-      if (document.fullscreenElement === host) { await document.exitFullscreen(); return; }
-      if (host.dataset.fullWindow === 'true') { host.removeAttribute('data-full-window'); dialog.removeAttribute('data-film-expanded'); setExpanded(false); return; }
-      entering = true; fullscreenOwner.current = epoch;
-      // Reserve ownership before the asynchronous fullscreen request, so a late lock from
-      // an earlier session cannot unlock a newer one.
+      if (activeFullscreenElement() === host) { await exitElementFullscreen(); return; }
+      const video = media.current as PipVideo | null;
+      if (video?.webkitDisplayingFullscreen) { video.webkitExitFullscreen?.(); return; }
+      fullscreenOwner.current = epoch;
+      const canUseElement = (typeof host.requestFullscreen === 'function' && document.fullscreenEnabled !== false) || typeof (host as FullscreenHost).webkitRequestFullscreen === 'function';
+      if (!canUseElement) {
+        if (!video?.webkitEnterFullscreen || video.webkitSupportsFullscreen === false) throw new Error('Fullscreen unavailable');
+        // iPhone hands playback to Apple's native fullscreen player. The caller
+        // explicitly approved native controls where element fullscreen is absent.
+        // Native requests cannot be cancelled. Retire the bounded intent on
+        // timeout, and guard late events with actual user intent on recovery.
+        const outstanding = nativeRequest.current;
+        if (outstanding?.timer) clearTimeout(outstanding.timer);
+        const request = { epoch, timer: setTimeout(() => {
+          if (nativeRequest.current !== request) return;
+          nativeRequest.current = null; nativeGuarded.current = true;
+          if (request.epoch === presentationEpoch.current && dialog.open) {
+            fullscreenBusy.current = false; fullscreenOwner.current = null; setMessage(c.actionError);
+          }
+        }, 3000) };
+        nativeRequest.current = request;
+        try { video.webkitEnterFullscreen(); }
+        catch (error) {
+          clearTimeout(request.timer);
+          if (nativeRequest.current === request) nativeRequest.current = null;
+          throw error;
+        }
+        return;
+      }
+      // Reserve ownership before the asynchronous request so an old orientation
+      // completion cannot unlock a newer element-fullscreen session.
       if (window.matchMedia('(pointer: coarse)').matches && typeof screen.orientation?.lock === 'function') orientationOwner.current = epoch;
-      if (typeof host.requestFullscreen !== 'function' || !document.fullscreenEnabled) throw new Error('Use full-window controls');
-      await host.requestFullscreen();
-      if (!current() || document.fullscreenElement !== host) { if ((fullscreenOwner.current === null || fullscreenOwner.current === epoch) && document.fullscreenElement === host) await document.exitFullscreen(); return; }
-      dialog.setAttribute('data-film-expanded', 'true'); setExpanded(true);
+      await enterElementFullscreen(host);
+      if (!current() || activeFullscreenElement() !== host) { if ((fullscreenOwner.current === null || fullscreenOwner.current === epoch) && activeFullscreenElement() === host) await exitElementFullscreen(); return; }
+      host.setAttribute('data-element-fullscreen', 'true'); dialog.setAttribute('data-film-expanded', 'true'); setExpanded(true);
       if (orientationOwner.current === epoch) {
         // This is best-effort: unsupported or denied orientation lock still leaves the
         // native fullscreen usable and the device can rotate normally.
@@ -194,11 +303,9 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
     } catch {
       if (!current()) return;
       if (orientationOwner.current === epoch) releaseOrientation();
-      if (entering) {
-        // Keep HTML controls on iPhone instead of switching to the OS video-only player.
-        host.setAttribute('data-full-window', 'true'); dialog.setAttribute('data-film-expanded', 'true'); setExpanded(true);
-      } else setMessage(c.actionError);
-    } finally { if (epoch === presentationEpoch.current) fullscreenBusy.current = false; }
+      fullscreenOwner.current = null;
+      setMessage(c.actionError);
+    } finally { if (epoch === presentationEpoch.current && nativeRequest.current?.epoch !== epoch) fullscreenBusy.current = false; }
   };
   const pictureInPicture = async () => {
     const video = media.current as PipVideo | null;
@@ -210,7 +317,7 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
     try {
       if (document.pictureInPictureElement === video) await document.exitPictureInPicture();
       else if (document.pictureInPictureEnabled && video.requestPictureInPicture) {
-        if (document.fullscreenElement === stage.current) await document.exitFullscreen();
+        if (activeFullscreenElement() === stage.current) await exitElementFullscreen();
         await video.requestPictureInPicture();
       } else video.webkitSetPresentationMode?.(pip ? 'inline' : 'picture-in-picture');
       if ((epoch !== presentationEpoch.current || !dialog.open) && (pipOwner.current === null || pipOwner.current === request)) {

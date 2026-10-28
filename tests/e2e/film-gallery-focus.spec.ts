@@ -31,7 +31,7 @@ test('List exposes the current film and restores focus on close', async ({ page 
       await page.keyboard.press('Enter');
       await expect(dialog).toHaveAttribute('data-view', 'playing');
       await expect(page.locator('#film-playlist')).toBeVisible();
-      await expect(page.locator('.film-playlist__close')).toBeFocused();
+      await expect(page.locator('.film-playlist__item[aria-current=true]')).toBeFocused();
       const current = page.locator('.film-playlist__item[aria-current=true]');
       await expect(current).toContainText('Inside Ramsider');
       expect(Math.abs(await page.evaluate(() => window.scrollY) - scrollY)).toBeLessThan(2);

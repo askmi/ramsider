@@ -35,7 +35,11 @@ for (const locale of ['en', 'ar'] as const) {
       const seek = await page.locator('.film-seek').boundingBox();
       const time = await page.locator('.film-time').boundingBox();
       expect(seek).not.toBeNull(); expect(time).not.toBeNull();
-      expect(Math.abs(seek!.y + seek!.height / 2 - time!.y - time!.height / 2)).toBeLessThanOrEqual(2);
+      if (mode === 'portrait') {
+        expect(time!.y).toBeGreaterThanOrEqual(seek!.y + seek!.height - 1);
+        expect(Math.abs(time!.x + time!.width / 2 - viewport.width / 2)).toBeLessThanOrEqual(1);
+        expect(seek!.width).toBeGreaterThanOrEqual(viewport.width - 6);
+      } else expect(Math.abs(seek!.y + seek!.height / 2 - time!.y - time!.height / 2)).toBeLessThanOrEqual(2);
       for (const selector of ['.film-previous', '.film-play-toggle', '.film-next', '.film-mute-toggle', '.film-options__trigger', '.film-fullscreen']) {
         const bounds = await page.locator(selector).boundingBox();
         expect(bounds, selector).not.toBeNull();

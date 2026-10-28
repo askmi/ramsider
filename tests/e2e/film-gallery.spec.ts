@@ -83,7 +83,7 @@ test('gallery posters, all seven films, controls and cleanup', async ({ page }, 
     await dialog.locator('.film-player__list-toggle').click();
     await expect(dialog.locator('#film-playlist')).toBeVisible();
     await expect(dialog.locator('.film-playlist__item[aria-current=true]')).toContainText(titles[index]);
-    await dialog.locator('.film-playlist__close').click();
+    await dialog.locator('.film-player__list-toggle').click();
     await dialog.locator('.film-player__close').click();
     await expect(dialog).not.toBeVisible();
     await page.locator('#film-play').click();
@@ -154,7 +154,7 @@ test('film navigation, end choices and full-window gallery', async ({ page }, in
   await page.locator('.film-player__list-toggle').click();
   await expect(dialog.locator('#film-playlist')).toBeVisible();
   await expect(dialog.locator('.film-playlist__item[aria-current=true]')).toContainText('Ramsider Uno (Product Introduction)');
-  await dialog.locator('.film-playlist__close').click();
+  await dialog.locator('.film-player__list-toggle').click();
   await page.locator('.film-player__close').click();
   await expect(dialog).not.toBeVisible();
   await expect.poll(() => page.evaluate(() => !document.fullscreenElement && !document.querySelector('#film-player')?.hasAttribute('data-element-fullscreen'))).toBe(true);
@@ -246,7 +246,7 @@ test('keyboard activates player actions with Space', async ({ page }, info) => {
   await page.locator('.film-player__list-toggle').focus();
   await page.keyboard.press('Space');
   await expect(page.locator('#film-playlist')).toBeVisible();
-  await page.locator('.film-playlist__close').focus();
+  await page.locator('.film-player__list-toggle').focus();
   await page.keyboard.press('Space');
   await expect(page.locator('#film-playlist')).toHaveCount(0);
   await expect.poll(() => video.evaluate(element => (element as HTMLVideoElement).currentTime), { timeout: 30000 }).toBeGreaterThan(.2);

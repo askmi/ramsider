@@ -1,0 +1,369 @@
+{
+  "date": "2026-10-28",
+  "change": "CHG0169",
+  "status": "VERIFIED_LOCAL_PUBLICATION_PENDING",
+  "baseCommit": "0b5ba038e341beb04e4108b96412a512875e9b85",
+  "specification": {
+    "narrow": "≤560px seek full inner width, time centred lower row,6controls44px; <320timehidden per permitted option",
+    "playlist": "full measured player height;100% width narrow,40%wide (min260/max50%);rgba15/.72;no duplicated visible List header or extra Close",
+    "interaction": "single player Close, List toggle/Escape/outside dismissal, active/last item focus and scroll, two-activation selection; header and transport remain above panel"
+  },
+  "sourceSha256": {
+    "app/globals.css": "a9622d4f175c81fef9cef7a50ed33412cb26b677599cb1d0c41ea95262d5017b",
+    "components/ProductFilm.tsx": "cab71ff3f01c2fe4b9be778600ada8e5c73d6264e882ad9d96a11f8ee152df2b",
+    "tests/e2e/film-playlist-layout.spec.ts": "ec38db7e8e6191ef255b9747081a8e71c3c76f7ea9aea93f1164a2aed6a3eb82",
+    "tests/e2e/film-playlist.spec.ts": "203b64c8eca21e30eb8b73a7a3078d9bb576834885eea7e566c4f0171044bbe4",
+    "tests/e2e/film-gallery.spec.ts": "0b7c4ef63f63a0a2e16f105d681ddbcd34855b863877932811fc23c525112ad2",
+    "tests/e2e/film-gallery-focus.spec.ts": "d06f9edf923b91db05c6ab16df4ad57981ebf028e8d6fe984ac3fc80fbba262f",
+    "tests/e2e/film-poster-geometry.spec.ts": "8eb8bc9cdba7463986fd994e8b6fd86fec18c132237caeed831f128a77b8172a",
+    "tests/e2e/film-final-matrix.spec.ts": "cb6d9d362f2d95aaca26a3cf22b8844285e9aea8ec63f7c91fb44ff1dff083b4",
+    "tests/e2e/film-responsive-transport.spec.ts": "17d186f2a08a0958d851870a05250bf2a00a3220a5bbec2a834e0b04df9d2fd0"
+  },
+  "build": "PASS build4 /private/tmp/ramsider-chg0169-build4.log",
+  "types": "PASS types4 /private/tmp/ramsider-chg0169-types4.log",
+  "lint": "PASS final0errors4inheritedProductFilmwarnings; /private/tmp/ramsider-chg0169-lint-final.log",
+  "tests": {
+    "preHeightBroad": {
+      "pass": 41,
+      "profileSkips": 59,
+      "log": "/private/tmp/ramsider-chg0169-browser2.log"
+    },
+    "finalHeight": {
+      "pass": 19,
+      "profileSkips": 33,
+      "log": "/private/tmp/ramsider-chg0169-browser4.log"
+    },
+    "coverage": [
+      "Pro402x874/Max440x956DPR3 EN/ARportrait/landscape inline/customfullscreen adapter",
+      "realChromiumfullscreen280/320/560/561/768/1440",
+      "all11locale layout and overflow",
+      "all7actualduration glyph widths at320",
+      "soleClose/List/play/seek/settings hit-tests",
+      "lastitemscroll/currentfocus/keyboard/selection/ended/error",
+      "poster naturalratios",
+      "actualChromiumCDPmobiletouchseek"
+    ],
+    "darkFrame": "PASS Evolution74s, silent/errors0; dark-evolution.json"
+  },
+  "screenshots": "screenshots/video/chg0169/",
+  "integration": [
+    {
+      "name": "pro",
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "checks": "top, gallery open/close, audio caption absent, verified actual scroll end, no overflow, no page errors",
+      "bottomBefore": {
+        "y": 13259,
+        "viewport": 874,
+        "height": 14133,
+        "gap": 0
+      },
+      "bottomAfter": {
+        "y": 13259,
+        "viewport": 874,
+        "height": 14133,
+        "gap": 0
+      },
+      "positions": [
+        {
+          "y": 4484,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 8775
+        },
+        {
+          "y": 5052,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 8207
+        },
+        {
+          "y": 5620,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 7639
+        },
+        {
+          "y": 6188,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 7071
+        },
+        {
+          "y": 6756,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 6503
+        },
+        {
+          "y": 7324,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 5935
+        },
+        {
+          "y": 7892,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 5367
+        },
+        {
+          "y": 8460,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 4799
+        },
+        {
+          "y": 9028,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 4231
+        },
+        {
+          "y": 9596,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 3663
+        },
+        {
+          "y": 10164,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 3095
+        },
+        {
+          "y": 10732,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 2527
+        },
+        {
+          "y": 11300,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 1959
+        },
+        {
+          "y": 11868,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 1391
+        },
+        {
+          "y": 12436,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 823
+        },
+        {
+          "y": 13004,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 255
+        },
+        {
+          "y": 13259,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 0
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "max",
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "checks": "top, gallery open/close, audio caption absent, verified actual scroll end, no overflow, no page errors",
+      "bottomBefore": {
+        "y": 14475,
+        "viewport": 956,
+        "height": 15431,
+        "gap": 0
+      },
+      "bottomAfter": {
+        "y": 14475,
+        "viewport": 956,
+        "height": 15431,
+        "gap": 0
+      },
+      "positions": [
+        {
+          "y": 4908,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 9567
+        },
+        {
+          "y": 5529,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 8946
+        },
+        {
+          "y": 6150,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 8325
+        },
+        {
+          "y": 6771,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 7704
+        },
+        {
+          "y": 7392,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 7083
+        },
+        {
+          "y": 8013,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 6462
+        },
+        {
+          "y": 8634,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 5841
+        },
+        {
+          "y": 9255,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 5220
+        },
+        {
+          "y": 9876,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 4599
+        },
+        {
+          "y": 10497,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 3978
+        },
+        {
+          "y": 11118,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 3357
+        },
+        {
+          "y": 11739,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 2736
+        },
+        {
+          "y": 12360,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 2115
+        },
+        {
+          "y": 12981,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 1494
+        },
+        {
+          "y": 13602,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 873
+        },
+        {
+          "y": 14223,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 252
+        },
+        {
+          "y": 14475,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 0
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "review": {
+    "fullHeight": "CLEAN review4, static-only isolated checker; main runtime checks separate",
+    "cleanup": "CLEAN review5 /private/tmp/ramsider-chg0169-review5.log; no dangling references, assertions preserved",
+    "log": "/private/tmp/ramsider-chg0169-review4.log",
+    "snapshotExact": true
+  },
+  "performance": {
+    "phase": "chg0169-final",
+    "conditions": "Single cold Chromium mobile402×874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+    "initial": {
+      "ttfb": 45.09999990463257,
+      "fcp": 492,
+      "lcp": 696,
+      "cls": 0.00022206073455854325,
+      "jsBytes": 332514,
+      "completedBytes": 3207332,
+      "filmObjects": 6,
+      "readyImages": 28
+    },
+    "scroll": {
+      "samples": 336,
+      "movingFrames": 228,
+      "startY": 0,
+      "endY": 8623,
+      "p95Ms": 33.299999952316284,
+      "over33Ms": 18,
+      "reverseFrames": 0,
+      "maxReverse": 0,
+      "cls": 0.00022206073455854325,
+      "longTasks": [
+        90,
+        57,
+        399,
+        102,
+        54
+      ]
+    },
+    "errors": []
+  },
+  "independentAudit": {
+    "auditor": "/root/audit",
+    "scope": "PASS including latest fullheight steering",
+    "visual": "PASS fullheight custom DOM",
+    "behavior": "PASS affected browser scope",
+    "reviewPerformance": "PASS /root/audit 2026-10-28",
+    "finalRecords": "PASS /root/audit 2026-10-28, actual integration/footer/darkframe/source hashes"
+  },
+  "failureHistory": [
+    "build1 browser24PASS1FAIL39profileSKIP:560padding; fixedbuild2",
+    "type1 newQA image cast;fixed",
+    "initial faded transport capture replaced after opacitywait",
+    "review1 incorrectcwdmain aborted; scoped review relaunched",
+    "review2 P2min280timeoverlap;below320hiddenfallback,7PASStargetedpreheight",
+    "lint4 unusedQA local removed, final lint/review pending"
+  ],
+  "limitations": [
+    "Custom DOM layout/fullscreen adapters are not physical Apple native-player proof.",
+    "Full-repository lint37previous outside-scope errors remains open; affected lint separately recorded.",
+    "CHG0168 rapid full-document navigation resource errors remain OPEN; outside this diff.",
+    "No aligned pixel diff across dynamic/differently-sized user video frames."
+  ],
+  "technicalApproval": {
+    "date": "2026-10-28",
+    "verifier": "/root",
+    "verdict": "APPROVED_LOCAL",
+    "evidence": "build4/types4/lintfinal/review4+5/19PASS/darkframe/finalintegration/isolatedperformance/exact9hashes",
+    "independentFinal": "PASS /root/audit 2026-10-28"
+  },
+  "userApproval": "NOT_RECORDED",
+  "publication": "PENDING"
+}

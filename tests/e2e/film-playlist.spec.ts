@@ -55,7 +55,7 @@ test('playlist preserves playback and presentation; selection requires a second 
     await host.evaluate(el => el.removeAttribute('userinactive'));
     await toggle.click();
     await expect(page.locator('#film-playlist')).toBeVisible();
-    await page.locator('.film-playlist__close').focus();
+    await page.locator('.film-player__list-toggle').focus();
     await page.keyboard.press('Space');
     await expect(page.locator('#film-playlist')).toHaveCount(0);
     await expect(toggle).toBeFocused();

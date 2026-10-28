@@ -57,7 +57,7 @@ test('List label and playlist are usable in all eleven locales', async ({ page }
     await expect(list).toHaveAttribute('aria-label', galleryCopy[locale].list);
     await expect(list.locator('.film-playlist__item')).toHaveCount(7);
     await expect(list.locator('.film-playlist__item[aria-current=true]')).toHaveCount(1);
-    await page.locator('.film-playlist__close').click();
+    await page.locator('.film-player__list-toggle').click();
     await expect(toggle).toHaveAttribute('aria-expanded', 'false');
     await expect(toggle).toBeFocused();
     await page.locator('.film-player__close').click();

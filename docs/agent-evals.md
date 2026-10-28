@@ -332,3 +332,7 @@ CHG0162 extension to EVAL-MAP: two player panels should fade together; reveal by
 CHG0165 public follow-up: проверить что тест ждёт metadata выбранного media и distinguishes exact-duration seek from near-end natural playback. Controlled run NOT_RUN.
 
 2026-10-28 CHG0166 extension to EVAL-VIEWER / EVAL-HLS-ENTRYPOINT: failure trace is silent full-window accepted as fullscreen and custom-owner-only native begin handler. Acceptance now separates system chrome, adapter layout and native controls/pinch; includes actual screenshot+settled opacity and both-axis touch targets after breakpoint migration. Controlled agent run NOT_RUN; product regression outcomes are recorded under CHG0166 and do not certify agent behavioral improvement.
+
+## CHG0169 — EVAL-MAP / EVAL-VIEWER extension: player row and full-height overlay
+
+Проверять отдельные acceptance для fullseek/centeredtime/280pxhiddenfallback, fullwidth/fullheight panel и translucent background, единственный Close и действительные hit-tests верхнего/нижнего chrome, current/lastitem scroll/focus и 7longtime glyph widths; повторять affected gates после уточнения userheight. Проверять actual review cwd и settled screenshot opacity/current media. Controlled agent run NOT_RUN; product browser19PASS и native review результаты не являются controlled agent evaluation.

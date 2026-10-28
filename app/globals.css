@@ -512,7 +512,7 @@ html:has(#product-film[open]){overflow:hidden;overscroll-behavior:none}
 .film-gallery__small-play svg{width:14px;fill:white;margin-inline-start:2px}
 .film-gallery__item-title,.film-gallery__wide-number{display:none}
 .film-player__top{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:10px;pointer-events:none}
-.product-film .film-player__top button,.film-player__top span{pointer-events:auto;border:1px solid #ffffff90;background:#171717c9;border-radius:30px;padding:6px 14px;color:white;font-size:13px;min-height:40px}
+.product-film .film-player__top button,.film-player__top span{pointer-events:auto;border:1px solid #ffffff90;background:#171717a6;border-radius:30px;padding:6px 14px;color:white;font-size:13px;min-height:40px}
 .film-ended{box-sizing:border-box;display:grid;gap:10px;width:min(90%,430px);max-height:80%;overflow:auto;padding:18px;border:1px solid #ffffff55;border-radius:18px;background:#161616e8;text-align:center}
 .film-ended strong{font-size:20px}
 .film-ended__next{display:flex;align-items:center;gap:15px;text-align:start;font-size:13px;color:#ddd}

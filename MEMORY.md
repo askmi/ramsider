@@ -341,3 +341,6 @@ CHG0158 VERIFIED_LOCAL 2026-10-28, /root technical APPROVED_LOCAL; /root/audit_f
 
 ## Player title alignment — 2026-10-28
 CHG0159 APPROVED_LOCAL: `.film-player__identity` centers text vertically, preserving multiline wrapping. Production WebKit eight states Pro/Max/320/landscape/RTL/fullscreen center Δ0, playback/All Films/Close PASS; actual screenshots reviewed by /root and /root/audit. Build/typecheck/native review PASS; single local scroll p95 33.1 ms/17 frames >33, physical devices/field INP unverified. Main deployment pending.
+
+## Player title and translucency — 2026-10-28
+CHG0160/0161 VERIFIED_LOCAL: upper identity shows only film title; top controls use #171717a6 (alpha .65). Pro/Max/landscape/RTL/fullscreen real WebKit 7 titles and light/dark screenshots, audio selection, controls PASS; 11 locales matrix, build/typecheck/native review PASS; /root technical APPROVED_LOCAL and /root/audit_title visual/behavior PASS. Main publication pending; physical devices/field INP not measured.

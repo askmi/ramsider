@@ -702,3 +702,6 @@ CHG0158 menu/layer interaction → changing the end-card z-order made the settin
 CHG0158 native ended quality → opening menu and traversing submenus did not reveal that choosing 720p on WebKit removes the finished state. Exercise actual quality and speed selections after end on native WebKit, including fullscreen and short landscape, and assert state plus visible choices remain correct; compare Chromium separately. EVAL-HLS-ENTRYPOINT/EVAL-MAP controlled NOT_RUN.
 
 CHG0158 focus visibility → focus may land on the selected thumbnail outside a scrollable strip. Check the focused item against the clipping ancestor after returning from a later film, across RTL and horizontal/vertical lists, and preserve document scroll. Test keyboard activation and inspect the visible focus outline. EVAL-MAP controlled NOT_RUN.
+
+## CHG0159 — Вертикальный центр текста в высоком контейнере
+Проблема: пользователь увидел, что текст названия фильма поднят в высоком контейнере. Причина: при CHG0158 проверялись перенос и отсутствие обрезки, но не положение текста относительно центра контейнера. Предотвращение: сравнивать реальные снимки и центры текста и контейнера для одно- и многострочных состояний на portrait/landscape/RTL/fullscreen. EVAL-MAP controlled NOT_RUN.

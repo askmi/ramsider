@@ -310,3 +310,5 @@ CHG0158 menu/layer extension to EVAL-MAP: after a card z-index fix, verify the g
 CHG0158 native-ended-quality extension to EVAL-HLS-ENTRYPOINT: on WebKit end playback, choose a concrete quality then speed and confirm end-card remains and choices stay usable; distinguish menu navigation from selection. Controlled agent evaluation NOT_RUN.
 
 CHG0158 focus-strip extension to EVAL-MAP: navigate to the last film then return by keyboard, verify focused selected thumbnail lies fully within its scrolling list without moving the page in LTR/RTL and portrait/landscape. Controlled agent evaluation NOT_RUN.
+
+CHG0159 extension to EVAL-MAP: a title remains readable and untruncated but sits high inside its minimum-height container; inspect the screenshot and check text-to-container vertical centers across one/multiline, portrait/landscape, RTL and fullscreen. Controlled agent evaluation NOT_RUN.

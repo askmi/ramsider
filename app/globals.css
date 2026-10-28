@@ -547,7 +547,7 @@ html:has(#product-film[open]){overflow:hidden;overscroll-behavior:none}
 .film-player__top,.film-ended{line-height:1.35}
 .film-player__top{gap:6px}
 .product-film .film-player__top button{flex:none;min-width:44px;min-height:44px;white-space:nowrap;line-height:1.2}
-.film-player__identity{flex:1;min-width:0;line-height:1.2}
+.film-player__identity{display:flex;align-items:center;flex:1;min-width:0;line-height:1.2}
 .film-ended strong,.film-ended__next b{overflow-wrap:anywhere;line-height:1.25}
 .film-ended__actions button{min-width:0;line-height:1.2;overflow-wrap:anywhere}
 @media (orientation:portrait){

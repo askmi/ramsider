@@ -684,6 +684,17 @@ html:has(#product-film[open]){overflow:hidden;overscroll-behavior:none}
  .product-film[data-view=playing] .film-player video{object-fit:cover}
 }
 
+/* Fill the visible picture, excluding the baked letterbox in these two films.
+   Only the media grows; the controller continues to clip it behind its chrome.
+   The approved proportional crop also trims the wider end shot of Our Style. */
+.film-player[data-film-id=our-style]{--film-picture-height:calc(100% * 2160 / 1576)}
+.film-player[data-film-id=diy-madness]{--film-picture-height:calc(100% * 2160 / 1552)}
+.film-player[data-controls=ready]:is([data-film-id=our-style],[data-film-id=diy-madness]){overflow:clip}
+.product-film .film-player[data-controls=ready]:is([data-film-id=our-style],[data-film-id=diy-madness]):is(:fullscreen,[data-element-fullscreen=true]) video{position:absolute;top:50%;height:var(--film-picture-height);transform:translateY(-50%)}
+@media (hover:none) and (orientation:landscape) and (max-height:500px){
+ .product-film[data-view=playing] .film-player[data-controls=ready]:is([data-film-id=our-style],[data-film-id=diy-madness]) video{position:absolute;top:50%;height:var(--film-picture-height);transform:translateY(-50%)}
+}
+
 @container film-player (min-width:561px){.film-playlist{width:40%;min-width:260px;max-width:50%}}
 
 /* At the 280px minimum there is no room between six 44px controls for time. */

@@ -1,0 +1,336 @@
+{
+  "change": "CHG0171",
+  "date": "2026-10-29",
+  "status": "VERIFIED_LOCAL_WEBPLAYER",
+  "request": "User go authorizes proportional enlargement with cropped edges for expanded web player",
+  "runtimeChanged": true,
+  "assetsChanged": false,
+  "publicationAttempted": false,
+  "branch": "main",
+  "sourceCanvas": "All7 source canvases16:9;4/5/6 are3840x2160 SAR1:1",
+  "geometry": "Uniform scale preserves shape. Filling different screen aspect requires cropping some content; fullframe+no bars+no distortion cannot all hold for unequal ratios",
+  "nativeLimit": "PhysicalApplefullscreen framing remains unverified; CSS/browser layout is not nativeOS evidence",
+  "baseline": [
+    {
+      "title": "Our Style",
+      "videoWidth": 1280,
+      "videoHeight": 720,
+      "fit": "cover",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 874,
+        "h": 402
+      },
+      "innerWidth": 874,
+      "innerHeight": 402,
+      "muted": true,
+      "volume": 0
+    },
+    {
+      "title": "DIY Madness",
+      "videoWidth": 1280,
+      "videoHeight": 720,
+      "fit": "cover",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 874,
+        "h": 402
+      },
+      "innerWidth": 874,
+      "innerHeight": 402,
+      "muted": true,
+      "volume": 0
+    },
+    {
+      "title": "Copycats",
+      "videoWidth": 1280,
+      "videoHeight": 720,
+      "fit": "cover",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "w": 874,
+        "h": 402
+      },
+      "innerWidth": 874,
+      "innerHeight": 402,
+      "muted": true,
+      "volume": 0
+    }
+  ],
+  "sourceCropSamples": [
+    {
+      "film": 4,
+      "time": 2,
+      "detectedBounds": "3840:1352:0:292"
+    },
+    {
+      "film": 4,
+      "time": 12,
+      "detectedBounds": "138:596:2666:1268"
+    },
+    {
+      "film": 4,
+      "time": 22,
+      "detectedBounds": "-3838:390:3840:898"
+    },
+    {
+      "film": 4,
+      "time": 32,
+      "detectedBounds": "3042:1276:0:292"
+    },
+    {
+      "film": 5,
+      "time": 2,
+      "detectedBounds": "3612:1552:122:304"
+    },
+    {
+      "film": 5,
+      "time": 12,
+      "detectedBounds": "3840:1552:0:304"
+    },
+    {
+      "film": 5,
+      "time": 22,
+      "detectedBounds": "3840:1552:0:304"
+    },
+    {
+      "film": 5,
+      "time": 42,
+      "detectedBounds": "3730:1552:0:304"
+    },
+    {
+      "film": 5,
+      "time": 62,
+      "detectedBounds": "3840:1552:0:304"
+    },
+    {
+      "film": 6,
+      "time": 2,
+      "detectedBounds": "3606:2160:0:0"
+    },
+    {
+      "film": 6,
+      "time": 12,
+      "detectedBounds": "3590:2094:250:60"
+    },
+    {
+      "film": 6,
+      "time": 22,
+      "detectedBounds": "3840:2160:0:0"
+    },
+    {
+      "film": 6,
+      "time": 42,
+      "detectedBounds": "3318:2160:0:0"
+    },
+    {
+      "film": 6,
+      "time": 62,
+      "detectedBounds": "3840:2160:0:0"
+    }
+  ],
+  "userResultApproval": "NOT_RECORDED",
+  "investigationApproval": {
+    "date": "2026-10-29",
+    "verifier": "/root",
+    "verdict": "APPROVED_INVESTIGATION_ONLY",
+    "independentAuditor": "/root/audit",
+    "independentVerdict": "PASS research-only scope/feasibility; viewed user/source/actualPro images and inspected metadata",
+    "fixApproval": "NOT_GRANTED no implementation"
+  },
+  "implementation": {
+    "files": [
+      "components/ProductFilm.tsx",
+      "app/globals.css",
+      "tests/e2e/film-wide-picture.spec.ts"
+    ],
+    "apertures": {
+      "our-style": {
+        "top": 292,
+        "height": 1576,
+        "canvasHeight": 2160,
+        "note": "Scene-fill window; wider end shot is intentionally cropped"
+      },
+      "diy-madness": {
+        "top": 304,
+        "height": 1552,
+        "canvasHeight": 2160
+      }
+    },
+    "geometry": "ready custom controls only; video width100%, height=hostHeight*2160/apertureHeight, centered vertically, objectfitcover; overflowclip prevents focus/scrollIntoView moving host",
+    "unchanged": [
+      "normal portrait",
+      "film6 and other films",
+      "masters, HLS encodes, audio, manifests, sources",
+      "nativeApplefullscreen lifecycle"
+    ],
+    "build": "PASS build2",
+    "types": "PASS types-final",
+    "scopedLint": "PASS final 0errors4inheritedwarnings",
+    "browser": "PASS browser4 19 cases /14 intentional profile skips; failurehistory retained in CHANGELOG",
+    "review": {
+      "kind": "native codex review --uncommitted",
+      "result": "CLEAN noactionable",
+      "log": "/private/tmp/ramsider-chg0171-review1.log",
+      "hashes": {
+        "components/ProductFilm.tsx": "48921cd76295afc67370676ec56a3865601d86611993b84108bcc9786f5d7f9b",
+        "app/globals.css": "7cdcea5f05ebbb894aef71c85df0706df191ec2ee75b4b37f0cc59a0455cc317",
+        "tests/e2e/film-wide-picture.spec.ts": "2fb71437282d538a2329d27caa019e4f028e6b1bbfdf61bb6803346ab39a8996"
+      },
+      "limit": "Snapshot lacks installed dependencies; browser/build checks executed by main"
+    },
+    "integration": {
+      "status": "PASS",
+      "resultPath": "screenshots/video/wide-picture/integration/result.json",
+      "actualFilm": "Our Style playback and close before full-page walk",
+      "viewedBy": "/root",
+      "profiles": [
+        {
+          "name": "pro",
+          "bottomBefore": {
+            "y": 13259,
+            "viewport": 874,
+            "height": 14133,
+            "gap": 0
+          },
+          "bottomAfter": {
+            "y": 13259,
+            "viewport": 874,
+            "height": 14133,
+            "gap": 0
+          },
+          "positions": 17,
+          "errors": []
+        },
+        {
+          "name": "max",
+          "bottomBefore": {
+            "y": 14475,
+            "viewport": 956,
+            "height": 15431,
+            "gap": 0
+          },
+          "bottomAfter": {
+            "y": 14475,
+            "viewport": 956,
+            "height": 15431,
+            "gap": 0
+          },
+          "positions": 17,
+          "errors": []
+        }
+      ]
+    },
+    "performance": {
+      "phase": "chg0171-final",
+      "conditions": "Single cold Chromium mobile402×874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+      "initial": {
+        "ttfb": 70.29999995231628,
+        "fcp": 700,
+        "lcp": 1040,
+        "cls": 0.00022206073455854325,
+        "jsBytes": 332525,
+        "completedBytes": 3207456,
+        "filmObjects": 6,
+        "readyImages": 28
+      },
+      "scroll": {
+        "samples": 307,
+        "movingFrames": 204,
+        "startY": 0,
+        "endY": 8718,
+        "p95Ms": 32.799999952316284,
+        "over33Ms": 12,
+        "reverseFrames": 0,
+        "maxReverse": 0,
+        "cls": 0.00022206073455854325,
+        "longTasks": [
+          74,
+          55,
+          417,
+          52,
+          69,
+          51
+        ]
+      },
+      "errors": []
+    },
+    "independentVisualBehavior": "PASS /root/audit 2026-10-29; actual current images and 19PASS/14intentionalSKIP inspected",
+    "performanceRepeat": {
+      "phase": "chg0171-repeat",
+      "conditions": "Single cold Chromium mobile402×874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+      "initial": {
+        "ttfb": 26.59999990463257,
+        "fcp": 412,
+        "lcp": 508,
+        "cls": 0.00022206073455854325,
+        "jsBytes": 332525,
+        "completedBytes": 3207456,
+        "filmObjects": 6,
+        "readyImages": 28
+      },
+      "scroll": {
+        "samples": 322,
+        "movingFrames": 176,
+        "startY": 0,
+        "endY": 13259,
+        "p95Ms": 32.80000019073486,
+        "over33Ms": 15,
+        "reverseFrames": 0,
+        "maxReverse": 0,
+        "cls": 0.00022206073455854325,
+        "longTasks": [
+          80,
+          55,
+          404,
+          50,
+          53
+        ]
+      },
+      "errors": []
+    },
+    "performanceConclusion": "Two current isolated samples LCP1040/508ms, CLS unchanged, JS+11B, same6startupobjects, scrollp9532.8ms/errors0; substantial timing variance, no causal speed/fieldINP/Lighthouse claim; no meaningful new measured clientcost",
+    "screenshotDirectory": "screenshots/video/wide-picture/after",
+    "representativeScreenshots": [
+      "iphone-17-pro-webkit-en-our-style-landscape-402.png",
+      "iphone-17-pro-webkit-en-diy-madness-landscape-402.png",
+      "iphone-17-pro-webkit-en-our-style-end-shot.png",
+      "iphone-17-pro-webkit-en-our-style-portrait.png",
+      "iphone-17-pro-max-webkit-ar-diy-madness-landscape-440.png",
+      "iphone-17-pro-max-webkit-ar-copycats-fullscreen-adapter.png",
+      "iphone-17-pro-webkit-our-style-quality-144.png",
+      "chromium-our-style-1440-fullscreen-fallback.png"
+    ]
+  },
+  "technicalApproval": {
+    "date": "2026-10-29",
+    "verifier": "/root",
+    "verdict": "APPROVED_LOCAL_WEBPLAYER",
+    "evidence": "build2/typesfinal/scopedlint0errors4oldwarnings/native review1 exact3hashes/19PASS14profileSKIP/actualProMaxENARframes/integration2profiles/performance2samples",
+    "independentAuditor": "/root/audit",
+    "independentVisualBehavior": "PASS",
+    "independentFinalRecordsReviewPerformance": "PASS /root/audit 2026-10-29; native review/exacthashes, isolatedperformance, actualintegrationimages/results and currentrecords inspected",
+    "nativeOS": "UNVERIFIED unchanged AppleOSframing, original customer presentation unknown"
+  },
+  "observationsBeforeFix": [
+    "Source4/5 contain baked top/bottom black regions in inspected frames; cropdetect can mistake dark scene content for padding, so no fixedcrop approved",
+    "Source6 inspected samples/sheet show no fixed topbottompadding; do not apply4/5 crop blindly",
+    "Actual WebKit Pro portrait-to-landscape874x402 decoded all3 at15s: fullviewport video rect, objectfitcover, silent. Source4/5 internalpadding remains;6 fills",
+    "User screenshot blackborder presentation mode/browser unknown; cannot infer nativeOS from hiddencontrols"
+  ],
+  "baselineScreenshots": [
+    "screenshots/video/wide-picture/before/film-4-pro-landscape.png",
+    "screenshots/video/wide-picture/before/film-5-pro-landscape.png",
+    "screenshots/video/wide-picture/before/film-6-pro-landscape.png"
+  ],
+  "publication": {
+    "status": "PENDING_PROVIDER_ACCESS_OR_BETA_EXCEPTION",
+    "authorizedTarget": "origin/main and production ramsider",
+    "constraint": "Do not update beta; existing Gitintegration auto-deploys both projects from main",
+    "access": "VercelCLI noexistingcredentials; browserproviderpage blocked by businesspolicy; no bypass attempted",
+    "uiSourceHashesUnchanged": true
+  }
+}

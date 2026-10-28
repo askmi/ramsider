@@ -344,3 +344,6 @@ CHG0159 APPROVED_LOCAL: `.film-player__identity` centers text vertically, preser
 
 ## Player title and translucency — 2026-10-28
 CHG0160/0161 VERIFIED_LOCAL: upper identity shows only film title; top controls use #171717a6 (alpha .65). Pro/Max/landscape/RTL/fullscreen real WebKit 7 titles and light/dark screenshots, audio selection, controls PASS; 11 locales matrix, build/typecheck/native review PASS; /root technical APPROVED_LOCAL and /root/audit_title visual/behavior PASS. Main publication pending; physical devices/field INP not measured.
+
+## Player controls visibility — 2026-10-28
+CHG0162 VERIFIED_LOCAL, /root APPROVED_LOCAL, independent /root/auditor visual and /root/audit_behavior behavior PASS: top and bottom chrome fade together, borderless matching translucent black surfaces and larger close; skip icons triangle+bar; seek/volume tracks enlarge 3→6px on hover/active without pointer/hover fill. Pro/Max/Chromium controls21 PASS/12 profile skips, loading2/2, gallery11/10; native review5 no actionable, production build/typecheck PASS; physical devices and continuous WebKit touch drag not tested. Preserve unrelated working files.

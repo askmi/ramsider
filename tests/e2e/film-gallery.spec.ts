@@ -1,10 +1,24 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 import { silenceTestMedia } from './silent-media';
 
 test.use({ serviceWorkers: 'block' });
 test.beforeEach(async ({ page }) => silenceTestMedia(page));
 test.setTimeout(180000);
+
+// A hidden chrome intentionally does not intercept pointer input. Reproduce the
+// user gesture that reveals it before testing its top actions.
+async function revealTop(page: Page, touch: boolean) {
+  const stage = page.locator('#film-player');
+  if (await stage.evaluate(el => el.hasAttribute('userinactive'))) {
+    const box = await page.locator('video').boundingBox();
+    if (!box) throw new Error('Video is not visible for control activity');
+    const x = box.x + box.width / 2, y = box.y + box.height / 2;
+    if (touch) await page.touchscreen.tap(x, y);
+    else { await page.mouse.move(x - 2, y); await page.mouse.move(x, y); }
+  }
+  await expect.poll(() => page.locator('.film-player__top').evaluate(el => Number(getComputedStyle(el).opacity))).toBe(1);
+}
 
 test('gallery posters, all seven films, controls and cleanup', async ({ page }, info) => {
   const errors: string[] = [];
@@ -63,6 +77,7 @@ test('gallery posters, all seven films, controls and cleanup', async ({ page }, 
       await page.waitForTimeout(600); // Allow Media Chrome's control fade-in to finish before capture.
       await page.screenshot({ path: `screenshots/video/gallery/playing-${info.project.name}.png` });
     }
+    await revealTop(page, info.project.name.includes('iphone'));
     await dialog.locator('.film-player__top button').first().click();
     await expect(dialog).toHaveAttribute('data-view', 'gallery');
     await expect(items.nth(index)).toBeFocused();
@@ -128,6 +143,7 @@ test('film navigation, end choices and full-window gallery', async ({ page }, in
   expect(fullscreenCard!.y + fullscreenCard!.height).toBeLessThanOrEqual(fullscreenTransport!.y + 1);
   await page.locator('.film-play-toggle').hover();
   await page.screenshot({ path: `screenshots/video/gallery/fullscreen-ended-${info.project.name}.png` });
+  await revealTop(page, info.project.name.includes('iphone'));
   await page.locator('.film-player__top button').first().click();
   await expect(dialog).toHaveAttribute('data-view', 'gallery');
   await expect(dialog.locator('.film-gallery__hero')).toBeVisible();

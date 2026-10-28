@@ -258,9 +258,9 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
     </MediaSettingsMenu>
     <MediaControlBar className="film-transport" dir="ltr">
       <div className="film-transport__row">
-        <button type="button" className="film-skip film-previous" aria-label={galleryCopy[locale].previous} disabled={!hasPrevious} onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={previous}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v16M19 5 9 12l10 7V5ZM10 5 2 12l8 7V5Z" /></svg></button>
+        <button type="button" className="film-skip film-previous" aria-label={galleryCopy[locale].previous} disabled={!hasPrevious} onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={previous}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5 7 12l12 7Z" stroke="none" /><path d="M4 5v14" fill="none" strokeWidth="2" /></svg></button>
         <MediaPlayButton className="film-play-toggle" noTooltip />
-        <button type="button" className="film-skip film-next" aria-label={galleryCopy[locale].next} disabled={!hasNext} onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={next}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4v16M5 5l10 7-10 7V5Zm9 0 8 7-8 7V5Z" /></svg></button>
+        <button type="button" className="film-skip film-next" aria-label={galleryCopy[locale].next} disabled={!hasNext} onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={next}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l12 7-12 7Z" stroke="none" /><path d="M20 5v14" fill="none" strokeWidth="2" /></svg></button>
         <MediaTimeDisplay showDuration className="film-time" />
         <MediaTimeRange className="film-seek" aria-label={c.seek} />
         <MediaMuteButton className="film-mute-toggle" noTooltip />

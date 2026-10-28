@@ -314,3 +314,5 @@ CHG0158 focus-strip extension to EVAL-MAP: navigate to the last film then return
 CHG0159 extension to EVAL-MAP: a title remains readable and untruncated but sits high inside its minimum-height container; inspect the screenshot and check text-to-container vertical centers across one/multiline, portrait/landscape, RTL and fullscreen. Controlled agent evaluation NOT_RUN.
 
 CHG0160–0161 extension to EVAL-MAP: user removes audio label and ordinal from the player title and requires translucent overlays; verify exact title for every video, actual light/dark frames, readability and locale fallback rather than restoring incidental metadata. Controlled agent evaluation NOT_RUN.
+
+CHG0162 extension to EVAL-MAP: two player panels should fade together; reveal by real pointer/touch, test first touch over hidden Close/All Films versus second activation, menu/keyboard/fallback and fullscreen; time and volume tracks thicken on hover/drag without an added rectangular highlight. Inspect real light/dark and RTL images. Controlled agent evaluation NOT_RUN.

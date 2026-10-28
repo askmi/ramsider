@@ -580,15 +580,17 @@ html:has(#product-film[open]){overflow:hidden;overscroll-behavior:none}
 }
 
 /* Keep every transport target at least 44px while retaining a usable seek range. */
-@media(max-width:500px){
+@media(max-width:500px), (orientation:landscape) and (max-height:500px){
  .film-transport__row{flex-wrap:wrap}
  .film-transport media-play-button,.film-transport media-mute-button,.film-transport media-settings-menu-button,.product-film .film-fullscreen,.product-film .film-skip{width:44px;height:44px;padding:8px}
+ .film-transport .film-volume{height:44px}
  .film-transport .film-mute-toggle{margin-left:auto}
- .film-transport__row::after{content:"";order:1;flex-basis:100%;height:0}
- .film-transport .film-time{order:2;min-height:44px;display:flex;align-items:center;flex:none}
- .film-transport .film-seek{order:3;min-height:44px;max-height:44px;min-width:44px;flex:1}
+ .film-transport__row::after{content:"";order:-1;flex-basis:100%;height:0}
+ .film-transport .film-time{order:-2;min-height:44px;display:flex;align-items:center;flex:none}
+ .film-transport .film-seek{order:-2;min-height:44px;max-height:44px;min-width:44px;flex:1}
  .film-player .film-settings{bottom:94px;max-height:calc(100% - 106px);--media-menu-max-height:calc(100% - 106px)}
 }
+@media(max-width:350px){.film-transport .film-volume{width:44px}}
 
 .film-transport{background:linear-gradient(rgb(0 0 0 / .72),rgb(0 0 0 / .82))}
 @media(max-width:500px) and (orientation:portrait){
@@ -624,6 +626,13 @@ html:has(#product-film[open]){overflow:hidden;overscroll-behavior:none}
  .film-player:has(.film-ended)::part(centered-layer){bottom:100px}
 }
 @media (orientation:landscape){.film-player:has(.film-ended)::part(centered-layer){bottom:55px}.product-film[data-view=ended] .film-ended{max-height:100%}}
+@media (orientation:landscape) and (max-height:500px){.film-player:has(.film-ended)::part(centered-layer){bottom:calc(104px + env(safe-area-inset-bottom))}}
+@media (orientation:landscape) and (max-height:500px){
+ .product-film[data-view=ended] .film-ended{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .film-ended>strong,.film-ended__next{grid-column:1 / -1}
+ .film-ended__actions{display:contents}
+ .product-film .film-ended__actions button,.product-film .film-ended__all{min-width:0;min-height:44px;padding:6px;font-size:12px}
+}
 .film-player:has(.film-ended) .film-settings{z-index:3}
 @media (orientation:landscape) and (max-height:500px){
  .product-film[data-view=playing] .product-film__notes{display:none}
@@ -635,4 +644,10 @@ html:has(#product-film[open]){overflow:hidden;overscroll-behavior:none}
  .product-film[data-view=playing] .film-player:not(:fullscreen):not([data-full-window=true]){height:100dvh}
  .film-player:has(#film-options-menu:not([hidden])) .film-time,.film-player:has(#film-options-menu:not([hidden])) .film-seek{display:none}
  .film-player .film-settings,.film-player:fullscreen .film-settings,.film-player[data-full-window=true] .film-settings{bottom:58px;max-height:calc(100% - 130px);--media-menu-max-height:calc(100% - 130px)}
+}
+
+/* A phone turned sideways gives the playing film the available landscape viewport. */
+@media (hover:none) and (orientation:landscape) and (max-height:500px){
+ .product-film[data-view=playing]{inset:0;width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;border-radius:0;overflow:hidden}
+ .product-film[data-view=playing] .film-player:not(:fullscreen):not([data-full-window=true]){width:100%;height:100%;max-height:none;flex:none}
 }

@@ -320,3 +320,7 @@ CHG0162 extension to EVAL-MAP: two player panels should fade together; reveal by
 ## CHG0163 — EVAL-MAP extension: controls inactivity
 
 Проверять воспроизводимое пробуждение скрытой панели реальным действием перед hover и повторно перед click; отслеживать возврат начертания после ухода указателя. Controlled run: NOT_RUN.
+
+## CHG0164 — EVAL-MAP extension: mobile gestures and overlay geometry
+
+Проверять реальные tap pause/resume, непрерывный drag видео/seek, поворот portrait/landscape и overlay hit-test в playing/ended/fullscreen; менять тестовые helpers вместе с семантикой жестов. Controlled run: NOT_RUN.

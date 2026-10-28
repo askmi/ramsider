@@ -29,11 +29,14 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
   const unconfigure = useRef<(() => void) | null>(null);
   const pendingFocus = useRef<'player' | 'gallery' | null>(null);
   const touchStartedWithHiddenTop = useRef(false);
+  const touchPlayEpoch = useRef(0);
   const [Controls, setControls] = useState<ComponentType<FilmControlsProps> | null>(null);
   const [index, setIndex] = useState(0);
   const [opened, setOpened] = useState(false);
   const [view, setView] = useState<'gallery' | 'playing' | 'ended'>('gallery');
   const [status, setStatus] = useState<'idle' | 'loading' | 'ready' | 'blocked' | 'error'>('idle');
+  const statusRef = useRef(status);
+  useEffect(() => { statusRef.current = status; }, [status]);
   const film = films[index], c = galleryCopy[locale];
   useLayoutEffect(() => {
     const applyFocus = () => {
@@ -64,16 +67,67 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
     const openObserver = new MutationObserver(() => { const isOpen = Boolean(dialog.current?.open); setOpened(isOpen); if (isOpen) upgrade(); });
     if (dialog.current) openObserver.observe(dialog.current, { attributes: true, attributeFilter: ['open'] });
     unconfigure.current = configureFilmQualities(media, films[0].qualities);
-    const feedback = (event: Event) => { if (dialog.current?.open) setStatus((event as CustomEvent<'loading' | 'blocked' | 'error'>).detail); };
+    const feedback = (event: Event) => { if (dialog.current?.open) { const next = (event as CustomEvent<'loading' | 'blocked' | 'error'>).detail; statusRef.current = next; setStatus(next); } };
     media.addEventListener('film-status', feedback);
     const stopPreload = prepareFilmStart(media, films[0].preload, signal => warmFilmEngine(media, signal));
     const observer = new IntersectionObserver(entries => { if (entries.some(entry => entry.isIntersecting)) { warmFilmEngine(media); upgrade(); observer.disconnect(); } }, { rootMargin: '600px' });
     const opener = document.getElementById('film-play'); if (opener) observer.observe(opener);
     return () => { alive = false; openObserver.disconnect(); stopPreload(); observer.disconnect(); media.removeEventListener('film-status', feedback); releaseFilm(media); unconfigure.current?.(); };
   }, [films]);
+  useEffect(() => {
+    const media = video.current, host = stage.current;
+    if (!media || !host) return;
+    let gesture: { id: number; x: number; y: number; time: number; horizontal: boolean; moved: boolean } | null = null;
+    const start = (event: TouchEvent) => {
+      if (event.touches.length !== 1 || event.target !== media || host.dataset.controls !== 'ready' || dialog.current?.dataset.view !== 'playing') { gesture = null; return; }
+      const touch = event.touches[0];
+      gesture = { id: touch.identifier, x: touch.clientX, y: touch.clientY, time: media.currentTime, horizontal: false, moved: false };
+    };
+    const move = (event: TouchEvent) => {
+      if (!gesture || event.touches.length !== 1) { gesture = null; return; }
+      const touch = Array.from(event.touches).find(item => item.identifier === gesture?.id);
+      if (!touch) { gesture = null; return; }
+      const dx = touch.clientX - gesture.x, dy = touch.clientY - gesture.y;
+      if (Math.hypot(dx, dy) > 10) gesture.moved = true;
+      if (!gesture.horizontal && Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy) * 1.25) gesture.horizontal = true;
+      if (gesture.horizontal) event.preventDefault();
+    };
+    const end = (event: TouchEvent) => {
+      if (!gesture) return;
+      const current = gesture; gesture = null;
+      const touch = Array.from(event.changedTouches).find(item => item.identifier === current.id);
+      if (!touch || event.touches.length || dialog.current?.dataset.view !== 'playing') return;
+      if (current.horizontal) {
+        const width = media.getBoundingClientRect().width;
+        if (!width || !Number.isFinite(media.duration) || media.duration <= 0) return;
+        const target = Math.max(0, Math.min(media.duration, current.time + (touch.clientX - current.x) / width * media.duration));
+        cancelFilmSourceSwitch(media, target);
+        media.currentTime = target;
+      } else if (!current.moved) {
+        // The terminal error path has no source; leave Retry visible until used.
+        if (statusRef.current === 'error' || !media.hasAttribute('src')) return;
+        const epoch = ++touchPlayEpoch.current;
+        if (media.paused) void media.play().catch((error: unknown) => {
+          // Pausing, switching films or closing can reject an earlier play request.
+          if (error instanceof DOMException && error.name === 'AbortError') return;
+          if (epoch === touchPlayEpoch.current && dialog.current?.open && dialog.current.dataset.view === 'playing') media.dispatchEvent(new CustomEvent('film-status', { detail: 'blocked' }));
+        });
+        else media.pause();
+      }
+    };
+    const cancel = () => { gesture = null; };
+    const paused = () => { touchPlayEpoch.current++; };
+    media.addEventListener('touchstart', start, { passive: true });
+    media.addEventListener('touchmove', move, { passive: false });
+    media.addEventListener('touchend', end);
+    media.addEventListener('touchcancel', cancel);
+    media.addEventListener('pause', paused);
+    return () => { touchPlayEpoch.current++; media.removeEventListener('touchstart', start); media.removeEventListener('touchmove', move); media.removeEventListener('touchend', end); media.removeEventListener('touchcancel', cancel); media.removeEventListener('pause', paused); };
+  }, []);
   const select = (next: number, start = false) => {
     const media = video.current, item = films[next];
     if (!media || !item) return;
+    touchPlayEpoch.current++;
     releaseFilm(media); unconfigure.current?.();
     media.dataset.src = item.manifest; media.dataset.fallback = item.fallback; media.dataset.audioLocale = item.audioLocale;
     unconfigure.current = configureFilmQualities(media, item.qualities);
@@ -81,8 +135,9 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
     setIndex(next); setStatus('idle'); setView(start ? 'playing' : 'gallery');
     if (start) playProductFilm(media);
   };
-  const start = () => { pendingFocus.current = 'player'; setView('playing'); if (video.current) playProductFilm(video.current); };
+  const start = () => { touchPlayEpoch.current++; pendingFocus.current = 'player'; setView('playing'); if (video.current) playProductFilm(video.current); };
   const all = () => {
+    touchPlayEpoch.current++;
     if (video.current) releaseFilm(video.current);
     stage.current?.dispatchEvent(new Event('film-exit-presentation'));
     if (document.fullscreenElement === stage.current) void document.exitFullscreen().catch(() => {});
@@ -92,6 +147,7 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
   };
   return <dialog ref={dialog} id="product-film" className="product-film" data-view={view} lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} aria-labelledby="product-film-title" onClose={() => {
     if (dialog.current?.open) return;
+    touchPlayEpoch.current++;
     if (video.current) releaseFilm(video.current);
     pendingFocus.current = null; setStatus('idle'); setView('gallery');
     document.getElementById(dialog.current?.dataset.opener ?? '')?.focus({ preventScroll: true });
@@ -114,7 +170,7 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
       if (!event.nativeEvent.composedPath().some(node => node instanceof Element && node.matches('.film-skip, .film-fullscreen, .film-settings, .film-options__trigger, .film-ended button, .film-recovery button'))) return;
       stage.current?.dispatchEvent(new PointerEvent('pointermove', { pointerType: 'mouse' }));
     }, 'data-qualities': JSON.stringify(film.qualities.map(quality => quality.height)), defaultstreamtype: 'on-demand', suppressHydrationWarning: true },
-      <video key="media" slot="media" ref={video} tabIndex={0} controls controlsList="noplaybackrate" playsInline preload="none" width={film.width} height={film.height} data-src={film.manifest} data-fallback={film.fallback} data-audio-locale={film.audioLocale} aria-label={film.title} onEnded={() => setView('ended')} onSeeking={() => { const media = video.current; if (!dialog.current?.open || !media || !Number.isFinite(media.duration) || media.currentTime >= media.duration) return; const target = media.dataset.filmSourceSwitchTarget; if (media.dataset.filmSourceSwitch && target !== undefined && Math.abs(media.currentTime - Number(target)) > .05) cancelFilmSourceSwitch(media, media.currentTime); if (!media.dataset.filmSourceSwitch) setView(current => current === 'ended' ? 'playing' : current); }} onLoadStart={() => { if (dialog.current?.open && video.current?.hasAttribute('src')) setStatus(value => value === 'blocked' ? value : 'loading'); }} onWaiting={() => { if (dialog.current?.open && !video.current?.paused) setStatus(value => value === 'blocked' ? value : 'loading'); }} onCanPlay={() => setStatus(value => value === 'blocked' ? value : 'ready')} onPlaying={() => { if (dialog.current?.open && video.current && !video.current.paused && video.current.hasAttribute('src')) { setStatus('ready'); setView('playing'); } }} />,
+      <video key="media" slot="media" ref={video} tabIndex={0} controls controlsList="noplaybackrate" playsInline preload="none" width={film.width} height={film.height} data-src={film.manifest} data-fallback={film.fallback} data-audio-locale={film.audioLocale} aria-label={film.title} onEnded={() => setView('ended')} onSeeking={() => { const media = video.current; if (!dialog.current?.open || !media || !Number.isFinite(media.duration) || media.currentTime >= media.duration) return; const target = media.dataset.filmSourceSwitchTarget; if (media.dataset.filmSourceSwitch && target !== undefined && Math.abs(media.currentTime - Number(target)) > .05) cancelFilmSourceSwitch(media, media.currentTime); if (!media.dataset.filmSourceSwitch) setView(current => current === 'ended' ? 'playing' : current); }} onLoadStart={() => { if (dialog.current?.open && video.current?.hasAttribute('src')) setStatus(value => value === 'blocked' ? value : 'loading'); }} onWaiting={() => { if (dialog.current?.open && video.current?.hasAttribute('src') && !video.current.paused) setStatus(value => value === 'blocked' ? value : 'loading'); }} onCanPlay={() => setStatus(value => value === 'blocked' ? value : 'ready')} onPlaying={() => { if (dialog.current?.open && video.current && !video.current.paused && video.current.hasAttribute('src')) { setStatus('ready'); setView('playing'); } }} />,
       Controls && <ControlsBoundary key="controls" media={video} stage={stage}><Controls media={video} stage={stage} copy={copy} locale={locale} status={status} previous={() => select(index - 1, true)} next={() => select(index + 1, true)} hasPrevious={index > 0} hasNext={index < films.length - 1} /></ControlsBoundary>,
       <div className="film-player__top" dir={locale === 'ar' ? 'rtl' : 'ltr'} slot="top-chrome"><button type="button" onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={all}>{c.all}</button><span className="film-player__identity">{film.title}</span><button type="button" className="film-player__close" aria-label={closeLabel} onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={() => dialog.current?.close()}>×</button></div>,
       view === 'ended' && <div className="film-ended" dir={locale === 'ar' ? 'rtl' : 'ltr'} slot="centered-chrome" {...{ noautohide: '' }}><strong>{film.title} {c.finished}</strong>{index + 1 < films.length && <div className="film-ended__next"><img src={opened ? films[index + 1].poster : undefined} width={1280} height={591} alt="" /><span>{c.nextUp}<br /><b>{films[index + 1].title}</b><br />{index + 2} / {films.length}</span></div>}<div className="film-ended__actions"><button type="button" onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={start}>{c.replay}</button>{index + 1 < films.length && <button type="button" onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={() => select(index + 1, true)}>{c.next}</button>}</div><button className="film-ended__all" type="button" onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={all}>{c.all}</button></div>)}

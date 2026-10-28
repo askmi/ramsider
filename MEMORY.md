@@ -351,3 +351,7 @@ CHG0162 VERIFIED_LOCAL, /root APPROVED_LOCAL, independent /root/auditor visual a
 ## All Films hover — 2026-10-28
 
 CHG0163: при наведении на поддерживающем hover устройстве All Films использует Open Sans 700, title остаётся 400; локальная production-проверка desktop/fullscreen, эмуляции Pro/Max/RTL, build и native review прошли. Публикация pending.
+
+## Mobile film controls — 2026-10-28
+
+CHG0164 local: касание видео переключает pause/play, горизонтальный свайп перематывает; progress над кнопками, при landscape на телефоне плеер занимает доступный viewport, картинка сохраняет пропорции. WebKit Pro/Max эмуляции и Chromium touch drag проверены, физический iPhone и непрерывный WebKit свайп ещё не проверены. Ended landscape освобождает место панели. Build6: native review и независимый visual/behavior audit PASS, технический аппрув /root; публикация pending.

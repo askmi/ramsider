@@ -22,7 +22,13 @@ async function activity(page: Page, touch: boolean) {
   const box = await page.locator('video').boundingBox();
   expect(box).not.toBeNull();
   const x = box!.x + box!.width / 2, y = box!.y + box!.height / 2;
-  if (touch) await page.touchscreen.tap(x, y);
+  if (touch) {
+    const video = page.locator('video');
+    const paused = await video.evaluate(el => (el as HTMLVideoElement).paused);
+    await page.touchscreen.tap(x, y);
+    if (await video.evaluate(el => (el as HTMLVideoElement).paused) !== paused) await page.locator('.film-play-toggle').click();
+    await expect.poll(() => video.evaluate(el => (el as HTMLVideoElement).paused)).toBe(paused);
+  }
   else await page.mouse.move(x, y);
 }
 
@@ -118,15 +124,20 @@ test('settings remain open and close remains usable after inactivity', async ({ 
   await expect(page.locator('#product-film')).not.toBeVisible();
 });
 
-test('touch on video toggles visible controls off and on again', async ({ page }, info) => {
+test('touch on video toggles playback and reveals controls, which hide during playback inactivity', async ({ page }, info) => {
   test.skip(!info.project.name.includes('iphone'), 'Touch behavior is checked in mobile WebKit');
-  await openFilm(page);
+  const video = await openFilm(page);
   await expectOpacity(page, 0);
-  await activity(page, true);
+  const box = (await video.boundingBox())!;
+  const tap = () => page.touchscreen.tap(box.x + box.width / 2, box.y + box.height / 2);
+  await tap();
+  await expect.poll(() => video.evaluate(el => (el as HTMLVideoElement).paused)).toBe(true);
   await expectOpacity(page, 1);
-  await activity(page, true);
+  await tap();
+  await expect.poll(() => video.evaluate(el => (el as HTMLVideoElement).paused)).toBe(false);
   await expectOpacity(page, 0);
-  await activity(page, true);
+  await tap();
+  await expect.poll(() => video.evaluate(el => (el as HTMLVideoElement).paused)).toBe(true);
   await expectOpacity(page, 1);
 });
 

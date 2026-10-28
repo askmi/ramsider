@@ -328,3 +328,5 @@ CHG0162 extension to EVAL-MAP: two player panels should fade together; reveal by
 ## CHG0165 — EVAL-MAP extension: picture, letterbox and mobile playlist
 
 При проектировании медиажестов проверять video picture и letterbox отдельно, List/focus/two-activation, end/replay и quality switch, Android fullscreen orientation success/reject/late close и реальные размеры постеров; явно отделять simulated APIs от физической аппаратуры. Controlled run NOT_RUN.
+
+CHG0165 public follow-up: проверить что тест ждёт metadata выбранного media и distinguishes exact-duration seek from near-end natural playback. Controlled run NOT_RUN.

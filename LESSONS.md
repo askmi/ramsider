@@ -723,3 +723,5 @@ CHG0158 focus visibility → focus may land on the selected thumbnail outside a 
 ## CHG0165 — Фактическая область кадра и жизненный цикл списка
 
 Проблема: чёрные поля video с contain воспринимались как кадр, а прежняя проверка Android поворота не воспроизводила поддержку API или реальную аппаратную ориентацию. Причина: тестировали центр DOM-элемента и изменяли viewport без отдельной проверки отрисованного прямоугольника и реального устройства. Предотвращение: измерять decoded aspect и отдельные letterbox hit tests в portrait/landscape/fullscreen, проверять повтор selection, focus и ended после quality switch, cleanup успешного/отклонённого/позднего orientation lock; различать mock/emulation и физический телефон. EVAL-MAP controlled NOT_RUN.
+
+CHG0165 public follow-up — При смене фильма title/paused не подтверждают загрузку метаданных нового media source. Перед тестовой перемоткой ждите актуальный currentSrc, finite duration и readyState; для проверки обычного завершения дайте воспроизвестись последним секундам, а прямой seek ровно в конец проверяйте как отдельный сценарий. Controlled EVAL-MAP NOT_RUN.

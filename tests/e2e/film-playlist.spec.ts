@@ -58,7 +58,9 @@ test('playlist preserves playback and presentation; selection requires a second 
     await expect(page.locator('#film-playlist')).toHaveCount(0);
     await expect(toggle).toBeFocused();
     await expect.poll(() => video.evaluate(v => !(v as HTMLVideoElement).paused)).toBe(true);
-    await video.evaluate(v => { const m = v as HTMLVideoElement; m.currentTime = m.duration; });
+    // Selecting another film changes the title before its metadata arrives.
+    await expect.poll(() => video.evaluate(v => { const m = v as HTMLVideoElement; return m.currentSrc.includes('/pure-gold/') && m.readyState >= 1 && Number.isFinite(m.duration) && m.duration > 0 && Number.isFinite(m.currentTime); }), { timeout: 30000 }).toBe(true);
+    await video.evaluate(v => { const m = v as HTMLVideoElement; m.currentTime = Math.max(0, m.duration - 2); });
     const replay = page.locator('.film-ended__replay');
     await expect(replay).toBeVisible({ timeout: 30000 });
     // Native HLS quality switching can seek just before the end and clear

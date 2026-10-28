@@ -359,3 +359,5 @@ CHG0164 local: касание видео переключает pause/play, го
 ## Film picture gestures, List and Android fullscreen — 2026-10-28
 
 CHG0165 local build5: video picture tap toggles playback, contain letterbox tap reveals controls; title precedes List and close, List overlays a seven-film two-activation selector without releasing playback; ended state uses centred replay icon. Touch fullscreen attempts landscape orientation lock when supported, releases it on exit; actual Android failure cause and physical-device behavior unknown. Build9 browser emulations and independent visual/behavior audit PASS, native exact review PASS, /root technical approval; physical Android unverified and system rotation lock remains external. Publication pending.
+
+CHG0165 public follow-up: production `c0db69f6fba9f7d6cca36c6b98bd78b9b474a617` and beta deploy success; public Pro WebKit List/replay EN+AR PASS after correcting test metadata timing and natural near-end playback. Exact-duration seek and physical Android remain unverified; test correction pending commit.

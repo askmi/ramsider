@@ -669,3 +669,36 @@ Acceptance → cold/reload immediate native input and ready→pending/pending→
 QA → verify a network-held image was actually intercepted and stays pending before diagnosing test failures. After Service Worker takeover, page.route can miss later fetches; isolate art holds with serviceWorkers:block, retaining separate SW-enabled production/site/film checks ([primary Playwright guidance](https://playwright.dev/docs/network#missing-network-events-and-service-workers)). Use fresh per-phase contexts and await actual pending/settled states. Poll animated CSS transforms rather than assuming350ms equals compositor completion. Preserve failed/rejected hypotheses in CHANGELOG, then reconcile current guidance to the measured cause. Product regression and technical approval do not prove future agent compliance: controlled [EVAL-VIEWER](docs/agent-evals.md#eval-viewer) remains **NOT_RUN**.
 
 CHG0153 review-log handling correction2026-10-27 → auditor once tailed a raw native review log into tool context. Read-only inspection still requires output filtering. Keep raw runtime logs private and emit only parsed findings/final verdict or redacted metadata; verify the exact selected output before printing. This reinforces the existing secret/log rule, not a new scanner requirement. No credentials identified or revocation claim; controlled eval NOT_RUN.
+
+## CHG0158 — Persist through authorized work
+Problem → the agent ended two turns after partial preparation while the owner had requested complete implementation. Cause evidenced → it issued final reports with feasible implementation and verification still outstanding; internal motive unknown. Prevention → before final, compare the requested outcome, open gates and available independent actions; continue authorized work while feasible, and use progress commentary rather than an ending. Ask only for genuinely missing inputs while independent work proceeds. Controlled EVAL-PERSISTENCE NOT_RUN; documentation is not evidence of changed model weights.
+
+Parallel-resume extension → when resuming active encoders, tell a worker their output paths and queued successors before delegating, so two processes do not target the same immutable version. Controlled EVAL-PERSISTENCE NOT_RUN.
+
+An encoder's output-directory guard does not protect a shared log opened by its shell before the guard executes. Give every process a unique log and resolve duplicate queues before launching them; validate the surviving package and receipt independently. Controlled EVAL-PERSISTENCE NOT_RUN.
+
+Parallel evidence writers must also have exclusive ownership of each receipt: overlapping updates can erase fields required by a dependent check. Validate the complete receipt before starting dependent analysis; preserve the failed run. Controlled EVAL-PERSISTENCE NOT_RUN.
+
+Parallel build ownership → a production server can serve HTML referring to 404 chunks when another build or dev process changes its output directory. Stop conflicting writers or use isolated build directories, then verify real chunk responses and hydration before diagnosing UI behavior. Controlled EVAL-PERSISTENCE NOT_RUN.
+
+CHG0158 visual comparison → problem: a gallery fixture was described as matching although its modal occupied a visibly higher viewport band than the approved reference. Cause: initial inspection did not compare normalized top/bottom bounds. Prevention: inspect both images and compare major component boundaries relative to viewport, then check the correction at shorter heights as well as the baseline. Linked EVAL-MAP; controlled run NOT_RUN.
+
+CHG0158 media controls → a library host's inherited line-height:0 collapsed custom slotted text, while a fixed 16:9 player clipped the end card; compact mobile CSS also reduced real touch targets to 38px. Verify computed inherited text styles and actual screenshots of every state over both light and dark frames; measure every control's hit area at narrow widths alongside overflow and focus checks. EVAL-MAP controlled run NOT_RUN.
+
+End-card hit testing → visible, correctly sized controls can still be covered by a sibling transport layer until its autohide. Check `elementFromPoint` and immediate real click for each action, including fullscreen, before treating geometry as usable. EVAL-MAP controlled run NOT_RUN.
+
+Wide-short gallery → a landscape phone check did not reveal that a wider 1440×400 viewport clips a proportional poster inside a height-limited dialog. Test wide-short screens and compare image bounds with the clipping ancestor, not just the viewport; include new headings in the locale matrix. EVAL-MAP controlled run NOT_RUN.
+
+Visible film title → matching DOM text alone did not prove the requested title was visible; CSS ellipsis hid the final words in the playing state. Check text overflow, actual screenshot and full title in ordinary and fullscreen layouts at narrow widths. EVAL-MAP controlled run NOT_RUN.
+
+Gallery entry and safe areas → adding a new Play step left an existing playback benchmark waiting on the old opener; fullscreen top actions also used fixed padding over potential cutouts. Search and migrate every caller, test and measurement script when an entrypoint changes, and check actual controls against nonzero safe-area insets in fullscreen. EVAL-HLS-ENTRYPOINT/EVAL-MAP controlled NOT_RUN.
+
+
+### CHG0158 — Видимые controls и переход фокуса
+Проблема: end card перекрывала панель, снимок playing не показывал controls, а focus оставался на скрытом элементе после смены режима. Причина: проверка клика и DOM не проверяла полную видимую композицию и activeElement после переключения. Предотвращение: снимать Pro/Max playing и ended с раскрытыми controls и fullscreen, сравнивать с утверждёнными состояниями, проверять фактический фокус на видимом новом control при переходе в обе стороны. Оценка EVAL-MAP controlled NOT_RUN.
+
+CHG0158 menu/layer interaction → changing the end-card z-order made the settings menu inaccessible, and fixed reserved space left short-landscape submenus too small. Verify menu clicks and Back/Quality/Speed both during playback and after end on Pro/Max and short landscape after any z-index or size change. EVAL-MAP controlled NOT_RUN.
+
+CHG0158 native ended quality → opening menu and traversing submenus did not reveal that choosing 720p on WebKit removes the finished state. Exercise actual quality and speed selections after end on native WebKit, including fullscreen and short landscape, and assert state plus visible choices remain correct; compare Chromium separately. EVAL-HLS-ENTRYPOINT/EVAL-MAP controlled NOT_RUN.
+
+CHG0158 focus visibility → focus may land on the selected thumbnail outside a scrollable strip. Check the focused item against the clipping ancestor after returning from a later film, across RTL and horizontal/vertical lists, and preserve document scroll. Test keyboard activation and inspect the visible focus outline. EVAL-MAP controlled NOT_RUN.

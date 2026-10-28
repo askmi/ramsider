@@ -1,0 +1,227 @@
+{
+  "date": "2026-10-28",
+  "verifier": "Codex media agent",
+  "id": "diy-madness",
+  "source_sha256": "d7ddf0fab945b0a93ef46165f930455a53860e830b2f3155c7786c0446553594",
+  "recipe": {
+    "segmentSeconds": 2.0,
+    "gopFrames": 50,
+    "preset": "slow",
+    "threads": 4
+  },
+  "source_frame_rate": "25/1",
+  "source_audio": {
+    "packets": 5913,
+    "bytes": 1972285,
+    "sha256": "359d487b9e5ac15075f54828def8cf8b988b3e0b1228ba2324e1d318130798ee"
+  },
+  "audio_packet_check": "all rendition/fallback AAC packet payloads exactly match original source",
+  "packaging_status": "PASS",
+  "validation_receipt_sha256": "4d2bf83d86122c4cd2cd0eab9cbab2065f2ac6d8a753d6223eaa8a4c094f7253",
+  "360p_segment_durations_seconds": [
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    0.08
+  ],
+  "renditions": [
+    {
+      "name": "144p",
+      "segments": 64,
+      "duration": 126.08,
+      "keyframes": 64,
+      "decode": "PASS",
+      "level": 12
+    },
+    {
+      "name": "360p",
+      "segments": 64,
+      "duration": 126.08,
+      "keyframes": 64,
+      "decode": "PASS",
+      "level": 30
+    },
+    {
+      "name": "720p",
+      "segments": 64,
+      "duration": 126.08,
+      "keyframes": 64,
+      "decode": "PASS",
+      "level": 31
+    },
+    {
+      "name": "1080p",
+      "segments": 64,
+      "duration": 126.08,
+      "keyframes": 64,
+      "decode": "PASS",
+      "level": 41
+    },
+    {
+      "name": "1440p",
+      "segments": 64,
+      "duration": 126.08,
+      "keyframes": 64,
+      "decode": "PASS",
+      "level": 50
+    },
+    {
+      "name": "2160p",
+      "segments": 64,
+      "duration": 126.08,
+      "keyframes": 64,
+      "decode": "PASS",
+      "level": 51
+    }
+  ],
+  "sample": {
+    "time_seconds": 40.0,
+    "rendition": "2160p",
+    "method": "Decoded source and HLS frames at same seek time, scaled to 960 px wide; RGB PSNR. Side-by-side full frame and native-scale 960x540 center crop visually examined.",
+    "psnr_db": 27.93,
+    "visual": "No material difference observed in sampled frame; not a whole-film or browser quality approval."
+  },
+  "limits": "One sample per film; unknown actual audio language; no physical device test. Lossy encoding is not mathematically lossless.",
+  "previous_seek_sample_status": "REJECTED: independently sought streams may select different frames; retained as diagnostic only",
+  "ordinal_1080p": {
+    "sampling": "every 250th decoded frame starting ordinal 0, separately from each stream, select by n; set common AVTB and exact 10s integer PTS, scale both to 960 pixels; RGB PSNR calculated on paired files",
+    "source_count": 13,
+    "hls_count": 13,
+    "samples": [
+      {
+        "ordinal": 0,
+        "psnr_db": 46.55
+      },
+      {
+        "ordinal": 250,
+        "psnr_db": 46.36
+      },
+      {
+        "ordinal": 500,
+        "psnr_db": 43.84
+      },
+      {
+        "ordinal": 750,
+        "psnr_db": 46.64
+      },
+      {
+        "ordinal": 1000,
+        "psnr_db": 46.66
+      },
+      {
+        "ordinal": 1250,
+        "psnr_db": 45.63
+      },
+      {
+        "ordinal": 1500,
+        "psnr_db": 46.55
+      },
+      {
+        "ordinal": 1750,
+        "psnr_db": 48.81
+      },
+      {
+        "ordinal": 2000,
+        "psnr_db": 45.26
+      },
+      {
+        "ordinal": 2250,
+        "psnr_db": 46.6
+      },
+      {
+        "ordinal": 2500,
+        "psnr_db": 44.75
+      },
+      {
+        "ordinal": 2750,
+        "psnr_db": 46.99
+      },
+      {
+        "ordinal": 3000,
+        "psnr_db": 47.07
+      }
+    ],
+    "visual_inspection": "2026-10-28 Codex media agent viewed source/HLS paired ordinal contact sheet; no material difference observed at 480 px presentation. First detected cut boundary independently checked as recorded below.",
+    "limits": "Sampled frames only; audio, browser, physical devices and motion require separate verification.",
+    "decoded_frame_counts": {
+      "source": 3152,
+      "hls": 3152
+    },
+    "first_detected_scene_cut": {
+      "detection": "ffmpeg scene > 0.35, timestamp converted to ordinal using source frame rate",
+      "ordinal": 63,
+      "paired_ordinals": [
+        62,
+        63,
+        64
+      ],
+      "inspection": "PASS: verifier Codex media agent visually compared each source/HLS pair around actual transition (ordinals 62, 63, 64); transition and corresponding frames match.",
+      "evidence_local": "/private/tmp/ramsider-gallery-encode/ordinal/diy-madness/cut.jpg",
+      "evidence_scope": "Local temporary evidence; one detected cut per film, not all cuts.",
+      "evidence_retained": "screenshots/video/gallery-quality/diy-madness/cut.jpg"
+    },
+    "prior_evidence_gate": "FAIL: summary still stated cut-boundary verification pending despite separate cut inspection; corrected 2026-10-28 by Codex media agent, with evidence paths and actual cut result retained.",
+    "contact_sheet_local": "/private/tmp/ramsider-gallery-encode/ordinal/diy-madness/sheet.jpg",
+    "contact_sheet_retained": "screenshots/video/gallery-quality/diy-madness/sheet.jpg"
+  }
+}

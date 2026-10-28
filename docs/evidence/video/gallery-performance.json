@@ -1,0 +1,203 @@
+{
+  "measuredAtUTC": "2026-10-27T23:35:45.441Z",
+  "conditions": "Production build; actual Chromium mobile emulation402x874DPR3;100msCDP; media HTTP cache disabled; site artwork decoded/library warmed before intent; repeated fresh HLS sessions on one page; no physical phone claim",
+  "preIntentMediaRequests": 6,
+  "startup": [
+    {
+      "rateMbps": 1,
+      "trials": 20,
+      "p50FirstFrameMs": 584.2999999523163,
+      "p95FirstFrameMs": 598.5,
+      "allFirstFrameMs": [
+        3950.899999856949,
+        584,
+        499.5,
+        584.2999999523163,
+        537.0999999046326,
+        598.5,
+        584.7999999523163,
+        484.2000000476837,
+        584.5,
+        584.2999999523163,
+        585.0999999046326,
+        585.9000000953674,
+        584,
+        585.2000000476837,
+        584.7999999523163,
+        585.3999998569489,
+        569.7999999523163,
+        565.2999999523163,
+        569.9000000953674,
+        568.4000000953674
+      ]
+    },
+    {
+      "rateMbps": 4,
+      "trials": 20,
+      "p50FirstFrameMs": 335.10000014305115,
+      "p95FirstFrameMs": 335.59999990463257,
+      "allFirstFrameMs": [
+        234.09999990463257,
+        234.20000004768372,
+        335.2000000476837,
+        334.7999999523163,
+        333.2000000476837,
+        335,
+        335.59999990463257,
+        316.7999999523163,
+        335.59999990463257,
+        335.19999980926514,
+        335.10000014305115,
+        335.2000000476837,
+        334.7000000476837,
+        335.59999990463257,
+        234.10000014305115,
+        335.80000019073486,
+        235.30000019073486,
+        335.2999999523163,
+        335.39999985694885,
+        335.59999990463257
+      ]
+    },
+    {
+      "rateMbps": 10,
+      "trials": 20,
+      "p50FirstFrameMs": 284.89999985694885,
+      "p95FirstFrameMs": 286.5,
+      "allFirstFrameMs": [
+        284.59999990463257,
+        286.5,
+        287.10000014305115,
+        285.59999990463257,
+        284.5,
+        284.89999985694885,
+        284.7999999523163,
+        185.29999995231628,
+        283.5,
+        285.10000014305115,
+        284.09999990463257,
+        284.7000000476837,
+        286,
+        285.19999980926514,
+        285.59999990463257,
+        284.7999999523163,
+        284.60000014305115,
+        285.09999990463257,
+        285.09999990463257,
+        286.19999980926514
+      ]
+    }
+  ],
+  "fullPlayback": [
+    {
+      "rateMbps": 1,
+      "firstFrameMs": 585,
+      "stallCount": 0,
+      "mediaReceivedBytes": 4528371,
+      "qualities": [
+        {
+          "ms": 585,
+          "time": 0,
+          "height": 360
+        }
+      ]
+    },
+    {
+      "rateMbps": 4,
+      "firstFrameMs": 267.89999985694885,
+      "stallCount": 0,
+      "mediaReceivedBytes": 13286175,
+      "qualities": [
+        {
+          "ms": 268,
+          "time": 0,
+          "height": 360
+        },
+        {
+          "ms": 6414.399999856949,
+          "time": 6.08153,
+          "height": 720
+        }
+      ]
+    },
+    {
+      "rateMbps": 10,
+      "firstFrameMs": 201.79999995231628,
+      "stallCount": 0,
+      "mediaReceivedBytes": 13286175,
+      "qualities": [
+        {
+          "ms": 201.79999995231628,
+          "time": 0,
+          "height": 360
+        },
+        {
+          "ms": 6381,
+          "time": 6.114076,
+          "height": 720
+        }
+      ]
+    }
+  ],
+  "adaptation": {
+    "trajectory": "25Mbps for12s →1Mbps for23s →25Mbps toend",
+    "firstFrameMs": 184.70000004768372,
+    "qualities": [
+      {
+        "ms": 184.70000004768372,
+        "time": 0,
+        "height": 360
+      },
+      {
+        "ms": 6331.100000143051,
+        "time": 6.084107,
+        "height": 720
+      },
+      {
+        "ms": 22331.10000014305,
+        "time": 22.084211,
+        "height": 360
+      },
+      {
+        "ms": 46328.90000009537,
+        "time": 46.082113,
+        "height": 720
+      }
+    ],
+    "stallCount": 0
+  },
+  "scroll": {
+    "phase": "gallery-final",
+    "conditions": "Single cold Chromium mobile402×874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+    "initial": {
+      "ttfb": 17.699999809265137,
+      "fcp": 376,
+      "lcp": 404,
+      "cls": 0.00022206073455854325,
+      "jsBytes": 330625,
+      "completedBytes": 3204470,
+      "filmObjects": 6,
+      "readyImages": 28
+    },
+    "scroll": {
+      "samples": 320,
+      "movingFrames": 175,
+      "startY": 0,
+      "endY": 13259,
+      "p95Ms": 32.89999985694885,
+      "over33Ms": 12,
+      "reverseFrames": 0,
+      "maxReverse": 0,
+      "cls": 0.00022206073455854325,
+      "longTasks": [
+        84,
+        57,
+        379,
+        58,
+        54
+      ]
+    },
+    "errors": []
+  },
+  "limitations": "Measured first film only, on local production Chromium emulation; other films were decoded and sought separately. No physical device, field INP, or Lighthouse claim."
+}

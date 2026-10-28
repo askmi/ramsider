@@ -30,7 +30,7 @@ async function visit(page: Page, locale = 'en') {
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   expect(await page.locator('video').evaluate(v => { const m = v as HTMLVideoElement; return m.muted && m.volume === 0; })).toBe(true);
   await page.locator('video').evaluate(v => { (window as unknown as { originalFilm: Element }).originalFilm = v; });
-  await page.locator('#film-play').click();
+  await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   await expect(page.locator('#film-player')).toHaveAttribute('data-controls', 'ready');
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 25000 }).toBeGreaterThan(.5);
 }
@@ -114,7 +114,7 @@ test('gear overlay retains the video node, real quality frames, speed, pause, Au
   await page.screenshot({ path: `${root}/menu-${info.project.name}.png`, scale: 'css' });
   await writeFile(`${root}/switch-${info.project.name}.json`, JSON.stringify({ low, mid, high, geometry, errors }, null, 2));
   await page.keyboard.press('Escape'); await expect(gear(page)).toBeFocused(); await expect(page.locator('#product-film')).toBeVisible();
-  await page.locator('.product-film__close').click(); await expect(page.locator('video')).not.toHaveAttribute('src');
+  await page.locator('.film-player__top button').last().click(); await expect(page.locator('video')).not.toHaveAttribute('src');
   expect(errors).toEqual([]);
 });
 
@@ -154,7 +154,7 @@ test('all locale controls and responsive overlay menus fit without moving the pi
     await assertGeometry(page);
     if (locale === 'ar') await page.screenshot({ path: `${root}/arabic-menu.png`, scale: 'css' });
     await page.keyboard.press('Escape'); await expect(gear(page)).toBeFocused();
-    await page.locator('.product-film__close').click();
+    await page.locator('.film-player__top button').last().click();
   }
   for (const viewport of [{ width: 320, height: 568 }, { width: 375, height: 667 }, { width: 874, height: 402 }, { width: 768, height: 1024 }, { width: 1024, height: 600 }, { width: 1440, height: 900 }]) {
     await page.setViewportSize(viewport); await visit(page); await openMenu(page); await assertGeometry(page);
@@ -170,7 +170,8 @@ test('all locale controls and responsive overlay menus fit without moving the pi
     await expect.poll(() => page.locator('.film-menu-quality').evaluate(e => getComputedStyle(e).opacity)).toBe('1');
     await expect.poll(() => menu(page).evaluate(e => getComputedStyle(e.shadowRoot!.querySelector('#container')!).transform)).toBe('matrix(1, 0, 0, 1, 0, 0)');
     await page.screenshot({ path: `${root}/menu-${viewport.width}x${viewport.height}.png`, scale: 'css' });
-    await page.locator('.product-film__close').click();
+    await page.keyboard.press('Escape'); await expect(gear(page)).toBeFocused();
+    await page.locator('.film-player__top button').last().click();
   }
 });
 
@@ -187,7 +188,7 @@ test('fallback exposes only 720p and pending speed keeps latest choice', async (
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).playbackRate)).toBe(1.5);
   await pane(page, 'quality'); await expect(page.locator('#film-quality-options media-chrome-menu-item')).toHaveCount(1);
   await expect(quality(page, '720')).toHaveAttribute('aria-checked', 'true');
-  await page.locator('.product-film__close').click(); await expect(page.locator('video')).not.toHaveAttribute('src');
+  await page.locator('.film-player__top button').last().click(); await expect(page.locator('video')).not.toHaveAttribute('src');
 });
 
 test('rapid quality source changes preserve paused time and reopen has fresh Auto state', async ({ page }, info) => {
@@ -198,10 +199,10 @@ test('rapid quality source changes preserve paused time and reopen has fresh Aut
   await pane(page, 'quality');
   await page.evaluate(() => { for (const value of ['720', '144']) document.querySelector<HTMLElement>(`#film-quality-options media-chrome-menu-item[value="${value}"]`)!.click(); });
   await expect.poll(() => page.locator('video').evaluate(v => { const m = v as HTMLVideoElement; return m.readyState >= 2 && m.paused && Math.abs(m.currentTime - 18) < .3; }), { timeout: 20000 }).toBe(true);
-  await choose(page, '2160'); await page.locator('.product-film__close').click();
-  await page.locator('#film-play').click(); await expect(page.locator('video')).toHaveAttribute('data-quality-mode', 'auto');
+  await choose(page, '2160'); await page.locator('.film-player__top button').last().click();
+  await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click(); await expect(page.locator('video')).toHaveAttribute('data-quality-mode', 'auto');
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime)).toBeGreaterThan(.5);
-  await page.locator('.product-film__close').click();
+  await page.locator('.film-player__top button').last().click();
 });
 
 test('keyboard opens ready-made submenus, selects quality and speed, and restores gear focus', async ({ page }, info) => {
@@ -216,7 +217,7 @@ test('keyboard opens ready-made submenus, selects quality and speed, and restore
   await openMenu(page); await page.locator('.film-menu-speed').focus(); await page.keyboard.press('Enter');
   await speed(page, '1').focus(); await page.keyboard.press('ArrowDown'); await page.keyboard.press('Enter');
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).playbackRate)).toBe(1.25);
-  await expect(gear(page)).toBeFocused(); await page.locator('.product-film__close').click();
+  await expect(gear(page)).toBeFocused(); await page.locator('.film-player__top button').last().click();
 });
 
 test('PiP unsupported and rejected actions are truthful and do not break playback', async ({ page }, info) => {
@@ -232,7 +233,7 @@ test('PiP unsupported and rejected actions are truthful and do not break playbac
   await expect(page.locator('.film-control-message')).toHaveText(filmControlsCopy('en').actionError);
   const t = await page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime);
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime)).toBeGreaterThan(t + .5);
-  await page.locator('.product-film__close').click();
+  await page.locator('.film-player__top button').last().click();
 });
 
 test('failed optional UI upgrade keeps the same native video usable', async ({ page }, info) => {
@@ -244,10 +245,10 @@ test('failed optional UI upgrade keeps the same native video usable', async ({ p
   await page.goto('/en'); await page.waitForFunction(() => document.documentElement.hasAttribute('data-media-hydrated'));
   await page.locator('#film-play').scrollIntoViewIfNeeded(); await page.locator('video').evaluate(v => { (window as unknown as { originalFilm: Element }).originalFilm = v; });
   expect(await page.locator('video').evaluate(v => { const m = v as HTMLVideoElement; return m.muted && m.volume === 0; })).toBe(true);
-  await page.locator('#film-play').click();
+  await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(.5);
   expect(await page.locator('video').evaluate(v => (v as HTMLVideoElement).controls && v === (window as unknown as { originalFilm: Element }).originalFilm)).toBe(true);
-  await expect(gear(page)).toHaveCount(0); await page.locator('.product-film__close').click();
+  await expect(gear(page)).toHaveCount(0); await page.locator('.film-player__top button').last().click();
 });
 
 test('ready-made transport buttons seek and adjust volume safely while paused', async ({ page }, info) => {
@@ -268,7 +269,7 @@ test('ready-made transport buttons seek and adjust volume safely while paused', 
   await page.locator('.film-play-toggle').click();
   const t = await page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime);
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime)).toBeGreaterThan(t + .5);
-  await page.locator('.product-film__close').click();
+  await page.locator('.film-player__top button').last().click();
 });
 
 test('fullscreen hotkey uses the shared presentation adapter and rejected pending entry cannot reopen a closed dialog', async ({ page }, info) => {
@@ -296,7 +297,7 @@ test('expanded playback errors expose an in-picture retry and recover on the sam
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(.5);
   expect(await page.locator('video').evaluate(v => v === (window as unknown as { originalFilm: Element }).originalFilm)).toBe(true);
   await expect(page.locator('.film-recovery')).toBeHidden();
-  await page.locator('.film-fullscreen').click(); await page.locator('.product-film__close').click();
+  await page.locator('.film-fullscreen').click(); await page.locator('.film-player__top button').last().click();
 });
 
 test('a PiP request finishing after Close is exited instead of orphaning the player', async ({ page }, info) => {
@@ -329,13 +330,13 @@ test('partially constructed optional widgets retain native controls and disabled
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('video').evaluate(v => { (window as unknown as { originalFilm: Element }).originalFilm = v; });
   expect(await page.locator('video').evaluate(v => { const m = v as HTMLVideoElement; return m.muted && m.volume === 0; })).toBe(true);
-  await page.locator('#film-play').click();
+  await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(.5);
   await page.waitForFunction(() => customElements.get('media-controller') && document.querySelector('media-settings-menu-button')?.shadowRoot);
   expect(await page.locator('video').evaluate(v => (v as HTMLVideoElement).controls && v === (window as unknown as { originalFilm: Element }).originalFilm)).toBe(true);
   await expect(page.locator('#film-player')).toHaveAttribute('gesturesdisabled', '');
   await expect(page.locator('#film-player')).toHaveAttribute('nohotkeys', '');
-  await expect(gear(page)).not.toBeVisible(); await page.locator('.product-film__close').click();
+  await expect(gear(page)).not.toBeVisible(); await page.locator('.film-player__top button').last().click();
 });
 
 
@@ -362,7 +363,7 @@ test('Space activates fullscreen and recovery while pending-rate shortcuts retai
   await retry.focus(); await page.keyboard.press('Space');
   await expect(page.locator('.film-recovery')).toBeHidden();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(.5);
-  await page.locator('.product-film__close').click();
+  await page.locator('.film-player__top button').last().click();
 });
 
 test('a queued old Close cannot collapse a reopened expanded player', async ({ page }, info) => {
@@ -375,7 +376,7 @@ test('a queued old Close cannot collapse a reopened expanded player', async ({ p
   await expect(page.locator('#product-film')).toHaveAttribute('open');
   await expect(page.locator('#film-player')).toHaveAttribute('data-full-window', 'true');
   await openMenu(page); await assertGeometry(page); await page.keyboard.press('Escape');
-  await page.locator('.film-fullscreen').click(); await page.locator('.product-film__close').click();
+  await page.locator('.film-fullscreen').click(); await page.locator('.film-player__top button').last().click();
 });
 
 
@@ -390,14 +391,14 @@ test('an older PiP completion cannot exit a newer reopened presentation', async 
     Object.defineProperty(v, 'requestPictureInPicture', { configurable: true, value: () => new Promise<void>(resolve => { state.finish.push(() => { state.active = v; resolve(); }); }) });
     (window as unknown as { overlappingPip: typeof state }).overlappingPip = state; v.dispatchEvent(new Event('loadedmetadata'));
   });
-  await openMenu(page); await page.locator('.film-menu-pip').click(); await page.locator('.product-film__close').click();
-  await page.locator('#film-play').click();
+  await openMenu(page); await page.locator('.film-menu-pip').click(); await page.locator('.film-player__top button').last().click();
+  await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime)).toBeGreaterThan(.5);
   await openMenu(page); await page.locator('.film-menu-pip').click();
   await page.evaluate(async () => { const state = (window as unknown as { overlappingPip: { finish: (() => void)[] } }).overlappingPip; state.finish[1](); await Promise.resolve(); state.finish[0](); });
   await page.waitForTimeout(100);
   expect(await page.evaluate(() => (window as unknown as { overlappingPip: { exits: number } }).overlappingPip.exits)).toBe(0);
-  await page.locator('.product-film__close').click();
+  await page.locator('.film-player__top button').last().click();
   await expect.poll(() => page.evaluate(() => (window as unknown as { overlappingPip: { exits: number } }).overlappingPip.exits)).toBe(1);
 });
 
@@ -421,5 +422,5 @@ test('buffering and recovery remain visible while transport is inactive', async 
   });
   await expect(page.locator('.film-recovery')).toBeVisible();
   await expect.poll(() => page.locator('.film-recovery').evaluate(e => getComputedStyle(e).opacity)).toBe('1');
-  await page.locator('.product-film__close').click();
+  await page.locator('.film-player__top button').last().click();
 });

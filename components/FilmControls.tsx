@@ -9,14 +9,15 @@ import type { MediaSettingsMenuButton as SettingsButtonElement } from 'media-chr
 import type { FilmCopy } from '@/lib/product-film';
 import type { Locale } from '@/lib/i18n';
 import { filmControlsCopy, type FilmControlsCopy } from '@/lib/film-controls-copy';
-import { selectFilmQuality, selectFilmRate, playProductFilm, type FilmSettings } from '@/lib/film-playback';
+import { galleryCopy } from '@/lib/film-gallery-copy';
+import { selectFilmQuality, selectFilmRate, playProductFilm, cancelFilmSourceSwitch, type FilmSettings } from '@/lib/film-playback';
 
 type PipVideo = HTMLVideoElement & {
   webkitSupportsPresentationMode?: (mode: string) => boolean;
   webkitSetPresentationMode?: (mode: string) => void;
   webkitPresentationMode?: string;
 };
-export type FilmControlsProps = { media: RefObject<HTMLVideoElement | null>; stage: RefObject<HTMLElement | null>; copy: FilmCopy; locale: Locale; status: 'idle' | 'loading' | 'ready' | 'blocked' | 'error' };
+export type FilmControlsProps = { media: RefObject<HTMLVideoElement | null>; stage: RefObject<HTMLElement | null>; copy: FilmCopy; locale: Locale; status: 'idle' | 'loading' | 'ready' | 'blocked' | 'error'; previous: () => void; next: () => void; hasPrevious: boolean; hasNext: boolean };
 function preserveButtonActivation(event: ReactKeyboardEvent<HTMLButtonElement>) {
   if (event.key === ' ' || event.key === 'Enter') event.stopPropagation();
 }
@@ -49,7 +50,7 @@ function translate(locale: Locale, c: FilmControlsCopy, copy: FilmCopy) {
 }
 
 /** Media Chrome owns transport, menu selection and keyboard semantics; our adapter owns HLS intent. */
-export function FilmControls({ media, stage, copy, locale, status }: FilmControlsProps) {
+export function FilmControls({ media, stage, copy, locale, status, previous, next, hasPrevious, hasNext }: FilmControlsProps) {
   const menu = useRef<SettingsElement>(null);
   const presentationEpoch = useRef(0);
   const fullscreenBusy = useRef(false);
@@ -131,8 +132,8 @@ export function FilmControls({ media, stage, copy, locale, status }: FilmControl
     const fullscreen = () => { if (document.fullscreenElement !== host && !host.dataset.fullWindow) dialog.removeAttribute('data-film-expanded'); sync(); };
     document.addEventListener('fullscreenchange', fullscreen); document.addEventListener('keydown', keyboard);
     const closed = () => { if (!dialog.open) collapse(); };
-    dialog.addEventListener('close', closed); dialog.addEventListener('cancel', cancel);
-    return () => { collapse(); document.removeEventListener('fullscreenchange', fullscreen); document.removeEventListener('keydown', keyboard); dialog.removeEventListener('close', closed); dialog.removeEventListener('cancel', cancel); };
+    dialog.addEventListener('close', closed); dialog.addEventListener('cancel', cancel); host.addEventListener('film-exit-presentation', collapse);
+    return () => { collapse(); document.removeEventListener('fullscreenchange', fullscreen); document.removeEventListener('keydown', keyboard); dialog.removeEventListener('close', closed); dialog.removeEventListener('cancel', cancel); host.removeEventListener('film-exit-presentation', collapse); };
   }, [stage, media]);
 
   useEffect(() => {
@@ -209,10 +210,13 @@ export function FilmControls({ media, stage, copy, locale, status }: FilmControl
       const value = typeof detail === 'number' || typeof detail === 'string' ? Number(detail) : NaN;
       if (media.current && Number.isFinite(value) && value >= .25 && value <= 2) selectFilmRate(media.current, value);
     };
+    const userSeek = (event: Event) => { const time = Number((event as CustomEvent<unknown>).detail); if (media.current) cancelFilmSourceSwitch(media.current, Number.isFinite(time) ? time : undefined); };
+    host.addEventListener('mediaseekrequest', userSeek, true);
     host.addEventListener('mediaplaybackraterequest', rateRequest, true);
     for (const name of ['mediaenterfullscreenrequest', 'mediaexitfullscreenrequest']) host.addEventListener(name, fullscreenRequest, true);
     for (const name of ['mediaenterpiprequest', 'mediaexitpiprequest']) host.addEventListener(name, pipRequest, true);
     return () => {
+      host.removeEventListener('mediaseekrequest', userSeek, true);
       host.removeEventListener('mediaplaybackraterequest', rateRequest, true);
       for (const name of ['mediaenterfullscreenrequest', 'mediaexitfullscreenrequest']) host.removeEventListener(name, fullscreenRequest, true);
       for (const name of ['mediaenterpiprequest', 'mediaexitpiprequest']) host.removeEventListener(name, pipRequest, true);
@@ -254,17 +258,18 @@ export function FilmControls({ media, stage, copy, locale, status }: FilmControl
     </MediaSettingsMenu>
     <MediaControlBar className="film-transport" dir="ltr">
       <div className="film-transport__row">
+        <button type="button" className="film-skip film-previous" aria-label={galleryCopy[locale].previous} disabled={!hasPrevious} onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={previous}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v16M19 5 9 12l10 7V5ZM10 5 2 12l8 7V5Z" /></svg></button>
         <MediaPlayButton className="film-play-toggle" noTooltip />
+        <button type="button" className="film-skip film-next" aria-label={galleryCopy[locale].next} disabled={!hasNext} onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={next}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4v16M5 5l10 7-10 7V5Zm9 0 8 7-8 7V5Z" /></svg></button>
         <MediaTimeDisplay showDuration className="film-time" />
-        <span className="film-transport__spacer" />
+        <MediaTimeRange className="film-seek" aria-label={c.seek} />
         <MediaMuteButton className="film-mute-toggle" noTooltip />
         <MediaVolumeRange className="film-volume" aria-label={c.volume} />
-        <button className="film-fullscreen" type="button" onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} aria-label={expanded ? c.exitFullscreen : c.fullscreen} aria-pressed={expanded} onClick={() => { void fullscreen(); }}><svg viewBox="0 0 24 24" aria-hidden="true"><path d={expanded ? 'M8 3v5H3m13-5v5h5M3 16h5v5m13-5h-5v5' : 'M3 8V3h5m8 0h5v5M3 16v5h5m8 0h5v-5'} /></svg></button>
         <MediaSettingsMenuButton ref={gear} id="film-settings-toggle" className="film-options__trigger" invokeTarget="film-options-menu" aria-label={copy.options} noTooltip>
           <svg slot="icon" className="film-gear" viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 3-.6 2.4-2 .9-2.3-.8-2 3.4 1.7 1.7-.2 2.2-1.6 1.8 2 3.4 2.3-.7 2 .9.6 2.4h4l.6-2.4 2-.9 2.3.7 2-3.4-1.6-1.8-.2-2.2 1.7-1.7-2-3.4-2.3.8-2-.9L13.5 3Z"/><circle cx="11.5" cy="12" r="3.2"/></svg>
         </MediaSettingsMenuButton>
+        <button className="film-fullscreen" type="button" onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} aria-label={expanded ? c.exitFullscreen : c.fullscreen} aria-pressed={expanded} onClick={() => { void fullscreen(); }}><svg viewBox="0 0 24 24" aria-hidden="true"><path d={expanded ? 'M8 3v5H3m13-5v5h5M3 16h5v5m13-5h-5v5' : 'M3 8V3h5m8 0h5v5M3 16v5h5m8 0h5v-5'} /></svg></button>
       </div>
-      <MediaTimeRange className="film-seek" aria-label={c.seek} />
     </MediaControlBar>
     <div className="film-control-message" {...{ noautohide: '' }} role="status" aria-live="polite" hidden={!message}>{message}</div>
   </>;

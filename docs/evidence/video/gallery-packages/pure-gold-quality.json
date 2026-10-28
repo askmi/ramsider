@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-28",
+  "verifier": "Codex media agent",
+  "id": "pure-gold",
+  "source_sha256": "ef60ab35270501a2496ff691c01ead1256e7f90cb5bc9a25dc4bd97fa46193e4",
+  "recipe": {
+    "segmentSeconds": 2.0,
+    "gopFrames": 50,
+    "preset": "slow",
+    "threads": 6
+  },
+  "source_frame_rate": "25/1",
+  "source_audio": {
+    "packets": 1075,
+    "bytes": 370603,
+    "sha256": "b24f067356332d957b9eb0c316a47584672c9d5ba238c7c9a11b30196fc8ceec"
+  },
+  "audio_packet_check": "all rendition/fallback AAC packet payloads exactly match original source",
+  "packaging_status": "PASS",
+  "validation_receipt_sha256": "46041b15de78f5bc5ed4f8d12411f7b57b950047a27400502f066ba8d56f3b5e",
+  "360p_segment_durations_seconds": [
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    0.88
+  ],
+  "renditions": [
+    {
+      "name": "144p",
+      "segments": 12,
+      "duration": 22.88,
+      "keyframes": 12,
+      "decode": "PASS",
+      "level": 12
+    },
+    {
+      "name": "360p",
+      "segments": 12,
+      "duration": 22.88,
+      "keyframes": 12,
+      "decode": "PASS",
+      "level": 30
+    },
+    {
+      "name": "720p",
+      "segments": 12,
+      "duration": 22.88,
+      "keyframes": 12,
+      "decode": "PASS",
+      "level": 31
+    },
+    {
+      "name": "1080p",
+      "segments": 12,
+      "duration": 22.88,
+      "keyframes": 12,
+      "decode": "PASS",
+      "level": 41
+    },
+    {
+      "name": "1440p",
+      "segments": 12,
+      "duration": 22.88,
+      "keyframes": 12,
+      "decode": "PASS",
+      "level": 50
+    },
+    {
+      "name": "2160p",
+      "segments": 12,
+      "duration": 22.88,
+      "keyframes": 12,
+      "decode": "PASS",
+      "level": 51
+    }
+  ],
+  "sample": {
+    "time_seconds": 6.0,
+    "rendition": "2160p",
+    "method": "Decoded source and HLS frames at same seek time, scaled to 960 px wide; RGB PSNR. Side-by-side full frame and native-scale 960x540 center crop visually examined.",
+    "psnr_db": 44.35,
+    "visual": "No material difference observed in sampled frame; not a whole-film or browser quality approval."
+  },
+  "limits": "One sample per film; unknown actual audio language; no physical device test. Lossy encoding is not mathematically lossless.",
+  "previous_seek_sample_status": "REJECTED: independently sought streams may select different frames; retained as diagnostic only",
+  "ordinal_1080p": {
+    "sampling": "every 250th decoded frame starting ordinal 0, separately from each stream, select by n; set common AVTB and exact 10s integer PTS, scale both to 960 pixels; RGB PSNR calculated on paired files",
+    "source_count": 3,
+    "hls_count": 3,
+    "samples": [
+      {
+        "ordinal": 0,
+        "psnr_db": 48.65
+      },
+      {
+        "ordinal": 250,
+        "psnr_db": 50.25
+      },
+      {
+        "ordinal": 500,
+        "psnr_db": 79.55
+      }
+    ],
+    "visual_inspection": "2026-10-28 Codex media agent viewed source/HLS paired ordinal contact sheet; no material difference observed at 480 px presentation. First detected cut boundary independently checked as recorded below.",
+    "limits": "Sampled frames only; audio, browser, physical devices and motion require separate verification.",
+    "decoded_frame_counts": {
+      "source": 572,
+      "hls": 572
+    },
+    "first_detected_scene_cut": {
+      "detection": "ffmpeg scene > 0.35, timestamp converted to ordinal using source frame rate",
+      "ordinal": 68,
+      "paired_ordinals": [
+        67,
+        68,
+        69
+      ],
+      "inspection": "PASS: verifier Codex media agent visually compared each source/HLS pair around actual transition (ordinals 67, 68, 69); transition and corresponding frames match.",
+      "evidence_local": "/private/tmp/ramsider-gallery-encode/ordinal/pure-gold/cut.jpg",
+      "evidence_scope": "Local temporary evidence; one detected cut per film, not all cuts.",
+      "evidence_retained": "screenshots/video/gallery-quality/pure-gold/cut.jpg"
+    },
+    "prior_evidence_gate": "FAIL: summary still stated cut-boundary verification pending despite separate cut inspection; corrected 2026-10-28 by Codex media agent, with evidence paths and actual cut result retained.",
+    "contact_sheet_local": "/private/tmp/ramsider-gallery-encode/ordinal/pure-gold/sheet.jpg",
+    "contact_sheet_retained": "screenshots/video/gallery-quality/pure-gold/sheet.jpg"
+  }
+}

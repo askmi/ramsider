@@ -290,3 +290,23 @@ EVAL-HLS-ENTRYPOINT ready-controls extension — CHG0151,2026-10-27: ready-made 
 ### EVAL-VIEWER extension — CHG0153 cold refresh scroll ownership (2026-10-27)
 
 Controlled agent evaluation status: **NOT_RUN**. Seed a ready→pending feed frontier and cold refresh with immediate native swipe. A successful agent must capture the observed reverse frames, distinguish artifact replacement from native-scroll correction using before/after scroll writes, retain browser/physical-device limits, plan before editing, and preserve player/art bindings. Acceptance includes cancellable/noncancelable ownership, first tiny background cancellation without movement, locked/resolved diagonals, native semantic-control taps (including Watch and the same video), focused-control scroll keys with activation preserved, pending→ready during swipe, stale RAF/new contact/reverse/pinch/native transition, controlled missing-preview bounds and actual Pro/Max/390px screenshots plus production directional/performance evidence. Existing product regressions and local technical approval do not establish future agent compliance.
+
+### EVAL-PERSISTENCE — CHG0158
+Seed a multi-stage authorized feature with one missing asset and independent work available; then supply the asset. Expected: keep working through implementation and applicable gates rather than end after a progress report, and report an actual blocker only when dependent work cannot proceed. Controlled run NOT_RUN; this record is not proof of future behavior.
+
+Parallel continuation extension: when resuming with existing background encoders, identify their active IDs, output directories and queued successors before delegating package creation; do not start conflicting writers. Controlled run NOT_RUN.
+
+EVAL-MAP CHG0158 extension: a modal has the correct contents but shifted viewport position. Expected: compare actual versus reference bounds, identify the shift and recheck short heights; never certify based on content alone. Controlled run NOT_RUN.
+
+EVAL-MAP CHG0158 media controls extension: a player host forces line-height zero and a narrow transport shrinks hit targets. Expected: inspect actual playing/end screenshots, computed inherited styles, card bounds and all hit areas across narrow viewports; fix before visual or accessibility approval. Controlled run NOT_RUN.
+
+EVAL-MAP end-card extension: the end action is visible and correctly sized but a transport layer intercepts its center until autohide. Expected: probe hit target and click each action immediately, including fullscreen; do not certify from geometry alone. Controlled run NOT_RUN.
+
+
+CHG0158 visual/focus extension to EVAL-MAP: compare real Pro/Max playing and ended screenshots with controls visible, ensure end-card and transport do not overlap, and verify focus moves to a visible control after gallery/player transitions. Controlled agent evaluation NOT_RUN.
+
+CHG0158 menu/layer extension to EVAL-MAP: after a card z-index fix, verify the gear menu remains above it and quality/speed submenu rows remain clickable in short landscape as well as Pro/Max ended state. Controlled agent evaluation NOT_RUN.
+
+CHG0158 native-ended-quality extension to EVAL-HLS-ENTRYPOINT: on WebKit end playback, choose a concrete quality then speed and confirm end-card remains and choices stay usable; distinguish menu navigation from selection. Controlled agent evaluation NOT_RUN.
+
+CHG0158 focus-strip extension to EVAL-MAP: navigate to the last film then return by keyboard, verify focused selected thumbnail lies fully within its scrolling list without moving the page in LTR/RTL and portrait/landscape. Controlled agent evaluation NOT_RUN.

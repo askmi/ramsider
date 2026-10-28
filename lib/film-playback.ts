@@ -9,11 +9,17 @@ export type FilmSettings = { available: number[]; selected: number | null; adapt
 type Session = { close: () => void; quality: (height: number | null) => void; rate: (value: number) => void };
 const sessions = new WeakMap<HTMLVideoElement, Session>();
 const variants = new WeakMap<HTMLVideoElement, readonly FilmQuality[]>();
+const sourceSwitchCancels = new WeakMap<HTMLVideoElement, (time?: number) => void>();
 let engine: Promise<typeof Hls> | undefined;
 
 export function configureFilmQualities(video: HTMLVideoElement, qualities: readonly FilmQuality[]) {
   variants.set(video, qualities);
   return () => { variants.delete(video); };
+}
+
+/** An explicit user seek supersedes a pending internal source restoration. */
+export function cancelFilmSourceSwitch(video: HTMLVideoElement, time?: number) {
+  sourceSwitchCancels.get(video)?.(time);
 }
 
 export function selectFilmQuality(video: HTMLVideoElement, height: number | null) {
@@ -89,6 +95,28 @@ export function playProductFilm(video: HTMLVideoElement) {
   let networkRestarts = 0;
   let playIntent = true;
   let restoreFallback: (() => void) | undefined;
+  let finishSourceSeek: (() => void) | undefined;
+  const clearSourceSwitch = () => {
+    if (finishSourceSeek) video.removeEventListener('seeked', finishSourceSeek);
+    finishSourceSeek = undefined;
+    delete video.dataset.filmSourceSwitch;
+    delete video.dataset.filmSourceSwitchTarget;
+    sourceSwitchCancels.delete(video);
+  };
+  const beginSourceSwitch = () => {
+    clearSourceSwitch(); video.dataset.filmSourceSwitch = 'true';
+    sourceSwitchCancels.set(video, time => { if (pendingSource && Number.isFinite(time)) pendingSource.time = time!; clearSourceSwitch(); });
+  };
+  const restoreSourcePosition = (time: number) => {
+    const target = Math.min(time, Math.max(0, video.duration - .1));
+    if (Math.abs(video.currentTime - target) < .001) { clearSourceSwitch(); return; }
+    video.dataset.filmSourceSwitchTarget = String(target);
+    finishSourceSeek = () => {
+      if (!video.seeking && Math.abs(video.currentTime - target) < .25) clearSourceSwitch();
+    };
+    video.addEventListener('seeked', finishSourceSeek);
+    video.currentTime = target;
+  };
   let pendingSource: { time: number; rate: number } | undefined;
   let selected: number | null = null;
   const available = variants.get(video) ?? [];
@@ -135,11 +163,13 @@ export function playProductFilm(video: HTMLVideoElement) {
     hls?.destroy(); hls = undefined;
     restoreFallback = () => {
       if (!current()) return;
-      if (position.time > 0 && Number.isFinite(video.duration)) video.currentTime = Math.min(position.time, Math.max(0, video.duration - .1));
+      if (position.time > 0 && Number.isFinite(video.duration)) restoreSourcePosition(position.time);
+      else clearSourceSwitch();
       video.playbackRate = position.rate;
       pendingSource = undefined; restoreFallback = undefined;
     };
     video.addEventListener('loadedmetadata', restoreFallback, { once: true });
+    beginSourceSwitch();
     video.dataset.playback = 'mp4-fallback';
     settings(video, [720], 720, false);
     video.src = video.dataset.fallback;
@@ -189,7 +219,7 @@ export function playProductFilm(video: HTMLVideoElement) {
       restoreFallback = () => {
         if (!current() || video.currentSrc !== expectedURL) return;
         video.removeEventListener('loadedmetadata', restoreFallback!);
-        video.currentTime = Math.min(position.time, Math.max(0, video.duration - .1));
+        restoreSourcePosition(position.time);
         video.playbackRate = position.rate;
         pendingSource = undefined; restoreFallback = undefined;
       };
@@ -197,8 +227,9 @@ export function playProductFilm(video: HTMLVideoElement) {
       selected = height;
       settings(video, available.map(quality => quality.height), selected);
       clearWatchdog();
+      beginSourceSwitch();
       video.src = url; video.load();
-      status(playIntent ? 'loading' : 'blocked');
+      if (playIntent) status('loading');
       // Keep the original gesture, including recovery via native Play if the
       // browser rejects it. A paused source switch must never start playback.
       if (playIntent) { if (!document.hidden) watchdog = setTimeout(timedOut, 15000); attemptPlay(); }
@@ -213,6 +244,7 @@ export function playProductFilm(video: HTMLVideoElement) {
     video.removeEventListener('pause', onPause);
     document.removeEventListener('visibilitychange', onVisibility);
     if (restoreFallback) video.removeEventListener('loadedmetadata', restoreFallback);
+    clearSourceSwitch();
     resumeImages();
   } };
   sessions.set(video, session);

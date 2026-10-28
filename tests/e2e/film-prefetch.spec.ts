@@ -51,12 +51,12 @@ test('three segments warm without playback; cached range protocol and playback r
   expect(checks.head).toEqual({ status: 200, length: String(bytes), body: 0 });
   await page.waitForTimeout(500);
   expect(warm).toHaveLength(6);
-  await page.locator('#film-play').click();
+  await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(1);
   await page.screenshot({ path: `screenshots/video/prefetch/open-${info.project.name}.png`, scale: 'css' });
   await page.locator('video').evaluate(v => { (v as HTMLVideoElement).currentTime = 25; });
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(26);
-  await page.locator('.product-film__close').click();
+  await page.locator('.film-player__top button').last().click();
   await expect(page.locator('video')).not.toHaveAttribute('src');
   expect(errors).toEqual([]);
 });
@@ -97,10 +97,10 @@ test('Watch interrupts an in-flight warm transfer without awaiting it', async ({
     window.dispatchEvent(new PageTransitionEvent('pageshow', { persisted: true }));
   });
   await expect.poll(() => page.evaluate(() => (window as Window & { warmHeld?: boolean }).warmHeld)).toBe(true);
-  await page.locator('#film-play').click();
+  await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 15000 }).toBeGreaterThan(.2);
   expect(await page.evaluate(() => (window as Window & { warmAborted?: boolean }).warmAborted)).toBe(true);
-  await page.locator('.product-film__close').click();
+  await page.locator('.film-player__top button').last().click();
   await page.waitForTimeout(500);
   await expect(page.locator('video')).not.toHaveAttribute('src');
 });
@@ -109,7 +109,7 @@ test('denied cache storage fails open to ordinary playback', async ({ page }) =>
   await page.addInitScript(() => { Object.defineProperty(window, 'caches', { get: () => { throw new Error('Storage denied'); } }); });
   await page.goto('/en');
   await expect(page.locator('video')).toHaveAttribute('data-preload', 'unavailable', { timeout: 40000 });
-  await page.locator('#film-play').click();
+  await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(.2);
 });
 
@@ -130,7 +130,7 @@ test('failed background transfer is terminal despite later image events', async 
   await page.evaluate(() => { for (let i = 0; i < 10; i++) document.dispatchEvent(new Event('media-state')); });
   await page.waitForTimeout(1000);
   expect(await page.evaluate(() => (window as Window & { warmFailures?: number }).warmFailures)).toBe(1);
-  await page.locator('#film-play').click();
+  await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(.2);
 });
 
@@ -144,7 +144,7 @@ for (const registration of ['denied', 'pending'] as const) test(`registration ${
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await expect(page.locator('#film-play')).toBeInViewport();
   const started = Date.now();
-  await page.locator('#film-play').click();
+  await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   await expect(page.locator('#product-film')).toBeVisible();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 6000 }).toBeGreaterThan(.2);
   expect(Date.now() - started).toBeLessThan(6000); // Activation timeout is 8s; intent never waits for it.
@@ -154,7 +154,7 @@ test('evicted startup cache uses ordinary delivery and still plays', async ({ pa
   await page.goto('/en');
   await expect(page.locator('video')).toHaveAttribute('data-preload', 'ready', { timeout: 40000 });
   await page.evaluate(name => caches.delete(name), cacheName);
-  await page.locator('#film-play').click();
+  await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(1);
 });
 
@@ -173,7 +173,7 @@ test('an optional worker warm failure cannot poison ordinary MSE playback', asyn
   await expect.poll(() => page.locator('.art img:not([data-media-ready])').count(), { timeout: 40000 }).toBe(0);
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await expect(page.locator('#film-play')).toBeInViewport();
-  await page.locator('#film-play').click();
+  await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   await expect(page.locator('#product-film')).toBeVisible();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(.2);
 });
@@ -195,7 +195,7 @@ test('Watch cancels a pending worker warm without waiting for optional preparati
   await page.goto('/en');
   await expect.poll(() => page.evaluate(async () => (await (await caches.open('film-start-v1')).keys()).length), { timeout: 40000 }).toBe(6);
   await expect(page.locator('video')).toHaveAttribute('data-preload', 'loading');
-  await page.locator('#film-play').click();
+  await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 15000 }).toBeGreaterThan(.2);
   expect(await page.evaluate(() => (window as Window & { workerAborted?: boolean }).workerAborted)).toBe(true);
 });

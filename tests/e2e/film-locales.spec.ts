@@ -30,7 +30,7 @@ test('all eleven page locales select exact supplied audio or the English fallbac
     await expect(video).toHaveAttribute('data-src', `${base}/master.m3u8`);
     await expect(video).toHaveAttribute('data-fallback', `${base}/fallback.mp4`);
     await expect(video).not.toHaveAttribute('src');
-    await expect(page.locator('#product-film header p')).toHaveText(nativeLabels[locale] ?? assetFor('en').audioLabels[locale]);
+    await expect(page.locator('#product-film .film-gallery__audio')).toHaveText(nativeLabels[locale] ?? assetFor('en').audioLabels[locale]);
     await expect(page.locator('#product-film')).toHaveAttribute('dir', locale === 'ar' ? 'rtl' : 'ltr');
   }
 });
@@ -59,10 +59,10 @@ for (const locale of ['ru', 'de', 'es']) {
       const video = document.querySelector('video')!;
       const probe = { start: 0, firstFrameMs: null as number | null };
       (window as Window & { filmLocaleProbe?: typeof probe }).filmLocaleProbe = probe;
-      document.getElementById('film-play')!.addEventListener('click', () => { probe.start = performance.now(); }, { once: true, capture: true });
+      document.querySelector('.film-gallery__hero')!.addEventListener('click', () => { probe.start = performance.now(); }, { once: true, capture: true });
       video.requestVideoFrameCallback(() => { probe.firstFrameMs = performance.now() - probe.start; });
     });
-    await page.locator('#film-play').click();
+    await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
     const video = page.locator('video');
     await expect.poll(() => video.evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(6);
     expect(await video.evaluate(v => ({ muted: (v as HTMLVideoElement).muted, volume: (v as HTMLVideoElement).volume }))).toEqual({ muted: true, volume: 0 });
@@ -75,7 +75,7 @@ for (const locale of ['ru', 'de', 'es']) {
     expect(firstFrameMs).toBeGreaterThan(0);
     await video.evaluate(v => { (v as HTMLVideoElement).currentTime = 30; return (v as HTMLVideoElement).play(); });
     await expect.poll(() => video.evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(31);
-    await page.locator('.product-film__close').click();
+    await page.locator('.film-player__top button').last().click();
     await expect.poll(() => video.evaluate(v => ({ src: v.getAttribute('src'), paused: (v as HTMLVideoElement).paused, ready: (v as HTMLVideoElement).readyState }))).toEqual({ src: null, paused: true, ready: 0 });
     expect(errors).toEqual([]);
     await writeFile(`screenshots/video/locales/${locale}-${info.project.name}.json`, JSON.stringify({ locale, project: info.project.name, startupBytes: bytes, startupFiles: warm.slice(0, 6), firstFrameMs, fullFilmEnded: full, seekBeyond31: true, silent: true, errors }, null, 2));
@@ -103,11 +103,11 @@ test('locale navigation and other tabs cannot substitute a different cached audi
   const second = await context.newPage();
   await silenceTestMedia(second);
   await ready(second, 'de'); // Shared cache may evict this tab's ES bootstrap; ordinary HTTP must remain usable.
-  await page.locator('#film-play').click();
+  await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(2);
   await expect(page.locator('video')).toHaveAttribute('data-audio-locale', 'es');
   await expect(page.locator('video')).toHaveAttribute('data-src', `${baseFor('es')}/master.m3u8`);
-  await page.locator('.product-film__close').click();
+  await page.locator('.film-player__top button').last().click();
   await second.close();
 });
 

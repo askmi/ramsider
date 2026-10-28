@@ -39,7 +39,16 @@ for(const engine of ['chromium','webkit']){
    await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x,y}]});await page.waitForTimeout(40);
    await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:x+2,y:y+1}]});await page.waitForTimeout(40);
    await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await page.locator(tapFilm?'#product-film':'#wellness-viewer').waitFor({state:'visible'});tapActivated=true;
-   if(tapFilm){await page.waitForFunction(()=>{const v=document.querySelector('video');return v.currentTime>.1&&v.videoHeight>0;});filmTap=await page.evaluate(()=>{const v=document.querySelector('video');return {sameVideo:v===window.__qaFilmVideo,time:v.currentTime,height:v.videoHeight,muted:v.muted,volume:v.volume,paused:v.paused,error:!!v.error};});if(!filmTap.sameVideo||!filmTap.muted||filmTap.volume!==0||filmTap.error)throw new Error('Native film tap failed same-player/silent contract');}
+   if(tapFilm){
+    const hero=page.locator('.film-gallery__hero');await hero.waitFor({state:'visible'});
+    const idle=await page.locator('video').evaluate(v=>({paused:v.paused,src:v.getAttribute('src')}));
+    if(!idle.paused||idle.src!==null)throw new Error('Gallery opened with playback already active');
+    const heroBox=await hero.boundingBox();if(!heroBox)throw new Error('Gallery Play target is absent');
+    const hx=heroBox.x+heroBox.width/2,hy=heroBox.y+heroBox.height/2;
+    await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:hx,y:hy}]});await page.waitForTimeout(40);
+    await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+    await page.waitForFunction(()=>{const v=document.querySelector('video');return v.currentTime>.1&&v.videoHeight>0;});filmTap=await page.evaluate(()=>{const v=document.querySelector('video');return {sameVideo:v===window.__qaFilmVideo,time:v.currentTime,height:v.videoHeight,muted:v.muted,volume:v.volume,paused:v.paused,error:!!v.error};});if(!filmTap.sameVideo||!filmTap.muted||filmTap.volume!==0||filmTap.error)throw new Error('Native film tap failed same-player/silent contract');
+   }
   }else if(diagonal){
    await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:190,y:730}]});
    const initial=nearDiagonal?[[217,706],[244,682],[271,658]]:[[192,727],[192,690],[370,670]];

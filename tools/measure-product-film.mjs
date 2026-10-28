@@ -4,9 +4,10 @@ import {chromium} from '@playwright/test';
 import {writeFile,mkdir} from 'node:fs/promises';
 import {resolve,dirname} from 'node:path';
 const evidencePath=resolve(process.env.HLS_EVIDENCE??'test-results/product-film-network.json');
-const browser=await chromium.launch();
+const browser=await chromium.launch({args:['--mute-audio']});
 try {
 const context=await browser.newContext({viewport:{width:402,height:874},deviceScaleFactor:3,isMobile:true,hasTouch:true});
+await context.addInitScript(()=>{Object.defineProperty(HTMLMediaElement.prototype,'muted',{get(){return true},set(){},configurable:true});Object.defineProperty(HTMLMediaElement.prototype,'volume',{get(){return 0},set(){},configurable:true});});
 const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
 const cdp=await context.newCDPSession(page);await cdp.send('Network.enable');await cdp.send('Network.setCacheDisabled',{cacheDisabled:true});
 const allMedia=[];const ids=new Set();let bytes=0;
@@ -18,6 +19,7 @@ await page.waitForFunction(()=>document.querySelectorAll('.art img:not([data-med
 await page.locator('#film-play').scrollIntoViewIfNeeded();await page.waitForTimeout(600);
 const beforeIntent=allMedia.length;const startup=[];const full=[];
 async function probe(){
+ await page.locator('#film-play').click();
  const startingBytes=bytes;
  await page.evaluate(()=>{
   const v=document.querySelector('video');const p={start:0,firstFrameMs:null,firstPlayingMs:null,events:[],qualities:[],stop:false,frame:0};window.__filmProbe=p;
@@ -26,9 +28,9 @@ async function probe(){
   const handler=e=>{if(p.stop||!p.start)return;if(e.type==='playing'&&p.firstPlayingMs===null)p.firstPlayingMs=performance.now()-p.start;p.events.push({event:e.type,ms:performance.now()-p.start,time:v.currentTime,height:v.videoHeight});};
   for(const name of ['waiting','playing','pause','ended','error'])v.addEventListener(name,handler);
   p.cleanup=()=>{p.stop=true;if(p.frame)v.cancelVideoFrameCallback(p.frame);for(const name of ['waiting','playing','pause','ended','error'])v.removeEventListener(name,handler);};
-  document.getElementById('film-play').addEventListener('click',()=>{p.start=performance.now();p.frame=v.requestVideoFrameCallback(frame);},{once:true});
+  document.querySelector('.film-gallery__hero').addEventListener('click',()=>{p.start=performance.now();p.frame=v.requestVideoFrameCallback(frame);},{once:true});
  });
- await page.locator('#film-play').click();
+ await page.locator('.film-gallery__hero').click();
  await page.waitForFunction(()=>window.__filmProbe.firstFrameMs!==null,{},{timeout:20000});
  return startingBytes;
 }
@@ -38,7 +40,7 @@ async function finish(startingBytes){
   return {firstFrameMs:p.firstFrameMs,firstPlayingMs:p.firstPlayingMs,events:p.events,qualities:p.qualities,contentTime:v.currentTime,ended:v.ended,buffered:Array.from({length:v.buffered.length},(_,i)=>[v.buffered.start(i),v.buffered.end(i)]),playback:v.dataset.playback};
  });
  result.mediaReceivedBytes=bytes-startingBytes;
- await page.locator('.product-film__close').click();
+ await page.locator('.film-player__top button').last().click();
  await page.waitForFunction(()=>{const v=document.querySelector('video');return !v.hasAttribute('src')&&v.paused&&v.networkState===0;});
  result.stalls=result.events.filter(e=>e.event==='waiting'&&e.ms>result.firstPlayingMs+100&&e.time>.1);
  return result;

@@ -1,0 +1,200 @@
+{
+  "date": "2026-10-28",
+  "verifier": "Codex media agent",
+  "id": "evolution",
+  "source_sha256": "8c27f91c9b9f3b9b057dd2a22eb23d528e06801d04739ce1d15dad8908b4f321",
+  "recipe": {
+    "segmentSeconds": 2.0,
+    "gopFrames": 50,
+    "preset": "slow",
+    "threads": 4
+  },
+  "source_frame_rate": "25/1",
+  "source_audio": {
+    "packets": 5329,
+    "bytes": 1785627,
+    "sha256": "746558c526b6562a7443894fd13d69c77f09d38cfa39c6572db2e5a90aaa1dbe"
+  },
+  "audio_packet_check": "all rendition/fallback AAC packet payloads exactly match original source",
+  "packaging_status": "PASS",
+  "validation_receipt_sha256": "87c00e6774ece5374304de9ca84c50aec6f38cc93163140df4a91df87cb4c440",
+  "360p_segment_durations_seconds": [
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    1.64
+  ],
+  "renditions": [
+    {
+      "name": "144p",
+      "segments": 57,
+      "duration": 113.64,
+      "keyframes": 57,
+      "decode": "PASS",
+      "level": 12
+    },
+    {
+      "name": "360p",
+      "segments": 57,
+      "duration": 113.64,
+      "keyframes": 57,
+      "decode": "PASS",
+      "level": 30
+    },
+    {
+      "name": "720p",
+      "segments": 57,
+      "duration": 113.64,
+      "keyframes": 57,
+      "decode": "PASS",
+      "level": 31
+    },
+    {
+      "name": "1080p",
+      "segments": 57,
+      "duration": 113.64,
+      "keyframes": 57,
+      "decode": "PASS",
+      "level": 41
+    }
+  ],
+  "sample": {
+    "time_seconds": 35.0,
+    "rendition": "1080p",
+    "method": "Decoded source and HLS frames at same seek time, scaled to 960 px wide; RGB PSNR. Side-by-side full frame and native-scale 960x540 center crop visually examined.",
+    "psnr_db": 32.33,
+    "visual": "No material difference observed in sampled frame; not a whole-film or browser quality approval."
+  },
+  "limits": "One sample per film; unknown actual audio language; no physical device test. Lossy encoding is not mathematically lossless.",
+  "previous_seek_sample_status": "REJECTED: independently sought streams may select different frames; retained as diagnostic only",
+  "ordinal_1080p": {
+    "sampling": "every 250th decoded frame starting ordinal 0, separately from each stream, select by n; set common AVTB and exact 10s integer PTS, scale both to 960 pixels; RGB PSNR calculated on paired files",
+    "source_count": 12,
+    "hls_count": 12,
+    "samples": [
+      {
+        "ordinal": 0,
+        "psnr_db": 51.37
+      },
+      {
+        "ordinal": 250,
+        "psnr_db": 49.26
+      },
+      {
+        "ordinal": 500,
+        "psnr_db": 48.99
+      },
+      {
+        "ordinal": 750,
+        "psnr_db": 55.15
+      },
+      {
+        "ordinal": 1000,
+        "psnr_db": 48.18
+      },
+      {
+        "ordinal": 1250,
+        "psnr_db": 52.93
+      },
+      {
+        "ordinal": 1500,
+        "psnr_db": 50.12
+      },
+      {
+        "ordinal": 1750,
+        "psnr_db": 51.64
+      },
+      {
+        "ordinal": 2000,
+        "psnr_db": 51.8
+      },
+      {
+        "ordinal": 2250,
+        "psnr_db": 51.95
+      },
+      {
+        "ordinal": 2500,
+        "psnr_db": 47.8
+      },
+      {
+        "ordinal": 2750,
+        "psnr_db": 53.03
+      }
+    ],
+    "visual_inspection": "2026-10-28 Codex media agent viewed source/HLS paired ordinal contact sheet; no material difference observed at 480 px presentation. First detected cut boundary independently checked as recorded below.",
+    "limits": "Sampled frames only; audio, browser, physical devices and motion require separate verification.",
+    "decoded_frame_counts": {
+      "source": 2841,
+      "hls": 2841
+    },
+    "first_detected_scene_cut": {
+      "detection": "ffmpeg scene > 0.35, timestamp converted to ordinal using source frame rate",
+      "ordinal": 2323,
+      "paired_ordinals": [
+        2322,
+        2323,
+        2324
+      ],
+      "inspection": "PASS: verifier Codex media agent visually compared each source/HLS pair around actual transition (ordinals 2322, 2323, 2324); transition and corresponding frames match.",
+      "evidence_local": "/private/tmp/ramsider-gallery-encode/ordinal/evolution/cut.jpg",
+      "evidence_scope": "Local temporary evidence; one detected cut per film, not all cuts.",
+      "evidence_retained": "screenshots/video/gallery-quality/evolution/cut.jpg"
+    },
+    "prior_evidence_gate": "FAIL: summary still stated cut-boundary verification pending despite separate cut inspection; corrected 2026-10-28 by Codex media agent, with evidence paths and actual cut result retained.",
+    "contact_sheet_local": "/private/tmp/ramsider-gallery-encode/ordinal/evolution/sheet.jpg",
+    "contact_sheet_retained": "screenshots/video/gallery-quality/evolution/sheet.jpg"
+  }
+}

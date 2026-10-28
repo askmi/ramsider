@@ -1,0 +1,181 @@
+{
+  "date": "2026-10-28",
+  "verifier": "Codex media agent",
+  "id": "copycats",
+  "source_sha256": "1ac793cc1e26eeb9dca72cf608845a7e81211c6d47de3a0d05a9a77ba6aedd9c",
+  "recipe": {
+    "segmentSeconds": 2,
+    "gopFrames": 50,
+    "preset": "slow",
+    "threads": 6
+  },
+  "source_frame_rate": "25/1",
+  "source_audio": {
+    "packets": 3863,
+    "bytes": 1277798,
+    "sha256": "6babcaa31122cf739a0c22ff2319209bd4b3dea27efc5e31d9d6e0fc8e0425c1"
+  },
+  "audio_packet_check": "all rendition/fallback AAC packet payloads exactly match original source",
+  "packaging_status": "PASS",
+  "validation_receipt_sha256": "6a76d709e83d96a018f9d492e41a22d0ecbd906f6d84965c1c71ac7a5006e0cf",
+  "360p_segment_durations_seconds": [
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    0.36
+  ],
+  "renditions": [
+    {
+      "name": "144p",
+      "segments": 42,
+      "duration": 82.36,
+      "keyframes": 42,
+      "decode": "PASS",
+      "level": 12
+    },
+    {
+      "name": "360p",
+      "segments": 42,
+      "duration": 82.36,
+      "keyframes": 42,
+      "decode": "PASS",
+      "level": 30
+    },
+    {
+      "name": "720p",
+      "segments": 42,
+      "duration": 82.36,
+      "keyframes": 42,
+      "decode": "PASS",
+      "level": 31
+    },
+    {
+      "name": "1080p",
+      "segments": 42,
+      "duration": 82.36,
+      "keyframes": 42,
+      "decode": "PASS",
+      "level": 41
+    },
+    {
+      "name": "1440p",
+      "segments": 42,
+      "duration": 82.36,
+      "keyframes": 42,
+      "decode": "PASS",
+      "level": 50
+    },
+    {
+      "name": "2160p",
+      "segments": 42,
+      "duration": 82.36,
+      "keyframes": 42,
+      "decode": "PASS",
+      "level": 51
+    }
+  ],
+  "limits": "Unknown actual audio language; no physical device test. Lossy encoding is not mathematically lossless.",
+  "ordinal_1080p": {
+    "sampling": "every 250th decoded frame starting ordinal 0, separately from each stream, select by n; set common AVTB and exact 10s integer PTS, scale both to 960 pixels; RGB PSNR calculated on paired files",
+    "source_count": 9,
+    "hls_count": 9,
+    "samples": [
+      {
+        "ordinal": 0,
+        "psnr_db": 47.82
+      },
+      {
+        "ordinal": 250,
+        "psnr_db": 46.48
+      },
+      {
+        "ordinal": 500,
+        "psnr_db": 46.59
+      },
+      {
+        "ordinal": 750,
+        "psnr_db": 49.77
+      },
+      {
+        "ordinal": 1000,
+        "psnr_db": 46.93
+      },
+      {
+        "ordinal": 1250,
+        "psnr_db": 48.24
+      },
+      {
+        "ordinal": 1500,
+        "psnr_db": 45.93
+      },
+      {
+        "ordinal": 1750,
+        "psnr_db": 45.77
+      },
+      {
+        "ordinal": 2000,
+        "psnr_db": 73.52
+      }
+    ],
+    "visual_inspection": "2026-10-28 Codex media agent viewed source/HLS paired ordinal contact sheet; no material difference observed at 480 px presentation. First detected cut boundary independently checked as recorded below.",
+    "limits": "Sampled frames only; audio, browser, physical devices and motion require separate verification.",
+    "decoded_frame_counts": {
+      "source": 2059,
+      "hls": 2059
+    },
+    "first_detected_scene_cut": {
+      "detection": "ffmpeg scene > 0.35, timestamp converted to ordinal using source frame rate",
+      "ordinal": 92,
+      "paired_ordinals": [
+        91,
+        92,
+        93
+      ],
+      "inspection": "PASS: verifier Codex media agent visually compared each source/HLS pair around actual transition (ordinals 91, 92, 93); transition and corresponding frames match.",
+      "evidence_local": "/private/tmp/ramsider-gallery-encode/ordinal/copycats/cut.jpg",
+      "evidence_scope": "Local temporary evidence; one detected cut per film, not all cuts.",
+      "evidence_retained": "screenshots/video/gallery-quality/copycats/cut.jpg"
+    },
+    "prior_evidence_gate": "FAIL: summary still stated cut-boundary verification pending despite separate cut inspection; corrected 2026-10-28 by Codex media agent, with evidence paths and actual cut result retained.",
+    "contact_sheet_local": "/private/tmp/ramsider-gallery-encode/ordinal/copycats/sheet.jpg",
+    "contact_sheet_retained": "screenshots/video/gallery-quality/copycats/sheet.jpg"
+  }
+}

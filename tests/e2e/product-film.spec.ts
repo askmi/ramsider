@@ -66,7 +66,7 @@ test('both film controls play, seek, pause and release with modal focus restorat
   await page.screenshot({path:`${root}/closed-${info.project.name}.png`,scale:'css'});
   for (const id of ['film-play','film-label']) {
     const trigger=page.locator(`#${id}`);await trigger.focus();const before=await page.evaluate(()=>scrollY);
-    await trigger.press('Enter');await expect(page.locator('#product-film')).toBeVisible();await playing(page);
+    await trigger.press('Enter');await expect(page.locator('#product-film')).toBeVisible();await page.locator('.film-gallery__hero').click();await playing(page);
     await expect(page.locator('video')).toHaveAttribute('data-playback', info.project.name.includes('iphone') ? 'native-hls' : 'mse-hls');
     expect(await page.$eval('video', v=>v.videoWidth>=256&&v.videoHeight>=144&&(v.controls||v.parentElement?.dataset.controls==='ready')&&v.hasAttribute('playsinline'))).toBe(true);
     expect(mediaRequests.length).toBeGreaterThan(0);
@@ -80,7 +80,7 @@ test('both film controls play, seek, pause and release with modal focus restorat
     // Native modal contains keyboard focus (browser controls may expose shadow descendants).
     for(let i=0;i<5;i++){await page.keyboard.press('Tab');expect(await page.evaluate(()=>!!document.activeElement?.closest('#product-film'))).toBe(true);}
     await page.keyboard.press('Shift+Tab');expect(await page.evaluate(()=>!!document.activeElement?.closest('#product-film'))).toBe(true);
-    if(id==='film-play')await page.keyboard.press('Escape');else await page.locator('.product-film__close').click();
+    if(id==='film-play')await page.keyboard.press('Escape');else await page.locator('.film-player__top button').last().click();
     await expect(page.locator('#product-film')).not.toBeVisible();await expect(trigger).toBeFocused();
     await expect.poll(()=>page.$eval('video', v=>({paused:v.paused,src:v.getAttribute('src'),network:v.networkState,ready:v.readyState,time:v.currentTime}))).toEqual({paused:true,src:null,network:0,ready:0,time:0});
     expect(Math.abs(await page.evaluate(()=>scrollY)-before)).toBeLessThan(2);
@@ -89,7 +89,7 @@ test('both film controls play, seek, pause and release with modal focus restorat
 });
 
 test('reported source error offers visible retry and delayed playback remains closable',async({page},info)=>{
-  await visit(page);await page.locator('#film-play').click();await playing(page);
+  await visit(page);await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();await playing(page);
   await page.locator('video').evaluate(v=>{Object.defineProperty(v,'error',{configurable:true,value:{code:3}});v.dispatchEvent(new Event('error'));v.dispatchEvent(new Event('error'));Reflect.deleteProperty(v,'error');});
   const retry=page.locator('.film-recovery button:visible,.product-film__notes>button:visible');
   await expect(retry).toBeVisible();await page.screenshot({path:`${root}/error-${info.project.name}.png`,scale:'css'});
@@ -98,13 +98,13 @@ test('reported source error offers visible retry and delayed playback remains cl
   await page.locator('video').evaluate(v=>{Object.defineProperty(v,'readyState',{configurable:true,get:()=>1});v.dispatchEvent(new Event('waiting'));});
   await expect(page.locator('media-loading-indicator')).toHaveAttribute('medialoading');
   await page.screenshot({path:`${root}/loading-${info.project.name}.png`,scale:'css'});
-  await page.locator('.product-film__close').click();await expect(page.locator('video')).not.toHaveAttribute('src');
+  await page.locator('.film-player__top button').last().click();await expect(page.locator('video')).not.toHaveAttribute('src');
   await page.locator('video').evaluate(v=>{Reflect.deleteProperty(v,'readyState');});
 });
 
 test('shared fullscreen API retains ready-made controls and landscape fit',async({page},info)=>{
   test.skip(info.project.name!=='desktop-chromium','Desktop Chromium supports fullscreen in this automation host; physical iOS separately unverified');
-  await visit(page);await page.locator('#film-play').click();await playing(page);
+  await visit(page);await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();await playing(page);
   await expect(page.locator('#film-player')).toHaveAttribute('data-controls','ready');
   await page.locator('.film-fullscreen').click();await expect.poll(()=>page.evaluate(()=>document.fullscreenElement?.tagName)).toBe('MEDIA-CONTROLLER');
   await expect(page.locator('#film-settings-toggle')).toBeVisible();
@@ -114,7 +114,7 @@ test('shared fullscreen API retains ready-made controls and landscape fit',async
   await writeFile(`${root}/fullscreen-geometry.json`,JSON.stringify(geometry,null,2));
   expect(geometry.width).toBe(geometry.viewportWidth);expect(geometry.height).toBe(geometry.viewportHeight);
   await page.screenshot({path:`${root}/fullscreen-chromium.png`,scale:'css'});
-  await page.evaluate(()=>document.exitFullscreen());await page.locator('.product-film__close').click();
+  await page.evaluate(()=>document.exitFullscreen());await page.locator('.film-player__top button').last().click();
 });
 
 test('eleven localized dialogs, RTL, and representative portrait/landscape adaptation',async({page},info)=>{
@@ -122,7 +122,7 @@ test('eleven localized dialogs, RTL, and representative portrait/landscape adapt
   test.skip(info.project.name!=='iphone-17-pro-webkit','One WebKit matrix owner');
   const rows: Array<Record<string, unknown>>=[];
   for(const locale of ['en','ru','de','fr','es','it','tr','ar','zh','ja','ko']){
-    await visit(page,locale);await page.locator('#film-play').click();await playing(page);
+    await visit(page,locale);await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();await playing(page);
     await page.locator('video').evaluate(v=>{Object.defineProperty(v,'error',{configurable:true,value:{code:3}});v.dispatchEvent(new Event('error'));v.dispatchEvent(new Event('error'));Reflect.deleteProperty(v,'error');});
     await expect(page.locator('.film-recovery button:visible,.product-film__notes>button:visible')).toBeVisible();
     const d=page.locator('#product-film');expect(await d.getAttribute('dir')).toBe(locale==='ar'?'rtl':'ltr');
@@ -131,23 +131,23 @@ test('eleven localized dialogs, RTL, and representative portrait/landscape adapt
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
     rows.push({locale,width:page.viewportSize()!.width,title:await d.locator('h2').textContent()});
     if(locale==='ar')await page.screenshot({path:`${root}/arabic-pro.png`,scale:'css'});
-    await d.locator('button').first().click();
+    await page.locator('.film-player__top button').last().click();
   }
   for(const [w,h] of [[440,956],[874,402],[956,440],[280,653],[375,812],[768,1024],[1440,900]]){
-    await page.setViewportSize({width:w,height:h});await visit(page);await page.locator('#film-play').click();await playing(page);
+    await page.setViewportSize({width:w,height:h});await visit(page);await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();await playing(page);
     const dimensions=await page.$eval('video', v=>{const r=v.getBoundingClientRect();return {width:r.width,height:r.height,top:r.top,bottom:r.bottom,fit:getComputedStyle(v).objectFit};});
     expect(dimensions.width).toBeLessThanOrEqual(w);expect(dimensions.fit).toBe('contain');expect(dimensions.bottom).toBeLessThanOrEqual(h);
     expect(await page.locator('#product-film').evaluate(e=>e.scrollWidth<=e.clientWidth)).toBe(true);
-    await expect(page.locator('.product-film__close')).toBeInViewport();
+    await expect(page.locator('.film-player__top button').last()).toBeInViewport();
     await page.$eval('video', v=>v.pause());await page.screenshot({path:`${root}/adapt-${w}x${h}.png`,scale:'css'});
-    await page.locator('.product-film__close').click();rows.push({viewport:{width:w,height:h},...dimensions});
+    await page.locator('.film-player__top button').last().click();rows.push({viewport:{width:w,height:h},...dimensions});
   }
   await writeFile(`${root}/matrix.json`,JSON.stringify(rows,null,2));
 });
 
 
 test('queued close cannot release an immediately reopened film', async ({page}) => {
-  await visit(page); await page.locator('#film-play').click(); await playing(page);
+  await visit(page); await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click(); await playing(page);
   for (let i = 0; i < 3; i++) {
     await page.evaluate(() => {
       (document.getElementById('product-film') as HTMLDialogElement).close();
@@ -160,7 +160,7 @@ test('queued close cannot release an immediately reopened film', async ({page}) 
     expect(await page.evaluate(() => !!document.activeElement?.closest('#product-film'))).toBe(true);
     await expect(page.locator('.film-recovery button:visible,.product-film__notes>button:visible')).toHaveCount(0);
   }
-  await page.locator('.product-film__close').click();
+  await page.locator('.film-player__top button').last().click();
   await expect(page.locator('#film-label')).toBeFocused();
   await expect.poll(() => page.$eval('video', v => [v.paused,v.networkState,v.readyState])).toEqual([true,0,0]);
 });
@@ -170,17 +170,17 @@ test('unavailable HLS uses bounded small-MP4 fallback and keeps usable controls'
   await visit(page);
   const requested: string[]=[];page.on('request',r=>{if(r.url().includes('/films/'))requested.push(r.url());});
   await page.route('**/*.m3u8',r=>r.abort());
-  await page.locator('#film-play').click();await playing(page);
+  await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();await playing(page);
   await expect(page.locator('video')).toHaveAttribute('data-playback','mp4-fallback');
   expect(requested.some(url=>url.endsWith('/fallback.mp4'))).toBe(true);
   expect(requested.some(url=>url.includes('/uno-introduction.mp4'))).toBe(false);
-  await page.locator('.product-film__close').click();
+  await page.locator('.film-player__top button').last().click();
   await expect.poll(()=>page.$eval('video',v=>[v.paused,v.networkState,v.readyState])).toEqual([true,0,0]);
 });
 
 
 test('fallback preserves a paused position without restarting audio',async({page})=>{
-  await visit(page);await page.locator('#film-play').click();await playing(page);
+  await visit(page);await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();await playing(page);
   await page.$eval('video',v=>{v.currentTime=30;});
   await expect.poll(()=>page.$eval('video',v=>!v.seeking&&v.currentTime>=29.9&&v.readyState>=2)).toBe(true);
   await page.$eval('video',v=>{
@@ -191,18 +191,18 @@ test('fallback preserves a paused position without restarting audio',async({page
   await expect.poll(()=>page.$eval('video',v=>v.readyState>=2&&v.currentTime>=29.9&&v.paused)).toBe(true);
   const time=await page.$eval('video',v=>v.currentTime);await page.waitForTimeout(300);
   expect(await page.$eval('video',v=>v.currentTime)).toBeCloseTo(time,1);
-  await page.locator('.product-film__close').click();
+  await page.locator('.film-player__top button').last().click();
 });
 
 test('resume intent survives an error before a resumed frame is ready',async({page})=>{
-  await visit(page);await page.locator('#film-play').click();await playing(page);
+  await visit(page);await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();await playing(page);
   await page.$eval('video',v=>v.pause());await page.waitForTimeout(100);
   await page.$eval('video',v=>{
     // Resume and fail in the same task, before any playing event can arrive.
     void v.play().catch(()=>{});v.dispatchEvent(new Event('error'));
   });
   await expect(page.locator('video')).toHaveAttribute('data-playback','mp4-fallback');
-  await playing(page);await page.locator('.product-film__close').click();
+  await playing(page);await page.locator('.film-player__top button').last().click();
 });
 
 test('blocked autoplay gives a localized hint and manual Play succeeds',async({page})=>{
@@ -213,11 +213,11 @@ test('blocked autoplay gives a localized hint and manual Play succeeds',async({p
       return original.call(this);
     };
   });
-  await visit(page,'ru');await page.locator('#film-play').click();
+  await visit(page,'ru');await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   await expect(page.locator('.film-recovery')).toHaveText(/Нажмите воспроизведение, чтобы запустить видео/);
   await page.locator('.film-recovery button').click();await playing(page);
   await expect(page.locator('.film-recovery')).toBeHidden();
-  await page.locator('.product-film__close').click();
+  await page.locator('.film-player__top button').last().click();
 });
 
 test('pending startup suspends its watchdog in background and rearms on return',async({page},info)=>{
@@ -227,14 +227,14 @@ test('pending startup suspends its watchdog in background and rearms on return',
   await page.route('**/*.m3u8',route=>route.abort());
   await page.route('**/fallback.mp4',async route=>{await held;await route.continue().catch(()=>{});});
   try{
-    await page.locator('#film-play').click();
+    await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
     await expect(page.locator('video')).toHaveAttribute('data-playback','mp4-fallback');
     await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'));});
     await page.waitForTimeout(16000);
     await expect(page.locator('.film-recovery button:visible,.product-film__notes>button:visible')).toHaveCount(0);
     await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:false});document.dispatchEvent(new Event('visibilitychange'));});
     await expect(page.locator('.film-recovery button:visible,.product-film__notes>button:visible')).toBeVisible({timeout:18000});
-    await page.locator('.product-film__close').click();
+    await page.locator('.film-player__top button').last().click();
   }finally{release();}
 });
 
@@ -245,11 +245,12 @@ test('film suspends pending artwork readers and resumes other viewers after clos
   try{
     await page.locator('[data-wellness-open]').first().evaluate((e:HTMLElement)=>e.click());
     await expect.poll(()=>requests).toBeGreaterThan(0);
-    await page.locator('#film-play').evaluate((e:HTMLElement)=>e.click());await playing(page);
+    await page.locator('#film-play').evaluate((e:HTMLElement)=>e.click());
+    await page.locator('.film-gallery__hero').click();await playing(page);
     const before=requests;release();await page.waitForTimeout(500);
     expect(requests).toBe(before);
     await expect(page.locator('.wellness-photo img').first()).not.toHaveAttribute('data-media-ready','');
-    await page.locator('.product-film__close').click();
+    await page.locator('.film-player__top button').last().click();
     await expect(page.locator('.wellness-photo img').first()).toHaveAttribute('data-media-ready','',{timeout:30000});
     await page.locator('.wellness-close').click();
     await page.locator('[data-technology-open]').first().evaluate((e:HTMLElement)=>e.click());
@@ -268,14 +269,14 @@ test('a short segment outage recovers HLS without a permanent MP4 downgrade',asy
     }
     return route.continue();
   });
-  await visit(page);await page.locator('#film-play').click();await playing(page);
+  await visit(page);await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();await playing(page);
   await expect.poll(()=>page.$eval('video',v=>v.currentTime)).toBeGreaterThan(4);
   const cachedEnd=await page.$eval('video',v=>v.buffered.end(v.buffered.length-1));enabled=true;
   await expect.poll(()=>failures).toBeGreaterThan(0);
   await expect.poll(()=>page.$eval('video',v=>v.currentTime),{timeout:25000}).toBeGreaterThan(cachedEnd+2);
   await expect(page.locator('video')).toHaveAttribute('data-playback','mse-hls');
   await expect(page.locator('.film-recovery button:visible,.product-film__notes>button:visible')).toHaveCount(0);
-  await page.locator('.product-film__close').click();
+  await page.locator('.film-player__top button').last().click();
 });
 
 // Chrome's DevTools iPhone identity is neither the desktop UA nor real WebKit.
@@ -300,11 +301,12 @@ test('Chrome-family iPhone identity uses MSE and completes cold and cached films
       await page.evaluate(() => {
         const v = document.querySelector('video')!;
         const w = window as typeof window & { filmProbe?: { clicked: number; first: number; waits: number[] } };
-        const probe: { clicked: number; first: number; waits: number[] } = w.filmProbe = { clicked: performance.now(), first: 0, waits: [] };
+        const probe: { clicked: number; first: number; waits: number[] } = w.filmProbe = { clicked: 0, first: 0, waits: [] };
+        document.querySelector('.film-gallery__hero')!.addEventListener('click', () => { probe.clicked = performance.now(); }, { once: true, capture: true });
         v.addEventListener('playing', () => { probe.first ||= performance.now(); });
         v.addEventListener('waiting', () => { if (probe.first) probe.waits.push(v.currentTime); });
       });
-      await page.locator(cache === 'cold' ? '#film-play' : '#film-label').click();
+      await page.locator(cache === 'cold' ? '#film-play' : '#film-label').click(); await page.locator('.film-gallery__hero').click();
       await playing(page);
       await expect(page.locator('video')).toHaveAttribute('data-playback', 'mse-hls');
       await expect.poll(() => page.$eval('video', v => v.ended), { timeout: 90000 }).toBe(true);
@@ -318,7 +320,7 @@ test('Chrome-family iPhone identity uses MSE and completes cold and cached films
       expect(result.waits).toEqual([]); expect(result.error).toBeNull();
       rows.push({ cache, ...result });
       await page.screenshot({ path: `${root}/incident-chrome-${cache}.png`, scale: 'css' });
-      await page.locator('.product-film__close').click();
+      await page.locator('.film-player__top button').last().click();
       await expect.poll(() => page.$eval('video', v => [v.paused, v.networkState, v.readyState])).toEqual([true, 0, 0]);
     }
     expect(errors).toEqual([]);
@@ -337,14 +339,14 @@ test('a stalled HLS seek without MediaError automatically falls back and preserv
     await route.continue().catch(() => {});
   });
   try {
-    await visit(page); await page.locator('#film-play').click(); await playing(page);
+    await visit(page); await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click(); await playing(page);
     await page.$eval('video', v => { v.currentTime = 30; });
     await expect.poll(() => held).toBeGreaterThan(0);
     await expect.poll(() => page.$eval('video', v => v.error)).toBeNull();
     await expect(page.locator('video')).toHaveAttribute('data-playback', 'mp4-fallback', { timeout: 20000 });
     await expect.poll(() => page.$eval('video', v => !v.paused && v.readyState >= 2 && v.currentTime >= 30), { timeout: 20000 }).toBe(true);
     await expect(page.locator('.film-recovery button:visible,.product-film__notes>button:visible')).toHaveCount(0);
-    await page.locator('.product-film__close').click();
+    await page.locator('.film-player__top button').last().click();
     await expect.poll(() => page.$eval('video', v => [v.paused, v.networkState, v.readyState])).toEqual([true, 0, 0]);
   } finally { release(); }
 });
@@ -363,12 +365,12 @@ test('a late streaming-library load cannot replace an already playing fallback',
   });
   try {
     await visit(page); await expect.poll(() => held).toBe(true);
-    await page.locator('#film-play').click();
+    await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
     await expect(page.locator('video')).toHaveAttribute('data-playback', 'mp4-fallback', { timeout: 20000 });
     await playing(page);
     release(); await page.waitForTimeout(1000);
     await expect(page.locator('video')).toHaveAttribute('data-playback', 'mp4-fallback');
-    await playing(page); await page.locator('.product-film__close').click();
+    await playing(page); await page.locator('.film-player__top button').last().click();
   } finally { release(); }
 });
 
@@ -385,9 +387,9 @@ test('desktop WebKit uses MSE while desktop-identity iPad keeps native HLS', asy
     });
     try {
       await page.goto(`${process.env.BASE_URL ?? 'http://127.0.0.1:3000'}/en`);
-      await page.locator('#film-play').click(); await playing(page);
+      await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click(); await playing(page);
       await expect(page.locator('video')).toHaveAttribute('data-playback', ipad ? 'native-hls' : 'mse-hls');
-      await page.locator('.product-film__close').click();
+      await page.locator('.film-player__top button').last().click();
       await expect.poll(() => page.$eval('video', v => [v.paused, v.networkState, v.readyState])).toEqual([true, 0, 0]);
     } finally { await context.close(); }
   }

@@ -509,7 +509,7 @@ html:has(#product-film[open]){overflow:hidden;overscroll-behavior:none}
 .product-film .film-gallery__hero{position:relative;display:block;width:100%;min-height:0;padding:0;border:0;border-radius:0;background:#000;overflow:clip}
 .film-gallery__hero,.film-gallery__thumbnail{aspect-ratio:var(--film-poster-ratio)}
 .film-gallery__hero img,.film-gallery__thumbnail img{position:absolute;display:block;width:var(--film-poster-width);max-width:none;height:auto;left:var(--film-poster-left);top:var(--film-poster-top)}
-.film-gallery__play,.film-gallery__small-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:grid;place-items:center;border:1px solid var(--film-ink);border-radius:50%;background:#101010cf}
+.film-gallery__play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:grid;place-items:center;border:1px solid var(--film-ink);border-radius:50%;background:#101010cf}
 .film-gallery__play{width:58px;height:58px}
 .film-gallery__play svg{width:26px;fill:currentColor;margin-inline-start:3px}
 .film-gallery__duration{position:absolute;right:8px;bottom:8px;padding:3px 7px;border-radius:5px;background:#111c;color:var(--film-ink);font-size:12px}
@@ -521,8 +521,6 @@ html:has(#product-film[open]){overflow:hidden;overscroll-behavior:none}
 .film-gallery__thumbnail::after{content:"";position:absolute;inset:0;border:2px solid transparent;border-radius:inherit;pointer-events:none}
 .film-gallery__item[aria-pressed=true] .film-gallery__thumbnail::after{border-color:var(--film-ink)}
 .film-gallery__item[aria-pressed=true] .film-gallery__item-number{color:var(--film-ink)}
-.film-gallery__small-play{width:28px;height:28px;border:0}
-.film-gallery__small-play svg{width:14px;fill:currentColor;margin-inline-start:2px}
 .film-gallery__item-title,.film-gallery__wide-number{display:none}
 .film-player__top{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:10px;pointer-events:none}
 .product-film .film-player__top > button,.film-player__top > span{border:0;background:linear-gradient(rgb(0 0 0 / .72),rgb(0 0 0 / .82));border-radius:30px;padding:6px 14px;color:var(--film-ink);font-size:13px;min-height:40px}

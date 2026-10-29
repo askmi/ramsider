@@ -1,7 +1,7 @@
 {
   "change": "CHG0174",
   "date": "2026-10-30",
-  "status": "VERIFIED_LOCAL_RANGE_CANDIDATE; FOLLOWUP_PUBLICATION_PENDING; PRIOR_PUBLIC_PLAYBACK_FAILED",
+  "status": "OPEN_PUBLIC_PLAYBACK_FAILED; LOCAL_RANGE_CANDIDATE_NOT_EFFECTIVE_ON_VERCEL",
   "request": {
     "film": "Evolution / film3",
     "originalBytes": true,
@@ -915,6 +915,13 @@
       "independent": "/root/publication_audit Gates2\u20135 PASS",
       "verdict": "APPROVED_LOCAL_RANGE_CANDIDATE",
       "publicVerification": "PENDING; previous599c9ec public failure retained"
+    },
+    "rangePublication": {
+      "sha": "b094474606044a05adca19157b6ffc3d605bbc09",
+      "publicProtocol": "FAIL: requested0- stillresponse0-207457343/207457344 withContentLength207457344; API timeout30s",
+      "publicPlayback": "FAIL3positivecases; notapproved",
+      "cause": "Local Next request-header override did not bound observed Vercel static response; platform mechanism not further established",
+      "next": "Actual Vercel delivery investigation remainsOPEN; CHG0178 is separate UI-only"
     }
   }
 }

@@ -3,9 +3,9 @@ import { expect, test, type Page } from '@playwright/test';
 /** Negative-path coverage only; successful film acceptance requires real frames. */
 export async function expectOriginalUnavailable(page: Page) {
   if (await page.locator('video').getAttribute('data-delivery') !== 'original') return false;
-  // Only this configured profile uses the known decoder-less bundled build.
+  // These configured profiles use known decoder-less bundled builds.
   // A recovery on WebKit or system Chrome must fail normal playback assertions.
-  if (test.info().project.name !== 'desktop-chromium' || test.info().project.use.channel) return false;
+  if (!['desktop-chromium', 'desktop-firefox'].includes(test.info().project.name) || test.info().project.use.channel) return false;
   await expect.poll(async () => {
     const picture = await page.locator('video').evaluate(el => {
       const v = el as HTMLVideoElement;

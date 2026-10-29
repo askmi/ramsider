@@ -1,7 +1,7 @@
 {
   "change": "CHG0174",
   "date": "2026-10-30",
-  "status": "VERIFIED_LOCAL_PLAYBACK_CORRECTION; PUBLICATION_PENDING; APPLE_NATIVE_WIDTH_BLOCKED",
+  "status": "VERIFIED_LOCAL_RANGE_CANDIDATE; FOLLOWUP_PUBLICATION_PENDING; PRIOR_PUBLIC_PLAYBACK_FAILED",
   "request": {
     "film": "Evolution / film3",
     "originalBytes": true,
@@ -778,19 +778,22 @@
     "reviewHashes": "16/16 actual runtime/tests match native review2 snapshot"
   },
   "checks": {
-    "build": "build1 PASS",
-    "typecheck": "type2 PASS",
-    "scopedLint": "lint2 PASS, zero diagnostics",
-    "nativeReview": "review3 no actionable findings; review2 two test-policy P2 corrected",
+    "build": "build3 PASS",
+    "typecheck": "type4 PASS",
+    "scopedLint": "lint4 PASS",
+    "nativeReview": "review5 no actionable regressions; review4 Firefox helper finding fixed",
     "browser": "HLS_SYSTEM_CHROME=1 final27PASS9profileSKIP; real decoded original frames and fullscreen edges, not recovery acceptance",
     "negativeDecoder": "Bundled Chromium actual metadata0x0 stops audio-only playback; Retry same original. Negative path only, not working playback.",
     "iab": "Main directly viewed affected engine actual product fullscreen at1:06;1457 real1920x1080 frames/time58.41647; localhost silence/telemetry-only proxy. Independent auditor BLOCKED: IAB not exposed in its CUA surface.",
     "physicalAppleWidth": "BLOCKED/unverified; no layout adapter claim",
     "reviewedFiles": {
       "lib/film-playback.ts": "b0ca9f46c2139ed17bf7daca044f37cb885c3fad25fab0c92682e530451d44e3",
-      "tests/e2e/original-film-support.ts": "ec43408bdea4398e5e77de7ae3d8bbedab52470d58300abc4430170727e5e272",
-      "tests/e2e/film-original-width.spec.ts": "96a84b72774e4dbec21c437c292a60ab239d71a861fdd4525af15a7a20dcf99e"
-    }
+      "tests/e2e/original-film-support.ts": "ec034d9c79dcc74df4f8ae007e57a0ba5e503dc96e799e2819f32377be6b5e53",
+      "tests/e2e/film-original-width.spec.ts": "96a84b72774e4dbec21c437c292a60ab239d71a861fdd4525af15a7a20dcf99e",
+      "proxy.ts": "1e54a4a65052e00a42d8c9789874417154439d9dbaf6fe447074d62d8637275f",
+      "tests/e2e/film-original-ranges.spec.ts": "8e8c6fb3a9373bed278728c5d76ed7874ed41f6bbe2aaea666bd3b29e19f7f2a"
+    },
+    "rangeCandidate": "Actual local server10PASS11profileSKIP +Firefoxgallery1PASS; precise2MiB ContentRange/bodyidentity/finiteHEAD/tail416; originalframes/fullscreen/seek/end/replay/Retry"
   },
   "correction20261030": {
     "cause": "Empty canPlayType falsely vetoed original in official Chrome and affected IAB before trying it; agent incorrectly approved recovery as task success.",
@@ -898,8 +901,20 @@
       ],
       "limits": "Two synthetic samples of this same build; no causal baseline comparison, field INP, physical Safari or Lighthouse score. Completed bytes are phase-limited."
     },
-    "publication": "PENDING",
+    "publication": {
+      "sha": "599c9ec6ed9f0541c6641803df23812683722b3a",
+      "deployments": "Both SUCCESS",
+      "publicVerification": "FAIL: no working playback approval; initial metadata/startup Range stalled",
+      "rangeCandidate": "proxy.ts caps only open-endedGETRange2MiB; original bytes/URL unchanged; actual deployment not yet verified"
+    },
     "userResultApproval": "NOT_RECORDED",
-    "agentEval": "NOT_RUN"
+    "agentEval": "NOT_RUN",
+    "rangeCandidateApproval": {
+      "date": "2026-10-30",
+      "verifier": "/root",
+      "independent": "/root/publication_audit Gates2\u20135 PASS",
+      "verdict": "APPROVED_LOCAL_RANGE_CANDIDATE",
+      "publicVerification": "PENDING; previous599c9ec public failure retained"
+    }
   }
 }

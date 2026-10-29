@@ -1,0 +1,152 @@
+{
+  "change": "CHG0174",
+  "date": "2026-10-29",
+  "status": "WIDTH_RESTORATION_VERIFIED_LOCAL; VERTICAL_MATTE_OPEN; PHYSICAL_NATIVE_BLOCKED",
+  "request": "Preserve the entire original horizontal field; remove only black top/bottom matte, never side content. Latest owner priority supersedes edge-fill crop.",
+  "implementation": {
+    "source": "evolution/und-v1",
+    "sourceDimensions": [
+      1920,
+      1080
+    ],
+    "sourceSHA256": "8c27f91c9b9f3b9b057dd2a22eb23d528e06801d04739ce1d15dad8908b4f321",
+    "sourceMatchesRegistry": true,
+    "horizontalCropPixels": 0,
+    "sourceReencoded": false,
+    "objectFit": "contain in every Evolution web presentation",
+    "superseded": "Unpublished1694px candidate and all related source selection/focal/encoder changes removed. Other films unchanged."
+  },
+  "verticalFinding": {
+    "status": "NOT_REMOVED",
+    "reason": "Source active vertical area changes and the final shot uses full height. A fixed crop would cut real image. No unsafe whole-film crop retained.",
+    "samples": [
+      10,
+      30,
+      57,
+      109,
+      111
+    ],
+    "sourceSheet": "/private/tmp/ramsider-evolution-bounds.jpg"
+  },
+  "browser": {
+    "result": "8PASS4intentional-profileSKIP",
+    "profiles": [
+      "WebKit emulation Pro402x874 DPR3",
+      "WebKit emulation Max440x956 DPR3",
+      "Chromium390x844,844x390,1440x900"
+    ],
+    "framesSeconds": [
+      10,
+      30,
+      59,
+      109
+    ],
+    "states": [
+      "portrait",
+      "landscape",
+      "element fullscreen: realChromium, mobileAPIadapter",
+      "close cleanup",
+      "all7portraitpreviews",
+      "11localegalleryreachability"
+    ],
+    "assertions": [
+      "original source URL",
+      "contain/no transform",
+      "full horizontal image inside host",
+      "16:9 original canvas",
+      "muted/volume0"
+    ],
+    "images": "screenshots/video/original-width",
+    "limitations": "Not a physical iPhone/native AVKit verification. Letterbox areas remain visible.",
+    "additionalIPhone13WebKit": "PASS unchanged runtime; explicit390x844/844x390 at10/30/59/109s inline+fullscreen layout adapter"
+  },
+  "checks": {
+    "build": "PASS",
+    "typecheck": "PASS",
+    "scopedLint": "PASS zero warnings",
+    "nativeCodexReview": "CLEAN exact CSS/test isolated diff; tests run independently",
+    "hashes": {
+      "app/globals.css": "ab95549f11ed1f087872bccfa7f2362cb163f05dc7147ce455d77692af00dff2",
+      "tests/e2e/film-original-width.spec.ts": "19aef07733160efd4059f58c6782d527935c3182170625015f37c56da4a22628"
+    }
+  },
+  "performance": {
+    "phase": "evolution-width-final",
+    "conditions": "Single cold Chromium mobile402×874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+    "initial": {
+      "ttfb": 18.800000190734863,
+      "fcp": 552,
+      "lcp": 588,
+      "cls": 0.00022206073455854325,
+      "jsBytes": 332718,
+      "completedBytes": 3207758,
+      "filmObjects": 6,
+      "readyImages": 28
+    },
+    "scroll": {
+      "samples": 315,
+      "movingFrames": 172,
+      "startY": 0,
+      "endY": 13259,
+      "p95Ms": 32.90000009536743,
+      "over33Ms": 14,
+      "reverseFrames": 0,
+      "maxReverse": 0,
+      "cls": 0.00022206073455854325,
+      "longTasks": [
+        76,
+        52,
+        384,
+        106,
+        61
+      ]
+    },
+    "errors": []
+  },
+  "technicalApproval": {
+    "widthOnly": "APPROVED_LOCAL /root 2026-10-29",
+    "independentAuditor": "PASS LOCAL WIDTH-ONLY /root/audit 2026-10-29; implementation, viewed images, behavior, review, performance, integration and records",
+    "fullNoBarsRequirement": "NOT_APPROVED",
+    "userResultApproval": "NOT_RECORDED"
+  },
+  "publication": {
+    "status": "PENDING",
+    "target": "origin/main / ramsider-main.vercel.app"
+  },
+  "integration": [
+    {
+      "name": "pro",
+      "bottomBefore": {
+        "y": 13259,
+        "viewport": 874,
+        "height": 14133,
+        "gap": 0
+      },
+      "bottomAfter": {
+        "y": 13259,
+        "viewport": 874,
+        "height": 14133,
+        "gap": 0
+      },
+      "steps": 17,
+      "errors": []
+    },
+    {
+      "name": "max",
+      "bottomBefore": {
+        "y": 14475,
+        "viewport": 956,
+        "height": 15431,
+        "gap": 0
+      },
+      "bottomAfter": {
+        "y": 14475,
+        "viewport": 956,
+        "height": 15431,
+        "gap": 0
+      },
+      "steps": 17,
+      "errors": []
+    }
+  ]
+}

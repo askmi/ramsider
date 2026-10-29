@@ -705,3 +705,7 @@ html:has(#product-film[open]){overflow:hidden;overscroll-behavior:none}
 /* Full-height list stays behind the sole header actions and active transport. */
 .film-player:has(.film-playlist) .film-player__top > :is(button,span){position:relative;z-index:6}
 .film-player:has(.film-playlist) .film-transport{position:relative;z-index:6;opacity:1!important;pointer-events:auto!important}
+
+/* Evolution retains the complete source width in every presentation mode. */
+.product-film .film-player[data-film-id=evolution]:is(:fullscreen,[data-element-fullscreen=true]) video,
+.product-film[data-view=playing] .film-player[data-film-id=evolution] video{object-fit:contain;object-position:center}

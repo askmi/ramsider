@@ -1,6 +1,6 @@
 # Seven-film gallery — implementation specification
 
-Status 2026-10-29: CHG0173 corrects selected-title placement and edge-to-edge portrait preview including encoded poster mattes. Portrait preview QA passed; CHG0174 subsequently found Evolution film3 fullscreen FAIL, so the prior broader web acceptance is reopened; independent /root/audit finalreview/performance/integration/records PASS2026-10-29 forlocalwebonly. CHG0171 published web-player crop remains verified only for that scope; the original native-iPhone fullscreen fill requirement remains OPEN/BLOCKED without physical evidence. Customer browser/iOS are explicitly UNKNOWN. CHG0172 compact two-activation behavior is retained.
+Historical status before latest width correction2026-10-29: CHG0173 corrects selected-title placement and edge-to-edge portrait preview including encoded poster mattes. Portrait preview QA passed; CHG0174 subsequently found Evolution film3 fullscreen FAIL, so the prior broader web acceptance is reopened; independent /root/audit finalreview/performance/integration/records PASS2026-10-29 forlocalwebonly. CHG0171 published web-player crop remains verified only for that scope; the original native-iPhone fullscreen fill requirement remains OPEN/BLOCKED without physical evidence. Customer browser/iOS are explicitly UNKNOWN. CHG0172 compact two-activation behavior is retained.
 
 ## Mapping
 
@@ -83,3 +83,8 @@ Native Apple presentation remains a separate unsatisfied requirement. Official H
 
 ## QA finding — CHG0174 (2026-10-29)
 Customer torch image bf485336 is Evolution film3 at about10s, confirmed by actual decoded source frame. The browser player container fills844×390, but decoded active image runs y22.24..368.42, leaving about22px black above/below in both WebKit rotated viewport and realChromium fullscreen. Source shows embedded mattes; CSS and prior fullscreen tests address4/5/6, not Evolution. Prior broad localweb approval does not approve Evolution or the original fullscreen requirement. Portrait previews pass all7 in390/402/440 DPR3. NativeApple fullscreen still BLOCKED/unverified; user requested QA and no runtimefix/deploy has been made under CHG0174. See [preview-width.json](evidence/video/preview-width.json).
+
+
+## Original-width priority — CHG0174 (2026-10-29)
+
+Current owner instruction forbids cropping either horizontal edge. Evolution uses the original full-frame1920×1080 source and contain in all web modes; the unpublished1694px phone candidate and per-shot focal crop are removed. Original source SHA matches the existing registry. Local8PASS4profileSKIP checks full image bounds at10/30/59/109s across portrait, landscape and fullscreen; native physical remainsBLOCKED. Vertical-matte removal isOPEN: the ending is fullheight, so a uniform vertical crop would cut the apparatus. Do not present the width restoration as complete elimination of all bars. Receipt: [evolution-framing.json](evidence/video/evolution-framing.json).

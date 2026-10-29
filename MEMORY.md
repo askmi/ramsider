@@ -1,5 +1,14 @@
 # Ramsider project memory
 
+## Current correction — CHG0174, 2026-10-29
+
+Owner now explicitly prohibits any horizontal crop of Evolution. Full-width restoration VERIFIED_LOCAL: original1920×1080 source/evolution-und-v1 unchanged, zero sidecrop, contain in all web presentations. Unpublished1694px candidate, phone routing, focal map and encoder changes removed.8browserPASS4profileSKIP,build/type/lint/native reviewCLEAN. Vertical-matte removal remainsOPEN: final shot uses fullheight, so constanttop/bottomcrop would remove actualpicture. No physicaliPhone/nativeAVKit verification; BLOCKED. This supersedes earlier all-edges-fill assumption and old candidate checks; no complete-no-bars claim. Evidence docs/evidence/video/evolution-framing.json. Independent /root/audit finalLOCAL_WIDTH_ONLY gates/recordsPASS; additionalWebKit13video1PASS. Publication pending.
+
+## Earlier QA and publication history
+
+## Previous gallery publication — 2026-10-29
+User requested deploy current state. CHG0172/0173 committed and pushed origin/main `1d188cf758f6e4cdeec45f5442db38fe46642201`, exactremote verified; GitHub Production – ramsider7407573383 SUCCESS, public ramsider-main.vercel.app ProWebKit all7preview/selectedtitle1PASS. Domain alias exactSHA mapping not independently confirmed. Evolution fullscreen bars CHG0174 OPEN, physicaliPhone native QA BLOCKED; publication doesnot fix/certify either. Postpushnotes local; unrelated dirty sources preserved.
+
 ## QA found Evolution fullscreen bars — 2026-10-29
 CHG0174 OPEN confirmeddefect: customertorch screenshot bf485336 is Evolution3 at~10s, not Our Style. Decoded fallback5/10/20/40/70/100 visibly shows bakedmattes, at10s y98..623/720. Actualproductionlocal 844×390 WebKit iPhone13-sized landscape and realChromium elementfullscreen activeimage y22.24..368.42 -> ~22px black above/below. Player box fullycovers viewport but picture doesnot; currentCSS crops only4/5, existingwide-picture tests only4/5/6. Root previously didnotmatchclient scene and claimed webscope passed; fullfullscreen QA FAIL and CHG0173 web-wideapproval reopened. QA preview passed actualall7 portrait390/402/440,13PASS11profileSKIP (but tests omitEvolutionfullscreen). PhysicaliPhone nativeApple remains BLOCKED; userbrowser/iOS unknown, no assumptions about Telegram. Userrequested QA only; no productcode fix/deploy inthis audit. Evidence screenshots/video/qa-evolution and docs/evidence/video/preview-width.json. Independent /root/audit QA confirms overallFAIL/previewPASS/nativeBLOCKED2026-10-29; nofixapproval.
 

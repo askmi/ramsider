@@ -1,11 +1,11 @@
 {
   "change": "CHG0171",
   "date": "2026-10-29",
-  "status": "VERIFIED_LOCAL_WEBPLAYER",
+  "status": "VERIFIED_PUBLISHED_WEBPLAYER",
   "request": "User go authorizes proportional enlargement with cropped edges for expanded web player",
   "runtimeChanged": true,
   "assetsChanged": false,
-  "publicationAttempted": false,
+  "publicationAttempted": true,
   "branch": "main",
   "sourceCanvas": "All7 source canvases16:9;4/5/6 are3840x2160 SAR1:1",
   "geometry": "Uniform scale preserves shape. Filling different screen aspect requires cropping some content; fullframe+no bars+no distortion cannot all hold for unequal ratios",
@@ -308,12 +308,14 @@
   "technicalApproval": {
     "date": "2026-10-29",
     "verifier": "/root",
-    "verdict": "APPROVED_LOCAL_WEBPLAYER",
+    "verdict": "APPROVED_LOCAL_AND_PUBLIC_WEBPLAYER",
     "evidence": "build2/typesfinal/scopedlint0errors4oldwarnings/native review1 exact3hashes/19PASS14profileSKIP/actualProMaxENARframes/integration2profiles/performance2samples",
     "independentAuditor": "/root/audit",
     "independentVisualBehavior": "PASS",
     "independentFinalRecordsReviewPerformance": "PASS /root/audit 2026-10-29; native review/exacthashes, isolatedperformance, actualintegrationimages/results and currentrecords inspected",
-    "nativeOS": "UNVERIFIED unchanged AppleOSframing, original customer presentation unknown"
+    "nativeOS": "UNVERIFIED unchanged AppleOSframing, original customer presentation unknown",
+    "publicEvidence": "Exact695f44d mainref/productionSUCCESS/public5PASS4profileSKIP/currentframes viewed; betaRef/latestProduction unchanged",
+    "independentPublicationAudit": "PASS /root/audit 2026-10-29: exact provider/mainrefs, public5PASS4profileSKIP, unchanged assertions, currentpublicimages, protected beta branch/Production and final records"
   },
   "observationsBeforeFix": [
     "Source4/5 contain baked top/bottom black regions in inspected frames; cropdetect can mistake dark scene content for padding, so no fixedcrop approved",
@@ -327,10 +329,90 @@
     "screenshots/video/wide-picture/before/film-6-pro-landscape.png"
   ],
   "publication": {
-    "status": "PENDING_PROVIDER_ACCESS_OR_BETA_EXCEPTION",
-    "authorizedTarget": "origin/main and production ramsider",
-    "constraint": "Do not update beta; existing Gitintegration auto-deploys both projects from main",
-    "access": "VercelCLI noexistingcredentials; browserproviderpage blocked by businesspolicy; no bypass attempted",
-    "uiSourceHashesUnchanged": true
+    "status": "SUCCESS",
+    "sha": "695f44da92425b24c04d51803b43c54c5c9aaa52",
+    "repository": "askmi/ramsider",
+    "branch": "origin/main",
+    "requiredTarget": "Production – ramsider",
+    "otherAutomation": "Main may create an automatic preview in beta project; this does not update beta branch or beta Production",
+    "betaBefore": {
+      "refSha": "47dddd9522f044f25d643fca3d5ea90d1f0f6825",
+      "productionDeploymentId": 7358576771,
+      "productionSha": "47dddd9522f044f25d643fca3d5ea90d1f0f6825"
+    },
+    "providerConfigurationChanged": false,
+    "mainRef": {
+      "ref": "refs/heads/main",
+      "sha": "695f44da92425b24c04d51803b43c54c5c9aaa52"
+    },
+    "deployments": [
+      {
+        "id": 7399719758,
+        "sha": "695f44da92425b24c04d51803b43c54c5c9aaa52",
+        "environment": "Production – ramsider",
+        "created_at": "2026-10-28T23:17:20Z",
+        "latestStatus": {
+          "state": "success",
+          "environment_url": "https://ramsider-m1xuf3lhn-askmi-6282s-projects.vercel.app",
+          "log_url": "https://ramsider-m1xuf3lhn-askmi-6282s-projects.vercel.app",
+          "created_at": "2026-10-28T23:17:20Z"
+        }
+      },
+      {
+        "id": 7399718617,
+        "sha": "695f44da92425b24c04d51803b43c54c5c9aaa52",
+        "environment": "Preview – ramsider-beta",
+        "created_at": "2026-10-28T23:17:16Z",
+        "latestStatus": {
+          "state": "success",
+          "environment_url": "https://ramsider-beta-a7u351h69-askmi-6282s-projects.vercel.app",
+          "log_url": "https://ramsider-beta-a7u351h69-askmi-6282s-projects.vercel.app",
+          "created_at": "2026-10-28T23:17:16Z"
+        }
+      }
+    ],
+    "statuses": [
+      {
+        "context": "Vercel – ramsider-beta",
+        "state": "success",
+        "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/ArBzxCdvdFhMhfCDmtAptigCAHE4",
+        "created_at": "2026-10-28T23:17:15Z"
+      },
+      {
+        "context": "Vercel – ramsider",
+        "state": "success",
+        "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/34qdXA6ChYJ8sHbeLhtfwN2rL74b",
+        "created_at": "2026-10-28T23:17:20Z"
+      }
+    ],
+    "betaAfter": {
+      "refSha": "47dddd9522f044f25d643fca3d5ea90d1f0f6825",
+      "productionDeploymentId": 7358576771,
+      "productionSha": "47dddd9522f044f25d643fca3d5ea90d1f0f6825",
+      "environment": "Production – ramsider-beta"
+    },
+    "reviewedCommitBlobs": "PASS exact3 sourcehashes match native review snapshot",
+    "providerEvidence": "/private/tmp/ramsider-chg0171-publication-api.json",
+    "publicSmoke": {
+      "status": "PASS",
+      "passed": 5,
+      "intentionalProfileSkips": 4,
+      "log": "/private/tmp/ramsider-chg0171-public2.log",
+      "assertions": "Unchanged compared with tracked local suite; only three module imports and screenshotroot adapted for temp public runner",
+      "screenshots": "screenshots/video/wide-picture/public",
+      "mainViewed": [
+        "ProENOurStylelandscape",
+        "MaxARDIYMadnesslandscape",
+        "ChromiumCopycatsactualfullscreenfallback"
+      ],
+      "setupFailure": "First temp runner failed bare@playwright/test module resolution, zero tests executed; fixed import only"
+    }
+  },
+  "wholeRequestCoverage": {
+    "date": "2026-10-29",
+    "status": "REOPENED / native presentation requirement remains BLOCKED",
+    "reason": "CHG0173 customer iPhone13 screenshot shows remaining frame; CHG0171 approval applies only to expanded custom web player, not posters/nativeOS. Actual customer browser/iOS/presentation unknown.",
+    "followup": "CHG0173",
+    "priorWebApproval": "Retained as scoped historical verification; not whole-request fulfillment"
   }
 }

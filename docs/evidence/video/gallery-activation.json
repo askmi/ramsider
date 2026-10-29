@@ -1,0 +1,143 @@
+{
+  "change": "CHG0172",
+  "date": "2026-10-29",
+  "status": "VERIFIED_LOCAL",
+  "scope": "Compact gallery second activation starts playback; inline player List separately verified without fullscreen",
+  "cause": "Compact cards always called select(position), while prior two-activation implementation and coverage only exercised in-player list; gallery tests used separate hero Play. Prior agent missed original compact entrypoint.",
+  "mapping": "Synchronous galleryArmedIndex ref: first select and arm, second same card calls existing start() in gesture; different selection replaces arm; select/start/dialog close clear arm. No CSS/assets/source/encoding/config changes.",
+  "files": {
+    "components/ProductFilm.tsx": "383d83318f6f9097a4f5b6a197014645755f5461a296f0625176744555427ae0",
+    "tests/e2e/film-gallery-activation.spec.ts": "92d811a73ec5fd3c72cdd01b14901ebfdfb65ae0f6c1019cca2cfdf41fd51990"
+  },
+  "baseline": {
+    "tests": 1,
+    "failed": 1,
+    "actual": "two native taps leave data-view=gallery and video src absent",
+    "screenshot": "screenshots/video/gallery-activation/before/pro-two-taps-still-gallery.png"
+  },
+  "browser": {
+    "newCompact": {
+      "pass": 12,
+      "profiles": [
+        "iphone-17-pro-webkit",
+        "iphone-17-pro-max-webkit",
+        "desktop-chromium"
+      ],
+      "locales": [
+        "en",
+        "ar"
+      ],
+      "checks": [
+        "all seven films first selects/no src, second starts",
+        "source id, advancing time, presented decoded frame, silent media, focus",
+        "native touch taps, dblclick, same-task events, Enter/Space",
+        "switch/reset/close/reopen, hero one-click, landscape without fullscreen"
+      ]
+    },
+    "inlineList": {
+      "pass": 3,
+      "checks": [
+        "EN/AR different film selection then start",
+        "paused current film dblclick resumes",
+        "no fullscreen"
+      ]
+    },
+    "existingRegression": {
+      "pass": 10,
+      "profileSkip": 11,
+      "checks": [
+        "in-player fullscreen selection",
+        "ended/replay",
+        "terminal source error retry",
+        "native quality restore",
+        "focus/RTL"
+      ]
+    }
+  },
+  "visual": {
+    "profiles": [
+      {
+        "width": 402,
+        "height": 874,
+        "dpr": 3
+      },
+      {
+        "width": 440,
+        "height": 956,
+        "dpr": 3
+      }
+    ],
+    "viewed": [
+      "screenshots/video/gallery-activation/iphone-17-pro-webkit-en-compact-started.png",
+      "screenshots/video/gallery-activation/iphone-17-pro-max-webkit-ar-compact-started.png",
+      "screenshots/video/gallery-activation/integration/pro-bottom.png",
+      "screenshots/video/gallery-activation/integration/max-bottom.png"
+    ],
+    "comparison": "Original baseline remains gallery, final screenshot shows actual inline film. No styling delta; calibrated static landing render is not a transient-film reference.",
+    "integration": "Both widths/DPR verified, compact card4 twice plays then closes; seventeen actual scroll steps to footer, gap0 before and after capture, no overflow or page errors."
+  },
+  "checks": {
+    "build": "PASS / 11 locales SSG",
+    "types": "PASS",
+    "scopedLint": "0 errors, 4 inherited warnings",
+    "nativeReview": "review1 and final review2 CLEAN / exact 2 source hashes match review snapshot; reviewer static-only, production browser tests separate"
+  },
+  "performance": {
+    "phase": "chg0172-final",
+    "conditions": "Single cold Chromium mobile402×874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+    "initial": {
+      "ttfb": 25,
+      "fcp": 436,
+      "lcp": 524,
+      "cls": 0.00022206073455854325,
+      "jsBytes": 332550,
+      "completedBytes": 3207478,
+      "filmObjects": 6,
+      "readyImages": 28
+    },
+    "scroll": {
+      "samples": 314,
+      "movingFrames": 252,
+      "startY": 0,
+      "endY": 12846,
+      "p95Ms": 32.90000009536743,
+      "over33Ms": 14,
+      "reverseFrames": 0,
+      "maxReverse": 0,
+      "cls": 0.00022206073455854325,
+      "longTasks": [
+        89,
+        53,
+        381,
+        58,
+        53
+      ]
+    },
+    "errors": []
+  },
+  "limits": [
+    "Local only, no publication requested for this correction",
+    "Emulated WebKit and Chromium; physical iPhone/native Apple OS presentation not certified",
+    "No causal latency/field INP/Lighthouse claim",
+    "Unrelated pre-existing CHG0157/CHG0166/CHG0168 and full repo lint issues remain outside this fix"
+  ],
+  "userApproval": "NOT_RECORDED",
+  "technicalApproval": {
+    "date": "2026-10-29",
+    "verifier": "/root",
+    "verdict": "APPROVED_LOCAL",
+    "basis": "build1/types/scopedlint/native final review2/25 passed browser tests/actual ProMax screenshots/integration/performance; independent final audit PASS"
+  },
+  "independentAudit": {
+    "date": "2026-10-29",
+    "verifier": "/root/audit",
+    "verdict": "PASS",
+    "gates": [
+      "scope",
+      "implementation",
+      "actual visual/behavior/adaptation",
+      "native final review2 and production performance",
+      "integration and final records"
+    ]
+  }
+}

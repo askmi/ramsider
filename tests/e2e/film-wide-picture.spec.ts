@@ -164,3 +164,20 @@ test('native HLS and MSE quality changes keep the active picture filled', async 
     if (aperture.id === 'our-style') { await page.locator('.film-next').click(); await settledFrame(page, 8); }
   }
 });
+
+
+test('iPhone 13 geometry: original films 4/5/6 fill rotated web viewport', async ({ page }, info) => {
+  test.skip(info.project.name !== 'iphone-17-pro-webkit', 'One WebKit owner, explicit iPhone13 viewport; not physical native OS');
+  await page.setViewportSize({ width: 390, height: 844 }); await open(page, 'en');
+  for (const aperture of apertures) {
+    await settledFrame(page, 8); const portrait = await picture(page, aperture, false);
+    expect(portrait.box.width).toBeGreaterThanOrEqual(389);
+    for (const height of [390, 326]) {
+      await page.setViewportSize({ width: 844, height }); await picture(page, aperture, true);
+      await chrome(page, `iphone13-${aperture.id}-landscape-${height}`);
+    }
+    await page.setViewportSize({ width: 390, height: 844 });
+    if (aperture.id !== 'copycats') { await page.locator('.film-next').click(); await settledFrame(page, 8); }
+  }
+  await page.locator('.film-player__close').click();
+});

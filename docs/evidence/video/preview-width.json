@@ -1,0 +1,266 @@
+{
+  "change": "CHG0173",
+  "date": "2026-10-29",
+  "status": "PREVIEW_VERIFIED_LOCAL / FULLSCREEN_EVOLUTION_FAILED / NATIVE_UNVERIFIED",
+  "request": "Customer iPhone13: selected title above; no UNO Films or duplicate below; portrait actual photo edge-to-edge, expanded video fill without stretching",
+  "cause": "Prior root narrowed coverage to ready custom expanded video, excluding poster padding/encoded mattes and native Apple presentation; original result not established across entrypoints. Generic gallery title and whole-source poster policy persisted.",
+  "mapping": {
+    "title": "h2 film.title, remove duplicatecaptiontitle and unused generic11locale title keys",
+    "poster": "uniform CSS aperture scaling with immutable source JPEGs; main portrait no20pxinset/no roundedphotoedge",
+    "apertures": {
+      "1": [
+        0,
+        0,
+        1280,
+        715
+      ],
+      "2": [
+        0,
+        0,
+        1280,
+        591
+      ],
+      "3": [
+        0,
+        22,
+        1280,
+        553
+      ],
+      "4": [
+        49,
+        43,
+        1182,
+        484
+      ],
+      "5": [
+        19,
+        98,
+        1242,
+        493
+      ],
+      "6": [
+        0,
+        0,
+        1280,
+        591
+      ],
+      "7": [
+        114,
+        0,
+        1052,
+        591
+      ]
+    },
+    "rtl": "all numeric fractions explicitLTR; AR layout preserved",
+    "unchanged": "CHG0172 twoactivation, video/audio/quality/source packages, native/element fullscreen entry, public media bytes"
+  },
+  "files": {
+    "components/ProductFilm.tsx": "dc2eb2f3850ebf6fa95ffa01682efa80fb45eca9306ffa263c5667fcad3ad6a5",
+    "app/globals.css": "f52135be85e49293bd12ff36299ebc2780ed664a51385adf30779453b14024ad",
+    "lib/film-gallery-copy.ts": "9f13e5317385a481e7938e5d28930d500c816d2cfc3a2b052df0715b9c1d116d",
+    "lib/film-poster.ts": "b1067feb11507562e7facc2f748737d481c5e9244ee89399924ff7905ff55ae1",
+    "tests/e2e/film-preview-width.spec.ts": "a3df55e3be9b947e6208cccbc2b055d28929d92332c7dd3d31ff055abbef4e17",
+    "tests/e2e/film-wide-picture.spec.ts": "c0ec565b1d1ab9dd81f8dc0830ccad22ac8b7f8befe94de2adc373e3d8036696",
+    "tests/e2e/film-gallery-activation.spec.ts": "92d811a73ec5fd3c72cdd01b14901ebfdfb65ae0f6c1019cca2cfdf41fd51990"
+  },
+  "posters": [
+    {
+      "film": 1,
+      "path": "public/art/films/1.jpg",
+      "sha256": "e0c73934c7d63192deaf20ebb00661ec5652237d8c1535d7e33e99d9dcd14dfe",
+      "sourceByteExact": true,
+      "color": "source untagged, original bytes unchanged"
+    },
+    {
+      "film": 2,
+      "path": "public/art/films/2.jpg",
+      "sha256": "a6c63815704998ddd0c82162b4d15e8cf0800d7b5c4285518e9534e2ff030a8a",
+      "sourceByteExact": true,
+      "color": "source untagged, original bytes unchanged"
+    },
+    {
+      "film": 3,
+      "path": "public/art/films/3.jpg",
+      "sha256": "afa90ccea892c62044702384522a36163e3296c17e0ae3ceac6f00a6ef118aa3",
+      "sourceByteExact": true,
+      "color": "source untagged, original bytes unchanged"
+    },
+    {
+      "film": 4,
+      "path": "public/art/films/4.jpg",
+      "sha256": "075fd567b0efb7c4d78c5cede7f9be49f06a562d84e27c14307a2e7a0749f5d0",
+      "sourceByteExact": true,
+      "color": "source untagged, original bytes unchanged"
+    },
+    {
+      "film": 5,
+      "path": "public/art/films/5.jpg",
+      "sha256": "366b70882e4fc5fd983ae0a9d71cf0c2464ca84dbf7f1390a04513062245d159",
+      "sourceByteExact": true,
+      "color": "source untagged, original bytes unchanged"
+    },
+    {
+      "film": 6,
+      "path": "public/art/films/6.jpg",
+      "sha256": "8d82ddf2030f9b9c7e7c7ca7fc77ded3ca4a27cfed16aa61599245016073317d",
+      "sourceByteExact": true,
+      "color": "source untagged, original bytes unchanged"
+    },
+    {
+      "film": 7,
+      "path": "public/art/films/7.jpg",
+      "sha256": "77d0a4f8548be50d739a7b74de0eaea6ae2b99bf6160ee2d06512530711400b5",
+      "sourceByteExact": true,
+      "color": "source untagged, original bytes unchanged"
+    }
+  ],
+  "checks": {
+    "baseline": "Read-only publicmain actual1FAIL selectedtitle vs UNOFilms; first anchoredgrep0tests setupFAIL retained, not counted",
+    "build": "Final build3 PASS / 11 locales SSG",
+    "types": "PASS",
+    "scopedLint": "0 errors / 4 inherited warnings",
+    "nativeReview": "review1 and finalreview2 CLEAN; exact7live/snapshot hashes match; reviewer static-only, root actual runtime checks separate",
+    "browser2": "39PASS21intentionalprofileSKIP: all7decoded/media/CHG0172, ProMaxENARportrait/rotated/element fullscreen, realChromiumfallback,144/720quality, explicit13geometry, all11locale/280..1440 gallery",
+    "browser3": "6PASS6intentionalprofileSKIP finalaffectedpreview/RTL/gallery after second fraction fix",
+    "integration": "Final build3 Pro402x874 andMax440x956 DPR3; compactcard4 twice plays/closes,17steps each actualfooter/gap0 beforeafter/nooverflow/errors0"
+  },
+  "visual": {
+    "userReferences": [
+      "codex-clipboard-40ea7098-7ae1-49c5-b977-0c76204f48ee.png",
+      "codex-clipboard-bf485336-7465-48e7-a68d-9040eb15cf49.png",
+      "codex-clipboard-112d6472-d589-4a64-81bb-c0568e9d2b61.png",
+      "codex-clipboard-03fdc729-4928-4141-bcd7-3493a44ebc2b.png"
+    ],
+    "currentViewed": [
+      "screenshots/video/preview-width/iphone-17-pro-webkit-390-en-4.png",
+      "screenshots/video/preview-width/iphone-17-pro-webkit-390-en-5.png",
+      "screenshots/video/preview-width/iphone-17-pro-max-webkit-440-ar-1.png",
+      "screenshots/video/preview-width/chromium-768-ar-gallery.png",
+      "screenshots/video/wide-picture/after/iphone13-our-style-landscape-390.png",
+      "screenshots/video/preview-width/integration/pro-bottom.png",
+      "screenshots/video/preview-width/integration/max-bottom.png"
+    ],
+    "method": "Actual screenshot/source inspection and independent measured aperture bounds: photo edges within1CSSpx of viewport, uniformscale within.001; no calibrated static pixel-fidelity claim",
+    "sizes": "390x844/650,402x874/650,440x956/650 DPR3;844x390/326;ProMaxlandscape2heights;280/320/510/768/1440 responsive"
+  },
+  "nativeRequirement": {
+    "status": "OPEN / BLOCKED, not fixed by this change",
+    "customerBrowser": "UNKNOWN, explicitly confirmed by owner",
+    "customerIOS": "UNKNOWN, explicitly confirmed by owner",
+    "screenshotPresentation": "UNKNOWN; absent controls/address bar does not identify native Apple or Telegram",
+    "physicalDevice": "Unavailable locally; emulation is not physical proof",
+    "apiEvidence": "https://raw.githubusercontent.com/WebKit/WebKit/main/Source/WebCore/html/HTMLVideoElement.idl",
+    "apiFinding": "Enter/exit/fullscreen presentation modes; no exposed zoom/fill parameter. CSS poster/custom-controller crop cannot control native OS framing.",
+    "decision": "Preserve prior user trueApplefullscreen choice, no silent page-size substitution or recode. CHG0171 whole-request coverage reopened / CHG0166 physical gate remains blocked."
+  },
+  "performance": {
+    "phase": "chg0173-final",
+    "conditions": "Single cold Chromium mobile402×874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+    "initial": {
+      "ttfb": 23.299999952316284,
+      "fcp": 516,
+      "lcp": 600,
+      "cls": 0.00022206073455854325,
+      "jsBytes": 332718,
+      "completedBytes": 3207730,
+      "filmObjects": 6,
+      "readyImages": 28
+    },
+    "scroll": {
+      "samples": 321,
+      "movingFrames": 177,
+      "startY": 0,
+      "endY": 13259,
+      "p95Ms": 33.200000047683716,
+      "over33Ms": 18,
+      "reverseFrames": 0,
+      "maxReverse": 0,
+      "cls": 0.00022206073455854325,
+      "longTasks": [
+        79,
+        54,
+        720,
+        52,
+        56
+      ]
+    },
+    "errors": []
+  },
+  "performanceRepeat": {
+    "phase": "chg0173-repeat",
+    "conditions": "Single cold Chromium mobile402×874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+    "initial": {
+      "ttfb": 27.40000009536743,
+      "fcp": 476,
+      "lcp": 632,
+      "cls": 0.00022206073455854325,
+      "jsBytes": 332718,
+      "completedBytes": 3207730,
+      "filmObjects": 6,
+      "readyImages": 28
+    },
+    "scroll": {
+      "samples": 317,
+      "movingFrames": 245,
+      "startY": 0,
+      "endY": 12851,
+      "p95Ms": 33.200000047683716,
+      "over33Ms": 17,
+      "reverseFrames": 0,
+      "maxReverse": 0,
+      "cls": 0.00022206073455854325,
+      "longTasks": [
+        110,
+        53,
+        372,
+        57,
+        62,
+        60
+      ]
+    },
+    "errors": []
+  },
+  "publication": "NOT_REQUESTED / NOT_PERFORMED; main695f44d remains published baseline",
+  "userApproval": "NOT_RECORDED",
+  "independentAudit": {
+    "scope": "PASS localweb; nativeBLOCKED",
+    "implementation": "PASS",
+    "visualBehaviorAdaptation": "PASS finalcurrentimages/browser2+3/integration3",
+    "reviewPerformanceFinalRecords": "PASS2026-10-29 /root/audit LOCAL_WEB_ONLY"
+  },
+  "performanceAssessment": "JS +168 encoded bytes, same6startupfilmobjects/CLS, no new observers/dependencies/media requests. LCP600/632 within historical single-run variation; p95both33.2 and0reverse/errors. Repeat largestlongtask372ms vs720 first and381prior; timingvariance retained, no causal speed/field/physical claim or meaningful newcost identified. Existing SSG/deferredcontroller appropriate.",
+  "technicalApproval": {
+    "date": "2026-10-29",
+    "verifier": "/root",
+    "verdict": "APPROVED_LOCAL_WEB_ONLY",
+    "basis": "build3/types/scopedlint/native finalreview2/exact7hashes/browser2+affectedbrowser3/actualcurrentimages/integration3/perf2samples; independent /root/audit all applicable localweb gates PASS2026-10-29",
+    "exclusion": "Does not approve all-film fullscreen, Evolution (film3), native Apple fullscreen fill, or original whole-request fulfillment; Evolution subsequently failed CHG0174."
+  },
+  "qualityAudit20261029": {
+    "change": "CHG0174",
+    "verifier": "/root",
+    "preview": "PASS portrait photo aperture reaches viewport within1px across all7 390/402/440 DPR3, EN/AR and two heights; current real screenshots viewed",
+    "fullscreen": "FAIL Evolution film3 at10s, 844×390 actual scene y22.24..368.42 leaving~22px top andbottom; reproduced WebKit rotated viewport and actual Chromium element fullscreen",
+    "customerReference": "Torch scene in customer bf485336 image is Evolution near10s, directly matched to decoded source; prior identification as Our Style based only on geometry was incorrect.",
+    "sourceMatte": "fallback at10s active y98..623 of720; black bars also observed 5/20/40/70/100s",
+    "existingTests": "13PASS/11intentionalprofileSKIP, but fullscreen crop spec covers only4/5/6; cannot certify film3",
+    "appleNative": "BLOCKED physicaliPhone13 unavailable; customeriOS/browser/presentation unknown",
+    "runtimeModified": false,
+    "publication": "NOT_PERFORMED",
+    "independentAudit": {
+      "verifier": "/root/audit",
+      "date": "2026-10-29",
+      "overall": "FAIL",
+      "preview": "PASS",
+      "fullscreen": "FAIL Evolution 3",
+      "native": "BLOCKED",
+      "evidence": "Inspected customer/source decoded frames and actual Chromium/WebKit images; confirms measured ~22px bars. Auditor initially misidentified film as Our Style from geometry; corrected by source-content match."
+    },
+    "technicalAssessment": {
+      "verifier": "/root",
+      "date": "2026-10-29",
+      "verdict": "CONFIRMED_DEFECT / NOT_FIXED",
+      "basis": "direct source-frame and actual-browser comparison, independent auditor confirmation"
+    }
+  }
+}

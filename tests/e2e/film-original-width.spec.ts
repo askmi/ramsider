@@ -1,4 +1,4 @@
-import { test, expect, devices, type Page } from '@playwright/test';
+import { test, expect, devices, chromium, type Page } from '@playwright/test';
 import { silenceTestMedia } from './silent-media';
 import { emulateCustomFullscreenLayout } from './fullscreen-layout-adapter';
 
@@ -37,7 +37,7 @@ async function geometry(page: Page, fullWidth: boolean) {
 }
 
 test('Evolution original decoded picture reaches both fullscreen edges without distortion', async ({ page }, info) => {
-  test.skip(!info.project.name.includes('iphone'), 'HEVC playback owner: WebKit; Chromium unsupported path is tested separately');
+  test.skip(!info.project.name.includes('iphone'), 'Mobile WebKit composition; official Chrome actual playback is tested separately');
   await emulateCustomFullscreenLayout(page); // Composition/lifecycle only, not physical Apple fullscreen.
   const requests: string[] = []; page.on('request', r => { if (r.url().includes('/films/evolution/')) requests.push(r.url()); });
   await openEvolution(page);
@@ -77,14 +77,66 @@ test('original playback supports RTL, settings, speed, end/replay, adjacent film
   await page.locator('.film-player__close').click(); await expect(page.locator('#film-play')).toBeFocused();
 });
 
-test('unsupported original HEVC fails visibly without silently selecting HLS or playing audio only', async ({ page }, info) => {
-  test.skip(info.project.name !== 'desktop-chromium', 'Installed Chromium has no HEVC decoder');
+test('negative path: actual missing HEVC decoder stops audio-only playback and retries the original', async ({ page }, info) => {
+  test.skip(info.project.name !== 'desktop-chromium', 'Bundled Chromium has no HEVC decoder; this is not successful film acceptance');
   const requests: string[] = []; page.on('request', r => { if (r.url().includes('/films/evolution/')) requests.push(r.url()); });
   await openEvolution(page); await expect(page.locator('.film-recovery')).toBeVisible();
   await expect.poll(() => page.locator('video').evaluate(v => !v.hasAttribute('src') && (v as HTMLVideoElement).paused)).toBe(true);
+  expect(requests.length).toBeGreaterThan(0);
+  // Retry may reuse the original from the media cache without another HTTP
+  // request. Observe a new real metadata attempt rather than network count.
+  await page.locator('video').evaluate(v => { v.addEventListener('loadedmetadata', () => { v.dataset.qaRetriedOriginal = 'true'; }, { once: true }); });
   await expect(page.locator('.film-recovery button')).toBeVisible(); await page.locator('.film-recovery button').click();
-  await expect(page.locator('video')).not.toHaveAttribute('src'); expect(requests).toEqual([]);
+  await expect(page.locator('video')).toHaveAttribute('data-qa-retried-original', 'true');
+  await expect(page.locator('.film-recovery')).toBeVisible();
+  await expect(page.locator('video')).not.toHaveAttribute('src');
+  expect(requests.every(url => url.endsWith(original))).toBe(true);
   await page.locator('.film-player__close').click(); await expect(page.locator('#product-film')).not.toHaveAttribute('open');
+});
+
+test('official Chrome decodes the original despite an empty capability hint and fills real fullscreen', async ({ baseURL }, info) => {
+  test.skip(info.project.name !== 'desktop-chromium' || process.env.HLS_SYSTEM_CHROME !== '1', 'Run HLS_SYSTEM_CHROME=1 on a machine with official Chrome and HEVC; required for this delivery');
+  const browser = await chromium.launch({ channel: 'chrome', args: ['--mute-audio'] });
+  const context = await browser.newContext({ baseURL, viewport: { width: 1440, height: 900 }, serviceWorkers: 'block' });
+  await silenceTestMedia(context);
+  // Make this regression deterministic if a future Chrome fixes its capability
+  // hint. The original bytes, decoder and fullscreen API remain real.
+  await context.addInitScript(() => {
+    const canPlayType = HTMLMediaElement.prototype.canPlayType;
+    HTMLMediaElement.prototype.canPlayType = function (type) {
+      return type.includes('hvc1') ? '' : canPlayType.call(this, type);
+    };
+  });
+  const page = await context.newPage(), failures: string[] = [], requests: string[] = [];
+  page.on('pageerror', e => failures.push(e.message));
+  page.on('request', r => { if (r.url().includes('/films/evolution/')) requests.push(r.url()); });
+  try {
+    await openEvolution(page);
+    await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).videoWidth)).toBe(1920);
+    const decoded = await page.locator('video').evaluate(async el => {
+      const v = el as HTMLVideoElement, start = v.currentTime; let frames = 0;
+      await v.play();
+      await new Promise<void>((resolve, reject) => {
+        const timer = setTimeout(() => reject(Error('No advancing original frames')), 10000);
+        const next = () => { if (++frames >= 5 && v.currentTime > start + .1) { clearTimeout(timer); resolve(); } else v.requestVideoFrameCallback(next); };
+        v.requestVideoFrameCallback(next);
+      });
+      v.pause(); return { frames, start, end: v.currentTime };
+    });
+    expect(decoded.frames).toBeGreaterThanOrEqual(5); expect(decoded.end).toBeGreaterThan(decoded.start + .1);
+    for (const [width, height] of [[1440, 900], [844, 390]]) {
+      await page.setViewportSize({ width, height }); await page.locator('.film-fullscreen').click();
+      await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id)).toBe('film-player');
+      for (const seconds of [10, 30, 59, 109]) {
+        await frame(page, seconds); await geometry(page, true);
+        await page.screenshot({ path: `screenshots/video/original-file/desktop-chrome-${width}x${height}-real-fullscreen-${seconds}.png` });
+      }
+      await page.locator('.film-fullscreen').click(); await expect.poll(() => page.evaluate(() => document.fullscreenElement)).toBeNull();
+    }
+    await expect(page.locator('.film-recovery')).toBeHidden();
+    expect(requests.length).toBeGreaterThan(0); expect(requests.every(url => url.endsWith(original))).toBe(true);
+    await page.locator('.film-player__close').click(); await expect(page.locator('video')).not.toHaveAttribute('src'); expect(failures).toEqual([]);
+  } finally { await context.close(); await browser.close(); }
 });
 
 

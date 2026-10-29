@@ -185,6 +185,12 @@ export function playProductFilm(video: HTMLVideoElement) {
     fallback();
   };
   const onError = () => { if (current()) fallback(); };
+  const onMetadata = () => {
+    // Some engines open only the AAC track when the original HEVC cannot be
+    // decoded. Audio-only playback is not a working product film.
+    if (current() && video.dataset.delivery === 'original' &&
+      (!video.videoWidth || !video.videoHeight)) fail();
+  };
   const onPlay = () => { if (current()) playIntent = true; };
   const onPlaying = () => { if (current()) { playIntent = true; clearWatchdog(); } };
   const onPause = () => { if (current() && video.paused) { clearWatchdog(); playIntent = false; } };
@@ -238,6 +244,7 @@ export function playProductFilm(video: HTMLVideoElement) {
     if (!alive) return;
     alive = false; clearWatchdog(); if (recovery) clearTimeout(recovery); hls?.destroy(); hls = undefined;
     video.removeEventListener('error', onError);
+    video.removeEventListener('loadedmetadata', onMetadata);
     video.removeEventListener('waiting', waiting);
     video.removeEventListener('playing', onPlaying);
     video.removeEventListener('play', onPlay);
@@ -249,6 +256,7 @@ export function playProductFilm(video: HTMLVideoElement) {
   } };
   sessions.set(video, session);
   video.addEventListener('error', onError);
+  video.addEventListener('loadedmetadata', onMetadata);
   video.addEventListener('waiting', waiting);
   video.addEventListener('playing', onPlaying);
   video.addEventListener('play', onPlay);
@@ -258,9 +266,9 @@ export function playProductFilm(video: HTMLVideoElement) {
   // Also bound manifest/library startup, before a native waiting event exists.
   if (!document.hidden) watchdog = setTimeout(timedOut, 15000);
   if (video.dataset.delivery === 'original') {
-    // Preserve the supplied MP4 byte for byte. Unsupported codecs fail through
-    // the existing translated Retry state, never through a transcoded substitute.
-    if (!video.canPlayType(video.dataset.mediaType ?? '')) { fail(); return; }
+    // Preserve the supplied MP4 byte for byte and actually try it. Chrome can
+    // decode this HEVC original despite returning an empty canPlayType result.
+    // Native errors and metadata handle actual decoder failures.
     video.dataset.playback = 'original-mp4';
     settings(video, [], null, false);
     video.src = video.dataset.src!; video.load(); attemptPlay();

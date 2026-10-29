@@ -1,7 +1,7 @@
 {
   "change": "CHG0174",
-  "date": "2026-10-29",
-  "status": "VERIFIED_LOCAL_WEB; APPLE_NATIVE_WIDTH_BLOCKED",
+  "date": "2026-10-30",
+  "status": "VERIFIED_LOCAL_PLAYBACK_CORRECTION; PUBLICATION_PENDING; APPLE_NATIVE_WIDTH_BLOCKED",
   "request": {
     "film": "Evolution / film3",
     "originalBytes": true,
@@ -58,31 +58,6 @@
       "844x390",
       "1440x900"
     ]
-  },
-  "checks": {
-    "build": "build1+2PASS,11SSGlocals",
-    "typecheck": "PASS root + isolated reviewer after restoring unchanged types/hls-light.d.ts",
-    "scopedLint": "0errors4inheritedwarnings",
-    "globalLint": "FAIL37errors22warnings; preexisting private untracked designJS/integrations warnings; no task-source errors",
-    "diffCheck": "PASS",
-    "nativeReview": "Review1 two real staleCHG0175test expectations fixed + one snapshot-onlyoldtitlefinding; review2 no actionable introduced defects. Reviewer sandbox could not start server; main browser evidence supplies QA. Initialisolatedtypecheck lacked existingtypes/hls-light.d.ts; restored baseline and isolatedtypecheckPASS.",
-    "browser": "regression6 47PASS25intentionalprofileSKIP0FAIL",
-    "maintenance": "5PASS4profileSKIP0FAIL; CHG0175oldmenu/background/inlinegeometryassertions corrected",
-    "realFullscreen": "ActualdesktopWebKit noadapter, fullscreenElement=film-player,1440x900/844x390 at10/30/59/109; included regression6",
-    "unsupportedHEVC": "InstalledChromium negativecapability displays existingtranslatedRetry, noaudio/norequest/nosubstitute; positiveWebKit actuallydecodes",
-    "recovery": "Networkabort→Retry sameMP4,settingsdisabledquality/speed,seek,replay,adjacentfilms,RTL,keyboardclose,reopen/focus/cleanup",
-    "locales": "All11List/playlist/gallery and EN/AR playback",
-    "freshPackage": "Cleanisolatedpreparation from soleoriginaltar withoutprivate sourcePASS/extractedSHA exact; mismatchedsourceSHArejectsexit1",
-    "rawLogs": [
-      "/private/tmp/ramsider-original-regression6.log",
-      "/private/tmp/ramsider-original-maintenance.log",
-      "/private/tmp/ramsider-original-build2.log",
-      "/private/tmp/ramsider-original-native-review2.log",
-      "/private/tmp/ramsider-original-static-final.log",
-      "/private/tmp/ramsider-original-full-lint.log"
-    ],
-    "fullOriginalDecode": "FFmpeg entire113.64s decodePASS, exit0/noerrors",
-    "reviewHashes": "16/16 actual runtime/tests match native review2 snapshot"
   },
   "performance": {
     "date": "2026-10-29",
@@ -395,17 +370,19 @@
   "limits": [
     "PhysicaliPhoneApple/AVKitfullscreenwidthUNVERIFIED; simctlunavailable exit72. CSS cannot certify OSplayer framing; realnativeentry preserved without pagefullscreen substitution.",
     "OriginalHEVC unsupported in installedChromium; explicitfailure by owner original-only policy, noH264fallback.",
-    "Original198MiB≈14.6Mbps retained; no4Mbpsuninterruptedvideo/fieldINP/physicaldevice/Lighthousescore/causalspeedclaim.",
-    "Publication explicitlyauthorized2026-10-29; pendingexactcommit/deployment/publicchecks."
+    "Original198MiB\u224814.6Mbps retained; no4Mbpsuninterruptedvideo/fieldINP/physicaldevice/Lighthousescore/causalspeedclaim.",
+    "Publishedorigin/main ec3511789d8d0d14dfdbfd47c358a1e52de2556d; both expecteddeploymentsSUCCESS/public4checksPASS. PhysicalApplewidth remainsBLOCKED."
   ],
   "audit": {
     "scope": "PASS /root/audit",
     "visual": "PASS LOCAL_WEB /root/audit",
     "behavior": "PASS LOCAL_WEB /root/audit",
     "stage5": "PASS LOCAL_WEB /root/audit 2026-10-29, actualreview/static/performance/integrationevidence",
-    "final": "PASS LOCAL_WEB_ONLY /root/audit 2026-10-29, finalrecords/integration/delivery; physicaliPhonewhole-request NOT_APPROVED"
+    "final": "PASS LOCAL_WEB_ONLY /root/audit 2026-10-29, finalrecords/integration/delivery; physicaliPhonewhole-request NOT_APPROVED",
+    "publication": "PASS exactSHA GitHubProduction+Preview/publicbrowser/originalbytes /root/audit2026-10-29",
+    "publicationFinalRecords": "PASS PUBLIC_BROWSER /root/audit2026-10-29; exactSHA/bothdeployments/publicidentity+images/reconciledrecords, no postcommitruntimechanges"
   },
-  "technicalApproval": "/root 2026-10-29 APPROVED_LOCAL_WEB_ONLY; exact original bytes + fullwidth CSScontrolled presentation; physical Apple native width NOT_APPROVED",
+  "technicalApproval": "/root 2026-10-29 APPROVED_LOCAL_WEB_ONLY; exact original bytes + fullwidth CSScontrolled presentation; physical Apple native width NOT_APPROVED. /root2026-10-29 APPROVED_PUBLIC_BROWSER; independentpublicationauditPASS, physicalApplewidth NOT_APPROVED",
   "userResultApproval": "NOT_RECORDED; geometrychoiceRECORDED",
   "hashes": {
     "app/globals.css": "90b207adf1fb1ac9aed957d47fec6e528ee3cea7a8114060e313c346ae66b828",
@@ -455,10 +432,474 @@
     ]
   },
   "publication": {
-    "status": "AUTHORIZED_PENDING",
+    "status": "PRODUCTION_AND_PREVIEW_SUCCESS_PUBLIC_SMOKE_PASS",
     "repository": "askmi/ramsider",
     "destination": "origin/main",
     "baseline": "f76afabeb09e964341881e2e82b6f27de1a23fb3",
-    "requestedDate": "2026-10-29"
+    "requestedDate": "2026-10-29",
+    "sha": "ec3511789d8d0d14dfdbfd47c358a1e52de2556d",
+    "lfs": "1/1 object207462400Buploaded",
+    "commit": "Serve original Evolution video with full-width fullscreen and themed controls",
+    "remoteExactVerified": true,
+    "betaRefUnchanged": "47dddd9522f044f25d643fca3d5ea90d1f0f6825",
+    "production": {
+      "id": 7420735042,
+      "environment": "Production \u2013 ramsider",
+      "state": "success",
+      "sha": "ec3511789d8d0d14dfdbfd47c358a1e52de2556d",
+      "providerURL": "https://vercel.com/askmi-6282s-projects/ramsider/An2Bw25yBkBzMFoZVW5FKVkCw1vG",
+      "environmentURL": "https://ramsider-1sozvqlc5-askmi-6282s-projects.vercel.app"
+    },
+    "publicHTTP": {
+      "url": "https://ramsider-main.vercel.app/films/evolution/original-v1/original.mp4",
+      "status": 200,
+      "mime": "video/mp4",
+      "bytes": 207457344,
+      "sha256": "8c27f91c9b9f3b9b057dd2a22eb23d528e06801d04739ce1d15dad8908b4f321",
+      "range": {
+        "status": 206,
+        "bytes": 1024,
+        "contentRange": "bytes 1000000-1001023/207457344"
+      }
+    },
+    "publicBrowser": {
+      "base": "https://ramsider-main.vercel.app",
+      "date": "2026-10-29",
+      "samples": [
+        {
+          "name": "pro",
+          "mode": "MobileWebKit composition/adapter only",
+          "inline": {
+            "src": "https://ramsider-main.vercel.app/films/evolution/original-v1/original.mp4",
+            "source": [
+              1920,
+              1080
+            ],
+            "left": 0,
+            "right": 402,
+            "width": 402,
+            "height": 226.125,
+            "viewport": 402,
+            "dpr": 3,
+            "muted": true,
+            "volume": 0,
+            "delivery": "original-mp4"
+          },
+          "expanded": [
+            {
+              "src": "https://ramsider-main.vercel.app/films/evolution/original-v1/original.mp4",
+              "source": [
+                1920,
+                1080
+              ],
+              "left": 0,
+              "right": 874,
+              "width": 874,
+              "height": 491.625,
+              "viewport": 874,
+              "dpr": 3,
+              "muted": true,
+              "volume": 0,
+              "delivery": "original-mp4"
+            },
+            {
+              "src": "https://ramsider-main.vercel.app/films/evolution/original-v1/original.mp4",
+              "source": [
+                1920,
+                1080
+              ],
+              "left": 0,
+              "right": 874,
+              "width": 874,
+              "height": 491.625,
+              "viewport": 874,
+              "dpr": 3,
+              "muted": true,
+              "volume": 0,
+              "delivery": "original-mp4"
+            },
+            {
+              "src": "https://ramsider-main.vercel.app/films/evolution/original-v1/original.mp4",
+              "source": [
+                1920,
+                1080
+              ],
+              "left": 0,
+              "right": 874,
+              "width": 874,
+              "height": 491.625,
+              "viewport": 874,
+              "dpr": 3,
+              "muted": true,
+              "volume": 0,
+              "delivery": "original-mp4"
+            }
+          ],
+          "requests": 17,
+          "errors": []
+        },
+        {
+          "name": "max",
+          "mode": "MobileWebKit composition/adapter only",
+          "inline": {
+            "src": "https://ramsider-main.vercel.app/films/evolution/original-v1/original.mp4",
+            "source": [
+              1920,
+              1080
+            ],
+            "left": 0,
+            "right": 440,
+            "width": 440,
+            "height": 247.5,
+            "viewport": 440,
+            "dpr": 3,
+            "muted": true,
+            "volume": 0,
+            "delivery": "original-mp4"
+          },
+          "expanded": [
+            {
+              "src": "https://ramsider-main.vercel.app/films/evolution/original-v1/original.mp4",
+              "source": [
+                1920,
+                1080
+              ],
+              "left": 0,
+              "right": 956,
+              "width": 956,
+              "height": 537.75,
+              "viewport": 956,
+              "dpr": 3,
+              "muted": true,
+              "volume": 0,
+              "delivery": "original-mp4"
+            },
+            {
+              "src": "https://ramsider-main.vercel.app/films/evolution/original-v1/original.mp4",
+              "source": [
+                1920,
+                1080
+              ],
+              "left": 0,
+              "right": 956,
+              "width": 956,
+              "height": 537.75,
+              "viewport": 956,
+              "dpr": 3,
+              "muted": true,
+              "volume": 0,
+              "delivery": "original-mp4"
+            },
+            {
+              "src": "https://ramsider-main.vercel.app/films/evolution/original-v1/original.mp4",
+              "source": [
+                1920,
+                1080
+              ],
+              "left": 0,
+              "right": 956,
+              "width": 956,
+              "height": 537.75,
+              "viewport": 956,
+              "dpr": 3,
+              "muted": true,
+              "volume": 0,
+              "delivery": "original-mp4"
+            }
+          ],
+          "requests": 16,
+          "errors": []
+        },
+        {
+          "name": "desktop",
+          "mode": "ActualdesktopWebKitFullscreen",
+          "inline": {
+            "src": "https://ramsider-main.vercel.app/films/evolution/original-v1/original.mp4",
+            "source": [
+              1920,
+              1080
+            ],
+            "left": 240,
+            "right": 1200,
+            "width": 960,
+            "height": 540,
+            "viewport": 1440,
+            "dpr": 1,
+            "muted": true,
+            "volume": 0,
+            "delivery": "original-mp4"
+          },
+          "expanded": [
+            {
+              "src": "https://ramsider-main.vercel.app/films/evolution/original-v1/original.mp4",
+              "source": [
+                1920,
+                1080
+              ],
+              "left": 0,
+              "right": 1440,
+              "width": 1440,
+              "height": 810,
+              "viewport": 1440,
+              "dpr": 1,
+              "muted": true,
+              "volume": 0,
+              "delivery": "original-mp4"
+            },
+            {
+              "src": "https://ramsider-main.vercel.app/films/evolution/original-v1/original.mp4",
+              "source": [
+                1920,
+                1080
+              ],
+              "left": 0,
+              "right": 1440,
+              "width": 1440,
+              "height": 810,
+              "viewport": 1440,
+              "dpr": 1,
+              "muted": true,
+              "volume": 0,
+              "delivery": "original-mp4"
+            },
+            {
+              "src": "https://ramsider-main.vercel.app/films/evolution/original-v1/original.mp4",
+              "source": [
+                1920,
+                1080
+              ],
+              "left": 0,
+              "right": 1440,
+              "width": 1440,
+              "height": 810,
+              "viewport": 1440,
+              "dpr": 1,
+              "muted": true,
+              "volume": 0,
+              "delivery": "original-mp4"
+            }
+          ],
+          "requests": 26,
+          "errors": []
+        },
+        {
+          "name": "chromium",
+          "result": "PASS explicitunsupportedHEVC/noaudio/noH264substitute"
+        }
+      ],
+      "limits": "NativephysicaliPhoneApplefullscreenwidth remainsunverified; mobileadapter provesCSScomposition only."
+    },
+    "domainAssignment": "Canonical ramsider-main.vercel.app functional original-source/theme/fullwidth checksPASS; exact provideralias\u2192SHA assignment not independentlyconfirmed. Existing VercelCLI hasnoauthenticatedsession; no login/account/configmutation performed.",
+    "remoteRefs": {
+      "main": "ec3511789d8d0d14dfdbfd47c358a1e52de2556d",
+      "beta": "47dddd9522f044f25d643fca3d5ea90d1f0f6825"
+    },
+    "statuses": [
+      {
+        "id": 57604430301,
+        "context": "Vercel \u2013 ramsider",
+        "state": "success",
+        "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/An2Bw25yBkBzMFoZVW5FKVkCw1vG",
+        "created_at": "2026-10-29T18:23:58Z"
+      },
+      {
+        "id": 57604775000,
+        "context": "Vercel \u2013 ramsider-beta",
+        "state": "success",
+        "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/3KmmgR9zoJixQv8pj5jeGdqYC17a",
+        "created_at": "2026-10-29T18:27:31Z"
+      }
+    ],
+    "deployments": [
+      {
+        "id": 7420813851,
+        "sha": "ec3511789d8d0d14dfdbfd47c358a1e52de2556d",
+        "ref": "ec3511789d8d0d14dfdbfd47c358a1e52de2556d",
+        "environment": "Preview \u2013 ramsider-beta",
+        "production_environment": false,
+        "created_at": "2026-10-29T18:27:31Z",
+        "statuses": [
+          {
+            "id": 20936058386,
+            "state": "success",
+            "environment": "Preview \u2013 ramsider-beta",
+            "environment_url": "https://ramsider-beta-9mjcjgs5r-askmi-6282s-projects.vercel.app",
+            "log_url": "https://ramsider-beta-9mjcjgs5r-askmi-6282s-projects.vercel.app",
+            "created_at": "2026-10-29T18:27:32Z"
+          }
+        ]
+      },
+      {
+        "id": 7420735042,
+        "sha": "ec3511789d8d0d14dfdbfd47c358a1e52de2556d",
+        "ref": "ec3511789d8d0d14dfdbfd47c358a1e52de2556d",
+        "environment": "Production \u2013 ramsider",
+        "production_environment": false,
+        "created_at": "2026-10-29T18:23:58Z",
+        "statuses": [
+          {
+            "id": 20935800485,
+            "state": "success",
+            "environment": "Production \u2013 ramsider",
+            "environment_url": "https://ramsider-1sozvqlc5-askmi-6282s-projects.vercel.app",
+            "log_url": "https://ramsider-1sozvqlc5-askmi-6282s-projects.vercel.app",
+            "created_at": "2026-10-29T18:23:59Z"
+          }
+        ]
+      }
+    ],
+    "sourceArtifact": "/private/tmp/ramsider-original-publication-api.json",
+    "technicalApproval": "/root APPROVED_PUBLIC_BROWSER2026-10-29; independent /root/audit deployment/publicgatePASS exactSHA+bothdeployments+public4checks/images/originalidentity",
+    "postPushRecords": "Publication records updated locally afterpushedcommit; no additionalruntimechange"
+  },
+  "historicalChecks20261029": {
+    "build": "build1+2PASS,11SSGlocals",
+    "typecheck": "PASS root + isolated reviewer after restoring unchanged types/hls-light.d.ts",
+    "scopedLint": "0errors4inheritedwarnings",
+    "globalLint": "FAIL37errors22warnings; preexisting private untracked designJS/integrations warnings; no task-source errors",
+    "diffCheck": "PASS",
+    "nativeReview": "Review1 two real staleCHG0175test expectations fixed + one snapshot-onlyoldtitlefinding; review2 no actionable introduced defects. Reviewer sandbox could not start server; main browser evidence supplies QA. Initialisolatedtypecheck lacked existingtypes/hls-light.d.ts; restored baseline and isolatedtypecheckPASS.",
+    "browser": "regression6 47PASS25intentionalprofileSKIP0FAIL",
+    "maintenance": "5PASS4profileSKIP0FAIL; CHG0175oldmenu/background/inlinegeometryassertions corrected",
+    "realFullscreen": "ActualdesktopWebKit noadapter, fullscreenElement=film-player,1440x900/844x390 at10/30/59/109; included regression6",
+    "unsupportedHEVC": "InstalledChromium negativecapability displays existingtranslatedRetry, noaudio/norequest/nosubstitute; positiveWebKit actuallydecodes",
+    "recovery": "Networkabort\u2192Retry sameMP4,settingsdisabledquality/speed,seek,replay,adjacentfilms,RTL,keyboardclose,reopen/focus/cleanup",
+    "locales": "All11List/playlist/gallery and EN/AR playback",
+    "freshPackage": "Cleanisolatedpreparation from soleoriginaltar withoutprivate sourcePASS/extractedSHA exact; mismatchedsourceSHArejectsexit1",
+    "rawLogs": [
+      "/private/tmp/ramsider-original-regression6.log",
+      "/private/tmp/ramsider-original-maintenance.log",
+      "/private/tmp/ramsider-original-build2.log",
+      "/private/tmp/ramsider-original-native-review2.log",
+      "/private/tmp/ramsider-original-static-final.log",
+      "/private/tmp/ramsider-original-full-lint.log"
+    ],
+    "fullOriginalDecode": "FFmpeg entire113.64s decodePASS, exit0/noerrors",
+    "reviewHashes": "16/16 actual runtime/tests match native review2 snapshot"
+  },
+  "checks": {
+    "build": "build1 PASS",
+    "typecheck": "type2 PASS",
+    "scopedLint": "lint2 PASS, zero diagnostics",
+    "nativeReview": "review3 no actionable findings; review2 two test-policy P2 corrected",
+    "browser": "HLS_SYSTEM_CHROME=1 final27PASS9profileSKIP; real decoded original frames and fullscreen edges, not recovery acceptance",
+    "negativeDecoder": "Bundled Chromium actual metadata0x0 stops audio-only playback; Retry same original. Negative path only, not working playback.",
+    "iab": "Main directly viewed affected engine actual product fullscreen at1:06;1457 real1920x1080 frames/time58.41647; localhost silence/telemetry-only proxy. Independent auditor BLOCKED: IAB not exposed in its CUA surface.",
+    "physicalAppleWidth": "BLOCKED/unverified; no layout adapter claim",
+    "reviewedFiles": {
+      "lib/film-playback.ts": "b0ca9f46c2139ed17bf7daca044f37cb885c3fad25fab0c92682e530451d44e3",
+      "tests/e2e/original-film-support.ts": "ec43408bdea4398e5e77de7ae3d8bbedab52470d58300abc4430170727e5e272",
+      "tests/e2e/film-original-width.spec.ts": "96a84b72774e4dbec21c437c292a60ab239d71a861fdd4525af15a7a20dcf99e"
+    }
+  },
+  "correction20261030": {
+    "cause": "Empty canPlayType falsely vetoed original in official Chrome and affected IAB before trying it; agent incorrectly approved recovery as task success.",
+    "solution": "Attempt same original; guard actual zero-dimension metadata/audio-only playback; unchanged source and fullscreen geometry.",
+    "directDecodeProbe": [
+      {
+        "name": "chromium",
+        "available": true,
+        "capability": "",
+        "frames": 0,
+        "time": 1.006786,
+        "width": 0,
+        "height": 0,
+        "ready": 4,
+        "error": null,
+        "playError": null,
+        "muted": true,
+        "volume": 0
+      },
+      {
+        "name": "webkit",
+        "available": true,
+        "capability": "probably",
+        "frames": 5,
+        "time": 0.11929454205438923,
+        "width": 1920,
+        "height": 1080,
+        "ready": 4,
+        "error": null,
+        "playError": null,
+        "muted": true,
+        "volume": 0
+      },
+      {
+        "name": "chrome",
+        "available": true,
+        "capability": "",
+        "frames": 7,
+        "time": 0.245736,
+        "width": 1920,
+        "height": 1080,
+        "ready": 4,
+        "error": null,
+        "playError": null,
+        "muted": true,
+        "volume": 0
+      }
+    ],
+    "rawLogs": [
+      "/private/tmp/ramsider-original-guard-final.log",
+      "/private/tmp/ramsider-original-guard-build1.log",
+      "/private/tmp/ramsider-original-guard-type2.log",
+      "/private/tmp/ramsider-original-guard-lint2.log",
+      "/private/tmp/ramsider-original-guard-native-review3.log"
+    ],
+    "technicalApproval": {
+      "verifier": "/root",
+      "date": "2026-10-30",
+      "verdict": "APPROVED_LOCAL_WEB_PLAYBACK",
+      "independent": "/root/publication_audit Gate3 PASS; Gate4 Chrome/WebKit PASS, independent IAB BLOCKED; Gate5 PASS"
+    },
+    "performance": {
+      "date": "2026-10-30",
+      "samples": [
+        {
+          "label": "guard-a",
+          "port": 3184,
+          "conditions": "cold Chromium402x874 DPR3 /4Mbps100ms4xCPU, first snapshot5s afterDOMContentLoaded; scroll unthrottled",
+          "lcp": 560,
+          "cls": 0.00022206073455854325,
+          "fcp": 524,
+          "ttfb": 30.09999990463257,
+          "htmlBytes": 232508,
+          "heroReady": true,
+          "videoRequests": 6,
+          "totalCompletedBytes": 2640411,
+          "jsCompletedBytes": 384415,
+          "videoCompletedBytes": 442204,
+          "scroll": {
+            "frames": 99,
+            "p95": 16.799999999999272,
+            "over33": 1
+          }
+        },
+        {
+          "label": "guard-b",
+          "port": 3184,
+          "conditions": "cold Chromium402x874 DPR3 /4Mbps100ms4xCPU, first snapshot5s afterDOMContentLoaded; scroll unthrottled",
+          "lcp": 692,
+          "cls": 0.00022206073455854325,
+          "fcp": 480,
+          "ttfb": 11.200000047683716,
+          "htmlBytes": 232508,
+          "heroReady": true,
+          "videoRequests": 6,
+          "totalCompletedBytes": 2640411,
+          "jsCompletedBytes": 384415,
+          "videoCompletedBytes": 442204,
+          "scroll": {
+            "frames": 99,
+            "p95": 16.799999999999272,
+            "over33": 1
+          }
+        }
+      ],
+      "limits": "Two synthetic samples of this same build; no causal baseline comparison, field INP, physical Safari or Lighthouse score. Completed bytes are phase-limited."
+    },
+    "publication": "PENDING",
+    "userResultApproval": "NOT_RECORDED",
+    "agentEval": "NOT_RUN"
   }
 }

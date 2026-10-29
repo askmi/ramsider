@@ -1,0 +1,192 @@
+{
+  "change": "CHG0175",
+  "date": "2026-10-29",
+  "status": "VERIFIED_LOCAL_CUSTOM_UI",
+  "scope": "Custom gallery/player UI themes, title and inline chrome placement; no media encoding or native UI replacement",
+  "theme": {
+    "setting": "lib/film-theme.ts filmTheme",
+    "active": "ramsider",
+    "default": "#fff",
+    "ramsider": "#f7c96f",
+    "inventory": "docs/video-gallery-plan.md CHG0175",
+    "nativeBrowserAndAppleUI": "Outside authorable web theme; existing native fullscreen/fail-open retained"
+  },
+  "implementation": {
+    "title": "18px regular, Ramsider Uno Product Introduction, no parentheses",
+    "rotateHint": "Removed render/property/all11locale strings; required feedback retained",
+    "inline": "Measured header/transport bands outside full-width picture when space permits; capped video height for short desktop, original source contained",
+    "fullscreen": "Theme inherited through custom element fullscreen; existing native Apple behavior retained",
+    "source": "Registry/playback/posters unchanged; Evolution full horizontal source retained"
+  },
+  "checks": {
+    "productionBuild4": "PASS 11localeSSG",
+    "typecheck": "PASS finalbuild5",
+    "scopedLint": "0errors4inheritedwarnings, finaltest0warnings",
+    "nativeReview1": "2P2 fixed: shortdesktop controls/oldvisibilitytest",
+    "nativeReview2": "CLEAN",
+    "nativeReview3": "CLEAN finalruntime",
+    "nativeReview4": "CLEAN finaltest-only animationawait delta",
+    "browserPhases": {
+      "build2": "17PASS10intentionalprofileSKIP preview/all11locale/list/theme/Evolution",
+      "build3": "21PASS12SKIP6ChromiumFAIL during rebuild race; retained, superseded by freshbuild4Chromium checks",
+      "build4Chromium": "9PASS4intentionalprofileSKIP",
+      "build4ThemeEvolution": "6PASS",
+      "settledMenus": "3PASS",
+      "feedback": "2themes PASS actualSVGopacity1/loading + keyboardfocus, syntheticwaiting overrealplayback",
+      "finalFocus": "Finalbuild5 theme/focus matrix3PASS +feedback2themesPASS, includes outeroutline-color/width and innerfocusshadow; logs final5/feedback5"
+    },
+    "logs": "/private/tmp/ramsider-theme-{final-browser,final3-browser,final4-chromium,final4-matrix,settled,feedback-final}.log",
+    "productionBuild5": "PASS final focus override, 11localeSSG",
+    "nativeReview5": "CLEAN finalfocus selector + keyboardoutline regression; tests run independently"
+  },
+  "images": "screenshots/video/theme",
+  "visual": {
+    "references": [
+      "Customer60f52750 title screenshot",
+      "Customerca26ab5c controlsoverlap screenshot",
+      "Sourcebackground andbackground_text crop11200..12300 inspected"
+    ],
+    "mainViewed": [
+      "Progoldgallery",
+      "Maxwhiteinline",
+      "settledChromiumgoldfullscreenrootmenu",
+      "Progoldqualitysubmenu",
+      "Defaultloading/Goldspeedfocus",
+      "bothactualfooterimages"
+    ],
+    "settledCaptureFailures": "Earlierrootmenu/loading/speed screenshots capturedtransitions; retainedhistory, replacedwithopacity/animation-awarecaptures",
+    "closedPageComparison": "No structural drift; numeric differences confined to small heroimage loading-orbit area; not0RGBA/pixelfidelityclaim"
+  },
+  "performance": [
+    {
+      "phase": "theme-final",
+      "conditions": "Single cold Chromium mobile402×874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+      "initial": {
+        "ttfb": 26.600000143051147,
+        "fcp": 472,
+        "lcp": 544,
+        "cls": 0.00022206073455854325,
+        "jsBytes": 332712,
+        "completedBytes": 3208047,
+        "filmObjects": 6,
+        "readyImages": 28
+      },
+      "scroll": {
+        "samples": 313,
+        "movingFrames": 212,
+        "startY": 0,
+        "endY": 9088,
+        "p95Ms": 33.89999985694885,
+        "over33Ms": 18,
+        "reverseFrames": 0,
+        "maxReverse": 0,
+        "cls": 0.00022206073455854325,
+        "longTasks": [
+          125,
+          67,
+          1052,
+          50,
+          66,
+          157,
+          140
+        ]
+      },
+      "errors": []
+    },
+    {
+      "phase": "theme-final-repeat",
+      "conditions": "Single cold Chromium mobile402×874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+      "initial": {
+        "ttfb": 20.600000143051147,
+        "fcp": 496,
+        "lcp": 716,
+        "cls": 0.00022206073455854325,
+        "jsBytes": 332712,
+        "completedBytes": 3208047,
+        "filmObjects": 6,
+        "readyImages": 28
+      },
+      "scroll": {
+        "samples": 323,
+        "movingFrames": 168,
+        "startY": 0,
+        "endY": 12349,
+        "p95Ms": 33.39999985694885,
+        "over33Ms": 19,
+        "reverseFrames": 0,
+        "maxReverse": 0,
+        "cls": 0.00022206073455854325,
+        "longTasks": [
+          91,
+          61,
+          385,
+          65,
+          51,
+          111
+        ]
+      },
+      "errors": []
+    }
+  ],
+  "performanceAssessment": "Singletriallongtask1052ms not repeated (385ms maxrepeat); variance retained. StartupJS332712B vsprior332718, same6filmobjects, CLSsame,0reverse/errors. No causal speedgain/physical/fieldINP/Lighthouse claim; staticroutes/deferredcontrols boundary retained.",
+  "integration": [
+    {
+      "name": "pro",
+      "steps": 17,
+      "bottomBefore": {
+        "y": 13259,
+        "viewport": 874,
+        "height": 14133,
+        "gap": 0
+      },
+      "bottomAfter": {
+        "y": 13259,
+        "viewport": 874,
+        "height": 14133,
+        "gap": 0
+      },
+      "errors": []
+    },
+    {
+      "name": "max",
+      "steps": 17,
+      "bottomBefore": {
+        "y": 14475,
+        "viewport": 956,
+        "height": 15431,
+        "gap": 0
+      },
+      "bottomAfter": {
+        "y": 14475,
+        "viewport": 956,
+        "height": 15431,
+        "gap": 0
+      },
+      "errors": []
+    }
+  ],
+  "hashes": {
+    "app/globals.css": "b77e23c49673708b63c9cbd3c604579c687a4df7db62183ebe95ff180079f724",
+    "components/ProductFilm.tsx": "766c6bafc9cfbeb88433302d16d099209590d686ae6cecfb8793e9114fa28816",
+    "components/FilmControls.tsx": "0f410be354b7ab40391cf6959a662887215148dea91688a32ef6dbb63d50a940",
+    "lib/film-theme.ts": "b0e0efb174628711b3088769573699ce290169693d4d50800491743d336e6d9f",
+    "lib/product-film.ts": "a4cae10f08f88d2845540b77a5f2bf6c314af70a6027d3230d7547eb67adabf3",
+    "lib/product-film-catalog.ts": "9754a80978ffd56b43534ab4cecd3aedfe4ab21bcb51dec36a2ee2222776b9c1",
+    "tests/e2e/film-theme.spec.ts": "2771833b22eff0121c8c491343bce770c0cdf48d2bcee6dbfb3fc9f66cfc82fb",
+    "tests/e2e/film-inline-bands.spec.ts": "563f9bc5d1ae3d4328fcbe4fdd174de14cfca1e3fdccb42a22954218263af63d",
+    "tests/e2e/film-controls-visibility.spec.ts": "f3feea6839ba65ca869f22a2c3eb4d36a17052dc4c81ebc8420f04a875e16008",
+    "tests/e2e/film-preview-width.spec.ts": "545529bc1ba6aab65f131ff5ad9282724e056abbcbfed5744bf50898b81ef7af",
+    "tests/e2e/film-gallery.spec.ts": "8c131e644d34f61552cd26d8fa6235a6e8075ee793e3a3ae23288cd31618ede4",
+    "tests/e2e/film-final-matrix.spec.ts": "84d4f0d44fb206aec644699f88457dd822e177e75da1e1f9a592a5822545e5f3"
+  },
+  "approval": {
+    "root": "APPROVED_LOCAL_CUSTOM_UI /root 2026-10-29 after final5focusfix",
+    "independent": "PASS LOCAL_CUSTOM_UI /root/audit 2026-10-29: final5visual/behavior, review/performance, integration and records; all12reviewhashes match",
+    "user": "NOT_RECORDED"
+  },
+  "publication": "Not requested/current changes local; publicmain remains f76afab",
+  "remaining": [
+    "Physical iPhone/nativeAppleQA unavailable",
+    "CHG0174 verticalmatte OPEN, full original source width retained"
+  ]
+}

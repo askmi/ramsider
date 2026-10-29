@@ -3,11 +3,11 @@ import type { Locale } from './i18n';
 
 export type FilmPreloadFile = { url: string; bytes: number };
 export type FilmQuality = { height: number; url: string };
-export type FilmAsset = { preload: FilmPreloadFile[]; qualities: FilmQuality[]; manifest: string; fallback: string; width: number; height: number; audioLocale: string; audioLabel: string };
+export type FilmAsset = { delivery: 'hls' | 'original'; mediaType: string; preload: FilmPreloadFile[]; qualities: FilmQuality[]; manifest: string; fallback: string; width: number; height: number; audioLocale: string; audioLabel: string };
 export type GalleryFilm = FilmAsset & { id: string; title: string; poster: string; duration: number };
 
 const gallery = [
-  ['uno-introduction', 'Ramsider Uno (Product Introduction)', 60.04],
+  ['uno-introduction', 'Ramsider Uno Product Introduction', 60.04],
   ['pure-gold', 'Pure Gold', 22.88],
   ['evolution', 'Evolution', 113.64],
   ['our-style', 'Our Style', 38.4],
@@ -25,6 +25,10 @@ export function selectProductFilm(id: string, locale: Locale): FilmAsset {
   const audioLabel = labels[locale];
   if (!audioLabel) throw new Error('A film requires a truthful translated audio label');
   const base = `/films/${asset.directory}`;
+  if (asset.delivery === 'original') return {
+    delivery: 'original', mediaType: 'video/mp4; codecs="hvc1"', preload: [], qualities: [], manifest: `${base}/original.mp4`, fallback: '',
+    width: asset.width, height: asset.height, audioLocale: asset.audioLocale, audioLabel,
+  };
   const startup = ['master.m3u8', '360p/index.m3u8', '360p/init.mp4',
     ...[0, 1, 2].map(n => `360p/segment-${String(n).padStart(5, '0')}.m4s`)];
   const preload = startup.map(path => {
@@ -36,7 +40,7 @@ export function selectProductFilm(id: string, locale: Locale): FilmAsset {
     const match = /^(\d+)p\/index\.m3u8$/.exec(file.path);
     return match ? [{ height: Number(match[1]), url: `${base}/${file.path}` }] : [];
   }).sort((a, b) => a.height - b.height);
-  return { preload, qualities, manifest: `${base}/master.m3u8`, fallback: `${base}/fallback.mp4`, width: asset.width, height: asset.height, audioLocale: asset.audioLocale, audioLabel };
+  return { delivery: 'hls', mediaType: 'application/vnd.apple.mpegurl', preload, qualities, manifest: `${base}/master.m3u8`, fallback: `${base}/fallback.mp4`, width: asset.width, height: asset.height, audioLocale: asset.audioLocale, audioLabel };
 }
 
 /** Ordered gallery, retaining localized introduction and the original audio of other films. */

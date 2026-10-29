@@ -4,7 +4,7 @@ import { silenceTestMedia } from './silent-media';
 test.use({ serviceWorkers: 'block' });
 test.setTimeout(120000);
 test.beforeEach(async ({ page }) => silenceTestMedia(page));
-const titles = ['Ramsider Uno (Product Introduction)', 'Pure Gold', 'Evolution', 'Our Style', 'DIY Madness', 'Copycats', 'Inside Ramsider'];
+const titles = ['Ramsider Uno Product Introduction', 'Pure Gold', 'Evolution', 'Our Style', 'DIY Madness', 'Copycats', 'Inside Ramsider'];
 // Measured source-photo apertures, excluding actual encoded matte, not dark scene content.
 const apertures = [[0, 0, 1280, 715], [0, 0, 1280, 591], [0, 22, 1280, 553], [49, 43, 1182, 484], [19, 98, 1242, 493], [0, 0, 1280, 591], [114, 0, 1052, 591]];
 async function readyPoster(page: Page) {
@@ -48,6 +48,7 @@ test('gallery remains reachable at narrow/wide sizes and all eleven locales', as
     await page.locator('#film-play').scrollIntoViewIfNeeded(); await page.locator('#film-play').click();
     await expect(page.locator('#product-film-title')).toHaveText(titles[0]);
     await expect(page.locator('#product-film')).not.toContainText(/UNO Films|English Audio|Original Audio/);
+    await expect(page.locator('#product-film-hint')).toHaveCount(0);
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
     await page.locator('.product-film__close').click();
   }

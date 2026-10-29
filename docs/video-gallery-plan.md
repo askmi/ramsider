@@ -1,12 +1,15 @@
 # Seven-film gallery — implementation specification
 
+Current CHG0174 correction2026-10-29: Evolution uses byteexact customerHEVC originalMP4 (198MiB), no HLS substitute/reencode/croppedasset. Ownerexplicitly chose fullwidth proportion with verticaloverflow allowed; CSS fullscreenplane reaches bothscreenedges. Top/bottom matte removal objective superseded, bakedbars retained. NativeApplefullscreen width remains externally unverified; noCSS/layoutadapterOSclaim. Otherfilmframing and CHG0175themes unchanged. See docs/product-film.md and evidence/video/evolution-original-file.json; currenttask publicationexplicitlyauthorised2026-10-29; exactSHAdeployment/publicverificationpending.
+
+
 Historical status before latest width correction2026-10-29: CHG0173 corrects selected-title placement and edge-to-edge portrait preview including encoded poster mattes. Portrait preview QA passed; CHG0174 subsequently found Evolution film3 fullscreen FAIL, so the prior broader web acceptance is reopened; independent /root/audit finalreview/performance/integration/records PASS2026-10-29 forlocalwebonly. CHG0171 published web-player crop remains verified only for that scope; the original native-iPhone fullscreen fill requirement remains OPEN/BLOCKED without physical evidence. Customer browser/iOS are explicitly UNKNOWN. CHG0172 compact two-activation behavior is retained.
 
 ## Mapping
 
 | Order | Display title | Source | Duration | Video |
 | --- | --- | --- | --- | --- |
-| 1 | Ramsider Uno (Product Introduction) | `design/video/1/english ramsider uno (product introduction).mp4` | 60.04 s | 3840×2160, 25 fps |
+| 1 | Ramsider Uno Product Introduction | `design/video/1/english ramsider uno (product introduction).mp4` | 60.04 s | 3840×2160, 25 fps |
 | 2 | Pure Gold | `design/video/2/2. PURE GOLD.mp4` | 22.88 s | 3840×2160, 25 fps |
 | 3 | Evolution | `design/video/3/3. EVOLUTION.mp4` | 113.64 s | 1920×1080, 25 fps |
 | 4 | Our Style | `design/video/4/4. OUR STYLE.mp4` | 38.40 s | 3840×2160, 25 fps |
@@ -88,3 +91,30 @@ Customer torch image bf485336 is Evolution film3 at about10s, confirmed by actua
 ## Original-width priority — CHG0174 (2026-10-29)
 
 Current owner instruction forbids cropping either horizontal edge. Evolution uses the original full-frame1920×1080 source and contain in all web modes; the unpublished1694px phone candidate and per-shot focal crop are removed. Original source SHA matches the existing registry. Local8PASS4profileSKIP checks full image bounds at10/30/59/109s across portrait, landscape and fullscreen; native physical remainsBLOCKED. Vertical-matte removal isOPEN: the ending is fullheight, so a uniform vertical crop would cut the apparatus. Do not present the width restoration as complete elimination of all bars. Receipt: [evolution-framing.json](evidence/video/evolution-framing.json).
+
+## CHG0175 — Theme inventory and inline geometry (2026-10-29)
+
+Active setting `filmTheme` = `ramsider`; supported `default` (white#fff) and `ramsider` (existing selectedthumbnail gold#f7c96f). Scope is this dialog/controller only; no new visitor theme control. Root data attribute inherits through element fullscreen; MediaChrome shadow controls consume shared semantic CSS variables. Neutral black backgrounds stay neutral; all foregrounds/outlines use theme color, with alpha only for subordinate/disabled/hover/buffer states.
+
+| UI group | Complete inventory and states | Application |
+| --- | --- | --- |
+| Gallery header | selectedtitle; CloseX andcircleborder; keyboardfocus | sharedforeground/border/focus; title18px regular/1.35, flexiblewidth/no clipping; introtitle no parentheses |
+| Selected preview | centralPlaytriangle/circleoutline; durationbadge;positioncounter | foreground/currentColor/outline |
+| Thumbnail strip/wide list | allsmallPlayicons; filmnames/numbers; selectedoutline/number; scrollbar;hover/focus | sameforeground, selectedborder/weight; defaulttheme fullywhite |
+| Playing header | selectedtitle; List; soleClose; focus; playlistcurrent/selected/hover | inheritedforeground plus themedalpha surfaces |
+| Transport | previous/next/play/pause/mute/unmute/fullscreen icons; disabledprevious/next; gear; time/duration | nativeHTML currentColor + MediaChrome primary/text/icon variables |
+| Seek/volume | playedbar, bufferedbar,track,thumb,pointer,focus; drag/hover; seektimepreview | theme variables and actualshadowparts, disabledthumb included |
+| Settings | outerborder;quality/speed/PiP text; unavailablePiP; submenuarrows;values;backarrow/text/divider; radio/checkmark;hover/selected/focus | sharedvariables plus disabledshadowhost/parts where upstreamhardcodeswhite |
+| Feedback/end | loadingindicator; recovery/error/blockedtext andbutton; actionmessage;fallbackstatus/retry;Replayicon | themeforeground andoutline; loading/errorsemantics retained |
+| Removed hint | all11rotate/fullscreenexplanations | remove renderandunusedcopy property, no emptyreservedparagraph |
+| Every presentation | portrait/landscape,inline/ended/gallery,elementfullscreen | themeinheritance independentofview/orientation; OS-nativeApple UI external/unstyleable |
+
+Inline geometry: reserve measured header and transport black bands, with an unmodified full-width16:9video between them. ResizeObserver tracks actualheader/transport heights (includingmobile2rows/safeareas), not hardcodedoverlap. Elementfullscreen andphoneexpandedlandscape retainexistingpresentation and geometry; checks prove unchangedEvolutionfullhorizontalfield. In short viewports dialogmay scroll; Close/lastcontrol remainreachable. No source reencode/rasterchange. Existinglongrender hasnoopenplayer; latestcustomer screenshots+inventory are visualacceptance, staticpagecrop is closed-page regressionreference.
+
+Acceptance: both themes change every inventoriedforeground/border/part includingdisabled/menus with no stalewhiteorblue; title18px and notoverlapping44pxClose; fullphoto width/ratio retained; ordinaryportraitdecodedpicturebottom≤seektop; rotation/fullscreen/List/settings/replay/Retry/keyboard/RTL/reopenrelease. Sourceartifact and Evolutioncontain remainunchanged. NativeiPhonehardwareQA remains unavailable, nevercountadapter asAVKit.
+
+CHG0175 implementation and rootverification2026-10-29: both themes/18px title/removedhint/inlinebands implemented; detailed phases/hashes in [player-theme.json](evidence/video/player-theme.json). Original source/registry/poster/playback unchanged. Finalbuild4/types/lint0errors4oldwarnings/reviews3+4 CLEAN, settledtheme3PASS/Evolutionmatrix6PASS/finalChromium9PASS4SKIP; actualWebKit13/Pro/Max+shortdesktop bands/all7+11localepreviews covered acrossrecordedphases. Separate loading/focus captures now waitactualopacity/activeopenpane; boththemesPASS. FinalPro/Max17stepfooterwalks0gap/errors0. Root APPROVED_LOCAL_CUSTOM_UI; independentfinalauditpending. Goldmenualpha.82 gives worst-white-background computedcontrast6.52:1, default.62 retained; no wholeWCAGclaim. Staticpagecomparison hasminor image-loader transient difference, not0RGBA. No publication; nativebrowser/Apple controls remain browserowned, notthemed/notreplaced.
+
+Final5focuscorrection: globalpagebrownoutline was visible outsidecustommenuitemwhiteinset; sharedplayer:focus-visible nowcoversallfocusablecustomhosts. Final5theme/focus3PASS andfeedback2themesPASS assertactualouteroutlinecolor/2px +innershadow forbothDefault/Ramsider; nativefollowupreview5CLEAN, build5/types/testlintPASS. Rootapprovalreinstated, independentfinalauditpending. EarlierfeedbackcaptureFAIL and outerfocusmiss preserved inCHANGELOG. Nativebrowser/Appleexternal boundary includesnativefailopencontrols; customtheme neverdisablesfallback.
+
+Technicalapproval2026-10-29: /root APPROVED_LOCAL_CUSTOM_UI confirmed; independent /root/audit final5visual/behavior/review/performance/integration/records PASS afterviewingcorrectedDefault/Ramsiderouterfocus andchecking12sourcehashes. VERIFIED_LOCAL_CUSTOM_UI. Priorfailedcaptures/rootfocus defect preserved inCHANGELOG; userresultapprovalNOT_RECORDED. Publicationnotperformed; physicaliPhone/nativeApple andCHG0174matte remainexternal/open.

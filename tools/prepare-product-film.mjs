@@ -59,7 +59,9 @@ async function hydrate(archive) {
 async function prepare(asset) {
   if (relative(asset.directory).split('/').length !== 2) throw new FilmError('A film directory must be a versioned package.');
   if (!registry.uiLocales?.every(locale => typeof asset.audioLabels?.[locale] === 'string' && asset.audioLabels[locale].trim())) throw new FilmError('Film audio labels are incomplete.');
-  if (!asset.files?.length || !asset.files.some(f => f.path === 'master.m3u8') || !asset.files.some(f => f.path === 'fallback.mp4')) throw new FilmError('Incomplete film registry.');
+  if (asset.delivery === 'original') {
+    if (asset.files?.length !== 1 || asset.files[0].path !== 'original.mp4' || asset.files[0].sha256 !== asset.sourceSHA256) throw new FilmError('Original film must match the source bytes.');
+  } else if (!asset.files?.length || !asset.files.some(f => f.path === 'master.m3u8') || !asset.files.some(f => f.path === 'fallback.mp4')) throw new FilmError('Incomplete film registry.');
   const destination = path.join(root, 'public/films', relative(asset.directory));
   if (!process.argv.includes('--from-lfs') && await complete(destination, asset.files)) return;
   const archive = await hydrate(asset.archive);

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState, type RefObject, type KeyboardEvent as ReactKeyboardEvent } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, type RefObject, type KeyboardEvent as ReactKeyboardEvent } from 'react';
 import { MediaControlBar, MediaPlayButton, MediaMuteButton, MediaTimeRange, MediaTimeDisplay, MediaVolumeRange, MediaLoadingIndicator } from 'media-chrome/react';
 import { MediaSettingsMenu, MediaSettingsMenuButton, MediaSettingsMenuItem, MediaChromeMenu, MediaChromeMenuItem } from 'media-chrome/react/menu';
 import { addTranslation, setLanguage } from 'media-chrome/utils/i18n';
@@ -145,7 +145,7 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
     const initialFrame = requestAnimationFrame(() => {
       const initial = video.dataset.qualityMode;
       const qualities = JSON.parse(host.dataset.qualities ?? '[]') as number[];
-      setSettings({ available: video.dataset.playback === 'mp4-fallback' ? [720] : qualities, selected: initial && initial !== 'auto' ? Number(initial) : null, adaptive: video.dataset.playback !== 'mp4-fallback' });
+      setSettings({ available: video.dataset.playback === 'mp4-fallback' ? [720] : qualities, selected: initial && initial !== 'auto' ? Number(initial) : null, adaptive: video.dataset.delivery !== 'original' && video.dataset.playback !== 'mp4-fallback' });
       syncRate(); syncPip();
     });
     video.addEventListener('film-settings', update); video.addEventListener('ratechange', syncRate);
@@ -352,6 +352,22 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
       for (const name of ['mediaenterpiprequest', 'mediaexitpiprequest']) host.removeEventListener(name, pipRequest, true);
     };
   }, [ready, stage, media]);
+  // Reserve the actual chrome heights in ordinary inline presentation.
+  useLayoutEffect(() => {
+    const host = stage.current;
+    if (!ready || !host) return;
+    const header = host.querySelector<HTMLElement>('.film-player__top');
+    const transport = host.querySelector<HTMLElement>('.film-transport');
+    if (!header || !transport) return;
+    const measure = () => {
+      host.style.setProperty('--film-header-height', `${header.getBoundingClientRect().height}px`);
+      host.style.setProperty('--film-transport-height', `${transport.getBoundingClientRect().height}px`);
+    };
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(header); observer.observe(transport);
+    return () => { observer.disconnect(); host.style.removeProperty('--film-header-height'); host.style.removeProperty('--film-transport-height'); };
+  }, [ready, stage]);
   if (!ready) return null;
   const back = (title: string) => <button slot="header" part="back button" className="film-menu-back" type="button" onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} aria-label={c.back}><span aria-hidden="true">‹</span>{title}</button>;
   return <>

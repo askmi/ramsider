@@ -1,3 +1,4 @@
+import { expectOriginalUnavailable } from './original-film-support';
 import { expect, test } from '@playwright/test';
 import { galleryCopy } from '../../lib/film-gallery-copy';
 import { locales } from '../../lib/i18n';
@@ -15,7 +16,7 @@ test('all seven films really end and replay from the beginning', async ({ page }
   await page.locator('.film-gallery__hero').click();
   const video = page.locator('video'), host = page.locator('#film-player');
   await expect(host).toHaveAttribute('data-controls', 'ready');
-  const titles = ['Ramsider Uno (Product Introduction)', 'Pure Gold', 'Evolution', 'Our Style', 'DIY Madness', 'Copycats', 'Inside Ramsider'];
+  const titles = ['Ramsider Uno Product Introduction', 'Pure Gold', 'Evolution', 'Our Style', 'DIY Madness', 'Copycats', 'Inside Ramsider'];
   for (let index = 0; index < titles.length; index++) {
     if (index) {
       await host.evaluate(el => el.removeAttribute('userinactive'));
@@ -24,6 +25,7 @@ test('all seven films really end and replay from the beginning', async ({ page }
       await item.click(); await item.click();
     }
     await expect(page.locator('.film-player__identity')).toHaveText(titles[index]);
+    if (await expectOriginalUnavailable(page)) continue;
     await expect.poll(() => video.evaluate(v => !(v as HTMLVideoElement).paused && Number.isFinite((v as HTMLVideoElement).duration) && (v as HTMLVideoElement).currentTime > .1), { timeout: 30000 }).toBe(true);
     await video.evaluate(v => { const m = v as HTMLVideoElement; m.currentTime = m.duration; });
     await expect(page.locator('#product-film')).toHaveAttribute('data-view', 'ended', { timeout: 30000 });

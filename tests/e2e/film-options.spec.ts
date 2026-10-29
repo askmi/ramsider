@@ -80,7 +80,7 @@ async function assertGeometry(page: Page) {
     return { player: p.getBoundingClientRect().toJSON(), menu: m.getBoundingClientRect().toJSON(), gear: g.getBoundingClientRect().toJSON(), range: document.querySelector('.film-seek')!.getBoundingClientRect().toJSON(), video: v.getBoundingClientRect().toJSON(), background: getComputedStyle(m).backgroundColor, radius: getComputedStyle(m).borderRadius, overflow: p.scrollWidth > p.clientWidth, width: innerWidth, dpr: devicePixelRatio, native: v.hasAttribute('controls'), gearIcon: g.querySelector('.film-gear')?.tagName, fullscreen: document.fullscreenElement === p, fullWindow: p.getAttribute('data-element-fullscreen') === 'true' };
   });
   expect(boxes.native).toBe(false); expect(boxes.gearIcon).toBe('svg'); expect(boxes.radius).toBe('18px');
-  expect(boxes.background).toBe('rgba(24, 24, 28, 0.62)'); expect(boxes.overflow).toBe(false);
+  expect(boxes.background).toBe('rgba(24, 24, 28, 0.82)'); expect(boxes.overflow).toBe(false);
   expect(boxes.menu.top).toBeGreaterThanOrEqual(boxes.player.top - 1);
   expect(boxes.menu.bottom).toBeLessThanOrEqual(boxes.player.bottom + 1);
   expect(boxes.menu.right).toBeLessThanOrEqual(boxes.player.right + 1);

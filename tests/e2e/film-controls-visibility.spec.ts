@@ -56,7 +56,8 @@ test('top and bottom fade together, reappear on activity, and keep controls acce
       return { border: s.borderTopWidth, background: s.backgroundImage };
     });
     expect(css.border).toBe('0px');
-    expect(css.background).toBe(await page.locator('.film-transport').evaluate(e => getComputedStyle(e).backgroundImage));
+    expect(css.background).toContain('linear-gradient');
+    await expect(page.locator('.film-transport')).toHaveCSS('background-image','none');
   }
   const close = top.locator('button').last();
   expect(parseFloat(await close.evaluate(e => getComputedStyle(e).fontSize))).toBeGreaterThanOrEqual(24);
@@ -101,7 +102,7 @@ test('top and bottom fade together, reappear on activity, and keep controls acce
   await expect.poll(() => video.evaluate(el => !(el as HTMLVideoElement).paused && (el as HTMLVideoElement).currentTime > .5), { timeout: 30000 }).toBe(true);
   await page.locator('.film-previous').click();
   await expect(video).toHaveAttribute('data-src', /uno-introduction/);
-  await expect(page.locator('.film-player__identity')).toHaveText('Ramsider Uno (Product Introduction)');
+  await expect(page.locator('.film-player__identity')).toHaveText('Ramsider Uno Product Introduction');
   await expect.poll(() => video.evaluate(el => !(el as HTMLVideoElement).paused && (el as HTMLVideoElement).currentTime > .5), { timeout: 30000 }).toBe(true);
   await expectOpacity(page, 0);
   await activity(page, touch);

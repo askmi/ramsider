@@ -257,6 +257,15 @@ export function playProductFilm(video: HTMLVideoElement) {
   status('loading');
   // Also bound manifest/library startup, before a native waiting event exists.
   if (!document.hidden) watchdog = setTimeout(timedOut, 15000);
+  if (video.dataset.delivery === 'original') {
+    // Preserve the supplied MP4 byte for byte. Unsupported codecs fail through
+    // the existing translated Retry state, never through a transcoded substitute.
+    if (!video.canPlayType(video.dataset.mediaType ?? '')) { fail(); return; }
+    video.dataset.playback = 'original-mp4';
+    settings(video, [], null, false);
+    video.src = video.dataset.src!; video.load(); attemptPlay();
+    return;
+  }
   if (nativeHls(video)) {
     video.dataset.playback = 'native-hls';
     settings(video, available.map(quality => quality.height), null);

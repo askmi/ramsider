@@ -1,7 +1,7 @@
 {
   "change": "CHG0174",
   "date": "2026-10-29",
-  "status": "WIDTH_RESTORATION_VERIFIED_LOCAL; VERTICAL_MATTE_OPEN; PHYSICAL_NATIVE_BLOCKED",
+  "status": "WIDTH_RESTORATION_VERIFIED_PUBLIC; VERTICAL_MATTE_OPEN; PHYSICAL_NATIVE_BLOCKED",
   "request": "Preserve the entire original horizontal field; remove only black top/bottom matte, never side content. Latest owner priority supersedes edge-fill crop.",
   "implementation": {
     "source": "evolution/und-v1",
@@ -110,8 +110,19 @@
     "userResultApproval": "NOT_RECORDED"
   },
   "publication": {
-    "status": "PENDING",
-    "target": "origin/main / ramsider-main.vercel.app"
+    "status": "PRODUCTION_SUCCESS_PUBLIC_WIDTH_PASS",
+    "sha": "f76afabeb09e964341881e2e82b6f27de1a23fb3",
+    "remote": "origin/main exact SHA verified",
+    "environment": "Production – ramsider",
+    "deploymentId": 7409299873,
+    "providerURL": "https://vercel.com/askmi-6282s-projects/ramsider/GkBSVJdNLxH9434okhvE5aEPLx45",
+    "environmentURL": "https://ramsider-nicqvk6hu-askmi-6282s-projects.vercel.app",
+    "publicURL": "https://ramsider-main.vercel.app/en",
+    "publicChecks": "3 PASS WebKit Pro including 390/844, Max and real Chromium fullscreen, same original-width test. Main viewed public844fullscreen10 and956fullscreen109. /private/tmp/ramsider-width-public-final.log",
+    "earlyCheck": "3 FAIL cover before provider completion, retained in /private/tmp/ramsider-width-public.log; unchanged tests passed after deployment",
+    "domainAssignment": "Canonical alias functionally verified with corrected CSS; exact SHA alias assignment not independently exposed by provider evidence",
+    "approval": "/root APPROVED_PUBLIC_WIDTH_ONLY; independent /root/audit PASS PUBLIC WIDTH ONLY 2026-10-29",
+    "rawEvidence": "/private/tmp/ramsider-width-publication-api.json"
   },
   "integration": [
     {
@@ -148,5 +159,6 @@
       "steps": 17,
       "errors": []
     }
-  ]
+  ],
+  "latestCorrection": "Superseded locally by docs/evidence/video/evolution-original-file.json: exact originalMP4/fullwidth with ownerauthorisedverticaloverflow; priorverticalmatte removal superseded. This receipt retains historical publishedwidth-only evidence."
 }

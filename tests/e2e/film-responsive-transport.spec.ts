@@ -116,8 +116,8 @@ test('reported Evolution frame fills the landscape player with a single transpor
   await video.evaluate(v => (v as HTMLVideoElement).pause());
   await page.locator('.film-fullscreen').click();
   await expect(page.locator('#film-player')).toHaveAttribute('data-element-fullscreen', 'true');
-  await expect(video).toHaveCSS('object-fit', 'cover');
-  const box = await video.boundingBox(); expect(box!.width).toBe(viewport.width); expect(box!.height).toBe(viewport.height);
+  await expect(video).toHaveCSS('object-fit', 'contain');
+  const box = await video.boundingBox(); expect(box!.width).toBe(viewport.width); expect(box!.height).toBeCloseTo(viewport.width * 9 / 16, 0);
   const seek = await page.locator('.film-seek').boundingBox(), play = await page.locator('.film-play-toggle').boundingBox();
   expect(Math.abs(seek!.y - play!.y)).toBeLessThanOrEqual(2);
   await page.evaluate(() => document.fonts.ready);

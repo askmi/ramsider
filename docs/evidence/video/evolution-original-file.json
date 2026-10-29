@@ -1,0 +1,464 @@
+{
+  "change": "CHG0174",
+  "date": "2026-10-29",
+  "status": "VERIFIED_LOCAL_WEB; APPLE_NATIVE_WIDTH_BLOCKED",
+  "request": {
+    "film": "Evolution / film3",
+    "originalBytes": true,
+    "reencode": false,
+    "sideBandsAllowed": false,
+    "verticalOverflow": "Explicit owner choice2026-10-29: width fills screen preserving proportions; top/bottom may exceed viewport",
+    "topBottomMatte": "Retained in original, earlier removal objective superseded"
+  },
+  "source": {
+    "path": "design/video/3/3. EVOLUTION.mp4",
+    "sha256": "8c27f91c9b9f3b9b057dd2a22eb23d528e06801d04739ce1d15dad8908b4f321",
+    "bytes": 207457344,
+    "width": 1920,
+    "height": 1080,
+    "sar": "1:1",
+    "fps": 25,
+    "seconds": 113.64,
+    "video": "HEVC Main hvc1 / BT709tv / yuv420p",
+    "audio": "AAC LC",
+    "delivery": "/films/evolution/original-v1/original.mp4",
+    "archive": "design/derived/product-films/evolution-original-v1.tar",
+    "sourceModified": false,
+    "transform": "None; tar packages exact source"
+  },
+  "http": {
+    "bytes": 207457344,
+    "sha256": "8c27f91c9b9f3b9b057dd2a22eb23d528e06801d04739ce1d15dad8908b4f321",
+    "status": 200,
+    "mime": "video/mp4",
+    "range": {
+      "status": 206,
+      "contentRange": "bytes 1000000-1001023/207457344",
+      "bytes": 1024
+    }
+  },
+  "geometry": {
+    "expanded": "100%viewportwidth,automatic16:9height,centeredverticaloverflowclipped; no horizontal crop or stretching",
+    "ordinaryPortraitInline": "Originalcanvas between measuredheader/transport bands",
+    "assertion": "decodedpicture left=0,right=innerWidth within1CSSpx; proportionalheight within1px;1920x1080 actualframes",
+    "frames": [
+      10,
+      30,
+      59,
+      109
+    ],
+    "views": [
+      "402x874",
+      "874x402",
+      "874x338",
+      "440x956",
+      "956x440",
+      "956x376",
+      "390x844",
+      "844x390",
+      "1440x900"
+    ]
+  },
+  "checks": {
+    "build": "build1+2PASS,11SSGlocals",
+    "typecheck": "PASS root + isolated reviewer after restoring unchanged types/hls-light.d.ts",
+    "scopedLint": "0errors4inheritedwarnings",
+    "globalLint": "FAIL37errors22warnings; preexisting private untracked designJS/integrations warnings; no task-source errors",
+    "diffCheck": "PASS",
+    "nativeReview": "Review1 two real staleCHG0175test expectations fixed + one snapshot-onlyoldtitlefinding; review2 no actionable introduced defects. Reviewer sandbox could not start server; main browser evidence supplies QA. Initialisolatedtypecheck lacked existingtypes/hls-light.d.ts; restored baseline and isolatedtypecheckPASS.",
+    "browser": "regression6 47PASS25intentionalprofileSKIP0FAIL",
+    "maintenance": "5PASS4profileSKIP0FAIL; CHG0175oldmenu/background/inlinegeometryassertions corrected",
+    "realFullscreen": "ActualdesktopWebKit noadapter, fullscreenElement=film-player,1440x900/844x390 at10/30/59/109; included regression6",
+    "unsupportedHEVC": "InstalledChromium negativecapability displays existingtranslatedRetry, noaudio/norequest/nosubstitute; positiveWebKit actuallydecodes",
+    "recovery": "Networkabort→Retry sameMP4,settingsdisabledquality/speed,seek,replay,adjacentfilms,RTL,keyboardclose,reopen/focus/cleanup",
+    "locales": "All11List/playlist/gallery and EN/AR playback",
+    "freshPackage": "Cleanisolatedpreparation from soleoriginaltar withoutprivate sourcePASS/extractedSHA exact; mismatchedsourceSHArejectsexit1",
+    "rawLogs": [
+      "/private/tmp/ramsider-original-regression6.log",
+      "/private/tmp/ramsider-original-maintenance.log",
+      "/private/tmp/ramsider-original-build2.log",
+      "/private/tmp/ramsider-original-native-review2.log",
+      "/private/tmp/ramsider-original-static-final.log",
+      "/private/tmp/ramsider-original-full-lint.log"
+    ],
+    "fullOriginalDecode": "FFmpeg entire113.64s decodePASS, exit0/noerrors",
+    "reviewHashes": "16/16 actual runtime/tests match native review2 snapshot"
+  },
+  "performance": {
+    "date": "2026-10-29",
+    "samples": [
+      {
+        "label": "original-film-a",
+        "port": 3183,
+        "conditions": "cold Chromium402x874 DPR3 /4Mbps100ms4xCPU, first snapshot5s afterDOMContentLoaded; scroll unthrottled",
+        "lcp": 744,
+        "cls": 0.00022206073455854325,
+        "fcp": 500,
+        "ttfb": 34,
+        "htmlBytes": 232509,
+        "heroReady": true,
+        "videoRequests": 6,
+        "totalCompletedBytes": 2640290,
+        "jsCompletedBytes": 384298,
+        "videoCompletedBytes": 442204,
+        "scroll": {
+          "frames": 99,
+          "p95": 16.799999999999272,
+          "over33": 1
+        }
+      },
+      {
+        "label": "original-film-b",
+        "port": 3183,
+        "conditions": "cold Chromium402x874 DPR3 /4Mbps100ms4xCPU, first snapshot5s afterDOMContentLoaded; scroll unthrottled",
+        "lcp": 388,
+        "cls": 0.00022206073455854325,
+        "fcp": 364,
+        "ttfb": 11.700000047683716,
+        "htmlBytes": 232509,
+        "heroReady": true,
+        "videoRequests": 6,
+        "totalCompletedBytes": 2640290,
+        "jsCompletedBytes": 384298,
+        "videoCompletedBytes": 442204,
+        "scroll": {
+          "frames": 99,
+          "p95": 16.700000000000728,
+          "over33": 1
+        }
+      }
+    ],
+    "limits": "Two synthetic samples of the same production build; no field INP, physical Safari, Lighthouse score or historical causal comparison. Completed bytes are phase-limited, not eventual total."
+  },
+  "integration": [
+    {
+      "name": "pro",
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "checks": "top, gallery open/close, audio caption absent, verified actual scroll end, no overflow, no page errors",
+      "bottomBefore": {
+        "y": 13259,
+        "viewport": 874,
+        "height": 14133,
+        "gap": 0
+      },
+      "bottomAfter": {
+        "y": 13259,
+        "viewport": 874,
+        "height": 14133,
+        "gap": 0
+      },
+      "positions": [
+        {
+          "y": 4484,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 8775
+        },
+        {
+          "y": 5052,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 8207
+        },
+        {
+          "y": 5620,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 7639
+        },
+        {
+          "y": 6188,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 7071
+        },
+        {
+          "y": 6756,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 6503
+        },
+        {
+          "y": 7324,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 5935
+        },
+        {
+          "y": 7892,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 5367
+        },
+        {
+          "y": 8460,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 4799
+        },
+        {
+          "y": 9028,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 4231
+        },
+        {
+          "y": 9596,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 3663
+        },
+        {
+          "y": 10164,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 3095
+        },
+        {
+          "y": 10732,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 2527
+        },
+        {
+          "y": 11300,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 1959
+        },
+        {
+          "y": 11868,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 1391
+        },
+        {
+          "y": 12436,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 823
+        },
+        {
+          "y": 13004,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 255
+        },
+        {
+          "y": 13259,
+          "viewport": 874,
+          "height": 14133,
+          "gap": 0
+        }
+      ],
+      "errors": []
+    },
+    {
+      "name": "max",
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "checks": "top, gallery open/close, audio caption absent, verified actual scroll end, no overflow, no page errors",
+      "bottomBefore": {
+        "y": 14475,
+        "viewport": 956,
+        "height": 15431,
+        "gap": 0
+      },
+      "bottomAfter": {
+        "y": 14475,
+        "viewport": 956,
+        "height": 15431,
+        "gap": 0
+      },
+      "positions": [
+        {
+          "y": 4908,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 9567
+        },
+        {
+          "y": 5529,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 8946
+        },
+        {
+          "y": 6150,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 8325
+        },
+        {
+          "y": 6771,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 7704
+        },
+        {
+          "y": 7392,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 7083
+        },
+        {
+          "y": 8013,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 6462
+        },
+        {
+          "y": 8634,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 5841
+        },
+        {
+          "y": 9255,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 5220
+        },
+        {
+          "y": 9876,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 4599
+        },
+        {
+          "y": 10497,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 3978
+        },
+        {
+          "y": 11118,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 3357
+        },
+        {
+          "y": 11739,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 2736
+        },
+        {
+          "y": 12360,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 2115
+        },
+        {
+          "y": 12981,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 1494
+        },
+        {
+          "y": 13602,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 873
+        },
+        {
+          "y": 14223,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 252
+        },
+        {
+          "y": 14475,
+          "viewport": 956,
+          "height": 15431,
+          "gap": 0
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "evidenceImages": {
+    "directory": "screenshots/video/original-file",
+    "mainViewed": [
+      "Pro874x402full10/109",
+      "Max956x440full10",
+      "Max440x956portrait10",
+      "desktop844x390realfull59",
+      "source10/109",
+      "Pro/Maxactualfooter"
+    ],
+    "pixelDiff": "Not claimed: dynamicvideo frames and authoredfullscreenpolicy have no comparable staticrender; sourcegeometry/SHA+actualimageinspection used"
+  },
+  "limits": [
+    "PhysicaliPhoneApple/AVKitfullscreenwidthUNVERIFIED; simctlunavailable exit72. CSS cannot certify OSplayer framing; realnativeentry preserved without pagefullscreen substitution.",
+    "OriginalHEVC unsupported in installedChromium; explicitfailure by owner original-only policy, noH264fallback.",
+    "Original198MiB≈14.6Mbps retained; no4Mbpsuninterruptedvideo/fieldINP/physicaldevice/Lighthousescore/causalspeedclaim.",
+    "Publication explicitlyauthorized2026-10-29; pendingexactcommit/deployment/publicchecks."
+  ],
+  "audit": {
+    "scope": "PASS /root/audit",
+    "visual": "PASS LOCAL_WEB /root/audit",
+    "behavior": "PASS LOCAL_WEB /root/audit",
+    "stage5": "PASS LOCAL_WEB /root/audit 2026-10-29, actualreview/static/performance/integrationevidence",
+    "final": "PASS LOCAL_WEB_ONLY /root/audit 2026-10-29, finalrecords/integration/delivery; physicaliPhonewhole-request NOT_APPROVED"
+  },
+  "technicalApproval": "/root 2026-10-29 APPROVED_LOCAL_WEB_ONLY; exact original bytes + fullwidth CSScontrolled presentation; physical Apple native width NOT_APPROVED",
+  "userResultApproval": "NOT_RECORDED; geometrychoiceRECORDED",
+  "hashes": {
+    "app/globals.css": "90b207adf1fb1ac9aed957d47fec6e528ee3cea7a8114060e313c346ae66b828",
+    "components/ProductFilm.tsx": "2149b0fd95da8641d1f61a8562e4cbe24766d96b57f221bd8ad0a04ab5d28fb8",
+    "components/FilmControls.tsx": "2da4514f325d2225402efc61e608bc726a22e3a96def0bc15b696635b1980fe0",
+    "lib/film-playback.ts": "c7d02b6de5c3a60c46ba2ce8326060d43363968963dde87a2cee8cef932a1574",
+    "lib/product-film-catalog.ts": "ddfe45cf39b7cbc321dd296c3916dfc220b9579b729d0dad1ce662bafc77fb66",
+    "tools/prepare-product-film.mjs": "0bcd33d364c1a25d1e74e3757450e9d79cd53fd2d557211c8cb40b76e85477ca",
+    "config/product-films.json": "07283c1fae41bb65e1aab10f7c0e0ce376bcd47d7d81fd009220ba95e3e2e574",
+    "tests/e2e/film-original-width.spec.ts": "8eab4642f164abe68d87b8049f07cdbca176596c3734474773ea226f33e1ecea",
+    "tests/e2e/original-film-support.ts": "c2a019e7b623a159594298b6d6eeab1fabe905d17bb42466e58cfcd61087fc66",
+    "tests/e2e/film-gallery.spec.ts": "6964d915420c1120d5bde1080ce4d20daeae0ad393f0e6504d3fd9ae2d80f370",
+    "tests/e2e/film-final-matrix.spec.ts": "7c01eff38f0c09c0a40f6d53ce95d40f631465f9a11d7d0c00e1131bf9ceb486",
+    "tests/e2e/film-gallery-activation.spec.ts": "c073b0813e4a416823e5a1ae3e5729ab182c2556796211f29658ccaa9827fe06",
+    "tests/e2e/film-inline-bands.spec.ts": "b32834e6104df81bf45b26d6c7bf37aa43f07996b72a7c9ed4f0da1ca6a40b7e",
+    "tests/e2e/film-responsive-transport.spec.ts": "8b507f827e85919cc3ba9ef851a13273751d04480205cba11cb3b7b48290bac5",
+    "tests/e2e/film-options.spec.ts": "227724914d68fc0cc95e95bd599da08b8f28aed3c11b3854bae16a18b45ee827",
+    "tests/e2e/film-wide-picture.spec.ts": "36befa3204c50fda1e48f7d59f14af56622d5ab4824bbff441f6ba31675eb000"
+  },
+  "startup": {
+    "conditions": "Three fresh silent WebKit Pro402x874DPR3 contexts; local production HTTP, unthrottled; UI/gallery reached before measured Play. Not wireless/physical or slow-link benchmark.",
+    "samples": [
+      {
+        "intent": 1761,
+        "first": 557,
+        "width": 1920,
+        "height": 1080,
+        "muted": true,
+        "volume": 0
+      },
+      {
+        "intent": 544,
+        "first": 197,
+        "width": 1920,
+        "height": 1080,
+        "muted": true,
+        "volume": 0
+      },
+      {
+        "intent": 508,
+        "first": 159,
+        "width": 1920,
+        "height": 1080,
+        "muted": true,
+        "volume": 0
+      }
+    ]
+  },
+  "publication": {
+    "status": "AUTHORIZED_PENDING",
+    "repository": "askmi/ramsider",
+    "destination": "origin/main",
+    "baseline": "f76afabeb09e964341881e2e82b6f27de1a23fb3",
+    "requestedDate": "2026-10-29"
+  }
+}

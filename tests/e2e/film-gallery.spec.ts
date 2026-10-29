@@ -1,3 +1,4 @@
+import { expectOriginalUnavailable } from './original-film-support';
 import { emulateCustomFullscreenLayout } from './fullscreen-layout-adapter';
 test.beforeEach(async ({ page }, info) => { if (info.project.name.includes('iphone')) await emulateCustomFullscreenLayout(page); });
 import { expect, test, type Page } from '@playwright/test';
@@ -47,7 +48,7 @@ test('gallery posters, all seven films, controls and cleanup', async ({ page }, 
   await dialog.locator('.film-gallery img').evaluateAll(async images => { await Promise.all(images.map(image => (image as HTMLImageElement).decode())); });
   await mkdir('screenshots/video/gallery', { recursive: true });
   await page.screenshot({ path: `screenshots/video/gallery/portrait-${info.project.name}.png` });
-  const titles = ['Ramsider Uno (Product Introduction)', 'Pure Gold', 'Evolution', 'Our Style', 'DIY Madness', 'Copycats', 'Inside Ramsider'];
+  const titles = ['Ramsider Uno Product Introduction', 'Pure Gold', 'Evolution', 'Our Style', 'DIY Madness', 'Copycats', 'Inside Ramsider'];
   for (let index = 0; index < 7; index++) {
     await items.nth(index).click();
     await expect(items.nth(index)).toHaveAttribute('aria-pressed', 'true');
@@ -62,6 +63,9 @@ test('gallery posters, all seven films, controls and cleanup', async ({ page }, 
     await expect(dialog).toHaveAttribute('data-view', 'playing');
     const video = dialog.locator('video');
     await expect(video).toBeFocused();
+    if (await expectOriginalUnavailable(page)) {
+      await dialog.locator('.film-player__close').click(); await page.locator('#film-play').click(); continue;
+    }
     await expect.poll(() => video.evaluate(element => { const v = element as HTMLVideoElement; return !v.paused && v.currentTime > .2 && v.readyState >= 2; }), { timeout: 30000 }).toBe(true);
     const presented = await video.evaluate(element => new Promise<boolean>(resolve => {
       const v = element as HTMLVideoElement;
@@ -105,7 +109,7 @@ test('film navigation, end choices and full-window gallery', async ({ page }, in
   await expect.poll(() => video.evaluate(element => (element as HTMLVideoElement).currentTime), { timeout: 30000 }).toBeGreaterThan(.2);
   await expect(page.locator('#film-player')).toHaveAttribute('data-controls', 'ready');
   const identity = page.locator('.film-player__identity');
-  await expect(identity).toContainText('Ramsider Uno (Product Introduction)');
+  await expect(identity).toContainText('Ramsider Uno Product Introduction');
   expect(await identity.evaluate(element => element.scrollWidth <= element.clientWidth && element.scrollHeight <= element.clientHeight)).toBe(true);
   await page.locator('.film-next').click();
   await expect(video).toHaveAttribute('data-src', /pure-gold/);
@@ -153,7 +157,7 @@ test('film navigation, end choices and full-window gallery', async ({ page }, in
   await revealTop(page, info.project.name.includes('iphone'));
   await page.locator('.film-player__list-toggle').click();
   await expect(dialog.locator('#film-playlist')).toBeVisible();
-  await expect(dialog.locator('.film-playlist__item[aria-current=true]')).toContainText('Ramsider Uno (Product Introduction)');
+  await expect(dialog.locator('.film-playlist__item[aria-current=true]')).toContainText('Ramsider Uno Product Introduction');
   await dialog.locator('.film-player__list-toggle').click();
   await page.locator('.film-player__close').click();
   await expect(dialog).not.toBeVisible();

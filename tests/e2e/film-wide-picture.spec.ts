@@ -48,6 +48,8 @@ async function picture(page: Page, aperture: typeof apertures[number], expanded:
     const scale = (fit === 'cover' ? Math.max : Math.min)(r.width / v.videoWidth, r.height / v.videoHeight);
     return {
       fit, muted: v.muted, volume: v.volume,
+      headerBottom: v.closest('#film-player')!.querySelector('.film-player__top')!.getBoundingClientRect().bottom,
+      transportTop: v.closest('#film-player')!.querySelector('.film-transport')!.getBoundingClientRect().top,
       host: { x: h.x, y: h.y, width: h.width, height: h.height },
       box: { x: r.x, y: r.y, width: r.width, height: r.height },
       active: { left: r.x + (r.width - v.videoWidth * scale) / 2, right: r.x + (r.width + v.videoWidth * scale) / 2,
@@ -67,9 +69,10 @@ async function picture(page: Page, aperture: typeof apertures[number], expanded:
     expect(result.active.bottom).toBeGreaterThanOrEqual(result.host.y + result.host.height - 1);
   } else {
     expect(result.fit).toBe('contain');
-    expect(Math.abs(result.box.height - result.host.height)).toBeLessThanOrEqual(1);
+    expect(result.box.y).toBeGreaterThanOrEqual(result.headerBottom - 1);
+    expect(result.box.y + result.box.height).toBeLessThanOrEqual(result.transportTop + 1);
   }
-  if (aperture.id === 'copycats') expect(Math.abs(result.box.height - result.host.height)).toBeLessThanOrEqual(1);
+  if (expanded && aperture.id === 'copycats') expect(Math.abs(result.box.height - result.host.height)).toBeLessThanOrEqual(1);
   expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
   expect(await page.locator('#film-player').evaluate(el => el.scrollTop)).toBe(0);
   return result;

@@ -1,3 +1,4 @@
+import { expectOriginalUnavailable } from './original-film-support';
 import { test, expect, type Page } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 import { silenceTestMedia } from './silent-media';
@@ -18,6 +19,7 @@ async function playing(page: Page, id: string) {
   await expect(page.locator('#film-player')).toHaveAttribute('data-film-id', id);
   const video = page.locator('video');
   await expect(video).toHaveAttribute('data-src', new RegExp(id));
+  if (await expectOriginalUnavailable(page)) return;
   await expect.poll(() => video.evaluate(el => { const v = el as HTMLVideoElement; return !v.paused && v.currentTime > .2 && v.readyState >= 2; }), { timeout: 30000 }).toBe(true);
   await video.evaluate(el => new Promise<void>((resolve, reject) => {
     const v = el as HTMLVideoElement, timer = setTimeout(() => reject(Error('No decoded frame')), 10000);

@@ -73,8 +73,10 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
  const media=useMediaScroll(viewport,false,open,slide.src);
  const select=useCallback((next:Position)=>{
   priorityLease.current?.release();neighborLeases.current.forEach(lease=>lease.release());neighborLeases.current=[];stopInertia();requested.current=next;pending.current=true;contact.current=null;pointer.current=null;locked.current=viewport.current?.scrollTop??0;
-  setWaiting(true);setLoading(true);setFailed(false);setProgress(null);subscription.current?.();const revision=++token.current;
+  subscription.current?.();const revision=++token.current;
   const src=technologyGroups[next.group].slides[next.photo].src;
+  const resource=loadImage(src,'high');
+  setWaiting(!resource.progress.ready);setLoading(!resource.progress.ready);setFailed(false);setProgress(null);
   const bank=JSON.parse(document.querySelector('[data-section-previews]')?.textContent??'{}') as Record<string,{src:string;width:number;height:number}>;
   const entry=bank[src];
   if(entry){const tiny=new Image();tiny.src=entry.src;void tiny.decode().then(()=>{
@@ -82,13 +84,16 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
    tiny.dataset.media='';tiny.dataset.original=src;tiny.dataset.preview='ready';
    displayed.current=next;setPosition(next);setImage(tiny);pending.current=false;setWaiting(false);
   }).catch(()=>{});}
-  const resource=loadImage(src,'high');priorityLease.current=resource.demand('high');
+  priorityLease.current=resource.demand('high');
   const neighbors=technologyGroups[next.group].slides;for(const neighbor of [neighbors[next.photo+1],neighbors[next.photo-1]])if(neighbor){const adjacent=loadImage(neighbor.src,'auto');neighborLeases.current.push(adjacent.demand('auto'));void adjacent.ready.catch(()=>{});}
   subscription.current=resource.subscribe(value=>{if(revision===token.current){setProgress(value.total?Math.min(98,value.loaded/value.total*98):null);setFailed(value.error);}});
   resource.ready.then(photo=>{
    if(revision!==token.current||!dialog.current?.open)return;
    photo.dataset.media='';photo.dataset.original=src;photo.dataset.preview='ready';photo.dataset.mediaReady='';
-   if(document.activeElement===viewport.current)dialog.current.focus({preventScroll:true});
+   const focused=document.activeElement;
+   const arrows=Array.from(dialog.current.querySelectorAll('.technology-viewer__arrow'));
+   const disabled=[next.photo===0,next.photo===technologyGroups[next.group].slides.length-1,next.group===0,next.group===technologyGroups.length-1];
+   if(focused===viewport.current||arrows.some((arrow,index)=>arrow===focused&&disabled[index]))dialog.current.focus({preventScroll:true});
    displayed.current=next;setPosition(next);setImage(photo);pending.current=false;setWaiting(false);setLoading(false);subscription.current?.();subscription.current=null;
    const slides=technologyGroups[next.group].slides;for(const neighbor of [slides[next.photo+1],slides[next.photo-1]])if(neighbor)void loadImage(neighbor.src,'low').ready.catch(()=>{});
   }).catch(()=>{if(revision===token.current&&dialog.current?.open){setFailed(true);subscription.current?.();subscription.current=null;}});
@@ -189,7 +194,7 @@ export function TechnologyViewer({locale,descriptions}:{locale:Locale;descriptio
  <div key={slide.src} ref={viewport} className="technology-viewer__scroll" tabIndex={0} role="region" aria-label={`${photos[0]} / ${photos[1]}; ${technologyGroupCopy[locale].previous} / ${labels.nextGroup}`}
  onScroll={e=>{if(pending.current&&e.currentTarget.scrollTop!==locked.current)e.currentTarget.scrollTop=locked.current;}}
  onPointerDown={pointerDown} onPointerUp={e=>{const c=pointer.current;pointer.current=null;if(c?.id===e.pointerId)finish(c,e.clientX,e.clientY);}} onPointerCancel={()=>{pointer.current=null;}}>
- {open&&image&&<article className="technology-viewer__content" data-photo={slide.src} style={{aspectRatio:`${slide.src.includes("aqua-01")||slide.src.includes("capsule-01")?940:941}/1522`}}>
+ {open&&image&&<article className="technology-viewer__content" data-photo={slide.src} style={{aspectRatio:`${slide.src.includes("aqua-01")||slide.src.includes("capsule-01")?940:941}/1522`,maxWidth:`calc(100cqh * ${slide.src.includes("aqua-01")||slide.src.includes("capsule-01")?940:941} / 1522)`}}>
  <RetainedPhoto image={image} name={`${group.title} — ${group.title==='QuickCell'||group.title==='PolyArmor'?powerArmorCopy[locale].headlines[group.title==='PolyArmor'?2:position.photo].replaceAll('\n',' '):group.title==='MoodEngine'||group.title==='AquaSense'?moodAquaCopy[locale][group.title==='MoodEngine'?'mood':'aqua'].headlines[position.photo].replaceAll('\n',' '):group.title==='TouchLink'?(position.photo===0?touchLinkCopy[locale].headline:position.photo===1?touchLinkCopy[locale].appHeading:touchLinkCopy[locale].directHeading).replaceAll('\n',' '):group.title==='AirShield'?airShieldCopy[locale][position.photo].headline.replaceAll('\n',' '):group.title==='HeatCore'?labels.names[position.photo]:group.title==='CapsuleCode'?capsuleCodeCopy[locale][position.photo].headline.replaceAll('\n',' '):group.title==='CyberMind'?(position.photo===0?cyberMindCopy[locale].headline1:cyberMindCopy[locale].headline2).replaceAll('\n',' '):nobleName(locale,position.photo)}`}/>
  {group.title==='QuickCell'||group.title==='PolyArmor'?<PowerArmorDescriptions kind={group.title==='QuickCell'?'quick':'poly'} slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='MoodEngine'||group.title==='AquaSense'?<MoodAquaDescriptions kind={group.title==='MoodEngine'?'mood':'aqua'} slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='TouchLink'?<TouchLinkDescriptions slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='AirShield'?<AirShieldDescriptions slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='CapsuleCode'?<CapsuleCodeDescriptions slide={position.photo} locale={locale} descriptor={labels.technology}/>:group.title==='HeatCore'?<TechnologyDescriptions slide={slide.id as TechnologySlideId} locale={locale} name={labels.names[position.photo]} copy={descriptions} cropTop={102}/>:group.title==='CyberMind'?<CyberMindDescriptions slide={slide.id as '01'|'02'} locale={locale} name={group.title} copy={cyberMindCopy[locale]} descriptor={labels.technology}/>:<NobleCraftDescriptions slide={position.photo} locale={locale}/>}
  </article>}

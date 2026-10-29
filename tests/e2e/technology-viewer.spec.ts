@@ -5,6 +5,9 @@ import {openTechnology,settleTechnology} from './helpers/technology';
 import {airShieldCopy} from '../../lib/airshield-descriptions';
 import {capsuleCodeCopy} from '../../lib/capsulecode-descriptions';
 import {locales} from '../../lib/i18n';
+import {silenceTestMedia} from './silent-media';
+test.use({serviceWorkers:'block'});
+test.beforeEach(async({page})=>silenceTestMedia(page));
 
 test('CapsuleCode third group: three proportional photos, exact icon axes, reversible navigation',async({page},info)=>{
  await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');
@@ -18,15 +21,16 @@ test('CapsuleCode third group: three proportional photos, exact icon axes, rever
   await page.evaluate(()=>document.fonts.ready);await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
   const data=await viewer.evaluate(e=>{
    const article=e.querySelector('article')!,img=e.querySelector('article img') as HTMLImageElement,box=article.getBoundingClientRect();
-   return {width:innerWidth,dpr:devicePixelRatio,photoWidth:img.getBoundingClientRect().width,photoHeight:img.getBoundingClientRect().height,ratioHeight:box.width*img.naturalHeight/img.naturalWidth,
+   const stage=e.querySelector('.technology-viewer__scroll')!.getBoundingClientRect();
+   return {fitWidth:Math.min(stage.width,stage.height*img.naturalWidth/img.naturalHeight),width:innerWidth,dpr:devicePixelRatio,photoWidth:img.getBoundingClientRect().width,photoHeight:img.getBoundingClientRect().height,ratioHeight:box.width*img.naturalHeight/img.naturalWidth,
     captions:[...e.querySelectorAll('[data-description-block^="capsule-icon-"]')].map(e=>({x:parseFloat(e.getAttribute('x')!)+90,align:getComputedStyle(e.firstElementChild!).textAlign})),
     overflow:[...e.querySelectorAll('.technology-viewer__capsule .technology-description__box')].filter(e=>e.firstElementChild!.scrollHeight>e.clientHeight+1||e.firstElementChild!.scrollWidth>e.clientWidth+1).length};
   });
-  expect(Math.abs(data.photoHeight-data.ratioHeight)).toBeLessThan(1);expect(data.photoWidth).toBeCloseTo(Math.min(data.width,941),0);expect(data.overflow).toBe(0);
+  expect(Math.abs(data.photoHeight-data.ratioHeight)).toBeLessThan(1);expect(data.photoWidth).toBeCloseTo(data.fitWidth,0);expect(data.overflow).toBe(0);
   expect(data.captions.map(c=>c.x)).toEqual(i===0?[]:i===1?[107,300,516,735]:[105,288,506,733]);for(const c of data.captions)expect(c.align).toBe('center');
   await viewer.locator('article').screenshot({path:`/tmp/tech03-${info.project.name}-${i+1}-article.png`});await page.screenshot({path:`/tmp/tech03-${info.project.name}-${i+1}.png`});results.push(data);
  }
- await page.keyboard.press('ArrowLeft');await ready();await expect(viewer).toHaveAttribute('data-photo-index','1');
+ await expect(viewer).toBeFocused();await page.keyboard.press('ArrowLeft');await ready();await expect(viewer).toHaveAttribute('data-photo-index','1');
  await viewer.locator('footer button').first().click();await ready();await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer).toHaveAttribute('data-photo-index','0');
  await viewer.locator('footer button').last().click();await ready();await expect(viewer).toHaveAttribute('data-group','CapsuleCode');await expect(viewer).toHaveAttribute('data-photo-index','0');
  await page.keyboard.press('Escape');await expect(viewer).not.toBeVisible();
@@ -98,7 +102,7 @@ test('photos move horizontally; technologies move vertically; source ratio and t
   await expect(viewer).toHaveAttribute('data-group','NobleCraft');await expect(viewer.locator('article')).toHaveCount(1);
   const check=async()=>{
    await expect(viewer.locator('.technology-viewer__snapshot')).toHaveCount(0);
-   const box=await viewer.locator('.technology-viewer__content').boundingBox();const image=await viewer.locator(".technology-viewer__photo img").boundingBox();expect(image!.height).toBeCloseTo(box!.height,0);const canvas=await page.locator(".canvas").boundingBox();expect(box!.width).toBeCloseTo(canvas!.width,0);const frame=await viewer.boundingBox();expect(frame!.x).toBeCloseTo(canvas!.x,0);expect(Math.abs(box!.height-box!.width*1522/941)).toBeLessThan(1);
+   const box=await viewer.locator('.technology-viewer__content').boundingBox();const image=await viewer.locator(".technology-viewer__photo img").boundingBox();expect(image!.height).toBeCloseTo(box!.height,0);const canvas=await page.locator(".canvas").boundingBox();const stage=(await viewer.locator('.technology-viewer__scroll').boundingBox())!;expect(box!.width).toBeCloseTo(Math.min(stage.width,stage.height*941/1522),0);const frame=await viewer.boundingBox();expect(frame!.x).toBeCloseTo(canvas!.x,0);expect(Math.abs(box!.height-box!.width*1522/941)).toBeLessThan(1);
    await expect(viewer.locator('.technology-viewer__toolbar--top')).toHaveCSS('height','48px');await expect(viewer.locator('.technology-viewer__toolbar--bottom')).toHaveCSS('height','48px');
   };
   await check();await page.keyboard.press('ArrowRight');await expect(viewer).toHaveAttribute('data-photo-index','1');await expect(viewer).toHaveAttribute('aria-busy','false');
@@ -120,19 +124,19 @@ test('failed original retains new photo preview; retry and close remain usable',
 
 test('native trackpad uses the new horizontal axis, and vertical input changes a fitting technology',async({browser,baseURL},info)=>{
  test.skip(info.project.name!=='desktop-chromium','one native desktop profile is sufficient');
- const context=await browser.newContext({viewport:{width:402,height:874}}),page=await context.newPage();await page.goto(`${baseURL}/en`);await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');await viewer.locator('.technology-viewer__photo img').hover({position:{x:200,y:250}});
+ const context=await browser.newContext({viewport:{width:402,height:874}});await silenceTestMedia(context);const page=await context.newPage();await page.goto(`${baseURL}/en`);await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');await viewer.locator('.technology-viewer__photo img').hover({position:{x:200,y:250}});
  await page.clock.install();await page.clock.pauseAt((await page.evaluate(()=>Date.now()))+1000);
  await page.mouse.wheel(0,2);await page.mouse.wheel(-120,4);await expect(viewer).toHaveAttribute('data-photo-index','1');await expect(viewer).toHaveAttribute('aria-busy','false');await expect(viewer).toHaveAttribute('data-group','NobleCraft');
  await page.clock.runFor(220);await page.mouse.wheel(0,120);await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');await page.clock.runFor(32);await page.mouse.wheel(0,120);await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer).toHaveAttribute('data-photo-index','0');await page.clock.resume();await context.close();
 });
 
-test("keyboard pans a tall photo before changing technologies",async({page})=>{
- await page.setViewportSize({width:1024,height:650});await page.goto("/en");await openTechnology(page);const viewer=page.locator("#technology-viewer"),scroll=viewer.locator(".technology-viewer__scroll");await expect(viewer).toHaveAttribute("aria-busy","false");await scroll.focus();await page.keyboard.press("ArrowDown");await expect.poll(()=>scroll.evaluate(e=>e.scrollTop)).toBeGreaterThan(0);await expect(viewer).toHaveAttribute("data-group","NobleCraft");await scroll.evaluate(e=>{e.scrollTop=e.scrollHeight});await page.keyboard.press("ArrowDown");await expect(viewer).toHaveAttribute("data-group","HeatCore");
+test("keyboard changes a height-fitted technology without vertical pan",async({page})=>{
+ await page.setViewportSize({width:1024,height:650});await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer'),scroll=viewer.locator('.technology-viewer__scroll');await expect(viewer).toHaveAttribute('aria-busy','false');expect(await scroll.evaluate(e=>e.scrollHeight-e.clientHeight)).toBeLessThanOrEqual(1);await scroll.focus();await page.keyboard.press('ArrowDown');await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');expect(await scroll.evaluate(e=>e.scrollTop)).toBe(0);
 });
 
-test('native light touch swipes navigate both axes; tall photos retain controlled vertical pan',async({browser,baseURL},info)=>{
+test('native light touch swipes navigate both axes at normal and short heights',async({browser,baseURL},info)=>{
  test.skip(info.project.name!=='desktop-chromium','native Chromium touch driver');
- const context=await browser.newContext({viewport:{width:402,height:874},isMobile:true,hasTouch:true,deviceScaleFactor:3}),page=await context.newPage(),client=await context.newCDPSession(page);
+ const context=await browser.newContext({viewport:{width:402,height:874},isMobile:true,hasTouch:true,deviceScaleFactor:3});await silenceTestMedia(context);const page=await context.newPage(),client=await context.newCDPSession(page);
  await page.goto(`${baseURL}/en`);await openTechnology(page);const viewer=page.locator('#technology-viewer'),scroll=viewer.locator('.technology-viewer__scroll');await expect(viewer).toHaveAttribute('aria-busy','false');
  const swipe=async(dx:number,dy:number,cancel=false)=>{for(let i=0;i<=4;i++)await client.send('Input.dispatchTouchEvent',{type:i?'touchMove':'touchStart',touchPoints:[{x:200+dx*i/4,y:350+dy*i/4}]});await client.send('Input.dispatchTouchEvent',{type:cancel?'touchCancel':'touchEnd',touchPoints:[]});};
  await expect(scroll).toHaveCSS('touch-action','pinch-zoom');
@@ -156,7 +160,7 @@ test('native light touch swipes navigate both axes; tall photos retain controlle
  await swipe(0,32);await expect(viewer).toHaveAttribute('data-group','NobleCraft');await expect(viewer).toHaveAttribute('aria-busy','false');
  await swipe(-32,0,true);await expect(viewer).toHaveAttribute('data-photo-index','0');
  await client.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:180,y:350},{x:220,y:350}]});await client.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:148,y:350},{x:188,y:350}]});await client.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await expect(viewer).toHaveAttribute('data-photo-index','0');
- await page.setViewportSize({width:1024,height:650});await expect(scroll).toHaveCSS('touch-action','pinch-zoom');await swipe(0,-120);await expect.poll(()=>scroll.evaluate(e=>e.scrollTop)).toBeGreaterThan(0);await expect(viewer).toHaveAttribute('data-group','NobleCraft');
+ await page.setViewportSize({width:1024,height:650});await expect(scroll).toHaveCSS('touch-action','pinch-zoom');expect(await scroll.evaluate(e=>e.scrollHeight-e.clientHeight)).toBeLessThanOrEqual(1);await swipe(0,-120);await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer).toHaveAttribute('aria-busy','false');expect(await scroll.evaluate(e=>e.scrollTop)).toBe(0);
  await swipe(-32,0);await expect(viewer).toHaveAttribute('data-photo-index','1');await expect(viewer).toHaveAttribute('aria-busy','false');
  await page.setViewportSize({width:1024,height:1800});await expect(scroll).toHaveCSS('touch-action','pinch-zoom');await context.close();
 });

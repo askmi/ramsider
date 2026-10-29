@@ -1,0 +1,234 @@
+{
+  "change": "CHG0176",
+  "linkedDefect": "CHG0106 warm HUD only",
+  "date": "2026-10-29",
+  "status": "VERIFIED_LOCAL_WEB",
+  "scope": {
+    "groups": 10,
+    "slides": 23,
+    "locales": 11,
+    "geometry": "min(stageWidth/sourceWidth,stageHeight/1522), sourceWidth940 or941",
+    "textRepositioning": "authorized but unnecessary; all overlays retain source coordinates",
+    "rasterChange": false
+  },
+  "before": {
+    "390x650VerticalOverflow": 77,
+    "844x390VerticalOverflow": 1071
+  },
+  "productionBuild": "build4 PASS11SSG locales",
+  "typecheck": "type7 PASS",
+  "lint": "lint7 affected source/tests PASS; whole-repository previous37errors22warnings in unrelated private designJS/inherited warnings remain, not claimed passed",
+  "nativeReview": {
+    "result": "review5 completed; P2 preview-intrinsic-ratio finding dismissed with existingCSS421 height100% and current3profile sharpeningPASS, independentlyconfirmed/root/audit; review2P2/testmigration +review4P2/Closefocus fixed",
+    "reviewedSHA256": {
+      "app/globals.css": "8a54afa6be4850bd6659d5e7fa3e717bc7edd14a5d9a31e7c4c8b5f190ba7ad5",
+      "components/TechnologyViewer.tsx": "a0da6851ee8ab0283bc6ed247cdda3c9cde2c468c44077fb8b14c703483e85d0",
+      "tests/e2e/technology-fit.spec.ts": "06b1463317cb42abb3ebe87233fdd20340afa64fce7106bb11be940569e64c73",
+      "tests/e2e/technology-viewer.spec.ts": "83a5ca4b8a7de6465ec869c99632c9ae53c3f5d873836eb918de998d53f516d2",
+      "tests/e2e/technology-edge-swipe.spec.ts": "df3f4107ec7873a6e157cef2f3d2507cab73bf1b22dabe5fc4b5ab5c7393b9c5",
+      "tests/e2e/technology-transition.spec.ts": "278883c690acef86e7cb9248963509d382da2d3aec440048c552c01d2e2a39bf",
+      "tests/e2e/touchlink-discrete.spec.ts": "cb5ef228b70e7e44fcb51cb1297d90ff99b9c07af38599523cf159126aab6e48",
+      "tests/e2e/mood-aqua-discrete.spec.ts": "1e89132e402d063ed5d13e580abb40b2073ed15879440af8d723918f4b2b9de9",
+      "tests/e2e/power-armor-discrete.spec.ts": "2f84386235b02da2ffc792418e8816e72971d0d9178ad7f1eb272bad26c05dbc",
+      "tests/e2e/cybermind-discrete.spec.ts": "ca8ee82169d3af63e62e771441f4e5cc85adbc3c53f69cc22b7de29e46980507",
+      "tests/e2e/loading-flow.spec.ts": "11c9ae43ee49ac6d45430ab87be725dd273a4a81ca7eabb99a0104ac1023f876"
+    },
+    "privacy": "raw reviewlogs local/unpublished; safe final verdict only"
+  },
+  "pending": [
+    "publication"
+  ],
+  "limitations": [
+    "CHG0103 minimum readable font remains open; landscape content shrinks proportionally",
+    "physicalSafari/Telegram chrome not verified",
+    "CHG0106 intermittent missing paint remains open; only warmHUD subclaim checked",
+    "no fieldINP/Lighthouse score or agent behavior eval claim"
+  ],
+  "agentEval": "EVAL-VIEWER controlled NOT_RUN",
+  "userGeometryDirection": "RECORDED",
+  "userResultApproval": "NOT_RECORDED",
+  "technicalApproval": {
+    "date": "2026-10-29",
+    "verifier": "/root",
+    "result": "APPROVED_LOCAL_WEB_CURRENT_SCOPE",
+    "independentAuditor": "/root/audit",
+    "gates": {
+      "scope": "PASS",
+      "visual": "PASS including post-HUD/focus rechecks",
+      "behavior": "PASS currentgalleryscope",
+      "reviewPerformance": "PASS",
+      "finalRecords": "PASS2026-10-30 independent/root/audit"
+    }
+  },
+  "browser": {
+    "finalBuild4": "affected final3 14PASS1profileSKIP; sharpening3PASS; focus9/9PASS errors0",
+    "retainedUnchangedGeometry": "build3 final2 26PASS13API/profileSKIP;138Pro/MaxENstates; build2 all11locale253states",
+    "profiles": [
+      "Pro402x874DPR3",
+      "Pro402x650",
+      "Pro874x402",
+      "Max440x956DPR3",
+      "Max440x650",
+      "Max956x440",
+      "desktop390x844/650/510,844x326,768x1024,1440x900",
+      "synthetic toolbar80/bottom75"
+    ],
+    "checks": [
+      "all23sourceplanes proportionallyfit",
+      "zeroX/Yscroll/clip/outside",
+      "all11locale overlays",
+      "realCDPtouch/wheel/pinch ENAR",
+      "WebKit lifecycle/reducedmotion",
+      "bothphoto/groupkeyboardboundaries",
+      "pendingClosefocus→decode→Enter",
+      "closebeforelatecommit/focusreturn",
+      "warmnoHUD",
+      "coldpreview/error/Retry/sharpening"
+    ],
+    "historicalFailures": "final1 broad79PASS30SKIP2FAIL retained; Capsulefocus fixed, unrelatedWellnessCHG0177 intermittent/OPEN with isolatedPASS",
+    "artifacts": "screenshots/technology-fit/after/ geometry JSONs and final-contact-1..6;focus.json"
+  },
+  "visual": {
+    "mainViewed": "23finalENplanes/sixcontactsheets,Proshort/Maxshort+landscape,ARNoble/Touch/Poly, finalintegrationtop/Noble/Poly/footer",
+    "controlDiff": {
+      "scope": "normalProNoblephotoROI only; blackstage intentionallyoutsidecrop",
+      "cropPixels": [
+        0,
+        336,
+        1206,
+        1950
+      ],
+      "threshold": 0.1,
+      "includeAA": false,
+      "differencePercent": 0.04634944933452396,
+      "differingPixels": 1090,
+      "verdict": "localizedbodyglyph rasterization; no crop/layoutcolorclaim, no pixelidentityclaim"
+    }
+  },
+  "performance": {
+    "date": "2026-10-29",
+    "samples": [
+      {
+        "sample": 0,
+        "conditions": "production Chromium402x874 DPR3, cold4Mbps100ms4xCPU,5s afterDOM; gallery andscroll unthrottled",
+        "first": {
+          "lcp": 412,
+          "cls": 0.00022206073455854325,
+          "longTasks": [
+            88
+          ],
+          "fcp": 388,
+          "ttfb": 11.900000095367432,
+          "heroReady": true
+        },
+        "initial": {
+          "completedBytes": 2866341,
+          "completedJSBytes": 228713,
+          "filmRequests": 0
+        },
+        "warm": {
+          "commitMs": 12,
+          "tenFramesMs": 157.39999985694885,
+          "hudFrames": 0,
+          "index": "1",
+          "overflow": 0
+        },
+        "scroll": {
+          "frames": 99,
+          "p95": 16.799999999999272,
+          "over33": 0
+        },
+        "errors": []
+      },
+      {
+        "sample": 1,
+        "conditions": "production Chromium402x874 DPR3, cold4Mbps100ms4xCPU,5s afterDOM; gallery andscroll unthrottled",
+        "first": {
+          "lcp": 480,
+          "cls": 0.00022206073455854325,
+          "longTasks": [
+            77
+          ],
+          "fcp": 372,
+          "ttfb": 10.399999856948853,
+          "heroReady": true
+        },
+        "initial": {
+          "completedBytes": 2866341,
+          "completedJSBytes": 228713,
+          "filmRequests": 0
+        },
+        "warm": {
+          "commitMs": 12.700000047683716,
+          "tenFramesMs": 158.09999990463257,
+          "hudFrames": 0,
+          "index": "1",
+          "overflow": 0
+        },
+        "scroll": {
+          "frames": 99,
+          "p95": 16.799999999999272,
+          "over33": 0
+        },
+        "errors": []
+      }
+    ],
+    "limits": "two synthetic samples of same build; completed bytes phase-limited; no fieldINP/Lighthouse/physicalSafari or causal baseline comparison"
+  },
+  "integration": [
+    {
+      "name": "pro",
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "checks": "top, technical gallery first/last/open/close/focus, verified actual scroll end, no overflow, no page errors",
+      "bottomBefore": {
+        "y": 13259,
+        "viewport": 874,
+        "height": 14133,
+        "gap": 0
+      },
+      "bottomAfter": {
+        "y": 13259,
+        "viewport": 874,
+        "height": 14133,
+        "gap": 0
+      },
+      "errors": []
+    },
+    {
+      "name": "max",
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "checks": "top, technical gallery first/last/open/close/focus, verified actual scroll end, no overflow, no page errors",
+      "bottomBefore": {
+        "y": 14475,
+        "viewport": 956,
+        "height": 15431,
+        "gap": 0
+      },
+      "bottomAfter": {
+        "y": 14475,
+        "viewport": 956,
+        "height": 15431,
+        "gap": 0
+      },
+      "errors": []
+    }
+  ],
+  "openDefects": [
+    "CHG0177 Wellnessbroad-run flake/unknowncause",
+    "CHG0103 minimumreadability",
+    "CHG0106 intermittentphysicalmissingpaint"
+  ],
+  "publication": {
+    "status": "PENDING_GATES",
+    "destination": "origin/main",
+    "projects": [
+      "ramsider Production",
+      "ramsider-beta automaticPreview"
+    ],
+    "authorization": "continues user-requested push/deploy delivery workflow in this conversation"
+  }
+}

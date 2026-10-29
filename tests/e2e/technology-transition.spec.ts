@@ -1,5 +1,8 @@
 import {expect,test} from '@playwright/test';
 import {openTechnology} from './helpers/technology';
+import {silenceTestMedia} from './silent-media';
+test.use({serviceWorkers:'block'});
+test.beforeEach(async({page})=>silenceTestMedia(page));
 
 type NavigationProbe={ready:string[];cloneDecodes:number;clickAt:number;commitMs:number|null;loadingFrames:number;sampleUntil:number};
 declare global {interface Window {navigationProbe?:NavigationProbe}}
@@ -38,6 +41,7 @@ test('warm photos switch without clone decoding or a painted loading flash',asyn
  const viewer=page.locator('#technology-viewer');
  await expect(viewer).toHaveAttribute('aria-busy','false');
  await page.waitForFunction(()=>window.navigationProbe!.ready.includes('/art/technology/slides/noble-02.webp'));
+ await expect(viewer.locator('.technology-viewer__loading')).toHaveCount(0);
  await viewer.getByRole('button',{name:'Next Slide',exact:true}).click();
  await expect(viewer).toHaveAttribute('data-photo-index','1');
  await expect(viewer).toHaveAttribute('aria-busy','false');

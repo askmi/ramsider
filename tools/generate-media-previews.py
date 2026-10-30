@@ -14,7 +14,7 @@ for tile in story:
         raise RuntimeError('Run tools/generate-story-tiles.py before regenerating previews')
     manifest[key] = existing[key]
 for path in sorted((ROOT/'public/art').rglob('*.webp')):
-    if path.parent == ROOT/'public/art' and (path.name.startswith('story-v2-') or path.name in {*(f'{i:02}.webp' for i in range(9)), '09-10.webp', '11.webp'}): continue
+    if path.parent == ROOT/'public/art' and (path.name.startswith('story-v') or path.name in {*(f'{i:02}.webp' for i in range(9)), '09-10.webp', '11.webp'}): continue
     raw=path.read_bytes(); image=Image.open(io.BytesIO(raw))
     if image.width < 600 and not path.name.startswith('doc-'): continue
     relative=path.relative_to(ROOT/'public')

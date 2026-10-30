@@ -1,0 +1,291 @@
+{
+  "date": "2026-10-30",
+  "sourceSHA256": "1b8deab0448cb73d016f3cf8571caa081c544883dc17c9a1c2db0d24e2abc971",
+  "sourceProfile": "Adobe RGB (1998)",
+  "transform": "AdobeRGB1998 to tagged sRGB, relative colorimetric + black point compensation",
+  "originalStoryFilesUnchanged": true,
+  "unaffectedPreviewCount": 65,
+  "unaffectedPreviewsUnchanged": true,
+  "newCut": 29264,
+  "fadeSourceRange": [
+    29104,
+    29264
+  ],
+  "files": [
+    {
+      "file": "public/art/story-v3-12.webp",
+      "dimensions": [
+        941,
+        2724
+      ],
+      "losslessBytes": 2331276,
+      "activeBytes": 213092,
+      "alphaExact": true,
+      "iccDescription": "sRGB built-in",
+      "iccSHA256": "b51ca22f70169371fba3ecfb37056d6de86d293f2719b1388bb8042e5c52c776",
+      "losslessDecodedExact": true,
+      "SHA256": "053b644fe12438bd9f263802167c1001dee957a627170a244cfdabc74711fef8"
+    },
+    {
+      "file": "public/art/story-v3-13.webp",
+      "dimensions": [
+        941,
+        1696
+      ],
+      "losslessBytes": 1599048,
+      "activeBytes": 217768,
+      "alphaExact": true,
+      "iccDescription": "sRGB built-in",
+      "iccSHA256": "b51ca22f70169371fba3ecfb37056d6de86d293f2719b1388bb8042e5c52c776",
+      "losslessDecodedExact": true,
+      "SHA256": "38b1f6c6f2ea9e213ddcd1faa86f213d2a681563794c7466e5e31a0577195174"
+    }
+  ],
+  "browser": [
+    {
+      "name": "pro",
+      "mode": "ready",
+      "heldIndexes": [],
+      "geometry": {
+        "width": 402,
+        "dpr": 3,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 160.2,
+      "errors": []
+    },
+    {
+      "name": "pro",
+      "mode": "upper-preview",
+      "heldIndexes": [
+        12
+      ],
+      "geometry": {
+        "width": 402,
+        "dpr": 3,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 159.46666666666667,
+      "errors": []
+    },
+    {
+      "name": "pro",
+      "mode": "lower-preview",
+      "heldIndexes": [
+        13
+      ],
+      "geometry": {
+        "width": 402,
+        "dpr": 3,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 3.1666666666666714,
+      "errors": []
+    },
+    {
+      "name": "pro",
+      "mode": "both-preview",
+      "heldIndexes": [
+        12,
+        13
+      ],
+      "geometry": {
+        "width": 402,
+        "dpr": 3,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 2.8500000000000085,
+      "errors": []
+    },
+    {
+      "name": "max",
+      "mode": "ready",
+      "heldIndexes": [],
+      "geometry": {
+        "width": 440,
+        "dpr": 3,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 92.18333333333334,
+      "errors": []
+    },
+    {
+      "name": "max",
+      "mode": "upper-preview",
+      "heldIndexes": [
+        12
+      ],
+      "geometry": {
+        "width": 440,
+        "dpr": 3,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 91.35,
+      "errors": []
+    },
+    {
+      "name": "max",
+      "mode": "lower-preview",
+      "heldIndexes": [
+        13
+      ],
+      "geometry": {
+        "width": 440,
+        "dpr": 3,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 3.5333333333333314,
+      "errors": []
+    },
+    {
+      "name": "max",
+      "mode": "both-preview",
+      "heldIndexes": [
+        12,
+        13
+      ],
+      "geometry": {
+        "width": 440,
+        "dpr": 3,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 2.7166666666666686,
+      "errors": []
+    }
+  ],
+  "wideBrowser": [
+    {
+      "name": "tablet",
+      "mode": "ready",
+      "heldIndexes": [],
+      "geometry": {
+        "width": 768,
+        "dpr": 1,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 136.8,
+      "errors": []
+    },
+    {
+      "name": "tablet",
+      "mode": "upper-preview",
+      "heldIndexes": [
+        12
+      ],
+      "geometry": {
+        "width": 768,
+        "dpr": 1,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 136.8,
+      "errors": []
+    },
+    {
+      "name": "tablet",
+      "mode": "lower-preview",
+      "heldIndexes": [
+        13
+      ],
+      "geometry": {
+        "width": 768,
+        "dpr": 1,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 6.099999999999994,
+      "errors": []
+    },
+    {
+      "name": "tablet",
+      "mode": "both-preview",
+      "heldIndexes": [
+        12,
+        13
+      ],
+      "geometry": {
+        "width": 768,
+        "dpr": 1,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 5.3500000000000085,
+      "errors": []
+    },
+    {
+      "name": "desktop",
+      "mode": "ready",
+      "heldIndexes": [],
+      "geometry": {
+        "width": 1440,
+        "dpr": 1,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 181.85000000000002,
+      "errors": []
+    },
+    {
+      "name": "desktop",
+      "mode": "upper-preview",
+      "heldIndexes": [
+        12
+      ],
+      "geometry": {
+        "width": 1440,
+        "dpr": 1,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 180.85000000000002,
+      "errors": []
+    },
+    {
+      "name": "desktop",
+      "mode": "lower-preview",
+      "heldIndexes": [
+        13
+      ],
+      "geometry": {
+        "width": 1440,
+        "dpr": 1,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 6.3500000000000085,
+      "errors": []
+    },
+    {
+      "name": "desktop",
+      "mode": "both-preview",
+      "heldIndexes": [
+        12,
+        13
+      ],
+      "geometry": {
+        "width": 1440,
+        "dpr": 1,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 5.049999999999997,
+      "errors": []
+    }
+  ],
+  "readyComparisonMaxPixelPercent": {
+    "pro": 0.209,
+    "max": 0.012
+  },
+  "behaviorTests": {
+    "passed": 6,
+    "profileSkipped": 2,
+    "log": "/private/tmp/ramsider-dark-light-tests.log"
+  },
+  "nativeReview": "No actionable regressions; /private/tmp/ramsider-dark-light-review.log; isolated snapshot static-only, browser tests executed in real workspace",
+  "performance": {
+    "profile": "Chromium mobile 402x874 DPR3, cold cache, simulated 4Mbps / 100ms RTT",
+    "fcp": 600,
+    "lcp": 1512,
+    "cls": 0.00022206073455854325,
+    "hero": 119636,
+    "js": 221327,
+    "total": 913056,
+    "scrollFrameP95": 16.799999999999727,
+    "scrollFramesOver33": 0,
+    "fieldMetrics": false
+  },
+  "performanceLimit": "Synthetic Chromium4Mbps/100ms; rAF programmatic scroll, not field/native physical device evidence"
+}

@@ -67,8 +67,8 @@
       "reason": "фон после станции"
     },
     {
-      "y": 28970,
-      "reason": "тёмный фон до следующего сюжета"
+      "y": 29264,
+      "reason": "Exact source dark/light boundary before projects; overlap fades above it, ending at this line."
     },
     {
       "y": 30720,
@@ -165,17 +165,17 @@
       "crop_bottom": 26700
     },
     {
-      "file": "story-v2-12",
+      "file": "story-v3-12",
       "start": 26620,
-      "end": 28970,
+      "end": 29264,
       "crop_top": 26540,
-      "crop_bottom": 29050
+      "crop_bottom": 29264
     },
     {
-      "file": "story-v2-13",
-      "start": 28970,
+      "file": "story-v3-13",
+      "start": 29264,
       "end": 30720,
-      "crop_top": 28890,
+      "crop_top": 29104,
       "crop_bottom": 30800
     },
     {
@@ -191,5 +191,16 @@
     "screenshots/feed-seams/candidate-0.jpg",
     "screenshots/feed-seams/candidate-1.jpg"
   ],
-  "rendering": "Later segment fades in across 160 source pixels over its predecessor; all preview states must be visually verified."
+  "rendering": "Later segment fades in across 160 source pixels over its predecessor; all preview states must be visually verified.",
+  "boundary_overrides": [
+    {
+      "y": 29264,
+      "overlap": [
+        29104,
+        29264
+      ],
+      "upperCropEndsAtBoundary": true,
+      "reason": "Keep the actual dark/light change inside the lower preview blur instead of exposing a sharp light strip from the upper original."
+    }
+  ]
 }

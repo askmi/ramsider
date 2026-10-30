@@ -1,0 +1,34 @@
+{
+  "source": "design/references/background.png",
+  "oldCut": 28970,
+  "newCut": 29264,
+  "boundaryEvidence": "row29263 dark mean39.5; row29264 light mean182.1; clean/composite reviewed",
+  "upper": {
+    "old": "story-v2-12",
+    "new": "story-v3-12",
+    "start": 26620,
+    "end": 29264,
+    "crop_top": 26540,
+    "crop_bottom": 29264
+  },
+  "lower": {
+    "old": "story-v2-13",
+    "new": "story-v3-13",
+    "start": 29264,
+    "end": 30720,
+    "crop_top": 29104,
+    "crop_bottom": 30800
+  },
+  "blendRange": [
+    29104,
+    29264
+  ],
+  "reason": "Finish the overlapping fade at the actual dark/light line; the upper original ends there so it cannot leave a sharp light strip over the lower blurred preview.",
+  "acceptance": [
+    "ready composition unchanged",
+    "upper ready/lower preview: transition is blurred exactly at source29264",
+    "upper preview/lower ready and both preview seamless in correct background",
+    "Pro402/Max440 DPR3 actual screenshots; no geometry shift; sourceICC/alpha/quality checks",
+    "Only two source crops/previews; other raster bytes unchanged; no video changes"
+  ]
+}

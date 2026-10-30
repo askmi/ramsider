@@ -50,3 +50,25 @@ for (const width of [768, 1440]) test(`decoded story artwork paints immediately 
     await context.close();
   }
 });
+
+test('the project image keeps its boundary preview after failure and recovers in place', async ({ page }) => {
+  let fail = true;
+  await page.route('**/art/story-v3-13.webp', route => fail ? route.abort() : route.continue());
+  await page.goto('/en');
+  await expect(page.locator('html')).toHaveAttribute('data-media-hydrated', '');
+  await page.locator('.tail-art').evaluate(element => {
+    const box = element.getBoundingClientRect();
+    scrollTo({ top: box.top + scrollY + (29264 - 28207) * box.width / 941 - innerHeight / 2, behavior: 'instant' });
+  });
+  const image = page.locator('.tail-art img[data-original="/art/story-v3-13.webp"]');
+  await expect(image).toHaveAttribute('data-media-error', '', { timeout: 30000 });
+  await expect(image).toHaveAttribute('data-preview', 'ready');
+  const before = await image.boundingBox();
+  await page.screenshot({ path: `screenshots/feed-seams/dark-light/error-${test.info().project.name}.png` });
+  fail = false;
+  await page.getByRole('button', { name: 'Retry', exact: true }).click();
+  await expect(image).toHaveAttribute('data-media-ready', '', { timeout: 30000 });
+  const after = await image.boundingBox();
+  expect(Math.abs(before!.height - after!.height)).toBeLessThan(1);
+  expect(Math.abs(before!.y - after!.y)).toBeLessThan(1);
+});

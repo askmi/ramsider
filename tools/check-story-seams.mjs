@@ -9,8 +9,8 @@ for(const [name,width,height,device] of [['pro',402,874,'iPhone 17 Pro'],['max',
  for(const mode of ['ready','even-error','odd-error','all-error']){
   const context=await browser.newContext({viewport:{width,height},deviceScaleFactor:3,isMobile:true,hasTouch:true,userAgent:devices[device].userAgent,serviceWorkers:'block'});
   const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
-  await page.route('**/art/story-v2-*.webp',route=>{
-   const match=route.request().url().match(/story-v2-(\d+)\.webp/);const index=Number(match?.[1]);
+  await page.route('**/art/story-v*-*.webp',route=>{
+   const match=route.request().url().match(/story-v\d+-(\d+)\.webp/);const index=Number(match?.[1]);
    return index>0 && (mode==='all-error'||(mode==='even-error'&&index%2===0)||(mode==='odd-error'&&index%2===1)) ? route.abort() : route.continue();
   });
   await page.goto(base+'/en',{waitUntil:'domcontentloaded'});

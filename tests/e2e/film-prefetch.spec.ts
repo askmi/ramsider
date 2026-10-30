@@ -9,6 +9,8 @@ const registry = JSON.parse(readFileSync('config/product-films.json', 'utf8'));
 const asset = registry.assets.find((a: { active: boolean; id: string; audioLocale: string }) => a.active && a.id === 'uno-introduction' && a.audioLocale === 'en');
 const base = `/films/${asset.directory}`;
 const cacheName = 'film-start-v1';
+const galleryAssets = registry.assets.filter((a: {active:boolean;audioLocale:string}) => a.active && ['en','und'].includes(a.audioLocale));
+const warmCount = galleryAssets.length * 6;
 
 test.beforeEach(({}, info) => { test.skip(info.project.name === 'desktop-firefox', 'Chromium MSE and both native WebKit profiles own cache integration'); });
 
@@ -25,8 +27,8 @@ test('three segments warm without playback; cached range protocol and playback r
   await expect(page.locator('video')).toHaveAttribute('data-preload', 'ready', { timeout: 40000 });
   await expect(page.locator('video')).not.toHaveAttribute('src');
   expect(await page.locator('video').evaluate(v => (v as HTMLVideoElement).paused && (v as HTMLVideoElement).currentTime === 0)).toBe(true);
-  expect(warm).toHaveLength(6);
-  expect(warm.filter(path => path.endsWith('.m4s'))).toEqual([0, 1, 2].map(n => `${base}/360p/segment-0000${n}.m4s`));
+  expect(warm).toHaveLength(warmCount);
+  for (const item of galleryAssets) expect(warm.filter(path => path.includes('/'+item.directory+'/') && path.endsWith('.m4s'))).toEqual([0,1,2].map(n => `/films/${item.directory}/360p/segment-0000${n}.m4s`));
   const checks = await page.evaluate(async ({ base, cacheName }) => {
     const cache = await caches.open(cacheName), keys = await cache.keys();
     const url = `${base}/360p/segment-00000.m4s`;
@@ -40,7 +42,7 @@ test('three segments warm without playback; cached range protocol and playback r
     const conditional = await fetch(url, { headers: { Range: 'bytes=0-1', 'If-Range': '"unknown-version"' } });
     return { names: await caches.keys(), unsupportedHit: unsupported.headers.get('X-Film-Cache'), conditionalHit: conditional.headers.get('X-Film-Cache'), keys: keys.map(key => key.url), rows, head: { status: head.status, length: head.headers.get('content-length'), body: (await head.arrayBuffer()).byteLength } };
   }, { base, cacheName });
-  expect(checks.keys).toHaveLength(6);
+  expect(checks.keys).toHaveLength(warmCount);
   expect(checks.names).toContain('unrelated-feature-cache');
   expect(checks.names).not.toContain('film-start-obsolete');
   expect(checks.unsupportedHit).toBeNull(); expect(checks.conditionalHit).toBeNull();
@@ -50,7 +52,7 @@ test('three segments warm without playback; cached range protocol and playback r
   expect(checks.rows.every(row => row.hit === 'hit')).toBe(true);
   expect(checks.head).toEqual({ status: 200, length: String(bytes), body: 0 });
   await page.waitForTimeout(500);
-  expect(warm).toHaveLength(6);
+  expect(warm).toHaveLength(warmCount);
   await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(1);
   await page.screenshot({ path: `screenshots/video/prefetch/open-${info.project.name}.png`, scale: 'css' });
@@ -193,7 +195,7 @@ test('Watch cancels a pending worker warm without waiting for optional preparati
     };
   });
   await page.goto('/en');
-  await expect.poll(() => page.evaluate(async () => (await (await caches.open('film-start-v1')).keys()).length), { timeout: 40000 }).toBe(6);
+  await expect.poll(() => page.evaluate(async () => (await (await caches.open('film-start-v1')).keys()).length), { timeout: 40000 }).toBeGreaterThanOrEqual(6);
   await expect(page.locator('video')).toHaveAttribute('data-preload', 'loading');
   await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 15000 }).toBeGreaterThan(.2);

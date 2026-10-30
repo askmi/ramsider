@@ -61,7 +61,7 @@ async function playlist(page: Page, name: string) {
     expect(await page.locator(selector).evaluate(el => { const r = el.getBoundingClientRect(); const hit = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2); return hit === el || el.contains(hit); }), selector).toBe(true);
   }
   const alpha = await panel.evaluate(el => Number(getComputedStyle(el).backgroundColor.match(/[\d.]+/g)?.at(-1)));
-  expect(alpha).toBeGreaterThan(.4); expect(alpha).toBeLessThan(.85);
+  expect(alpha).toBeGreaterThan(.9); expect(alpha).toBeLessThan(1);
   expect(await close.evaluate(el => { const r = el.getBoundingClientRect(); return document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2)?.closest('.film-player__close') === el; })).toBe(true);
   await expect.poll(() => panel.locator('img').evaluateAll(imgs => imgs.every(el => { const img = el as HTMLImageElement; return img.complete && img.naturalWidth > 0; })), { timeout: 30000 }).toBe(true);
   await mkdir(root, { recursive: true });

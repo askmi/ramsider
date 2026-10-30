@@ -1,0 +1,185 @@
+{
+  "ids": [
+    "CHG0183",
+    "CHG0184"
+  ],
+  "status": "VERIFIED_LOCAL / APPROVED_LOCAL_GALLERY_STARTUP",
+  "date": "2026-10-30",
+  "scope": "Translucent black playlist; restore immutable Evolution HLS and gallery-wide first3x2s background startup. No new encode/source/audio/framing/layout changes.",
+  "sourceBindings": {
+    "app/globals.css": "299b08726920a38e5b2be428c98e739fce8ae82c919e21b2d84254aa48e45279",
+    "components/ProductFilm.tsx": "6b537b46fe77b1c037298a4cd89fae1ade2987420af4a81d6434f9762163c554",
+    "config/product-films.json": "5ba7c35dc0133c0c3a6dfc5d94c209075fd9df2b93ce043c98d3cc353f1a17b3",
+    "lib/film-playback.ts": "dcfa8af7216b84d220b5a5e02442c707ad5f465ad6faf4483afd40eb7d731bec",
+    "lib/film-preload.ts": "75b26d6aef47a07c316e200bf0193e1b8b3146ae20086d5157465d353b8dccbc",
+    "tests/e2e/film-playlist-layout.spec.ts": "fe2cf4725a55e4a6934770a0649e69d37c80fdcb5e78da2857f039cbae9640aa",
+    "tests/e2e/film-prefetch.spec.ts": "abaa3b1cd8e19bae625f761de1e6087b64834c6ecb9765d6bb8f5af9892933d3",
+    "tests/e2e/film-evolution.spec.ts": "038f714f6a2c808a10b5d0d669184ebe2b48dc1f5518040eb022850010f79328",
+    "tests/e2e/film-evolution-startup.spec.ts": "6773ac501e818cd38a8230e4134dc54b642cfc504f4b63b0c282ee802c5b22c2",
+    "tests/e2e/film-playlist-black.spec.ts": "a08d75a8a0e09a011fcf8efccf2553c4efe1a990a592567aff0ed6f19d07abd5",
+    "tests/e2e/film-reveal-top.ts": "b523d1a7fcaca446aa50bd5521bef449c223655d8a743b71aabe6e487db509ba",
+    "tests/e2e/film-locales.spec.ts": "8f61245dc9bf5837ba26fc33f2a005c35585a066be74434624bce6e94632fa94"
+  },
+  "removedObsoleteTest": "tests/e2e/film-original-width.spec.ts",
+  "media": {
+    "filesReverified": 239,
+    "allSHAAndSizeExact": true,
+    "activeEvolution": "evolution/und-v1",
+    "historicalOriginalRetained": true
+  },
+  "startup": {
+    "perFilmObjects": 6,
+    "segmentDurationSeconds": [
+      2,
+      2,
+      2
+    ],
+    "englishUnionObjects": 42,
+    "englishUnionBytes": 3375789,
+    "individualPlanMaxBytes": 1048576,
+    "foregroundNeverAwaitsWarm": true,
+    "rangeProtocol": [
+      200,
+      206,
+      416
+    ],
+    "readiness": "Advisory per-manifest ABR prior; replacement delete/readback validated; cache can be evicted afterwards."
+  },
+  "profiles": [
+    "WebKit Pro402x874DPR3",
+    "WebKit Max440x956DPR3",
+    "mobile landscape874x402/956x440",
+    "short390x664",
+    "Chromium280..1440 actual elementfullscreen",
+    "ArabicRTL",
+    "11locales"
+  ],
+  "networkProbes": {
+    "before": {
+      "conditions": "Official Chrome402x874DPR3,4Mbps100ms,cold,serviceworker enabled,muted18s observation",
+      "completedBackgroundBeforePlay": true,
+      "warmObjects": 6,
+      "firstFrameMs": 2691.699999809265,
+      "wallObservationMs": 18000,
+      "contentProgressSeconds": 7.160126,
+      "stallsAfterPlaying": 3
+    },
+    "after": {
+      "conditions": "Official Chrome402x874DPR3,4Mbps100ms,cold,serviceworker enabled,muted18s observation",
+      "completedBackgroundBeforePlay": true,
+      "warmObjects": 42,
+      "firstFrameMs": 1390.5,
+      "wallObservationMs": 18000,
+      "contentProgressSeconds": 16.684789,
+      "stallsAfterPlaying": 0
+    },
+    "early": {
+      "conditions": "Official Chrome402x874DPR3,4Mbps100ms,early Play without waiting for prewarm,serviceworker enabled,muted18s observation",
+      "completedBackgroundBeforePlay": false,
+      "warmObjects": 0,
+      "firstFrameMs": 3448.2000000476837,
+      "wallObservationMs": 18000,
+      "contentProgressSeconds": 14.591766,
+      "stallsAfterPlaying": 0
+    },
+    "1mbps": {
+      "conditions": "Official Chrome402x874DPR3,1Mbps100ms,cold,serviceworker enabled,muted18s observation",
+      "completedBackgroundBeforePlay": true,
+      "warmObjects": 42,
+      "firstFrameMs": 5084.899999856949,
+      "wallObservationMs": 18000,
+      "contentProgressSeconds": 13.013274,
+      "stallsAfterPlaying": 0
+    }
+  },
+  "performance": {
+    "phase": "film-gallery-final",
+    "conditions": "Single cold Chromium mobile402×874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+    "initial": {
+      "ttfb": 499.69999980926514,
+      "fcp": 872,
+      "lcp": 1788,
+      "cls": 0.00022206073455854325,
+      "jsBytes": 333163,
+      "completedBytes": 3472349,
+      "filmObjects": 16,
+      "readyImages": 29
+    },
+    "scroll": {
+      "samples": 303,
+      "movingFrames": 192,
+      "startY": 0,
+      "endY": 13259,
+      "p95Ms": 33.200000047683716,
+      "over33Ms": 17,
+      "reverseFrames": 0,
+      "maxReverse": 0,
+      "cls": 0.00022206073455854325,
+      "longTasks": [
+        88,
+        51,
+        470,
+        80
+      ]
+    },
+    "errors": []
+  },
+  "screenshots": {
+    "screenshots/video/startup-fix/desktop-chromium-1440-10-evolution.png": "a1ad1f5de674b95418776ef1653e4327be6fd0d2ad427ddb2ab5ed80ca76a4ca",
+    "screenshots/video/startup-fix/desktop-chromium-1440-109-evolution.png": "d26c440260269f8cd73eef7647951cc2cd129d9652224d9fb86f3e413a985a66",
+    "screenshots/video/startup-fix/desktop-chromium-844-10-evolution.png": "aabc6604670b42036a955e5de4de4f449825ea194941767aa3e63514bb6cd66d",
+    "screenshots/video/startup-fix/desktop-chromium-844-109-evolution.png": "4466df624583886f5638d067cf03b55862500ff9ea58e3d51d12841ca3525066",
+    "screenshots/video/startup-fix/desktop-chromium-dark-fullscreen-playlist.png": "72e25e592f5988ecf4b07ab684c76bc31b809d1d9e3b5a3e1cb70557f5af59ae",
+    "screenshots/video/startup-fix/desktop-chromium-dark-inline-playlist.png": "64e259324188b0d2ef043f6e9ba51f94ebe7f6445212442ce7e322636e03650b",
+    "screenshots/video/startup-fix/desktop-chromium-white-fullscreen-playlist.png": "9e1b44669d47baf57da1a1ec048e2d14f3a141981a2c46c007e1c2b9f7b722b6",
+    "screenshots/video/startup-fix/desktop-chromium-white-inline-playlist.png": "5969b3d13d94dbfe5af136fc665f6b401570df641efd526ee3706fb1abbf13b0",
+    "screenshots/video/startup-fix/iphone-17-pro-max-webkit-440-10-evolution.png": "5807965628284e1113ce002aaebac4f71f283f953411ddd7b632cfb8f4c56f76",
+    "screenshots/video/startup-fix/iphone-17-pro-max-webkit-440-109-evolution.png": "fb586e5b1f1afa6625895e656d0e7ffa1e3fdcab2a7065b8ac17641aa45df51e",
+    "screenshots/video/startup-fix/iphone-17-pro-max-webkit-956-10-evolution.png": "1754b6cabb6f90ba8ff54ee3b393d0fac6a764c1916eaa299fa0812785c44068",
+    "screenshots/video/startup-fix/iphone-17-pro-max-webkit-956-109-evolution.png": "4744d155625532c635df90fd85913639ce985f97a341a70f8917cc6cab55c34c",
+    "screenshots/video/startup-fix/iphone-17-pro-max-webkit-dark-fullscreen-playlist.png": "0398bd778be0680eee4f5527b3406dbe687b48f306f10605d0480943f0c259e6",
+    "screenshots/video/startup-fix/iphone-17-pro-max-webkit-dark-inline-playlist.png": "31b189692efd6148b962362e66f69bd7bab03fc62be47e88468254a289906cc3",
+    "screenshots/video/startup-fix/iphone-17-pro-max-webkit-white-fullscreen-playlist.png": "c259291430240be569621ad80875187b99e15bb9efc15f3fc482924f7136e12b",
+    "screenshots/video/startup-fix/iphone-17-pro-max-webkit-white-inline-playlist.png": "315399cfa98f60aef30d7e0b3d56095d24b566ec1cd589d2c76530474b287fc5",
+    "screenshots/video/startup-fix/iphone-17-pro-webkit-390-10-evolution.png": "e4d4bbdb46bb49146637d70260e7a3190cb38014e0e581b850f98538f8b29c1f",
+    "screenshots/video/startup-fix/iphone-17-pro-webkit-390-109-evolution.png": "9bca06914640d65a14f765f71a37e92b959d8c59f403b758295f034890473151",
+    "screenshots/video/startup-fix/iphone-17-pro-webkit-402-10-evolution.png": "520ccd3ea24672d6dda60ee8b049736207ef158eab235a3f44199a64bc5ed453",
+    "screenshots/video/startup-fix/iphone-17-pro-webkit-402-109-evolution.png": "c888cb3dd9fac03f08095c244f139664f894258bceb1935f2f6fd88f2da41933",
+    "screenshots/video/startup-fix/iphone-17-pro-webkit-874-10-evolution.png": "197665e19601af416d7274804b896348a3cbe7c0fd2db3818cb40ae7dcd54b98",
+    "screenshots/video/startup-fix/iphone-17-pro-webkit-874-109-evolution.png": "35b183eafea162acd90135f82153d0ea5f9f66b16f7aed63e84345aee4af2cbf",
+    "screenshots/video/startup-fix/iphone-17-pro-webkit-dark-fullscreen-playlist.png": "f1b6ea486f28b8c17fb169caaf38bf1be8c486fdbd8cf73f74c2fa7b3da37630",
+    "screenshots/video/startup-fix/iphone-17-pro-webkit-dark-inline-playlist.png": "078460369d7aae81088357500867310118558d11e36e3a44e4b52f2f258666f8",
+    "screenshots/video/startup-fix/iphone-17-pro-webkit-white-fullscreen-playlist.png": "b7cc9bd000f5d520563683bf8df6dc49660cb932c20c15015f400cfd6a117ec1",
+    "screenshots/video/startup-fix/iphone-17-pro-webkit-white-inline-playlist.png": "9e6763d2243e09f86c936d57ee6b53bba4cfe5a185a86715d150c0bfa22575f6"
+  },
+  "checks": {
+    "build": "PASS /private/tmp/film-start-build-final.log",
+    "type": "PASS /private/tmp/film-start-type-approved.log",
+    "siteESLint": "0 errors /4 existing warnings /private/tmp/film-start-eslint-approved.log",
+    "nativeReview": "CLEAN isolatedreview4; earlier3 actionable findings fixed",
+    "broadForeground": "53PASS22SKIP3FAIL then affected fixture/quality repairs, exact logs retained",
+    "qualityEndRecheck": "2PASS Pro+Max actual1080→Auto/end/replay/adjacent/reopen",
+    "whitePlaylistRecheck": "3PASS Pro+Max+Chromium actual white/gray frame composites and pixels",
+    "localizedStartup": "3PASS RU/DE/ES Max",
+    "cacheFinal": "32PASS /7 intentionalSKIP /0FAIL; /private/tmp/film-start-cache-final.log"
+  },
+  "limits": [
+    "Physical iPhone/native Apple fullscreen not verified",
+    "No universal firstFrame<2s/no-stall guarantee; earlyPlay3448ms and1Mbps5085ms separately measured",
+    "Completed warm start ~20.7s after pageclock vs baseline~5.7s; not immediate cold click comparison",
+    "No cross-tab cache locking guarantee",
+    "FieldINP/Lighthouse/subjective listening not measured",
+    "Full repository lint remains pre-existing FAIL CHG0181",
+    "CHG0180 separate error overlay remains open",
+    "CHG0185 process-output credential-like exposure separate OPEN; transcript removal/revocation unverified; no values stored here"
+  ],
+  "technicalApproval": {
+    "date": "2026-10-30",
+    "verifier": "/root",
+    "independentAuditor": "/root/scroll_auditor",
+    "verdict": "APPROVED_LOCAL_GALLERY_STARTUP",
+    "gates": "1,3,4,5,6 PASS; focusedrecord/prepush PASS",
+    "publication": "NOT_YET_PUSHED"
+  },
+  "userResultApproval": "NOT_RECORDED"
+}

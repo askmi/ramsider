@@ -11,6 +11,7 @@ const assetFor = (audio: string) => registry.assets.find(asset => asset.active &
 const expectedAudio = (locale: string) => ['ru', 'de', 'es'].includes(locale) ? locale : 'en';
 const baseFor = (audio: string) => `/films/${assetFor(audio).directory}`;
 const starter = (audio: string) => ['master.m3u8', '360p/index.m3u8', '360p/init.mp4', ...[0, 1, 2].map(n => `360p/segment-${String(n).padStart(5, '0')}.m4s`)].map(path => `${baseFor(audio)}/${path}`);
+const galleryStarter = (audio:string) => [...starter(audio), ...registry.assets.filter(a=>a.active&&a.audioLocale==='und').flatMap(a=>['master.m3u8','360p/index.m3u8','360p/init.mp4',...[0,1,2].map(n=>`360p/segment-0000${n}.m4s`)].map(p=>`/films/${a.directory}/${p}`))];
 async function ready(page: Page, locale: string) {
   await page.goto(`/${locale}`);
   await expect(page.locator('video')).toHaveAttribute('data-preload', 'ready', { timeout: 45000 });
@@ -49,7 +50,7 @@ test('all eleven page locales select exact supplied audio or the English fallbac
 });
 
 for (const locale of ['ru', 'de', 'es']) {
-  test(`${locale} warms only its six files, plays the film, seeks and releases silently`, async ({ page }, info) => {
+  test(`${locale} warms its localized startup and six shared films, plays the film, seeks and releases silently`, async ({ page }, info) => {
     test.skip(info.project.name === 'desktop-firefox', 'Native Pro/Max plus Chromium MSE own localized media coverage');
     const base = baseFor(locale), warm: string[] = [], errors: string[] = [];
     page.on('pageerror', error => errors.push(error.message));
@@ -57,16 +58,17 @@ for (const locale of ['ru', 'de', 'es']) {
       if (request.headers()['x-film-preload']) warm.push(new URL(request.url()).pathname);
     });
     await ready(page, locale);
-    expect(warm).toEqual(starter(locale));
+    expect(warm.slice(0,6)).toEqual(starter(locale));
+    expect([...warm].sort()).toEqual(galleryStarter(locale).sort());
     const before = await page.evaluate(async cacheName => {
       const video = document.querySelector('video')!;
       const cache = await caches.open(cacheName), keys = await cache.keys();
       return { paused: video.paused, time: video.currentTime, src: video.getAttribute('src'), keys: keys.map(k => new URL(k.url).pathname), bytes: (await Promise.all(keys.map(async k => (await (await cache.match(k))!.arrayBuffer()).byteLength))).reduce((a, b) => a + b, 0) };
     }, cacheName);
     expect(before.src).toBeNull(); expect(before.paused).toBe(true); expect(before.time).toBe(0);
-    expect(before.keys.sort()).toEqual(starter(locale).sort());
+    expect(before.keys.sort()).toEqual(galleryStarter(locale).sort());
     const bytes = starter(locale).reduce((total, url) => total + assetFor(locale).files.find(f => `${base}/${f.path}` === url)!.bytes, 0);
-    expect(before.bytes).toBe(bytes); expect(bytes).toBeLessThanOrEqual(1024 * 1024);
+    expect(before.bytes).toBeGreaterThan(bytes); expect(bytes).toBeLessThanOrEqual(1024 * 1024);
     await page.locator('#film-play').scrollIntoViewIfNeeded();
     await page.evaluate(() => {
       const video = document.querySelector('video')!;
@@ -108,7 +110,7 @@ test('locale navigation and other tabs cannot substitute a different cached audi
     const audio = expectedAudio(locale);
     await expect(page.locator('video')).toHaveAttribute('data-audio-locale', audio);
     const keys = await page.evaluate(async cacheName => (await (await caches.open(cacheName)).keys()).map(k => new URL(k.url).pathname), cacheName);
-    expect(keys.sort()).toEqual(starter(audio).sort());
+    expect(keys.sort()).toEqual(galleryStarter(audio).sort());
   }
   await page.goBack();
   await expect(page).toHaveURL(/\/es(?:[?#]|$)/);

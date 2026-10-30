@@ -1,4 +1,4 @@
-import { stopFilmPreload } from './film-preload';
+import { isFilmStartReady, stopFilmPreload } from './film-preload';
 import { filmCacheAbr } from './film-cache-abr';
 import type Hls from 'hls.js';
 import { suspendImageTransfers } from './media-resource';
@@ -288,7 +288,7 @@ export function playProductFilm(video: HTMLVideoElement) {
       abrController: filmCacheAbr(Engine),
       // Cached startup has no network samples yet. This conservative prior
       // supports 360p but cannot justify an uncached HD upswitch.
-      abrEwmaDefaultEstimate: video.dataset.preload === 'ready' ? 1100000 : 500000,
+      abrEwmaDefaultEstimate: isFilmStartReady(video.dataset.src!) ? 1100000 : 500000,
       autoStartLoad: false,
       workerPath: '/vendor/hls-worker-1.7.3-runtime.js',
       lowLatencyMode: false,

@@ -76,11 +76,17 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
     unconfigure.current = configureFilmQualities(media, films[0].qualities);
     const feedback = (event: Event) => { if (dialog.current?.open) { const next = (event as CustomEvent<'loading' | 'blocked' | 'error'>).detail; statusRef.current = next; setStatus(next); } };
     media.addEventListener('film-status', feedback);
-    const stopPreload = prepareFilmStart(media, films[0].preload, signal => warmFilmEngine(media, signal));
     const observer = new IntersectionObserver(entries => { if (entries.some(entry => entry.isIntersecting)) { warmFilmEngine(media); upgrade(); observer.disconnect(); } }, { rootMargin: '600px' });
     const opener = document.getElementById('film-play'); if (opener) observer.observe(opener);
-    return () => { alive = false; openObserver.disconnect(); stopPreload(); observer.disconnect(); media.removeEventListener('film-status', feedback); releaseFilm(media); unconfigure.current?.(); };
+    return () => { alive = false; openObserver.disconnect(); observer.disconnect(); media.removeEventListener('film-status', feedback); releaseFilm(media); unconfigure.current?.(); };
   }, [films]);
+  useEffect(() => {
+    const media = video.current;
+    if (!media || (opened && view !== 'gallery')) return;
+    // One producer owns the union cache; a gallery selection warms its own first six seconds first.
+    const ordered = [films[index], ...films.filter((_, i) => i !== index)];
+    return prepareFilmStart(media, ordered.map(item => item.preload).filter(plan => plan.length > 0), signal => warmFilmEngine(media, signal));
+  }, [films, index, opened, view]);
   useEffect(() => {
     const media = video.current, host = stage.current;
     if (!media || !host) return;

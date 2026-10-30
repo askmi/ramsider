@@ -47,7 +47,7 @@ for (const language of [{ code: 'ru', dir: 'ltr' }, { code: 'ar', dir: 'rtl' }])
 
 test('a stalled image cannot hold language navigation indefinitely', async ({ page }) => {
   let release!:()=>void;const held=new Promise<void>(resolve=>{release=resolve;});
-  await page.route('**/art/11.webp',async route=>{await held;await route.continue().catch(()=>{});});
+  await page.route('**/art/story-v2-14.webp',async route=>{await held;await route.continue().catch(()=>{});});
   try {
   await page.goto('/en');
   await page.waitForFunction(() => document.documentElement.hasAttribute('data-media-hydrated'));

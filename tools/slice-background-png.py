@@ -9,8 +9,8 @@ ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "design/derived/original-png"
 REFERENCE = ROOT / "design/references"
 
-main = [(f"{index:02}", index * 2800, (index + 1) * 2800) for index in range(9)]
-main += [("09-10", 25200, 30800), ("11", 30800, 32127)]
+main = [(tile["file"], tile["crop_top"], tile["crop_bottom"])
+        for tile in json.loads((ROOT / "docs/evidence/loading-flow/feed-seam-map.json").read_text())["segments"]]
 faq = [(27147, 172, 7), (27326, 171, 8), (27505, 171, 7),
        (27683, 171, 7), (27861, 170, 6), (28037, 170, 0)]
 documents = [("electrical", 120, 23305), ("emc", 510, 23305),
@@ -45,8 +45,7 @@ ART.mkdir(parents=True, exist_ok=True)
 with Image.open(REFERENCE / "background.png") as source:
     assert source.size == (941, 32127) and source.mode == "RGBA"
     for name, top, bottom in main:
-        # Two untouched source rows overlap the previous tile during CSS scaling.
-        save_exact(source, "background.png", name, (0, top - (2 if top else 0), 941, bottom))
+        save_exact(source, "background.png", name, (0, top, 941, bottom))
     for index, (top, height, gap) in enumerate(faq, 1):
         save_exact(source, "background.png", f"faq-row-{index}", (0, top - 4, 941, top + height + gap + 4))
 
@@ -55,7 +54,7 @@ with Image.open(REFERENCE / "background_text.png") as source:
     for name, left, top in documents:
         save_exact(source, "background_text.png", f"doc-{name}", (left, top, left + 95, top + 140))
 
-assert len(records) == 22
+assert len(records) == len(main) + len(faq) + len(documents)
 manifest = {
     "purpose": "Unused exact-source PNG alternatives for future format selection",
     "source_sha256": {name: hashlib.sha256((REFERENCE / name).read_bytes()).hexdigest()
@@ -63,4 +62,4 @@ manifest = {
     "files": records,
 }
 (ART / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
-print("Verified 22 PNG crops: exact RGBA pixels and source ICC profile.")
+print(f"Verified {len(records)} PNG crops: exact RGBA pixels and source ICC profile.")

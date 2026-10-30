@@ -20,8 +20,8 @@ from PIL import Image, ImageCms
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "public/art"
 REF = ROOT / "design/references"
-MAIN = [(f"{i:02}", i * 2800, (i + 1) * 2800) for i in range(9)]
-MAIN += [("09-10", 25200, 30800), ("11", 30800, 32127)]
+MAIN = [(tile["file"], tile["crop_top"], tile["crop_bottom"])
+        for tile in json.loads((ROOT / "docs/evidence/loading-flow/feed-seam-map.json").read_text())["segments"]]
 FAQ = [(27147, 172, 7), (27326, 171, 8), (27505, 171, 7),
        (27683, 171, 7), (27861, 170, 6), (28037, 170, 0)]
 DOCS = [("electrical", 120, 23305), ("emc", 510, 23305),
@@ -186,7 +186,7 @@ def main() -> None:
     with tempfile.TemporaryDirectory() as directory:
         temp = Path(directory)
         for filename, jobs in [
-            ("background.png", [(name, (0, top - (2 if top else 0), 941, bottom))
+            ("background.png", [(name, (0, top, 941, bottom))
                                 for name, top, bottom in MAIN]
              + [(f"faq-row-{i}", (0, top - 4, 941, top + height + gap + 4))
                 for i, (top, height, gap) in enumerate(FAQ, 1)]),

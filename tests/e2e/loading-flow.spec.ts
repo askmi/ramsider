@@ -15,13 +15,13 @@ async function open(page:Page,name:string){await page.locator(`[data-${name}-ope
 test('all substantial blocks and every optional slide have initial HTML previews',async({request})=>{
  const html=await (await request.get('/en')).text();
  for(const [src,entry] of Object.entries(previews)){expect(html,src).toContain(entry.src);}
- expect(html).toContain('rel="preload" as="image" href="/art/00.webp"');
+ expect(html).toContain('rel="preload" as="image" href="/art/story-v2-00.webp"');
  expect(html).not.toContain('media-loading__track');
 });
 test('visible preview survives stalled originals; global queue bounded; optional section independent',async({page},info)=>{
  const held=await hold(page);await page.goto('/en');await page.waitForTimeout(800);
  await expect(page.locator('.art img').first()).toHaveAttribute('data-preview','ready');
- const tile=page.locator('img[data-original="/art/01.webp"]');const tileBefore=await tile.boundingBox();expect(Math.abs(tileBefore!.height-tileBefore!.width*2802/941)).toBeLessThan(1);
+ const tile=page.locator('img[data-original="/art/story-v2-01.webp"]');const tileBefore=await tile.boundingBox();expect(Math.abs(tileBefore!.height-tileBefore!.width*1670/941)).toBeLessThan(1);
  await expect(page.locator('.media-orbit')).toHaveCount(0);
  expect(held.max).toBeLessThanOrEqual(3);
  await open(page,'wellness');const hero=page.locator('.wellness-photo img').first();await expect(hero).toHaveAttribute('data-preview','ready');await expect(hero).toHaveAttribute('src',/^data:image/);await expect.poll(()=>page.locator('.wellness-photo img[data-preview=ready]').count()).toBe(4);await page.waitForTimeout(100);
@@ -121,7 +121,7 @@ test('technology height fit stays stable while preview sharpens',async({page})=>
  const scroll=page.locator('.technology-viewer__scroll');await scroll.evaluate(e=>e.scrollTop=180);await page.waitForTimeout(150);const before=await scroll.evaluate(e=>e.scrollTop);expect(before).toBe(0);expect(await scroll.evaluate(e=>e.scrollHeight-e.clientHeight)).toBeLessThanOrEqual(1);const box=await image.boundingBox();held.release();await expect(image).toHaveAttribute('data-media-ready','',{timeout:30000});expect(Math.abs(await scroll.evaluate(e=>e.scrollTop)-before)).toBeLessThan(2);const sharpened=await image.boundingBox();expect(sharpened!.height).toBeCloseTo(box!.height,0);expect(sharpened!.width).toBeCloseTo(box!.width,0);expect(errors).toEqual([]);
 });
 test('early eager hero failure stays recoverable after hydration',async({page})=>{
- let failed=true;await page.route('**/art/00.webp',route=>failed?route.abort():route.continue());await page.goto('/en');await expect(page.locator('.art img').first()).toHaveAttribute('data-media-error','');await expect(page.getByRole('button',{name:'Retry',exact:true})).toBeVisible();failed=false;await page.getByRole('button',{name:'Retry',exact:true}).click();await expect(page.locator('.art img').first()).toHaveAttribute('data-media-ready','');
+ let failed=true;await page.route('**/art/story-v2-00.webp',route=>failed?route.abort():route.continue());await page.goto('/en');await expect(page.locator('.art img').first()).toHaveAttribute('data-media-error','');await expect(page.getByRole('button',{name:'Retry',exact:true})).toBeVisible();failed=false;await page.getByRole('button',{name:'Retry',exact:true}).click();await expect(page.locator('.art img').first()).toHaveAttribute('data-media-ready','');
 });
 
 test('failed original stays retryable without hidden observer retries',async({page})=>{
@@ -152,10 +152,10 @@ test('new distant transfers wait while the visible original is active',async({pa
  const gates=new Map<string,()=>void>(),started:string[]=[];let unheld=false;
  const releaseAll=()=>{unheld=true;gates.forEach(resolve=>resolve());};releases.add(releaseAll);
  await page.route('**/art/**/*.webp',async route=>{if(route.request().resourceType()==='fetch'){const path=new URL(route.request().url()).pathname;started.push(path);if(!unheld)await new Promise<void>(resolve=>gates.set(path,resolve));}try{await route.continue();}catch{}});
- await page.goto('/en');await expect.poll(()=>started.includes('/art/02.webp')).toBe(true);await open(page,'wellness');const hero='/art/wellness/01-ritual_uno_white_v3.webp';await expect.poll(()=>started.includes(hero)).toBe(true);
- gates.get('/art/01.webp')!();gates.get('/art/02.webp')!();
- await expect(page.locator('img[data-original="/art/01.webp"]')).toHaveAttribute('data-media-ready','');
- await expect(page.locator('img[data-original="/art/02.webp"]')).toHaveAttribute('data-media-ready','');
- await page.waitForTimeout(300);expect(started).not.toContain('/art/03.webp');gates.get(hero)!();await expect(page.locator('.wellness-photo img').first()).toHaveAttribute('data-media-ready','');
- releaseAll();await expect.poll(()=>started.includes('/art/03.webp')).toBe(true);
+ await page.goto('/en');await expect.poll(()=>started.includes('/art/story-v2-02.webp')).toBe(true);await open(page,'wellness');const hero='/art/wellness/01-ritual_uno_white_v3.webp';await expect.poll(()=>started.includes(hero)).toBe(true);
+ gates.get('/art/story-v2-01.webp')!();gates.get('/art/story-v2-02.webp')!();
+ await expect(page.locator('img[data-original="/art/story-v2-01.webp"]')).toHaveAttribute('data-media-ready','');
+ await expect(page.locator('img[data-original="/art/story-v2-02.webp"]')).toHaveAttribute('data-media-ready','');
+ await page.waitForTimeout(300);expect(started).not.toContain('/art/story-v2-03.webp');gates.get(hero)!();await expect(page.locator('.wellness-photo img').first()).toHaveAttribute('data-media-ready','');
+ releaseAll();await expect.poll(()=>started.includes('/art/story-v2-03.webp')).toBe(true);
 });

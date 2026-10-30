@@ -177,7 +177,7 @@ test('text reveal and reduced motion react to preference changes',async({page},i
 });
 
 test('early opening shows a preview independently of failed later landing artwork',async({page},info)=>{
- test.skip(info.project.name!=='iphone-17-pro-webkit','Priority acceptance also runs loading-flow on all profiles.');await page.route('**/art/11.webp*',route=>route.fulfill({status:503,body:'Unavailable'}));await page.goto('/en');await page.waitForFunction(()=>document.documentElement.hasAttribute('data-media-hydrated'));await page.locator('#beyond-learn').evaluate((e:HTMLElement)=>e.click());await expect(page.locator('.wellness-ribbon')).toBeVisible();await expect(page.locator('.wellness-photo img').first()).toHaveAttribute('data-preview','ready');await page.locator('.wellness-close').click();
+ test.skip(info.project.name!=='iphone-17-pro-webkit','Priority acceptance also runs loading-flow on all profiles.');await page.route('**/art/story-v2-14.webp*',route=>route.fulfill({status:503,body:'Unavailable'}));await page.goto('/en');await page.waitForFunction(()=>document.documentElement.hasAttribute('data-media-hydrated'));await page.locator('#beyond-learn').evaluate((e:HTMLElement)=>e.click());await expect(page.locator('.wellness-ribbon')).toBeVisible();await expect(page.locator('.wellness-photo img').first()).toHaveAttribute('data-preview','ready');await page.locator('.wellness-close').click();
 });
 
 test('delayed next photo retains geometry and paints on release, safe-area controls stay usable',async({page},info)=>{

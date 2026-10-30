@@ -9,7 +9,7 @@ async function pending(page:Page){
  let release!:()=>void;const held=new Promise<void>(resolve=>release=resolve);releases.add(release);
  await page.route('**/art/**/*.webp',async route=>{if(route.request().resourceType()==='fetch')await held;try{await route.continue();}catch{}});
  await page.goto('/en');await expect(page.locator('html')).toHaveAttribute('data-media-hydrated','');
- await expect(page.locator('img[data-original="/art/01.webp"]')).toHaveAttribute('data-preview','ready');
+ await expect(page.locator('img[data-original="/art/story-v2-01.webp"]')).toHaveAttribute('data-preview','ready');
  // Put pending art in view before exercising its event contract.
  await page.evaluate(()=>scrollTo({top:1600,behavior:'instant'}));await page.waitForTimeout(150);
  return release;
@@ -71,8 +71,8 @@ test('forward pending input makes monotonic progress and reverse is immediate',a
  await page.keyboard.press('ArrowUp');expect(await position(page)).toBeLessThan(ys.at(-1)!);
 });
 test('missing preview bounds cancellable input without rewinding an existing position',async({page})=>{
- await pending(page);await page.locator('img[data-original="/art/01.webp"]').evaluate((i:HTMLImageElement)=>i.src='data:image/webp;base64,AA==');
- await expect(page.locator('img[data-original="/art/01.webp"]')).not.toHaveAttribute('data-preview','ready');
+ await pending(page);await page.locator('img[data-original="/art/story-v2-02.webp"]').evaluate((i:HTMLImageElement)=>i.src='data:image/webp;base64,AA==');
+ await expect(page.locator('img[data-original="/art/story-v2-02.webp"]')).not.toHaveAttribute('data-preview','ready');
  await page.evaluate(()=>scrollTo({top:2000,behavior:'instant'}));await page.waitForTimeout(100);expect(await position(page)).toBe(2000);
  await page.keyboard.press('PageDown');await page.waitForTimeout(200);expect(await position(page)).toBe(2000);
  await page.keyboard.press('ArrowUp');expect(await position(page)).toBeLessThan(2000);
@@ -101,12 +101,12 @@ test('control taps keep native click handling and near-diagonal pending swipes k
 test('focused story controls obey scroll keys while preserving button activation',async({page})=>{
  await pending(page);
  const trigger=page.locator('[data-wellness-open]').first();await trigger.focus();
- const start=await page.locator('img[data-original="/art/01.webp"]').evaluate(image=>image.getBoundingClientRect().top+scrollY);
+ const start=await page.locator('img[data-original="/art/story-v2-01.webp"]').evaluate(image=>image.getBoundingClientRect().top+scrollY);
  await page.evaluate(top=>scrollTo({top,behavior:'instant'}),start);await page.waitForTimeout(100);
  await trigger.press('PageDown');await page.waitForTimeout(350);const resisted=await position(page);
  expect(resisted).toBeGreaterThan(start);expect(resisted).toBeLessThan(start+await page.evaluate(()=>innerHeight)*.5);
- await page.locator('img[data-original="/art/01.webp"]').evaluate((i:HTMLImageElement)=>i.src='data:image/webp;base64,AA==');
- await expect(page.locator('img[data-original="/art/01.webp"]')).not.toHaveAttribute('data-preview','ready');
+ await page.locator('img[data-original="/art/story-v2-01.webp"]').evaluate((i:HTMLImageElement)=>i.src='data:image/webp;base64,AA==');
+ await expect(page.locator('img[data-original="/art/story-v2-01.webp"]')).not.toHaveAttribute('data-preview','ready');
  const before=await position(page);await trigger.press('ArrowDown');await page.waitForTimeout(150);expect(await position(page)).toBe(before);
  await trigger.press('Space');await expect(page.locator('#wellness-viewer')).toBeVisible();
 });

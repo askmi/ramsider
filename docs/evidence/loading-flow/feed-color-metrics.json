@@ -1,0 +1,1161 @@
+{
+  "source_sha256": "1b8deab0448cb73d016f3cf8571caa081c544883dc17c9a1c2db0d24e2abc971",
+  "method": "Adobe RGB to sRGB relative colorimetric + black point compensation; q95 and sharp-yuv comparison, exact alpha, lossless fallback; continuous master-derived 24px previews",
+  "files": [
+    {
+      "file": "story-v2-00.webp",
+      "box": [
+        0,
+        0,
+        941,
+        1930
+      ],
+      "srgb_png_bytes": 2228875,
+      "webp_bytes": 119336,
+      "mode": "lossy-q95",
+      "lossy_candidate_bytes": 119336,
+      "lossy_candidate_metrics": {
+        "rgb_mae": [
+          1.069,
+          0.769,
+          1.039
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          3.0,
+          5.0
+        ],
+        "red_mean_signed": [
+          -0.251,
+          0.224,
+          0.342
+        ],
+        "local_max_mae": 5.118,
+        "local_max_red_shift": 20.389,
+        "sampled_delta_e76_p99": 3.459,
+        "visible_pixels": 1814454
+      },
+      "sharp_yuv_candidate_bytes": 140062,
+      "sharp_yuv_candidate_metrics": {
+        "rgb_mae": [
+          1.056,
+          0.773,
+          1.024
+        ],
+        "rgb_p99_abs": [
+          4.0,
+          3.0,
+          5.0
+        ],
+        "red_mean_signed": [
+          -0.095,
+          0.219,
+          0.139
+        ],
+        "local_max_mae": 3.838,
+        "local_max_red_shift": 22.491,
+        "sampled_delta_e76_p99": 2.858,
+        "visible_pixels": 1814454
+      },
+      "rgb_mae": [
+        1.069,
+        0.769,
+        1.039
+      ],
+      "rgb_p99_abs": [
+        5.0,
+        3.0,
+        5.0
+      ],
+      "red_mean_signed": [
+        -0.251,
+        0.224,
+        0.342
+      ],
+      "local_max_mae": 5.118,
+      "local_max_red_shift": 20.389,
+      "sampled_delta_e76_p99": 3.459,
+      "visible_pixels": 1814454,
+      "alpha_mismatch": 0,
+      "preview_bytes": 2272
+    },
+    {
+      "file": "story-v2-01.webp",
+      "box": [
+        0,
+        1770,
+        941,
+        3440
+      ],
+      "srgb_png_bytes": 2472366,
+      "webp_bytes": 275052,
+      "mode": "lossy-q95-sharp-yuv",
+      "lossy_candidate_bytes": 250530,
+      "lossy_candidate_metrics": {
+        "rgb_mae": [
+          1.399,
+          1.081,
+          1.351
+        ],
+        "rgb_p99_abs": [
+          6.0,
+          4.0,
+          7.0
+        ],
+        "red_mean_signed": [
+          -0.382,
+          0.356,
+          0.389
+        ],
+        "local_max_mae": 8.416,
+        "local_max_red_shift": 9.531,
+        "sampled_delta_e76_p99": 5.018,
+        "visible_pixels": 1570932
+      },
+      "sharp_yuv_candidate_bytes": 275052,
+      "sharp_yuv_candidate_metrics": {
+        "rgb_mae": [
+          1.372,
+          1.079,
+          1.353
+        ],
+        "rgb_p99_abs": [
+          6.0,
+          4.0,
+          6.0
+        ],
+        "red_mean_signed": [
+          -0.135,
+          0.337,
+          0.33
+        ],
+        "local_max_mae": 4.673,
+        "local_max_red_shift": 5.006,
+        "sampled_delta_e76_p99": 4.322,
+        "visible_pixels": 1570932
+      },
+      "rgb_mae": [
+        1.372,
+        1.079,
+        1.353
+      ],
+      "rgb_p99_abs": [
+        6.0,
+        4.0,
+        6.0
+      ],
+      "red_mean_signed": [
+        -0.135,
+        0.337,
+        0.33
+      ],
+      "local_max_mae": 4.673,
+      "local_max_red_shift": 5.006,
+      "sampled_delta_e76_p99": 4.322,
+      "visible_pixels": 1570932,
+      "alpha_mismatch": 0,
+      "preview_bytes": 2616
+    },
+    {
+      "file": "story-v2-02.webp",
+      "box": [
+        0,
+        3280,
+        941,
+        4880
+      ],
+      "srgb_png_bytes": 2355900,
+      "webp_bytes": 266580,
+      "mode": "lossy-q95-sharp-yuv",
+      "lossy_candidate_bytes": 255984,
+      "lossy_candidate_metrics": {
+        "rgb_mae": [
+          1.335,
+          1.012,
+          1.391
+        ],
+        "rgb_p99_abs": [
+          6.0,
+          4.0,
+          7.0
+        ],
+        "red_mean_signed": [
+          -0.113,
+          0.204,
+          0.061
+        ],
+        "local_max_mae": 6.864,
+        "local_max_red_shift": 29.85,
+        "sampled_delta_e76_p99": 4.585,
+        "visible_pixels": 1505600
+      },
+      "sharp_yuv_candidate_bytes": 266580,
+      "sharp_yuv_candidate_metrics": {
+        "rgb_mae": [
+          1.332,
+          1.046,
+          1.387
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          4.0,
+          6.0
+        ],
+        "red_mean_signed": [
+          -0.1,
+          0.219,
+          -0.011
+        ],
+        "local_max_mae": 5.969,
+        "local_max_red_shift": 11.45,
+        "sampled_delta_e76_p99": 3.874,
+        "visible_pixels": 1505600
+      },
+      "rgb_mae": [
+        1.332,
+        1.046,
+        1.387
+      ],
+      "rgb_p99_abs": [
+        5.0,
+        4.0,
+        6.0
+      ],
+      "red_mean_signed": [
+        -0.1,
+        0.219,
+        -0.011
+      ],
+      "local_max_mae": 5.969,
+      "local_max_red_shift": 11.45,
+      "sampled_delta_e76_p99": 3.874,
+      "visible_pixels": 1505600,
+      "alpha_mismatch": 0,
+      "preview_bytes": 3476
+    },
+    {
+      "file": "story-v2-03.webp",
+      "box": [
+        0,
+        4720,
+        941,
+        6660
+      ],
+      "srgb_png_bytes": 2338333,
+      "webp_bytes": 172728,
+      "mode": "lossy-q95-sharp-yuv",
+      "lossy_candidate_bytes": 146576,
+      "lossy_candidate_metrics": {
+        "rgb_mae": [
+          1.172,
+          0.831,
+          1.157
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          3.0,
+          5.0
+        ],
+        "red_mean_signed": [
+          0.052,
+          0.19,
+          0.025
+        ],
+        "local_max_mae": 6.355,
+        "local_max_red_shift": 7.402,
+        "sampled_delta_e76_p99": 3.58,
+        "visible_pixels": 1823923
+      },
+      "sharp_yuv_candidate_bytes": 172728,
+      "sharp_yuv_candidate_metrics": {
+        "rgb_mae": [
+          1.137,
+          0.841,
+          1.126
+        ],
+        "rgb_p99_abs": [
+          4.0,
+          3.0,
+          4.0
+        ],
+        "red_mean_signed": [
+          -0.016,
+          0.23,
+          -0.06
+        ],
+        "local_max_mae": 4.42,
+        "local_max_red_shift": 2.903,
+        "sampled_delta_e76_p99": 3.042,
+        "visible_pixels": 1823923
+      },
+      "rgb_mae": [
+        1.137,
+        0.841,
+        1.126
+      ],
+      "rgb_p99_abs": [
+        4.0,
+        3.0,
+        4.0
+      ],
+      "red_mean_signed": [
+        -0.016,
+        0.23,
+        -0.06
+      ],
+      "local_max_mae": 4.42,
+      "local_max_red_shift": 2.903,
+      "sampled_delta_e76_p99": 3.042,
+      "visible_pixels": 1823923,
+      "alpha_mismatch": 0,
+      "preview_bytes": 3404
+    },
+    {
+      "file": "story-v2-04.webp",
+      "box": [
+        0,
+        6500,
+        941,
+        9800
+      ],
+      "srgb_png_bytes": 5315077,
+      "webp_bytes": 717254,
+      "mode": "lossy-q95-sharp-yuv",
+      "lossy_candidate_bytes": 665320,
+      "lossy_candidate_metrics": {
+        "rgb_mae": [
+          1.546,
+          1.078,
+          1.644
+        ],
+        "rgb_p99_abs": [
+          8.0,
+          4.0,
+          9.0
+        ],
+        "red_mean_signed": [
+          -0.08,
+          0.172,
+          0.12
+        ],
+        "local_max_mae": 9.19,
+        "local_max_red_shift": 18.331,
+        "sampled_delta_e76_p99": 6.507,
+        "visible_pixels": 3102000
+      },
+      "sharp_yuv_candidate_bytes": 717254,
+      "sharp_yuv_candidate_metrics": {
+        "rgb_mae": [
+          1.479,
+          1.066,
+          1.59
+        ],
+        "rgb_p99_abs": [
+          7.0,
+          4.0,
+          8.0
+        ],
+        "red_mean_signed": [
+          -0.019,
+          0.184,
+          0.021
+        ],
+        "local_max_mae": 7.361,
+        "local_max_red_shift": 8.595,
+        "sampled_delta_e76_p99": 5.46,
+        "visible_pixels": 3102000
+      },
+      "rgb_mae": [
+        1.479,
+        1.066,
+        1.59
+      ],
+      "rgb_p99_abs": [
+        7.0,
+        4.0,
+        8.0
+      ],
+      "red_mean_signed": [
+        -0.019,
+        0.184,
+        0.021
+      ],
+      "local_max_mae": 7.361,
+      "local_max_red_shift": 8.595,
+      "sampled_delta_e76_p99": 5.46,
+      "visible_pixels": 3102000,
+      "alpha_mismatch": 0,
+      "preview_bytes": 7262
+    },
+    {
+      "file": "story-v2-05.webp",
+      "box": [
+        0,
+        9640,
+        941,
+        11660
+      ],
+      "srgb_png_bytes": 3837218,
+      "webp_bytes": 678474,
+      "mode": "lossy-q95-sharp-yuv",
+      "lossy_candidate_bytes": 616672,
+      "lossy_candidate_metrics": {
+        "rgb_mae": [
+          1.984,
+          1.294,
+          2.291
+        ],
+        "rgb_p99_abs": [
+          10.0,
+          5.0,
+          12.0
+        ],
+        "red_mean_signed": [
+          -0.07,
+          0.193,
+          0.275
+        ],
+        "local_max_mae": 7.131,
+        "local_max_red_shift": 19.436,
+        "sampled_delta_e76_p99": 7.915,
+        "visible_pixels": 1898990
+      },
+      "sharp_yuv_candidate_bytes": 678474,
+      "sharp_yuv_candidate_metrics": {
+        "rgb_mae": [
+          1.845,
+          1.233,
+          2.118
+        ],
+        "rgb_p99_abs": [
+          9.0,
+          5.0,
+          10.0
+        ],
+        "red_mean_signed": [
+          0.026,
+          0.181,
+          0.155
+        ],
+        "local_max_mae": 6.028,
+        "local_max_red_shift": 4.185,
+        "sampled_delta_e76_p99": 6.546,
+        "visible_pixels": 1898990
+      },
+      "rgb_mae": [
+        1.845,
+        1.233,
+        2.118
+      ],
+      "rgb_p99_abs": [
+        9.0,
+        5.0,
+        10.0
+      ],
+      "red_mean_signed": [
+        0.026,
+        0.181,
+        0.155
+      ],
+      "local_max_mae": 6.028,
+      "local_max_red_shift": 4.185,
+      "sampled_delta_e76_p99": 6.546,
+      "visible_pixels": 1898990,
+      "alpha_mismatch": 0,
+      "preview_bytes": 5314
+    },
+    {
+      "file": "story-v2-06.webp",
+      "box": [
+        0,
+        11500,
+        941,
+        15070
+      ],
+      "srgb_png_bytes": 6290762,
+      "webp_bytes": 1049988,
+      "mode": "lossy-q95-sharp-yuv",
+      "lossy_candidate_bytes": 952862,
+      "lossy_candidate_metrics": {
+        "rgb_mae": [
+          1.758,
+          1.217,
+          1.958
+        ],
+        "rgb_p99_abs": [
+          8.0,
+          5.0,
+          11.0
+        ],
+        "red_mean_signed": [
+          -0.126,
+          0.175,
+          0.153
+        ],
+        "local_max_mae": 7.535,
+        "local_max_red_shift": 14.67,
+        "sampled_delta_e76_p99": 7.073,
+        "visible_pixels": 3359370
+      },
+      "sharp_yuv_candidate_bytes": 1049988,
+      "sharp_yuv_candidate_metrics": {
+        "rgb_mae": [
+          1.602,
+          1.174,
+          1.775
+        ],
+        "rgb_p99_abs": [
+          7.0,
+          4.0,
+          9.0
+        ],
+        "red_mean_signed": [
+          -0.016,
+          0.167,
+          0.03
+        ],
+        "local_max_mae": 6.252,
+        "local_max_red_shift": 6.531,
+        "sampled_delta_e76_p99": 5.479,
+        "visible_pixels": 3359370
+      },
+      "rgb_mae": [
+        1.602,
+        1.174,
+        1.775
+      ],
+      "rgb_p99_abs": [
+        7.0,
+        4.0,
+        9.0
+      ],
+      "red_mean_signed": [
+        -0.016,
+        0.167,
+        0.03
+      ],
+      "local_max_mae": 6.252,
+      "local_max_red_shift": 6.531,
+      "sampled_delta_e76_p99": 5.479,
+      "visible_pixels": 3359370,
+      "alpha_mismatch": 0,
+      "preview_bytes": 9596
+    },
+    {
+      "file": "story-v2-07.webp",
+      "box": [
+        0,
+        14910,
+        941,
+        16600
+      ],
+      "srgb_png_bytes": 2583258,
+      "webp_bytes": 334948,
+      "mode": "lossy-q95-sharp-yuv",
+      "lossy_candidate_bytes": 295106,
+      "lossy_candidate_metrics": {
+        "rgb_mae": [
+          1.443,
+          1.106,
+          1.491
+        ],
+        "rgb_p99_abs": [
+          6.0,
+          4.0,
+          6.0
+        ],
+        "red_mean_signed": [
+          0.008,
+          0.171,
+          0.017
+        ],
+        "local_max_mae": 3.268,
+        "local_max_red_shift": 1.25,
+        "sampled_delta_e76_p99": 4.119,
+        "visible_pixels": 1590290
+      },
+      "sharp_yuv_candidate_bytes": 334948,
+      "sharp_yuv_candidate_metrics": {
+        "rgb_mae": [
+          1.39,
+          1.081,
+          1.468
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          4.0,
+          6.0
+        ],
+        "red_mean_signed": [
+          0.066,
+          0.165,
+          0.034
+        ],
+        "local_max_mae": 2.518,
+        "local_max_red_shift": 0.812,
+        "sampled_delta_e76_p99": 3.407,
+        "visible_pixels": 1590290
+      },
+      "rgb_mae": [
+        1.39,
+        1.081,
+        1.468
+      ],
+      "rgb_p99_abs": [
+        5.0,
+        4.0,
+        6.0
+      ],
+      "red_mean_signed": [
+        0.066,
+        0.165,
+        0.034
+      ],
+      "local_max_mae": 2.518,
+      "local_max_red_shift": 0.812,
+      "sampled_delta_e76_p99": 3.407,
+      "visible_pixels": 1590290,
+      "alpha_mismatch": 0,
+      "preview_bytes": 2270
+    },
+    {
+      "file": "story-v2-08.webp",
+      "box": [
+        0,
+        16440,
+        941,
+        18260
+      ],
+      "srgb_png_bytes": 2742741,
+      "webp_bytes": 335766,
+      "mode": "lossy-q95-sharp-yuv",
+      "lossy_candidate_bytes": 301174,
+      "lossy_candidate_metrics": {
+        "rgb_mae": [
+          1.385,
+          1.087,
+          1.463
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          4.0,
+          6.0
+        ],
+        "red_mean_signed": [
+          0.003,
+          0.169,
+          0.099
+        ],
+        "local_max_mae": 3.511,
+        "local_max_red_shift": 14.076,
+        "sampled_delta_e76_p99": 3.472,
+        "visible_pixels": 1712620
+      },
+      "sharp_yuv_candidate_bytes": 335766,
+      "sharp_yuv_candidate_metrics": {
+        "rgb_mae": [
+          1.363,
+          1.087,
+          1.441
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          4.0,
+          5.0
+        ],
+        "red_mean_signed": [
+          -0.013,
+          0.194,
+          -0.032
+        ],
+        "local_max_mae": 2.789,
+        "local_max_red_shift": 3.994,
+        "sampled_delta_e76_p99": 3.092,
+        "visible_pixels": 1712620
+      },
+      "rgb_mae": [
+        1.363,
+        1.087,
+        1.441
+      ],
+      "rgb_p99_abs": [
+        5.0,
+        4.0,
+        5.0
+      ],
+      "red_mean_signed": [
+        -0.013,
+        0.194,
+        -0.032
+      ],
+      "local_max_mae": 2.789,
+      "local_max_red_shift": 3.994,
+      "sampled_delta_e76_p99": 3.092,
+      "visible_pixels": 1712620,
+      "alpha_mismatch": 0,
+      "preview_bytes": 2006
+    },
+    {
+      "file": "story-v2-09.webp",
+      "box": [
+        0,
+        18100,
+        941,
+        20080
+      ],
+      "srgb_png_bytes": 3362301,
+      "webp_bytes": 517558,
+      "mode": "lossy-q95-sharp-yuv",
+      "lossy_candidate_bytes": 459946,
+      "lossy_candidate_metrics": {
+        "rgb_mae": [
+          1.609,
+          1.35,
+          1.839
+        ],
+        "rgb_p99_abs": [
+          6.0,
+          5.0,
+          7.0
+        ],
+        "red_mean_signed": [
+          -0.127,
+          0.201,
+          0.006
+        ],
+        "local_max_mae": 5.168,
+        "local_max_red_shift": 17.716,
+        "sampled_delta_e76_p99": 4.451,
+        "visible_pixels": 1863180
+      },
+      "sharp_yuv_candidate_bytes": 517558,
+      "sharp_yuv_candidate_metrics": {
+        "rgb_mae": [
+          1.533,
+          1.245,
+          1.747
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          4.0,
+          6.0
+        ],
+        "red_mean_signed": [
+          -0.021,
+          0.18,
+          -0.046
+        ],
+        "local_max_mae": 4.085,
+        "local_max_red_shift": 2.782,
+        "sampled_delta_e76_p99": 3.923,
+        "visible_pixels": 1863180
+      },
+      "rgb_mae": [
+        1.533,
+        1.245,
+        1.747
+      ],
+      "rgb_p99_abs": [
+        5.0,
+        4.0,
+        6.0
+      ],
+      "red_mean_signed": [
+        -0.021,
+        0.18,
+        -0.046
+      ],
+      "local_max_mae": 4.085,
+      "local_max_red_shift": 2.782,
+      "sampled_delta_e76_p99": 3.923,
+      "visible_pixels": 1863180,
+      "alpha_mismatch": 0,
+      "preview_bytes": 2744
+    },
+    {
+      "file": "story-v2-10.webp",
+      "box": [
+        0,
+        19920,
+        941,
+        24380
+      ],
+      "srgb_png_bytes": 6963067,
+      "webp_bytes": 970496,
+      "mode": "lossy-q95-sharp-yuv",
+      "lossy_candidate_bytes": 893670,
+      "lossy_candidate_metrics": {
+        "rgb_mae": [
+          1.391,
+          1.132,
+          1.47
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          4.0,
+          6.0
+        ],
+        "red_mean_signed": [
+          -0.147,
+          0.222,
+          0.05
+        ],
+        "local_max_mae": 4.356,
+        "local_max_red_shift": 21.647,
+        "sampled_delta_e76_p99": 3.346,
+        "visible_pixels": 4196860
+      },
+      "sharp_yuv_candidate_bytes": 970496,
+      "sharp_yuv_candidate_metrics": {
+        "rgb_mae": [
+          1.374,
+          1.124,
+          1.46
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          4.0,
+          5.0
+        ],
+        "red_mean_signed": [
+          -0.043,
+          0.181,
+          -0.03
+        ],
+        "local_max_mae": 3.552,
+        "local_max_red_shift": 9.338,
+        "sampled_delta_e76_p99": 3.241,
+        "visible_pixels": 4196860
+      },
+      "rgb_mae": [
+        1.374,
+        1.124,
+        1.46
+      ],
+      "rgb_p99_abs": [
+        5.0,
+        4.0,
+        5.0
+      ],
+      "red_mean_signed": [
+        -0.043,
+        0.181,
+        -0.03
+      ],
+      "local_max_mae": 3.552,
+      "local_max_red_shift": 9.338,
+      "sampled_delta_e76_p99": 3.241,
+      "visible_pixels": 4196860,
+      "alpha_mismatch": 0,
+      "preview_bytes": 6948
+    },
+    {
+      "file": "story-v2-11.webp",
+      "box": [
+        0,
+        24220,
+        941,
+        26700
+      ],
+      "srgb_png_bytes": 3886198,
+      "webp_bytes": 559704,
+      "mode": "lossy-q95-sharp-yuv",
+      "lossy_candidate_bytes": 518438,
+      "lossy_candidate_metrics": {
+        "rgb_mae": [
+          1.517,
+          1.079,
+          1.547
+        ],
+        "rgb_p99_abs": [
+          8.0,
+          4.0,
+          8.0
+        ],
+        "red_mean_signed": [
+          -0.106,
+          0.188,
+          0.135
+        ],
+        "local_max_mae": 5.294,
+        "local_max_red_shift": 16.141,
+        "sampled_delta_e76_p99": 5.614,
+        "visible_pixels": 2333680
+      },
+      "sharp_yuv_candidate_bytes": 559704,
+      "sharp_yuv_candidate_metrics": {
+        "rgb_mae": [
+          1.416,
+          1.064,
+          1.454
+        ],
+        "rgb_p99_abs": [
+          6.0,
+          4.0,
+          6.0
+        ],
+        "red_mean_signed": [
+          0.068,
+          0.151,
+          0.095
+        ],
+        "local_max_mae": 4.334,
+        "local_max_red_shift": 7.544,
+        "sampled_delta_e76_p99": 4.191,
+        "visible_pixels": 2333680
+      },
+      "rgb_mae": [
+        1.416,
+        1.064,
+        1.454
+      ],
+      "rgb_p99_abs": [
+        6.0,
+        4.0,
+        6.0
+      ],
+      "red_mean_signed": [
+        0.068,
+        0.151,
+        0.095
+      ],
+      "local_max_mae": 4.334,
+      "local_max_red_shift": 7.544,
+      "sampled_delta_e76_p99": 4.191,
+      "visible_pixels": 2333680,
+      "alpha_mismatch": 0,
+      "preview_bytes": 6786
+    },
+    {
+      "file": "story-v2-12.webp",
+      "box": [
+        0,
+        26540,
+        941,
+        29050
+      ],
+      "srgb_png_bytes": 3182021,
+      "webp_bytes": 193136,
+      "mode": "lossy-q95",
+      "lossy_candidate_bytes": 193136,
+      "lossy_candidate_metrics": {
+        "rgb_mae": [
+          1.184,
+          0.935,
+          1.143
+        ],
+        "rgb_p99_abs": [
+          4.0,
+          4.0,
+          5.0
+        ],
+        "red_mean_signed": [
+          -0.245,
+          0.233,
+          0.17
+        ],
+        "local_max_mae": 2.006,
+        "local_max_red_shift": 20.406,
+        "sampled_delta_e76_p99": 3.157,
+        "visible_pixels": 2361910
+      },
+      "sharp_yuv_candidate_bytes": 233510,
+      "sharp_yuv_candidate_metrics": {
+        "rgb_mae": [
+          1.184,
+          0.943,
+          1.151
+        ],
+        "rgb_p99_abs": [
+          4.0,
+          4.0,
+          4.0
+        ],
+        "red_mean_signed": [
+          -0.096,
+          0.174,
+          -0.057
+        ],
+        "local_max_mae": 1.978,
+        "local_max_red_shift": 18.609,
+        "sampled_delta_e76_p99": 3.141,
+        "visible_pixels": 2361910
+      },
+      "rgb_mae": [
+        1.184,
+        0.935,
+        1.143
+      ],
+      "rgb_p99_abs": [
+        4.0,
+        4.0,
+        5.0
+      ],
+      "red_mean_signed": [
+        -0.245,
+        0.233,
+        0.17
+      ],
+      "local_max_mae": 2.006,
+      "local_max_red_shift": 20.406,
+      "sampled_delta_e76_p99": 3.157,
+      "visible_pixels": 2361910,
+      "alpha_mismatch": 0,
+      "preview_bytes": 1768
+    },
+    {
+      "file": "story-v2-13.webp",
+      "box": [
+        0,
+        28890,
+        941,
+        30800
+      ],
+      "srgb_png_bytes": 2585842,
+      "webp_bytes": 239428,
+      "mode": "lossy-q95-sharp-yuv",
+      "lossy_candidate_bytes": 213788,
+      "lossy_candidate_metrics": {
+        "rgb_mae": [
+          1.38,
+          1.011,
+          1.58
+        ],
+        "rgb_p99_abs": [
+          8.0,
+          4.0,
+          9.0
+        ],
+        "red_mean_signed": [
+          0.022,
+          0.173,
+          0.153
+        ],
+        "local_max_mae": 5.667,
+        "local_max_red_shift": 27.922,
+        "sampled_delta_e76_p99": 6.579,
+        "visible_pixels": 1797310
+      },
+      "sharp_yuv_candidate_bytes": 239428,
+      "sharp_yuv_candidate_metrics": {
+        "rgb_mae": [
+          1.366,
+          1.021,
+          1.546
+        ],
+        "rgb_p99_abs": [
+          7.0,
+          4.0,
+          8.0
+        ],
+        "red_mean_signed": [
+          -0.04,
+          0.226,
+          0.046
+        ],
+        "local_max_mae": 5.223,
+        "local_max_red_shift": 12.292,
+        "sampled_delta_e76_p99": 5.616,
+        "visible_pixels": 1797310
+      },
+      "rgb_mae": [
+        1.366,
+        1.021,
+        1.546
+      ],
+      "rgb_p99_abs": [
+        7.0,
+        4.0,
+        8.0
+      ],
+      "red_mean_signed": [
+        -0.04,
+        0.226,
+        0.046
+      ],
+      "local_max_mae": 5.223,
+      "local_max_red_shift": 12.292,
+      "sampled_delta_e76_p99": 5.616,
+      "visible_pixels": 1797310,
+      "alpha_mismatch": 0,
+      "preview_bytes": 3266
+    },
+    {
+      "file": "story-v2-14.webp",
+      "box": [
+        0,
+        30640,
+        941,
+        32127
+      ],
+      "srgb_png_bytes": 2003321,
+      "webp_bytes": 187978,
+      "mode": "lossy-q95-sharp-yuv",
+      "lossy_candidate_bytes": 166234,
+      "lossy_candidate_metrics": {
+        "rgb_mae": [
+          1.257,
+          1.009,
+          1.263
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          4.0,
+          5.0
+        ],
+        "red_mean_signed": [
+          0.125,
+          0.165,
+          0.121
+        ],
+        "local_max_mae": 3.002,
+        "local_max_red_shift": 28.765,
+        "sampled_delta_e76_p99": 3.434,
+        "visible_pixels": 1399267
+      },
+      "sharp_yuv_candidate_bytes": 187978,
+      "sharp_yuv_candidate_metrics": {
+        "rgb_mae": [
+          1.253,
+          1.012,
+          1.287
+        ],
+        "rgb_p99_abs": [
+          5.0,
+          4.0,
+          5.0
+        ],
+        "red_mean_signed": [
+          0.08,
+          0.201,
+          0.019
+        ],
+        "local_max_mae": 2.376,
+        "local_max_red_shift": 12.912,
+        "sampled_delta_e76_p99": 2.997,
+        "visible_pixels": 1399267
+      },
+      "rgb_mae": [
+        1.253,
+        1.012,
+        1.287
+      ],
+      "rgb_p99_abs": [
+        5.0,
+        4.0,
+        5.0
+      ],
+      "red_mean_signed": [
+        0.08,
+        0.201,
+        0.019
+      ],
+      "local_max_mae": 2.376,
+      "local_max_red_shift": 12.912,
+      "sampled_delta_e76_p99": 2.997,
+      "visible_pixels": 1399267,
+      "alpha_mismatch": 0,
+      "preview_bytes": 2044
+    }
+  ]
+}

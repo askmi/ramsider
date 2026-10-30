@@ -27,11 +27,22 @@ import { ProductFilm } from './ProductFilm';
 import { productFilmCopy } from '@/lib/product-film';
 import { selectProductFilms } from '@/lib/product-film-catalog';
 
-// Keep the complete FAQ/account artwork in one tile: no image edge through a card.
-const artTiles = Array.from({ length: 12 }, (_, i) => ({
-  file: i === 9 ? '09-10' : String(i).padStart(2, '0'),
-  height: (i === 9 ? 5600 : Math.min(2800, 32127 - i * 2800)) + (i === 0 ? 0 : 2),
-})).filter((_, i) => i !== 10);
+// Source coordinates and overlaps are shared with the color-managed exporter.
+import storyArt from '@/docs/evidence/loading-flow/feed-seam-map.json';
+const artTiles = storyArt.segments;
+
+function StoryArt({ tail = false }: { tail?: boolean }) {
+  const offset = tail ? 28207 : 0;
+  const tiles = artTiles.filter(tile => tail ? tile.crop_bottom > offset : tile.crop_top < 27147);
+  return tiles.map(tile => {
+    const src = `/art/${tile.file}.webp`;
+    return <ProgressiveImage key={tile.file} data-media className={tile.start ? 'story-art-tile story-art-tile--fade' : 'story-art-tile'}
+      src={src} preview={(previews as Record<string, {src: string}>)[src].src}
+      width={941} height={tile.crop_bottom - tile.crop_top} decoding="sync"
+      style={{top: `calc(${tile.crop_top - offset}/941*100cqw)`}} alt=""
+      hero={tile.start === 0} loading={tile.start === 0 ? 'eager' : 'lazy'} fetchPriority="high" />;
+  });
+}
 
 const featureDividers = [
   { name: 'control', x: 340, y: 5150, width: 100, height: 154 },
@@ -237,7 +248,7 @@ function Popovers({ locale }: { locale: Locale }) {
 
 export function Story({ locale }: { locale: Locale }) {
   return <DialogController>
-    <link rel="preload" as="image" href="/art/00.webp" fetchPriority="high" />
+    <link rel="preload" as="image" href="/art/story-v2-00.webp" fetchPriority="high" />
     <script type="application/json" data-section-previews dangerouslySetInnerHTML={{__html:JSON.stringify(Object.fromEntries(Object.entries(previews).filter(([src])=>src.includes("/technology/"))))}} />
     <TechnologyViewer locale={locale} descriptions={technologyDescriptionCopy[locale]} />
     <CharcoalRibbon locale={locale} />
@@ -245,18 +256,7 @@ export function Story({ locale }: { locale: Locale }) {
     <PageMediaGate locale={locale}><main className="canvas" data-locale={locale}>
       <div className="story-prefix-space" aria-hidden="true" />
       <div className="art" aria-hidden="true">
-        {artTiles.filter(({ file }) => file !== '11').map(({ file, height }, i) => <ProgressiveImage
-          key={i}
-          data-media
-          src={`/art/${file}.webp`} preview={previews[(`/art/${file}.webp`) as keyof typeof previews].src}
-          width={941}
-          height={height}
-          alt=""
-
-          hero={i === 0}
-          loading={i === 0 ? 'eager' : 'lazy'}
-          fetchPriority="high"
-        />)}
+        <StoryArt />
       </div>
       <Menus locale={locale} />
       {featureDividers.map(icon => <Image
@@ -319,10 +319,7 @@ export function Story({ locale }: { locale: Locale }) {
       <DocumentCards locale={locale} />
       <Faq locale={locale} />
       <section className="story-tail" aria-label={t(locale, 'account')}>
-        <div className="tail-art" aria-hidden="true"><div className="tail-art-track">
-          <ProgressiveImage data-media src="/art/09-10.webp" preview={previews["/art/09-10.webp"].src} width={941} height={5602} alt="" loading="lazy" fetchPriority="high" />
-          <ProgressiveImage data-media src="/art/11.webp" preview={previews["/art/11.webp"].src} width={941} height={1329} alt="" loading="lazy" fetchPriority="high" />
-        </div></div>
+        <div className="tail-art" aria-hidden="true"><StoryArt tail /></div>
         {storyNodes.filter(node => node.y >= 28207).map((node, index) => <OverlayNode node={node} locale={locale} key={`${node.key}-${index}`} />)}
       <button id="account-personal" type="button" className="account-hit" style={sourceStyle(45, 28230, 850)} popoverTarget="unavailable-account" aria-label={t(locale, 'account')} />
       <button id="account-venue" type="button" className="account-hit" style={sourceStyle(45, 28350, 850)} popoverTarget="unavailable-account" aria-label={`${t(locale, 'businessAccount')}: ${t(locale, 'venueAccount')}`} />

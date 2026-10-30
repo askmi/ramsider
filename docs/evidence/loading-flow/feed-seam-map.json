@@ -1,0 +1,195 @@
+{
+  "source": "design/references/background.png",
+  "source_size": [
+    941,
+    32127
+  ],
+  "overlap_each_side": 80,
+  "old_equal_cuts": [
+    2800,
+    5600,
+    8400,
+    11200,
+    14000,
+    16800,
+    19600,
+    22400,
+    25200,
+    30800
+  ],
+  "cut_review": [
+    {
+      "y": 1850,
+      "reason": "затухание отражения первого экрана"
+    },
+    {
+      "y": 3360,
+      "reason": "фон после угля"
+    },
+    {
+      "y": 4800,
+      "reason": "фон между сценами"
+    },
+    {
+      "y": 6580,
+      "reason": "фон после мундштука"
+    },
+    {
+      "y": 9720,
+      "reason": "фон после чаши"
+    },
+    {
+      "y": 11580,
+      "reason": "фон перед следующим сюжетом"
+    },
+    {
+      "y": 14990,
+      "reason": "нейтральная поверхность"
+    },
+    {
+      "y": 16520,
+      "reason": "фон между предметами"
+    },
+    {
+      "y": 18180,
+      "reason": "фон между сценами"
+    },
+    {
+      "y": 20000,
+      "reason": "фон между сюжетами"
+    },
+    {
+      "y": 24300,
+      "reason": "фон между лабораторией и следующей сценой"
+    },
+    {
+      "y": 26620,
+      "reason": "фон после станции"
+    },
+    {
+      "y": 28970,
+      "reason": "тёмный фон до следующего сюжета"
+    },
+    {
+      "y": 30720,
+      "reason": "зазор между карточкой и шлангом"
+    }
+  ],
+  "rejected_candidates": {
+    "8180": "отражение устройства; объединено с соседними участками",
+    "9660": "контекст перекрытия может задеть чашу; перенесено на 9720"
+  },
+  "segments": [
+    {
+      "file": "story-v2-00",
+      "start": 0,
+      "end": 1850,
+      "crop_top": 0,
+      "crop_bottom": 1930
+    },
+    {
+      "file": "story-v2-01",
+      "start": 1850,
+      "end": 3360,
+      "crop_top": 1770,
+      "crop_bottom": 3440
+    },
+    {
+      "file": "story-v2-02",
+      "start": 3360,
+      "end": 4800,
+      "crop_top": 3280,
+      "crop_bottom": 4880
+    },
+    {
+      "file": "story-v2-03",
+      "start": 4800,
+      "end": 6580,
+      "crop_top": 4720,
+      "crop_bottom": 6660
+    },
+    {
+      "file": "story-v2-04",
+      "start": 6580,
+      "end": 9720,
+      "crop_top": 6500,
+      "crop_bottom": 9800
+    },
+    {
+      "file": "story-v2-05",
+      "start": 9720,
+      "end": 11580,
+      "crop_top": 9640,
+      "crop_bottom": 11660
+    },
+    {
+      "file": "story-v2-06",
+      "start": 11580,
+      "end": 14990,
+      "crop_top": 11500,
+      "crop_bottom": 15070
+    },
+    {
+      "file": "story-v2-07",
+      "start": 14990,
+      "end": 16520,
+      "crop_top": 14910,
+      "crop_bottom": 16600
+    },
+    {
+      "file": "story-v2-08",
+      "start": 16520,
+      "end": 18180,
+      "crop_top": 16440,
+      "crop_bottom": 18260
+    },
+    {
+      "file": "story-v2-09",
+      "start": 18180,
+      "end": 20000,
+      "crop_top": 18100,
+      "crop_bottom": 20080
+    },
+    {
+      "file": "story-v2-10",
+      "start": 20000,
+      "end": 24300,
+      "crop_top": 19920,
+      "crop_bottom": 24380
+    },
+    {
+      "file": "story-v2-11",
+      "start": 24300,
+      "end": 26620,
+      "crop_top": 24220,
+      "crop_bottom": 26700
+    },
+    {
+      "file": "story-v2-12",
+      "start": 26620,
+      "end": 28970,
+      "crop_top": 26540,
+      "crop_bottom": 29050
+    },
+    {
+      "file": "story-v2-13",
+      "start": 28970,
+      "end": 30720,
+      "crop_top": 28890,
+      "crop_bottom": 30800
+    },
+    {
+      "file": "story-v2-14",
+      "start": 30720,
+      "end": 32127,
+      "crop_top": 30640,
+      "crop_bottom": 32127
+    }
+  ],
+  "evidence": [
+    "screenshots/feed-seams/clean-old-joins.jpg",
+    "screenshots/feed-seams/candidate-0.jpg",
+    "screenshots/feed-seams/candidate-1.jpg"
+  ],
+  "rendering": "Later segment fades in across 160 source pixels over its predecessor; all preview states must be visually verified."
+}

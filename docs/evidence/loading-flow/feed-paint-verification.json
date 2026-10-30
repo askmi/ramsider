@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-30",
+  "scope": "StoryArt decoding=sync only; geometry and raster bytes unchanged",
+  "regression": "After a distant scroll jump, decoded offscreen artwork could remain unpainted in WebKit. Original tablet-wide PNG was flat below the preceding tile.",
+  "originalFailedPNG": "screenshots/feed-seams/wide/tablet-ready-11580.png",
+  "negativeControls": "Removing CSS mask did not fix; layer promotion inconsistent; contain:paint candidate removed.",
+  "fixtureCorrection": "Explicit DPR1 and PNG width assertion after an earlier DPR3 inherited context caused an invalid ROI.",
+  "repeatLog": "/private/tmp/ramsider-feed-paint-final-tests.log",
+  "result": "16 PASS / 8 profile SKIP: 8 repeated wide paints and 8 mobile Retry cases",
+  "rows": [
+    {
+      "cssViewport": [
+        768,
+        1024
+      ],
+      "DPR": 1,
+      "PNGDimensions": [
+        768,
+        1024
+      ],
+      "sourceTextureROI": [
+        30,
+        904,
+        60,
+        30
+      ],
+      "redSpatialRange": 135,
+      "PNG": "screenshots/feed-seams/wide/paint-regression-768.png",
+      "sha256": "da6a58ef95ccb9013e1a1aa27572c456832fcf34c107bc230648fc70ccf52c11",
+      "successfulRepeatedCases": 4
+    },
+    {
+      "cssViewport": [
+        1440,
+        900
+      ],
+      "DPR": 1,
+      "PNGDimensions": [
+        1440,
+        900
+      ],
+      "sourceTextureROI": [
+        279,
+        780,
+        60,
+        30
+      ],
+      "redSpatialRange": 89,
+      "PNG": "screenshots/feed-seams/wide/paint-regression-1440.png",
+      "sha256": "f3bede674d22b5ad733fb2b211f05172a5f6a252227c495e6e0a8345013bb3eb",
+      "successfulRepeatedCases": 4
+    }
+  ],
+  "sourceHashes": {
+    "components/Story.tsx": "efd3af186e709c5dd6e1231ac370a38e27fd16ab61b219080d78f02cb41c74b9",
+    "app/globals.css": "d5ca41bd83b8388ced8fa4680a90e74e6f94adf06aaa3b1385618d6e61b523c0",
+    "tests/e2e/story-seams.spec.ts": "32248bd1f7dfd8737914715b0eef97d29ca987cc72170cf8a42827fc13395b71"
+  },
+  "physicalDeviceTested": false
+}

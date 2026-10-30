@@ -5,7 +5,16 @@ from PIL import Image, ImageFilter, ImageCms
 import base64, hashlib, io, json
 ROOT = Path(__file__).resolve().parents[1]
 manifest, rows = {}, []
+# Story previews use a single continuous source plane; retain the dedicated export.
+existing = json.loads((ROOT/'lib/media-previews.json').read_text())
+story = json.loads((ROOT/'docs/evidence/loading-flow/feed-seam-map.json').read_text())['segments']
+for tile in story:
+    key = '/art/' + tile['file'] + '.webp'
+    if key not in existing:
+        raise RuntimeError('Run tools/generate-story-tiles.py before regenerating previews')
+    manifest[key] = existing[key]
 for path in sorted((ROOT/'public/art').rglob('*.webp')):
+    if path.parent == ROOT/'public/art' and (path.name.startswith('story-v2-') or path.name in {*(f'{i:02}.webp' for i in range(9)), '09-10.webp', '11.webp'}): continue
     raw=path.read_bytes(); image=Image.open(io.BytesIO(raw))
     if image.width < 600 and not path.name.startswith('doc-'): continue
     relative=path.relative_to(ROOT/'public')

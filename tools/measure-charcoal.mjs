@@ -15,10 +15,10 @@ for(const throttle of [false,true]){
  await page.goto('http://127.0.0.1:3070/en');await page.waitForFunction(()=>!document.querySelector('.page-media-overlay')&&document.documentElement.hasAttribute('data-media-hydrated'));
  await page.waitForTimeout(100);
  const initial=await page.evaluate(()=>({...window.__charcoalPerf,jsEncodedBodyBytes:performance.getEntriesByType('resource').filter(e=>e.initiatorType==='script').reduce((sum,e)=>sum+e.encodedBodySize,0),loadEventStart:performance.getEntriesByType('navigation')[0].loadEventStart}));
- await page.waitForFunction(()=>performance.getEntriesByType('resource').filter(e=>e.name.includes('/art/charcoal/')).length===12);
+ await page.waitForFunction(()=>performance.getEntriesByType('resource').filter(e=>e.name.includes('/art/charcoal/')).length===8);
  const assets=await page.evaluate(()=>performance.getEntriesByType('resource').filter(e=>e.name.includes('/art/charcoal/')).map(e=>({path:new URL(e.name).pathname,start:e.startTime,end:e.responseEnd,encodedBodyBytes:e.encodedBodySize,duration:e.duration})));
  await page.locator('#fire-learn').scrollIntoViewIfNeeded();await page.waitForFunction(()=>!document.querySelector('.page-media-overlay'));
- const at=await page.evaluate(()=>performance.now());await page.locator('#fire-learn').click();await page.waitForFunction(()=>document.querySelectorAll('.charcoal-art[data-charcoal-ready=true]').length===12);
+ const at=await page.evaluate(()=>performance.now());await page.locator('#fire-learn').click();await page.waitForFunction(()=>document.querySelectorAll('.charcoal-art[data-media-ready]').length===8);
  const ready=await page.evaluate(()=>performance.now());
  const framesPromise=page.evaluate(async()=>{const frames=[];let last=performance.now();for(let i=0;i<120;i++)await new Promise(r=>requestAnimationFrame(n=>{if(i)frames.push(n-last);last=n;r()}));frames.sort((a,b)=>a-b);return{samples:frames.length,p95:frames[Math.floor(frames.length*.95)],over33:frames.filter(n=>n>33).length};});
  const positions=[];

@@ -1,0 +1,2430 @@
+{
+  "id": "CHG0182",
+  "date": "2026-10-30",
+  "status": "VERIFIED_LOCAL",
+  "scope": "All additional continuous scroll articles. Charcoal corrected; Wellness full photos verified; discrete Technology/footer/document images inventoried, no source tile seams. No video or ready layout/copy changes.",
+  "independent": {
+    "scope": "PASS /root/scroll_auditor",
+    "visual": "PASS /root/scroll_auditor after preserved FAIL for CSSfilter/interpolation fringes",
+    "behaviorAdaptation": "PASS /root/scroll_auditor",
+    "reviewPerformance": "PASS /root/scroll_auditor 2026-10-30",
+    "finalRecords": "PASS /root/scroll_auditor 2026-10-30 after preserved obsolete-status correction"
+  },
+  "exportReceipt": "additional-ribbon-export.json",
+  "mapping": "additional-ribbon-plan.json",
+  "preservation": {
+    "otherPreviewEntriesExact": 55,
+    "readyPairs": 32,
+    "maxTolerantDiffPercent": 0.04794281729428173,
+    "wellnessReadyMaxDiffPercent": 0,
+    "beforeGeometry": [
+      {
+        "name": "pro",
+        "viewer": "charcoal",
+        "targets": [
+          {
+            "top": 0,
+            "height": 837.5
+          },
+          {
+            "top": 838,
+            "height": 837.5
+          },
+          {
+            "top": 1675,
+            "height": 707.21875
+          },
+          {
+            "top": 2382,
+            "height": 729.546875
+          }
+        ],
+        "total": 3112
+      },
+      {
+        "name": "pro",
+        "viewer": "wellness",
+        "targets": [
+          {
+            "top": 0,
+            "height": 603
+          },
+          {
+            "top": 1214,
+            "height": 502.5
+          },
+          {
+            "top": 2269,
+            "height": 502.5
+          },
+          {
+            "top": 3353,
+            "height": 502.5
+          }
+        ],
+        "total": 4949
+      },
+      {
+        "name": "max",
+        "viewer": "charcoal",
+        "targets": [
+          {
+            "top": 0,
+            "height": 916.65625
+          },
+          {
+            "top": 917,
+            "height": 916.65625
+          },
+          {
+            "top": 1833,
+            "height": 774.0625
+          },
+          {
+            "top": 2607,
+            "height": 798.515625
+          }
+        ],
+        "total": 3406
+      },
+      {
+        "name": "max",
+        "viewer": "wellness",
+        "targets": [
+          {
+            "top": 0,
+            "height": 660
+          },
+          {
+            "top": 1271,
+            "height": 550
+          },
+          {
+            "top": 2345,
+            "height": 550
+          },
+          {
+            "top": 3448,
+            "height": 550
+          }
+        ],
+        "total": 5062
+      }
+    ],
+    "afterGeometry": [
+      {
+        "name": "pro",
+        "viewer": "charcoal",
+        "targets": [
+          {
+            "top": 0,
+            "height": 837.5
+          },
+          {
+            "top": 838,
+            "height": 837.5
+          },
+          {
+            "top": 1675,
+            "height": 707.21875
+          },
+          {
+            "top": 2382,
+            "height": 729.546875
+          }
+        ],
+        "total": 3112
+      },
+      {
+        "name": "pro",
+        "viewer": "wellness",
+        "targets": [
+          {
+            "top": 0,
+            "height": 603
+          },
+          {
+            "top": 1214,
+            "height": 502.5
+          },
+          {
+            "top": 2269,
+            "height": 502.5
+          },
+          {
+            "top": 3353,
+            "height": 502.5
+          }
+        ],
+        "total": 4949
+      },
+      {
+        "name": "max",
+        "viewer": "charcoal",
+        "targets": [
+          {
+            "top": 0,
+            "height": 916.65625
+          },
+          {
+            "top": 917,
+            "height": 916.65625
+          },
+          {
+            "top": 1833,
+            "height": 774.0625
+          },
+          {
+            "top": 2607,
+            "height": 798.515625
+          }
+        ],
+        "total": 3406
+      },
+      {
+        "name": "max",
+        "viewer": "wellness",
+        "targets": [
+          {
+            "top": 0,
+            "height": 660
+          },
+          {
+            "top": 1271,
+            "height": 550
+          },
+          {
+            "top": 2345,
+            "height": 550
+          },
+          {
+            "top": 3448,
+            "height": 550
+          }
+        ],
+        "total": 5062
+      }
+    ],
+    "videoPathsChanged": false,
+    "nativeSourceAndAlpha": "Eight outputs decoded exact to approved tracked RGB masters; sRGB ICC unchanged, no transform/resizing. Source intent UNKNOWN."
+  },
+  "visual": {
+    "currentMobile": [
+      {
+        "name": "pro",
+        "kind": "internal",
+        "index": 0,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 670,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.48611111111111427,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-internal-0-ready.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "internal",
+        "index": 0,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 733.3333333333334,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.48611111111111427,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/max-internal-0-ready.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "internal",
+        "index": 0,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-1-0.webp"
+        ],
+        "target": {
+          "y": 670,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.48611111111111427,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-internal-0-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "internal",
+        "index": 0,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-1-0.webp"
+        ],
+        "target": {
+          "y": 733.3333333333334,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.5,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/max-internal-0-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "internal",
+        "index": 0,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-1-1.webp"
+        ],
+        "target": {
+          "y": 670,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.7361111111111143,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-internal-0-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "internal",
+        "index": 0,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-1-1.webp"
+        ],
+        "target": {
+          "y": 733.3333333333334,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.7361111111110858,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/max-internal-0-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "internal",
+        "index": 0,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-1-0.webp",
+          "/art/charcoal/v2-1-1.webp"
+        ],
+        "target": {
+          "y": 670,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.7361111111111143,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-internal-0-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "internal",
+        "index": 0,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-1-0.webp",
+          "/art/charcoal/v2-1-1.webp"
+        ],
+        "target": {
+          "y": 733.3333333333334,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.7361111111110858,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/max-internal-0-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "internal",
+        "index": 1,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 1452.1666666666665,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.8194444444444571,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-internal-1-ready.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "internal",
+        "index": 1,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 1589.2222222222222,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.7777777777777715,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/max-internal-1-ready.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "internal",
+        "index": 1,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-0.webp"
+        ],
+        "target": {
+          "y": 1452.1666666666665,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 1.0138888888888857,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-internal-1-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "internal",
+        "index": 1,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-0.webp"
+        ],
+        "target": {
+          "y": 1589.2222222222222,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.7777777777777715,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/max-internal-1-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "internal",
+        "index": 1,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-1.webp"
+        ],
+        "target": {
+          "y": 1452.1666666666665,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.8333333333333428,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-internal-1-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "internal",
+        "index": 1,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-1.webp"
+        ],
+        "target": {
+          "y": 1589.2222222222222,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.5416666666666572,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/max-internal-1-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "internal",
+        "index": 1,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-0.webp",
+          "/art/charcoal/v2-2-1.webp"
+        ],
+        "target": {
+          "y": 1452.1666666666665,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.8333333333333428,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-internal-1-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "internal",
+        "index": 1,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-0.webp",
+          "/art/charcoal/v2-2-1.webp"
+        ],
+        "target": {
+          "y": 1589.2222222222222,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.5416666666666572,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/max-internal-1-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "internal",
+        "index": 2,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 2196.1111111111113,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.8194444444444571,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-internal-2-ready.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "internal",
+        "index": 2,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 2403.3703703703704,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.625,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/max-internal-2-ready.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "internal",
+        "index": 2,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-0.webp"
+        ],
+        "target": {
+          "y": 2196.1111111111113,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.8194444444444571,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-internal-2-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "internal",
+        "index": 2,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-0.webp"
+        ],
+        "target": {
+          "y": 2403.3703703703704,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.625,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/max-internal-2-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "internal",
+        "index": 2,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-1.webp"
+        ],
+        "target": {
+          "y": 2196.1111111111113,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.125,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-internal-2-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "internal",
+        "index": 2,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-1.webp"
+        ],
+        "target": {
+          "y": 2403.3703703703704,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.13888888888888573,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/max-internal-2-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "internal",
+        "index": 2,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-0.webp",
+          "/art/charcoal/v2-3-1.webp"
+        ],
+        "target": {
+          "y": 2196.1111111111113,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.125,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-internal-2-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "internal",
+        "index": 2,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-0.webp",
+          "/art/charcoal/v2-3-1.webp"
+        ],
+        "target": {
+          "y": 2403.3703703703704,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.11111111111111427,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/max-internal-2-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "internal",
+        "index": 3,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 2977.5555555555557,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.5972222222222285,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-internal-3-ready.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "internal",
+        "index": 3,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 3258.8518518518517,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.7638888888888857,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/max-internal-3-ready.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "internal",
+        "index": 3,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-4-0.webp"
+        ],
+        "target": {
+          "y": 2977.5555555555557,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.625,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-internal-3-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "internal",
+        "index": 3,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-4-0.webp"
+        ],
+        "target": {
+          "y": 3258.8518518518517,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.7638888888888857,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/max-internal-3-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "internal",
+        "index": 3,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-4-1.webp"
+        ],
+        "target": {
+          "y": 2977.5555555555557,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.6388888888888857,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-internal-3-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "internal",
+        "index": 3,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-4-1.webp"
+        ],
+        "target": {
+          "y": 3258.8518518518517,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.6527777777777715,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/max-internal-3-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "internal",
+        "index": 3,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-4-0.webp",
+          "/art/charcoal/v2-4-1.webp"
+        ],
+        "target": {
+          "y": 2977.5555555555557,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.7361111111111143,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-internal-3-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "internal",
+        "index": 3,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-4-0.webp",
+          "/art/charcoal/v2-4-1.webp"
+        ],
+        "target": {
+          "y": 3258.8518518518517,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.6666666666666572,
+        "wholeWidthStep": null,
+        "file": "screenshots/additional-ribbons/shared-partial/max-internal-3-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 0,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 838,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.48611111111111427,
+        "wholeWidthStep": 0.5002908667830184,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-section-0-ready.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 0,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 917,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.5972222222222285,
+        "wholeWidthStep": 0.5484126984127045,
+        "file": "screenshots/additional-ribbons/shared-partial/max-section-0-ready.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 0,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-1-1.webp"
+        ],
+        "target": {
+          "y": 838,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.27777777777777146,
+        "wholeWidthStep": 0.10471204188482375,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-section-0-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 0,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-1-1.webp"
+        ],
+        "target": {
+          "y": 917,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.38888888888888573,
+        "wholeWidthStep": 0.07275132275131568,
+        "file": "screenshots/additional-ribbons/shared-partial/max-section-0-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 0,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-0.webp"
+        ],
+        "target": {
+          "y": 838,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.27777777777777146,
+        "wholeWidthStep": 0.10471204188482375,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-section-0-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 0,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-0.webp"
+        ],
+        "target": {
+          "y": 917,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.38888888888888573,
+        "wholeWidthStep": 0.06772486772484854,
+        "file": "screenshots/additional-ribbons/shared-partial/max-section-0-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 0,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-1-1.webp",
+          "/art/charcoal/v2-2-0.webp"
+        ],
+        "target": {
+          "y": 838,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.27777777777777146,
+        "wholeWidthStep": 0.10471204188482375,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-section-0-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 0,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-1-1.webp",
+          "/art/charcoal/v2-2-0.webp"
+        ],
+        "target": {
+          "y": 917,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.38888888888888573,
+        "wholeWidthStep": 0.07275132275131568,
+        "file": "screenshots/additional-ribbons/shared-partial/max-section-0-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 1,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 1675,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.625,
+        "wholeWidthStep": 0.7565445026177997,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-section-1-ready.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 1,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 1833,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.4444444444444571,
+        "wholeWidthStep": 0.6494708994708844,
+        "file": "screenshots/additional-ribbons/shared-partial/max-section-1-ready.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 1,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-1.webp"
+        ],
+        "target": {
+          "y": 1675,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.5277777777777715,
+        "wholeWidthStep": 1.6809191390343017,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-section-1-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 1,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-1.webp"
+        ],
+        "target": {
+          "y": 1833,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.23611111111108585,
+        "wholeWidthStep": 1.1661375661375644,
+        "file": "screenshots/additional-ribbons/shared-partial/max-section-1-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 1,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-0.webp"
+        ],
+        "target": {
+          "y": 1675,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.5277777777777715,
+        "wholeWidthStep": 1.6809191390343017,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-section-1-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 1,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-0.webp"
+        ],
+        "target": {
+          "y": 1833,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.19444444444445708,
+        "wholeWidthStep": 1.1661375661375644,
+        "file": "screenshots/additional-ribbons/shared-partial/max-section-1-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 1,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-1.webp",
+          "/art/charcoal/v2-3-0.webp"
+        ],
+        "target": {
+          "y": 1675,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.5277777777777715,
+        "wholeWidthStep": 1.6809191390343017,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-section-1-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 1,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-1.webp",
+          "/art/charcoal/v2-3-0.webp"
+        ],
+        "target": {
+          "y": 1833,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.027777777777771462,
+        "wholeWidthStep": 1.1661375661375644,
+        "file": "screenshots/additional-ribbons/shared-partial/max-section-1-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 2,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 2607,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.5972222222222285,
+        "wholeWidthStep": 0.544179894179905,
+        "file": "screenshots/additional-ribbons/shared-partial/max-section-2-ready.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 2,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 2382,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.5555555555555429,
+        "wholeWidthStep": 0.5005817335660367,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-section-2-ready.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 2,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-1.webp"
+        ],
+        "target": {
+          "y": 2382,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.6805555555555429,
+        "wholeWidthStep": 0.18121000581734847,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-section-2-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 2,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-1.webp"
+        ],
+        "target": {
+          "y": 2607,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.23611111111108585,
+        "wholeWidthStep": 0.4925925925925867,
+        "file": "screenshots/additional-ribbons/shared-partial/max-section-2-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 2,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-4-0.webp"
+        ],
+        "target": {
+          "y": 2382,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.6805555555555429,
+        "wholeWidthStep": 0.18237347294939354,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-section-2-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 2,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-4-0.webp"
+        ],
+        "target": {
+          "y": 2607,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.2916666666666856,
+        "wholeWidthStep": 0.4925925925925867,
+        "file": "screenshots/additional-ribbons/shared-partial/max-section-2-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 2,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-1.webp",
+          "/art/charcoal/v2-4-0.webp"
+        ],
+        "target": {
+          "y": 2607,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.22222222222222854,
+        "wholeWidthStep": 0.4925925925925867,
+        "file": "screenshots/additional-ribbons/shared-partial/max-section-2-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 2,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-1.webp",
+          "/art/charcoal/v2-4-0.webp"
+        ],
+        "target": {
+          "y": 2382,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.6805555555555429,
+        "wholeWidthStep": 0.18121000581734847,
+        "file": "screenshots/additional-ribbons/shared-partial/pro-section-2-both-preview.png",
+        "errors": []
+      }
+    ],
+    "currentWideSections": [
+      {
+        "name": "tablet",
+        "kind": "section",
+        "index": 0,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 1600,
+          "width": 768
+        },
+        "actual": {
+          "width": 768,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0.16666666666668561,
+        "wholeWidthStep": 0.0775401069518864,
+        "file": "screenshots/additional-ribbons/shared-wide/tablet-section-0-ready.png",
+        "errors": []
+      },
+      {
+        "name": "desktop",
+        "kind": "section",
+        "index": 0,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 1960,
+          "width": 941
+        },
+        "actual": {
+          "width": 1440,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0.2916666666666572,
+        "wholeWidthStep": 0.13934129569307174,
+        "file": "screenshots/additional-ribbons/shared-wide/desktop-section-0-ready.png",
+        "errors": []
+      },
+      {
+        "name": "desktop",
+        "kind": "section",
+        "index": 0,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-1-1.webp"
+        ],
+        "target": {
+          "y": 1960,
+          "width": 941
+        },
+        "actual": {
+          "width": 1440,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0,
+        "wholeWidthStep": 0.37205935577270566,
+        "file": "screenshots/additional-ribbons/shared-wide/desktop-section-0-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "tablet",
+        "kind": "section",
+        "index": 0,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-1-1.webp"
+        ],
+        "target": {
+          "y": 1600,
+          "width": 768
+        },
+        "actual": {
+          "width": 768,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0,
+        "wholeWidthStep": 0.10160427807485917,
+        "file": "screenshots/additional-ribbons/shared-wide/tablet-section-0-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "desktop",
+        "kind": "section",
+        "index": 0,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-0.webp"
+        ],
+        "target": {
+          "y": 1960,
+          "width": 941
+        },
+        "actual": {
+          "width": 1440,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0,
+        "wholeWidthStep": 0.37205935577270566,
+        "file": "screenshots/additional-ribbons/shared-wide/desktop-section-0-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "tablet",
+        "kind": "section",
+        "index": 0,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-0.webp"
+        ],
+        "target": {
+          "y": 1600,
+          "width": 768
+        },
+        "actual": {
+          "width": 768,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0,
+        "wholeWidthStep": 0.10160427807485917,
+        "file": "screenshots/additional-ribbons/shared-wide/tablet-section-0-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "desktop",
+        "kind": "section",
+        "index": 0,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-1-1.webp",
+          "/art/charcoal/v2-2-0.webp"
+        ],
+        "target": {
+          "y": 1960,
+          "width": 941
+        },
+        "actual": {
+          "width": 1440,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0,
+        "wholeWidthStep": 0.37205935577270566,
+        "file": "screenshots/additional-ribbons/shared-wide/desktop-section-0-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "tablet",
+        "kind": "section",
+        "index": 0,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-1-1.webp",
+          "/art/charcoal/v2-2-0.webp"
+        ],
+        "target": {
+          "y": 1600,
+          "width": 768
+        },
+        "actual": {
+          "width": 768,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0,
+        "wholeWidthStep": 0.10160427807485917,
+        "file": "screenshots/additional-ribbons/shared-wide/tablet-section-0-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "tablet",
+        "kind": "section",
+        "index": 1,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 3200,
+          "width": 768
+        },
+        "actual": {
+          "width": 768,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0.625,
+        "wholeWidthStep": 0.19028520499111323,
+        "file": "screenshots/additional-ribbons/shared-wide/tablet-section-1-ready.png",
+        "errors": []
+      },
+      {
+        "name": "desktop",
+        "kind": "section",
+        "index": 1,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 3921,
+          "width": 941
+        },
+        "actual": {
+          "width": 1440,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0.7916666666666572,
+        "wholeWidthStep": 0.29496923633729466,
+        "file": "screenshots/additional-ribbons/shared-wide/desktop-section-1-ready.png",
+        "errors": []
+      },
+      {
+        "name": "tablet",
+        "kind": "section",
+        "index": 1,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-1.webp"
+        ],
+        "target": {
+          "y": 3200,
+          "width": 768
+        },
+        "actual": {
+          "width": 768,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0.04166666666665719,
+        "wholeWidthStep": 2.4732620320855574,
+        "file": "screenshots/additional-ribbons/shared-wide/tablet-section-1-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "desktop",
+        "kind": "section",
+        "index": 1,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-1.webp"
+        ],
+        "target": {
+          "y": 3921,
+          "width": 941
+        },
+        "actual": {
+          "width": 1440,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0.3333333333333428,
+        "wholeWidthStep": 0.835323923271801,
+        "file": "screenshots/additional-ribbons/shared-wide/desktop-section-1-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "tablet",
+        "kind": "section",
+        "index": 1,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-0.webp"
+        ],
+        "target": {
+          "y": 3200,
+          "width": 768
+        },
+        "actual": {
+          "width": 768,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0.041666666666685614,
+        "wholeWidthStep": 2.4754901960784252,
+        "file": "screenshots/additional-ribbons/shared-wide/tablet-section-1-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "desktop",
+        "kind": "section",
+        "index": 1,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-0.webp"
+        ],
+        "target": {
+          "y": 3921,
+          "width": 941
+        },
+        "actual": {
+          "width": 1440,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0.4166666666666572,
+        "wholeWidthStep": 0.835323923271801,
+        "file": "screenshots/additional-ribbons/shared-wide/desktop-section-1-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "tablet",
+        "kind": "section",
+        "index": 1,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-1.webp",
+          "/art/charcoal/v2-3-0.webp"
+        ],
+        "target": {
+          "y": 3200,
+          "width": 768
+        },
+        "actual": {
+          "width": 768,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0,
+        "wholeWidthStep": 2.475935828876999,
+        "file": "screenshots/additional-ribbons/shared-wide/tablet-section-1-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "desktop",
+        "kind": "section",
+        "index": 1,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-1.webp",
+          "/art/charcoal/v2-3-0.webp"
+        ],
+        "target": {
+          "y": 3921,
+          "width": 941
+        },
+        "actual": {
+          "width": 1440,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0.3333333333333428,
+        "wholeWidthStep": 0.835323923271801,
+        "file": "screenshots/additional-ribbons/shared-wide/desktop-section-1-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "tablet",
+        "kind": "section",
+        "index": 2,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 4551,
+          "width": 768
+        },
+        "actual": {
+          "width": 768,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0.5416666666666856,
+        "wholeWidthStep": 0.12210338680924337,
+        "file": "screenshots/additional-ribbons/shared-wide/tablet-section-2-ready.png",
+        "errors": []
+      },
+      {
+        "name": "desktop",
+        "kind": "section",
+        "index": 2,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 5576,
+          "width": 941
+        },
+        "actual": {
+          "width": 1440,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0.625,
+        "wholeWidthStep": 0.17553384002894745,
+        "file": "screenshots/additional-ribbons/shared-wide/desktop-section-2-ready.png",
+        "errors": []
+      },
+      {
+        "name": "tablet",
+        "kind": "section",
+        "index": 2,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-1.webp"
+        ],
+        "target": {
+          "y": 4551,
+          "width": 768
+        },
+        "actual": {
+          "width": 768,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0.2916666666666572,
+        "wholeWidthStep": 0.5418894830659724,
+        "file": "screenshots/additional-ribbons/shared-wide/tablet-section-2-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "desktop",
+        "kind": "section",
+        "index": 2,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-1.webp"
+        ],
+        "target": {
+          "y": 5576,
+          "width": 941
+        },
+        "actual": {
+          "width": 1440,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0,
+        "wholeWidthStep": 0.5399927614911348,
+        "file": "screenshots/additional-ribbons/shared-wide/desktop-section-2-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "tablet",
+        "kind": "section",
+        "index": 2,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-4-0.webp"
+        ],
+        "target": {
+          "y": 4551,
+          "width": 768
+        },
+        "actual": {
+          "width": 768,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0.20833333333331439,
+        "wholeWidthStep": 0.5418894830659724,
+        "file": "screenshots/additional-ribbons/shared-wide/tablet-section-2-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "desktop",
+        "kind": "section",
+        "index": 2,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-4-0.webp"
+        ],
+        "target": {
+          "y": 5576,
+          "width": 941
+        },
+        "actual": {
+          "width": 1440,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0.08333333333334281,
+        "wholeWidthStep": 0.5399927614911348,
+        "file": "screenshots/additional-ribbons/shared-wide/desktop-section-2-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "tablet",
+        "kind": "section",
+        "index": 2,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-1.webp",
+          "/art/charcoal/v2-4-0.webp"
+        ],
+        "target": {
+          "y": 4551,
+          "width": 768
+        },
+        "actual": {
+          "width": 768,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0,
+        "wholeWidthStep": 0.5418894830659724,
+        "file": "screenshots/additional-ribbons/shared-wide/tablet-section-2-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "desktop",
+        "kind": "section",
+        "index": 2,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-1.webp",
+          "/art/charcoal/v2-4-0.webp"
+        ],
+        "target": {
+          "y": 5576,
+          "width": 941
+        },
+        "actual": {
+          "width": 1440,
+          "dpr": 1,
+          "overflow": false
+        },
+        "maxRowStep": 0,
+        "wholeWidthStep": 0.5399927614911348,
+        "file": "screenshots/additional-ribbons/shared-wide/desktop-section-2-both-preview.png",
+        "errors": []
+      }
+    ],
+    "settledComparison": [
+      {
+        "file": "max-charcoal-0-bottom.png",
+        "percent": 0.0020603524787625206
+      },
+      {
+        "file": "max-charcoal-0-top.png",
+        "percent": 2.6414775368750266e-05
+      },
+      {
+        "file": "max-charcoal-1-bottom.png",
+        "percent": 0
+      },
+      {
+        "file": "max-charcoal-1-top.png",
+        "percent": 0.0020603524787625206
+      },
+      {
+        "file": "max-charcoal-2-bottom.png",
+        "percent": 0.04794281729428173
+      },
+      {
+        "file": "max-charcoal-2-top.png",
+        "percent": 0
+      },
+      {
+        "file": "max-charcoal-3-bottom.png",
+        "percent": 0.04794281729428173
+      },
+      {
+        "file": "max-charcoal-3-top.png",
+        "percent": 0.04794281729428173
+      },
+      {
+        "file": "max-wellness-0-bottom.png",
+        "percent": 0
+      },
+      {
+        "file": "max-wellness-0-top.png",
+        "percent": 0
+      },
+      {
+        "file": "max-wellness-1-bottom.png",
+        "percent": 0
+      },
+      {
+        "file": "max-wellness-1-top.png",
+        "percent": 0
+      },
+      {
+        "file": "max-wellness-2-bottom.png",
+        "percent": 0
+      },
+      {
+        "file": "max-wellness-2-top.png",
+        "percent": 0
+      },
+      {
+        "file": "max-wellness-3-bottom.png",
+        "percent": 0
+      },
+      {
+        "file": "max-wellness-3-top.png",
+        "percent": 0
+      },
+      {
+        "file": "pro-charcoal-0-bottom.png",
+        "percent": 0.00863341568283677
+      },
+      {
+        "file": "pro-charcoal-0-top.png",
+        "percent": 0.0022769447954734336
+      },
+      {
+        "file": "pro-charcoal-1-bottom.png",
+        "percent": 0.011068481644662525
+      },
+      {
+        "file": "pro-charcoal-1-top.png",
+        "percent": 0.00863341568283677
+      },
+      {
+        "file": "pro-charcoal-2-bottom.png",
+        "percent": 0.03244646333549643
+      },
+      {
+        "file": "pro-charcoal-2-top.png",
+        "percent": 0.011068481644662525
+      },
+      {
+        "file": "pro-charcoal-3-bottom.png",
+        "percent": 0.03244646333549643
+      },
+      {
+        "file": "pro-charcoal-3-top.png",
+        "percent": 0.03244646333549643
+      },
+      {
+        "file": "pro-wellness-0-bottom.png",
+        "percent": 0
+      },
+      {
+        "file": "pro-wellness-0-top.png",
+        "percent": 0
+      },
+      {
+        "file": "pro-wellness-1-bottom.png",
+        "percent": 0
+      },
+      {
+        "file": "pro-wellness-1-top.png",
+        "percent": 0
+      },
+      {
+        "file": "pro-wellness-2-bottom.png",
+        "percent": 0
+      },
+      {
+        "file": "pro-wellness-2-top.png",
+        "percent": 0
+      },
+      {
+        "file": "pro-wellness-3-bottom.png",
+        "percent": 0
+      },
+      {
+        "file": "pro-wellness-3-top.png",
+        "percent": 0
+      }
+    ],
+    "wellnessMixedEdgeCaptures": 16,
+    "mainSaw": [
+      "shared-section-all-pro.png",
+      "shared-section-all-max.png",
+      "shared-edge-pro-1-lower-preview.png",
+      "shared-edge-max-0-upper-preview.png",
+      "wellness-sheet.png",
+      "../wellness/error.png",
+      "iphone13-664-pending.png"
+    ],
+    "note": "Internal wholeWidthStep=null is N/A; full-width section metric catches texture lines missed by gutter means. Actual images required in addition."
+  },
+  "checks": {
+    "productionBuild": "PASS final build7,15staticpaths11localeSSG",
+    "strictTypeScript": "PASS type7",
+    "siteESLint": "PASS0errors4preexistingProductFilmwarnings",
+    "fullLint": "Known existing CHG0181 unrelated design inputs; not rerun/claimed PASS",
+    "nativeReview": {
+      "review3": "CLEAN first task/runtime candidate after findings",
+      "fringeReview": "CLEAN final edge-checker/filter changes",
+      "sharedPlaneReview": "CLEAN final5changedfiles; source coordinates/preview consistency reviewed",
+      "limitation": "Isolated native snapshot lacks runtime dependencies/assets; actual production tests executed in real workspace separately",
+      "sourceBindingsAllMatchReviewedSnapshot": true
+    },
+    "browserRuns": [
+      {
+        "run": "broadvalidbuild3",
+        "pass": 18,
+        "skip": 5,
+        "fail": 7,
+        "history": "Failures preserved; obsolete height/count/route assumptions and SW interception fixed; retained-error reopen fixed."
+      },
+      {
+        "run": "correctedGeometryAndRecovery",
+        "pass": 6,
+        "skip": 1,
+        "fail": 1,
+        "history": "Second-open retainederror failure then fixed after showModal."
+      },
+      {
+        "run": "finalbuild7affected",
+        "pass": 13,
+        "skip": 1,
+        "fail": 0,
+        "scope": "Bothphone realerror/Retry/reopen,280DE,Wellnessmixedallphotos,maskremovalrecovery,sharedloader+geometry."
+      }
+    ],
+    "priorFailedVisualHistory": "Uniform750cuts; textureedges despite gutterPASS; CSSfilterfringes; independenttinycropinterpolation. Final shared-plane images supersede all earlier partial-state screenshots."
+  },
+  "performance": {
+    "conditions": "Individual cold Chromium402x874DPR3/4Mbps100msCPU4; actualCDPtouch. Not field,INP,Lighthouse,physicaliPhone or causal latency proof.",
+    "mainBefore": {
+      "phase": "additional-before",
+      "conditions": "Single cold Chromium mobile402\u00d7874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+      "initial": {
+        "ttfb": 16.59999990463257,
+        "fcp": 400,
+        "lcp": 1324,
+        "cls": 0.00022206073455854325,
+        "jsBytes": 332915,
+        "completedBytes": 3560045,
+        "filmObjects": 6,
+        "readyImages": 30
+      },
+      "scroll": {
+        "samples": 307,
+        "movingFrames": 255,
+        "startY": 0,
+        "endY": 12811,
+        "p95Ms": 32.09999990463257,
+        "over33Ms": 10,
+        "reverseFrames": 0,
+        "maxReverse": 0,
+        "cls": 0.00022206073455854325,
+        "longTasks": [
+          89,
+          56,
+          371,
+          63,
+          62,
+          83
+        ]
+      },
+      "errors": []
+    },
+    "mainFinal": {
+      "phase": "additional-release",
+      "conditions": "Single cold Chromium mobile402\u00d7874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+      "initial": {
+        "ttfb": 245.20000004768372,
+        "fcp": 712,
+        "lcp": 1532,
+        "cls": 0.00022206073455854325,
+        "jsBytes": 332920,
+        "completedBytes": 3571549,
+        "filmObjects": 6,
+        "readyImages": 30
+      },
+      "scroll": {
+        "samples": 327,
+        "movingFrames": 235,
+        "startY": 0,
+        "endY": 11283,
+        "p95Ms": 33.09999990463257,
+        "over33Ms": 17,
+        "reverseFrames": 0,
+        "maxReverse": 0,
+        "cls": 0.00022206073455854325,
+        "longTasks": [
+          91,
+          59,
+          394,
+          50,
+          58,
+          106
+        ]
+      },
+      "errors": []
+    },
+    "articles": [
+      {
+        "name": "charcoal",
+        "conditions": "One synthetic cold Chromium402x874DPR3,4Mbps100msCPU4,serviceWorkersBlocked,three real CDP touch swipes. Not field/INP/physical iPhone evidence.",
+        "previewMs": 284,
+        "firstOriginalMs": 4539,
+        "allOriginalMs": 33627,
+        "frames": 103,
+        "p95": 16.700000000004366,
+        "reverse": 0,
+        "assetBytes": 7960942,
+        "errors": []
+      },
+      {
+        "name": "wellness",
+        "conditions": "One synthetic cold Chromium402x874DPR3,4Mbps100msCPU4,serviceWorkersBlocked,three real CDP touch swipes. Not field/INP/physical iPhone evidence.",
+        "previewMs": 203,
+        "firstOriginalMs": 6428,
+        "allOriginalMs": 30483,
+        "frames": 107,
+        "p95": 16.700000000004366,
+        "reverse": 0,
+        "assetBytes": 6341858,
+        "errors": []
+      }
+    ],
+    "assessment": "Main JS+5encodedB, same CLS. TTFB variation16.6\u2192245.2ms prevents causal speed claim; finalLCP1532ms. Readyarticle3touchswipesp9516.7ms,0reverse/errors. Activecharcoal7,550,146\u21927,960,942B (+5.44% for native overlaps), previews203/284ms; full cold article loading30\u201334s, no claim of faster originals."
+  },
+  "sourceBindings": {
+    "app/globals.css": "4f4b4cafcdf51b0b5f5cd0e68d8e6dd2f5d49127d5410f4b14401c0dd065830b",
+    "components/CharcoalArtwork.tsx": "2b57fe8fdf0c24605d2bac40f06f834ee8881e95790ad96caa43eb239337f38e",
+    "components/CharcoalViewer.tsx": "42728149a91dafd101e5773590256543171c1a9b31cf35b7db32b906c717a8b2",
+    "lib/charcoal-assets.ts": "7d494b36b78ab0caa3503e59bb97f085b44d6a71aefe035d7d147d1446a14e92",
+    "lib/media-previews.json": "478c09f1d437eefd6f8a63a167dbfb7a58af20edb493b29743a8a74ccac52281",
+    "tests/e2e/charcoal.spec.ts": "4680fe66296d00663931f61ca1c257daf6466281b95694d45a382b27e3a3cfe7",
+    "tests/e2e/loading-flow.spec.ts": "81bde44ac0f10541689f18ebf7cd5e041dc1934863a90d16ba741671042fa233",
+    "tests/e2e/loading-geometry.spec.ts": "ca0a813d3cb8939ab91af9c190a9872f773d03eee880294c471614078094f489",
+    "tests/e2e/wellness.spec.ts": "0e17d89690021f4845922c9f9dbeb41424aa9b6dc029272202049c4e93991f6a",
+    "tools/check-charcoal-contrast.mjs": "1f3a92dde4ad0362f8d92aabdb348627820959b989042220e1c4592cda8c99c9",
+    "tools/check-charcoal-tiles.mjs": "a1a97911873d7ecf8ef922a49928cea74d89324d112cc6bd04317181b8045eff",
+    "tools/check-charcoal.mjs": "990ce0dc678c35528a5ff500d2a551da1755faedb3a91683f04db1de82bd152d",
+    "tools/generate-media-previews.py": "ce96b3c43317441026dd561155589ec73afb9e2aa5285424d8f8dd47dc12c8bc",
+    "tools/measure-charcoal.mjs": "7a9d637973ab7f50517e349eb3d86947992a5f07a986196d79bd898c3ae725c7",
+    "tools/generate-charcoal-seams.py": "0ee1efe02dabe59b8776ba9b7ce7ae49ddec2bf8dc63af5eed4d67717bb1efc8",
+    "tools/check-additional-ribbons.mjs": "34dddde32dc014d2bcf655087be8fcfc3565df7979aca69eceea4b6577afa8b6",
+    "tests/e2e/additional-ribbon-loading.spec.ts": "2866958ebe9d4bb4bbca475ed6479fbf84804529b13f48c7a31dc10323c88f21"
+  },
+  "artifactBindings": {
+    "screenshots/additional-ribbons/shared-partial/pro-section-1-both-preview.png": "3cc14ccf8894396dc04e53b0298433f9f0cece4089b5e8f5659874ceedd5d3e9",
+    "screenshots/additional-ribbons/shared-partial/pro-internal-1-lower-preview.png": "7f345696151373f4fb74de69827f0270a670571e593c8e620ae729a43105052c",
+    "screenshots/additional-ribbons/shared-partial/max-internal-0-lower-preview.png": "1ad37f8cf10d4cdd4c0e5cfa19cff0264f87e251058ad3f3b7579ac03203668a",
+    "screenshots/additional-ribbons/shared-partial/pro-internal-0-upper-preview.png": "83c1b5687ba2a5b3b13b1b66add07c056a90f4decac5049279dd015c55ba2203",
+    "screenshots/additional-ribbons/shared-partial/max-internal-0-ready.png": "2651abbe5bae6a9c4d94e01f5c7e7c25ad0c2161a8fc9ed26f4da0f3832f6b41",
+    "screenshots/additional-ribbons/shared-partial/pro-section-2-lower-preview.png": "fd468968f6dcd98ea0ec48e571c7193609e854e5ef7caf50b222cb80fb3028a5",
+    "screenshots/additional-ribbons/shared-partial/max-internal-1-upper-preview.png": "636de0cba85014f20f7ae9bd227d2c8d9a9b44d7add027ac1dc3f221148e211e",
+    "screenshots/additional-ribbons/shared-partial/pro-internal-1-ready.png": "1ec39df82feb8760283d78ab1c5a798890897afc9244d03f6622207a6541f473",
+    "screenshots/additional-ribbons/shared-partial/pro-internal-3-both-preview.png": "53e428d6610b680f6b636f0d6bf9aff07281fb77e961de2d4f6cd46ea5e0c3a3",
+    "screenshots/additional-ribbons/shared-partial/max-section-0-ready.png": "c0ccced06a7ed40117f10e9f8a93f612af964214f9c1aa1b1f3735d528ba5d6f",
+    "screenshots/additional-ribbons/shared-partial/pro-internal-0-lower-preview.png": "99e92ca1fb011fa429c4e4f9cfd4ac0c0f40c686f00fa277bcf06d18a138f26f",
+    "screenshots/additional-ribbons/shared-partial/pro-section-2-upper-preview.png": "06cc2e50f2680576ac0afc8963da763b0014426f62890d580b70f9fc97676176",
+    "screenshots/additional-ribbons/shared-partial/max-internal-1-lower-preview.png": "e88ae66c62cbf6388cae419f9e6051549500f5ee82909225d9868f7a7946249d",
+    "screenshots/additional-ribbons/shared-partial/max-internal-1-both-preview.png": "85d8946469bf55488a2950c0e917aec702a2b589a74b4655016fcfc2b6b226a4",
+    "screenshots/additional-ribbons/shared-partial/pro-internal-1-upper-preview.png": "5a174a279b12be2d71324120c6dec8c0031794d0c5f652d93a8c438d52918150",
+    "screenshots/additional-ribbons/shared-partial/max-internal-0-upper-preview.png": "bd2ea70fa0b8ffc38ea31f3389c379b309db10847dbfca9b140b8f991c674e5c",
+    "screenshots/additional-ribbons/shared-partial/pro-internal-3-lower-preview.png": "c2f8284980de829201c43a8eaee6c3e6b5f2dee23c9110c5866accd2cf6ae7fa",
+    "screenshots/additional-ribbons/shared-partial/pro-section-1-upper-preview.png": "c0eef11ba80b0186b977d0e25ae14f5355469c7f39278f879bd619f317b86fde",
+    "screenshots/additional-ribbons/shared-partial/pro-section-0-both-preview.png": "b2c7c2d8ef3e918f9de764fdb2d511f9fb71ab744ec76ae5408e4735ceadb43e",
+    "screenshots/additional-ribbons/shared-partial/max-internal-2-lower-preview.png": "68ec8fcd0ec2fc4507d588279d225406300168799706a7d347c7811e72559ac3",
+    "screenshots/additional-ribbons/shared-partial/pro-section-2-ready.png": "f52e8133c153cc91590198998d9448ea4e9ee278e8c4994e81baed5703256817",
+    "screenshots/additional-ribbons/shared-partial/max-internal-1-ready.png": "213ca824a3fc80e21e039882aa213ba13055cd885d0ae141ff206817e85c3539",
+    "screenshots/additional-ribbons/shared-partial/pro-internal-2-upper-preview.png": "13cd5f019de26389680bd467124f922256dd50cce772bd703d3fd8291fcaad3a",
+    "screenshots/additional-ribbons/shared-partial/max-internal-3-upper-preview.png": "2e050058c96930fa8fecb40fe9f64a207f7e56fcd23db03a522346c7891bd098",
+    "screenshots/additional-ribbons/shared-partial/pro-section-0-lower-preview.png": "51978da59420930a310fbb9adf64a1ab8d18a7e76de691ec8737376c3466d36f",
+    "screenshots/additional-ribbons/shared-partial/pro-internal-0-ready.png": "e31a6462e318eb9178728232902f88cebe03f24b1af0bc879480de32f21b0605",
+    "screenshots/additional-ribbons/shared-partial/pro-internal-2-both-preview.png": "5077528a579e88c7b2536a5448916c2d198250985ee527b8fd36a3f3f580d60c",
+    "screenshots/additional-ribbons/shared-partial/pro-internal-2-lower-preview.png": "66a1220402a6fb7869c3817bddb7409d3b51a9978f3011af3a38083a30589cd6",
+    "screenshots/additional-ribbons/shared-partial/max-section-1-ready.png": "f1ad6ad68cb6b34f18fa065c451a036d858a59dca751eae429b82a95080b339f",
+    "screenshots/additional-ribbons/shared-partial/max-internal-3-lower-preview.png": "90d4001f6af04209a0cab152bba4cce1e8bf850fd81f059f5fad33233381aa1c",
+    "screenshots/additional-ribbons/shared-partial/pro-section-0-upper-preview.png": "7ac205c805e7d2b097462701466b6a064bc5186a4aad39f02ae8c3b42e51b333",
+    "screenshots/additional-ribbons/shared-partial/max-section-2-both-preview.png": "4904a7829f565f46ff08af4f96c1135d64d81f364be190ae764e7ba366e72c40",
+    "screenshots/additional-ribbons/shared-partial/pro-internal-3-upper-preview.png": "62b0808f3633e1036a9263af7c9d4f84c3613ed733c6c6fa959d5aa37daa3c2b",
+    "screenshots/additional-ribbons/shared-partial/max-internal-0-both-preview.png": "be97507a1f45f3d812040f1de057fbc2bda7fc28bed84a5425367b274f926c32",
+    "screenshots/additional-ribbons/shared-partial/pro-section-1-lower-preview.png": "552e419f3d1814802c18090315bff65f910d60850a28796736d0c57092973b0f",
+    "screenshots/additional-ribbons/shared-partial/max-internal-2-upper-preview.png": "68907c64e2995b67a04c26bcf204693a25673f663fe33e818a81fb955eaf970d",
+    "screenshots/additional-ribbons/shared-partial/max-section-2-lower-preview.png": "4550e08a9e99d3a6187b43f7ca46408bf83e004fabcfc538e3ab644cb8831fc5",
+    "screenshots/additional-ribbons/shared-partial/max-internal-2-ready.png": "35756032242196c7986dd865bedb39447eef37f042c20b5ae2139c0cf5b32fed",
+    "screenshots/additional-ribbons/shared-partial/pro-section-1-ready.png": "f7bc568a6c395c2b10cdabf6401589876f787a4c20af4757ba8b82881b11c147",
+    "screenshots/additional-ribbons/shared-partial/max-section-2-ready.png": "0582c2ed2ab379000761d8a91db2dfb49596a5ab6757293ff9021e28d1b90252",
+    "screenshots/additional-ribbons/shared-partial/max-section-2-upper-preview.png": "55379661fe04999f63da2e21966cf3471412fe2b389aead76039abbc2379c9d8",
+    "screenshots/additional-ribbons/shared-partial/pro-internal-3-ready.png": "94b324fafc7c389bdf1e7434d2f678aba534bb84964bfbd35fc36396a5eb25fc",
+    "screenshots/additional-ribbons/shared-partial/max-section-1-both-preview.png": "10d3a5a46f3499dc0b16501fcdecea831718cfb620661e15ce18deb754545eeb",
+    "screenshots/additional-ribbons/shared-partial/max-internal-3-both-preview.png": "b6317a6b23fcd15a4a81f41f1a2857bd1ebc39c68244b0afd2682832b26e7d8f",
+    "screenshots/additional-ribbons/shared-partial/pro-internal-1-both-preview.png": "c35b2792de02970a717d0cf577779cf5646d1de933ae5e31e61452a8f4ce14c9",
+    "screenshots/additional-ribbons/shared-partial/max-section-1-upper-preview.png": "b0ade30b06200ae182f60fc9cda71ef36dce934b4eebcaa3d694db5f77476a01",
+    "screenshots/additional-ribbons/shared-partial/pro-section-2-both-preview.png": "ef1756f0067093bd1829fb1c392f5aad8bc17ee81a2d47f24c3d46e585bc4507",
+    "screenshots/additional-ribbons/shared-partial/max-internal-3-ready.png": "d9d12e4e0a99b0f72d0a82c6d6125e701c933f05bc057b49192a6790c3d93aaf",
+    "screenshots/additional-ribbons/shared-partial/max-section-0-lower-preview.png": "6d8e36e30a737a5bfce77256a17646b7a3b201eea9aa637ea38d3747deb7c014",
+    "screenshots/additional-ribbons/shared-partial/pro-section-0-ready.png": "984500b7b081e939927ffc2020ce1bb482176eca62cfbea2589ed1f1ccefe5a5",
+    "screenshots/additional-ribbons/shared-partial/max-internal-2-both-preview.png": "8ec01904757071a30516f97d47940dd10d133c0948e84dd6d79549c049ca0d6f",
+    "screenshots/additional-ribbons/shared-partial/max-section-0-both-preview.png": "2cb111b84e34f9fbd7fc7f6cfa019d0e91aaa6fe11e35e155517b6ab33ff0365",
+    "screenshots/additional-ribbons/shared-partial/max-section-0-upper-preview.png": "249e854cc2547b3cc4523a4c9af3e6a17bb3427825c0569cf55ff06609601ce8",
+    "screenshots/additional-ribbons/shared-partial/pro-internal-2-ready.png": "9670f832ddaef08e0e1c018ba5f750f47ca97e9f2a943b9001f5b5688aaad235",
+    "screenshots/additional-ribbons/shared-partial/pro-internal-0-both-preview.png": "efb07966d1476264ecf15ffcff7c5ef98aa6937428139caf5f44cb47a76ff0ce",
+    "screenshots/additional-ribbons/shared-partial/max-section-1-lower-preview.png": "320fc8a8d00de205387714d7487c322da5cc07d9723cb7bd1bf91cc33ccd1629",
+    "screenshots/additional-ribbons/shared-wide/tablet-section-1-lower-preview.png": "33a07a46002572dc8c5fcfa2d21875f046858a828c3ac739ed5981768dda3f8a",
+    "screenshots/additional-ribbons/shared-wide/desktop-section-2-upper-preview.png": "2ad73d02b0e2147772123d34dcbe4c8103238e83503b175b6dccd23d680b176e",
+    "screenshots/additional-ribbons/shared-wide/tablet-section-0-upper-preview.png": "a6d92b69105af53fdcb4ae988b40232aec164829a7a34629c048976aeb5afa34",
+    "screenshots/additional-ribbons/shared-wide/desktop-section-0-ready.png": "074762dc5a195915a08a53238a5ff173fb88776b46749a0aa94a2506b23014b6",
+    "screenshots/additional-ribbons/shared-wide/desktop-section-2-lower-preview.png": "8211ca5d94144740edda49e37c8355ee4fe2a718972fcbc2adfb0158f5a91795",
+    "screenshots/additional-ribbons/shared-wide/tablet-section-0-lower-preview.png": "c3fbf2a8fadf769dcf92611e0de5040534c33cd05233aab34c3669b2d8006b08",
+    "screenshots/additional-ribbons/shared-wide/tablet-section-0-both-preview.png": "60a6b3076b4698edbc6be7717cf5f273bb9511c8ed9fce87712b43706bfa4f90",
+    "screenshots/additional-ribbons/shared-wide/tablet-section-1-upper-preview.png": "c1e940d7281ae816cb27f80991ed69b943515c4d2fff8dc2593fcc6bb2364cb0",
+    "screenshots/additional-ribbons/shared-wide/desktop-section-1-lower-preview.png": "b4ff477d9c27d6bc19e87db9bfe848251bdf4725dff6101f348d56edd21512e1",
+    "screenshots/additional-ribbons/shared-wide/desktop-section-0-upper-preview.png": "ea9c1664a79f63fc353bbb2087555965e9917946743a6e573f2d84c6283efe59",
+    "screenshots/additional-ribbons/shared-wide/tablet-section-2-upper-preview.png": "e3a08e6a75a5553af833014ba026c93a341b3728c4328e7a25d3f0fe05d040eb",
+    "screenshots/additional-ribbons/shared-wide/desktop-section-1-ready.png": "7ce49dbc8f5f39ea90db57c95682c8825bf2d797350114acb36fec8861cc62c5",
+    "screenshots/additional-ribbons/shared-wide/desktop-section-0-lower-preview.png": "a00e89cdecb0326c8373afb12e5ef7bb0c6a729942c4a1775bac1d151cd8a520",
+    "screenshots/additional-ribbons/shared-wide/tablet-section-1-both-preview.png": "c758c991a3f93429db96128fb755c642197210fe654f27c99af5930d7b70ee03",
+    "screenshots/additional-ribbons/shared-wide/tablet-section-2-lower-preview.png": "568f1cf65c79faba258da641b96bfb0557c45d380c5fb63a04d3136ca4de4741",
+    "screenshots/additional-ribbons/shared-wide/desktop-section-2-both-preview.png": "4c9cc286164acca969f4e9a23bd93f9f9dc503776f53f07f251eba745148a467",
+    "screenshots/additional-ribbons/shared-wide/desktop-section-1-upper-preview.png": "710435157f1a1a30a480a0e9558e31b776ace181f0936527cb0b58fea58d0a92",
+    "screenshots/additional-ribbons/shared-wide/tablet-section-2-ready.png": "968dae05cfa869066064b5334af0d53647200a0f4bb4ea3761a6f96ed6719a0e",
+    "screenshots/additional-ribbons/shared-wide/desktop-section-2-ready.png": "4ad8bc53b4cb45fd125769db299c6bc7bd65f1f203c3d27413f1d7ab8a5f3894",
+    "screenshots/additional-ribbons/shared-wide/tablet-section-2-both-preview.png": "0c63015c7e3bfe7048481ed5296f23e7dccba13585d5ce22f8eda72309ad50be",
+    "screenshots/additional-ribbons/shared-wide/tablet-section-1-ready.png": "e3a33925380f52a3c175e2b84e4663846015ba674a2acec8c54d2a9f0b9c6f0f",
+    "screenshots/additional-ribbons/shared-wide/desktop-section-1-both-preview.png": "198f47d22efac138e59524651e59f0434f527c0485c5d727d1285b674cec7710",
+    "screenshots/additional-ribbons/shared-wide/desktop-section-0-both-preview.png": "1dff092b25e48f7c03d925b76f8c8faea2cc61396962b1d14bf803bc030b3ed1",
+    "screenshots/additional-ribbons/shared-wide/tablet-section-0-ready.png": "43dfd39c3c68d844a888d22ea0c261d29e20cd146e03aea2bd6766e9c01eee5b",
+    "screenshots/additional-ribbons/shared-ready/pro-charcoal-3-top.png": "f52e8133c153cc91590198998d9448ea4e9ee278e8c4994e81baed5703256817",
+    "screenshots/additional-ribbons/shared-ready/max-wellness-2-top.png": "ea4fcf30dcc1e16d99477dcca4c1ceade0999f84ebee33f9f37c35d717f1c75a",
+    "screenshots/additional-ribbons/shared-ready/max-wellness-1-bottom.png": "a3dac8d271db7c02841d8b126d4e34a4666d9284522c6fa1a4632cf6d736878f",
+    "screenshots/additional-ribbons/shared-ready/pro-wellness-0-bottom.png": "d2eb329438dfdf05f29d797a8f9cf0dc6cb23a94ef4d99cb5e7d85444b9b6fcb",
+    "screenshots/additional-ribbons/shared-ready/max-charcoal-1-bottom.png": "f1ad6ad68cb6b34f18fa065c451a036d858a59dca751eae429b82a95080b339f",
+    "screenshots/additional-ribbons/shared-ready/pro-charcoal-0-bottom.png": "d574f7ccc5503d55d8232ebe4fa1dca77bfce9ed53fd88ca8601ab0aa362dbb5",
+    "screenshots/additional-ribbons/shared-ready/max-wellness-3-top.png": "691d5625c5ed07d7c7e9c110b99d7c6e362e95ad0c1d60f26adaf0de1189bf60",
+    "screenshots/additional-ribbons/shared-ready/pro-charcoal-2-top.png": "f7bc568a6c395c2b10cdabf6401589876f787a4c20af4757ba8b82881b11c147",
+    "screenshots/additional-ribbons/shared-ready/max-wellness-3-bottom.png": "b9026ba19cb673d6d93eaa51220572b4a3efe23c38427a63aa03067fc53a99e3",
+    "screenshots/additional-ribbons/shared-ready/pro-wellness-2-bottom.png": "ac29ad7ac159f198c1f86ee1c514c8f91d8d737b8f724115367f6128542292d3",
+    "screenshots/additional-ribbons/shared-ready/max-wellness-1-top.png": "c377cb5ce3b2c46df8ec34c4b29965266ae8b6507ebb5968af13610e70032b7f",
+    "screenshots/additional-ribbons/shared-ready/pro-charcoal-0-top.png": "49bf829600a1db00704579f00631ac82241737f02e331b4e353a6d05ea5cdc83",
+    "screenshots/additional-ribbons/shared-ready/pro-charcoal-1-top.png": "984500b7b081e939927ffc2020ce1bb482176eca62cfbea2589ed1f1ccefe5a5",
+    "screenshots/additional-ribbons/shared-ready/max-charcoal-3-bottom.png": "d9d12e4e0a99b0f72d0a82c6d6125e701c933f05bc057b49192a6790c3d93aaf",
+    "screenshots/additional-ribbons/shared-ready/max-wellness-0-top.png": "dc314b44bf8451b9110fc85dcf7af5ecd271fe000fc35dab22a9a9799072482a",
+    "screenshots/additional-ribbons/shared-ready/pro-charcoal-2-bottom.png": "f52e8133c153cc91590198998d9448ea4e9ee278e8c4994e81baed5703256817",
+    "screenshots/additional-ribbons/shared-ready/pro-wellness-1-top.png": "1de75c2a3fb5d26764ce1f3752ccec5cf4de9be5e6ec89635a7adb12ab477e0d",
+    "screenshots/additional-ribbons/shared-ready/max-charcoal-0-bottom.png": "947cf432f4efd3387831548041efd7adf376012ba067ac80b5b917996aded918",
+    "screenshots/additional-ribbons/shared-ready/max-charcoal-0-top.png": "c6fae02353385a2dad0981f70185ce9af7e86c69d950a094b29f6ba040ea42fe",
+    "screenshots/additional-ribbons/shared-ready/pro-charcoal-1-bottom.png": "f7bc568a6c395c2b10cdabf6401589876f787a4c20af4757ba8b82881b11c147",
+    "screenshots/additional-ribbons/shared-ready/max-wellness-0-bottom.png": "12bfd47f74edb3e2a54941b5e8b9d7d4a2b075ebf098c741e202ab7788100099",
+    "screenshots/additional-ribbons/shared-ready/max-charcoal-1-top.png": "c0ccced06a7ed40117f10e9f8a93f612af964214f9c1aa1b1f3735d528ba5d6f",
+    "screenshots/additional-ribbons/shared-ready/pro-wellness-0-top.png": "de455ac0c6fe50997d693de27a67a2ac77c0de202befeb20af7c804a358c5fd2",
+    "screenshots/additional-ribbons/shared-ready/pro-wellness-1-bottom.png": "9daf9bdffc43ce777eca2c481613b236969f427d7195b427762dd6ed9b0f682f",
+    "screenshots/additional-ribbons/shared-ready/max-charcoal-2-bottom.png": "0582c2ed2ab379000761d8a91db2dfb49596a5ab6757293ff9021e28d1b90252",
+    "screenshots/additional-ribbons/shared-ready/max-charcoal-3-top.png": "0582c2ed2ab379000761d8a91db2dfb49596a5ab6757293ff9021e28d1b90252",
+    "screenshots/additional-ribbons/shared-ready/pro-wellness-2-top.png": "0b861a0886c3d77c7310fc622c913734fab985c8994dbf1c700132e0c5feec09",
+    "screenshots/additional-ribbons/shared-ready/pro-charcoal-3-bottom.png": "94b324fafc7c389bdf1e7434d2f678aba534bb84964bfbd35fc36396a5eb25fc",
+    "screenshots/additional-ribbons/shared-ready/pro-wellness-3-top.png": "88658e1603ed50849946ec577dca7f562873ce12b39dfc3f556b7e51ec6f7208",
+    "screenshots/additional-ribbons/shared-ready/max-charcoal-2-top.png": "f1ad6ad68cb6b34f18fa065c451a036d858a59dca751eae429b82a95080b339f",
+    "screenshots/additional-ribbons/shared-ready/max-wellness-2-bottom.png": "2599a5c783eb66818dacf3d35cb856310275a156ab1ec44e61724a786900354b",
+    "screenshots/additional-ribbons/shared-ready/pro-wellness-3-bottom.png": "84ebed66ce28e24e4139bc5efb61f3fbffba5b6db2fbe7b52a76a7e86a5cfe6f",
+    "screenshots/additional-ribbons/wellness/iphone-17-pro-max-webkit-3-bottom-mixed.png": "f51d2049884ea511afca407bc00578ce035629a395ee26a7c52a125f156f4b6d",
+    "screenshots/additional-ribbons/wellness/iphone-17-pro-max-webkit-2-top-mixed.png": "b378a50e3c0c3ea57b937e3c0ab9f12f9ea0cea8c2fab7be545d5d8302c26b5f",
+    "screenshots/additional-ribbons/wellness/iphone-17-pro-max-webkit-1-top-mixed.png": "4682768c6a9921628ce87df3a30a93155964d352ed5a372c19c4b3d89e5e5820",
+    "screenshots/additional-ribbons/wellness/iphone-17-pro-webkit-0-bottom-mixed.png": "8007243991e2ea97d17a8cadbb052488b99cccc45d00cfcb18169ed0b1a3c5ca",
+    "screenshots/additional-ribbons/wellness/iphone-17-pro-max-webkit-2-bottom-mixed.png": "eda82390cdbfe8c756fea83f54e4e5fd59277e585bdf513c13c412e5ac4107f3",
+    "screenshots/additional-ribbons/wellness/iphone-17-pro-webkit-0-top-mixed.png": "de455ac0c6fe50997d693de27a67a2ac77c0de202befeb20af7c804a358c5fd2",
+    "screenshots/additional-ribbons/wellness/iphone-17-pro-webkit-3-top-mixed.png": "b399921ffdd1e24ad9a8ad50626aa1849cc6db285b0eb0ad89ff653e35478363",
+    "screenshots/additional-ribbons/wellness/iphone-17-pro-webkit-1-bottom-mixed.png": "3487a8ef479f0f1447eb8c01101ee5bef58f97674111a10e9b17ce613c359f6e",
+    "screenshots/additional-ribbons/wellness/iphone-17-pro-max-webkit-1-bottom-mixed.png": "2f0d7a228415ac1d5759b6e3fb2b4a83408fc86f7a8e38b958ef82d1d99288fa",
+    "screenshots/additional-ribbons/wellness/iphone-17-pro-webkit-2-top-mixed.png": "b3c7f6eca3a0592c821386dce9852af439984d0178137335d308f56ac7ae26bd",
+    "screenshots/additional-ribbons/wellness/iphone-17-pro-webkit-1-top-mixed.png": "6c48fb68ecc63c7e5e72cb0d96efaf27ee0f4d41d6f4c92de4acbbf7fea08dfd",
+    "screenshots/additional-ribbons/wellness/iphone-17-pro-webkit-2-bottom-mixed.png": "99e0c54e63b02ed3c63e64a52efb2a64951d5947a216933041332300481627d7",
+    "screenshots/additional-ribbons/wellness/iphone-17-pro-max-webkit-0-top-mixed.png": "dc314b44bf8451b9110fc85dcf7af5ecd271fe000fc35dab22a9a9799072482a",
+    "screenshots/additional-ribbons/wellness/iphone-17-pro-max-webkit-0-bottom-mixed.png": "cc274e82844faadd629d82bb0f3096cafd0af616323a8ed25fb0bd3e57a02f59",
+    "screenshots/additional-ribbons/wellness/iphone-17-pro-webkit-3-bottom-mixed.png": "cc8d3e34f55d65871d319244ea3678675ae7f65c333ef7f775dbb5506c6616d6",
+    "screenshots/additional-ribbons/wellness/iphone-17-pro-max-webkit-3-top-mixed.png": "cf280b9a608de68aa1eb0c3c054f8d07c294d79e202e2321a1b5ff79a93d4099",
+    "screenshots/additional-ribbons/iphone13-664-ready.png": "bec7595f13cde3eb9ab332251ce15a225395bd14d309ca6e4f35bb865ea54acd",
+    "screenshots/additional-ribbons/iphone13-844-pending.png": "7e3bbc8b4d167372aeb5b6ad590141d436f843c970ca77f8507babb6dcbf4dc3",
+    "screenshots/additional-ribbons/iphone13-844-ready.png": "925666adcf4102c400e8d6a197a1d10c184ccd365af33cf5cd3576bdad907d28",
+    "screenshots/additional-ribbons/iphone13-664-pending.png": "d1dfe2e6915a239987b24397667a612f4fcf8505a696eec1798726d76da400d4"
+  },
+  "limitations": [
+    "Physical iPhone13 Chrome/Safari and native toolbar behavior unverified: no device/simulator",
+    "Wide-gamut/Photoshop editorial profile intent unknown; approved browser-sRGB values preserved",
+    "CHG0180 existing Retry overlay and CHG0181 unrelated full-lint remain open",
+    "Controlled EVAL-FEED-SEAMS agent run NOT_RUN"
+  ],
+  "userResultApproval": "NOT_RECORDED",
+  "publication": "PENDING continuing authorized main delivery",
+  "technicalApproval": {
+    "date": "2026-10-30",
+    "verifier": "/root",
+    "verdict": "APPROVED_LOCAL_ADDITIONAL_RIBBONS",
+    "evidence": "Final80loadingstates/32readycomparison/13affectedbrowserPASS, exact8RGBA+ICC outputs,17reviewedsourcebindings, productionbuild/type/siteESLint/nativeclean, performance; independent scope/visual/behavior/review-performance PASS. Physical iPhone13 and CHG0180/0181 stay open."
+  },
+  "reportedPhoneEmulation": [
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "state": {
+        "width": 390,
+        "dpr": 3,
+        "overflow": false
+      },
+      "errors": [],
+      "pendingAndRecovery": "PASS",
+      "physical": false
+    },
+    {
+      "viewport": [
+        390,
+        664
+      ],
+      "state": {
+        "width": 390,
+        "dpr": 3,
+        "overflow": false
+      },
+      "errors": [],
+      "pendingAndRecovery": "PASS",
+      "physical": false
+    }
+  ]
+}

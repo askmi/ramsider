@@ -2,6 +2,7 @@ import { test, expect, type Page } from '@playwright/test';
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import sharp from 'sharp';
+test.use({serviceWorkers:'block'});
 
 const dialog = '#wellness-viewer', scroll = '.wellness-scroll';
 const root = 'design/references/RAMSIDER_Wellness_TOP/';

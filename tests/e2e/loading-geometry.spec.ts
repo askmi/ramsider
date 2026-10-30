@@ -20,7 +20,7 @@ test('every technology slide preserves full-width source geometry and bottom acc
 test('charcoal and main artwork remain continuous; preview-to-original does not change dimensions',async({page},info)=>{
  await page.goto('/en');await expect(page.locator('html')).toHaveAttribute('data-story-media-ready','',{timeout:60000});
  const bad=await page.locator('.art img[data-media]').evaluateAll(images=>images.filter(image=>{const e=image as HTMLImageElement;return Math.abs(e.getBoundingClientRect().height-e.getBoundingClientRect().width*Number(e.getAttribute('height'))/Number(e.getAttribute('width')))>1;}).length);expect(bad).toBe(0);
- await page.locator('[data-charcoal-open]').first().evaluate((e:HTMLElement)=>e.click());await expect(page.locator('#charcoal-viewer img[data-media-ready]')).toHaveCount(12,{timeout:30000});
+ await page.locator('[data-charcoal-open]').first().evaluate((e:HTMLElement)=>e.click());await expect(page.locator('#charcoal-viewer img[data-media-ready]')).toHaveCount(8,{timeout:30000});
  const scroll=page.locator('.charcoal-viewer__scroll');await scroll.evaluate(e=>e.scrollTop=e.scrollHeight);await page.screenshot({path:`screenshots/loading-flow/charcoal-bottom-${info.project.name}.png`});expect(await scroll.evaluate(e=>e.scrollHeight-e.clientHeight-e.scrollTop)).toBeLessThan(2);
 });
 test('short phone, tablet and desktop adapt without clipping or horizontal overflow',async({page},info)=>{

@@ -19,7 +19,7 @@ for (const [width, height] of [[402,874],[440,956],[375,812],[402,600],[768,1024
   await page.locator('#fire-learn').scrollIntoViewIfNeeded();
   await page.waitForFunction(() => !document.querySelector('.page-media-overlay'));
   await page.locator('#fire-learn').click();
-  await page.waitForFunction(() => document.querySelectorAll('.charcoal-art[data-charcoal-ready=true]').length === 12);
+  await page.waitForFunction(() => document.querySelectorAll('.charcoal-art[data-media-ready]').length === 8);
   await page.evaluate(() => document.fonts.ready);
   const scroll = page.locator('.charcoal-viewer__scroll');
   const report = { width, height, cases: [] };
@@ -30,7 +30,7 @@ for (const [width, height] of [[402,874],[440,956],[375,812],[402,600],[768,1024
     const src = `data:image/png;base64,${(await readFile(`screenshots/charcoal/clean-${block}.png`)).toString('base64')}`;
     await reference.setContent(`<meta name="viewport" content="width=device-width,initial-scale=1"><style>body{margin:0;background:#efe4d3}img{position:absolute;display:block;height:auto;transform:translateZ(0)}</style><img src="${src}">`);
     await reference.locator('img').evaluate(e => e.decode());
-    for (const part of [0,1,2]) {
+    for (const part of [0,1]) {
       // Aim the tile's interior at the lower viewport before it has been fully shown.
       const target = await section.locator('.charcoal-tile').nth(part).evaluate(e => e.getBoundingClientRect().top);
       await scroll.evaluate((e, delta) => e.scrollTop += delta, target - height + 140);

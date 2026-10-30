@@ -13,7 +13,15 @@ for tile in story:
     if key not in existing:
         raise RuntimeError('Run tools/generate-story-tiles.py before regenerating previews')
     manifest[key] = existing[key]
+# Charcoal previews likewise share a full-plate plane; never independently re-clamp crops.
+charcoal = json.loads((ROOT/'docs/evidence/loading-flow/additional-ribbon-export.json').read_text())['rows']
+for tile in charcoal:
+    key = tile['src']
+    if key not in existing:
+        raise RuntimeError('Run tools/generate-charcoal-seams.py before regenerating previews')
+    manifest[key] = existing[key]
 for path in sorted((ROOT/'public/art').rglob('*.webp')):
+    if path.parent == ROOT/'public/art/charcoal': continue
     if path.parent == ROOT/'public/art' and (path.name.startswith('story-v') or path.name in {*(f'{i:02}.webp' for i in range(9)), '09-10.webp', '11.webp'}): continue
     raw=path.read_bytes(); image=Image.open(io.BytesIO(raw))
     if image.width < 600 and not path.name.startswith('doc-'): continue

@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import sharp from 'sharp';
 import { mkdir } from 'node:fs/promises';
+test.use({serviceWorkers:'block'});
 
 const dialogSelector = '#charcoal-viewer';
 async function open(page: import('@playwright/test').Page, locale = 'en') {
@@ -10,7 +11,7 @@ async function open(page: import('@playwright/test').Page, locale = 'en') {
   await page.waitForFunction(() => !document.querySelector('.page-media-overlay'));
   await page.locator('#fire-learn').click();
   await expect(page.locator(dialogSelector)).toBeVisible();
-  await expect(page.locator('#charcoal-viewer img[data-media-ready]')).toHaveCount(12);
+  await expect(page.locator('#charcoal-viewer img[data-media-ready]')).toHaveCount(8);
 }
 
 test('four blocks, fixed close, focus and scroll restoration, and full bottom access', async ({ page }, info) => {
@@ -51,7 +52,7 @@ test('four blocks, fixed close, focus and scroll restoration, and full bottom ac
     const geometry = await section.locator('img').evaluateAll(images => images.map((image) => {const e=image as HTMLImageElement;return { width: e.getBoundingClientRect().width, height: e.getBoundingClientRect().height, sw: e.naturalWidth, sh: e.naturalHeight };}));
     for (const tile of geometry) {
       expect(tile.sw).toBe(1080);
-      expect(tile.sh).toBeLessThanOrEqual(754);
+      expect(tile.sh).toBeLessThanOrEqual(1800);
       expect(tile.width).toBeCloseTo(Math.min(viewport.width, 941), 0);
       expect(Math.abs(tile.height - tile.width * tile.sh / tile.sw)).toBeLessThan(1);
     }
@@ -146,7 +147,7 @@ test('all locales, Arabic RTL, smaller height and representative responsive widt
 test('failed image retries through shared loader; close stays usable while pending', async ({ page }) => {
   test.setTimeout(120000);
   let failed = true;
-  await page.route('**/art/charcoal/1-0.webp', async route => {
+  await page.route('**/art/charcoal/v2-1-0.webp', async route => {
     if (failed) await route.abort(); else await route.continue();
   });
   await page.goto('/en');
@@ -160,7 +161,7 @@ test('failed image retries through shared loader; close stays usable while pendi
   await expect(page.getByText('The image could not load.', { exact: true })).toBeVisible();
   failed = false;
   await page.getByRole('button', { name: 'Retry', exact: true }).click();
-  await expect(page.locator('.charcoal-section--1 img[data-media-ready]')).toHaveCount(3);
+  await expect(page.locator('.charcoal-section--1 img[data-media-ready]')).toHaveCount(2);
   await expect(page.getByText('The image could not load.', { exact: true })).toHaveCount(0);
   await page.keyboard.press('Escape');
 });
@@ -189,13 +190,13 @@ test('narrow translated last-tile Retry stays fully usable', async ({ page }, in
   test.skip(info.project.name !== 'iphone-17-pro-webkit', 'One narrow translated mobile regression.');
   await page.setViewportSize({ width: 280, height: 600 });
   let failed = true;
-  await page.route('**/art/charcoal/3-2.webp', route => failed ? route.abort() : route.continue());
+  await page.route('**/art/charcoal/v2-3-1.webp', route => failed ? route.abort() : route.continue());
   await page.goto('/de');
   await page.locator('#fire-learn').scrollIntoViewIfNeeded();
   await page.waitForFunction(() => !document.querySelector('.page-media-overlay'));
   await page.locator('#fire-learn').click();
   const retry = page.getByRole('button', { name: 'Erneut versuchen', exact: true });
-  const failedTile=page.locator('#charcoal-viewer img[data-original="/art/charcoal/3-2.webp"]');
+  const failedTile=page.locator('#charcoal-viewer img[data-original="/art/charcoal/v2-3-1.webp"]');
   await expect(failedTile).toHaveAttribute('data-media-error','');
   const area=page.locator('.charcoal-viewer__scroll');await area.focus();
   await expect.poll(async()=>{await area.press('PageDown');await page.waitForTimeout(100);return retry.isVisible();},{timeout:15000,intervals:[100]}).toBe(true);
@@ -204,7 +205,7 @@ test('narrow translated last-tile Retry stays fully usable', async ({ page }, in
   await page.screenshot({ path: 'screenshots/charcoal/footer-correction/narrow-retry.png', scale: 'css' });
   failed = false;
   await retry.click();
-  await expect(page.locator('.charcoal-section--3 img[data-media-ready]')).toHaveCount(3);
+  await expect(page.locator('.charcoal-section--3 img[data-media-ready]')).toHaveCount(2);
   await expect(retry).toHaveCount(0);
   await page.locator('.charcoal-viewer__close').click();
   await expect(page.locator(dialogSelector)).not.toBeVisible();

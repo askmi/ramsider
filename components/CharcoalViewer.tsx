@@ -29,6 +29,8 @@ export function CharcoalViewer({ children, closeLabel, locale }: { children: Rea
       flushSync(() => setOpen(true));
       dialog.current?.showModal();
       scroller.current?.scrollTo({ top: 0, behavior: 'instant' });
+      // The scroll hook mounts before showModal; refresh retained errors after layout is visible.
+      document.dispatchEvent(new Event('media-state'));
     };
     const key = () => { keyboard.current = true; opener.current?.removeAttribute('data-pointer-return'); };
     const pointer = () => { keyboard.current = false; };

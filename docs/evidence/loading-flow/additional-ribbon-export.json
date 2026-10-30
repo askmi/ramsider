@@ -1,0 +1,255 @@
+{
+  "id": "CHG0182",
+  "recipe": "Native RGB source-exact tracked PNG reserves; Pillow lossless/exact WebP method6 quality100, original delivery sRGB ICC. Continuous full-plate Lanczos24/Gaussian.6 preview plane. No source resize or color transform.",
+  "rows": [
+    {
+      "src": "/art/charcoal/v2-1-0.webp",
+      "plate": 1,
+      "top": 0,
+      "bottom": 1800,
+      "width": 1080,
+      "sources": [
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/1-0.png",
+          "sha256": "f09507293ece1cdf097204916fa7911fa77ffa7078a0a44675516270fbd6aaee"
+        },
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/1-1.png",
+          "sha256": "3e5525e9259f739d94dabf89480b72aebe658f04d8361a407f42733dd99001ca"
+        },
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/1-2.png",
+          "sha256": "ccd23cbfd9781bed6c685d44d25be4dffa1ad10becbbbb6d7dfe1326c04bc2ad"
+        }
+      ],
+      "sourceProfileIntent": "UNKNOWN; preserve existing untagged browser-sRGB RGB numbers",
+      "iccSHA256": "f1165b86bec07c3c9d78805f06031379cd4e8a58ab61eef80b3d146ef89b173f",
+      "sha256": "1bafb9c720c2d94ecaaec3d425c07b01c74f35fb96c8ab471a01e8a4fc8a26a3",
+      "bytes": 1510604,
+      "decodedRGBAExact": true,
+      "alphaExact": true,
+      "maxChannelError": 0,
+      "previewSHA256": "d21f7742954a3e9e3b6505ff93370780c2425c7a934b84bea814215cf3a2bea2",
+      "previewBytes": 5646,
+      "previewDecodedExact": true
+    },
+    {
+      "src": "/art/charcoal/v2-1-1.webp",
+      "plate": 1,
+      "top": 1640,
+      "bottom": 2250,
+      "width": 1080,
+      "sources": [
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/1-0.png",
+          "sha256": "f09507293ece1cdf097204916fa7911fa77ffa7078a0a44675516270fbd6aaee"
+        },
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/1-1.png",
+          "sha256": "3e5525e9259f739d94dabf89480b72aebe658f04d8361a407f42733dd99001ca"
+        },
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/1-2.png",
+          "sha256": "ccd23cbfd9781bed6c685d44d25be4dffa1ad10becbbbb6d7dfe1326c04bc2ad"
+        }
+      ],
+      "sourceProfileIntent": "UNKNOWN; preserve existing untagged browser-sRGB RGB numbers",
+      "iccSHA256": "f1165b86bec07c3c9d78805f06031379cd4e8a58ab61eef80b3d146ef89b173f",
+      "sha256": "30ee8133218ef1f6e93a294f49530b516644385b2dd223bcb0df4b9bd6f61d25",
+      "bytes": 412508,
+      "decodedRGBAExact": true,
+      "alphaExact": true,
+      "maxChannelError": 0,
+      "previewSHA256": "d21f7742954a3e9e3b6505ff93370780c2425c7a934b84bea814215cf3a2bea2",
+      "previewBytes": 5646,
+      "previewDecodedExact": true
+    },
+    {
+      "src": "/art/charcoal/v2-2-0.webp",
+      "plate": 2,
+      "top": 0,
+      "bottom": 1650,
+      "width": 1080,
+      "sources": [
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/2-0.png",
+          "sha256": "239d3bbd93da0650b2095d80979dd433df7c42d30783e62787afd9e48137d5f3"
+        },
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/2-1.png",
+          "sha256": "f86194703e49126ddf96095d7dc8a97153a619dd0d9761009b7e3e7ded5f5d16"
+        },
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/2-2.png",
+          "sha256": "32b6b745e54fbc40523bcfabac278594586adc295d0b14e35ab411313010036a"
+        }
+      ],
+      "sourceProfileIntent": "UNKNOWN; preserve existing untagged browser-sRGB RGB numbers",
+      "iccSHA256": "f1165b86bec07c3c9d78805f06031379cd4e8a58ab61eef80b3d146ef89b173f",
+      "sha256": "a8e6022bfa1f1ef349c0263a3f44cefa3f5ba834d751cfcb5bb3164e4962c0e5",
+      "bytes": 1559932,
+      "decodedRGBAExact": true,
+      "alphaExact": true,
+      "maxChannelError": 0,
+      "previewSHA256": "d21f7742954a3e9e3b6505ff93370780c2425c7a934b84bea814215cf3a2bea2",
+      "previewBytes": 5646,
+      "previewDecodedExact": true
+    },
+    {
+      "src": "/art/charcoal/v2-2-1.webp",
+      "plate": 2,
+      "top": 1490,
+      "bottom": 2250,
+      "width": 1080,
+      "sources": [
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/2-0.png",
+          "sha256": "239d3bbd93da0650b2095d80979dd433df7c42d30783e62787afd9e48137d5f3"
+        },
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/2-1.png",
+          "sha256": "f86194703e49126ddf96095d7dc8a97153a619dd0d9761009b7e3e7ded5f5d16"
+        },
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/2-2.png",
+          "sha256": "32b6b745e54fbc40523bcfabac278594586adc295d0b14e35ab411313010036a"
+        }
+      ],
+      "sourceProfileIntent": "UNKNOWN; preserve existing untagged browser-sRGB RGB numbers",
+      "iccSHA256": "f1165b86bec07c3c9d78805f06031379cd4e8a58ab61eef80b3d146ef89b173f",
+      "sha256": "c24ff2a97e14a2a4b7fad653a9ac620d1f3daaf1b07b63a10f7bcbc09540ed7c",
+      "bytes": 516978,
+      "decodedRGBAExact": true,
+      "alphaExact": true,
+      "maxChannelError": 0,
+      "previewSHA256": "d21f7742954a3e9e3b6505ff93370780c2425c7a934b84bea814215cf3a2bea2",
+      "previewBytes": 5646,
+      "previewDecodedExact": true
+    },
+    {
+      "src": "/art/charcoal/v2-3-0.webp",
+      "plate": 3,
+      "top": 0,
+      "bottom": 1400,
+      "width": 1080,
+      "sources": [
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/3-0.png",
+          "sha256": "45ff2d45a21c3094396c4c0f5defe9eee762349f09374fcd03402a9b64b55f03"
+        },
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/3-1.png",
+          "sha256": "d6828152f6f7cf0627332c07890987be0c0ba4f56bae3fa21b093078ce8adcbb"
+        },
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/3-2.png",
+          "sha256": "e445331b2fcefea226bdf7e47587f02c19f7cb511fa03b853d48af15d203cc2c"
+        }
+      ],
+      "sourceProfileIntent": "UNKNOWN; preserve existing untagged browser-sRGB RGB numbers",
+      "iccSHA256": "f1165b86bec07c3c9d78805f06031379cd4e8a58ab61eef80b3d146ef89b173f",
+      "sha256": "8724bd1fa0eb01370bb78c41f8b462a598f45a7fbf4e4192230fe6338441e04e",
+      "bytes": 1363976,
+      "decodedRGBAExact": true,
+      "alphaExact": true,
+      "maxChannelError": 0,
+      "previewSHA256": "d21f7742954a3e9e3b6505ff93370780c2425c7a934b84bea814215cf3a2bea2",
+      "previewBytes": 5646,
+      "previewDecodedExact": true
+    },
+    {
+      "src": "/art/charcoal/v2-3-1.webp",
+      "plate": 3,
+      "top": 1240,
+      "bottom": 1900,
+      "width": 1080,
+      "sources": [
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/3-0.png",
+          "sha256": "45ff2d45a21c3094396c4c0f5defe9eee762349f09374fcd03402a9b64b55f03"
+        },
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/3-1.png",
+          "sha256": "d6828152f6f7cf0627332c07890987be0c0ba4f56bae3fa21b093078ce8adcbb"
+        },
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/3-2.png",
+          "sha256": "e445331b2fcefea226bdf7e47587f02c19f7cb511fa03b853d48af15d203cc2c"
+        }
+      ],
+      "sourceProfileIntent": "UNKNOWN; preserve existing untagged browser-sRGB RGB numbers",
+      "iccSHA256": "f1165b86bec07c3c9d78805f06031379cd4e8a58ab61eef80b3d146ef89b173f",
+      "sha256": "78fc139372243565e0b27a4e01919b61d1885c4d9b6663c5109e143cd14788a9",
+      "bytes": 456138,
+      "decodedRGBAExact": true,
+      "alphaExact": true,
+      "maxChannelError": 0,
+      "previewSHA256": "d21f7742954a3e9e3b6505ff93370780c2425c7a934b84bea814215cf3a2bea2",
+      "previewBytes": 5646,
+      "previewDecodedExact": true
+    },
+    {
+      "src": "/art/charcoal/v2-4-0.webp",
+      "plate": 4,
+      "top": 0,
+      "bottom": 1600,
+      "width": 1080,
+      "sources": [
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/4-0.png",
+          "sha256": "b6c7b3442bb0efd4fccad84b3d8220bc53d52c0266f76c1edfc0d05fa770657a"
+        },
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/4-1.png",
+          "sha256": "c8003997c3808f915a920352dd1ef1fbc2ae17db151db1a288fd5ce378f10c74"
+        },
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/4-2.png",
+          "sha256": "38e66a608e5f9d41de2cfa5eca30b9ff875493d61ee5f93595459d301341a5f8"
+        }
+      ],
+      "sourceProfileIntent": "UNKNOWN; preserve existing untagged browser-sRGB RGB numbers",
+      "iccSHA256": "f1165b86bec07c3c9d78805f06031379cd4e8a58ab61eef80b3d146ef89b173f",
+      "sha256": "c3ed0551c3d2611c0ac8e42d6fe2c6db9c4c898807610af87555558d061738c7",
+      "bytes": 1668994,
+      "decodedRGBAExact": true,
+      "alphaExact": true,
+      "maxChannelError": 0,
+      "previewSHA256": "d21f7742954a3e9e3b6505ff93370780c2425c7a934b84bea814215cf3a2bea2",
+      "previewBytes": 5646,
+      "previewDecodedExact": true
+    },
+    {
+      "src": "/art/charcoal/v2-4-1.webp",
+      "plate": 4,
+      "top": 1440,
+      "bottom": 2150,
+      "width": 1080,
+      "sources": [
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/4-0.png",
+          "sha256": "b6c7b3442bb0efd4fccad84b3d8220bc53d52c0266f76c1edfc0d05fa770657a"
+        },
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/4-1.png",
+          "sha256": "c8003997c3808f915a920352dd1ef1fbc2ae17db151db1a288fd5ce378f10c74"
+        },
+        {
+          "path": "design/derived/lossless-originals/art/charcoal/4-2.png",
+          "sha256": "38e66a608e5f9d41de2cfa5eca30b9ff875493d61ee5f93595459d301341a5f8"
+        }
+      ],
+      "sourceProfileIntent": "UNKNOWN; preserve existing untagged browser-sRGB RGB numbers",
+      "iccSHA256": "f1165b86bec07c3c9d78805f06031379cd4e8a58ab61eef80b3d146ef89b173f",
+      "sha256": "0514059de92e9255da9ab81cd23e703fb503808390d297a76df62bbc48e842e7",
+      "bytes": 471812,
+      "decodedRGBAExact": true,
+      "alphaExact": true,
+      "maxChannelError": 0,
+      "previewSHA256": "d21f7742954a3e9e3b6505ff93370780c2425c7a934b84bea814215cf3a2bea2",
+      "previewBytes": 5646,
+      "previewDecodedExact": true
+    }
+  ],
+  "totalBytes": 7960942
+}

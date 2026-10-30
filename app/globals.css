@@ -347,7 +347,15 @@ html:has(#charcoal-viewer[open]),body:has(#charcoal-viewer[open]){background:var
 .charcoal-section{position:relative;display:grid;grid-template-areas:"section";min-height:calc(var(--art-height)/1080*100cqw);background-color:var(--charcoal-chrome-bg);background-size:100% 1px;background-repeat:repeat-y}
 .charcoal-art{display:block;width:100%;height:auto;pointer-events:none;transform:translateZ(0)}
 .charcoal-tile{position:absolute;inset-inline:0;width:100%}
+.charcoal-tile--fade{-webkit-mask-image:linear-gradient(to bottom,transparent,black calc(160/1080*100cqw));mask-image:linear-gradient(to bottom,transparent,black calc(160/1080*100cqw))}
 .charcoal-tile__image{position:absolute;inset:0}
+/* Fade sharp texture into its preview only while the neighboring section is pending. */
+.charcoal-tile__preview{position:absolute;inset-inline:0;top:0;width:100%;background-size:100% 100%}
+/* These previews are already blurred in one source plane; CSS blur creates transparent edge fringes. */
+.charcoal-art.media-preview{opacity:0;filter:none;clip-path:none}
+html[data-media-hydrated] .charcoal-section:has(+ .charcoal-section .charcoal-tile:first-child .media-preview) .charcoal-tile:last-child .charcoal-art[data-media-ready]{-webkit-mask-image:linear-gradient(to bottom,black calc(100% - 160/1080*100cqw),transparent);mask-image:linear-gradient(to bottom,black calc(100% - 160/1080*100cqw),transparent)}
+html[data-media-hydrated] .charcoal-section:has(.charcoal-tile:last-child .media-preview)+.charcoal-section .charcoal-tile:first-child .charcoal-art[data-media-ready]{-webkit-mask-image:linear-gradient(to bottom,transparent,black calc(160/1080*100cqw));mask-image:linear-gradient(to bottom,transparent,black calc(160/1080*100cqw))}
+
 .charcoal-section--4 .charcoal-tile:last-child .charcoal-tile__image{overflow:clip}
 .charcoal-art-host{position:relative;grid-area:section;align-self:start;width:100%;z-index:auto;pointer-events:none}
 .charcoal-copy{grid-area:section;align-self:start;padding-block-end:calc(125/1080*100cqw);padding-block-start:calc(var(--copy-top)/1080*100cqw);margin-inline:calc(68/1080*100cqw);position:relative;z-index:2}

@@ -1,0 +1,42 @@
+{
+  "id": "CHG0182",
+  "scope": "additional scroll article loading only",
+  "inventory": {
+    "charcoal": {
+      "plates": 4,
+      "oldInternalCutsPerPlate": [
+        750,
+        1500
+      ],
+      "newCuts": [
+        1800,
+        1650,
+        1400,
+        1600
+      ],
+      "overlap": 160,
+      "method": "Upper crop ends at cut; lower starts cut-160 and fades across identical source rows. All8 previews reference the same full24x190/8550-row tiny plane; background layers use exact1080-source scale and source offset, without independent crop interpolation or CSSblur. All overlap intervals are below subjects on paper. Original section geometry/copy retained.",
+      "sectionBlend": "Preview underlay plus conditional ready-image160px feather toward a pending neighbor. All4 plates share one tiny preview plane; ready/ready has no extra mask and retains full texture."
+    },
+    "wellness": {
+      "photos": 4,
+      "source": "four whole 1024x1536 approved photos",
+      "internalCuts": 0,
+      "method": "verify every photo top/bottom pending, ready and error; preserve intentional photo-to-copy rectangular frame, object-position/cover and ready design"
+    },
+    "technology": {
+      "slides": 23,
+      "type": "discrete retained slide viewer; no adjacent loading blocks",
+      "method": "verify navigation still retains complete prior slide; no recut"
+    },
+    "other": "main story/FAQ already CHG0179; single footer paper/document/thumb assets have no internal loading cut. ProductFilm excluded, no video changes."
+  },
+  "acceptance": [
+    "Native source pixels/ICC/alpha preserved losslessly; masters unchanged",
+    "Settled browser image/layout equivalent to previous main at Pro/Max",
+    "All four internal charcoal cuts and three section joins: ready, upper-preview, lower-preview, both-preview in real WebKit Pro/Max; wide and RTL adaptation",
+    "Wellness complete photos, edges and corresponding mixed readiness states checked",
+    "Retry, close/reopen, scroll and end access remain usable; video sources untouched",
+    "Build/type/site lint, native actual-diff review, measured synthetic performance and independent gates"
+  ]
+}

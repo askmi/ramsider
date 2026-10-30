@@ -11,7 +11,7 @@ for(const [name,width,height]of [['pro',402,874],['max',440,956]]){
  await page.goto('http://127.0.0.1:3070/en');await page.evaluate(()=>document.fonts.ready);
  await page.locator('#fire-learn').scrollIntoViewIfNeeded();await page.waitForFunction(()=>!document.querySelector('.page-media-overlay'));
  await page.screenshot({path:`screenshots/charcoal/${name}-landing.png`,scale:'css'});
- await page.locator('#fire-learn').click();await page.waitForFunction(()=>document.querySelectorAll('.charcoal-art[data-charcoal-ready=true]').length===12);
+ await page.locator('#fire-learn').click();await page.waitForFunction(()=>document.querySelectorAll('.charcoal-art[data-media-ready]').length===8);
  await page.evaluate(()=>document.fonts.ready);
  const comparisons=[];
  const blocks=await page.locator('.charcoal-section').evaluateAll(es=>es.map(e=>({top:e.offsetTop,height:e.getBoundingClientRect().height})));

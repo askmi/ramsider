@@ -11,7 +11,7 @@ test('distributor launch copy fits the reflection gap and preserves existing con
   await page.evaluate(() => document.fonts.ready);
   await waitForVisibleMedia(page);
   await page.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; });
-  const dir = `screenshots/distributor-uniform/${process.env.LAUNCH_PUBLIC ? 'public' : 'local'}`;
+  const dir = `screenshots/distributor-spacing/${process.env.LAUNCH_PUBLIC ? 'public' : 'local'}`;
   await mkdir(dir, { recursive: true });
   const section = page.locator('#distributor-launch');
   await expect(section).toHaveAccessibleName('Distributor Orders & Pre-Orders');
@@ -49,6 +49,7 @@ test('distributor launch copy fits the reflection gap and preserves existing con
           return { font: style.fontFamily, weight: style.fontWeight,
             typography: [style.fontFamily, style.fontSize, style.fontWeight, style.fontStyle, style.lineHeight, style.color, style.letterSpacing],
             fits: line.scrollWidth <= line.clientWidth + 1,
+            top: line.getBoundingClientRect().top, bottom: line.getBoundingClientRect().bottom,
             height: line.getBoundingClientRect().height, lineHeight: parseFloat(style.lineHeight) };
         }),
       };
@@ -64,6 +65,9 @@ test('distributor launch copy fits the reflection gap and preserves existing con
     }
     expect(geometry.lines.map(line => line.weight)).toEqual(['400', '400', '400']);
     for (const line of geometry.lines) expect(line.typography).toEqual(geometry.lines[0].typography);
+    const gaps = [geometry.lines[1].top - geometry.lines[0].bottom, geometry.lines[2].top - geometry.lines[1].bottom];
+    expect(gaps[0]).toBeGreaterThan(0);
+    expect(Math.abs(gaps[0] - gaps[1])).toBeLessThan(.1);
     await page.screenshot({ path: `${dir}/${info.project.name}-${viewport.width}.png`, scale: 'css' });
     if (viewport === initial) {
       await section.evaluate(el => {

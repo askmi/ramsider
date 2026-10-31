@@ -325,7 +325,6 @@ export function Story({ locale }: { locale: Locale }) {
         <OverlayNode node={node} locale={locale} />
         {node.id === 'hero-reserve' && <section id="distributor-launch" className="distributor-launch" style={sourceStyle(75, 1730, 790)} aria-labelledby="distributor-launch-title">
           <p className="distributor-launch__heritage">{t(locale, 'developmentHeritage')}</p>
-          <span className="distributor-launch__rule" aria-hidden="true" />
           <h2 id="distributor-launch-title">{t(locale, 'distributorOrders')}</h2>
           <p className="distributor-launch__date">{t(locale, 'distributorLaunch')}</p>
         </section>}

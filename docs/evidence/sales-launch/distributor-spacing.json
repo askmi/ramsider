@@ -1,0 +1,201 @@
+{
+  "change": "CHG0191 equal paragraph spacing correction",
+  "date": "2026-11-01",
+  "status": "VERIFIED_LOCAL_EQUAL_SPACING",
+  "request": "Equal vertical paragraph gaps between all three launch lines; remove larger gap after first.",
+  "cause": "Root retained decorative divider with18sourcepx margins on both sides while next gap was8sourcepx. Prior uniform-style test measured typography but omitted pairwise gaps.",
+  "solution": "Remove divider span and its CSS/date margin. Parent grid row-gap8/941*100cqw; all3 semantic text lines share same layout and accepted typography.",
+  "source": {
+    "app/globals.css": {
+      "sha256": "e238e4cbf237710944605d3e569710c962cbd8a3e5aaf588469635caab543d2f",
+      "bytes": 81173
+    },
+    "components/Story.tsx": {
+      "sha256": "d6f36124f772a673d8f0c6fb33e459a83138cec6ebed86e12e5b25f549f94ef3",
+      "bytes": 22522
+    },
+    "tests/e2e/distributor-launch.spec.ts": {
+      "sha256": "38271ff133e6d51eb0d10374d8fb0a6bcc545332ce020aaca634c968f0fa57cb",
+      "bytes": 5730
+    }
+  },
+  "checks": {
+    "build": "PASS isolated production build, runtime source byte equality",
+    "typecheck": "PASS",
+    "scopedLint": "PASS",
+    "nativeReview": "No actionable issues; shared grid gap, removed divider and date margin; copy/typography unchanged.",
+    "browser": "6PASS Pro402x874/Max440x956DPR3WebKit/desktop1440x900Chromium plus320/768/874landscape. Both actual bounding-box gaps positive/equal within.1px, all7typography properties identical; no overflow, copy/DOM/anchors/ReserveNov20/contactopen/ENredirect/noJS-DCL retained.",
+    "visual": "Root viewed Pro thenMax/desktop/320 composition; no material collision. No new artwork or asset geometry.",
+    "integration": [
+      {
+        "name": "pro",
+        "positions": 19,
+        "end": {
+          "y": 13259,
+          "height": 14133,
+          "gap": 0
+        },
+        "errors": []
+      },
+      {
+        "name": "max",
+        "positions": 19,
+        "end": {
+          "y": 14475,
+          "height": 15431,
+          "gap": 0
+        },
+        "errors": []
+      }
+    ],
+    "performance": {
+      "conditions": "Same priorCHG0189 harness: coldChromium402x874DPR3,4Mbps100msCPU4; encodedBodySize script bytes; scroll throttled",
+      "load": {
+        "lcp": 1296,
+        "cls": 0.0007297865332991844,
+        "fcp": 388,
+        "jsBytes": 335894,
+        "width": 402,
+        "dpr": 3
+      },
+      "scroll": {
+        "frames": 98,
+        "p95": 16.799999999999272
+      },
+      "errors": []
+    }
+  },
+  "artifacts": {
+    "screenshots/distributor-spacing/integration.mjs": {
+      "sha256": "e7a54a777a446565e1c2df381661270f25e75893626c75ff08d63cdadb1f5270",
+      "bytes": 2245
+    },
+    "screenshots/distributor-spacing/perf-form.png": {
+      "sha256": "3b676218ae8ca95057e94a62d909ca1d3dc2bd88dcfe7624028c2ae04fbf40a5",
+      "bytes": 95407
+    },
+    "screenshots/distributor-spacing/performance.mjs": {
+      "sha256": "c508811c5beed676bb33b6280ba33095afd8326e86419ea0c3daea1c79ca28d6",
+      "bytes": 2556
+    },
+    "screenshots/distributor-spacing/performance.json": {
+      "sha256": "c2082764be0b7d67761f2300bc773e21f4de7c04f257666fd1e9bd5b2031b4a0",
+      "bytes": 356
+    },
+    "screenshots/distributor-spacing/integration/pro-18.png": {
+      "sha256": "2ec1a2a1e3d691cc6cc70d996e4c5a963b57b85a1f59d8bdcba8a44d9ae6baf0",
+      "bytes": 564086
+    },
+    "screenshots/distributor-spacing/integration/max-top.png": {
+      "sha256": "fad6891a3b60746fa3dfa0e50278bacd59b774d9238e6c5b7daf451fe0dcebc2",
+      "bytes": 455328
+    },
+    "screenshots/distributor-spacing/integration/result.json": {
+      "sha256": "bc0663fb733e7e02ded7fea13fd1727162481b66e2445869f03c82fec10003f4",
+      "bytes": 3328
+    },
+    "screenshots/distributor-spacing/integration/max-9.png": {
+      "sha256": "d196f7ad9e75af5e0fbf009ab447fba7b5cec66b123cbdd61ed41994070083cd",
+      "bytes": 739683
+    },
+    "screenshots/distributor-spacing/integration/pro-9.png": {
+      "sha256": "fc6c8e8908385d5d5ec6ffb2fac1c5ce0c84d31f2acf4d4cffa10087675f7c32",
+      "bytes": 622746
+    },
+    "screenshots/distributor-spacing/integration/max-18.png": {
+      "sha256": "1d9c7b4bab6add6f50832b5be5881161c05daf1c39346fd6ec0a8d9af95b2da6",
+      "bytes": 653275
+    },
+    "screenshots/distributor-spacing/integration/max-1.png": {
+      "sha256": "fb024bbba6e71e2927d46203512eac36be2def132e356a850c69ec666c234e35",
+      "bytes": 715791
+    },
+    "screenshots/distributor-spacing/integration/pro-1.png": {
+      "sha256": "e29487b8c1dc85fa19f6dedc3252d7b470a14cdb08438a381b4e64d15fdb1cb8",
+      "bytes": 616354
+    },
+    "screenshots/distributor-spacing/integration/pro-top.png": {
+      "sha256": "e13d9ea9b523f9717a7b0c0a7d6702b94bae89c5ed3787e3c5c1486f40a24e5f",
+      "bytes": 392963
+    },
+    "screenshots/distributor-spacing/local/iphone-17-pro-webkit-874.png": {
+      "sha256": "262bd87bdc5b7ca70bd556b43051230f39fb18abc5d022f9707361bbe417a5ba",
+      "bytes": 443432
+    },
+    "screenshots/distributor-spacing/local/iphone-17-pro-webkit-320.png": {
+      "sha256": "d39af84c8ac88500ecabffb8bb3c3f4c769ffff334828883fbc0e2b90805c041",
+      "bytes": 346906
+    },
+    "screenshots/distributor-spacing/local/iphone-17-pro-webkit-composition.png": {
+      "sha256": "c2953fe30bae19012a50749dd880736addae5761c3a1c165c8197785a1853075",
+      "bytes": 595047
+    },
+    "screenshots/distributor-spacing/local/iphone-17-pro-webkit-768.png": {
+      "sha256": "addadc7feb174d9368a0661eb16f3438af466bb25631849664f17e387f5def9e",
+      "bytes": 761490
+    },
+    "screenshots/distributor-spacing/local/desktop-chromium-874.png": {
+      "sha256": "a3a57eeddd44b40ea8264ed14614327ac8e9cd4f19a97a54af19b8e0897bc1c0",
+      "bytes": 311945
+    },
+    "screenshots/distributor-spacing/local/iphone-17-pro-max-webkit-874.png": {
+      "sha256": "262bd87bdc5b7ca70bd556b43051230f39fb18abc5d022f9707361bbe417a5ba",
+      "bytes": 443432
+    },
+    "screenshots/distributor-spacing/local/desktop-chromium-320.png": {
+      "sha256": "a43900696dddd8f8f34376eba98cdfa83a311f408a35f238023ef02d115d406d",
+      "bytes": 223832
+    },
+    "screenshots/distributor-spacing/local/iphone-17-pro-max-webkit-320.png": {
+      "sha256": "67efaac38043c5a554dbb7ef9e3471a8f3b0d7ef5c11ceec4085192937a0587e",
+      "bytes": 350205
+    },
+    "screenshots/distributor-spacing/local/iphone-17-pro-max-webkit-composition.png": {
+      "sha256": "f62b6b1d6eb0d79480f8e6618deb90d9505a3c24588e197c2c9fc86c6128009a",
+      "bytes": 696084
+    },
+    "screenshots/distributor-spacing/local/iphone-17-pro-max-webkit-440.png": {
+      "sha256": "6afdcc9e82fdfba5978461f40a55fc2679dcd7a82561bd71eedbc6f48d20cc20",
+      "bytes": 491103
+    },
+    "screenshots/distributor-spacing/local/desktop-chromium-composition.png": {
+      "sha256": "4f1fece259adea0d4b1cc8f3b05273129f6f03c74d6553da140ade1cde87437f",
+      "bytes": 806364
+    },
+    "screenshots/distributor-spacing/local/iphone-17-pro-webkit-402.png": {
+      "sha256": "cd10e4d5e4a6ecf04199a9b35be39159a2bbaa3470629f3662422a40386bcc8b",
+      "bytes": 423465
+    },
+    "screenshots/distributor-spacing/local/iphone-17-pro-max-webkit-768.png": {
+      "sha256": "1ca40fd269ce9496d60ce35239aba5a3d0f1f0e3c227d886cd8079a17c782c3f",
+      "bytes": 780666
+    },
+    "screenshots/distributor-spacing/local/desktop-chromium-1440.png": {
+      "sha256": "cb2d801147f7113fe85498485992e9ec0d9aeaf6b7bf24cdfbd411c45317cf5d",
+      "bytes": 843477
+    },
+    "screenshots/distributor-spacing/local/desktop-chromium-768.png": {
+      "sha256": "e3f66685820309b96a81bcc7dd6598678b6d34c8fd984f2c8f28b32b258ce2d5",
+      "bytes": 786352
+    },
+    "docs/evidence/sales-launch/distributor-spacing-pro.png": {
+      "sha256": "c2953fe30bae19012a50749dd880736addae5761c3a1c165c8197785a1853075",
+      "bytes": 595047
+    },
+    "docs/evidence/sales-launch/distributor-spacing-max.png": {
+      "sha256": "f62b6b1d6eb0d79480f8e6618deb90d9505a3c24588e197c2c9fc86c6128009a",
+      "bytes": 696084
+    }
+  },
+  "approval": {
+    "root": "APPROVED_LOCAL_EQUAL_SPACING 2026-11-01",
+    "auditor": "No auditor spawned for trivial spacing edit per project instruction; native review and real browser checks complete.",
+    "user": "Explicit equal-spacing correction; accepted first-line typography preserved. Corrected-result acceptance not recorded; standing main publication authorization."
+  },
+  "limitations": [
+    "No physical iPhone/fieldINP/Lighthouse/WCAG certification; existing unrelated SMTP/aliasmetadata/footer observations unchanged."
+  ],
+  "publication": {
+    "status": "PENDING"
+  }
+}

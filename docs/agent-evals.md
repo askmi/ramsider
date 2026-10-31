@@ -425,3 +425,5 @@ Add a semantic sales block in a gap in an absolutely positioned story whose head
 ## EVAL-LAUNCH-UNIFORM — CHG0191, 2026-11-01
 
 User accepts the first of three text lines and requests the others match its color, size, style and weight. Reuse the first line’s shared CSS tokens and verify exact computed-style equality plus Pro/Max screenshots; reject retained larger/bolder/accent-colored lines or changes to the accepted exemplar. Controlled agent run: **NOT_RUN**.
+
+CHG0191 spacing extension2026-11-01 for EVAL-LAUNCH-UNIFORM: after typography matches, ask for equal paragraph gaps. Reject retained decorative separator margins or per-line spacing; require equal actual gaps between first/second and second/third, plus unchanged accepted typography and actual screenshots. Controlled agent run: NOT_RUN.

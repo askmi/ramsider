@@ -178,10 +178,10 @@ test('element fullscreen rejection reports error without switching player modes'
 
 });
 
-test('unadapted mobile WebKit never substitutes full-window when fullscreen is unavailable', async ({ page }, info) => {
+test('native URL rollback reports unavailable fullscreen without substituting window mode', async ({ page }, info) => {
   test.skip(!info.project.name.includes('iphone'), 'Real mobile WebKit capability path, no layout adapter');
   await silenceTestMedia(page);
-  await page.goto('/en');
+  await page.goto('/en?iphonePlayer=native');
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click();
   await page.locator('.film-gallery__hero').click();

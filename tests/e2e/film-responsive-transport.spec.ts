@@ -15,6 +15,7 @@ for (const locale of ['en', 'ar'] as const) {
     const portrait = max ? { width: 440, height: 956 } : { width: 402, height: 874 };
     const landscape = { width: portrait.height, height: portrait.width };
     await page.goto(`/${locale}`);
+    test.skip(locale === 'ar' && new URL(page.url()).pathname === '/en', 'Arabic runtime disabled by English-only presentation');
     await page.locator('#film-play').scrollIntoViewIfNeeded();
     await page.waitForTimeout(1500); // Let the lazily hydrated gallery attach its click handler.
     await page.locator('#film-play').click();
@@ -114,10 +115,13 @@ test('reported Evolution frame fills the landscape player with a single transpor
   await video.evaluate(v => { const m = v as HTMLVideoElement; m.currentTime = 74; });
   await expect.poll(() => video.evaluate(v => !(v as HTMLVideoElement).seeking && (v as HTMLVideoElement).readyState >= 2), { timeout: 30000 }).toBe(true);
   await video.evaluate(v => (v as HTMLVideoElement).pause());
+  await expect(page.locator('#film-player')).toHaveAttribute('data-full-window', 'true');
+  await page.locator('.film-fullscreen').click();
+  await expect(page.locator('#film-player')).not.toHaveAttribute('data-full-window');
   await page.locator('.film-fullscreen').click();
   await expect(page.locator('#film-player')).toHaveAttribute('data-element-fullscreen', 'true');
-  await expect(video).toHaveCSS('object-fit', 'contain');
-  const box = await video.boundingBox(); expect(box!.width).toBe(viewport.width); expect(box!.height).toBeCloseTo(viewport.width * 9 / 16, 0);
+  await expect(video).toHaveCSS('object-fit', 'cover');
+  const box = await video.boundingBox(); expect(box!.width).toBe(viewport.width); expect(box!.height).toBeGreaterThan(viewport.height);
   const seek = await page.locator('.film-seek').boundingBox(), play = await page.locator('.film-play-toggle').boundingBox();
   expect(Math.abs(seek!.y - play!.y)).toBeLessThanOrEqual(2);
   await page.evaluate(() => document.fonts.ready);

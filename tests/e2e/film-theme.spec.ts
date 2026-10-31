@@ -55,7 +55,7 @@ test('both themes cover every player surface and inline controls do not overlap 
     await page.screenshot({path:`screenshots/video/theme/${info.project.name}-${theme}-list.png`});
     await page.locator('.film-player__list-toggle').click();
     for(const fullscreen of [false,true]) {
-      if(fullscreen){await page.setViewportSize({width:844,height:390});await page.locator('.film-fullscreen').click();}
+      if(fullscreen){await page.setViewportSize({width:844,height:390});await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));if(!await page.locator('#film-player').getAttribute('data-full-window'))await page.locator('.film-fullscreen').click();}
       await chrome(page,ink);
       await page.locator('#film-settings-toggle').click();await expect(page.locator('#film-options-menu')).not.toHaveAttribute('hidden');
       await expect.poll(()=>page.locator('#film-options-menu').evaluate(el=>getComputedStyle(el).opacity)).toBe('1');

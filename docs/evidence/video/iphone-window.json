@@ -1,0 +1,643 @@
+{
+  "change": "CHG0186",
+  "date": "2026-10-30",
+  "status": "VERIFIED_LOCAL_WEB / PHYSICAL_IPHONE_BLOCKED / NOT_PUBLISHED",
+  "scope": "Local iPhone full-window option enabled; existing native path retained. No publication.",
+  "settings": {
+    "default": "window",
+    "URLRollback": "?iphonePlayer=native",
+    "URLOptIn": "?iphonePlayer=window",
+    "liveNativeAction": "Settings → Open Native Player",
+    "globalRollback": "lib/film-presentation.ts iphonePlayerDefault = native; rebuild/deploy required for site-wide default"
+  },
+  "geometry": {
+    "sourceUnchanged": true,
+    "Evolution": "uniform cover, 720/526 element height, translateY(-50.138889%); intentional edge crop including ending; window mode only",
+    "modesUnchanged": "Native Apple framing; Android/desktop existing fullscreen",
+    "visibleViewport": "100dvw x 100dvh; Safari/OS panels not programmatically hidden"
+  },
+  "sources": [
+    {
+      "path": "components/FilmControls.tsx",
+      "sha256": "65594ad9e0238e0fba5ffccc638217bd15cd737c6c955ac8d8df21890671ac82",
+      "reviewSnapshotMatches": true
+    },
+    {
+      "path": "app/globals.css",
+      "sha256": "8e50f374ef4a16ad4041e52e139a7fe42d50b7e12a8d93dda3a002b0de3da1cc",
+      "reviewSnapshotMatches": true
+    },
+    {
+      "path": "lib/film-controls-copy.ts",
+      "sha256": "bf03666e437bb19ba1c89d7c09f4e218aa64dec88356b8e2b6817db9c2797be5",
+      "reviewSnapshotMatches": true
+    },
+    {
+      "path": "lib/film-presentation.ts",
+      "sha256": "401ddebd927a7a90f0896b0154f55ee6658b0f9f14636c59c94437c66630e84b",
+      "reviewSnapshotMatches": true
+    },
+    {
+      "path": "tests/e2e/film-iphone-window.spec.ts",
+      "sha256": "be77882b349ec7e67949fe7202be084fca58368f151884de1d74241b65077972",
+      "reviewSnapshotMatches": true
+    },
+    {
+      "path": "tests/e2e/film-evolution.spec.ts",
+      "sha256": "785153149a19d6ce2ce7ac74365a96e47f94fac630fb1243679fe0c79806aadd",
+      "reviewSnapshotMatches": true
+    },
+    {
+      "path": "tests/e2e/film-native-fullscreen.spec.ts",
+      "sha256": "dd1a4d2d76cd18667a9a8c37627975a3c7928741537b3ab2ab489b78937efedc",
+      "reviewSnapshotMatches": true
+    },
+    {
+      "path": "tests/e2e/film-options.spec.ts",
+      "sha256": "d99f650c7c5903740218e47fcd9215f85e57c6a3090ed4fabb0e825d4d9f5d8c",
+      "reviewSnapshotMatches": true
+    },
+    {
+      "path": "tests/e2e/film-presentation-routing.spec.ts",
+      "sha256": "f35229befee963cb465e7909c5188424d9acdf1d86ce1a92b94cc9509a68b822",
+      "reviewSnapshotMatches": true
+    }
+  ],
+  "review": {
+    "1": "CSS specificity P1 and PiP return P2 fixed",
+    "2": "HISTORICAL CLEAN before focus correction",
+    "3": "HISTORICAL CLEAN before safe-area menu correction",
+    "4": "CLEAN before row-layout correction",
+    "5": "CLEAN exact final9 runtime/test files; static review in isolated snapshot, real browser tests in workspace"
+  },
+  "checks": {
+    "build6": "PASS",
+    "typecheck5": "PASS",
+    "siteLint5": "0 errors, 4 inherited ProductFilm warnings",
+    "cleanBuild5Regression": "HISTORICAL 63PASS64profileSKIP2FAIL: safe-area menu/row failures repaired and final7 passing",
+    "final6": "HISTORICAL 15PASS1SKIP2FAIL: landscape row overflow, superseded by final7",
+    "affected6": "HISTORICAL 8PASS1SKIP0FAIL, repeated affected7",
+    "build7": "PASS",
+    "typecheck7": "PASS",
+    "siteLint7": "0 errors, 4 inherited warnings",
+    "final7": "17PASS1intentionalSKIP0FAIL",
+    "affected7": "8PASS1intentionalSKIP0FAIL",
+    "build6History": "15PASS1SKIP2FAIL, safe portrait hit repaired; landscape row overflow repaired and final7 PASS"
+  },
+  "limitations": [
+    "Physical Safari/iPhone unavailable; xcrun simctl unavailable, CLT only.",
+    "Native API adapters prove calls/lifecycle, not Apple fullscreen pixels.",
+    "Android UA Chromium is emulation, not physical Android.",
+    "Field INP/Lighthouse/controlled agent eval NOT_RUN.",
+    "Unrelated CHG0180/0181/0185 remain open; full-repo lint not claimed passed."
+  ],
+  "verifiedDate": "2026-10-31",
+  "menuSafeAreaFix": "Measured transport/header popup anchor; row auto width/stretch resolves slotted percentage overflow under horizontal safe padding",
+  "auditor": {
+    "agent": "/root/audit",
+    "scope": "PASS2026-10-30",
+    "visual": "PASS LOCAL_WEB2026-10-31; final4safe screenshots and prior all7/10/109 compared",
+    "behavior": "PASS LOCAL_WEB2026-10-31; final17+affected8PASS, native adapters and Android UA retained",
+    "reviewPerformance": "PASS LOCAL_WEB2026-10-31; nine exact source hashes, final native5, build/type/lint/performance checked",
+    "integration": "PASS2026-10-31; actual18positions each Pro/Max overflow0/endGap0/errors0 and footer images viewed",
+    "finalRecords": "PASS LOCAL_WEB_ONLY /root/audit2026-10-31 after one stale topic sentence repair; nine bindings unchanged"
+  },
+  "screenshots": [
+    {
+      "path": "screenshots/video/iphone-window/android-real-element.png",
+      "sha256": "3984bb35319edfc816073b7c4695a20d453640789793178b8bbe1738b88c7d4b"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-440x650-10.png",
+      "sha256": "af77e1ea759f34cded3be0339bf53307d067749cfaebcb76da5dbb1ea67fc35f"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-440x650-109.png",
+      "sha256": "2b26b7d3c58d104d533ae2aeaf267876715a80ede4770cb5a3ed2e967ae0f2c5"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-440x956-10.png",
+      "sha256": "a9da9353a0af53ce0d1d78d8a61d9eb69cadb399a65c6893d2cc066d6606d7b5"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-440x956-109.png",
+      "sha256": "ff271ced1ab14cac431a5b6829e14a541c0fae8c9e41a3046d0b6e8efc31422c"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-956x350-10.png",
+      "sha256": "fd0d8ee767c37d7d8eeabe6bd27aac768acbfc60ee17cba62c530bbd2912554d"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-956x350-109.png",
+      "sha256": "1b04da3b173f36138518cf8aec11846362bbe85e5d725a5ccf84f57d3bd3a405"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-956x440-10.png",
+      "sha256": "402d1a3154cf13d0dba76b68a144568bf7612d0c57ef6c387a7201cfa37445b1"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-956x440-109.png",
+      "sha256": "414a2409c1db820ebb0800dc1d295ae5c9e1d1390917230f8c79cd1a732b703c"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-ar-end.png",
+      "sha256": "269591a18e1828afed4b720d06b7d40d627e817b64658d980d4afecc761c9287"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-film1.png",
+      "sha256": "3f605fc47416629057b8e94d6e2bcec83f08ceec61021ea92e41810015fec9a9"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-film2.png",
+      "sha256": "f16db92f8a575eaed5c3afd3c67945f5b5e3d6b84e903d039e13b711607950f7"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-film3.png",
+      "sha256": "8d35219d5fbc4f23676e8571a8b1a8f089bc1bdd6103f84f43f30280bd9405df"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-film4.png",
+      "sha256": "b29d4e0b2ed06f585c5761bb417a7d287fa2e3d1ebc6b8c9c21d8c8a1508bbcb"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-film5.png",
+      "sha256": "ed49fdc7b25a1e7cc42af9e8721b2896fad495a5d3f12d4d918ead88cee10403"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-film6.png",
+      "sha256": "6241074fcbeea74fe73f79c58fc6d796ca524192c8cc4fae824ae100a3171b31"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-film7.png",
+      "sha256": "dc79e6485d4460cbb971d18d6e8eb2b29ce3382c7ddb4bc4a890790a9fb5fd2e"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-native-menu.png",
+      "sha256": "e0a6012cd4b7e202b37ce57719a057a4ca80991fea2bda66673ce51cc3d4f17c"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-safe-440x650.png",
+      "sha256": "fb749f96624716b509cccc52137a66a6fd673b530c79d47358e28f9d4cbee907"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-safe-956x350.png",
+      "sha256": "5107d79ca9b3f2ca5119c150d3e61d99820d18aad1a1e14bdd9dca595090cc80"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-390x844-10.png",
+      "sha256": "95f502342d9452f23cc687125fba4f55205ee60498ac1c6dc3572b0dd359b248"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-390x844-109.png",
+      "sha256": "bc4ff22393d24caf670f7417cf01215d91568380c594d37c291116b27903bf53"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-402x650-10.png",
+      "sha256": "1796b0c2b94979b9b530dfaa429aa5dcc5b3f4a454d12509de2ff2393ec52873"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-402x650-109.png",
+      "sha256": "bfbdaa3a6c0b8708049c633f21ca7e1e52db6c570fc2c9f2452e2d0f35f72cae"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-402x874-10.png",
+      "sha256": "7770eacfc62647faec3193556e1a0b488dfb974c75e7089ea1d554f1ccea68be"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-402x874-109.png",
+      "sha256": "f0981669426a1af43e8972008e831f6a29c3e82677e8590a9ad60f43cb00f516"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-844x390-10.png",
+      "sha256": "5ef8e7b083b32861c9ca6f5434a3d66e9dbc0c61ced3072c57458ec15f1997c3"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-844x390-109.png",
+      "sha256": "b265f35d138d4f220483859019b85c3893601561b71209f650c6002893aecd3a"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-874x326-10.png",
+      "sha256": "5765a244ca41fa41936dc37103a8545bc64940ff0c71b31fca3572634ba091e8"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-874x326-109.png",
+      "sha256": "3e42819be6fad98df12c3a583e6f77e93a2760c0c9c5271603f68c4c9847e8f4"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-874x402-10.png",
+      "sha256": "c538818eb5f1b8d4e20d0851af897fc09ad16edcd855e4422774d87b516cfc68"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-874x402-109.png",
+      "sha256": "684048619799d89b61a05dbee8ff7fae43ead3ed46c979535c8fb0f87c2e2baf"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-ar-end.png",
+      "sha256": "bb8f6460693210501e8970c10bbb6f70fa14e388d283b47c201c4f511a6bae24"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-film1.png",
+      "sha256": "f3515c741b4388f56c3a114e6c93cb202cc1d616f6815ed85c08dfa67e97519f"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-film2.png",
+      "sha256": "28bb91033a9859d6dc65b0438d3f6bb682a3f7923e09609a8666cf56e854c91f"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-film3.png",
+      "sha256": "ce038a5bb93446e3e3048bede3e31728b33b5eaf3dfd1ab2a39eb83470189cd2"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-film4.png",
+      "sha256": "122f3c6a1102de2bd39966b938c84485bb1598b7a39ef1dff4c7ab4d9a5c8316"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-film5.png",
+      "sha256": "9cbf9a4994504091ae22f1cee1f1045c512db1e0535d29ce2d1a34227c2b0b81"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-film6.png",
+      "sha256": "a28235b25045f0e458040f2a702f969c2577537e3e30d58905a526f55cf11490"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-film7.png",
+      "sha256": "0ca3bb2d64417cf1b5882919fc00f646f160c4b222cc9fbe562dfea7028d8b8d"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-menu-ar.png",
+      "sha256": "bc2d0fb6a09729660314abd019a1e18e3a5f9785cf4ddd8b8d30f0b2e3590784"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-menu-de.png",
+      "sha256": "47bdc041a7373b667e8222f7e826f2db1b2af3d844db34b328d3827a6d60310a"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-menu-en.png",
+      "sha256": "9f27c5ab9036f0c2898cbd4b8929e1a9b2ef052fe9f1572e7e43b3cf3ebb77e2"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-menu-es.png",
+      "sha256": "b285660c5948db93acd5ca2976eb0d98fdfbb03f8c000cc9a59623858e993a73"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-menu-fr.png",
+      "sha256": "a815e660252d1d61677e5bfccf9ac28c6bcb9201cfcc249414713b7fa2f51aef"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-menu-it.png",
+      "sha256": "7661efaaf2e5c72caedb86085de5ba4d2cb6c22dc8d500b62dd193f5dc336337"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-menu-ja.png",
+      "sha256": "5aeedb9d26e3d492d3f0e1ebeb41c90ff20c6e06d4f2c42b61b471046e332a87"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-menu-ko.png",
+      "sha256": "d6373ab9f3126acc7881aa61008e85b9a0bcbbff05f474fc6cb5fb8edd789e2d"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-menu-ru.png",
+      "sha256": "0d85a62dcfc7efdc849471cac9bc878c0b27eb1f6888767ea8cc2619215cdaf7"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-menu-tr.png",
+      "sha256": "5a2dba0f96ce47f030591ea14a592fd2c830b4fe824954244b0f19f06176c7c8"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-menu-zh.png",
+      "sha256": "440e534dc67e893560b24db279ce70817b767c401eb86cbce820ef7d5117df43"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-native-menu.png",
+      "sha256": "7a67ff13783150cdd7cb977ac2ad1468e9eaa2f9a50a6d26fb8d6b73c109becf"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-safe-402x650.png",
+      "sha256": "68c1c4ee603cfc9235b952cdf8b369fda979a773db5c666359b47e1e7f66dfee"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-safe-874x326.png",
+      "sha256": "2411abe0ccb50a7765582125e88b1dfc99c31da5df7c4502eaa67935c5015257"
+    },
+    {
+      "path": "screenshots/video/iphone-window/max-footer.png",
+      "sha256": "819483a285dbaa2e3fb44b282b707ba927db9709f365f9dd4908065b186e6d21"
+    },
+    {
+      "path": "screenshots/video/iphone-window/pro-footer.png",
+      "sha256": "34d2c172bb0b0940809a55697a62ad05504415facd6529fe95fa257c089669d8"
+    }
+  ],
+  "browserObservations": [
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-geometry.json",
+      "sha256": "d2d1d3e49d92a4cd7deb89ed0da9cf31e3baee9a8af78a2b159a333cc7999a58"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-safe-440x650-geometry.json",
+      "sha256": "0342df57cd52b5dd8b2d5f20e55c220402afac4941ee66576d401387bff7d4bb"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-max-webkit-safe-956x350-geometry.json",
+      "sha256": "4f3dc382c60e1cd7207be9c0de29abd43b777f9a17da1d25b547991696f7ecd8"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-geometry.json",
+      "sha256": "f613b3c9077d7eedfc702d670b2d9356b5a2cdb28b85e8341336e796089b1852"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-safe-402x650-geometry.json",
+      "sha256": "16228792daccc31ecee618bebf1302679d30ef25c612dd10365c13cf1dc8b65e"
+    },
+    {
+      "path": "screenshots/video/iphone-window/iphone-17-pro-webkit-safe-874x326-geometry.json",
+      "sha256": "05d566c71610820be03d10e2878787a668ea4c547d29500f7f37d4cb41d12482"
+    }
+  ],
+  "performance": {
+    "phase": "iphone-window",
+    "conditions": "Single cold Chromium mobile402×874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+    "initial": {
+      "ttfb": 21.09999990463257,
+      "fcp": 384,
+      "lcp": 1312,
+      "cls": 0.00022206073455854325,
+      "jsBytes": 333165,
+      "completedBytes": 3321933,
+      "filmObjects": 15,
+      "readyImages": 29
+    },
+    "scroll": {
+      "samples": 321,
+      "movingFrames": 231,
+      "startY": 0,
+      "endY": 10634,
+      "p95Ms": 32.80000019073486,
+      "over33Ms": 15,
+      "reverseFrames": 0,
+      "maxReverse": 0,
+      "cls": 0.00022206073455854325,
+      "longTasks": [
+        127,
+        60,
+        392,
+        53,
+        64,
+        111
+      ]
+    },
+    "errors": []
+  },
+  "architecture": "All11 locale routes remain SSG. Browser-only mode selection stays in deferred FilmControls; same existing HLS/video node. No new dependencies/media objects; initial JS333165B versus earlier333163B is a synthetic5s observation, not total player bundle or causal speed improvement.",
+  "integration": [
+    {
+      "name": "pro",
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "before": 4484,
+      "closed": {
+        "expanded": false,
+        "window": false,
+        "y": 4484
+      },
+      "playerMetrics": {
+        "entryTwoRafMs": 21,
+        "scriptEncodedBytes": 281868
+      },
+      "steps": [
+        {
+          "y": 0,
+          "h": 14133,
+          "overflow": 0
+        },
+        {
+          "y": 779,
+          "h": 14133,
+          "overflow": 0
+        },
+        {
+          "y": 1559,
+          "h": 14133,
+          "overflow": 0
+        },
+        {
+          "y": 2339,
+          "h": 14133,
+          "overflow": 0
+        },
+        {
+          "y": 3119,
+          "h": 14133,
+          "overflow": 0
+        },
+        {
+          "y": 3899,
+          "h": 14133,
+          "overflow": 0
+        },
+        {
+          "y": 4679,
+          "h": 14133,
+          "overflow": 0
+        },
+        {
+          "y": 5459,
+          "h": 14133,
+          "overflow": 0
+        },
+        {
+          "y": 6239,
+          "h": 14133,
+          "overflow": 0
+        },
+        {
+          "y": 7019,
+          "h": 14133,
+          "overflow": 0
+        },
+        {
+          "y": 7799,
+          "h": 14133,
+          "overflow": 0
+        },
+        {
+          "y": 8579,
+          "h": 14133,
+          "overflow": 0
+        },
+        {
+          "y": 9359,
+          "h": 14133,
+          "overflow": 0
+        },
+        {
+          "y": 10139,
+          "h": 14133,
+          "overflow": 0
+        },
+        {
+          "y": 10919,
+          "h": 14133,
+          "overflow": 0
+        },
+        {
+          "y": 11699,
+          "h": 14133,
+          "overflow": 0
+        },
+        {
+          "y": 12479,
+          "h": 14133,
+          "overflow": 0
+        },
+        {
+          "y": 13259,
+          "h": 14133,
+          "overflow": 0
+        }
+      ],
+      "endGap": 0,
+      "errors": []
+    },
+    {
+      "name": "max",
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "before": 4908,
+      "closed": {
+        "expanded": false,
+        "window": false,
+        "y": 4908
+      },
+      "playerMetrics": {
+        "entryTwoRafMs": 24,
+        "scriptEncodedBytes": 281868
+      },
+      "steps": [
+        {
+          "y": 0,
+          "h": 15431,
+          "overflow": 0
+        },
+        {
+          "y": 851,
+          "h": 15431,
+          "overflow": 0
+        },
+        {
+          "y": 1702,
+          "h": 15431,
+          "overflow": 0
+        },
+        {
+          "y": 2554,
+          "h": 15431,
+          "overflow": 0
+        },
+        {
+          "y": 3405,
+          "h": 15431,
+          "overflow": 0
+        },
+        {
+          "y": 4257,
+          "h": 15431,
+          "overflow": 0
+        },
+        {
+          "y": 5108,
+          "h": 15431,
+          "overflow": 0
+        },
+        {
+          "y": 5960,
+          "h": 15431,
+          "overflow": 0
+        },
+        {
+          "y": 6811,
+          "h": 15431,
+          "overflow": 0
+        },
+        {
+          "y": 7663,
+          "h": 15431,
+          "overflow": 0
+        },
+        {
+          "y": 8514,
+          "h": 15431,
+          "overflow": 0
+        },
+        {
+          "y": 9366,
+          "h": 15431,
+          "overflow": 0
+        },
+        {
+          "y": 10217,
+          "h": 15431,
+          "overflow": 0
+        },
+        {
+          "y": 11069,
+          "h": 15431,
+          "overflow": 0
+        },
+        {
+          "y": 11920,
+          "h": 15431,
+          "overflow": 0
+        },
+        {
+          "y": 12772,
+          "h": 15431,
+          "overflow": 0
+        },
+        {
+          "y": 13623,
+          "h": 15431,
+          "overflow": 0
+        },
+        {
+          "y": 14475,
+          "h": 15431,
+          "overflow": 0
+        }
+      ],
+      "endGap": 0,
+      "errors": []
+    }
+  ],
+  "evidenceFiles": [
+    {
+      "path": "screenshots/video/iphone-window/integration.json",
+      "sha256": "2a43fc15665b00d56ab5245a24dd097129b1e83cf94c705e1e034ed2d9046772"
+    },
+    {
+      "path": "screenshots/video/iphone-window/integration.mjs",
+      "sha256": "b3b7dfbe36151efcf0957b27f593d194a0b4caab98b2809ba77b628ae4970989"
+    },
+    {
+      "path": "screenshots/scroll-incident/iphone-window/performance.json",
+      "sha256": "e69f66a430e1793afc8b69eff2c268b679c35501a39d7383e3dd7911712d5048"
+    },
+    {
+      "path": "screenshots/video/iphone-window/native-review5-summary.json",
+      "sha256": "625f2fc07a03592cb81368f2d2649d6c28c9a2fa7a63280d0cc786a758478153"
+    }
+  ],
+  "technicalApproval": {
+    "status": "APPROVED_LOCAL_WEB_ONLY",
+    "date": "2026-10-31",
+    "verifier": "/root",
+    "independentAuditor": "/root/audit scope/visual/behavior/review-performance/integration PASS",
+    "scope": "New iPhone window implementation and immediate native rollback in local browser; physical iPhone/AVKit and publication not verified",
+    "evidence": "9 exact reviewed runtime/test files; final17PASS1SKIP + affected8PASS1SKIP; earlier63 valid passes retained; 56 screenshots, build7/type7/siteLint7/native5/performance/integration receipts"
+  },
+  "referenceComparison": "Before Evolution874x402/10s versus actual final Pro/Max10/109 and all7 films. Full-window state has no calibrated supplied render; approved cover geometry and inherited controls checked visually, no pixel-fidelity claim.",
+  "historicalScope": "Pre-unification evidence; current code/status/approval is in iphone-entrypaths.json. Original dated findings and hashes retained.",
+  "supersededBy": "iphone-entrypaths.json"
+}

@@ -37,12 +37,15 @@ test('landscape playing and ended compositions in normal and fullscreen', async 
     await expect(dialog).toHaveAttribute('data-view', 'ended', { timeout: 30000 });
     await expect(page.locator('.film-ended')).toBeVisible();
   };
+  await expect(page.locator('#film-player')).toHaveAttribute('data-full-window', 'true');
   await capture('playing');
   await end();
   await capture('ended');
   await page.locator('.film-ended__replay').click();
   await expect(dialog).toHaveAttribute('data-view', 'playing');
   await expect.poll(() => video.evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 30000 }).toBeGreaterThan(.2);
+  await page.locator('.film-fullscreen').click();
+  await expect(page.locator('#film-player')).not.toHaveAttribute('data-full-window');
   await page.locator('.film-fullscreen').click();
   await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id === 'film-player' || document.querySelector('#film-player')?.getAttribute('data-element-fullscreen') === 'true')).toBe(true);
   await capture('fullscreen-playing');

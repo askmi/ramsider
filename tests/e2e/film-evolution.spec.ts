@@ -17,18 +17,18 @@ async function seek(page:Page,time:number){
  await page.locator('video').evaluate((v:HTMLVideoElement,t)=>{v.pause();v.currentTime=t;},time);
  await expect.poll(()=>page.locator('video').evaluate((v:HTMLVideoElement)=>!v.seeking&&v.readyState>=2&&v.videoWidth>0),{timeout:20000}).toBe(true);
 }
-test('Evolution HLS preserves decoded framing, fullscreen and complete end access',async({page},info)=>{
+test('Evolution HLS preserves source ratio, chosen presentation and complete end access',async({page},info)=>{
  await mkdir('screenshots/video/startup-fix',{recursive:true});const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await open(page);
  const sizes=info.project.name.includes('iphone')?(info.project.name.includes('max')?[[440,956],[956,440]]:[[402,874],[874,402],[390,664]]):[[1440,900],[844,390]];
- for(const [width,height]of sizes){await page.setViewportSize({width,height});await page.locator('.film-fullscreen').click();for(const time of[10,109]){
+ for(const [width,height]of sizes){await page.setViewportSize({width,height});await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));if(!await page.locator('#film-player').getAttribute('data-full-window'))await page.locator('.film-fullscreen').click();for(const time of[10,109]){
   await seek(page,time);const g=await page.locator('video').evaluate((v:HTMLVideoElement)=>{const r=v.getBoundingClientRect();return{w:r.width,h:r.height,left:r.left,right:r.right,viewport:innerWidth,ratio:v.videoWidth/v.videoHeight,muted:v.muted,volume:v.volume};});
-  expect(g.ratio).toBeCloseTo(16/9,2);expect(g.h).toBeCloseTo(g.w*9/16,0);expect(Math.abs(g.left)).toBeLessThanOrEqual(1);expect(Math.abs(g.right-g.viewport)).toBeLessThanOrEqual(1);expect(g.muted).toBe(true);expect(g.volume).toBe(0);
+  expect(g.ratio).toBeCloseTo(16/9,2);if(info.project.name.includes('iphone')){expect(await page.locator('video').evaluate(v=>getComputedStyle(v).objectFit)).toBe('cover');expect(g.h).toBeGreaterThan(await page.evaluate(()=>innerHeight));}else{expect(g.h).toBeCloseTo(g.w*9/16,0);}expect(Math.abs(g.left)).toBeLessThanOrEqual(1);expect(Math.abs(g.right-g.viewport)).toBeLessThanOrEqual(1);expect(g.muted).toBe(true);expect(g.volume).toBe(0);
   await page.screenshot({path:`screenshots/video/startup-fix/${info.project.name}-${width}-${time}-evolution.png`});
  }await page.locator('.film-fullscreen').click();}
  await revealFilmTop(page);await page.locator('.film-player__close').click();await expect(page.locator('video')).not.toHaveAttribute('src');expect(errors).toEqual([]);
 });
-test('Evolution HLS supports RTL, quality, speed, replay, adjacent films and reopen',async({page},info)=>{
- await open(page,'ar');await expect(page.locator('#product-film')).toHaveAttribute('dir','rtl');await page.locator('.film-options__trigger').click();await expect(page.locator('.film-settings')).toBeVisible();await page.keyboard.press('Escape');
+test('Evolution HLS supports quality, speed, replay, adjacent films and reopen',async({page},info)=>{
+ await open(page);await expect(page.locator('#product-film')).toHaveAttribute('dir','ltr');await page.locator('.film-options__trigger').click();await expect(page.locator('.film-settings')).toBeVisible();await page.keyboard.press('Escape');
  await page.locator('.film-options__trigger').click();await page.locator('.film-menu-quality').click();await page.locator('#film-quality-options media-chrome-menu-item[value="1080"]').click();
  await expect.poll(()=>page.locator('video').evaluate((v:HTMLVideoElement)=>v.videoHeight),{timeout:20000}).toBe(1080);
  await page.locator('.film-options__trigger').click();await page.locator('.film-menu-quality').click();await page.locator('#film-quality-options media-chrome-menu-item[value="auto"]').click();

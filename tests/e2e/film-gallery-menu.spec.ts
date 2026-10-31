@@ -15,6 +15,7 @@ async function closePlayer(page: Page) {
 
 async function start(page: Page, locale: 'en' | 'ar') {
   await page.goto(`/${locale}`);
+  test.skip(locale === 'ar' && new URL(page.url()).pathname === '/en', 'Arabic runtime disabled by English-only presentation');
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click();
   await page.locator('.film-gallery__hero').click();
@@ -129,16 +130,19 @@ test('a direct seek after native restoration supersedes a suppressed seeked even
   await closePlayer(page);
 });
 
-test('short landscape keeps playing and ended settings usable in LTR and RTL', async ({ page }, info) => {
+test('short landscape keeps playing and ended settings usable in English presentation', async ({ page }, info) => {
   test.skip(info.project.name !== 'iphone-17-pro-webkit', 'One WebKit owner for the short landscape matrix');
   await page.setViewportSize({ width: 568, height: 320 });
-  for (const locale of ['en', 'ar'] as const) {
+  for (const locale of ['en'] as const) {
     await start(page, locale);
     const dialog = page.locator('#product-film');
-    await expect(dialog).toHaveAttribute('dir', locale === 'ar' ? 'rtl' : 'ltr');
+    await expect(dialog).toHaveAttribute('dir', 'ltr');
     await expect(dialog).toHaveAttribute('data-view', 'playing');
     await expect(page.locator('#film-settings-toggle')).toBeInViewport();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await expect(page.locator('#film-player')).toHaveAttribute('data-full-window', 'true');
+    await page.locator('.film-fullscreen').click();
+    await expect(page.locator('#film-player')).not.toHaveAttribute('data-full-window');
     await page.locator('.film-fullscreen').click();
     await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id === 'film-player' || document.querySelector('#film-player')?.getAttribute('data-element-fullscreen') === 'true')).toBe(true);
     await end(page);

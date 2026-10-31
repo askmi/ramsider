@@ -10,6 +10,7 @@ import type { FilmCopy } from '@/lib/product-film';
 import type { Locale } from '@/lib/i18n';
 import { filmControlsCopy, type FilmControlsCopy } from '@/lib/film-controls-copy';
 import { galleryCopy } from '@/lib/film-gallery-copy';
+import { isIPhone, iphonePlayerMode } from '@/lib/film-presentation';
 import { selectFilmQuality, selectFilmRate, playProductFilm, cancelFilmSourceSwitch, type FilmSettings } from '@/lib/film-playback';
 
 type PipVideo = HTMLVideoElement & {
@@ -26,6 +27,7 @@ type FullscreenDocument = Document & {
   webkitExitFullscreen?: () => Promise<void> | void;
 };
 type FullscreenHost = HTMLElement & { webkitRequestFullscreen?: () => Promise<void> | void };
+type WindowEntry = 'toggle' | 'rotation' | 'recovery';
 
 function activeFullscreenElement() {
   const doc = document as FullscreenDocument;
@@ -63,11 +65,11 @@ function preserveButtonActivation(event: ReactKeyboardEvent<HTMLButtonElement>) 
   if (event.key === ' ' || event.key === 'Enter') event.stopPropagation();
 }
 const speeds = [.5, .75, 1, 1.25, 1.5, 2];
-function dismissSettings(menu: RefObject<SettingsElement | null>, gear: RefObject<SettingsButtonElement | null>, stage: RefObject<HTMLElement | null>) {
+function dismissSettings(menu: RefObject<SettingsElement | null>, gear: RefObject<SettingsButtonElement | null>, stage: RefObject<HTMLElement | null>, restoreFocus = true) {
   menu.current?.querySelectorAll<HTMLElement>('media-chrome-menu').forEach(submenu => { submenu.hidden = true; });
   if (menu.current) menu.current.hidden = true;
   stage.current?.removeAttribute('userinactive');
-  gear.current?.focus({ preventScroll: true });
+  if (restoreFocus) gear.current?.focus({ preventScroll: true });
 }
 
 
@@ -101,6 +103,10 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
   const nativeGesture = useRef<{ epoch: number; until: number } | null>(null);
   const nativeActive = useRef(false);
   const orientationOwner = useRef<number | null>(null);
+  const windowOrigin = useRef<WindowEntry | null>(null);
+  const rotationSuppressed = useRef(false);
+  const nativeRecovery = useRef<number | null>(null);
+  const windowRecoverySuppressed = useRef(false);
   const pipOwner = useRef<number | null>(null);
   const pipRequestSequence = useRef(0);
   const gear = useRef<SettingsButtonElement>(null);
@@ -111,9 +117,19 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
   const [pip, setPip] = useState(false);
   const [pipSupported, setPipSupported] = useState(false);
   const [message, setMessage] = useState('');
+  const iphone = ready && isIPhone();
   const c = filmControlsCopy(locale);
   const closeMenu = () => dismissSettings(menu, gear, stage);
-  const actions = useRef<{ fullscreen: () => Promise<void>; pip: () => Promise<void> } | null>(null);
+  const actions = useRef<{ fullscreen: (forceNative?: boolean, entry?: WindowEntry) => Promise<void>; pip: () => Promise<void> } | null>(null);
+
+  const leaveWindow = () => {
+    const host = stage.current;
+    windowOrigin.current = null;
+    host?.removeAttribute('data-full-window');
+    host?.removeAttribute('data-element-fullscreen');
+    host?.closest('dialog')?.removeAttribute('data-film-expanded');
+    setExpanded(false);
+  };
 
   const releaseOrientation = () => {
     if (orientationOwner.current === null) return;
@@ -162,15 +178,18 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
   useEffect(() => {
     const host = stage.current, dialog = host?.closest('dialog'), video = media.current as PipVideo | null;
     if (!host || !dialog || !video) return;
-    const sync = () => setExpanded(activeFullscreenElement() === host || Boolean(video.webkitDisplayingFullscreen));
+    const sync = () => setExpanded(host.hasAttribute('data-full-window') || activeFullscreenElement() === host || Boolean(video.webkitDisplayingFullscreen));
     const collapse = () => {
       presentationEpoch.current++; fullscreenBusy.current = false; fullscreenOwner.current = null; nativeActive.current = false; pipOwner.current = null; setMessage('');
       releaseOrientation();
+      windowOrigin.current = null; nativeRecovery.current = null;
+      windowRecoverySuppressed.current = dialog.open;
+      rotationSuppressed.current = dialog.open && window.matchMedia('(orientation: landscape)').matches;
       const video = media.current as PipVideo | null;
       if (video && document.pictureInPictureElement === video) void document.exitPictureInPicture().catch(() => {});
       if (video?.webkitPresentationMode === 'picture-in-picture') video.webkitSetPresentationMode?.('inline');
       menu.current?.querySelectorAll<HTMLElement>('media-chrome-menu').forEach(submenu => { submenu.hidden = true; });
-      host.removeAttribute('data-element-fullscreen'); dialog.removeAttribute('data-film-expanded'); setExpanded(false);
+      host.removeAttribute('data-full-window'); host.removeAttribute('data-element-fullscreen'); dialog.removeAttribute('data-film-expanded'); setExpanded(false);
       nativeGesture.current = null;
       if (nativeRequest.current) {
         nativeGuarded.current = true; clearTimeout(nativeRequest.current.timer);
@@ -181,12 +200,13 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
       if (menu.current) menu.current.hidden = true;
     };
     const cancel = (event: Event) => {
-      if (activeFullscreenElement() === host || video.webkitDisplayingFullscreen) { event.preventDefault(); collapse(); }
+      if (host.hasAttribute('data-full-window') || activeFullscreenElement() === host || video.webkitDisplayingFullscreen) { event.preventDefault(); collapse(); host.querySelector<HTMLElement>('.film-fullscreen')?.focus({ preventScroll: true }); }
     };
     const nativeInput = (event: Event) => {
       if (!event.isTrusted || !dialog.open || dialog.dataset.view === 'gallery') return;
       // Native controls are in a closed UA shadow tree. A trusted video-control
       // input or a two-finger pinch authorizes their following presentation event.
+      if (isIPhone() && iphonePlayerMode() === 'window') return;
       const pinch = event.type === 'touchstart' && (event as TouchEvent).touches.length >= 2;
       if (pinch || video.controls) nativeGesture.current = { epoch: presentationEpoch.current, until: performance.now() + 1500 };
     };
@@ -202,21 +222,35 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
       const currentRequest = request?.epoch === presentationEpoch.current;
       const stale = !currentRequest && !userIntent && !nativeActive.current && (nativeGuarded.current || Boolean(request));
       if (!dialog.open || dialog.dataset.view === 'gallery' || stale) { video.webkitExitFullscreen?.(); return; }
+      // Only the explicit fallback may hand our active iPhone session to Apple.
+      if (isIPhone() && iphonePlayerMode() === 'window' && !currentRequest && !nativeActive.current && host.dataset.controls === 'ready') {
+        if (!windowRecoverySuppressed.current && !rotationSuppressed.current && document.pictureInPictureElement !== video && video.webkitPresentationMode !== 'picture-in-picture') nativeRecovery.current = presentationEpoch.current;
+        video.webkitExitFullscreen?.();
+        return;
+      }
+      host.removeAttribute('data-full-window'); host.removeAttribute('data-element-fullscreen'); dialog.removeAttribute('data-film-expanded');
       nativeActive.current = true;
       fullscreenOwner.current ??= presentationEpoch.current;
       setMessage(''); setExpanded(true);
     };
     const nativeEnd = () => {
+      const recovery = nativeRecovery.current; nativeRecovery.current = null;
       nativeGesture.current = null;
       nativeActive.current = Boolean(video.webkitDisplayingFullscreen);
       releaseOrientation();
       sync();
+      if (recovery !== null) {
+        queueMicrotask(() => {
+          if (recovery === presentationEpoch.current && !windowRecoverySuppressed.current && dialog.open && dialog.dataset.view !== 'gallery' && document.pictureInPictureElement !== video && video.webkitPresentationMode !== 'picture-in-picture' && !host.hasAttribute('data-full-window')) void actions.current?.fullscreen(false, 'recovery');
+        });
+      }
       if (dialog.open && dialog.dataset.view !== 'gallery') {
         const focus = dialog.dataset.view === 'ended' ? host.querySelector<HTMLElement>('.film-ended__replay') : video;
         focus?.focus({ preventScroll: true });
       }
     };
     const fullscreen = () => {
+      if (host.hasAttribute('data-full-window')) { sync(); return; }
       if (activeFullscreenElement() === host) {
         if (!dialog.open || fullscreenOwner.current === null) { void exitElementFullscreen().catch(() => {}); return; }
         host.setAttribute('data-element-fullscreen', 'true'); dialog.setAttribute('data-film-expanded', 'true');
@@ -246,7 +280,7 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
     return () => { popup.removeEventListener('toggle', keepTransport); document.removeEventListener('click', outside); document.removeEventListener('keydown', escape, true); bar?.removeAttribute('noautohide'); };
   }, [ready, stage]);
 
-  const fullscreen = async () => {
+  const fullscreen = async (forceNative = false, entry: WindowEntry = 'toggle') => {
     const host = stage.current, dialog = host?.closest('dialog');
     if (!host || !dialog?.open || fullscreenBusy.current) return;
     fullscreenBusy.current = true;
@@ -254,11 +288,30 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
     const current = () => epoch === presentationEpoch.current && host.isConnected && dialog.open;
     setMessage('');
     try {
+      if (forceNative) windowRecoverySuppressed.current = true;
+      if (forceNative || entry === 'toggle') rotationSuppressed.current = window.matchMedia('(orientation: landscape)').matches;
+      if (host.hasAttribute('data-full-window')) {
+        if (!forceNative && entry !== 'toggle') return;
+        windowRecoverySuppressed.current = true;
+        leaveWindow(); fullscreenOwner.current = null;
+        if (!forceNative) return;
+      }
       if (activeFullscreenElement() === host) { await exitElementFullscreen(); return; }
       const video = media.current as PipVideo | null;
       if (video?.webkitDisplayingFullscreen) { video.webkitExitFullscreen?.(); return; }
       fullscreenOwner.current = epoch;
-      const canUseElement = (typeof host.requestFullscreen === 'function' && document.fullscreenEnabled !== false) || typeof (host as FullscreenHost).webkitRequestFullscreen === 'function';
+      if (!forceNative && isIPhone() && iphonePlayerMode() === 'window') {
+        if (video && document.pictureInPictureElement === video) await document.exitPictureInPicture();
+        if (!current()) return;
+        if (video?.webkitPresentationMode === 'picture-in-picture') video.webkitSetPresentationMode?.('inline');
+        dismissSettings(menu, gear, stage, false);
+        host.setAttribute('data-full-window', 'true'); host.setAttribute('data-element-fullscreen', 'true');
+        windowOrigin.current = entry; windowRecoverySuppressed.current = false;
+        dialog.setAttribute('data-film-expanded', 'true'); setExpanded(true);
+        return;
+      }
+      const preferNative = forceNative || isIPhone();
+      const canUseElement = !preferNative && ((typeof host.requestFullscreen === 'function' && document.fullscreenEnabled !== false) || typeof (host as FullscreenHost).webkitRequestFullscreen === 'function');
       if (!canUseElement) {
         if (!video?.webkitEnterFullscreen || video.webkitSupportsFullscreen === false) throw new Error('Fullscreen unavailable');
         // iPhone hands playback to Apple's native fullscreen player. The caller
@@ -315,6 +368,9 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
     const request = ++pipRequestSequence.current; pipOwner.current = request;
     closeMenu(); setMessage('');
     try {
+      rotationSuppressed.current = window.matchMedia('(orientation: landscape)').matches;
+      windowRecoverySuppressed.current = true;
+      if (stage.current?.hasAttribute('data-full-window')) { leaveWindow(); fullscreenOwner.current = null; }
       if (document.pictureInPictureElement === video) await document.exitPictureInPicture();
       else if (document.pictureInPictureEnabled && video.requestPictureInPicture) {
         if (activeFullscreenElement() === stage.current) await exitElementFullscreen();
@@ -329,6 +385,26 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
 
   // Stable DOM listeners read the latest action closure without reattaching on every UI state change.
   useEffect(() => { actions.current = { fullscreen, pip: pictureInPicture }; });
+  useEffect(() => {
+    const host = stage.current, video = media.current as PipVideo | null, dialog = host?.closest('dialog');
+    if (!ready || !host || !video || !dialog || !isIPhone() || iphonePlayerMode() !== 'window') return;
+    const landscape = window.matchMedia('(orientation: landscape)');
+    const reconcile = () => {
+      if (!landscape.matches) {
+        rotationSuppressed.current = false;
+        if (windowOrigin.current === 'rotation') host.dispatchEvent(new Event('film-exit-presentation'));
+        return;
+      }
+      if (!dialog.open || !['playing', 'ended'].includes(dialog.dataset.view ?? '') || host.dataset.controls !== 'ready' || rotationSuppressed.current || fullscreenBusy.current || nativeActive.current || nativeRequest.current || video.webkitDisplayingFullscreen || document.pictureInPictureElement === video || video.webkitPresentationMode === 'picture-in-picture' || activeFullscreenElement()) return;
+      if (!host.hasAttribute('data-full-window')) void actions.current?.fullscreen(false, 'rotation');
+    };
+    landscape.addEventListener('change', reconcile);
+    const observer = new MutationObserver(reconcile);
+    observer.observe(dialog, { attributes: true, attributeFilter: ['open', 'data-view'] });
+    observer.observe(host, { attributes: true, attributeFilter: ['data-controls'] });
+    reconcile();
+    return () => { landscape.removeEventListener('change', reconcile); observer.disconnect(); };
+  }, [ready, stage, media]);
   useEffect(() => {
     const host = stage.current;
     if (!ready || !host) return;
@@ -401,6 +477,9 @@ export function FilmControls({ media, stage, copy, locale, status, previous, nex
       <MediaChromeMenuItem className="film-menu-pip" ref={element => { element?.toggleAttribute('disabled', !pipSupported); }} aria-disabled={!pipSupported} title={pipSupported ? undefined : c.unavailable} onClick={() => { void pictureInPicture(); }} onKeyDown={event => {
         if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); event.stopPropagation(); void pictureInPicture(); }
       }}>{pip ? c.exitPip : c.pip}</MediaChromeMenuItem>
+      {iphone && <MediaChromeMenuItem className="film-menu-native" onClick={() => { closeMenu(); void fullscreen(true); }} onKeyDown={event => {
+        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); event.stopPropagation(); closeMenu(); void fullscreen(true); }
+      }}>{c.nativePlayer}</MediaChromeMenuItem>}
     </MediaSettingsMenu>
     <MediaControlBar className="film-transport" dir="ltr">
       <div className="film-transport__row">

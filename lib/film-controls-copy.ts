@@ -3,7 +3,7 @@ import type { Locale } from './i18n';
 export type FilmControlsCopy = {
   play: string; pause: string; mute: string; unmute: string; seek: string;
   fullscreen: string; exitFullscreen: string; pip: string; exitPip: string;
-  back: string; unavailable: string; actionError: string; volume: string;
+  back: string; unavailable: string; actionError: string; volume: string; nativePlayer: string;
 };
 type CopyRow = [string, string, string, string, string, string, string, string, string, string, string, string, string];
 const rows: Record<Locale, CopyRow> = {
@@ -21,5 +21,10 @@ const rows: Record<Locale, CopyRow> = {
 };
 export function filmControlsCopy(locale: Locale): FilmControlsCopy {
   const [play, pause, mute, unmute, seek, fullscreen, exitFullscreen, pip, exitPip, back, unavailable, actionError, volume] = rows[locale];
-  return { play, pause, mute, unmute, seek, fullscreen, exitFullscreen, pip, exitPip, back, unavailable, actionError, volume };
+  const nativePlayers: Record<Locale, string> = {
+    en: 'Open Native Player', ru: 'Открыть системный плеер', de: 'Systemplayer öffnen',
+    fr: 'Ouvrir le lecteur système', es: 'Abrir el reproductor del sistema', it: 'Apri il lettore di sistema',
+    tr: 'Sistem Oynatıcısını Aç', ar: 'فتح مشغل النظام', zh: '打开系统播放器', ja: 'システムプレーヤーで開く', ko: '시스템 플레이어 열기',
+  };
+  return { play, pause, mute, unmute, seek, fullscreen, exitFullscreen, pip, exitPip, back, unavailable, actionError, volume, nativePlayer: nativePlayers[locale] };
 }

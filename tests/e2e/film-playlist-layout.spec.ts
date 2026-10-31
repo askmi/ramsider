@@ -75,9 +75,12 @@ for (const locale of ['en', 'ar']) {
     test.skip(!info.project.name.includes('iphone'), 'Required Pro/Max mobile WebKit');
     await emulateCustomFullscreenLayout(page);
     await open(page, locale);
+    test.skip(locale === 'ar' && new URL(page.url()).pathname === '/en', 'Arabic runtime is disabled by English-only presentation');
     const max = info.project.name.includes('max');
     for (const [mode, size] of [['portrait', max ? { width: 440, height: 956 } : { width: 402, height: 874 }], ['landscape', max ? { width: 956, height: 440 } : { width: 874, height: 402 }]] as const) {
       await page.setViewportSize(size);
+      await page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));
+      if (await page.locator('#film-player').getAttribute('data-full-window')) { await page.locator('.film-fullscreen').click(); await expect(page.locator('#film-player')).not.toHaveAttribute('data-full-window'); }
       expect(await page.evaluate(() => [innerWidth, devicePixelRatio])).toEqual([size.width, 3]);
       await transport(page);
       await mkdir(root, { recursive: true });

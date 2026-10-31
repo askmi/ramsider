@@ -1,0 +1,154 @@
+{
+  "date": "2026-10-31",
+  "status": "VERIFIED_PUBLIC_OLD_PLAYER / CUSTOMER_URL_UNKNOWN / NOT_FIXED_PUBLICLY",
+  "logicalChange": "CHG0186",
+  "request": "Customer screenshots still show borders; explain why the implemented iPhone mode is not visible.",
+  "findings": {
+    "head": "1caaa89",
+    "localPresentationModule": "UNTRACKED_NOT_IN_HEAD",
+    "publishedLaterChanges": "CHG0187/0188 excluded local CHG0186 runtime",
+    "canonicalCheck": {
+      "date": "2026-10-31",
+      "scope": "Canonical public site, modern mobile WebKit DPR3; native entry mocked solely to observe original button intent, not AVKit/OS framing.",
+      "observation": {
+        "nativeCalls": 1,
+        "windowFlag": false,
+        "url": "https://ramsider-main.vercel.app/en",
+        "viewport": [
+          844,
+          390,
+          3
+        ],
+        "video": {
+          "time": 10,
+          "decoded": [
+            640,
+            360
+          ],
+          "src": "https://ramsider-main.vercel.app/films/evolution/und-v1/master.m3u8"
+        }
+      },
+      "errors": [],
+      "scripts": [
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/1819336iy81f5.js",
+          "status": 200,
+          "bytes": 19233,
+          "sha256": "407394d69928b30b857c80937c846b4054c9c5246ea5064bbdd555a10798674a",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": false
+        },
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/15orcrkp-_9ct.js",
+          "status": 200,
+          "bytes": 50702,
+          "sha256": "69a6bb99c3ffab75664c38bcf12faabd4bb9dc7e300605c030168809b21bc0b9",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": false
+        },
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/3-5k80pt3ds20.js",
+          "status": 200,
+          "bytes": 17697,
+          "sha256": "00511376da26d0c09f9fd839127c7532d37de4c9c450afe5e8906d0cc78d147b",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": false
+        },
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/05-c3ty_6dwfk.js",
+          "status": 200,
+          "bytes": 3377,
+          "sha256": "aee2d073d2a1157cfe5c98907f90b3967de4c3625f9ffb154bd1979ae2b917b0",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": false
+        },
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/14mrh2-p_w84d.js",
+          "status": 200,
+          "bytes": 54646,
+          "sha256": "a3ac200f3ab8bfa57cf78882057741ddb5c0fbc9e2490c5d951c099b37484206",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": false
+        },
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/3gzxhq9iq6efl.js",
+          "status": 200,
+          "bytes": 227315,
+          "sha256": "d5de439da1ee98f738ee39179d2461bc242a278520b76b286f1a40fe150f871f",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": false
+        },
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/3_yaym1q7aiwc.js",
+          "status": 200,
+          "bytes": 150472,
+          "sha256": "eb530cd200dad4540f770a34f1a5917829e7eb44bd7e569d0e4601a57de5524c",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": false
+        },
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/2olypon1jqkhm.js",
+          "status": 200,
+          "bytes": 195996,
+          "sha256": "a33b1da3d61f93382eaf48f34317f9a760cfd706682a0dfcf742567916aa7f00",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": false
+        },
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/turbopack-3ps7o16pksegz.js",
+          "status": 200,
+          "bytes": 11041,
+          "sha256": "3fe18781cf516d86ca981d199701f3cd9eb5c69daf152c209c95e4b57de63094",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": false
+        },
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/1usfd1lnsap3o.js",
+          "status": 200,
+          "bytes": 264040,
+          "sha256": "6a2c9ab8154f4e15ff27e03693f992c98cbc17ff28fbd09bcfaae5dacf223d3c",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": true
+        }
+      ],
+      "summary": {
+        "scriptCount": 10,
+        "iphoneOverride": false,
+        "windowFlag": false,
+        "nativeCall": true
+      }
+    },
+    "customerScreenshots": "Third supplied image visibly contains native iOS controls; other images alone do not identify player mode. Exact customer URL/iOS/browser unavailable.",
+    "responsibility": "Agent presented local architecture approval too confidently as assurance of customer-visible resolution. Published original-control verification was missing from that conclusion. No deployment permission is inferred from older unrelated pushes."
+  },
+  "limits": [
+    "No AVKit/native physical-screen verification",
+    "No customer exact URL/version binding",
+    "No product source/test changes, no build/review/performance rerun for read-only diagnosis",
+    "No commit/push/deployment"
+  ],
+  "artifacts": {
+    "screenshots/video/iphone-window/customer-report/public-original-button.png": "4e6da43d74216f9acb66abc80a6292e9894e4541e65d150108ee7ee0d796b016",
+    "screenshots/video/iphone-window/customer-report/public-interaction.json": "ba2dae676e68d0f36761ae0de8f69c0283fc878995111842a61ad19377365240",
+    "screenshots/video/iphone-window/customer-report/check-public.mjs": "e4bbfd2173ef11ee3384c054f6022240db034eda873746a541e149a84831e540",
+    "screenshots/video/iphone-window/customer-report/public-bundle.json": "4dfb41346d82e81bdbb53a9e40a9d044faa61761ec8c38aac9c842ff3eedcb0a"
+  },
+  "technicalApproval": {
+    "verifier": "/root",
+    "date": "2026-10-31",
+    "verdict": "APPROVED_DIAGNOSIS_ONLY",
+    "independent": "/root/research_closeout PASS_DIAGNOSIS_ONLY 2026-10-31; receipt/script/JSON/actualbrowserimage/records checked, all4artifactSHA match; no physical/customer-result approval"
+  },
+  "historicalScope": "Pre-unification evidence; current code/status/approval is in iphone-entrypaths.json. Original dated findings and hashes retained.",
+  "supersededBy": "iphone-entrypaths.json"
+}

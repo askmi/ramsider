@@ -743,3 +743,26 @@ html:has(#product-film[open]){overflow:hidden;overscroll-behavior:none}
  .product-film[data-view=playing] .film-player[data-film-id=evolution]{overflow:clip}
  .product-film[data-view=playing] .film-player[data-film-id=evolution] video{position:absolute;left:0;top:50%;width:100%;height:auto;min-height:0;max-height:none;aspect-ratio:16/9;transform:translateY(-50%);object-fit:contain}
 }
+
+/* CHG0186: reversible iPhone window mode. The same inline video stays mounted.
+   data-element-fullscreen reuses the existing chrome/safe-area layout only;
+   data-full-window distinguishes this from an actual browser fullscreen API. */
+.product-film[data-film-expanded=true]:has([data-full-window=true]){width:100dvw;height:100dvh;max-width:none;padding:0;border:0;border-radius:0}
+.product-film .film-player[data-full-window=true]{position:fixed;inset:0;width:100dvw;height:100dvh;max-height:none;padding:0;aspect-ratio:auto;overflow:clip}
+.product-film .film-player[data-element-fullscreen=true][data-full-window=true] video{position:absolute;left:0;top:50%;width:100%;height:100%;min-height:0;max-height:none;aspect-ratio:auto;transform:translateY(-50%);object-fit:cover;object-position:center}
+/* y98..623 in the 720px decoded source; keep a constant proportional crop,
+   including its full-height ending, so the visible aperture fills both axes. */
+.product-film .film-player[data-element-fullscreen=true][data-full-window=true][data-film-id=evolution] video{height:calc(100% * 720 / 526);transform:translateY(-50.138889%)}
+.product-film .film-player[data-element-fullscreen=true][data-full-window=true][data-film-id=our-style] video{height:calc(100% * 2160 / 1576)}
+.product-film .film-player[data-element-fullscreen=true][data-full-window=true][data-film-id=diy-madness] video{height:calc(100% * 2160 / 1552)}
+/* Keep every menu row above the measured transport, including safe-area padding. */
+.product-film .film-player[data-full-window=true] .film-settings{bottom:var(--film-transport-height,102px);max-height:calc(100% - var(--film-header-height,64px) - var(--film-transport-height,102px) - 12px);--media-menu-max-height:calc(100% - var(--film-header-height,64px) - var(--film-transport-height,102px) - 12px)}
+.product-film .film-player[data-full-window=true] .film-transport__row{width:auto;min-width:0;align-self:stretch}
+
+/* On very short windows scroll the submenu header with its options, so a
+   44px Back button cannot cover the remaining option hit area. */
+@media(max-height:360px){
+ .film-player[data-full-window] .film-settings media-chrome-menu::part(container){display:block;overflow:hidden auto;max-height:100%}
+ .film-player[data-full-window] .film-settings media-chrome-menu{--media-menu-overflow:visible}
+ .film-player[data-full-window] .film-menu-back{position:static;min-height:44px}
+}

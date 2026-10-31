@@ -1,0 +1,422 @@
+{
+  "change": "CHG0186 research follow-up",
+  "date": "2026-10-31",
+  "status": "VERIFIED_RESEARCH_WITH_LIMITS / PHYSICAL_DEVICE_NOT_VERIFIED / NOT_PUBLISHED",
+  "scope": "Primary-source research + read-only verification of unchanged implementation, no product edits/publication",
+  "verdict": "Architecture appropriate for controlled iPhone web viewport filling. Whole-device fullscreen, oldSafari and arbitrary WKWebView hosts are not guaranteed.",
+  "sources": [
+    {
+      "title": "WebKit iOS inline policy",
+      "url": "https://webkit.org/blog/6784/new-video-policies-for-ios/",
+      "finding": "playsinline permits inline iPhone playback; host policies can differ; this is not permission to hide Safari chrome."
+    },
+    {
+      "title": "WebKit Safari16.4 release",
+      "url": "https://webkit.org/blog/13966/webkit-features-in-safari-16-4/",
+      "finding": "Unprefixed fullscreen announced for macOS+iPadOS, not equivalent iPhone support; orientation locking was experimental then."
+    },
+    {
+      "title": "WebKit current iPhone fullscreen master issue",
+      "url": "https://bugs.webkit.org/show_bug.cgi?id=206854",
+      "finding": "Master issue remains NEW on2026-10-31; recent duplicate328773 confirms continuing request, not tested behavior on every iOSversion."
+    },
+    {
+      "title": "Apple native fullscreen API",
+      "url": "https://developer.apple.com/documentation/webkitjs/htmlvideoelement",
+      "finding": "Public video fullscreen entry/exit/state/presentation API has no exposed web fill/zoom setting; inference from API inventory, not a claim about native-app AVPlayer APIs."
+    },
+    {
+      "title": "WebKit dynamic viewport units",
+      "url": "https://webkit.org/blog/12445/new-webkit-features-in-safari-15-4/",
+      "finding": "dvh/dvw shipped15.4, follow dynamic viewport rather than fixed phone dimensions."
+    },
+    {
+      "title": "W3C CSS viewport units",
+      "url": "https://www.w3.org/TR/css-values-4/#viewport-relative-lengths",
+      "finding": "Dynamic UI animation need not update units continuously; some overlays including keyboard need not change units. Working Draft, not device test."
+    },
+    {
+      "title": "WebKit safe areas",
+      "url": "https://webkit.org/blog/7929/designing-websites-for-iphone-x/",
+      "finding": "viewport-fit cover enables edge layout; env safe insets protect interactive content."
+    },
+    {
+      "title": "W3C object-fit",
+      "url": "https://www.w3.org/TR/css-images-3/#the-object-fit",
+      "finding": "Cover preserves aspect with crop; contain preserves full content with possible empty space. Encoded matte remains source pixels."
+    },
+    {
+      "title": "Apple WKWebView inline policy",
+      "url": "https://developer.apple.com/documentation/webkit/wkwebviewconfiguration/allowsinlinemediaplayback",
+      "finding": "Embedding app can allow inline or force native fullscreen; web page cannot override its host configuration."
+    },
+    {
+      "title": "Apple WKWebView custom identity",
+      "url": "https://developer.apple.com/documentation/webkit/wkwebview/customuseragent",
+      "finding": "Embedding app can choose custom UA. Current iPhone-token routing is not a guarantee for arbitrary host identities."
+    },
+    {
+      "title": "Next supported browser baseline",
+      "url": "https://nextjs.org/docs/architecture/supported-browsers",
+      "finding": "Safari16.4 default baseline; confirmed by installedNext16.2.11 modern-browserslist-target.js. Not proof of testing every supported version."
+    },
+    {
+      "title": "WebKit Safari16 container queries",
+      "url": "https://webkit.org/blog/13152/webkit-features-in-safari-16-0/",
+      "finding": "Container queries and query units shippedSafari16.0; current player uses these existing site features."
+    },
+    {
+      "title": "WebKit system-component fixed layout issue",
+      "url": "https://bugs.webkit.org/show_bug.cgi?id=297779",
+      "finding": "Status MOVED; engineer identified system-component bug; later reports mixed. Historical possible class, not diagnosis of customer or claim every current release broken."
+    },
+    {
+      "title": "WebKit LiquidGlass gap issue",
+      "url": "https://bugs.webkit.org/show_bug.cgi?id=297182",
+      "finding": "Status FIXED with landedcommit; duplicate299003. Does not independently identify public iOS version used by customer."
+    },
+    {
+      "title": "WebKit native pinch issue",
+      "url": "https://bugs.webkit.org/show_bug.cgi?id=321330",
+      "finding": "Status NEW: nativecontrols pinch can issue multiple fullscreen requests. Reported real iOS26.5simulator, not reproduced in our current environment."
+    },
+    {
+      "title": "WHATWG fullscreen activation",
+      "url": "https://fullscreen.spec.whatwg.org/",
+      "finding": "ElementFullscreen permission/activation and iframe constraints differ from CSS-window presentation; native fallback retains directgesture entry."
+    }
+  ],
+  "runtimeBindings": [
+    {
+      "path": "components/FilmControls.tsx",
+      "sha256": "65594ad9e0238e0fba5ffccc638217bd15cd737c6c955ac8d8df21890671ac82",
+      "unchangedSinceApprovedImplementation": true
+    },
+    {
+      "path": "app/globals.css",
+      "sha256": "8e50f374ef4a16ad4041e52e139a7fe42d50b7e12a8d93dda3a002b0de3da1cc",
+      "unchangedSinceApprovedImplementation": true
+    },
+    {
+      "path": "lib/film-controls-copy.ts",
+      "sha256": "bf03666e437bb19ba1c89d7c09f4e218aa64dec88356b8e2b6817db9c2797be5",
+      "unchangedSinceApprovedImplementation": true
+    },
+    {
+      "path": "lib/film-presentation.ts",
+      "sha256": "401ddebd927a7a90f0896b0154f55ee6658b0f9f14636c59c94437c66630e84b",
+      "unchangedSinceApprovedImplementation": true
+    },
+    {
+      "path": "tests/e2e/film-iphone-window.spec.ts",
+      "sha256": "be77882b349ec7e67949fe7202be084fca58368f151884de1d74241b65077972",
+      "unchangedSinceApprovedImplementation": true
+    },
+    {
+      "path": "tests/e2e/film-evolution.spec.ts",
+      "sha256": "785153149a19d6ce2ce7ac74365a96e47f94fac630fb1243679fe0c79806aadd",
+      "unchangedSinceApprovedImplementation": true
+    },
+    {
+      "path": "tests/e2e/film-native-fullscreen.spec.ts",
+      "sha256": "dd1a4d2d76cd18667a9a8c37627975a3c7928741537b3ab2ab489b78937efedc",
+      "unchangedSinceApprovedImplementation": true
+    },
+    {
+      "path": "tests/e2e/film-options.spec.ts",
+      "sha256": "d99f650c7c5903740218e47fcd9215f85e57c6a3090ed4fabb0e825d4d9f5d8c",
+      "unchangedSinceApprovedImplementation": true
+    },
+    {
+      "path": "tests/e2e/film-presentation-routing.spec.ts",
+      "sha256": "f35229befee963cb465e7909c5188424d9acdf1d86ce1a92b94cc9509a68b822",
+      "unchangedSinceApprovedImplementation": true
+    }
+  ],
+  "extraQA": {
+    "pass": 24,
+    "fail": 0,
+    "states": 24,
+    "locales": [
+      "ru",
+      "ar"
+    ],
+    "sizes": [
+      [
+        320,
+        568
+      ],
+      [
+        320,
+        400
+      ],
+      [
+        568,
+        320
+      ],
+      [
+        568,
+        220
+      ],
+      [
+        375,
+        667
+      ],
+      [
+        375,
+        500
+      ],
+      [
+        667,
+        375
+      ],
+      [
+        667,
+        260
+      ],
+      [
+        375,
+        812
+      ],
+      [
+        812,
+        375
+      ],
+      [
+        812,
+        275
+      ],
+      [
+        280,
+        480
+      ]
+    ],
+    "conditions": "Current production7, unadapted mobile WebKit/DPR3 and modern iPhone UA; native calls explicitly mocked. Geometry only, not iOS15 or physical SE/mini/device chrome.",
+    "errors": [],
+    "evidence": [
+      {
+        "path": "screenshots/video/iphone-window/research-small/checks.json",
+        "sha256": "ba548e2bc1284e81535323ff748b20fd38383d5dd1a28f43811b652766d9291b"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small.mjs",
+        "sha256": "cfd32c7c652b4a69ebe5e18e1566254878d4f16559bed089de09618c341c69d0"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-280x480-menu.png",
+        "sha256": "d9e983c01d127024284a1ad6cca4e81f3b3b9f8732057b006988dd7d6e6d0f27"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-280x480-picture.png",
+        "sha256": "a48cadf12bd0df61ef4a84632c5ada18b68bce3ffdd7d2e84c30dfa1fe4dc8ff"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-320x400-menu.png",
+        "sha256": "543a9d9ea92970aa9a31e708ffe4a5eb78ea7d23e723df05df8ea9990f12bd85"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-320x400-picture.png",
+        "sha256": "6989f145ca1c7f36fd2f939e27ae27255bcffff9a9cab813c75aee23fa1bc131"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-320x568-menu.png",
+        "sha256": "385cb69af06b8ce958cafc0e0d15b585e031952b159a59a7aed9d64154a7c3f6"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-320x568-picture.png",
+        "sha256": "bb1f0afedf34bfadf4d4fdadd6d4ebff14a88d4ffa43569d986226df87104178"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-375x500-menu.png",
+        "sha256": "e39a2ddcc029853f81137b24cbcd7799ae9982df8f9a94e361ce5a12c180eab2"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-375x500-picture.png",
+        "sha256": "10440ae5b7d117be2ae1a1be319481f2bad90850e790aefef5c2d279f94d2a5f"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-375x667-menu.png",
+        "sha256": "7818b49057b8e79edd9196cfb14c9a03cf258910ef7ce818f2f3b3c788e1345a"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-375x667-picture.png",
+        "sha256": "389a08cf0bf592804e4c85b8ebfec048f471a83b409add14850e32c3722fb918"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-375x812-menu.png",
+        "sha256": "691fb02d134e2252e034cc8c1e5727c10c458c0ebb443ed4e8938661e0d2f3b9"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-375x812-picture.png",
+        "sha256": "1197be0cb1d844b9286d6a188d2dbfb2587ce9e9dcd0c667869c00ce55887ea3"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-568x220-menu.png",
+        "sha256": "82c0276140f9d83aafaa8e9046df9c85a0f9e492c57d261ea5b11cd040977257"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-568x220-picture.png",
+        "sha256": "512a3220293f991506b61a98ecaa7930d4088e7ea114c4f72f990aa50eb77b87"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-568x320-menu.png",
+        "sha256": "f562039cb45cfe0f1da618e094e0e232fd13aaca0c5fa36c1d3ded1e54891681"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-568x320-picture.png",
+        "sha256": "f1aa2eae833393a4feccab3617f03f1af4fa9bced6179193b4f0c82b52d2bd52"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-667x260-menu.png",
+        "sha256": "6804ea6974d9f73404eda40e9414168213882ea95f0f1a918a9278e729c55d23"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-667x260-picture.png",
+        "sha256": "0b344198edb0dbfe55df5abee72cb48f3eb106987174dbd0b7d53182b9db6af4"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-667x375-menu.png",
+        "sha256": "61d3c8f260ae6e7aec44e9a0a8fac324afff0e2331be93f4a4167fd646f402f2"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-667x375-picture.png",
+        "sha256": "19d3220f8933a195a088f4063d7dda71f77416bd4d15937d819370f2aa9e10c1"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-812x275-menu.png",
+        "sha256": "b48fd6989fdca118b021b90733ca5063c4040e6789e30904f0189cc828d2bd36"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-812x275-picture.png",
+        "sha256": "9279135b21547a5f3b319af59cd30c01dd2be4e4eede72e5cd3839879cd130f0"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-812x375-menu.png",
+        "sha256": "cc8106fd8c7c1257ecfcf022e8e69b9d82cd268743f1906717f391184f8edb7f"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ar-812x375-picture.png",
+        "sha256": "2eaca1ef09378e3a8ae0122447b9ba3387a14d0640dd1e621794b64c1c33ebd4"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/contact.png",
+        "sha256": "83485577c53361a62c04342cb784d2b15f1ee04ecb4665731bc0beaa43c36cdf"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-280x480-menu.png",
+        "sha256": "9575d92234eec64a9fff5283b11c62ba1036fe4463451602b5b380f3a8681670"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-280x480-picture.png",
+        "sha256": "970bec58fbd00d6b1d506ae30fb0b7931ada79758a3801007d0689ac1e8726c5"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-320x400-menu.png",
+        "sha256": "77451ec9e8f1efcb49981c1d5d295fece1fc072b2ed2860e101b2239819ac80a"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-320x400-picture.png",
+        "sha256": "e2618e64d8d8a2681065fd321d04d175cca4fc5f9754d4202d47b957849d8b93"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-320x568-menu.png",
+        "sha256": "6c087594dec049316d7699a8300b9503491b067e5399a14eedb560693132611a"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-320x568-picture.png",
+        "sha256": "d89c8f3589adc05ec9a448a6f4c95347a2dfe043d2eae9c21f1775d4769e847c"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-375x500-menu.png",
+        "sha256": "a480fca9cf354dbd33be0e898893876a8a5a16f6df94e9c423477d296f6c92e2"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-375x500-picture.png",
+        "sha256": "6e3410563125f79288212500546c59867ce57becb432be1b8910ea6e82fb474f"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-375x667-menu.png",
+        "sha256": "3c73814d2c7dcf5572fbed9548995f7df833e92e32237b7cd07fa32b520fd64e"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-375x667-picture.png",
+        "sha256": "7ff3eecfef4dd61fddecfa566d5cf49d81a6098b2a3729f59de4cb8b99829fa9"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-375x812-menu.png",
+        "sha256": "109429a0c698992ab184917d7bf83ac4193c98172722d5cb1e7bd3429f94ec92"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-375x812-picture.png",
+        "sha256": "0d1f4da0f0869de185f2ad6b92952ebfd2a25131e80768648aef55d6a5922b74"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-568x220-menu.png",
+        "sha256": "7e70a31da30ef08b8bbb44d26c332a6216ee6716ec8303eec9e0bb54159d6c96"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-568x220-picture.png",
+        "sha256": "9af686617b7c9c4fa1dc1ad57f41440259cae07b968c91328f4063ba7674f2a9"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-568x320-menu.png",
+        "sha256": "9d41f5b34ffddcd6aa5c884919ca004d73ca4a4c6b58a37375396d1c023f6bd3"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-568x320-picture.png",
+        "sha256": "5304190c6b8501accfc853d9b51e61dcb3e10aae9d622e19c85011d2721bf68a"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-667x260-menu.png",
+        "sha256": "8642cb7b14d1cb0dbbdc8f80bd53a4be0de2e30492b881b4462288d3903fdaa9"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-667x260-picture.png",
+        "sha256": "9ddb96df6f66ecbbd7a60806b185059594ce7cc83f7435f84b5361bab0324eaa"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-667x375-menu.png",
+        "sha256": "5f80050417a2ec68bf5ac69cbc7cc90831dc0e98495b10772c9eb58847910889"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-667x375-picture.png",
+        "sha256": "657103f000ebc672435e576a2b10e6e125af06d356d85699f9d692806d5c8fdf"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-812x275-menu.png",
+        "sha256": "dc8065ce21510bb0d421a87d090a3716866c79f9a66d482ea14a62702f5fadf7"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-812x275-picture.png",
+        "sha256": "25ca19c9ebb078052f2d1ba5bf2387388f4e134491a5a436b6504c0cd06574e9"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-812x375-menu.png",
+        "sha256": "a65f7e3895663af3f833e88d53ece8ad25ffbc2cfc371e0d4bc43ea9e101fafb"
+      },
+      {
+        "path": "screenshots/video/iphone-window/research-small/ru-812x375-picture.png",
+        "sha256": "b3f00ffcfec263b9444214161a8111b42e2d3cb6c84f0fc1b3009a9783f13c97"
+      }
+    ],
+    "visualInspection": "Main viewed final six-case contact after closed/open menu animation completion; all24 states PASS; primary close/open/device limits explicit.",
+    "film": "Evolution10s paused decoded frame; not a new all7 film run",
+    "errorScope": "All pageerrors aggregated across both RU and AR contexts; final script exits nonzero on any recorded error."
+  },
+  "limits": [
+    "No physical iPhone, Safari chrome animation, embedded WKWebView host policy, or old Safari runtime tested.",
+    "320x568 modern WebKit geometry is not iOS15/first-generationSE certification.",
+    "Safari16.4 framework baseline is inferred from installed target+official documentation, not a per-version run.",
+    "Current option still local only; no commit/push/deployment.",
+    "Native fallback adapter proves API intent/lifecycle/source-time retention, not Apple OS pixels."
+  ],
+  "technicalApproval": {
+    "verifier": "/root",
+    "date": "2026-10-31",
+    "status": "APPROVED_RESEARCH_WITH_LIMITS",
+    "evidence": "16primarysources, unchanged9reviewedruntime/testfiles, final24PASS0FAIL and aggregatepageerrors0; physical/oldOS/hostlimits explicit",
+    "independentAudit": "PASS within stated limits /root/research_closeout2026-10-31; report/records/QA/contact/9runtime and51artifact hashes directly checked"
+  },
+  "historicalScope": "Pre-unification evidence; current code/status/approval is in iphone-entrypaths.json. Original dated findings and hashes retained.",
+  "supersededBy": "iphone-entrypaths.json"
+}

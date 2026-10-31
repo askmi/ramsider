@@ -141,7 +141,9 @@ test('shared fullscreen keeps gear usable; unsupported fullscreen reports error'
   await page.keyboard.press('Escape'); await expect(page.locator('#product-film')).toBeVisible();
   await page.locator('.film-fullscreen').click();
   await expect.poll(() => page.evaluate(() => !document.fullscreenElement && !document.querySelector('#film-player')?.hasAttribute('data-element-fullscreen'))).toBe(true);
-  // Explicit unsupported fixture: never silently replace fullscreen with a page-sized box.
+  // Explicit native rollback fixture: unsupported native entry must report an error.
+  // The enabled iPhone window mode deliberately needs no fullscreen API.
+  if (info.project.name.includes('iphone')) await page.evaluate(() => history.replaceState(null, '', '?iphonePlayer=native'));
   await page.locator('#film-player').evaluate(host => {
     Object.defineProperty(host, 'requestFullscreen', { configurable: true, value: undefined });
     Object.defineProperty(host, 'webkitRequestFullscreen', { configurable: true, value: undefined });

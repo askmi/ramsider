@@ -90,6 +90,7 @@ async function chrome(page: Page, screenshot: string) {
 for (const locale of ['en', 'ar']) test(`${locale}: active pictures fill rotated Pro and Max without changing portrait or film 6`, async ({ page }, info) => {
   test.skip(!info.project.name.includes('iphone'), 'Required mobile WebKit profiles; fullscreen is labelled layout adapter');
   await emulateCustomFullscreenLayout(page); await open(page, locale);
+  test.skip(locale === 'ar' && new URL(page.url()).pathname === '/en', 'Arabic runtime disabled by English-only presentation; preserved for multilingual mode');
   const max = info.project.name.includes('max');
   const portrait = max ? { width: 440, height: 956 } : { width: 402, height: 874 };
   const landscape = { width: portrait.height, height: portrait.width };
@@ -100,12 +101,16 @@ for (const locale of ['en', 'ar']) test(`${locale}: active pictures fill rotated
     await chrome(page, `${info.project.name}-${locale}-${aperture.id}-portrait`);
     for (const height of [landscape.height, landscape.height - 64]) {
       await page.setViewportSize({ width: landscape.width, height });
+      await expect(page.locator('#film-player')).toHaveAttribute('data-full-window', 'true');
       expect(await page.evaluate(() => [innerWidth, devicePixelRatio])).toEqual([landscape.width, 3]);
       await picture(page, aperture, true);
       await chrome(page, `${info.project.name}-${locale}-${aperture.id}-landscape-${height}`);
     }
     await page.setViewportSize(landscape); await settledFrame(page, 15);
     await page.locator('.film-fullscreen').click();
+    await expect(page.locator('#film-player')).not.toHaveAttribute('data-full-window');
+    await page.locator('.film-fullscreen').click();
+    await expect(page.locator('#film-player')).toHaveAttribute('data-full-window', 'true');
     await expect(page.locator('#film-player')).toHaveAttribute('data-element-fullscreen', 'true');
     await picture(page, aperture, true); await chrome(page, `${info.project.name}-${locale}-${aperture.id}-fullscreen-adapter`);
     await page.locator('.film-player__list-toggle').click();

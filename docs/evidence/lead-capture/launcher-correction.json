@@ -1,0 +1,876 @@
+{
+  "change_id": "CHG0189",
+  "date": "2026-10-31",
+  "status": "VERIFIED_LOCAL_PENDING_PREPUSH_AUDIT_AND_PUBLICATION",
+  "user_correction": "Icon-only contact control, same48px translucent style as Up; no visibleUNOlabel; fix nonopening tap.",
+  "baseline": [
+    {
+      "profile": "pro",
+      "states": [
+        {
+          "safe": 0,
+          "b": {
+            "x": 248.078125,
+            "y": 748,
+            "width": 137.921875,
+            "height": 46
+          },
+          "up": {
+            "x": 338,
+            "y": 806,
+            "width": 48,
+            "height": 48
+          },
+          "gap": 12,
+          "hit": "launch-floating",
+          "opened": true
+        },
+        {
+          "safe": 34,
+          "b": {
+            "x": 248.078125,
+            "y": 734,
+            "width": 137.921875,
+            "height": 46
+          },
+          "up": {
+            "x": 338,
+            "y": 776,
+            "width": 48,
+            "height": 48
+          },
+          "gap": -4,
+          "hit": "launch-floating",
+          "opened": true
+        },
+        {
+          "safe": 80,
+          "b": {
+            "x": 248.078125,
+            "y": 688,
+            "width": 137.921875,
+            "height": 46
+          },
+          "up": {
+            "x": 338,
+            "y": 730,
+            "width": 48,
+            "height": 48
+          },
+          "gap": -4,
+          "hit": "launch-floating",
+          "opened": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "profile": "max",
+      "states": [
+        {
+          "safe": 0,
+          "b": {
+            "x": 286.078125,
+            "y": 830,
+            "width": 137.921875,
+            "height": 46
+          },
+          "up": {
+            "x": 376,
+            "y": 888,
+            "width": 48,
+            "height": 48
+          },
+          "gap": 12,
+          "hit": "launch-floating",
+          "opened": true
+        },
+        {
+          "safe": 34,
+          "b": {
+            "x": 286.078125,
+            "y": 816,
+            "width": 137.921875,
+            "height": 46
+          },
+          "up": {
+            "x": 376,
+            "y": 858,
+            "width": 48,
+            "height": 48
+          },
+          "gap": -4,
+          "hit": "launch-floating",
+          "opened": true
+        },
+        {
+          "safe": 80,
+          "b": {
+            "x": 286.078125,
+            "y": 770,
+            "width": 137.921875,
+            "height": 46
+          },
+          "up": {
+            "x": 376,
+            "y": 812,
+            "width": 48,
+            "height": 48
+          },
+          "gap": -4,
+          "hit": "launch-floating",
+          "opened": true
+        }
+      ],
+      "errors": []
+    },
+    {
+      "profile": "desktop",
+      "states": [
+        {
+          "safe": 0,
+          "b": {
+            "x": 1286.078125,
+            "y": 774,
+            "width": 137.921875,
+            "height": 46
+          },
+          "up": {
+            "x": 1376,
+            "y": 832,
+            "width": 48,
+            "height": 48
+          },
+          "gap": 12,
+          "hit": "launch-floating",
+          "opened": true
+        },
+        {
+          "safe": 34,
+          "b": {
+            "x": 1286.078125,
+            "y": 760,
+            "width": 137.921875,
+            "height": 46
+          },
+          "up": {
+            "x": 1376,
+            "y": 802,
+            "width": 48,
+            "height": 48
+          },
+          "gap": -4,
+          "hit": "launch-floating",
+          "opened": true
+        },
+        {
+          "safe": 80,
+          "b": {
+            "x": 1286.078125,
+            "y": 714,
+            "width": 137.921875,
+            "height": 46
+          },
+          "up": {
+            "x": 1376,
+            "y": 756,
+            "width": 48,
+            "height": 48
+          },
+          "gap": -4,
+          "hit": "launch-floating",
+          "opened": true
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "confirmed_failed_edge": {
+    "point": {
+      "x": 362,
+      "y": 778
+    },
+    "hit": "back-to-top",
+    "open": false,
+    "scrollY": 0
+  },
+  "cause": "Root chose obtrusive pill and used different safearea anchors; atsafe34 rightloweredge overlappedUp by4px, realtouch hitUp/scrolled0/formclosed. Center worked all3profiles, so genericall-tap failure not claimed. Priorpublicsmoke checked launcherpresence butdidnotclickit.",
+  "solution": "SharedUp/contact CSS geometry/style; envelope22px inside48button, matchingborder/radius/translucency/blur/shadow; contactbottom=Upbottom+60 gives12pxgap. No visiblelabel, accessiblepurpose/status preserved. Nativeopeninghandler unchanged.",
+  "checks": {
+    "production_build": "PASS isolatedcandidate defaultflagsunset SMTPblank",
+    "typecheck": "PASS",
+    "scoped_eslint": "PASS0errors0warnings",
+    "native_review": "CLEAN source/diff only",
+    "browser": "57PASS6explicitserver-engineSKIP: Pro402x874/Max440x956DPR3WebKit/Chromium, actualSVG/padding/loweredge safe0/34/80, gap12/styleequality/48px/keyboard/focus/Upclick/320/short402/768/874landscape/receiptstatus+allpriorforms/backendfallback",
+    "root_visual": "Viewed actualPro/Maxpairedicons andProloweredgetap-open; same Up style/size, no text, clear12pxgap; originalreferencefornewcontrol is existingUp, no rasterorcalibratedrenderchange. ActualPro+Maxassembledfooterimages viewed, pairedicons matchUp/no visiblelabel;19positions each/endgap0/overflow0/errors0.",
+    "performance": {
+      "date": "2026-10-31",
+      "production": true,
+      "conditions": "Chromium402x874DPR3,cold4Mbps100msCPU4 for load and scrollsample; unthrottled18step integration after performance sample",
+      "load": {
+        "lcp": 1312,
+        "cls": 0.00022206073455854325,
+        "fcp": 412,
+        "jsBytes": 335894,
+        "width": 402,
+        "dpr": 3
+      },
+      "scroll": {
+        "frames": 97,
+        "p95": 16.700000000000728
+      },
+      "integration": {
+        "positions": 19,
+        "overflows": 0,
+        "footer": {
+          "visible": true,
+          "endGap": 0
+        }
+      },
+      "maxIntegration": {
+        "positions": 19,
+        "overflows": 0,
+        "footer": {
+          "visible": true,
+          "endGap": 0
+        },
+        "pageErrors": []
+      },
+      "pageErrors": [],
+      "limitations": "Synthetic lab sample, no Lighthouse/fieldINP/physicaliPhone or delivery proof. No backend requests submitted."
+    },
+    "independent_audit": "PASS /root/audit2026-10-31 reopenedScope/Gates3/4/5 and exactstagedGate6PREPUSH:12paths/6source+90artifactbindings, oldb86014source/66archive/16publicpreserved; correctedpublictouchcheck pending.",
+    "publication": "PENDING"
+  },
+  "historical_initial_receipt": "implementation.json originalb860sourcebindings+66byte-exactarchivedartifacts and16originalpublicfiles preserved; this receipt describescurrentcorrection",
+  "limitations": [
+    "ActualSMTPauthentication/send/inbox stillunverified",
+    "PhysicaliPhone/fieldINP/Lighthouse/WCAGcompliance notcertified; actualbrowseremulation only",
+    "Reportedgenericdeadclick notuniversal: boundedloweredgeUpinterceptionreproduced andregression-tested"
+  ],
+  "user_approval": "Explicituserstyle/behaviorcorrection; standingmainpublicationauthorization; finalresultacceptance notyetrecorded.",
+  "technical_approval": {
+    "date": "2026-10-31",
+    "verifier": "/root",
+    "scope": "APPROVED_LOCAL_CONTACT_ICON_AND_TOUCH_FIX",
+    "evidence": "Build/type/scopedlint/nativeCLEAN,57browserPASS6explicitprofileSKIP; actualPro/Maxpairedicons+tapopen+footers viewed. safe0/34/80 actual3hitpoints/48px/stylematch/12gap/status/keyboard/Up; finalsyntheticLCP1312/CLS.000222/JS335894/scrollp9516.7ms.",
+    "limits": "Publiccorrectedcontrol pending; physicaliPhone notcertified; SMTP/inbox unverified.",
+    "independent_auditor": "/root/audit LOCAL+PREPUSH PASS2026-10-31"
+  },
+  "source_bindings": {
+    "app/globals.css": "0b4bcf54dba5a01a7cacd6e1e1e7c6931e0909c9ea166cf2baa57a0e1419c6a2",
+    "components/LaunchCapture.tsx": "d115a71992b011e3b6a627d5d25549936add38f9c2f1a28b83e5498c631b5b84",
+    "components/LaunchCapture.module.css": "b23d629db31ae6a7241aef7ca6059aadc44d8d6df294203b4d36af9bd1b2bd8e",
+    "lib/launch-copy.ts": "19e027b5c193c8a22782154e8423ec143e8f77b4cb0e84b6af8ca5bc7eb5e0d5",
+    "tests/e2e/launch-capture.spec.ts": "26febd8d60c705dddd52fee8a8ba6ae654d4ebeeaf2bc367ffebfbabcfca3a7f",
+    "tests/e2e/launch-icon.spec.ts": "e764198b6ab0b4d001b415ca5e8bd450d7218d1c5adf8b8f436d8d62a5b4bddf"
+  },
+  "artifact_bindings": {
+    "screenshots/lead-capture/launcher-correction/before-desktop.png": {
+      "sha256": "a8c27f371809cfa7ac00169ef8902e854930ccf750b8f863d9c53ccfbe2d4989",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/before-max.png": {
+      "sha256": "334bd06de4f983282808a3f69efb73ba31f3e140669083be9cc88d41992aedfe",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/before-pro.png": {
+      "sha256": "b1e2dad7d086d6b5d6d9ec3a02b25fe22aab1c22aca937e5abdaa773cb663072",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/desktop-chromium-320x568.png": {
+      "sha256": "82aa0dfc6c3dbe16ed5ae9186f252c0fd1db9acda646c628f5b09fc6b85572b7",
+      "css_screenshot_size": [
+        320,
+        568
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/desktop-chromium-402x390.png": {
+      "sha256": "941b03995c968569910bc7151744bc523a5ce689545f133d52c2472f604512ef",
+      "css_screenshot_size": [
+        402,
+        390
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/desktop-chromium-768x1024.png": {
+      "sha256": "bd08876953faae9f762e6f38710394a14bb9c55eac56d49823ec5705cf560520",
+      "css_screenshot_size": [
+        768,
+        1024
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/desktop-chromium-874x402.png": {
+      "sha256": "d35dae149561aaa3d889f7f718e3b043d17dcbc4b7ff591c24fdc512d8d93b53",
+      "css_screenshot_size": [
+        874,
+        402
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/desktop-chromium-icons.png": {
+      "sha256": "93bf78a328b66bc95b4f20e86730807875a3908641118eb3889f845958fb004a",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/desktop-chromium-tap-open.png": {
+      "sha256": "a86e84601a2dd3c29eea1ced0c54fc4a514e6b8b7649df0f8d0cd9c6a9479f1b",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/diagnose.mjs": {
+      "sha256": "3fa40da3c063bd695647cb6b41d7deff40a542f4cf41750e6c9cd3aa302a7721"
+    },
+    "screenshots/lead-capture/launcher-correction/diagnosis.json": {
+      "sha256": "f86aeec08e609e78f6fd0e9e9e88f4ddddd973a0ef4879251665c86e8333773e"
+    },
+    "screenshots/lead-capture/launcher-correction/edge-before.json": {
+      "sha256": "863f4ffdcf55354cb8596e05cf8afc5832ff890ef97861a3288387645138cc31"
+    },
+    "screenshots/lead-capture/launcher-correction/edge-before.mjs": {
+      "sha256": "966b1ce98a5fa8b155a0c47f0f12face88a095552f563c2e61a051cea80c8aa5"
+    },
+    "screenshots/lead-capture/launcher-correction/iphone-17-pro-max-webkit-320x568.png": {
+      "sha256": "de546a25a4e266dfc36b9f188a44ae5b4b5d9180cff6a76398913b2b30595006",
+      "css_screenshot_size": [
+        320,
+        568
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/iphone-17-pro-max-webkit-402x390.png": {
+      "sha256": "9bfb3c6fe0519e97ae065ecd257587c7ab7beb0897aa853ac798c5ebeb5a2e8f",
+      "css_screenshot_size": [
+        402,
+        390
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/iphone-17-pro-max-webkit-768x1024.png": {
+      "sha256": "ee5e0c70c5140add255070d266b0d2f988e51ca42e69657c05a157c3e78ca631",
+      "css_screenshot_size": [
+        768,
+        1024
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/iphone-17-pro-max-webkit-874x402.png": {
+      "sha256": "c01fe741d7f03f64cb9ec7156f550a577d01371caed3ad1ed4038a34179b4a3e",
+      "css_screenshot_size": [
+        874,
+        402
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/iphone-17-pro-max-webkit-icons.png": {
+      "sha256": "4c237859584060ffa6f1cd4ee172d2a380aa50ee2e8d465a6aa501cb2b64f64a",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/iphone-17-pro-max-webkit-tap-open.png": {
+      "sha256": "0fd86e442096dfb464d6c205271887353b18e2fab7cc67b86df530e42a06dadd",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/iphone-17-pro-webkit-320x568.png": {
+      "sha256": "de546a25a4e266dfc36b9f188a44ae5b4b5d9180cff6a76398913b2b30595006",
+      "css_screenshot_size": [
+        320,
+        568
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/iphone-17-pro-webkit-402x390.png": {
+      "sha256": "9bfb3c6fe0519e97ae065ecd257587c7ab7beb0897aa853ac798c5ebeb5a2e8f",
+      "css_screenshot_size": [
+        402,
+        390
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/iphone-17-pro-webkit-768x1024.png": {
+      "sha256": "98d9bbb23ef5a39e0199280281245d3c3a5f7c3d0d798dc31296369f282a171f",
+      "css_screenshot_size": [
+        768,
+        1024
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/iphone-17-pro-webkit-874x402.png": {
+      "sha256": "c01fe741d7f03f64cb9ec7156f550a577d01371caed3ad1ed4038a34179b4a3e",
+      "css_screenshot_size": [
+        874,
+        402
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/iphone-17-pro-webkit-icons.png": {
+      "sha256": "e078a40125c3c78f829d72430a1b7b89efc0c228a821f7fbae95f53a18da2486",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/iphone-17-pro-webkit-tap-open.png": {
+      "sha256": "c188858b6bcdf2be025e0328f31fb2a2e991b3f602f94a76298164d18ae17579",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/performance.json": {
+      "sha256": "c868576d39ace116a766c56fde5d95bb99ba4f9a9b476e8b4e30f4e3261ac231"
+    },
+    "screenshots/lead-capture/launcher-correction/performance.mjs": {
+      "sha256": "2a8b51015db48f939e3450aade3ccfafbdc153f01b18f3187164c4c0fac23f45"
+    },
+    "screenshots/lead-capture/launcher-correction/production-assembled-footer.png": {
+      "sha256": "e9eee1e12afe319c52713f3fc101e29f843ec0f9df84cecdb87a61674c80988a",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/production-assembled-max-footer.png": {
+      "sha256": "5a54d48f887fbc76a1c5da59939b2649cd748658c158cbdbc592fa78e820efca",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/production-perf-pro-updates.png": {
+      "sha256": "3b676218ae8ca95057e94a62d909ca1d3dc2bd88dcfe7624028c2ae04fbf40a5",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-callback-320x568.png": {
+      "sha256": "a5e96312ddc621086129fcdc846f2bac15c3b3affd5d8f3b8d98e861467fdfaa",
+      "css_screenshot_size": [
+        320,
+        568
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-callback-402x390.png": {
+      "sha256": "87802062d37e63dba4bdc4c746b40659cca239bbeda500f4e98f4cb03808a120",
+      "css_screenshot_size": [
+        402,
+        390
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-callback-768x1024.png": {
+      "sha256": "43f91bf4a84eb126fef594f9a91d46b03a2302367b2e71ab7d2bb4afabd41987",
+      "css_screenshot_size": [
+        768,
+        1024
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-error.png": {
+      "sha256": "9c0b308f7bb86993c7eb7454ed91bf362f1305ee2578b32f778d6d5459a9455c",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-final-create-callback.png": {
+      "sha256": "06f510de95c13e2ceafb24e01ad23cae1d4f5e64ac0c4c326cac8a9443fc7f88",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-final-create-updates.png": {
+      "sha256": "ec811f8049926cf87ca45c3aaa92e07f465615ecf285d9f54259db0f5aa8bd1e",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-floating-success-Close.png": {
+      "sha256": "b78b5505083b13d47999e3875b41a4343f93f2a5fd1ad25ae78c7bb73a71ef36",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-floating-success-Done.png": {
+      "sha256": "b78b5505083b13d47999e3875b41a4343f93f2a5fd1ad25ae78c7bb73a71ef36",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-floating-success-Escape.png": {
+      "sha256": "7725479b7e7e15f59847d6d190258f5783e93633f7fcdeeafc6b2fcc35f48a48",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-hero-reserve-callback.png": {
+      "sha256": "fb1997776e8938d3728c8272d25f0f0848d45664744a5adb691d09b1e99acaee",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-hero-reserve-updates.png": {
+      "sha256": "bf348c874cc8d1adb03a341eed7663e3a54dea20600a1fd2df7af45635cd0e39",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-hero.png": {
+      "sha256": "de32d7980ecf811d97f008da1e7b8f0b3db666b3f0f5b4739b5d9c56086bf309",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-launcher.png": {
+      "sha256": "bc46a76807a9cb68df9048425e98a794f1760989f5af913f2892f42878153360",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-order-create-callback.png": {
+      "sha256": "56544d4c3dfd3aca86da916e5de954195bec17eb01e12410da0d00b2e5f03fa6",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-order-create-updates.png": {
+      "sha256": "b99c40b0fa283a3965cbfa8bbbdc8cce2d54b7640875ffa3017da172aba05b2c",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-real-missing-smtp.png": {
+      "sha256": "7bea16f169f5fe775bfb19c2d6b8a6ffc5918eec1c9c533c8b1ee6060b065649",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-set-explore-callback.png": {
+      "sha256": "b8fce182709f447e7d2e7338581f6847fd8f3f3ca4a5fd33083a569f6b8af884",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-set-explore-updates.png": {
+      "sha256": "6ef5bb300b3b36b521ffdb60d39d05712539e8f73bbe9b5ad4dff49b80538210",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-success.png": {
+      "sha256": "5a571d1577acbd9495e9ff6a6c01d95ea19c1cc0c307837956484ab6e7a2cafa",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-uncertain-delivery.png": {
+      "sha256": "145b32a2b298e9700c70efb9c2e0eb62cc123d25e098fa1d08940d0920504f95",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-callback-320x568.png": {
+      "sha256": "b728dc2baef4a26cdb8a7b23f170343dca7b05a4566180968604f65f6a52d7be",
+      "css_screenshot_size": [
+        320,
+        568
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-callback-402x390.png": {
+      "sha256": "23d24ba70f19b53d5b2450ffc57cd5ab82dff8fd389935350b03c62e760ac0f6",
+      "css_screenshot_size": [
+        402,
+        390
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-callback-768x1024.png": {
+      "sha256": "bf49b66f1a502e467a5c3f107327c8032801f117b22fea96c6cad876c6dcce02",
+      "css_screenshot_size": [
+        768,
+        1024
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-error.png": {
+      "sha256": "1e233d91d171ab86bc2c67f023ee676adc7bf04a3d54c48ac1e30c4b39587a9a",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-final-create-callback.png": {
+      "sha256": "d3300a026d481ece6a1b00de5e6a10758ef52406476f00f0b8d27ccf148076d4",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-final-create-updates.png": {
+      "sha256": "350a6e83374a1d811a222dc06fd3e29040a247ab9227a1cf417be7f0173e2ce0",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-floating-success-Close.png": {
+      "sha256": "d616d08af521b1d6a71facc7ec281947ddb96ccef2976e9cf81df0be2b4cd593",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-floating-success-Done.png": {
+      "sha256": "77801718de4eaca1a5db09000e2f98137fa6346655e29888ac94b75d788c1667",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-floating-success-Escape.png": {
+      "sha256": "1e5cb0c762094a239b1a1ae77a96e96fa78cec0ddebddbc03b50158b664c3f8b",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-hero-reserve-callback.png": {
+      "sha256": "8bfa1e8e22323fa50d7a63b93e4d51cd582eca0f2b1109bc5c0bc349289190a1",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-hero-reserve-updates.png": {
+      "sha256": "45f8084cd30037b1316cd7a753aa59cf94860142dc3d69cc7a58839aebf1e095",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-hero.png": {
+      "sha256": "5fe00a853e4df6f5159dd903501bb94655b1ce475b0f80ed93eb91c3d4eaa454",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-launcher.png": {
+      "sha256": "719bd51c5849d93126f97fc7c844b2c49c0cb263fd4dee4d469c996e2bfc4114",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-order-create-callback.png": {
+      "sha256": "192452e6b798273ff3acde6a1d2de4ae5965112b92021a627c06232a93ff921b",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-order-create-updates.png": {
+      "sha256": "b5e9e490f60b775e288c5f734ecdb3ce74542d6d8c492535a155336fdc6f54b8",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-real-missing-smtp.png": {
+      "sha256": "0d6a70fd2d4a73588962990659a288ecef7b01c07c9b4515ec67099490659f85",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-set-explore-callback.png": {
+      "sha256": "000faaac47ac5d7afbb7a5ae6e1cd200bf4fb19779b139584fc3f574c378f474",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-set-explore-updates.png": {
+      "sha256": "23259079e219abb00f054dd09afce159e40392df59180304fe7ca8d4c5163c38",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-success.png": {
+      "sha256": "7d94e100e04a8944f98b8727930d68233eb74be356c9362adf436d25b1fb6a2a",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-uncertain-delivery.png": {
+      "sha256": "95204c18e5551bde1f725127bbd4d87768dde4f431546e9136b609a687bee68c",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-callback-320x568.png": {
+      "sha256": "b728dc2baef4a26cdb8a7b23f170343dca7b05a4566180968604f65f6a52d7be",
+      "css_screenshot_size": [
+        320,
+        568
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-callback-402x390.png": {
+      "sha256": "23d24ba70f19b53d5b2450ffc57cd5ab82dff8fd389935350b03c62e760ac0f6",
+      "css_screenshot_size": [
+        402,
+        390
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-callback-768x1024.png": {
+      "sha256": "bf49b66f1a502e467a5c3f107327c8032801f117b22fea96c6cad876c6dcce02",
+      "css_screenshot_size": [
+        768,
+        1024
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-error.png": {
+      "sha256": "30bcd84e7c2f5c4b3b057ea12abd1f9d7db35242d030d04eac45488c2032b00b",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-final-create-callback.png": {
+      "sha256": "3d4ec6fb8cf8e6ed81dfb9f039efdce3d8cca3e7eb78766101c334f44efedf1b",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-final-create-updates.png": {
+      "sha256": "e05131d1331db60ec1dabcedff0cc230d3eeeb230cca516a03be91106479344a",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-floating-success-Close.png": {
+      "sha256": "9cb4992f76c4077365ff9477d88ddb6431645cc60199ca53110ee0963ba0c712",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-floating-success-Done.png": {
+      "sha256": "1b0f5741a8caf2360cd7fd8504c65a2ed9e460169a466e6b42096dfa2cbdfd09",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-floating-success-Escape.png": {
+      "sha256": "d4951e844f89f448d96031f9c837201536219153411e480b24c3bc23d4279b01",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-hero-reserve-callback.png": {
+      "sha256": "762217b29f98283df317a9b9f12e9b73565ccf00801bb64d38a79370bd6c777a",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-hero-reserve-updates.png": {
+      "sha256": "494f66296e696cae992d8309a0dea70705ffd4f2808d636ec2ef845d9a5192bb",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-hero.png": {
+      "sha256": "933b13dec450f0488776cd8420631533e926493e3dc8f839f21554cad6dc7d1e",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-launcher.png": {
+      "sha256": "b02fb8937f12ea2950efef2ae71a7e43c4d6d073c1d8e965da16973ca630e0ee",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-order-create-callback.png": {
+      "sha256": "90212d4ac07e224ff66e0a732ba7b7a0ba9a497276f91465f30987e97de994dc",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-order-create-updates.png": {
+      "sha256": "b97324a43966f3ddb81bdd7ef4e19b1c79f9e1c5f8ddf53dfdea5edef92202c5",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-real-missing-smtp.png": {
+      "sha256": "8230e874ee3b11680ea6d3832d5023460f55498df2ede856282594eb1cc3c134",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-set-explore-callback.png": {
+      "sha256": "42dcc058c386e9f92f1b9ea89d09ac6a6bba9062a877cfe84dbaf7eb7e9d497a",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-set-explore-updates.png": {
+      "sha256": "74157a8832a8580ac6591e7079c03fbeb339d6e5824c951e255b2a4b99fe459e",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-success.png": {
+      "sha256": "aa7b63c2b82c4df95c8827a8606ca59bb84ef84240fd2dfa161388423bc35fb2",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-uncertain-delivery.png": {
+      "sha256": "29445b92271d626bbf8d4a8efb4bfc59f1f94e51b26747ee057e27fb34689282",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    }
+  }
+}

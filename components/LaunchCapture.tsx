@@ -171,10 +171,10 @@ export function LaunchCapture({ copy }: { copy: LaunchCopy }) {
   const successTitle = receipt.confirmation ? copy.confirmationTitle : receipt.callback && receipt.updates ? copy.bothReceived : receipt.callback ? copy.callbackReceived : copy.updatesReceived;
   const successBody = receipt.confirmation ? receipt.callback ? copy.callbackConfirmationNext : copy.confirmationNext : receipt.callback && receipt.updates ? copy.bothNext : receipt.callback ? copy.callbackNext : copy.updatesNext;
   return <>
-    <button id="launch-floating" className={styles.launcher} type="button" hidden={!visible}
+    <button id="launch-floating" className={`contact-launcher ${styles.launcher}`} type="button" hidden={!visible}
+      aria-label={receipt.uncertain ? copy.pendingStatus : receipt.updates || receipt.callback ? copy.received : copy.contact}
       aria-haspopup="dialog" aria-controls="launch-capture" onClick={event => open(event.currentTarget)}>
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4zM4 6l8 7 8-7" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" /></svg>
-      {receipt.uncertain ? copy.pendingStatus : receipt.updates || receipt.callback ? copy.received : copy.launcher}
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M4 6h16v12H4zM4 6l8 7 8-7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
     </button>
     <dialog id="launch-capture" ref={dialog} className={styles.dialog} aria-labelledby="launch-title"
       onClose={restoreFocus}>

@@ -1,6 +1,7 @@
 /** English-only presentation; keep new interface copy keyed for future localization. */
 export const launchCopy = {
   launcher: 'UNO Launch',
+  contact: 'Contact RAMSIDER',
   received: 'Request Received',
   pendingStatus: 'Request Status',
   entry: 'Join the Launch List',

@@ -1,7 +1,7 @@
 {
   "change_id": "CHG0189",
   "date": "2026-10-31",
-  "status": "VERIFIED_LOCAL_DEFAULT_ON_FALLBACK; PRODUCTION_PUBLICATION_PENDING",
+  "status": "HISTORICAL_INITIAL_PUBLICATION_REOPENED_BY_USER",
   "user_selection": "C explicitly selected. User confirmed Google Workspace SMTP, support@ramsider.com destination and source/purpose subjects, no paid sender. User explicitly selected protection against double clicks and repeats in the same browser on2026-10-31. No secret supplied; policy choice resolved. User subsequently explicitly requested production main deployment now, with visible unavailable fallback when app password is absent.",
   "scope": "Userauthorizedproduction2026-10-31: defaultON launch-updates/callback form and GoogleSMTP endpoint; withoutpassword returns503 and visibleunavailable/support message. Explicitfalse kill-switch retained. No actualSMTP auth/send/inbox proof.",
   "implemented": [
@@ -13,7 +13,7 @@
   ],
   "not_verified": [
     "Google SMTP authentication/actual send/inbox receipt: missing private app password",
-    "Production activation/publication and remote environment configuration",
+    "Private remote SMTP configuration and direct alias-assignment metadata",
     "Physical iPhone, field INP, Lighthouse, universal accessibility compliance"
   ],
   "not_implemented": [
@@ -50,7 +50,7 @@
     "native_review_publication": "Deployreview1P2OFFfixturedefaultgating fixed; Deployreview2CLEAN scopedsource/diff.",
     "typecheck_publication": "PASS deploytypes2",
     "scoped_eslint_publication": "PASS0errors0warnings deploylint2",
-    "independent_publication_audit": "PASS /root/audit2026-10-31 Gates1/3/4/5 +focusedGate6PREPUSH afterstagedownershiprepair;21scopedpaths,14stagedsource+66artifacthashes/cachedcheck. RealSMTPnotcertified."
+    "independent_publication_audit": "PASS /root/audit2026-10-31: scope/currentdefaultUI/browser/code/native/prepush21paths; PUBLIC_FALLBACK and finalStage6VERIFIED_PUBLISHED_PUBLIC_FALLBACK afterfocusedrecordrepair;14source+66local+16publichashes/diffcheckcurrent. ActualSMTP/privateconfig/directaliasmetadata remainunverified."
   },
   "native_review_history": [
     {
@@ -115,7 +115,8 @@
     "verifier": "/root",
     "scope": "APPROVED_LOCAL_PREPARED_UI_AND_SMTP_CODE",
     "evidence": "FinalONbuild8/types8/scopedlint8/native7CLEAN/45browserPASS6SKIP; OFFbuild9/9PASS6SKIP;14source+62artifact hashes; actualmobileimages/Pro+Maxintegration/perf",
-    "exclusions": "ActualSMTPauth/send/inbox unverified; userexplicitlyauthorizedfallbackpublication. Currentlocalproductionfallbackapprovalroot+independentprepushPASS; deployment/public verification pending."
+    "exclusions": "ActualSMTPauth/send/inbox remainsunverified. Userauthorizedfallbackpublication is now verified by public_technical_approval and exactSHA production/preview SUCCESS; directaliasassignmentmetadata remainsunverified.",
+    "phase": "Historical initial local preparation; current rollout/public approvals are publication_local_approval and public_technical_approval."
   },
   "user_approval": "Option C, Google SMTP/mailbox and same-browser double-click/repeat protection explicitly approved; final implemented result acceptance not recorded.",
   "performance": {
@@ -171,454 +172,454 @@
     "docs/lead-capture.md": "42b7221b35343bbde865e4dd30e5e68322a342f5f095339b63cc3a62046def96"
   },
   "artifact_bindings": {
-    "screenshots/lead-capture/desktop-chromium-callback-320x568.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-callback-320x568.png": {
       "sha256": "a5e96312ddc621086129fcdc846f2bac15c3b3affd5d8f3b8d98e861467fdfaa",
       "css_screenshot_size": [
         320,
         568
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-callback-402x390.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-callback-402x390.png": {
       "sha256": "87802062d37e63dba4bdc4c746b40659cca239bbeda500f4e98f4cb03808a120",
       "css_screenshot_size": [
         402,
         390
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-callback-768x1024.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-callback-768x1024.png": {
       "sha256": "43f91bf4a84eb126fef594f9a91d46b03a2302367b2e71ab7d2bb4afabd41987",
       "css_screenshot_size": [
         768,
         1024
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-error.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-error.png": {
       "sha256": "9c0b308f7bb86993c7eb7454ed91bf362f1305ee2578b32f778d6d5459a9455c",
       "css_screenshot_size": [
         1440,
         900
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-final-create-callback.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-final-create-callback.png": {
       "sha256": "06f510de95c13e2ceafb24e01ad23cae1d4f5e64ac0c4c326cac8a9443fc7f88",
       "css_screenshot_size": [
         1440,
         900
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-final-create-updates.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-final-create-updates.png": {
       "sha256": "ec811f8049926cf87ca45c3aaa92e07f465615ecf285d9f54259db0f5aa8bd1e",
       "css_screenshot_size": [
         1440,
         900
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-floating-success-Close.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-floating-success-Close.png": {
       "sha256": "013ba837efa768902d8b42a17ad574cb0cdc8f92bfb0b8df11459ce34633106f",
       "css_screenshot_size": [
         1440,
         900
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-floating-success-Done.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-floating-success-Done.png": {
       "sha256": "013ba837efa768902d8b42a17ad574cb0cdc8f92bfb0b8df11459ce34633106f",
       "css_screenshot_size": [
         1440,
         900
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-floating-success-Escape.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-floating-success-Escape.png": {
       "sha256": "683b9a6c60d51b16b448da18871b27fadb205098278a8f5b5e79a1e05334c309",
       "css_screenshot_size": [
         1440,
         900
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-hero-reserve-callback.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-hero-reserve-callback.png": {
       "sha256": "fb1997776e8938d3728c8272d25f0f0848d45664744a5adb691d09b1e99acaee",
       "css_screenshot_size": [
         1440,
         900
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-hero-reserve-updates.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-hero-reserve-updates.png": {
       "sha256": "bf348c874cc8d1adb03a341eed7663e3a54dea20600a1fd2df7af45635cd0e39",
       "css_screenshot_size": [
         1440,
         900
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-hero.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-hero.png": {
       "sha256": "de32d7980ecf811d97f008da1e7b8f0b3db666b3f0f5b4739b5d9c56086bf309",
       "css_screenshot_size": [
         1440,
         900
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-launcher.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-launcher.png": {
       "sha256": "fa457da94df8052b52979677d8d9d97663d2d6f80c2671507702f4f4f5d52e2c",
       "css_screenshot_size": [
         1440,
         900
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-order-create-callback.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-order-create-callback.png": {
       "sha256": "56544d4c3dfd3aca86da916e5de954195bec17eb01e12410da0d00b2e5f03fa6",
       "css_screenshot_size": [
         1440,
         900
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-order-create-updates.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-order-create-updates.png": {
       "sha256": "b99c40b0fa283a3965cbfa8bbbdc8cce2d54b7640875ffa3017da172aba05b2c",
       "css_screenshot_size": [
         1440,
         900
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-real-missing-smtp.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-real-missing-smtp.png": {
       "sha256": "7bea16f169f5fe775bfb19c2d6b8a6ffc5918eec1c9c533c8b1ee6060b065649",
       "css_screenshot_size": [
         1440,
         900
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-set-explore-callback.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-set-explore-callback.png": {
       "sha256": "b8fce182709f447e7d2e7338581f6847fd8f3f3ca4a5fd33083a569f6b8af884",
       "css_screenshot_size": [
         1440,
         900
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-set-explore-updates.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-set-explore-updates.png": {
       "sha256": "6ef5bb300b3b36b521ffdb60d39d05712539e8f73bbe9b5ad4dff49b80538210",
       "css_screenshot_size": [
         1440,
         900
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-success.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-success.png": {
       "sha256": "5a571d1577acbd9495e9ff6a6c01d95ea19c1cc0c307837956484ab6e7a2cafa",
       "css_screenshot_size": [
         1440,
         900
       ]
     },
-    "screenshots/lead-capture/desktop-chromium-uncertain-delivery.png": {
+    "screenshots/lead-capture/initial-b860476/desktop-chromium-uncertain-delivery.png": {
       "sha256": "145b32a2b298e9700c70efb9c2e0eb62cc123d25e098fa1d08940d0920504f95",
       "css_screenshot_size": [
         1440,
         900
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-callback-320x568.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-callback-320x568.png": {
       "sha256": "b728dc2baef4a26cdb8a7b23f170343dca7b05a4566180968604f65f6a52d7be",
       "css_screenshot_size": [
         320,
         568
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-callback-402x390.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-callback-402x390.png": {
       "sha256": "23d24ba70f19b53d5b2450ffc57cd5ab82dff8fd389935350b03c62e760ac0f6",
       "css_screenshot_size": [
         402,
         390
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-callback-768x1024.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-callback-768x1024.png": {
       "sha256": "bf49b66f1a502e467a5c3f107327c8032801f117b22fea96c6cad876c6dcce02",
       "css_screenshot_size": [
         768,
         1024
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-error.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-error.png": {
       "sha256": "1e233d91d171ab86bc2c67f023ee676adc7bf04a3d54c48ac1e30c4b39587a9a",
       "css_screenshot_size": [
         440,
         956
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-final-create-callback.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-final-create-callback.png": {
       "sha256": "d3300a026d481ece6a1b00de5e6a10758ef52406476f00f0b8d27ccf148076d4",
       "css_screenshot_size": [
         440,
         956
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-final-create-updates.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-final-create-updates.png": {
       "sha256": "350a6e83374a1d811a222dc06fd3e29040a247ab9227a1cf417be7f0173e2ce0",
       "css_screenshot_size": [
         440,
         956
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-floating-success-Close.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-floating-success-Close.png": {
       "sha256": "b4ce9ed395c6a0e62d890366a12cc49b72746f7503e32fa46ebe9e460293a285",
       "css_screenshot_size": [
         440,
         956
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-floating-success-Done.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-floating-success-Done.png": {
       "sha256": "88a4312bc633a2a307ee8afa568a4a6af7c4e610a2c0fbc8268db9589a38c4d3",
       "css_screenshot_size": [
         440,
         956
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-floating-success-Escape.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-floating-success-Escape.png": {
       "sha256": "7315f9741f81c2a05acc4b5b3d9eb8661b5fbbe66a93c96bf78dd807aa4c3bbb",
       "css_screenshot_size": [
         440,
         956
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-hero-reserve-callback.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-hero-reserve-callback.png": {
       "sha256": "8bfa1e8e22323fa50d7a63b93e4d51cd582eca0f2b1109bc5c0bc349289190a1",
       "css_screenshot_size": [
         440,
         956
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-hero-reserve-updates.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-hero-reserve-updates.png": {
       "sha256": "45f8084cd30037b1316cd7a753aa59cf94860142dc3d69cc7a58839aebf1e095",
       "css_screenshot_size": [
         440,
         956
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-hero.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-hero.png": {
       "sha256": "e2132e8c3a0437e575a5cdb9476aa2cc9521c3e690230bd416180597d91c193c",
       "css_screenshot_size": [
         440,
         956
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-launcher.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-launcher.png": {
       "sha256": "68fe96e6dabff060dfd2ea623510639e3bb0bad09d7107b26dd39a38a57bd043",
       "css_screenshot_size": [
         440,
         956
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-order-create-callback.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-order-create-callback.png": {
       "sha256": "192452e6b798273ff3acde6a1d2de4ae5965112b92021a627c06232a93ff921b",
       "css_screenshot_size": [
         440,
         956
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-order-create-updates.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-order-create-updates.png": {
       "sha256": "b5e9e490f60b775e288c5f734ecdb3ce74542d6d8c492535a155336fdc6f54b8",
       "css_screenshot_size": [
         440,
         956
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-real-missing-smtp.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-real-missing-smtp.png": {
       "sha256": "0d6a70fd2d4a73588962990659a288ecef7b01c07c9b4515ec67099490659f85",
       "css_screenshot_size": [
         440,
         956
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-set-explore-callback.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-set-explore-callback.png": {
       "sha256": "000faaac47ac5d7afbb7a5ae6e1cd200bf4fb19779b139584fc3f574c378f474",
       "css_screenshot_size": [
         440,
         956
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-set-explore-updates.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-set-explore-updates.png": {
       "sha256": "23259079e219abb00f054dd09afce159e40392df59180304fe7ca8d4c5163c38",
       "css_screenshot_size": [
         440,
         956
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-success.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-success.png": {
       "sha256": "7d94e100e04a8944f98b8727930d68233eb74be356c9362adf436d25b1fb6a2a",
       "css_screenshot_size": [
         440,
         956
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-max-webkit-uncertain-delivery.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-max-webkit-uncertain-delivery.png": {
       "sha256": "95204c18e5551bde1f725127bbd4d87768dde4f431546e9136b609a687bee68c",
       "css_screenshot_size": [
         440,
         956
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-callback-320x568.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-callback-320x568.png": {
       "sha256": "b728dc2baef4a26cdb8a7b23f170343dca7b05a4566180968604f65f6a52d7be",
       "css_screenshot_size": [
         320,
         568
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-callback-402x390.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-callback-402x390.png": {
       "sha256": "23d24ba70f19b53d5b2450ffc57cd5ab82dff8fd389935350b03c62e760ac0f6",
       "css_screenshot_size": [
         402,
         390
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-callback-768x1024.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-callback-768x1024.png": {
       "sha256": "bf49b66f1a502e467a5c3f107327c8032801f117b22fea96c6cad876c6dcce02",
       "css_screenshot_size": [
         768,
         1024
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-error.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-error.png": {
       "sha256": "30bcd84e7c2f5c4b3b057ea12abd1f9d7db35242d030d04eac45488c2032b00b",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-final-create-callback.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-final-create-callback.png": {
       "sha256": "3d4ec6fb8cf8e6ed81dfb9f039efdce3d8cca3e7eb78766101c334f44efedf1b",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-final-create-updates.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-final-create-updates.png": {
       "sha256": "e05131d1331db60ec1dabcedff0cc230d3eeeb230cca516a03be91106479344a",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-floating-success-Close.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-floating-success-Close.png": {
       "sha256": "b0276b883a0ccb7c18caa4d290edde34f0eccf52c0921c63fc573c191868a87c",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-floating-success-Done.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-floating-success-Done.png": {
       "sha256": "b0276b883a0ccb7c18caa4d290edde34f0eccf52c0921c63fc573c191868a87c",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-floating-success-Escape.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-floating-success-Escape.png": {
       "sha256": "730cfda139a51825cad4bb83a3ac7b937aa82b1ec87117362d217748598c8f3f",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-hero-reserve-callback.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-hero-reserve-callback.png": {
       "sha256": "762217b29f98283df317a9b9f12e9b73565ccf00801bb64d38a79370bd6c777a",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-hero-reserve-updates.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-hero-reserve-updates.png": {
       "sha256": "494f66296e696cae992d8309a0dea70705ffd4f2808d636ec2ef845d9a5192bb",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-hero.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-hero.png": {
       "sha256": "933b13dec450f0488776cd8420631533e926493e3dc8f839f21554cad6dc7d1e",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-launcher.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-launcher.png": {
       "sha256": "ce3cf8ca7d297eea952bb07b2025bee17cfac28c60b552e1e27ea6aed6d75532",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-order-create-callback.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-order-create-callback.png": {
       "sha256": "90212d4ac07e224ff66e0a732ba7b7a0ba9a497276f91465f30987e97de994dc",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-order-create-updates.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-order-create-updates.png": {
       "sha256": "b97324a43966f3ddb81bdd7ef4e19b1c79f9e1c5f8ddf53dfdea5edef92202c5",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-real-missing-smtp.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-real-missing-smtp.png": {
       "sha256": "8230e874ee3b11680ea6d3832d5023460f55498df2ede856282594eb1cc3c134",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-set-explore-callback.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-set-explore-callback.png": {
       "sha256": "42dcc058c386e9f92f1b9ea89d09ac6a6bba9062a877cfe84dbaf7eb7e9d497a",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-set-explore-updates.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-set-explore-updates.png": {
       "sha256": "74157a8832a8580ac6591e7079c03fbeb339d6e5824c951e255b2a4b99fe459e",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-success.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-success.png": {
       "sha256": "aa7b63c2b82c4df95c8827a8606ca59bb84ef84240fd2dfa161388423bc35fb2",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/iphone-17-pro-webkit-uncertain-delivery.png": {
+    "screenshots/lead-capture/initial-b860476/iphone-17-pro-webkit-uncertain-delivery.png": {
       "sha256": "29445b92271d626bbf8d4a8efb4bfc59f1f94e51b26747ee057e27fb34689282",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/production-assembled-footer.png": {
+    "screenshots/lead-capture/initial-b860476/production-assembled-footer.png": {
       "sha256": "6ba1c8d0a402a2e6e6f05218161fed48bc2e728e9cedd8277eee6572feefe313",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/production-assembled-max-footer.png": {
+    "screenshots/lead-capture/initial-b860476/production-assembled-max-footer.png": {
       "sha256": "d66f8514489a9ca35c77b4bf66ac9da23cf990da410344c318a3001513b5077d",
       "css_screenshot_size": [
         440,
         956
       ]
     },
-    "screenshots/lead-capture/production-perf-pro-updates.png": {
+    "screenshots/lead-capture/initial-b860476/production-perf-pro-updates.png": {
       "sha256": "3b676218ae8ca95057e94a62d909ca1d3dc2bd88dcfe7624028c2ae04fbf40a5",
       "css_screenshot_size": [
         402,
         874
       ]
     },
-    "screenshots/lead-capture/performance.json": {
+    "screenshots/lead-capture/initial-b860476/performance.json": {
       "sha256": "78d1005ccc9f7ccdc2b03fc207142d1304aa458ad15362c9e0f8c1e5b4f61b04"
     },
-    "screenshots/lead-capture/performance.mjs": {
+    "screenshots/lead-capture/initial-b860476/performance.mjs": {
       "sha256": "4692b1a71bd8c7ee1322870c86d89766cc996ef251df1664ec319a473cd934ad"
     },
-    "screenshots/lead-capture/public-smoke.mjs": {
+    "screenshots/lead-capture/initial-b860476/public-smoke.mjs": {
       "sha256": "62ee6919d42a5d6c275f3cf908c7cba1702293dd9c80bbdd20b59fc9dd038b30"
     }
   },
@@ -637,7 +638,7 @@
     "destination": "origin/main askmi/ramsider",
     "authorized": "DeployvisibleformwithmissingSMTPmessage; passwordviaenvironmentlater",
     "missing_secret_message": "Sign-up is temporarily unavailable. Please try again later or contact support@ramsider.com.",
-    "current_status": "PREPARING_SCOPED_COMMIT"
+    "current_status": "PRODUCTION_AND_AUTOMATIC_PREVIEW_SUCCESS_PUBLIC_FALLBACK_VERIFIED"
   },
   "publication_local_approval": {
     "date": "2026-10-31",
@@ -646,5 +647,161 @@
     "evidence": "Defaultunsetbuild2+48PASS6SKIP; explicitfalseOFFbuild+9PASS6SKIP; OFFfixturedefault3SKIP; types/lintPASS; nativeincremental2CLEAN; actualProMaxmessageimagesviewed. Priorunchangedclientperf/integrationreused.",
     "limits": "ActualGoogleSMTPauth/send/inbox notverified; userauthorizednoSMTPfallbackpublication. No syntheticoutboundmail.",
     "independent_auditor": "/root/audit PREPUSH PASS2026-10-31"
+  },
+  "publication": {
+    "sha": "b86047637a92198230eda097b4266d8f221c7bf2",
+    "repository": "askmi/ramsider",
+    "branch": "main",
+    "remote_verified": true,
+    "production": {
+      "state": "success",
+      "deployment_id": 7462194968,
+      "environment": "Production – ramsider",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider/77hR8XtbcFhu8tqyT2KFMwBKqAcU",
+      "environment_url": "https://ramsider-acwluw2jy-askmi-6282s-projects.vercel.app"
+    },
+    "automatic_preview": {
+      "state": "success",
+      "deployment_id": 7462160305,
+      "environment": "Preview – ramsider-beta",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/F4bn7tE5TVyn7rtniKiDDVPVN5Br",
+      "environment_url": "https://ramsider-beta-hvnukmi56-askmi-6282s-projects.vercel.app"
+    },
+    "canonical_url": "https://ramsider-main.vercel.app/en",
+    "public_browser": "PASS3profiles/4originalentrycontextseach+floating/realAPI503acceptedfalse/unavailable+support/valuesretained/retryenabled/noreceipt/focus/uncheckedcallback/overflow0/pageerrors0",
+    "public_no_mail_limit": "Nonempty synthetic honeypot ensures parser rejection if secret appears; no realSMTP/outboundmail tested.",
+    "alias_assignment_metadata": "NOT_VERIFIED: read-onlyVercelinspect foundmissingauthentication andwasstoppedwithoutlogin/account/configurationchanges. GitHubexactSHAproductionenvironmentlatestSUCCESS andactualcanonicalnewUI/fallbackPASS establishreporteddeployment+browserresult.",
+    "notes": "Postpushrecords local; no additional codepublication needed for metadata.",
+    "provider_inspect": {
+      "result": "BLOCKED_MISSING_AUTHENTICATION",
+      "login_performed": false,
+      "configuration_changed": false,
+      "raw_log": "Ignoredlocalonly; no credentials/runtimeidentifiers copied"
+    },
+    "final_records_audit": "PASS2026-10-31; postpushrecords local, no further codepublication required."
+  },
+  "public_technical_approval": {
+    "date": "2026-10-31",
+    "verifier": "/root",
+    "scope": "APPROVED_PUBLISHED_PUBLIC_FALLBACK",
+    "evidence": "Both exactSHA VercelGitHubcontexts andProduction/Previewdeploymentrecordslatestsuccess. ActualcanonicalPro/Max/desktop4contexts+launcher+realAPI fallbackPASS; rootviewedPro/Maxerror andProlauncherimages. Independent /root/audit PUBLIC_FALLBACKPASS.",
+    "limitations": "ActualSMTPauthentication/send/inbox unverified; missingpasswordfallback is approveduserresult. No aliasassignmentmetadata/WCAG/physical/fieldINP/Lighthousecertification.",
+    "independent_auditor": "/root/audit PUBLIC_FALLBACK and finalStage6 VERIFIED_PUBLISHED_PUBLIC_FALLBACK PASS2026-10-31"
+  },
+  "public_artifact_bindings": {
+    "screenshots/lead-capture/public/desktop-final-create.png": {
+      "sha256": "ec70e0560dcd99aebe44312e24b62fc94636314fa759935c4dd20b22730d03b4",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/public/desktop-launcher.png": {
+      "sha256": "fa457da94df8052b52979677d8d9d97663d2d6f80c2671507702f4f4f5d52e2c",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/public/desktop-order-create.png": {
+      "sha256": "441da82b3ebbdb301ecf62d124d8bff94c0d30d899c86f678b31718dd29517f1",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/public/desktop-real-api-message.png": {
+      "sha256": "d02e5598323f38838ae29daa692d7b99057600b202bf71b5a36efe30fc535245",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/public/desktop-set-explore.png": {
+      "sha256": "e540eba3557527e934aae6e7c5ff956aefe7afe87afb85a51dd41b49ce90661a",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/public/max-final-create.png": {
+      "sha256": "92be7b51fd18d9672791dbb8b4b6c3cd1dc4b1f778e8fd4716ee654e6001196a",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/public/max-launcher.png": {
+      "sha256": "68fe96e6dabff060dfd2ea623510639e3bb0bad09d7107b26dd39a38a57bd043",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/public/max-order-create.png": {
+      "sha256": "b386b85667dda17de9e75e42a4fd25db31518bc1fe7fe0343b9293323171a689",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/public/max-real-api-message.png": {
+      "sha256": "85fabcacbd8e48f84e58dad306cbbbf7aeaef73e8411a5cd9912050794905313",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/public/max-set-explore.png": {
+      "sha256": "1a20a3cdb4579da1cc6cb014130af0fde231298b8bb0d74545fff783212eca46",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/public/pro-final-create.png": {
+      "sha256": "cde74722d7565113d3d81e7fd73a138c387d2b8bb574f9b9c51614b12d5f2085",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/public/pro-launcher.png": {
+      "sha256": "ce3cf8ca7d297eea952bb07b2025bee17cfac28c60b552e1e27ea6aed6d75532",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/public/pro-order-create.png": {
+      "sha256": "26bd333de80860f51ad3b3108493bf5f7e80d03af86ccbf9ff17e84345003883",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/public/pro-real-api-message.png": {
+      "sha256": "d753a87d60502f4a6ac5074c72ee341c8e43351b6421bcb62f32ef174aa2e1f2",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/public/pro-set-explore.png": {
+      "sha256": "c162ac70bad62b4ad79fc018e3486fc58990f906d57ad133cecfddf5eb2205af",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/public/results.json": {
+      "sha256": "6fe42fb0b83162c21e2a6fadd687e28317b8cc67b3c1b3dc6347207569872579"
+    }
+  },
+  "reopened": {
+    "date": "2026-10-31",
+    "reason": "User rejects oversized pill and reports nonopening tap; icon-only matchingUp required. See launcher-correction.json for current work.",
+    "original_source_sha": "b86047637a92198230eda097b4266d8f221c7bf2",
+    "artifact_archive": "66initialartifacts copiedbyte-exact toinitial-b860476 before recapture; original14sourcebindings remain initialcommit snapshots."
   }
 }

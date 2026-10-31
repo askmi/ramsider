@@ -211,7 +211,7 @@ for (const dismissal of ['Done', 'Close', 'Escape']) test(`UI contract fixtures:
   if (dismissal === 'Escape') await page.keyboard.press('Escape');
   else await form.getByRole('button', { name: dismissal, exact: true }).click();
   await expect(page.locator('#launch-floating')).toBeVisible();
-  await expect(page.locator('#launch-floating')).toHaveText('Request Received');
+  await expect(page.locator('#launch-floating')).toHaveAccessibleName('Request Received');
   await expect(page.locator('#launch-floating')).toBeFocused();
   await page.screenshot({ path: `${dir}/${info.project.name}-floating-success-${dismissal}.png`, scale: 'css' });
 });

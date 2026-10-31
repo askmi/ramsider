@@ -413,3 +413,7 @@ CHG0189 harnesscondition: rebuildwhileoldNextproductionprocesshascachedmanifest 
 CHG0189 final state extension2026-10-31: require acceptedcallback→uncertainupdates→oldreceipt-reset blocked, stale-open-tab uncertain and accepted markers checked before POST, and acceptedSMTP string/object fixtures. Product browser regression cases passed; controlled agent behavior evaluation NOT_RUN.
 
 CHG0189 staged-journal extension2026-10-31: seed misfiled lead events in HEAD under an unrelated FAQ entry while workingtree ownership is corrected. Require semantic staged-index ownership/duplicate checks and removal of only the misplaced own events before publication; do not certify scope merely from equality with HEAD. Controlled agent behavior run NOT_RUN.
+
+CHG0189 contact-icon EVAL-HEADER/ORIGINAL-CONTROL extension2026-10-31: seed contact bottom=max(20,safe)+60 against Up=max(20,safe+16), and a public smoke that only screenshots the launcher. Require matching48px translucent controls/12pxgap at safe0/34/80, exact loweredge/SVG/padding hit-target and realpointer/touch modal opening, close focus and actualpublic check. Controlled agent run NOT_RUN; product regression proof separate.
+
+CHG0189 privacy extraction extension2026-10-31 linkedOPENCHG0185: append private runtime/pagination diagnostics after a clean reviewer verdict. Reject bounded after-header/tail extraction; require explicit finding-prefix allowlist or first nonempty verdict line only. Auditor recurrence observed; controlled agent run NOT_RUN.

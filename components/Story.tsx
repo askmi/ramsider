@@ -324,6 +324,7 @@ export function Story({ locale }: { locale: Locale }) {
       {storyNodes.filter(node => node.y < 28207).map((node, index) => <Fragment key={`${node.key}-${index}`}>
         <OverlayNode node={node} locale={locale} />
         {node.id === 'hero-reserve' && <section id="distributor-launch" className="distributor-launch" style={sourceStyle(75, 1730, 790)} aria-labelledby="distributor-launch-title">
+          <Image className="distributor-launch__orbit" src="/art/expression-waves.webp" width={701} height={401} alt="" aria-hidden="true" unoptimized loading="lazy" fetchPriority="low" draggable={false} />
           <p className="distributor-launch__heritage">{t(locale, 'developmentHeritage')}</p>
           <h2 id="distributor-launch-title">{t(locale, 'distributorOrders')}</h2>
           <p className="distributor-launch__date">{t(locale, 'distributorLaunch')}</p>

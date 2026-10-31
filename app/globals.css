@@ -38,6 +38,7 @@ a{color:inherit}
 .overlay{position:absolute;z-index:3;margin:0;line-height:1.16;font-weight:400;white-space:normal;color:#261d18;text-align:start}
 .distributor-launch{position:absolute;z-index:3;display:grid;row-gap:calc(8/941*100cqw);text-align:center;color:#5d5149;font-size:clamp(12px,calc(32/941*100cqw),32px);line-height:1.25;font-weight:400}
 .distributor-launch p,.distributor-launch h2{margin:0;font:inherit;color:inherit}
+.distributor-launch__orbit{position:absolute;z-index:-1;left:0;top:calc(-180/941*100cqw);display:block;width:100%;height:auto;pointer-events:none}
 .overlay span{white-space:nowrap}
 .overlay.title{font-weight:400;letter-spacing:0;line-height:1.2}
 .overlay.body{font-weight:300;color:#5d5149;line-height:1.22}

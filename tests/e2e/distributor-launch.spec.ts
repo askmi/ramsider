@@ -11,7 +11,7 @@ test('distributor launch copy fits the reflection gap and preserves existing con
   await page.evaluate(() => document.fonts.ready);
   await waitForVisibleMedia(page);
   await page.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; });
-  const dir = `screenshots/distributor-spacing/${process.env.LAUNCH_PUBLIC ? 'public' : 'local'}`;
+  const dir = `screenshots/distributor-orbit/${process.env.LAUNCH_PUBLIC ? 'public' : 'local'}`;
   await mkdir(dir, { recursive: true });
   const section = page.locator('#distributor-launch');
   await expect(section).toHaveAccessibleName('Distributor Orders & Pre-Orders');
@@ -26,6 +26,7 @@ test('distributor launch copy fits the reflection gap and preserves existing con
       && Boolean(el.compareDocumentPosition(fire) & Node.DOCUMENT_POSITION_FOLLOWING);
   })).toBe(true);
   const initial = page.viewportSize()!;
+  expect(await page.evaluate(() => devicePixelRatio)).toBe(info.project.use.deviceScaleFactor ?? 1);
   for (const viewport of [initial, { width: 320, height: 568 }, { width: 768, height: 1024 }, { width: 874, height: 402 }]) {
     await page.setViewportSize(viewport);
     await section.scrollIntoViewIfNeeded();
@@ -39,11 +40,18 @@ test('distributor launch copy fits the reflection gap and preserves existing con
       const canvas = document.querySelector('.canvas')!.getBoundingClientRect();
       const box = el.getBoundingClientRect();
       const fire = document.querySelector('.key-fire')!.getBoundingClientRect();
+      const orbit = el.querySelector<HTMLImageElement>('.distributor-launch__orbit')!;
+      const frame = orbit.getBoundingClientRect();
       return {
         width: innerWidth, overflow: document.documentElement.scrollWidth > innerWidth,
         y: (box.top - canvas.top) / canvas.width * 941,
         end: (box.bottom - canvas.top) / canvas.width * 941,
         fire: (fire.top - canvas.top) / canvas.width * 941,
+        orbit: { width: frame.width, height: frame.height, parentWidth: box.width,
+          sourceY: (frame.top - canvas.top) / canvas.width * 941,
+          sourceEnd: (frame.bottom - canvas.top) / canvas.width * 941,
+          naturalWidth: orbit.naturalWidth, naturalHeight: orbit.naturalHeight,
+          pointerEvents: getComputedStyle(orbit).pointerEvents, hidden: orbit.getAttribute('aria-hidden'), alt: orbit.alt },
         lines: [...el.querySelectorAll('p,h2')].map(line => {
           const style = getComputedStyle(line);
           return { font: style.fontFamily, weight: style.fontWeight,
@@ -59,6 +67,12 @@ test('distributor launch copy fits the reflection gap and preserves existing con
     expect(geometry.y).toBeCloseTo(1730, 0);
     expect(geometry.end).toBeLessThan(2000);
     expect(geometry.fire).toBeCloseTo(2048, 0);
+    expect(geometry.orbit.naturalWidth).toBe(701); expect(geometry.orbit.naturalHeight).toBe(401);
+    expect(geometry.orbit.width).toBeCloseTo(geometry.orbit.parentWidth, 0);
+    expect(Math.abs(geometry.orbit.height - geometry.orbit.width * 401 / 701)).toBeLessThan(1);
+    expect(geometry.orbit.sourceY).toBeCloseTo(1550, 0);
+    expect(geometry.orbit.sourceEnd).toBeLessThan(geometry.fire);
+    expect(geometry.orbit.pointerEvents).toBe('none'); expect(geometry.orbit.hidden).toBe('true'); expect(geometry.orbit.alt).toBe('');
     for (const line of geometry.lines) {
       expect(line.font).toContain('OpenSans'); expect(line.fits).toBe(true);
       expect(line.height).toBeLessThanOrEqual(line.lineHeight + 1);

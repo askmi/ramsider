@@ -1,0 +1,466 @@
+{
+  "change": "CHG0191",
+  "date": "2026-10-31",
+  "status": "LOCAL_VERIFIED_PREPUBLICATION",
+  "request": {
+    "copy": [
+      "8.5 Years In The Making",
+      "Distributor Orders & Pre-Orders",
+      "Open November 2026"
+    ],
+    "source": "Owner request and attached blank reflection-region screenshot",
+    "case": "Explicit user every-word initial caps overrides minor-word house rule only for new copy",
+    "facts": "Owner-provided development duration and launch month; no independent product verification; existing Nov20 notices unchanged"
+  },
+  "mapping": {
+    "canvas": [
+      941,
+      32127
+    ],
+    "section": [
+      75,
+      1730,
+      790
+    ],
+    "deviceBaseApproxY": 1500,
+    "nextHeadingY": 2048,
+    "fonts": "Existing OpenSans static400 and700; no new font/asset/client code",
+    "sizesSource": [
+      32,
+      39,
+      44
+    ],
+    "minimumCssPx": [
+      12,
+      14,
+      17
+    ],
+    "implementation": "Semantic region after hero-reserve in DOM, absolute text over existing reflection; all art and original anchors unchanged"
+  },
+  "source": {
+    "components/Story.tsx": {
+      "sha256": "905b28b7c41e1263ac6c4b2c446ba2783f28c4c09c1d60e3c9248a9c23a80376",
+      "bytes": 22597
+    },
+    "app/globals.css": {
+      "sha256": "c0c7d9eac1b933b94a391a3c3255636f2b4d75bca56aa29665601dcde645af42",
+      "bytes": 81538
+    },
+    "lib/i18n.ts": {
+      "sha256": "a736261cbab48f95fcd61bdf6950e9038ff1082319c48261334db959038f4d9d",
+      "bytes": 29914
+    },
+    "tests/e2e/distributor-launch.spec.ts": {
+      "sha256": "3694fb38d3d4769cc0f75fb7636f5148601ceb404916dfe37a9c3668b37c4680",
+      "bytes": 5120
+    }
+  },
+  "checks": {
+    "productionBuild": "PASS isolated candidate source byte equality, final build",
+    "typecheck": "PASS",
+    "scopedLint": "PASS 0errors0warnings",
+    "nativeReview": "Initial P2 DOM order fixed; final no actionable regressions. Prior overrestricted review BLOCKED and not counted.",
+    "browser": "6 final PASS across Pro402x874DPR3 WebKit/Max440x956DPR3 WebKit/desktop1440x900Chromium, plus320x568/768x1024/874x402. Exact text/weights/font/sourceY/end<2000/fire2048/DOMorder/noJS/ENredirect/ReserveNov20/contactopen; no errors/overflow. Initial6PASS lacked DOMorder; one later interrupted QA run used incorrect launcher scroll precondition, corrected.",
+    "visual": "Root directly viewed Pro thenMax, desktop,320 and finalcomposition, sourcecleanthencomposite/userattachment. No supplied finished text render; no calibratedpixelmatchclaim.",
+    "integration": [
+      {
+        "name": "pro",
+        "width": 402,
+        "height": 874,
+        "dpr": 3,
+        "positions": [
+          {
+            "y": 0,
+            "height": 14133,
+            "gap": 13259
+          },
+          {
+            "y": 736,
+            "height": 14133,
+            "gap": 12523
+          },
+          {
+            "y": 1473,
+            "height": 14133,
+            "gap": 11786
+          },
+          {
+            "y": 2209,
+            "height": 14133,
+            "gap": 11050
+          },
+          {
+            "y": 2946,
+            "height": 14133,
+            "gap": 10313
+          },
+          {
+            "y": 3683,
+            "height": 14133,
+            "gap": 9576
+          },
+          {
+            "y": 4419,
+            "height": 14133,
+            "gap": 8840
+          },
+          {
+            "y": 5156,
+            "height": 14133,
+            "gap": 8103
+          },
+          {
+            "y": 5892,
+            "height": 14133,
+            "gap": 7367
+          },
+          {
+            "y": 6629,
+            "height": 14133,
+            "gap": 6630
+          },
+          {
+            "y": 7366,
+            "height": 14133,
+            "gap": 5893
+          },
+          {
+            "y": 8102,
+            "height": 14133,
+            "gap": 5157
+          },
+          {
+            "y": 8839,
+            "height": 14133,
+            "gap": 4420
+          },
+          {
+            "y": 9575,
+            "height": 14133,
+            "gap": 3684
+          },
+          {
+            "y": 10312,
+            "height": 14133,
+            "gap": 2947
+          },
+          {
+            "y": 11049,
+            "height": 14133,
+            "gap": 2210
+          },
+          {
+            "y": 11785,
+            "height": 14133,
+            "gap": 1474
+          },
+          {
+            "y": 12522,
+            "height": 14133,
+            "gap": 737
+          },
+          {
+            "y": 13259,
+            "height": 14133,
+            "gap": 0
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "max",
+        "width": 440,
+        "height": 956,
+        "dpr": 3,
+        "positions": [
+          {
+            "y": 0,
+            "height": 15431,
+            "gap": 14475
+          },
+          {
+            "y": 804,
+            "height": 15431,
+            "gap": 13671
+          },
+          {
+            "y": 1608,
+            "height": 15431,
+            "gap": 12867
+          },
+          {
+            "y": 2412,
+            "height": 15431,
+            "gap": 12063
+          },
+          {
+            "y": 3216,
+            "height": 15431,
+            "gap": 11259
+          },
+          {
+            "y": 4020,
+            "height": 15431,
+            "gap": 10455
+          },
+          {
+            "y": 4825,
+            "height": 15431,
+            "gap": 9650
+          },
+          {
+            "y": 5629,
+            "height": 15431,
+            "gap": 8846
+          },
+          {
+            "y": 6433,
+            "height": 15431,
+            "gap": 8042
+          },
+          {
+            "y": 7237,
+            "height": 15431,
+            "gap": 7238
+          },
+          {
+            "y": 8041,
+            "height": 15431,
+            "gap": 6434
+          },
+          {
+            "y": 8845,
+            "height": 15431,
+            "gap": 5630
+          },
+          {
+            "y": 9650,
+            "height": 15431,
+            "gap": 4825
+          },
+          {
+            "y": 10454,
+            "height": 15431,
+            "gap": 4021
+          },
+          {
+            "y": 11258,
+            "height": 15431,
+            "gap": 3217
+          },
+          {
+            "y": 12062,
+            "height": 15431,
+            "gap": 2413
+          },
+          {
+            "y": 12866,
+            "height": 15431,
+            "gap": 1609
+          },
+          {
+            "y": 13670,
+            "height": 15431,
+            "gap": 805
+          },
+          {
+            "y": 14475,
+            "height": 15431,
+            "gap": 0
+          }
+        ],
+        "errors": []
+      }
+    ],
+    "performanceComparable": {
+      "conditions": "Same priorCHG0189 harness: coldChromium402x874DPR3,4Mbps100msCPU4; encodedBodySize script bytes; scroll throttled",
+      "load": {
+        "lcp": 1332,
+        "cls": 0.000905715281886938,
+        "fcp": 404,
+        "jsBytes": 335894,
+        "width": 402,
+        "dpr": 3
+      },
+      "scroll": {
+        "frames": 98,
+        "p95": 16.800000000000182
+      },
+      "errors": []
+    },
+    "performanceWire": {
+      "date": "2026-10-31",
+      "samples": [
+        {
+          "label": "CHG0191",
+          "port": 3029,
+          "conditions": "cold Chromium402x874 DPR3 /4Mbps100ms4xCPU, first snapshot5s afterDOMContentLoaded; scroll unthrottled",
+          "lcp": 1544,
+          "cls": 0.000905715281886938,
+          "fcp": 640,
+          "ttfb": 237.79999995231628,
+          "htmlBytes": 253535,
+          "heroReady": true,
+          "videoRequests": 11,
+          "totalCompletedBytes": 2621692,
+          "jsCompletedBytes": 387395,
+          "videoCompletedBytes": 523034,
+          "scroll": {
+            "frames": 99,
+            "p95": 16.800000000000182,
+            "over33": 1
+          }
+        }
+      ],
+      "limits": "One synthetic sample per version; no fieldINP, physical Safari or Lighthouse score. Completed bytes are phase-limited, not eventual total."
+    },
+    "renderingDecision": "Keep server-rendered text; comparableJS335894B unchanged; no new runtime media/client code; no measured problem justifying new rendering mode"
+  },
+  "artifacts": {
+    "screenshots/distributor-launch/local/iphone-17-pro-webkit-874.png": {
+      "sha256": "aa0f17e04a8503dd718820ddd6dbb9a0bbddf77968e05370a0fe6adc9ad991c4",
+      "bytes": 446937
+    },
+    "screenshots/distributor-launch/local/iphone-17-pro-webkit-320.png": {
+      "sha256": "6f92f5d768d0c9840f85dc65fe3b848d6a21f6bc23fa509a9804d9da8cd42d4d",
+      "bytes": 348080
+    },
+    "screenshots/distributor-launch/local/iphone-17-pro-webkit-composition.png": {
+      "sha256": "701dd17cebbc32fb8a77604159055fabde3bfd082bd84285a7e047e976940637",
+      "bytes": 596777
+    },
+    "screenshots/distributor-launch/local/iphone-17-pro-webkit-768.png": {
+      "sha256": "0d72ec82b5ffd2a7bc65d3e69c730d830a3925771c3b2d32301f01fe744392d2",
+      "bytes": 761451
+    },
+    "screenshots/distributor-launch/local/desktop-chromium-874.png": {
+      "sha256": "d6f3335cbef05aeefac85f8986af45c02afd102039e567d52c763ac82a25898b",
+      "bytes": 317314
+    },
+    "screenshots/distributor-launch/local/iphone-17-pro-max-webkit-874.png": {
+      "sha256": "aa0f17e04a8503dd718820ddd6dbb9a0bbddf77968e05370a0fe6adc9ad991c4",
+      "bytes": 446937
+    },
+    "screenshots/distributor-launch/local/desktop-chromium-320.png": {
+      "sha256": "5b7eafbaa4b1ce468dd8ab08f6c588a20c04825d314bdd103c8e648cd0264728",
+      "bytes": 224940
+    },
+    "screenshots/distributor-launch/local/iphone-17-pro-max-webkit-320.png": {
+      "sha256": "50b5c14ce79a6eba4380042263d6688e6e2ce19ee8e8964b95b09978fc2007a2",
+      "bytes": 351601
+    },
+    "screenshots/distributor-launch/local/iphone-17-pro-max-webkit-composition.png": {
+      "sha256": "8f890c05df31241bd5eca8a733b23703cdc92441389753bd49914ccb783f5752",
+      "bytes": 697314
+    },
+    "screenshots/distributor-launch/local/iphone-17-pro-max-webkit-440.png": {
+      "sha256": "6fecc2120dac2196b19f0e09857f47d6c283978d3a9d17fc28f8a791bdcfc952",
+      "bytes": 492608
+    },
+    "screenshots/distributor-launch/local/desktop-chromium-composition.png": {
+      "sha256": "5b56a974d567b2531d242d8d99c4f8fde85e636ed3b7efb3aebc4cf66c2953ec",
+      "bytes": 806004
+    },
+    "screenshots/distributor-launch/local/iphone-17-pro-webkit-402.png": {
+      "sha256": "b0d5728807afad334d7490d7022141d6553141d528601468e05efcd142cf2c3b",
+      "bytes": 424949
+    },
+    "screenshots/distributor-launch/local/iphone-17-pro-max-webkit-768.png": {
+      "sha256": "78f8539b3516a888bcfe5a69829b7c8d8f73b1f123d4165ff5a044a467a8128d",
+      "bytes": 779711
+    },
+    "screenshots/distributor-launch/local/desktop-chromium-1440.png": {
+      "sha256": "517dd0f4b924e2715e35328c239dfec32992417d3cc6cb1725f2945ff125989f",
+      "bytes": 858125
+    },
+    "screenshots/distributor-launch/local/desktop-chromium-768.png": {
+      "sha256": "c0370b7a1124115f5b2a35a975a821d702f506d20a0e385fef32fa8430c19530",
+      "bytes": 798005
+    },
+    "screenshots/distributor-launch/integration/pro-18.png": {
+      "sha256": "2ec1a2a1e3d691cc6cc70d996e4c5a963b57b85a1f59d8bdcba8a44d9ae6baf0",
+      "bytes": 564086
+    },
+    "screenshots/distributor-launch/integration/max-top.png": {
+      "sha256": "6fecc2120dac2196b19f0e09857f47d6c283978d3a9d17fc28f8a791bdcfc952",
+      "bytes": 492608
+    },
+    "screenshots/distributor-launch/integration/result.json": {
+      "sha256": "bc0663fb733e7e02ded7fea13fd1727162481b66e2445869f03c82fec10003f4",
+      "bytes": 3328
+    },
+    "screenshots/distributor-launch/integration/max-9.png": {
+      "sha256": "f56f3d1d21e498cd921d874c4398a6665f3f14b3487bd22ce00949a8929f5b6a",
+      "bytes": 789310
+    },
+    "screenshots/distributor-launch/integration/pro-9.png": {
+      "sha256": "fc6c8e8908385d5d5ec6ffb2fac1c5ce0c84d31f2acf4d4cffa10087675f7c32",
+      "bytes": 622746
+    },
+    "screenshots/distributor-launch/integration/max-18.png": {
+      "sha256": "69c7b09f74b0203bc209e2482e87a9eff7afcaae10b403ad10d2fbd79f540996",
+      "bytes": 694561
+    },
+    "screenshots/distributor-launch/integration/max-1.png": {
+      "sha256": "58683ffcfcf01daf5d366893a8d0cf7c8444f0961c50c6749edfe360209a5cc4",
+      "bytes": 717379
+    },
+    "screenshots/distributor-launch/integration/pro-1.png": {
+      "sha256": "061ed4b8d6535283688d63719d214a3805d36c48e62bccdec158ca2c3afca84e",
+      "bytes": 617905
+    },
+    "screenshots/distributor-launch/integration/pro-top.png": {
+      "sha256": "29aabecb6046877e4d63726a00921900dcfeb727795a332db7a08f1cdaec17c4",
+      "bytes": 393795
+    },
+    "screenshots/distributor-launch/performance.json": {
+      "sha256": "ba2c10dd65b2daa29b5db6c6e5e1e0ddb75f845a6ffd6c143100d0db4a91717c",
+      "bytes": 781
+    },
+    "screenshots/distributor-launch/performance-comparable.json": {
+      "sha256": "4e28057ff011e3ecbed922465d50bd5dc352fbcb03379fc499490596de719f4e",
+      "bytes": 355
+    },
+    "screenshots/distributor-launch/reference-clean.png": {
+      "sha256": "8e7d4ef1559145fbe9e2fb59b6d8fd9fc8c434a07e857e31a02ce0891ee41db9",
+      "bytes": 578204
+    },
+    "screenshots/distributor-launch/reference-text.png": {
+      "sha256": "8d5c57150fcb03dabea05ab64dd7362b2b3fbf1543f05ec98396ffd76d9b0dac",
+      "bytes": 592153
+    },
+    "docs/evidence/sales-launch/distributor-pro.png": {
+      "sha256": "701dd17cebbc32fb8a77604159055fabde3bfd082bd84285a7e047e976940637",
+      "bytes": 596777
+    },
+    "docs/evidence/sales-launch/distributor-max.png": {
+      "sha256": "8f890c05df31241bd5eca8a733b23703cdc92441389753bd49914ccb783f5752",
+      "bytes": 697314
+    },
+    "screenshots/distributor-launch/performance.mjs": {
+      "sha256": "a7f200bc1dc9f6914bb8a2cb5059b1e1d24ffa8c35530ba05de11aaeb0f5040e",
+      "bytes": 3804
+    },
+    "screenshots/distributor-launch/performance-comparable.mjs": {
+      "sha256": "168e09578dfed89bf4e521d3150c26e4262f4bee28ef212395389b1f32828524",
+      "bytes": 2565
+    },
+    "screenshots/distributor-launch/integration.mjs": {
+      "sha256": "5f0d171e59e98f76bcf38003e11104edd75ec28807f01ac6f18cc5ab9583fe67",
+      "bytes": 2244
+    }
+  },
+  "approval": {
+    "root": "APPROVED_LOCAL_WEB 2026-10-31 after actual images, tests and review",
+    "independentAuditor": "/root/audit scope/Gates3/4/5/6 LOCAL_PREPUSH PASS 2026-10-31; 11 scoped paths,4 source+33 artifact hashes, actual images and staged ownership checked",
+    "user": "Exact copy/style/placement explicitly authorized; implemented-result acceptance not recorded; standing main publication authorization"
+  },
+  "limitations": [
+    "No physical iPhone, fieldINP, Lighthouse or WCAG certification.",
+    "Outside-scope faint 1px footer boundary in Pro integration observed by auditor; cause unknown, footer/art untouched; open observation, no pixel-perfect assembled-page claim.",
+    "Existing SMTP delivery unavailable without privately supplied environment password; unchanged."
+  ],
+  "publication": {
+    "status": "PENDING"
+  }
+}

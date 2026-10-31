@@ -850,3 +850,9 @@ CHG0190 follow-up — actual integration endpoint: an image named footer showed 
 - CHG0189 state follow-up2026-10-31: an accepted receipt for one purpose must not erase an unresolved submission for another. Re-read persisted status immediately before a new POST/reset, test already-open second tabs, and persist the unresolved marker before navigation can discard callbacks. Test SMTP accepted recipients in each documented representation rather than relying on permissive overload inference. These are product regression cases; EVAL-HEADER/ORIGINAL-CONTROL controlled run remains NOT_RUN.
 
 - CHG0189 contact correction2026-10-31 — Problem → cause → prevention: a large floating pill obscured product artwork and safe-area formulas placed its bottom4px under the Up button; a lower-edge touch hit Up and never opened the form. Root approved visible bounds/center actions, omitted exact shared safe-area anchor and published launcher touch. Reuse the existing viewport-control geometry/style, assert actual gap and elementFromPoint at SVG/padding/lower edge under safe0/34/80, perform actual touch/pointer open/close/status/focus on the published original control. EVAL-HEADER/ORIGINAL-CONTROL extended; controlled agent behavior NOT_RUN.
+
+## Match DOM Reading Order to Absolute Visual Placement — CHG0191
+
+- **Problem:** New launch h2 visually followed the hero but initially preceded its h1 in DOM.
+- **Cause:** Root agent inserted a positioned block before the shared overlay loop and verified coordinates without relative heading order; native review caught P2.
+- **Prevention:** Insert semantic text at its reading position within mapped content, and check h1 → new section → following heading in DOM as well as pixels. Evidence: CHG0191; distributor-launch.spec.ts. Controlled agent eval EVAL-LAUNCH-ORDER: NOT_RUN; browser regression is distinct.

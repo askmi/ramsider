@@ -36,6 +36,12 @@ a{color:inherit}
 .story-tail{grid-row:3;position:relative;height:calc(3920/941*100cqw);--source-offset:calc(28207/941*100cqw)}
 .tail-art{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .overlay{position:absolute;z-index:3;margin:0;line-height:1.16;font-weight:400;white-space:normal;color:#261d18;text-align:start}
+.distributor-launch{position:absolute;z-index:3;text-align:center;color:#292018}
+.distributor-launch p,.distributor-launch h2{margin:0;font-weight:400}
+.distributor-launch__heritage{font-size:clamp(12px,calc(32/941*100cqw),32px);line-height:1.25;color:#5d5149}
+.distributor-launch__rule{display:block;width:calc(70/941*100cqw);height:1px;margin:calc(18/941*100cqw) auto;background:#b58b4a}
+.distributor-launch h2{font-size:clamp(14px,calc(39/941*100cqw),39px);line-height:1.25}
+.distributor-launch .distributor-launch__date{margin-top:calc(8/941*100cqw);font-size:clamp(17px,calc(44/941*100cqw),44px);line-height:1.2;font-weight:700;color:#79531e}
 .overlay span{white-space:nowrap}
 .overlay.title{font-weight:400;letter-spacing:0;line-height:1.2}
 .overlay.body{font-weight:300;color:#5d5149;line-height:1.22}

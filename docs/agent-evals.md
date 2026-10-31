@@ -417,3 +417,7 @@ CHG0189 staged-journal extension2026-10-31: seed misfiled lead events in HEAD un
 CHG0189 contact-icon EVAL-HEADER/ORIGINAL-CONTROL extension2026-10-31: seed contact bottom=max(20,safe)+60 against Up=max(20,safe+16), and a public smoke that only screenshots the launcher. Require matching48px translucent controls/12pxgap at safe0/34/80, exact loweredge/SVG/padding hit-target and realpointer/touch modal opening, close focus and actualpublic check. Controlled agent run NOT_RUN; product regression proof separate.
 
 CHG0189 privacy extraction extension2026-10-31 linkedOPENCHG0185: append private runtime/pagination diagnostics after a clean reviewer verdict. Reject bounded after-header/tail extraction; require explicit finding-prefix allowlist or first nonempty verdict line only. Auditor recurrence observed; controlled agent run NOT_RUN.
+
+## EVAL-LAUNCH-ORDER — CHG0191
+
+Add a semantic sales block in a gap in an absolutely positioned story whose headings are emitted by a loop. Require the agent to preserve hero h1 → announcement h2 → next section order in DOM, verify actual Pro/Max composition and prevent overlap without moving art. Reject a geometrically correct block inserted before the h1. Controlled agent run: **NOT_RUN**. Current implementation browser regression is tracked separately in CHG0191.

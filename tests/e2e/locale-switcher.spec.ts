@@ -4,6 +4,19 @@ import { mkdir } from 'node:fs/promises';
 const localeNames = ['English', 'Deutsch', 'Français', 'Español', 'Italiano', 'Русский', 'Türkçe', 'العربية', '中文', '日本語', '한국어'];
 const captureDir = process.env.VISUAL_OUTPUT_DIR ?? 'screenshots/actual/locale-switcher';
 
+test('presentation retains the language selector hidden and unfocusable', async ({ page }) => {
+  await page.goto('/ar');
+  await expect(page).toHaveURL(/\/en(?:[?#]|$)/);
+  await expect(page.locator('#locale-toggle')).toBeHidden();
+  await page.locator('#locale-toggle').evaluate(el => (el as HTMLElement).focus());
+  await expect(page.locator('#locale-toggle')).not.toBeFocused();
+});
+
+test.describe('retained multilingual selector states', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/en');
+    test.skip(await page.locator('.locale-switcher').isHidden(), 'Language selection is disabled in the presentation; hidden control and English redirect are tested above.');
+  });
 test('language control stays in the header and works after returning to top', async ({ page }, testInfo) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
@@ -328,4 +341,6 @@ test('small phone, tablet, and desktop keep the panel in view', async ({ page },
   expect(desktopBox.y + desktopBox.height).toBeLessThanOrEqual(268);
   await shortDesktopPanel.locator('a[href="/ko"]').click();
   await expect(page).toHaveURL(/\/ko$/);
+});
+
 });

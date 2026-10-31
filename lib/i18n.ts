@@ -95,6 +95,7 @@ export const english = {
   final: 'The New Ritual\nThat Brings People Together.',
   finalBrand: 'RAMSIDER UNO',
   finalBody: 'More Than Technology.\nA New Way to Connect, Share,\nand Create Unforgettable Moments.',
+  navVideoGallery: 'Video Gallery', navHospitality: 'Hospitality Solutions', navContacts: 'Contacts',
   menu: 'Menu', close: 'Close', language: 'Language', home: 'Home', backToTop: 'Back to top',
   unavailableTitle: 'Further information is needed',
   unavailableCommerce: 'The configurator, current prices and order destination have not been supplied. No reservation or payment is taken here.',

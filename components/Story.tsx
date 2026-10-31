@@ -5,7 +5,7 @@ import { BackToTop } from './BackToTop';
 import { LocaleSwitcher } from './LocaleSwitcher';
 import Link from 'next/link';
 import { storyNodes, type StoryNode } from '@/lib/story';
-import { locales, t, type Key, type Locale } from '@/lib/i18n';
+import { t, type Key, type Locale } from '@/lib/i18n';
 import { MenuShell } from './MenuShell';
 import { ActionArrow } from './ActionArrow';
 import { TechnologyViewer } from './TechnologyViewer';
@@ -103,8 +103,9 @@ function OverlayNode({ node, locale }: { node: StoryNode; locale: Locale }) {
       <span className="button-label">{appearance.kind === 'orbit' ? text.split(/(UNO)/).map((part, index) => part === 'UNO' ? <span className="uno-emphasis" key={index}>{part}</span> : part) : text}</span>
       {appearance.kind === 'outline' && <ActionArrow />}
     </>;
+    if (node.id === 'choice-learn') return <span hidden><Link {...buttonProps} href={node.target!}>{content}</Link></span>;
     if (node.target) return <Link {...buttonProps} href={node.target}>{content}</Link>;
-    if (node.unavailable === 'business') return <a {...buttonProps} href={company.emailHref}>{content}</a>;
+    if (node.unavailable === 'business') return <a {...buttonProps} href="https://hospitality.ramsider.com/">{content}</a>;
     if (node.id === 'film-label') return <button {...buttonProps} type="button" aria-haspopup="dialog" aria-controls="product-film" popoverTarget="product-film">{content}</button>;
     if (node.id === 'fire-learn') return <button {...buttonProps} type="button" aria-haspopup="dialog" aria-controls="charcoal-viewer" data-charcoal-open>{content}</button>;
     if (node.id === 'beyond-learn') return <button {...buttonProps} type="button" aria-haspopup="dialog" aria-controls="wellness-viewer" data-wellness-open>{content}</button>;
@@ -190,11 +191,9 @@ function Menus({ locale }: { locale: Locale }) {
     </Link>
     <MenuShell label={t(locale, 'menu')}>
       <nav aria-label={t(locale, 'menu')}>
-        {(['moment', 'technology', 'choice', 'expressions', 'pro', 'gold', 'set', 'order', 'documents', 'hospitality', 'faq', 'final'] as const).map((id) => <a id={`navigation-${id}`} key={id} href={`#${id}`}>{t(locale, ({ moment: 'moment', technology: 'complexity', choice: 'choice', expressions: 'expressions', pro: 'pro', gold: 'gold', set: 'set', order: 'order', documents: 'documented', hospitality: 'hospitality', faq: 'faqTitle', final: 'final' } as const)[id])}</a>)}
-        <a id="navigation-contact" href="#company-contact">{companyCopy[locale].contact}</a>
-        <div className="locale-links" aria-label={t(locale, 'language')}>
-          {locales.map((option) => <Link id={`locale-${option}`} key={option} href={`/${option}`} hrefLang={option} aria-current={locale === option ? 'page' : undefined}>{option.toUpperCase()}</Link>)}
-        </div>
+        <a id="navigation-video" href="#film-play">{t(locale, 'navVideoGallery')}</a>
+        <a id="navigation-hospitality" href="#hospitality-section">{t(locale, 'navHospitality')}</a>
+        <a id="navigation-contact" href="#company-contact">{t(locale, 'navContacts')}</a>
       </nav>
     </MenuShell>
   </header>;
@@ -339,7 +338,7 @@ export function Story({ locale }: { locale: Locale }) {
         </button>
       </div>)}
       </section>
-      <LocaleSwitcher locale={locale} label={t(locale, 'language')} />
+      <div hidden><LocaleSwitcher locale={locale} label={t(locale, 'language')} /></div>
     </main><SiteFooter locale={locale} /></PageMediaGate>
     <BackToTop label={t(locale, 'backToTop')} />
     <ProductFilm locale={locale} copy={productFilmCopy[locale]} closeLabel={t(locale, 'close')} films={selectProductFilms(locale)} />

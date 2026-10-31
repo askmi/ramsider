@@ -17,39 +17,26 @@ async function pixelChanges(a: Buffer, b: Buffer) {
   return first.reduce((sum, value, i) => sum + (Math.abs(value - next[i]) > 3 ? 1 : 0), 0);
 }
 
-test('real pixels move, pause freezes, offscreen/modal stop, reduced motion restores original', async ({ page }, info) => {
+test('real pixels move with hidden control, offscreen/modal stop, reduced motion restores original', async ({ page }, info) => {
   test.setTimeout(90000);
   const errors: string[] = [];
   page.on('pageerror', e => errors.push(e.message));
   const root = await scene(page);
-  const surface = root.locator('canvas'), button = root.getByRole('button');
+  const surface = root.locator('canvas'), button = root.locator('button');
   const box = (await root.boundingBox())!;
   const width = Math.min(page.viewportSize()!.width, 941);
   expect(box.width).toBeCloseTo(width * 480 / 941, 1);
   expect(Math.abs(box.height - box.width * 760 / 480)).toBeLessThan(1);
   expect(await page.evaluate(() => innerWidth)).toBe(page.viewportSize()!.width);
-  const buttonBox = (await button.boundingBox())!;
-  expect(buttonBox.width).toBe(44); expect(buttonBox.height).toBe(44);
-  expect(await surface.getAttribute('aria-hidden')).toBe('true');
-  expect(await surface.evaluate(e => getComputedStyle(e).pointerEvents)).toBe('none');
+  await expect(button).toBeHidden();
+  await expect(button).toHaveAttribute('hidden', '');
+  await expect(button).toHaveAttribute('aria-pressed', 'false');
   const before = await surface.screenshot();
   await page.waitForTimeout(1000);
   expect(await pixelChanges(before, await surface.screenshot())).toBeGreaterThan(100);
   await page.locator('#fire-learn').focus();
   await page.keyboard.press('Tab');
-  await expect(button).toBeFocused();
-  await page.keyboard.press('Space');
-  await expect(button).toHaveAttribute('aria-pressed', 'true');
-  await expect(surface).toHaveAttribute('data-state', 'paused');
-  const stopped = await surface.screenshot();
-  await page.waitForTimeout(500);
-  expect(await pixelChanges(stopped, await surface.screenshot())).toBe(0);
-  await page.evaluate(() => scrollTo(0, 0));
-  await expect(surface).toHaveAttribute('data-state', 'paused');
-  await root.scrollIntoViewIfNeeded();
-  await expect(surface).toHaveAttribute('data-state', 'paused');
-  await button.click();
-  await expect(surface).toHaveAttribute('data-state', 'running');
+  await expect(button).not.toBeFocused();
   await page.locator('#fire-learn').click();
   await expect(page.locator('#charcoal-viewer')).toBeVisible();
   await expect(surface).toHaveAttribute('data-state', 'paused');
@@ -114,21 +101,19 @@ test('no first-viewport mask, reduced-motion startup and failed GPU preserve sta
   await expect(page.locator('#fire-learn')).toBeVisible();
 });
 
-test('eleven localized motion labels, RTL and proportional adaptation', async ({ page }, info) => {
+test('all locale entries retain English hidden control and proportional adaptation', async ({ page }, info) => {
   test.skip(info.project.name !== 'iphone-17-pro-webkit', 'locale/adaptation matrix runs once on baseline WebKit');
   test.setTimeout(180000);
   for (const locale of ['en','ru','de','fr','es','it','tr','ar','zh','ja','ko']) {
     const root = await scene(page, locale);
-    const button = root.getByRole('button');
+    const button = root.locator('button');
     expect(await button.getAttribute('aria-label')).toBeTruthy();
     const bounds = (await root.boundingBox())!;
     expect(bounds.x).toBeCloseTo(402 * 260 / 941, 1);
-    if (locale === 'ar') {
-      await page.screenshot({ path: 'screenshots/ember/arabic.png', scale: 'css' });
-      expect(await page.locator('html').getAttribute('dir')).toBe('rtl');
-    }
-    await button.click(); await expect(button).toHaveAttribute('aria-pressed', 'true');
-    expect(await button.getAttribute('aria-label')).not.toBe('Pause Ember Animation');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+    await expect(page.locator('html')).toHaveAttribute('dir', 'ltr');
+    await expect(button).toBeHidden();
+    await expect(button).toHaveAttribute('aria-pressed', 'false');
   }
   await scene(page);
   for (const [width,height] of [[375,812],[402,650],[768,1024],[1440,900]]) {

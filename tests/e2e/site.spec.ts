@@ -78,7 +78,7 @@ test('responsive viewport, artwork, and primary actions', async ({ page }, testI
   await page.keyboard.press('Escape');
   await expect(page.locator('.menu')).not.toHaveAttribute('open');
   await page.locator('.menu summary').click();
-  await page.getByRole('navigation', { name: 'Menu' }).locator('a[href="#moment"]').click();
+  await page.getByRole('navigation', { name: 'Menu' }).locator('a[href="#hospitality-section"]').click();
   await expect(page.locator('.menu')).not.toHaveAttribute('open');
   const firstDocument = page.locator('.doc-card').first();
   await firstDocument.scrollIntoViewIfNeeded();
@@ -156,7 +156,7 @@ test('localized story buttons keep one-line labels inside proportionate surfaces
     const failures = await page.evaluate(() => {
       const canvas = document.querySelector('.canvas')!.getBoundingClientRect();
       const fallback = ({ ar: 'NotoButtonArabic', zh: 'NotoButtonSC', ja: 'NotoButtonJP', ko: 'NotoButtonKR' } as Record<string, string>)[document.documentElement.lang];
-      return [...document.querySelectorAll<HTMLElement>('.story-button')].flatMap(button => {
+      return [...document.querySelectorAll<HTMLElement>('.story-button')].filter(button => button.getClientRects().length > 0).flatMap(button => {
         const label = button.querySelector<HTMLElement>('.button-label')!;
         const range = document.createRange();
         range.selectNodeContents(label);
@@ -318,7 +318,7 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
   await waitForVisibleMedia(page);
   await page.locator('#expressions-compare').click();
   await expect(page.locator('dialog:modal')).toBeVisible();
-  expect(await page.locator('dialog:modal').evaluate(el => getComputedStyle(el).direction)).toBe('rtl');
+  expect(await page.locator('dialog:modal').evaluate(el => getComputedStyle(el).direction)).toBe('ltr');
   expect(await page.locator('.model-comparison').evaluate(el => el.scrollWidth <= el.clientWidth + 1)).toBe(true);
   await page.screenshot({ path: `screenshots/actual/comparison-ar-${testInfo.project.name}.png`, scale: 'css' });
   await page.keyboard.press('Escape');

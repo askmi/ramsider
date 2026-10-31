@@ -172,7 +172,7 @@ test('landscape gallery and Arabic layout remain usable', async ({ page }, info)
     await page.locator('#film-play').scrollIntoViewIfNeeded();
     await page.locator('#film-play').click();
     const dialog = page.locator('#product-film');
-    await expect(dialog).toHaveAttribute('dir', locale === 'ar' ? 'rtl' : 'ltr');
+    await expect(dialog).toHaveAttribute('dir', 'ltr');
     await expect(dialog.locator('.film-gallery__item')).toHaveCount(7);
     await dialog.locator('.film-gallery__item').nth(6).click();
     await expect(dialog.locator('.film-gallery__hero img')).toHaveAttribute('src', /7\.jpg/);

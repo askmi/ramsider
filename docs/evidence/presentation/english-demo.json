@@ -1,0 +1,113 @@
+{
+  "change": "CHG0187",
+  "date": "2026-10-31",
+  "status": "VERIFIED_LOCAL",
+  "candidateBase": "fe6c4994244c00d992494500c63c95c731f0e59d",
+  "runtimeAndTests": {
+    "components/Story.tsx": "25e885deecb4f382461a4aff900dee5ee433208ea83e7757bb99e98510817b26",
+    "components/EmberScene.tsx": "66dd903868415cb227f4969b68c60e1f473f77f17c36c7acc01c78766b9cb7ea",
+    "lib/i18n.ts": "e3e7509944251be7a1e9e793c0eb4af335bc430eab1d7c4eb80a918d81cc5e8c",
+    "lib/story.ts": "98eac7c9ce18111c2d216e4757ef26778c9958b9dd71097191f6211a78f539aa",
+    "next.config.mjs": "044102bba0779df919b9c3c0e22f49065de86f5755f7a8ac017f581d2fefe485",
+    "package.json": "25a7f1b6ec42093b68270bc8037da964335bcd700541aa906a83f572b876359b",
+    "tests/e2e/presentation-mode.spec.ts": "2138a163bf3e851cb6807ded7b9c858bf702bc03b3801468500399c42c7fe4d7",
+    "tests/e2e/ember.spec.ts": "f464f02177f6fc7100a1c0e8211c063c1459690ca9199c4cdd1d9221409e4191",
+    "tests/e2e/site.spec.ts": "d90a256c9955553034ed27a79c38416041539ae6caf6b07e9161848858e84458",
+    "tests/e2e/locale-switcher.spec.ts": "cda3118dfd23febfb7605586cc5d1b410494c755205c2cd30a0132038e35d400",
+    "tests/e2e/navigation-menu.spec.ts": "246fb6d0202ef5d3feb94f810c32ab08f00c108596204d069bfb8a37a8d5ff8d",
+    "tests/e2e/film-locales.spec.ts": "08c41a2d63101baeb6d8bf4eaf5b8e44fba3e52a2739b39ab49e164cd0616b28",
+    "tests/e2e/film-gallery.spec.ts": "51df685bc4ad45374b02b89cbc99194dac54bf247654e4c9c7ee4a9fcd017c22"
+  },
+  "scope": [
+    "English-only reversible 307 redirects; retained locale selector hidden",
+    "Video Gallery #film-play; Hospitality Solutions #hospitality-section; Contacts #company-contact",
+    "Explore Business Solutions https://hospitality.ramsider.com/ normal same-tab link",
+    "Retained ember pause/play always hidden; existing default-running/reduced-motion preserved",
+    "Retained Freedom of Choice #choice-learn hidden only"
+  ],
+  "candidateIsolation": "Clean HEAD archive plus exact requested files, dependencies cloned; no pre-existing player/CSS changes published",
+  "checks": {
+    "build3": "PASS production SSG",
+    "types3": "PASS",
+    "lint3": "PASS 0 errors 4 inherited ProductFilm warnings",
+    "earlierBrowser": "Historical16PASS2profileSKIP before scope additions; superseded by final40valid checks and migrated11PASS7SKIP",
+    "outgoingHref": "3PASS Pro/Max/Chromium; target HEAD200",
+    "nativeReview": "Native7 finaltinyguard CLEAN; native6 finalfourmigrations CLEAN; native5 no runtime/filter defects. Prior actionable tests fixed, default fullsuite retained, journal present. Userhiddenpausefinding explicitly dismissed/noWCAGclaim.",
+    "finalBrowser": "37PASS2profileSKIP3old-hidden-geometry-fixtureFAIL; corrected final-source geometry3PASS. All40 applicable states have passing evidence; complete default full suite NOT_RUN.",
+    "perf": {
+      "phase": "presentation-final3",
+      "conditions": "Single cold Chromium mobile402\u00d7874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+      "initial": {
+        "ttfb": 12.700000047683716,
+        "fcp": 404,
+        "lcp": 1300,
+        "cls": 0.00022206073455854325,
+        "jsBytes": 333166,
+        "completedBytes": 3320837,
+        "filmObjects": 15,
+        "readyImages": 29
+      },
+      "scroll": {
+        "samples": 339,
+        "movingFrames": 238,
+        "startY": 0,
+        "endY": 7629,
+        "p95Ms": 33.09999990463257,
+        "over33Ms": 18,
+        "reverseFrames": 0,
+        "maxReverse": 0,
+        "cls": 0.00022206073455854325,
+        "longTasks": [
+          97,
+          58,
+          489,
+          50,
+          121
+        ]
+      },
+      "errors": []
+    },
+    "performanceArtifact": "/tmp/ramsider-presentation/site/screenshots/scroll-incident/presentation-final3/performance.json",
+    "migratedTests": "11PASS7explicitprofile/unavailablefeatureSKIP; full default suite retained NOT_RUN",
+    "type5": "PASS final13files",
+    "lint5": "PASS0errors1unused-parameterwarning tests only"
+  },
+  "limits": [
+    "Physical iPhone not tested; WebKit emulation used",
+    "No WCAG compliance, field INP or Lighthouse score claim",
+    "Pre-existing CHG0180/0181/0185 and physical CHG0186 limits remain open",
+    "Full default test:visual retained but NOT_RUN; unavailable language-selector/localized-startup/cross-language-cache tests conditionally SKIP, English redirect/audio/hidden-control cases actually tested."
+  ],
+  "technicalApproval": "APPROVED_LOCAL_PRESENTATION /root2026-10-31",
+  "userResultApproval": "NOT_RECORDED",
+  "audit": "Independent /root/audit Gates1/3/4/5/6 LOCALPREPUSH PASS2026-10-31; publication pending",
+  "images": {
+    "screenshots/presentation/iphone-17-pro-max-webkit-menu-320.png": "4ac5c38f7ef954b6003d34da798b7ab3903ffaa11fea50dad851aee89056e7f0",
+    "screenshots/presentation/desktop-chromium-menu-320.png": "7f1cbe7ee912c6a7e333f547c486167de426dcaa282946d61d711557fdff64ce",
+    "screenshots/presentation/desktop-chromium-hospitality.png": "5ca557d1078d8a1ce3a080c390074789d5b3d971c56a782b873b866bf3321663",
+    "screenshots/presentation/iphone-17-pro-webkit-menu-320.png": "4ac5c38f7ef954b6003d34da798b7ab3903ffaa11fea50dad851aee89056e7f0",
+    "screenshots/presentation/desktop-chromium-menu.png": "e245c2015a2d2619fd731bc6c9ad266a86b459bcbdcdc14a9932c0b96314113a",
+    "screenshots/presentation/iphone-17-pro-max-webkit-hospitality.png": "50776496fdfbb668b5bd48c92d7390d71dc84da4b5e402cdac121b0d49d7f1d7",
+    "screenshots/presentation/iphone-17-pro-webkit-menu.png": "5918bec11f7d49aca62e79234f927316f52aae44d2ecc91ba7c788037645b827",
+    "screenshots/presentation/iphone-17-pro-max-webkit-menu.png": "e9693f4c52b33b71655fa53c1aa179571b61f30a7713513586b2086166231126",
+    "screenshots/presentation/desktop-chromium-menu-768.png": "19451e77df52da7ba8eca0cf6b51708671792c927a78654a7814c9a11c80be3d",
+    "screenshots/presentation/iphone-17-pro-webkit-footer.png": "bb550931da0d26a27455bd67d482163636ada329bf80be8ee159bef9d53ac328",
+    "screenshots/presentation/iphone-17-pro-webkit-menu-768.png": "dfd2fab1e2627845699bea9bf04988d58699007740f3126ba3df824473a398c9",
+    "screenshots/presentation/desktop-chromium-footer.png": "423354b26d326358e8ebec543e8d990ab5c7ff104c17bd52d63adcf49c55b9ec",
+    "screenshots/presentation/iphone-17-pro-max-webkit-menu-768.png": "dfd2fab1e2627845699bea9bf04988d58699007740f3126ba3df824473a398c9",
+    "screenshots/presentation/desktop-chromium-hero.png": "487705c1cc4b576db300cbaf002df60cd2ee29e73321561ffcf666c47c5564e8",
+    "screenshots/presentation/iphone-17-pro-webkit-hero.png": "933b13dec450f0488776cd8420631533e926493e3dc8f839f21554cad6dc7d1e",
+    "screenshots/presentation/iphone-17-pro-max-webkit-freedom.png": "0d9fd12a23b217a5f0a08946369ae79d2f859e46d1c3425c8dc500fd60e69e87",
+    "screenshots/presentation/iphone-17-pro-max-webkit-gallery.png": "97bd9142ea48c49a80ce48e7f9492c2817805a1ff2c4a4f064adfefc73078917",
+    "screenshots/presentation/iphone-17-pro-webkit-hospitality.png": "7a35cddebefd1ce5ba4ba9c4e6ff29e2964f01664f08781a8c5cec436c091bbb",
+    "screenshots/presentation/iphone-17-pro-max-webkit-contacts.png": "d66b0e9e5dae39dfd6d81ae75bc996b454315e027940d40f5af37e2c7f381d68",
+    "screenshots/presentation/iphone-17-pro-webkit-gallery.png": "a598995ac4382b38035778662e545d640f309a7091ac6fa5cfc4c01a83c39e28",
+    "screenshots/presentation/desktop-chromium-gallery.png": "7d8455d84590bf975f33ddcc19961e0ddbd1949c6c0fc7b74cfdb9f42630e0e3",
+    "screenshots/presentation/iphone-17-pro-webkit-contacts.png": "ecfb4c31dffb1ae8eb40141043339725d03fd25693aa42678cb1de2d28306844",
+    "screenshots/presentation/iphone-17-pro-max-webkit-footer.png": "43d91c99c17102d4d1d38c2710cd0ef6f4e452dffcd68beea82c138b8dbcc057",
+    "screenshots/presentation/desktop-chromium-contacts.png": "423354b26d326358e8ebec543e8d990ab5c7ff104c17bd52d63adcf49c55b9ec",
+    "screenshots/presentation/desktop-chromium-freedom.png": "17a23203c880b9c92e923eef15da0492e5f36d94662192dbd57bc65320aa8975",
+    "screenshots/presentation/iphone-17-pro-webkit-freedom.png": "f2f8b3f4ea00f3c9383145bed4e19ca7b6fe94a7ff17e8698697872a6a01859a",
+    "screenshots/presentation/iphone-17-pro-max-webkit-hero.png": "7b4ef5ad9aa237e738becbd94f5256249e0a99d909308312e1b1cb0558bd501a"
+  }
+}

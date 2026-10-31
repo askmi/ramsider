@@ -93,7 +93,7 @@ export const storyNodes: StoryNode[] = [
   n('venues', 35, 24250, 870, 57, 'title', 'center', undefined, undefined, 'venues'),
   n('venuesBody', 60, 24420, 820, 30, 'body', 'center'),
   n('mini', 145, 25770, 650, 53, 'brand', 'center'),
-  n('hospitalityLabel', 180, 26480, 580, 31, 'body', 'center'),
+  n('hospitalityLabel', 180, 26480, 580, 31, 'body', 'center', undefined, undefined, 'hospitality-section'),
   n('hospitality', 110, 26550, 720, 57, 'title', 'center', undefined, undefined, 'hospitality'),
   n('hospitalityBody', 90, 26720, 760, 30, 'body', 'center'),
   n('business', 100, 26845, 448, 25, 'button', 'center', undefined, 'business', 'hospitality-explore'),

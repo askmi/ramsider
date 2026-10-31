@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test('navigation glass matches locale glass and dismisses on outside input and page scroll', async ({ page }, testInfo) => {
+test('presentation navigation retains glass and dismisses on outside input and page scroll', async ({ page }, testInfo) => {
   for (const locale of ['en', 'ar']) {
     await page.goto(`/${locale}`);
     await page.evaluate(() => document.fonts.ready);
@@ -38,19 +38,11 @@ test('navigation glass matches locale glass and dismisses on outside input and p
     await expect(menu).not.toHaveAttribute('open');
 
     await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
-    await page.locator('#locale-toggle').click();
-    await expect(page.locator('#locale-options')).toBeVisible();
-    const localeSurface = await page.locator('#locale-options').evaluate(element => {
-      const style = getComputedStyle(element);
-      return { background: style.backgroundColor, blur: style.backdropFilter, border: style.borderTopColor, radius: style.borderTopLeftRadius, shadow: style.boxShadow };
-    });
-    expect(navSurface.background).toBe(localeSurface.background);
-    expect(navSurface.border).toBe(localeSurface.border);
-    expect(navSurface.radius).toBe(localeSurface.radius);
-    expect(navSurface.shadow).toBe(localeSurface.shadow);
-    expect(navSurface.blur).toBe(localeSurface.blur);
-    await page.screenshot({ path: `docs/evidence/nav-menu/locale-${locale}-${testInfo.project.name}.png` });
-
+    await expect(page.locator('#locale-toggle')).toBeHidden();
+    expect(navSurface.radius).toBe('11px');
+    expect(navSurface.border).toBe('rgb(181, 140, 78)');
+    expect(navSurface.blur).toBe('blur(4px)');
+    expect(navSurface.shadow).not.toBe('none');
     await page.locator('#navigation-toggle').click();
     await expect(page.locator('#locale-options')).toBeHidden();
     await expect(menu).toHaveAttribute('open');
@@ -59,9 +51,9 @@ test('navigation glass matches locale glass and dismisses on outside input and p
     await expect(page.locator('#navigation-toggle')).toBeFocused();
     await page.keyboard.press('Enter');
     await expect(menu).toHaveAttribute('open');
-    await nav.locator('a[href="#moment"]').click();
+    await nav.locator('a[href="#hospitality-section"]').click();
     await expect(menu).not.toHaveAttribute('open');
-    await expect(page).toHaveURL(/#moment$/);
+    await expect(page).toHaveURL(/#hospitality-section$/);
   }
 });
 
@@ -72,7 +64,7 @@ test('navigation links remain inside the panel in every locale', async ({ page }
     await page.evaluate(() => document.fonts.ready);
     await page.locator('#navigation-toggle').click();
     const panel = page.locator('.menu nav');
-    await expect(panel.locator('a[href^="#"]')).toHaveCount(13);
+    await expect(panel.locator('a[href^="#"]')).toHaveCount(3);
     const geometry = await panel.evaluate(element => ({ scroll: element.scrollWidth, width: element.clientWidth }));
     expect(geometry.scroll, `${locale} navigation overflows horizontally`).toBeLessThanOrEqual(geometry.width + 1);
   }

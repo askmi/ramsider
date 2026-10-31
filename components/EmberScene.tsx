@@ -69,7 +69,7 @@ export function EmberScene({ labels }: { labels: { pause: string; play: string }
 
   return <div ref={host} className="ember-scene" data-ember-scene>
     <canvas ref={canvas} className="ember-scene__canvas" aria-hidden="true" />
-    <button type="button" className="ember-scene__toggle" hidden={!available}
+    <button type="button" className="ember-scene__toggle" hidden disabled={!available}
       aria-label={userPaused ? labels.play : labels.pause} aria-pressed={userPaused}
       onClick={() => {
         paused.current = !paused.current;

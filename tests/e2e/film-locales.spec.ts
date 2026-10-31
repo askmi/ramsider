@@ -8,7 +8,7 @@ const registry = JSON.parse(readFileSync('config/product-films.json', 'utf8')) a
 const locales = ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko'];
 const cacheName = 'film-start-v1';
 const assetFor = (audio: string) => registry.assets.find(asset => asset.active && asset.id === 'uno-introduction' && asset.audioLocale === audio)!;
-const expectedAudio = (locale: string) => ['ru', 'de', 'es'].includes(locale) ? locale : 'en';
+const expectedAudio = (_locale: string) => 'en';
 const baseFor = (audio: string) => `/films/${assetFor(audio).directory}`;
 const starter = (audio: string) => ['master.m3u8', '360p/index.m3u8', '360p/init.mp4', ...[0, 1, 2].map(n => `360p/segment-${String(n).padStart(5, '0')}.m4s`)].map(path => `${baseFor(audio)}/${path}`);
 const galleryStarter = (audio:string) => [...starter(audio), ...registry.assets.filter(a=>a.active&&a.audioLocale==='und').flatMap(a=>['master.m3u8','360p/index.m3u8','360p/init.mp4',...[0,1,2].map(n=>`360p/segment-0000${n}.m4s`)].map(p=>`/films/${a.directory}/${p}`))];
@@ -32,7 +32,7 @@ test('all eleven page locales select exact supplied audio or the English fallbac
     await expect(video).not.toHaveAttribute('src');
     await expect(page.locator('#product-film .film-gallery__audio')).toHaveCount(0);
     await expect(page.locator('#product-film')).not.toContainText(/English Audio|Original Audio/i);
-    await expect(page.locator('#product-film')).toHaveAttribute('dir', locale === 'ar' ? 'rtl' : 'ltr');
+    await expect(page.locator('#product-film')).toHaveAttribute('dir', 'ltr');
     await page.locator('#film-play').scrollIntoViewIfNeeded();
     await page.locator('#film-play').click();
     await expect(page.locator('.film-gallery__caption')).toBeVisible();
@@ -58,6 +58,7 @@ for (const locale of ['ru', 'de', 'es']) {
       if (request.headers()['x-film-preload']) warm.push(new URL(request.url()).pathname);
     });
     await ready(page, locale);
+    test.skip(new URL(page.url()).pathname === '/en', 'Localized film startup is disabled by the English-only presentation; English redirect/audio selection is covered by the locale matrix.');
     expect(warm.slice(0,6)).toEqual(starter(locale));
     expect([...warm].sort()).toEqual(galleryStarter(locale).sort());
     const before = await page.evaluate(async cacheName => {
@@ -99,29 +100,22 @@ for (const locale of ['ru', 'de', 'es']) {
 
 test('locale navigation and other tabs cannot substitute a different cached audio version', async ({ page, context }, info) => {
   test.skip(!['iphone-17-pro-webkit', 'desktop-chromium'].includes(info.project.name), 'One native and one MSE cache-navigation owner');
+  await page.goto('/ru');
+  test.skip(new URL(page.url()).pathname === '/en', 'Cross-language cache substitution requires accessible localized routes; presentation locale matrix verifies the English-only selection.');
   for (const locale of ['ru', 'de', 'es', 'fr']) {
-    if (locale === 'ru') await ready(page, locale);
-    else {
-      await page.locator('#locale-toggle').click();
-      await page.locator(`#locale-option-${locale}`).click();
-      await expect(page).toHaveURL(new RegExp(`/${locale}(?:[?#]|$)`));
-      await expect(page.locator('video')).toHaveAttribute('data-preload', 'ready', { timeout: 45000 });
-    }
-    const audio = expectedAudio(locale);
-    await expect(page.locator('video')).toHaveAttribute('data-audio-locale', audio);
+    await ready(page, locale);
+    await expect(page).toHaveURL(/\/en(?:[?#]|$)/);
+    await expect(page.locator('video')).toHaveAttribute('data-audio-locale', 'en');
     const keys = await page.evaluate(async cacheName => (await (await caches.open(cacheName)).keys()).map(k => new URL(k.url).pathname), cacheName);
-    expect(keys.sort()).toEqual(galleryStarter(audio).sort());
+    expect(keys.sort()).toEqual(galleryStarter('en').sort());
   }
-  await page.goBack();
-  await expect(page).toHaveURL(/\/es(?:[?#]|$)/);
-  await expect(page.locator('video')).toHaveAttribute('data-audio-locale', 'es');
   const second = await context.newPage();
   await silenceTestMedia(second);
   await ready(second, 'de'); // Shared cache may evict this tab's ES bootstrap; ordinary HTTP must remain usable.
   await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   await expect.poll(() => page.locator('video').evaluate(v => (v as HTMLVideoElement).currentTime), { timeout: 20000 }).toBeGreaterThan(2);
-  await expect(page.locator('video')).toHaveAttribute('data-audio-locale', 'es');
-  await expect(page.locator('video')).toHaveAttribute('data-src', `${baseFor('es')}/master.m3u8`);
+  await expect(page.locator('video')).toHaveAttribute('data-audio-locale', 'en');
+  await expect(page.locator('video')).toHaveAttribute('data-src', `${baseFor('en')}/master.m3u8`);
   await page.locator('.film-player__close').click();
   await second.close();
 });

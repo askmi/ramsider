@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 const config = {
+  // Presentation mode: retain translations, but serve every locale entry in English.
+  async redirects() {
+    return [{
+      source: '/:locale(de|fr|es|it|ru|tr|ar|zh|ja|ko)/:path*',
+      destination: '/en/:path*',
+      permanent: false,
+    }];
+  },
   async headers() {
     return [
       { source: '/film-start-sw.js', headers: [{ key: 'Cache-Control', value: 'no-cache' }] },

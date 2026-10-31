@@ -819,3 +819,10 @@ Problem: a dark computed playlist fill still looked gray on the white endframe. 
 Gallery-cache follow-up: WebKit full-navigation experiment resolved Cache.put without preserving previously used shared URLs. Delete the invalid/missing slot before replacement and read back the stored metadata before marking a plan prepared; test actual service-worker consumption after locale navigation. Do not call a storage/fixture failure a browser limitation before tracing actual put/delete/match and trying a bounded repair. Controlled Agent Eval NOT_RUN.
 
 Record follow-up CHG0184: when an entry becomes VERIFIED, label the original defect paragraph explicitly “At discovery/baseline”; do not leave present-tense current-state claims that contradict the applied solution. This repeated CHG0182 record issue; final header/current-memory/source comparison is required before staging. Controlled Agent Eval NOT_RUN.
+
+
+## Align active QA when a feature is intentionally disabled
+
+- Problem: CHG0187 English-only presentation left previous localized navigation/audio/RTL tests in the default suite; native review found the incompatible assumptions.
+- Cause: agent updated runtime entrypoints before mapping all dependent test expectations.
+- Prevention: inventory tests for removed entrypoints and language state; keep historical multilingual coverage explicit, select presentation-compatible active coverage, and update remaining assertions while retaining interaction checks. Run the actual selected suites before approval. [EVAL-PRESENTATION](docs/agent-evals.md#eval-presentation): controlled behavioral rerun NOT_RUN; current regression checks are implementation evidence only.

@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "test:visual": "playwright test",
     "test:visual:ui": "playwright test --ui",
-    "visual:diff": "node tools/visual-diff.mjs"
+    "visual:diff": "node tools/visual-diff.mjs",
+    "test:presentation": "playwright test presentation-mode.spec.ts ember.spec.ts site.spec.ts"
   },
   "devDependencies": {
     "@playwright/cli": "^0.1.22",

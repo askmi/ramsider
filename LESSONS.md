@@ -856,3 +856,9 @@ CHG0190 follow-up — actual integration endpoint: an image named footer showed 
 - **Problem:** New launch h2 visually followed the hero but initially preceded its h1 in DOM.
 - **Cause:** Root agent inserted a positioned block before the shared overlay loop and verified coordinates without relative heading order; native review caught P2.
 - **Prevention:** Insert semantic text at its reading position within mapped content, and check h1 → new section → following heading in DOM as well as pixels. Evidence: CHG0191; distributor-launch.spec.ts. Controlled agent eval EVAL-LAUNCH-ORDER: NOT_RUN; browser regression is distinct.
+
+## Use an Accepted Text Line as the Exact Style Contract — CHG0191, 2026-11-01
+
+- Problem: root chose a larger orders line and bold bronze date for sales hierarchy; user accepted only the first line and required identical styling for all three.
+- Cause: discretionary visual emphasis was implemented without a named style exemplar; initial technical QA verified that choice, not user acceptance.
+- Prevention: when a user identifies an accepted line, reuse its shared typography tokens directly; compare computed color, font family/size/style/weight, line-height and letter spacing across every requested line. Keep wording and placement scoped. EVAL-LAUNCH-UNIFORM controlled agent run NOT_RUN; current browser style equality checks are separate.

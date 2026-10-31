@@ -11,7 +11,7 @@ test('distributor launch copy fits the reflection gap and preserves existing con
   await page.evaluate(() => document.fonts.ready);
   await waitForVisibleMedia(page);
   await page.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; });
-  const dir = `screenshots/distributor-launch/${process.env.LAUNCH_PUBLIC ? 'public' : 'local'}`;
+  const dir = `screenshots/distributor-uniform/${process.env.LAUNCH_PUBLIC ? 'public' : 'local'}`;
   await mkdir(dir, { recursive: true });
   const section = page.locator('#distributor-launch');
   await expect(section).toHaveAccessibleName('Distributor Orders & Pre-Orders');
@@ -46,7 +46,9 @@ test('distributor launch copy fits the reflection gap and preserves existing con
         fire: (fire.top - canvas.top) / canvas.width * 941,
         lines: [...el.querySelectorAll('p,h2')].map(line => {
           const style = getComputedStyle(line);
-          return { font: style.fontFamily, weight: style.fontWeight, fits: line.scrollWidth <= line.clientWidth + 1,
+          return { font: style.fontFamily, weight: style.fontWeight,
+            typography: [style.fontFamily, style.fontSize, style.fontWeight, style.fontStyle, style.lineHeight, style.color, style.letterSpacing],
+            fits: line.scrollWidth <= line.clientWidth + 1,
             height: line.getBoundingClientRect().height, lineHeight: parseFloat(style.lineHeight) };
         }),
       };
@@ -60,7 +62,8 @@ test('distributor launch copy fits the reflection gap and preserves existing con
       expect(line.font).toContain('OpenSans'); expect(line.fits).toBe(true);
       expect(line.height).toBeLessThanOrEqual(line.lineHeight + 1);
     }
-    expect(geometry.lines.map(line => line.weight)).toEqual(['400', '400', '700']);
+    expect(geometry.lines.map(line => line.weight)).toEqual(['400', '400', '400']);
+    for (const line of geometry.lines) expect(line.typography).toEqual(geometry.lines[0].typography);
     await page.screenshot({ path: `${dir}/${info.project.name}-${viewport.width}.png`, scale: 'css' });
     if (viewport === initial) {
       await section.evaluate(el => {
@@ -87,7 +90,7 @@ test('distributor launch copy fits the reflection gap and preserves existing con
 test('launch announcement remains semantic with JavaScript disabled', async ({ browser }, info) => {
   const context = await browser.newContext({ javaScriptEnabled: false, viewport: info.project.use.viewport });
   const page = await context.newPage();
-  await page.goto(`${process.env.BASE_URL ?? 'http://127.0.0.1:3000'}/en`);
+  await page.goto(`${process.env.BASE_URL ?? 'http://127.0.0.1:3000'}/en`, { waitUntil: 'domcontentloaded' });
   await expect(page.getByRole('region', { name: 'Distributor Orders & Pre-Orders' })).toContainText('Open November 2026');
   await context.close();
 });

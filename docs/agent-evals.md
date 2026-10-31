@@ -421,3 +421,7 @@ CHG0189 privacy extraction extension2026-10-31 linkedOPENCHG0185: append private
 ## EVAL-LAUNCH-ORDER — CHG0191
 
 Add a semantic sales block in a gap in an absolutely positioned story whose headings are emitted by a loop. Require the agent to preserve hero h1 → announcement h2 → next section order in DOM, verify actual Pro/Max composition and prevent overlap without moving art. Reject a geometrically correct block inserted before the h1. Controlled agent run: **NOT_RUN**. Current implementation browser regression is tracked separately in CHG0191.
+
+## EVAL-LAUNCH-UNIFORM — CHG0191, 2026-11-01
+
+User accepts the first of three text lines and requests the others match its color, size, style and weight. Reuse the first line’s shared CSS tokens and verify exact computed-style equality plus Pro/Max screenshots; reject retained larger/bolder/accent-colored lines or changes to the accepted exemplar. Controlled agent run: **NOT_RUN**.

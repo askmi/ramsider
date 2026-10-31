@@ -1,0 +1,204 @@
+{
+  "change": "CHG0191 user style correction",
+  "date": "2026-11-01",
+  "status": "VERIFIED_LOCAL_UNIFORM_STYLE",
+  "request": "All three text lines exactly match accepted first-line color, size, style and weight.",
+  "cause": "Root originally chose discretionary sales hierarchy (larger orders and bold bronze date); user explicitly rejected that choice and supplied first line as style exemplar. Prior technical approval did not imply user design acceptance.",
+  "solution": "Shared section typography: inherited OpenSans,400,normal,#5d5149,clamp(12px,32/941*100cqw,32px),line-height1.25. All p/h2 inherit font and color; only existing spacing retained. No wording, anchor, artwork or CTA change.",
+  "source": {
+    "app/globals.css": {
+      "sha256": "11fb6fe12e9dee333818827ff6579bddee354eb90344db192ecd44f63b325979",
+      "bytes": 81339
+    },
+    "tests/e2e/distributor-launch.spec.ts": {
+      "sha256": "9f9202ae0bab902f1037d1ac71be4f11530c2a1e7e32f53d0268105e1964fd1f",
+      "bytes": 5417
+    }
+  },
+  "checks": {
+    "build": "PASS isolated next production build; runtime source byte equality",
+    "typecheck": "PASS",
+    "scopedLint": "PASS",
+    "nativeReview": "No actionable issues; accepted first-line styling preserved and inherited by all3.",
+    "browser": "6PASS on Pro402x874DPR3 WebKit, Max440x956DPR3 WebKit, desktop1440x900Chromium plus320/768/874landscape: all3 computed font/color/size/style/weight/lineheight/letterspacing equal; exactcopy/DOMorder/sourcebounds/WhyFire2048/nooverflow/ReserveNov20/contactopen/noJS-DOMContentLoaded/ENredirect.",
+    "visual": "Root directly viewed Pro thenMax, desktop,320 and assembledfooter. Compared against previously accepted first-line appearance; no new raster/reference requirement.",
+    "integration": [
+      {
+        "name": "pro",
+        "width": 402,
+        "height": 874,
+        "dpr": 3,
+        "errors": [],
+        "positions": 19,
+        "end": {
+          "y": 13259,
+          "height": 14133,
+          "gap": 0
+        }
+      },
+      {
+        "name": "max",
+        "width": 440,
+        "height": 956,
+        "dpr": 3,
+        "errors": [],
+        "positions": 19,
+        "end": {
+          "y": 14475,
+          "height": 15431,
+          "gap": 0
+        }
+      }
+    ],
+    "performance": {
+      "conditions": "Same priorCHG0189 harness: coldChromium402x874DPR3,4Mbps100msCPU4; encodedBodySize script bytes; scroll throttled",
+      "load": {
+        "lcp": 1528,
+        "cls": 0.0007297865332991844,
+        "fcp": 620,
+        "jsBytes": 335894,
+        "width": 402,
+        "dpr": 3
+      },
+      "scroll": {
+        "frames": 98,
+        "p95": 16.800000000000182
+      },
+      "errors": []
+    }
+  },
+  "artifacts": {
+    "screenshots/distributor-uniform/integration.mjs": {
+      "sha256": "1e3f94d541c0f76fb5b998e0a320b5d8a3fc5081ccf449063631073e9a8662f8",
+      "bytes": 2245
+    },
+    "screenshots/distributor-uniform/perf-form.png": {
+      "sha256": "bdcea7c03022dd3eb761d61e40dd1ac70162299c7f68ef45fac7ee400b192260",
+      "bytes": 96930
+    },
+    "screenshots/distributor-uniform/performance.mjs": {
+      "sha256": "6eb32bc528c8c0f45809758c4783784cf414824ed3952edbde07a974ef9d248c",
+      "bytes": 2556
+    },
+    "screenshots/distributor-uniform/performance.json": {
+      "sha256": "3c3e126a15607f637df7df6923850d08907c4ec6aed9a22ba88ad295f504fac6",
+      "bytes": 356
+    },
+    "screenshots/distributor-uniform/integration/pro-18.png": {
+      "sha256": "2ec1a2a1e3d691cc6cc70d996e4c5a963b57b85a1f59d8bdcba8a44d9ae6baf0",
+      "bytes": 564086
+    },
+    "screenshots/distributor-uniform/integration/max-top.png": {
+      "sha256": "26559fa28aa537b5fc539abc9bf0d6ca72b0696db3359060620410345d390725",
+      "bytes": 455497
+    },
+    "screenshots/distributor-uniform/integration/result.json": {
+      "sha256": "bc0663fb733e7e02ded7fea13fd1727162481b66e2445869f03c82fec10003f4",
+      "bytes": 3328
+    },
+    "screenshots/distributor-uniform/integration/max-9.png": {
+      "sha256": "d196f7ad9e75af5e0fbf009ab447fba7b5cec66b123cbdd61ed41994070083cd",
+      "bytes": 739683
+    },
+    "screenshots/distributor-uniform/integration/pro-9.png": {
+      "sha256": "fc6c8e8908385d5d5ec6ffb2fac1c5ce0c84d31f2acf4d4cffa10087675f7c32",
+      "bytes": 622746
+    },
+    "screenshots/distributor-uniform/integration/max-18.png": {
+      "sha256": "1d9c7b4bab6add6f50832b5be5881161c05daf1c39346fd6ec0a8d9af95b2da6",
+      "bytes": 653275
+    },
+    "screenshots/distributor-uniform/integration/max-1.png": {
+      "sha256": "9c4b5afd2cca04a3ad656aa0f3d38e702f9bb2599c3fdf07b3528b132044a802",
+      "bytes": 716139
+    },
+    "screenshots/distributor-uniform/integration/pro-1.png": {
+      "sha256": "13f9458cf5817f52da9971669e490425e71918c80c67fa616a9720d0b69cad5a",
+      "bytes": 616392
+    },
+    "screenshots/distributor-uniform/integration/pro-top.png": {
+      "sha256": "7ab617752f1ea9f0087fc78202a8b0af58bb696e33a8b0424a13826351ea7273",
+      "bytes": 423674
+    },
+    "screenshots/distributor-uniform/local/iphone-17-pro-webkit-874.png": {
+      "sha256": "2d2e328ad09000663aee25393d5177a1aec99f4ffbace05f7b876a1bc22e834a",
+      "bytes": 445382
+    },
+    "screenshots/distributor-uniform/local/iphone-17-pro-webkit-320.png": {
+      "sha256": "79a67ade28ae79306e202bc57e6ffcf698ffa490485d4eafe6d0897fa4977fa1",
+      "bytes": 346882
+    },
+    "screenshots/distributor-uniform/local/iphone-17-pro-webkit-composition.png": {
+      "sha256": "541182c1e68f1ffacc36d49349c217646b67a7f2934432bc447e4aa04da410ea",
+      "bytes": 595217
+    },
+    "screenshots/distributor-uniform/local/iphone-17-pro-webkit-768.png": {
+      "sha256": "4a470bc9ce84fd8ca172893604598e597dac5d77c6e85e63189678b3393b1a08",
+      "bytes": 761409
+    },
+    "screenshots/distributor-uniform/local/desktop-chromium-874.png": {
+      "sha256": "6c81b399af9be11206cafd0f17ec5376c18f864fed453ba27d59803664be61f7",
+      "bytes": 314934
+    },
+    "screenshots/distributor-uniform/local/iphone-17-pro-max-webkit-874.png": {
+      "sha256": "2d2e328ad09000663aee25393d5177a1aec99f4ffbace05f7b876a1bc22e834a",
+      "bytes": 445382
+    },
+    "screenshots/distributor-uniform/local/desktop-chromium-320.png": {
+      "sha256": "7d066d246cb2c85cb76be4b55f5515620693e54eb060aa9541d190fe8c959490",
+      "bytes": 223932
+    },
+    "screenshots/distributor-uniform/local/iphone-17-pro-max-webkit-320.png": {
+      "sha256": "af2cadc7354acf3a7c638e70826e3b7cac83bebcb83a51402dce07dfa85020f7",
+      "bytes": 350268
+    },
+    "screenshots/distributor-uniform/local/iphone-17-pro-max-webkit-composition.png": {
+      "sha256": "677ad9f78df1b73d574f4dd98559835753305d48a518adf704bc8e5876fdd54e",
+      "bytes": 695840
+    },
+    "screenshots/distributor-uniform/local/iphone-17-pro-max-webkit-440.png": {
+      "sha256": "d685e713b436429cc4b465b9bcfb920b9734184bd0819b3024b7988236b81150",
+      "bytes": 490967
+    },
+    "screenshots/distributor-uniform/local/desktop-chromium-composition.png": {
+      "sha256": "795f19e071b32f8ce5973fa36418f97049bf18c52adc58164c0ec2983b1b060c",
+      "bytes": 806497
+    },
+    "screenshots/distributor-uniform/local/iphone-17-pro-webkit-402.png": {
+      "sha256": "7ab617752f1ea9f0087fc78202a8b0af58bb696e33a8b0424a13826351ea7273",
+      "bytes": 423674
+    },
+    "screenshots/distributor-uniform/local/iphone-17-pro-max-webkit-768.png": {
+      "sha256": "1fd5c23022250d4974ecfc274ca4da91f7aa3e784c52ebb15b783f560ff9abb6",
+      "bytes": 780305
+    },
+    "screenshots/distributor-uniform/local/desktop-chromium-1440.png": {
+      "sha256": "c7dae0f896ebdc7a1b9b7ccc42bc2c29f3c0fbae1bfa2aa53db2a64f66b8104b",
+      "bytes": 853753
+    },
+    "screenshots/distributor-uniform/local/desktop-chromium-768.png": {
+      "sha256": "e4440b1313c98f65a394205f6698ee6d8873785752ac1d5f8cea3bd447ef717e",
+      "bytes": 793022
+    },
+    "docs/evidence/sales-launch/distributor-uniform-pro.png": {
+      "sha256": "541182c1e68f1ffacc36d49349c217646b67a7f2934432bc447e4aa04da410ea",
+      "bytes": 595217
+    },
+    "docs/evidence/sales-launch/distributor-uniform-max.png": {
+      "sha256": "677ad9f78df1b73d574f4dd98559835753305d48a518adf704bc8e5876fdd54e",
+      "bytes": 695840
+    }
+  },
+  "approval": {
+    "root": "APPROVED_LOCAL_UNIFORM_STYLE 2026-11-01",
+    "auditor": "Not required for this trivial scoped CSS typography correction; no new agent spawned. Native review and actual browser QA completed.",
+    "user": "First-line style explicitly accepted; other two required to match it. Final corrected-result acceptance not recorded. Standing origin/main production publication authorization applies."
+  },
+  "limits": [
+    "Synthetic browser emulation, no physical iPhone/fieldINP/Lighthouse/WCAG certification.",
+    "Existing unrelated footer boundary/SMTP/aliasmetadata observations retained in previous receipt."
+  ],
+  "publication": {
+    "status": "PENDING"
+  }
+}

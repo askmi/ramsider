@@ -1,0 +1,379 @@
+{
+  "change": "CHG0190",
+  "date": "2026-10-31",
+  "status": "VERIFIED_LOCAL_WEB",
+  "sourceBeta": "47dddd9522f044f25d643fca3d5ea90d1f0f6825",
+  "baseMain": "c5d355babf52f7e6a432e0504bc908b78168cc4e",
+  "mapping": "first4 exact beta displayed answers incl shipping normalization; support unchanged; venue exact latest user copy; no beta-only links/extended/capsule/commerce; Arabic copied exactly, remaining en fallback marked lang",
+  "venue": {
+    "text": "To view franchise and venue partnership terms, go to the Hospitality section and fill in the form. We will contact you.",
+    "href": "https://hospitality.ramsider.com/#enquiry"
+  },
+  "candidateSource": {
+    "components/Story.tsx": "6c36ce85fb32f7c1327ccd3458de6495a5404c0d4e0ef83390ac47c8b4c2c490",
+    "app/globals.css": "6e8e623f4d4b8256d272d5efc5a6272ac418432ad8847b1cdf5218f8cf7c09da",
+    "lib/faq-copy.ts": "61dbefb0f3228209d4ffb42e833341465afc4c79687bf044cdfc1f470cfde258",
+    "tests/e2e/site.spec.ts": "61e5de6ee1b4fe1874231d39eee7d4ee56e4c20c8f8adb8177e9a769327cde48"
+  },
+  "checks": [
+    {
+      "profile": "pro",
+      "viewport": [
+        402,
+        874
+      ],
+      "dpr": 3,
+      "layout": {
+        "innerScroll": 1,
+        "overflow": 0,
+        "beforeAccount": true,
+        "rows": [
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          }
+        ]
+      },
+      "href": "https://hospitality.ramsider.com/#enquiry",
+      "targetHeight": 44,
+      "errors": [],
+      "result": "PASS"
+    },
+    {
+      "profile": "max",
+      "viewport": [
+        440,
+        956
+      ],
+      "dpr": 3,
+      "layout": {
+        "innerScroll": 1,
+        "overflow": 0,
+        "beforeAccount": true,
+        "rows": [
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          }
+        ]
+      },
+      "href": "https://hospitality.ramsider.com/#enquiry",
+      "targetHeight": 44,
+      "errors": [],
+      "result": "PASS"
+    },
+    {
+      "profile": "narrow",
+      "viewport": [
+        320,
+        568
+      ],
+      "dpr": 1,
+      "layout": {
+        "innerScroll": 1,
+        "overflow": 0,
+        "beforeAccount": true,
+        "rows": [
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          }
+        ]
+      },
+      "href": "https://hospitality.ramsider.com/#enquiry",
+      "targetHeight": 44,
+      "errors": [],
+      "result": "PASS"
+    },
+    {
+      "profile": "tablet",
+      "viewport": [
+        768,
+        1024
+      ],
+      "dpr": 1,
+      "layout": {
+        "innerScroll": 1,
+        "overflow": 0,
+        "beforeAccount": true,
+        "rows": [
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          }
+        ]
+      },
+      "href": "https://hospitality.ramsider.com/#enquiry",
+      "targetHeight": 44,
+      "errors": [],
+      "result": "PASS"
+    },
+    {
+      "profile": "desktop",
+      "viewport": [
+        1440,
+        900
+      ],
+      "dpr": 1,
+      "layout": {
+        "innerScroll": 1,
+        "overflow": 0,
+        "beforeAccount": true,
+        "rows": [
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          },
+          {
+            "scroll": 0,
+            "width": 0
+          }
+        ]
+      },
+      "href": "https://hospitality.ramsider.com/#enquiry",
+      "targetHeight": 44,
+      "errors": [],
+      "result": "PASS"
+    },
+    {
+      "profile": "noJS-WebKit",
+      "result": "PASS"
+    }
+  ],
+  "extra": {
+    "pro": {
+      "sameDimensions": true,
+      "pixelMean": 1.1743392374885242,
+      "pixelMax": 174,
+      "labels": [
+        "How Does Preordering Work?",
+        "What Comes with My UNO?",
+        "When Will My UNO Ship?",
+        "How Can I Track My Order?",
+        "What Support Is Available?",
+        "Can I Equip My Venue?"
+      ]
+    },
+    "max": {
+      "sameDimensions": true,
+      "pixelMean": 0.8938549224640774,
+      "pixelMax": 172,
+      "labels": [
+        "How Does Preordering Work?",
+        "What Comes with My UNO?",
+        "When Will My UNO Ship?",
+        "How Can I Track My Order?",
+        "What Support Is Available?",
+        "Can I Equip My Venue?"
+      ]
+    },
+    "navigation": {
+      "url": "https://hospitality.ramsider.com/#enquiry",
+      "formVisible": false,
+      "posts": 0
+    },
+    "performance": {
+      "conditions": "synthetic Chromium402x874DPR3;4Mbps100msCPU4;single paired sample, no causal/fieldINP/Lighthouse claim",
+      "samples": [
+        {
+          "port": 3214,
+          "lcp": 1300,
+          "cls": 0.00022206073455854325,
+          "js": 380096,
+          "bytes": 2022966,
+          "scroll": {
+            "p95": 18.699999809265137,
+            "overflow": 0
+          }
+        },
+        {
+          "port": 3215,
+          "lcp": 1304,
+          "cls": 0.00022206073455854325,
+          "js": 380096,
+          "bytes": 2023825,
+          "scroll": {
+            "p95": 17.700000047683716,
+            "overflow": 0
+          }
+        }
+      ]
+    }
+  },
+  "static": {
+    "build": "PASS final-build2; SSG all11 preserved",
+    "types": "PASS",
+    "scopedLint": "PASS",
+    "nativeReview": "CLEAN scoped actualpatch; browser/sourcefidelity not independently verified by native reviewer (separate root/auditor evidence supplies these)",
+    "existingFAQ": "6 PASS; Pro/Max/Chromium disclosure+wheel (AR routes redirect EN, not liveRTLproof)"
+  },
+  "limits": [
+    "Physical iPhone not run",
+    "External Hospitality form visibility BLOCKED by browser business policy: actual click URL exact, POST0; earlier public HTML includes section#enquiry/form#partnership-form. No bypass or form submission.",
+    "Product factual pricing/VAT/manufacturing content copied with original preview qualifications; factual validation not claimed",
+    "No full unrelated test suite/full lint/WCAG/Lighthouse/fieldINP or pixel-perfect claim"
+  ],
+  "artifacts": {
+    "screenshots/faq-transfer/reference-clean.png": "7dd5e8d3184171de996bd0a4203115dc4c3220a1a9b7d3a79d20dadd77efc4e4",
+    "screenshots/faq-transfer/pro-footer.png": "dd55d25adbb623868c35e04a7625cfdd54126082428e76c784da84c1d7aabcf5",
+    "screenshots/faq-transfer/pro-venue.png": "ca4ed4249ed327a4534d66d55d66b5709a8aee14179a5254f0ed784699b2c9fd",
+    "screenshots/faq-transfer/desktop-all-open.png": "de59f85383ca2c1734b7d420499f6319ec7f70cc4f31c3a80474065bb4b7e83c",
+    "screenshots/faq-transfer/narrow-footer.png": "b3fbc8a152fa5ea21e77983550bca3d6e9b6407324c0f0527bb48ab97445ff1d",
+    "screenshots/faq-transfer/desktop-venue.png": "c2c55d89286f0358db04cc32191acf87da0028f0a28890ba87683e396fdc4f90",
+    "screenshots/faq-transfer/pro-account-join.png": "4e025642bcd6ddcd02449f174bc42f6a5122d150b764e1e6234158cc71451428",
+    "screenshots/faq-transfer/max-footer.png": "01b3bb1b6730ab9fb3e98b91b1df1bbbf049fb43120bd5c9c18c4f2903c5b891",
+    "screenshots/faq-transfer/max-all-open.png": "b99dd04bf2ff02105716da2a7ef1ee4955a56df599a5a75e4d68786c1321ddf7",
+    "screenshots/faq-transfer/desktop-footer.png": "ebb06382e59a969c071c62cd8b2b3b78ea97d24fdd8177fb403237c66bc05853",
+    "screenshots/faq-transfer/max-baseline-closed.png": "73fafcefc1b3dec7894b55fec095847d2c3170a0065a9aa6db678da556291208",
+    "screenshots/faq-transfer/beta-expected.json": "ee808d9bf3544757bd4fc1d39a423e98e3875198f7ed22de57d67c828cb798eb",
+    "screenshots/faq-transfer/hospitality-form-landing.png": "4029c85e5c720e1bfd50a58349f5f32a18c7ab7c76086771c456d9bbc397f7bf",
+    "screenshots/faq-transfer/tablet-footer.png": "1ecf6f2cd0cec1a939eed77a84b1c9b44fed1929c917bdc22b1c14d2d8ed8481",
+    "screenshots/faq-transfer/tablet-all-open.png": "1ae2246b7554b317863b57b6777febb5eb7059ace8a67020bcb9eaec241d7151",
+    "screenshots/faq-transfer/max-venue.png": "f7fd7e8e4236d5729f256376753c1addf1a47c56e6bde0290d91577c2c3bab49",
+    "screenshots/faq-transfer/extra.json": "28022387f1adfb81c4bc9d84d7fbe98bb8ffd703b7ce7c740e97b5d7a7411c6d",
+    "screenshots/faq-transfer/checks.json": "da25e80dfcb0131969bd403d636b4cb118c29e701bd92197ede8c531cecba5af",
+    "screenshots/faq-transfer/narrow-all-open.png": "3d4fc025f42777f1b92f6f6d7e5fc783beb2d9d956f35d714a3ba4d973965cec",
+    "screenshots/faq-transfer/narrow-account-join.png": "3191eee56bb4c7ade591767666decac06120d052aa0d4f92c3bbc131d03be832",
+    "screenshots/faq-transfer/desktop-account-join.png": "df0722f3bd9534f3eccd45ad1ed6f977f61c3195967641c35a9982205c688ff3",
+    "screenshots/faq-transfer/baseline.json": "4de1416515cd313f63501202cadfd0ed7f3f0035941217c04d46f2b71da78f82",
+    "screenshots/faq-transfer/tablet-closed.png": "d9f63906283ae54eded6adfb404e00e490cebeefa8f16fbc0b7ed656a3371c77",
+    "screenshots/faq-transfer/desktop-closed.png": "04984efedefbec98ef6724bef8a9b2c676b0b37a8cf29a74527a415e9202946c",
+    "screenshots/faq-transfer/reference-text.png": "92c08d3bf76a5df2d83f7ee5f19f6fe7aec88dfba011ccf23c1d03117d767741",
+    "screenshots/faq-transfer/pro-baseline-closed.png": "77329a8d82f0ab3cfa8b89186295be2efc5f7f55c15637ead6a7775d955deafb",
+    "screenshots/faq-transfer/narrow-venue.png": "1fccc53e914c1ddd94f24f1c538b6e2b49a90296c900e4731f79e5d586909610",
+    "screenshots/faq-transfer/max-closed.png": "a6bd860acf738a9c30a581df6d0c7998240ff50afc5891630a1f9b0c5feb538f",
+    "screenshots/faq-transfer/max-account-join.png": "ec13581edd66d3c550f3a63a75accc14cdfd4697e1769312820fec703d3eb0f6",
+    "screenshots/faq-transfer/narrow-closed.png": "5df71f269294a4425fdbb0e0865f6ee3b396da3e680ec3c6ad7dde36f261f6ee",
+    "screenshots/faq-transfer/max-actual-footer.png": "819483a285dbaa2e3fb44b282b707ba927db9709f365f9dd4908065b186e6d21",
+    "screenshots/faq-transfer/pro-all-open.png": "01f3ade10ac38d1cab769ad593e226db59547c448da0385d89fac69aac76ad46",
+    "screenshots/faq-transfer/tablet-account-join.png": "3d0a2aa68155f0a78bf94c24b3d3961df4414c5e4f222780d75a5b52a078d699",
+    "screenshots/faq-transfer/integration.json": "02583933a01fad3461bbd22761ca5e442fe0b940612a011c2381ffef81038f4a",
+    "screenshots/faq-transfer/pro-actual-footer.png": "34d2c172bb0b0940809a55697a62ad05504415facd6529fe95fa257c089669d8",
+    "screenshots/faq-transfer/pro-closed.png": "fa53dfe91bba7d256cd41c9c112f7276bd1d9fce8fa61579040cc7ae3fe6217d",
+    "screenshots/faq-transfer/tablet-venue.png": "dc04994c42311be97d45df9ed3f3dff183688b71fa1c03722701c7f1945ba2eb"
+  },
+  "technicalApproval": {
+    "root": "APPROVED_LOCAL_WEB2026-10-31",
+    "independent": "PASS_LOCAL_WEB2026-10-31 /root/faq_audit; Stages1,3,4mainbehavior,5,6 including actualfooter and37artifactSHA; externalformvisibilityBLOCKEDonly"
+  },
+  "publication": "PENDING",
+  "integration": [
+    {
+      "profile": "pro",
+      "steps": 23,
+      "end": {
+        "gap": 0.3125,
+        "overflow": 0
+      },
+      "errors": [],
+      "result": "PASS"
+    },
+    {
+      "profile": "max",
+      "steps": 23,
+      "end": {
+        "gap": 0.296875,
+        "overflow": 0
+      },
+      "errors": [],
+      "result": "PASS"
+    }
+  ],
+  "artifactCorrection": "Earlier pro/max-footer.png are lowerjoin only, notfooterproof. Final actual-footer images plus iterative integration bind actual#company.site-footer boundary <=1px."
+}

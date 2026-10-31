@@ -21,6 +21,7 @@ import { EmberScene } from './EmberScene';
 import { emberCopy } from '@/lib/ember-copy';
 import { certificates, type CertificateId } from '@/lib/certificates';
 import { company, companyCopy } from '@/lib/company';
+import { faqAnswer, venueFaq } from '@/lib/faq-copy';
 import { SiteFooter } from './SiteFooter';
 import { WellnessRibbon } from './WellnessRibbon';
 import { ProductFilm } from './ProductFilm';
@@ -175,9 +176,11 @@ function Faq({ locale }: { locale: Locale }) {
       </div>
       <details>
       <summary id={`faq-${question.id}`}><span className="faq-question">{t(locale, question.key)}</span><span className="faq-symbol" aria-hidden="true" /></summary>
-      <p>{question.id === 'support' || question.id === 'venue'
-        ? <>{companyCopy[locale][question.id === 'support' ? 'support' : 'business']} <a className="faq-contact-link" href={company.emailHref}><bdi dir="ltr">{company.email}</bdi></a></>
-        : t(locale, 'faqPending')}</p>
+      <p>{question.id === 'venue'
+        ? <span lang="en" dir="ltr">{venueFaq.before}<a className="faq-partnership-link" href={venueFaq.href}>{venueFaq.link}</a>{venueFaq.after}</span>
+        : question.id === 'support'
+        ? <>{companyCopy[locale].support} <a className="faq-contact-link" href={company.emailHref}><bdi dir="ltr">{company.email}</bdi></a></>
+        : <span lang={faqAnswer(question.id, locale).language} dir={locale === 'ar' ? 'rtl' : 'ltr'}>{faqAnswer(question.id, locale).text}</span>}</p>
       </details>
     </div>)}
   </div>;

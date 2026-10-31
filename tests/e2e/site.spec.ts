@@ -111,7 +111,7 @@ test('responsive viewport, artwork, and primary actions', async ({ page }, testI
   await page.keyboard.press('Escape');
   await page.locator('.faq-stack details').first().locator('summary').click();
   await settleVisibleMedia();
-  await expect(page.locator('.faq-stack details').first().getByText('Confirmed details are not available')).toBeVisible();
+  await expect(page.locator('.faq-stack details').first().getByText('An order is placed by the first card payment', { exact: false })).toBeVisible();
   expect(errors).toEqual([]);
 });
 

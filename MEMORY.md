@@ -1,5 +1,10 @@
 # Ramsider project memory
 
+## Current — CHG0190 FAQ beta transfer, 2026-10-31
+
+VERIFIED_LOCAL_WEB, independentfinalLOCALPASS; publicationpending: first4 bottomFAQ answers exact beta47dddd displayedcopy (shippingnormalization), originalsupport retained; sixth explicituser venue copy links https://hospitality.ramsider.com/#enquiry. Beta-onlydocumentlinks/commerce notimported; no payment/order activation. Exactsource/DOM, Pro402/Max440DPR3+320/768/1440/noJS6profilesPASS; existingFAQ6PASS; build/types/scopedlint/nativeCLEAN. Native details/naturalflow/keyboard preserved. ActuallinkURL exact/POST0; externalformvisibility blockedbrowserbusinesspolicy (earlierHTML confirmsanchor), no bypass. Sourceproductclaims notvalidated; previewqualifications preserved. SyntheticLCP1304ms/CLS.000222/JS380096B unchanged/scrollp9517.7ms; nofieldINP/Lighthouse. Receipt docs/evidence/faq/beta-transfer.json; unrelatedlead-capture work preserved.
+
+
 ## Current — CHG0186 unified iPhone button/rotation, 2026-10-31
 
 VERIFIED_LOCAL_WEB / READY_FOR_SCOPED_MAIN_PUBLICATION / NOT_PUBLISHED. Customer clarified goldresponsive landscape works but originalportraitbutton opensApple. Shared own-window action now handles originaltouch/button/Space/Enter/f/MediaChrome andportrait→landscape/alreadylandscapePlay. Autoowned returnsinlineportrait; manualpersistsrotation. Explicitexit suppressesuntilnextportraitedge; native/PiP remainexplicit exceptions. Recovery cannotoverrideExit/PiP orclosed/staleepoch. Samevideo/source/time/HLS/audio; defaultwindow, ?iphonePlayer=native andSettingsnative retained, globaldefaultnative+rebuild/deploy rollback. Deliberate proportional aperturecrop unchanged, Safari/OSchrome nothideguarantee.

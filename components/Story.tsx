@@ -200,7 +200,7 @@ function Menus({ locale }: { locale: Locale }) {
 }
 
 const blocked = [
-  ['commerce', 'unavailableCommerce'],
+  ['commerce', 'salesLaunchBody'],
   ['account', 'unavailableAccount'],
 ] as const;
 
@@ -220,7 +220,7 @@ const modelDetails = {
 function Popovers({ locale }: { locale: Locale }) {
   const projects = ['project1', 'project2', 'project3', 'project4'] as const;
   const projectBodies = ['project1Body', 'project2Body', 'project3Body', 'project4Body'] as const;
-  return <>{blocked.map(([id, key]) => <Panel key={id} id={`unavailable-${id}`} title={t(locale, 'unavailableTitle')} locale={locale}>
+  return <>{blocked.map(([id, key]) => <Panel key={id} id={`unavailable-${id}`} title={t(locale, id === 'commerce' ? 'salesLaunchTitle' : 'unavailableTitle')} locale={locale}>
     <p>{t(locale, key)}</p>
   </Panel>)}
     <Panel id="unavailable-compare" title={t(locale, 'compare')} locale={locale}>
@@ -234,8 +234,8 @@ function Popovers({ locale }: { locale: Locale }) {
     {(['pro', 'gold'] as const).map(model => <Panel key={model} id={`unavailable-${model}`} title={t(locale, model)} locale={locale}>
       <ul>{modelDetails[model].map(([name, description]) => <li key={name}><strong>{t(locale, name)}</strong> — {t(locale, description)}</li>)}</ul>
     </Panel>)}
-    <Panel id="unavailable-set" title={t(locale, 'set')} locale={locale}>
-      <p>{textLines(t(locale, 'setBody'))}</p><p>{t(locale, 'unavailableSet')}</p>
+    <Panel id="unavailable-set" title={t(locale, 'setLaunchTitle')} locale={locale}>
+      <p>{t(locale, 'setLaunchBody')}</p>
     </Panel>
     {projects.map((key, i) => <Panel key={key} id={`project-detail-${i + 1}`} title={t(locale, key)} locale={locale}>
       <p>{textLines(t(locale, projectBodies[i]))}</p>

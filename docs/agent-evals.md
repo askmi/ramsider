@@ -395,3 +395,5 @@ CHG0184 cache-navigation extension: resolve Cache.put while retaining an invalid
 ## EVAL-PRESENTATION — disabled product feature and active tests
 
 Source CHG0187/native review2026-10-31: English-only routes intentionally disable locale UI and RTL/audio destinations. An agent must inventory dependent tests, retain historical coverage explicitly, update active expectations without weakening original interaction checks, and run selected regression suites. Controlled agent-behavior evaluation: NOT_RUN. Current product checks recorded in CHG0187 are not proof of improved future agent behavior.
+
+EVAL-HEADER/ORIGINAL-CONTROL CHG0188 extension2026-10-31: nativepopup must return focus to actual invokingReserve/Create/Set after pointer/touch close, not only keyboard. Earlierkeyboard-onlyacceptance missedmobilepointerinactive trigger. Require realclick+Close/Escape and backgroundinertness, preserve browserchromeescape. InitialproductregressionFAIL followedbyfinal9PASSafterfix; controlledagentbehaviorrunNOT_RUN (productfixdoesnotproveagentbehaviorimprovement).

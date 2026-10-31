@@ -13,6 +13,7 @@ export function DialogController({ children }: { children: ReactNode }) {
         event.preventDefault();
         if (trigger.getAttribute('popovertargetaction') === 'hide') panel.close();
         else {
+          if (panel.classList.contains('availability')) trigger.focus({ preventScroll: true });
           panel.showModal();
           const video = panel.querySelector<HTMLVideoElement>('video[data-src]');
           if (video) {

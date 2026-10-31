@@ -1,0 +1,109 @@
+{
+  "change": "CHG0188",
+  "date": "2026-10-31",
+  "status": "VERIFIED_LOCAL",
+  "base": "69d4b18f8ddb21dbf84681f83a77afa48bdbd464",
+  "runtimeAndTests": {
+    "components/Story.tsx": "132918ab05efe35ced283da47b21d5d02f8c1ebf155c2ce75112d0b34ddaeba1",
+    "components/DialogController.tsx": "e0849e6923830f2770089cf7277af6d08b9a5f9916992abc987d6c1ccb80126c",
+    "lib/i18n.ts": "bbc8f7a7fa3826e533739eb9384ae1a74d032af7a48b19b36b0c93383ca7322e",
+    "tests/e2e/site.spec.ts": "a79141791f49bc38da8a8f8704da31ef3cc2a5c60d5da0f2956d8785fabf42ec",
+    "tests/e2e/sales-launch.spec.ts": "966d6ef7c5a58b567a8fc7b803bd50f9ae415f2b544db9bfc10844d8c7d671a3"
+  },
+  "triggers": {
+    "hero-reserve": "unavailable-commerce",
+    "order-create": "unavailable-commerce",
+    "final-create": "unavailable-commerce",
+    "set-explore": "unavailable-set"
+  },
+  "salesCopy": {
+    "title": "The Global Launch Is Coming",
+    "body": "Official worldwide sales of RAMSIDER UNO devices begin on November 20, 2026. A new ritual is almost here."
+  },
+  "setCopy": {
+    "title": "The Complete UNO Experience",
+    "body": "Full details of the RAMSIDER UNO device lineup, features, and accessory set will be available from November 20, 2026 \u2014 the official launch of worldwide sales."
+  },
+  "source": "User confirmeddateandmessages; all4originalbuttons useexistingnativePanels. No automatic futurechange requested.",
+  "engineering": {
+    "build3": "PASS SSG",
+    "type2": "PASS",
+    "siteLint": "0errors4inheritedProductFilmwarnings",
+    "nativeReview3": "CLEAN finalfivefilediff",
+    "browser1": "6PASS3FAIL: mobilepointerfocus and singleTabbrowser/body sentinel; failurespreserved",
+    "browser2": "9PASS0FAIL: 4originals/2messages pointerClose+EnterSpaceEscape/focus/inertbackground, accountfocus, 320/768/reducedmotion, primarypage/integration+mappedmodals Pro/Max/Chromium",
+    "perf": {
+      "phase": "sales-launch-final",
+      "conditions": "Single cold Chromium mobile402\u00d7874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+      "initial": {
+        "ttfb": 24.90000009536743,
+        "fcp": 388,
+        "lcp": 1300,
+        "cls": 0.00022206073455854325,
+        "jsBytes": 333184,
+        "completedBytes": 3320908,
+        "filmObjects": 15,
+        "readyImages": 29
+      },
+      "scroll": {
+        "samples": 297,
+        "movingFrames": 188,
+        "startY": 0,
+        "endY": 13259,
+        "p95Ms": 33.200000047683716,
+        "over33Ms": 15,
+        "reverseFrames": 0,
+        "maxReverse": 0,
+        "cls": 0.00022206073455854325,
+        "longTasks": [
+          82,
+          55,
+          335,
+          50,
+          95
+        ]
+      },
+      "errors": []
+    },
+    "nativeReview4": "CLEAN finalaccountfocusassertion"
+  },
+  "images": {
+    "screenshots/sales-launch/desktop-chromium-hero-reserve-768-reduced.png": "42cd97dd0c8cc469d04ba5c24278790e47182cee35f87b6a9c2f60446c6666c6",
+    "screenshots/sales-launch/iphone-17-pro-max-webkit-order-create.png": "5bf67285f6b29e5029620ffb2422e114bed67c95f7d3558858489efd6ed3df9d",
+    "screenshots/sales-launch/desktop-chromium-final-create.png": "2427a82d1f070b535f07b1060909f1c097425b4923ac2b48b925db7c82d556f8",
+    "screenshots/sales-launch/iphone-17-pro-max-webkit-hero-reserve.png": "0ebae2f60bab1f6143e5473e28d82c2362ffd0a0a93c4375b3b921d13353fda7",
+    "screenshots/sales-launch/desktop-chromium-set-explore-320-reduced.png": "cdf82facb2f5c359f5ebb0b93696539c8b72efc03eff3a5769d20e8c1235b01d",
+    "screenshots/sales-launch/iphone-17-pro-webkit-hero-reserve.png": "7c2c5f7aef1f3894cbc097f5bef129c4990ee884d1cf56c2cedeb278c85fd9b9",
+    "screenshots/sales-launch/desktop-chromium-set-explore-768-reduced.png": "31c8873d1a79f7406d379114b1da19ba0bd0e7c663b0610b1f8389df0462b27d",
+    "screenshots/sales-launch/iphone-17-pro-webkit-order-create.png": "82c393ec2de05389113de1deda379c9ba9d08922333132f7efa43f2e4eedeeb7",
+    "screenshots/sales-launch/desktop-chromium-set-explore.png": "343f716b29a1e74e590dd3ccbdf9b21bd7eca274ff2538e09537e1945311e626",
+    "screenshots/sales-launch/iphone-17-pro-max-webkit-set-explore.png": "25fc05022557c59866afafd41bde15897321a0e74edc93714585f513dc78f320",
+    "screenshots/sales-launch/desktop-chromium-hero-reserve-320-reduced.png": "4c35103d1eef953690274ac495ac532fb2ac9b058bddfde11d183646dfadff19",
+    "screenshots/sales-launch/desktop-chromium-hero.png": "de32d7980ecf811d97f008da1e7b8f0b3db666b3f0f5b4739b5d9c56086bf309",
+    "screenshots/sales-launch/iphone-17-pro-webkit-hero.png": "933b13dec450f0488776cd8420631533e926493e3dc8f839f21554cad6dc7d1e",
+    "screenshots/sales-launch/iphone-17-pro-max-webkit-set-explore-768-reduced.png": "1765417ba901b4f1923f82dda9ca47b8307fb1410ccd31193077c735e92f0cf8",
+    "screenshots/sales-launch/desktop-chromium-hero-reserve.png": "372204d0c80ac26d930838b7da1490f508d87db294c43f2e2f2255a6e9250ec6",
+    "screenshots/sales-launch/iphone-17-pro-max-webkit-hero-reserve-320-reduced.png": "fa6db1d132d480d21587313b104e601b2dfd0fc9793070d8650570347accb906",
+    "screenshots/sales-launch/iphone-17-pro-max-webkit-final-create.png": "6ec242477ee3bb287f631bff52ae8fc08a51827c0ef961e2bcd63f8e5dba76bb",
+    "screenshots/sales-launch/iphone-17-pro-webkit-hero-reserve-768-reduced.png": "57abf3b4ceb7f9122fd86adb6951a6d2fd30b10b0e285ae77542a7b62f76e0f9",
+    "screenshots/sales-launch/desktop-chromium-order-create.png": "fb5bf0463d12a3ee5fa100b2f59c91aadd9a8037db28243800130a7975165820",
+    "screenshots/sales-launch/iphone-17-pro-webkit-set-explore-768-reduced.png": "1765417ba901b4f1923f82dda9ca47b8307fb1410ccd31193077c735e92f0cf8",
+    "screenshots/sales-launch/iphone-17-pro-webkit-final-create.png": "27995a15bc08978a239fdfa2e01ab282b692ed77361c3c0b44dac7ac40cf82bd",
+    "screenshots/sales-launch/iphone-17-pro-webkit-set-explore-320-reduced.png": "2f022e3559a2175a93e9371764d305fc0d8fc381404cc2869aa9a44f18c9e49b",
+    "screenshots/sales-launch/iphone-17-pro-webkit-hero-reserve-320-reduced.png": "fa6db1d132d480d21587313b104e601b2dfd0fc9793070d8650570347accb906",
+    "screenshots/sales-launch/iphone-17-pro-max-webkit-hero-reserve-768-reduced.png": "57abf3b4ceb7f9122fd86adb6951a6d2fd30b10b0e285ae77542a7b62f76e0f9",
+    "screenshots/sales-launch/iphone-17-pro-max-webkit-hero.png": "7b4ef5ad9aa237e738becbd94f5256249e0a99d909308312e1b1cb0558bd501a",
+    "screenshots/sales-launch/iphone-17-pro-max-webkit-set-explore-320-reduced.png": "2f022e3559a2175a93e9371764d305fc0d8fc381404cc2869aa9a44f18c9e49b",
+    "screenshots/sales-launch/iphone-17-pro-webkit-set-explore.png": "1b502d118ca490d38cf577ebaaebccf331357bc80edea391c7b8515fe8db04fd"
+  },
+  "scope": "Reusableexisting3commercePanelcopy +distinctSetPanel; focusinvokerpreventScroll onlyavailabilitybeforemodal; noCSS/raster/newclientboundary/library/playerchanges.",
+  "audit": "Independent /root/audit Gates1/3/4/5/6 LOCALPREPUSH PASS2026-10-31; publicationpending",
+  "limits": [
+    "WebKit deviceemulation; physicaliPhoneNOT_RUN",
+    "FullunrelatedregressionsuiteNOT_RUN",
+    "NoWCAG/Lighthouse/fieldINPclaim",
+    "CHG0185 priorprivacyincidentOPEN; no sensitiveheaders/processenvironment printed in this change"
+  ],
+  "technicalApproval": "APPROVED_LOCAL_ANNOUNCEMENTS /root2026-10-31",
+  "userResultApproval": "NOT_RECORDED"
+}

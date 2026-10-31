@@ -71,7 +71,7 @@ test('responsive viewport, artwork, and primary actions', async ({ page }, testI
   await page.screenshot({ path: `screenshots/actual/full-${profile}.png`, fullPage: true, scale: 'css' });
 
   await page.getByRole('button', { name: /reserve now/i }).click();
-  await expect(page.getByText('The configurator, current prices')).toBeVisible();
+  await expect(page.getByRole('dialog', { name: 'The Global Launch Is Coming' })).toContainText('November 20, 2026');
   await page.getByRole('button', { name: 'Close' }).click();
   await page.locator('.menu summary').click();
   await expect(page.getByRole('navigation', { name: 'Menu' })).toBeVisible();
@@ -104,7 +104,7 @@ test('responsive viewport, artwork, and primary actions', async ({ page }, testI
   await expect(page.locator('#unavailable-gold')).toContainText('Platinum Sensors');
   await page.keyboard.press('Escape');
   await page.locator('.key-exploreSet').click();
-  await expect(page.locator('#unavailable-set')).toContainText('accessory list');
+  await expect(page.locator('#unavailable-set')).toContainText('available from November 20, 2026');
   await page.keyboard.press('Escape');
   await page.locator('.account-hit').nth(1).click();
   await expect(page.locator('#unavailable-account')).toBeVisible();

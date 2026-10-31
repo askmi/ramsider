@@ -2,6 +2,9 @@ import Image from 'next/image';
 import { Fragment, type ReactNode } from 'react';
 import { DialogController } from './DialogController';
 import { BackToTop } from './BackToTop';
+import { LaunchCapture } from './LaunchCapture';
+import captureStyles from './LaunchCapture.module.css';
+import { launchCopy } from '@/lib/launch-copy';
 import { LocaleSwitcher } from './LocaleSwitcher';
 import Link from 'next/link';
 import { storyNodes, type StoryNode } from '@/lib/story';
@@ -220,11 +223,12 @@ const modelDetails = {
   gold: [['gold1', 'gold1b'], ['gold2', 'gold2b'], ['gold3', 'gold3b'], ['gold4', 'gold4b'], ['gold5', 'gold5b']],
 } as const;
 
-function Popovers({ locale }: { locale: Locale }) {
+function Popovers({ locale, captureEnabled }: { locale: Locale; captureEnabled: boolean }) {
   const projects = ['project1', 'project2', 'project3', 'project4'] as const;
   const projectBodies = ['project1Body', 'project2Body', 'project3Body', 'project4Body'] as const;
   return <>{blocked.map(([id, key]) => <Panel key={id} id={`unavailable-${id}`} title={t(locale, id === 'commerce' ? 'salesLaunchTitle' : 'unavailableTitle')} locale={locale}>
     <p>{t(locale, key)}</p>
+    {id === 'commerce' && captureEnabled && <button type="button" className={captureStyles.entry} data-launch-open>{launchCopy.entry}</button>}
   </Panel>)}
     <Panel id="unavailable-compare" title={t(locale, 'compare')} locale={locale}>
       <table className="model-comparison"><thead><tr>{(['proLine', 'goldLine'] as const).map(key => <th key={key} scope="col">{t(locale, key).replace('│', ' ')}</th>)}</tr></thead>
@@ -239,6 +243,7 @@ function Popovers({ locale }: { locale: Locale }) {
     </Panel>)}
     <Panel id="unavailable-set" title={t(locale, 'setLaunchTitle')} locale={locale}>
       <p>{t(locale, 'setLaunchBody')}</p>
+      {captureEnabled && <button type="button" className={captureStyles.entry} data-launch-open>{launchCopy.setEntry}</button>}
     </Panel>
     {projects.map((key, i) => <Panel key={key} id={`project-detail-${i + 1}`} title={t(locale, key)} locale={locale}>
       <p>{textLines(t(locale, projectBodies[i]))}</p>
@@ -249,6 +254,7 @@ function Popovers({ locale }: { locale: Locale }) {
 }
 
 export function Story({ locale }: { locale: Locale }) {
+  const captureEnabled = process.env.LEAD_CAPTURE_ENABLED !== 'false';
   return <DialogController>
     <link rel="preload" as="image" href="/art/story-v2-00.webp" fetchPriority="high" />
     <script type="application/json" data-section-previews dangerouslySetInnerHTML={{__html:JSON.stringify(Object.fromEntries(Object.entries(previews).filter(([src])=>src.includes("/technology/"))))}} />
@@ -345,6 +351,7 @@ export function Story({ locale }: { locale: Locale }) {
     </main><SiteFooter locale={locale} /></PageMediaGate>
     <BackToTop label={t(locale, 'backToTop')} />
     <ProductFilm locale={locale} copy={productFilmCopy[locale]} closeLabel={t(locale, 'close')} films={selectProductFilms(locale)} />
-    <Popovers locale={locale} />
+    <Popovers locale={locale} captureEnabled={captureEnabled} />
+    {captureEnabled && <LaunchCapture copy={launchCopy} />}
   </DialogController>;
 }

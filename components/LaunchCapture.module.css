@@ -1,0 +1,96 @@
+.launcher {
+  position: fixed;
+  z-index: 19;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: calc(max(20px, var(--page-safe-bottom, 0px)) + 60px);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 10px 16px;
+  border: 1px solid #c29a55;
+  border-radius: 999px;
+  background: #27231f;
+  color: #fff5e4;
+  font-size: 13px;
+  box-shadow: 0 4px 16px #211b1733;
+}
+.launcher svg { width: 18px; height: 18px; }
+.launcher[hidden], :global(body:has(dialog[open], .menu[open], :fullscreen)) .launcher { display: none; }
+.entry, .primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 20px;
+  border: 1px solid #9d713a;
+  border-radius: 999px;
+  background: #29241e;
+  color: #fff5e4;
+  font: inherit;
+  text-align: center;
+}
+.entry { margin: 0 0 16px; }
+.dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(480px, calc(100vw - 28px));
+  max-width: none;
+  max-height: calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  padding: 30px 24px 24px;
+  border: 1px solid #a8753d;
+  border-radius: 20px;
+  background: #f7f0e6;
+  color: #292019;
+  box-shadow: 0 20px 80px #21140b88;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.dialog::backdrop { background: #160d08a6; }
+.close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #5d4936;
+  font-size: 28px;
+  line-height: 1;
+}
+.brand { margin: 0 40px 10px 0; font-family: BankGothic, OpenSans, sans-serif; font-size: 15px; letter-spacing: 2px; color: #725321; }
+.date { margin: 0 0 20px; font-size: 12px; line-height: 1.6; color: #6a543e; }
+.choices { display: flex; gap: 4px; margin: 0 0 22px; padding: 4px; border: 1px solid #bdb09d; border-radius: 12px; }
+.choices button { flex: 1; min-height: 44px; padding: 7px; border: 0; border-radius: 8px; background: transparent; color: #574938; font-size: 13px; }
+.choices button[aria-pressed=true] { background: #e4d6c2; color: #292019; box-shadow: 0 1px 3px #5133151a; }
+.dialog h2 { margin: 0 0 12px; font-size: clamp(23px, 6vw, 28px); line-height: 1.25; font-weight: 400; }
+.dialog h2:focus { outline: none; }
+.intro { margin: 0 0 22px; font-size: 14px; line-height: 1.65; color: #5d5149; }
+.form { display: grid; gap: 16px; }
+.field { display: grid; gap: 7px; font-size: 14px; }
+.field input { min-width: 0; width: 100%; min-height: 48px; padding: 11px 13px; border: 1px solid #9b8d79; border-radius: 9px; background: #fffaf3; color: #292019; font: 16px OpenSans, Arial, sans-serif; }
+.hint, .permission, .privacy, .noOrder { font-size: 12px; line-height: 1.65; color: #655748; }
+.hint { margin: 0; }
+.optIn { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; font-size: 13px; line-height: 1.6; }
+.optIn input { flex: none; width: 20px; height: 20px; margin: 1px 0 0; accent-color: #79511f; }
+.permission { margin: 0; }
+.primary { width: 100%; }
+.primary:disabled, .choices button:disabled { opacity: .65; cursor: wait; }
+.error { margin: 0; padding: 12px; border: 1px solid #a65b45; border-radius: 8px; background: #fff7ef; color: #7b2e1b; font-size: 13px; line-height: 1.6; }
+.privacy { margin-top: 18px; }
+.privacy summary { display: inline-flex; min-height: 44px; align-items: center; text-decoration: underline; cursor: pointer; }
+.privacy p { margin: 5px 0 12px; }
+.privacy a { overflow-wrap: anywhere; }
+.noOrder { margin: 12px 0 0; }
+.success { padding-top: 12px; }
+.successMark { display: grid; place-items: center; width: 48px; height: 48px; margin: 0 0 18px; border: 1px solid #ac843c; border-radius: 50%; color: #725321; font-size: 26px; }
+.secondary { width: 100%; min-height: 44px; margin-top: 8px; padding: 8px; border: 0; border-radius: 8px; background: transparent; color: #645034; text-decoration: underline; font-size: 13px; }
+.trap { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); }
+@media (max-width: 360px) { .dialog { padding-inline: 18px; } .choices button { font-size: 12px; } }
+@media (max-height: 600px) { .dialog { max-height: calc(100dvh - 16px); padding-top: 24px; } }

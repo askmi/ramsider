@@ -1,0 +1,650 @@
+{
+  "change_id": "CHG0189",
+  "date": "2026-10-31",
+  "status": "VERIFIED_LOCAL_DEFAULT_ON_FALLBACK; PRODUCTION_PUBLICATION_PENDING",
+  "user_selection": "C explicitly selected. User confirmed Google Workspace SMTP, support@ramsider.com destination and source/purpose subjects, no paid sender. User explicitly selected protection against double clicks and repeats in the same browser on2026-10-31. No secret supplied; policy choice resolved. User subsequently explicitly requested production main deployment now, with visible unavailable fallback when app password is absent.",
+  "scope": "Userauthorizedproduction2026-10-31: defaultON launch-updates/callback form and GoogleSMTP endpoint; withoutpassword returns503 and visibleunavailable/support message. Explicitfalse kill-switch retained. No actualSMTP auth/send/inbox proof.",
+  "implemented": [
+    "Purpose-specific email/phone fields; optional unchecked email updates for callbacks; no invented discount/order/stock guarantee",
+    "Original3sales+Set launch announcements preserved with secondary form actions; labelled right-side launcher after hero",
+    "Pending lock, server-ack-only receipt, same-browser nonPII purpose flags, prePOST uncertain marker, guarded reset and cross-tab persisted-status checks",
+    "Allowlisted source/purpose subject, fixed support From/To, bounded validation, explicit permission version, single Reply-To mailbox, Google587 requiredTLS",
+    "Best-effort bounded process-local dedupe/rate limits, definite rejection permits retry, ambiguous SMTP/HTTP never blindly retries"
+  ],
+  "not_verified": [
+    "Google SMTP authentication/actual send/inbox receipt: missing private app password",
+    "Production activation/publication and remote environment configuration",
+    "Physical iPhone, field INP, Lighthouse, universal accessibility compliance"
+  ],
+  "not_implemented": [
+    "CRM/database, outgoing newsletter campaigns, automatic confirmation email, real preorder/payment/device reservation"
+  ],
+  "configuration": {
+    "LEAD_CAPTURE_ENABLED": "DefaultON when unset; explicitfalse disables UI/API. UIflag change requires rebuild.",
+    "GOOGLE_SMTP_APP_PASSWORD": "Private Vercel variable set directly by Dmitry/Timofey; no NEXT_PUBLIC_ prefix or chat handoff",
+    "LEAD_CAPTURE_ONCE_POLICY": "Defaultbrowser whenunset, userapproved; explicitdifferent/empty policy failsclosed. Remoteenvironment notread.",
+    "smtp": "smtp.gmail.com:587 STARTTLS required; support@ramsider.com login/from/to"
+  },
+  "mail_subject_examples": [
+    "[RAMSIDER Website · Reserve Now] Launch Updates",
+    "[RAMSIDER Website · Explore the Set] Callback Request"
+  ],
+  "checks": {
+    "typecheck": "PASS latest8",
+    "scoped_eslint": "PASS0errors0warnings latest8,10 files",
+    "full_lint": "Historical task run FAIL37errors23warnings outside scoped files, CHG0181 remains open",
+    "production_build_ON": "PASS isolated build8,10 runtime/package paths byte-equal final workspace",
+    "production_browser_ON": "45PASS6explicitserver-engineSKIP, final-on-tests4; Pro402x874DPR3WebKit/Max440x956DPR3WebKit/Chromium1440x900, plus320x568/402x390/768x1024 reducedmotion",
+    "production_build_OFF": "PASS isolatedbuild9, samefinalsource/capturefalse/SMTPpasswordblank",
+    "production_browser_OFF": "9PASS6explicitserver-engineSKIP final-off-tests; original4notices retained, form/launcher/actions absent, zero capture requests, unconfiguredAPI503",
+    "native_review": "Review7 CLEAN: no actionable scoped code defects, after prior findings fixed; no build/browser execution by reviewer counted",
+    "independent_audit": "PASS /root/audit2026-10-31: current Gates3/4 ON+OFF UI/browser, Gate5 LOCAL_PREPARED_CODE_AND_UI and Stage6 LOCAL_PREPARED_RECORDS;14source+62artifact hashes match. LIVE_SMTP/ACTIVATION separatelyBLOCKED. Documentation-only user policy clarification afterward is root-verified; all runtime/test hashes unchanged.",
+    "root_visual": "Actual final ProUpdates/MaxCallback/Proearlyfloatingstatus/Prouncertaindelivery viewed; no material clip/overlap; new form has no calibrated supplied render so no pixel-match claim Final assembled actual Pro and Max footers viewed;19scrollpositions each, endgap0/overflow0/pageerrors0.",
+    "real_SMTP": "BLOCKED private app password missing, no real outbound sent",
+    "fixtures_limit": "Intercepted API browser states and injected mail sender prove contract only. Unconfigured live API503 prevents false success; no SMTP delivery proof",
+    "production_build_default": "PASS isolateddeploybuild2, bothflagsunset/SMTPpasswordexplicitblank; staleoldsourcebuild discarded beforeQA after copycwd mistake.",
+    "production_browser_default": "48PASS6explicitserver-engineSKIP, actualAPI503/message/fieldsretained/manualretry/no receipt acrossPro402/Max440DPR3WebKit/desktop plus priorUI states.",
+    "production_build_explicit_OFF": "PASS isolateddeployoffbuild, capturefalse/SMTPblank",
+    "production_browser_explicit_OFF": "9PASS6explicitserver-engineSKIP, explicit LEAD_CAPTURE_OFF_TESTS1, capturefalse/SMTPblank; originals retained/formabsent/API503",
+    "default_test_gating": "OFFfixture3explicitSKIPagainstdefaultON; OFFtestnowrequiresLEAD_CAPTURE_OFF_TESTS1",
+    "native_review_publication": "Deployreview1P2OFFfixturedefaultgating fixed; Deployreview2CLEAN scopedsource/diff.",
+    "typecheck_publication": "PASS deploytypes2",
+    "scoped_eslint_publication": "PASS0errors0warnings deploylint2",
+    "independent_publication_audit": "PASS /root/audit2026-10-31 Gates1/3/4/5 +focusedGate6PREPUSH afterstagedownershiprepair;21scopedpaths,14stagedsource+66artifacthashes/cachedcheck. RealSMTPnotcertified."
+  },
+  "native_review_history": [
+    {
+      "run": 1,
+      "findings": "Hidden success opener; callback receipt blocked email intent; enabled tests lacked ON prerequisite",
+      "resolution": "Status opener stays visible; purpose-specific receipt; explicit ON and separate OFF tests"
+    },
+    {
+      "run": 2,
+      "findings": "BackToTop fallback absent in early scroll gap",
+      "resolution": "Visible neutral Request Received status; actual heroexit+24 Done/Close/Escape fixtures"
+    },
+    {
+      "run": 3,
+      "findings": "Lost HTTP acknowledgement invited blind resend",
+      "resolution": "Unknown delivery state persists, only definite rejection retries"
+    },
+    {
+      "run": 4,
+      "findings": "Navigation before catch lost uncertainty",
+      "resolution": "Persist nonPII marker before POST; reload-during-pending case"
+    },
+    {
+      "run": 5,
+      "findings": "Old accepted receipt reset uncertainty; stale open tab ignored persisted marker",
+      "resolution": "Reset guard + read persisted status beforePOST; three cross-intent/tab fixtures"
+    },
+    {
+      "run": 6,
+      "findings": "Accepted SMTP recipients can be address objects",
+      "resolution": "Explicit SMTP options and string/object accepted handler; fixture. Claimed type/build failure not reproduced; actual prior builds passed via permissive overload inference"
+    },
+    {
+      "run": 7,
+      "verdict": "CLEAN scoped read-only source review"
+    }
+  ],
+  "failure_history": [
+    {
+      "stage": "scopedlint",
+      "result": "FAIL synchronousreceiptsetstateineffect",
+      "fix": "Readreceipt in IO callback and explicitopen; scopedlintPASS"
+    },
+    {
+      "stage": "firstbrowser",
+      "result": "2PASS7FAIL",
+      "cause": "Rootleftunsentoptin across newopens; WebKitSWmadepage.routefixturesmissrealPOST andhitunimplemented404",
+      "fix": "Resetnewopenpurpose/uncheckedchoice whennotpending; blockSWonlyinmockedcontractgroup; finalproduction15PASS"
+    },
+    {
+      "stage": "rootvisual",
+      "result": "Undesirednoninteractiveheadingfocusoutline",
+      "fix": "Suppressoutlineonlyonprogrammaticallyfocusedheading; actualcontrolsretainvisiblefocus; productionrecaptured"
+    }
+  ],
+  "open_findings": [
+    "CHG0189-DEP existing runtime package advisories, applicability UNASSESSED; no exploitability or upgrade claim",
+    "Earlier CHG0185 privacy incident remains OPEN; no secrets included in evidence"
+  ],
+  "technical_approval": {
+    "date": "2026-10-31",
+    "verifier": "/root",
+    "scope": "APPROVED_LOCAL_PREPARED_UI_AND_SMTP_CODE",
+    "evidence": "FinalONbuild8/types8/scopedlint8/native7CLEAN/45browserPASS6SKIP; OFFbuild9/9PASS6SKIP;14source+62artifact hashes; actualmobileimages/Pro+Maxintegration/perf",
+    "exclusions": "ActualSMTPauth/send/inbox unverified; userexplicitlyauthorizedfallbackpublication. Currentlocalproductionfallbackapprovalroot+independentprepushPASS; deployment/public verification pending."
+  },
+  "user_approval": "Option C, Google SMTP/mailbox and same-browser double-click/repeat protection explicitly approved; final implemented result acceptance not recorded.",
+  "performance": {
+    "date": "2026-10-31",
+    "production": true,
+    "conditions": "Chromium402x874DPR3,cold4Mbps100msCPU4 for load and scrollsample; unthrottled18step integration after performance sample",
+    "load": {
+      "lcp": 1316,
+      "cls": 0.00022206073455854325,
+      "fcp": 496,
+      "jsBytes": 335886,
+      "width": 402,
+      "dpr": 3
+    },
+    "scroll": {
+      "frames": 97,
+      "p95": 16.799999999999272
+    },
+    "integration": {
+      "positions": 19,
+      "overflows": 0,
+      "footer": {
+        "visible": true,
+        "endGap": 0
+      }
+    },
+    "maxIntegration": {
+      "positions": 19,
+      "overflows": 0,
+      "footer": {
+        "visible": true,
+        "endGap": 0
+      },
+      "pageErrors": []
+    },
+    "pageErrors": [],
+    "limitations": "Synthetic lab sample, no Lighthouse/fieldINP/physicaliPhone or delivery proof. No backend requests submitted."
+  },
+  "source_bindings": {
+    "components/LaunchCapture.tsx": "ceef951a891ef6ebfe5c3b8c95cbe47d2c5e6f74c044b8d64774af81a23e0b98",
+    "components/LaunchCapture.module.css": "3f010d9ba8f9cfd57bef38f77568bf81baab1ee9af4a7256a8b93aae7aacab29",
+    "components/Story.tsx": "31b6a785008ba362cdbc3b72f6fe6979ae7b6b846af4b699c9272506f343102d",
+    "components/DialogController.tsx": "2d1f1107a799b7e3a7a566f3bad053a0afcca449896093ca2aada6baa30e40d8",
+    "lib/launch-copy.ts": "48584ab62e4528ec3aa095043fa57b746d4da925629f64c72410e0b434a0b459",
+    "lib/launch-request.ts": "47fa02480769b4be51823c922a256314b906ec8267ad6d35347e7d4fadf1a0d1",
+    "lib/launch-mail.ts": "4661f9a8f1e9c27c65e4ac7e151410e292e0af954d90f157b8341891ef78064f",
+    "app/api/launch-list/route.ts": "ca0989e0f4262de9ffba8cff662b85a0b2be3e7f2782d085277655e30b34d1ef",
+    "package.json": "50f41a60c3760ac151a332854bcc1b8ad43b3b093dcc8ae14538b0fcf9c5a71b",
+    "package-lock.json": "03dc571eb492805c5376c3c64c7c09356732c15a52d26637cdb4ec618845abbf",
+    "tests/e2e/launch-capture.spec.ts": "106eaee5e56f4ed726c1cafca1f28c29705abc974eb3ae4882a4e5453317bc5c",
+    "tests/e2e/launch-capture-off.spec.ts": "0592607a9edb7c87f691b36ece333816476617a027337dca548c20e9bbbb6f96",
+    "tests/e2e/launch-mail.spec.ts": "3f2262db9d3531e38481aa369e4862df281ed5ebabcf36427cf0263812dfb00d",
+    "docs/lead-capture.md": "42b7221b35343bbde865e4dd30e5e68322a342f5f095339b63cc3a62046def96"
+  },
+  "artifact_bindings": {
+    "screenshots/lead-capture/desktop-chromium-callback-320x568.png": {
+      "sha256": "a5e96312ddc621086129fcdc846f2bac15c3b3affd5d8f3b8d98e861467fdfaa",
+      "css_screenshot_size": [
+        320,
+        568
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-callback-402x390.png": {
+      "sha256": "87802062d37e63dba4bdc4c746b40659cca239bbeda500f4e98f4cb03808a120",
+      "css_screenshot_size": [
+        402,
+        390
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-callback-768x1024.png": {
+      "sha256": "43f91bf4a84eb126fef594f9a91d46b03a2302367b2e71ab7d2bb4afabd41987",
+      "css_screenshot_size": [
+        768,
+        1024
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-error.png": {
+      "sha256": "9c0b308f7bb86993c7eb7454ed91bf362f1305ee2578b32f778d6d5459a9455c",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-final-create-callback.png": {
+      "sha256": "06f510de95c13e2ceafb24e01ad23cae1d4f5e64ac0c4c326cac8a9443fc7f88",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-final-create-updates.png": {
+      "sha256": "ec811f8049926cf87ca45c3aaa92e07f465615ecf285d9f54259db0f5aa8bd1e",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-floating-success-Close.png": {
+      "sha256": "013ba837efa768902d8b42a17ad574cb0cdc8f92bfb0b8df11459ce34633106f",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-floating-success-Done.png": {
+      "sha256": "013ba837efa768902d8b42a17ad574cb0cdc8f92bfb0b8df11459ce34633106f",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-floating-success-Escape.png": {
+      "sha256": "683b9a6c60d51b16b448da18871b27fadb205098278a8f5b5e79a1e05334c309",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-hero-reserve-callback.png": {
+      "sha256": "fb1997776e8938d3728c8272d25f0f0848d45664744a5adb691d09b1e99acaee",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-hero-reserve-updates.png": {
+      "sha256": "bf348c874cc8d1adb03a341eed7663e3a54dea20600a1fd2df7af45635cd0e39",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-hero.png": {
+      "sha256": "de32d7980ecf811d97f008da1e7b8f0b3db666b3f0f5b4739b5d9c56086bf309",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-launcher.png": {
+      "sha256": "fa457da94df8052b52979677d8d9d97663d2d6f80c2671507702f4f4f5d52e2c",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-order-create-callback.png": {
+      "sha256": "56544d4c3dfd3aca86da916e5de954195bec17eb01e12410da0d00b2e5f03fa6",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-order-create-updates.png": {
+      "sha256": "b99c40b0fa283a3965cbfa8bbbdc8cce2d54b7640875ffa3017da172aba05b2c",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-real-missing-smtp.png": {
+      "sha256": "7bea16f169f5fe775bfb19c2d6b8a6ffc5918eec1c9c533c8b1ee6060b065649",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-set-explore-callback.png": {
+      "sha256": "b8fce182709f447e7d2e7338581f6847fd8f3f3ca4a5fd33083a569f6b8af884",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-set-explore-updates.png": {
+      "sha256": "6ef5bb300b3b36b521ffdb60d39d05712539e8f73bbe9b5ad4dff49b80538210",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-success.png": {
+      "sha256": "5a571d1577acbd9495e9ff6a6c01d95ea19c1cc0c307837956484ab6e7a2cafa",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/desktop-chromium-uncertain-delivery.png": {
+      "sha256": "145b32a2b298e9700c70efb9c2e0eb62cc123d25e098fa1d08940d0920504f95",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-callback-320x568.png": {
+      "sha256": "b728dc2baef4a26cdb8a7b23f170343dca7b05a4566180968604f65f6a52d7be",
+      "css_screenshot_size": [
+        320,
+        568
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-callback-402x390.png": {
+      "sha256": "23d24ba70f19b53d5b2450ffc57cd5ab82dff8fd389935350b03c62e760ac0f6",
+      "css_screenshot_size": [
+        402,
+        390
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-callback-768x1024.png": {
+      "sha256": "bf49b66f1a502e467a5c3f107327c8032801f117b22fea96c6cad876c6dcce02",
+      "css_screenshot_size": [
+        768,
+        1024
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-error.png": {
+      "sha256": "1e233d91d171ab86bc2c67f023ee676adc7bf04a3d54c48ac1e30c4b39587a9a",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-final-create-callback.png": {
+      "sha256": "d3300a026d481ece6a1b00de5e6a10758ef52406476f00f0b8d27ccf148076d4",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-final-create-updates.png": {
+      "sha256": "350a6e83374a1d811a222dc06fd3e29040a247ab9227a1cf417be7f0173e2ce0",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-floating-success-Close.png": {
+      "sha256": "b4ce9ed395c6a0e62d890366a12cc49b72746f7503e32fa46ebe9e460293a285",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-floating-success-Done.png": {
+      "sha256": "88a4312bc633a2a307ee8afa568a4a6af7c4e610a2c0fbc8268db9589a38c4d3",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-floating-success-Escape.png": {
+      "sha256": "7315f9741f81c2a05acc4b5b3d9eb8661b5fbbe66a93c96bf78dd807aa4c3bbb",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-hero-reserve-callback.png": {
+      "sha256": "8bfa1e8e22323fa50d7a63b93e4d51cd582eca0f2b1109bc5c0bc349289190a1",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-hero-reserve-updates.png": {
+      "sha256": "45f8084cd30037b1316cd7a753aa59cf94860142dc3d69cc7a58839aebf1e095",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-hero.png": {
+      "sha256": "e2132e8c3a0437e575a5cdb9476aa2cc9521c3e690230bd416180597d91c193c",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-launcher.png": {
+      "sha256": "68fe96e6dabff060dfd2ea623510639e3bb0bad09d7107b26dd39a38a57bd043",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-order-create-callback.png": {
+      "sha256": "192452e6b798273ff3acde6a1d2de4ae5965112b92021a627c06232a93ff921b",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-order-create-updates.png": {
+      "sha256": "b5e9e490f60b775e288c5f734ecdb3ce74542d6d8c492535a155336fdc6f54b8",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-real-missing-smtp.png": {
+      "sha256": "0d6a70fd2d4a73588962990659a288ecef7b01c07c9b4515ec67099490659f85",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-set-explore-callback.png": {
+      "sha256": "000faaac47ac5d7afbb7a5ae6e1cd200bf4fb19779b139584fc3f574c378f474",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-set-explore-updates.png": {
+      "sha256": "23259079e219abb00f054dd09afce159e40392df59180304fe7ca8d4c5163c38",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-success.png": {
+      "sha256": "7d94e100e04a8944f98b8727930d68233eb74be356c9362adf436d25b1fb6a2a",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-max-webkit-uncertain-delivery.png": {
+      "sha256": "95204c18e5551bde1f725127bbd4d87768dde4f431546e9136b609a687bee68c",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-callback-320x568.png": {
+      "sha256": "b728dc2baef4a26cdb8a7b23f170343dca7b05a4566180968604f65f6a52d7be",
+      "css_screenshot_size": [
+        320,
+        568
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-callback-402x390.png": {
+      "sha256": "23d24ba70f19b53d5b2450ffc57cd5ab82dff8fd389935350b03c62e760ac0f6",
+      "css_screenshot_size": [
+        402,
+        390
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-callback-768x1024.png": {
+      "sha256": "bf49b66f1a502e467a5c3f107327c8032801f117b22fea96c6cad876c6dcce02",
+      "css_screenshot_size": [
+        768,
+        1024
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-error.png": {
+      "sha256": "30bcd84e7c2f5c4b3b057ea12abd1f9d7db35242d030d04eac45488c2032b00b",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-final-create-callback.png": {
+      "sha256": "3d4ec6fb8cf8e6ed81dfb9f039efdce3d8cca3e7eb78766101c334f44efedf1b",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-final-create-updates.png": {
+      "sha256": "e05131d1331db60ec1dabcedff0cc230d3eeeb230cca516a03be91106479344a",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-floating-success-Close.png": {
+      "sha256": "b0276b883a0ccb7c18caa4d290edde34f0eccf52c0921c63fc573c191868a87c",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-floating-success-Done.png": {
+      "sha256": "b0276b883a0ccb7c18caa4d290edde34f0eccf52c0921c63fc573c191868a87c",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-floating-success-Escape.png": {
+      "sha256": "730cfda139a51825cad4bb83a3ac7b937aa82b1ec87117362d217748598c8f3f",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-hero-reserve-callback.png": {
+      "sha256": "762217b29f98283df317a9b9f12e9b73565ccf00801bb64d38a79370bd6c777a",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-hero-reserve-updates.png": {
+      "sha256": "494f66296e696cae992d8309a0dea70705ffd4f2808d636ec2ef845d9a5192bb",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-hero.png": {
+      "sha256": "933b13dec450f0488776cd8420631533e926493e3dc8f839f21554cad6dc7d1e",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-launcher.png": {
+      "sha256": "ce3cf8ca7d297eea952bb07b2025bee17cfac28c60b552e1e27ea6aed6d75532",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-order-create-callback.png": {
+      "sha256": "90212d4ac07e224ff66e0a732ba7b7a0ba9a497276f91465f30987e97de994dc",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-order-create-updates.png": {
+      "sha256": "b97324a43966f3ddb81bdd7ef4e19b1c79f9e1c5f8ddf53dfdea5edef92202c5",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-real-missing-smtp.png": {
+      "sha256": "8230e874ee3b11680ea6d3832d5023460f55498df2ede856282594eb1cc3c134",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-set-explore-callback.png": {
+      "sha256": "42dcc058c386e9f92f1b9ea89d09ac6a6bba9062a877cfe84dbaf7eb7e9d497a",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-set-explore-updates.png": {
+      "sha256": "74157a8832a8580ac6591e7079c03fbeb339d6e5824c951e255b2a4b99fe459e",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-success.png": {
+      "sha256": "aa7b63c2b82c4df95c8827a8606ca59bb84ef84240fd2dfa161388423bc35fb2",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/iphone-17-pro-webkit-uncertain-delivery.png": {
+      "sha256": "29445b92271d626bbf8d4a8efb4bfc59f1f94e51b26747ee057e27fb34689282",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/production-assembled-footer.png": {
+      "sha256": "6ba1c8d0a402a2e6e6f05218161fed48bc2e728e9cedd8277eee6572feefe313",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/production-assembled-max-footer.png": {
+      "sha256": "d66f8514489a9ca35c77b4bf66ac9da23cf990da410344c318a3001513b5077d",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/production-perf-pro-updates.png": {
+      "sha256": "3b676218ae8ca95057e94a62d909ca1d3dc2bd88dcfe7624028c2ae04fbf40a5",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/performance.json": {
+      "sha256": "78d1005ccc9f7ccdc2b03fc207142d1304aa458ad15362c9e0f8c1e5b4f61b04"
+    },
+    "screenshots/lead-capture/performance.mjs": {
+      "sha256": "4692b1a71bd8c7ee1322870c86d89766cc996ef251df1664ec319a473cd934ad"
+    },
+    "screenshots/lead-capture/public-smoke.mjs": {
+      "sha256": "62ee6919d42a5d6c275f3cf908c7cba1702293dd9c80bbdd20b59fc9dd038b30"
+    }
+  },
+  "privacy_incident_note": "LinkedOPENCHG0185: root and independent auditor each used unfiltered native-review log tails with internal runtime identifiers. No SMTPsecret available/observed; values not copied evidence; findings/verdict-only extraction now used. No incident closure/revocation claim.",
+  "policy_followup": {
+    "date": "2026-10-31",
+    "source": "Explicit user reply: protection from double clicks and repeats in the same browser",
+    "scope": "Documentation/approved configuration only; no runtime code or UI changes",
+    "verification": "Root /root JSON/whitespace/current source+artifact bindings PASS; existing browser regression evidence remains applicable; no extra code/browser checks required",
+    "technical_approval": "/root APPROVED_POLICY_RECORDS2026-10-31",
+    "remaining": "Historical initial defaultOFF gate superseded by explicit user production-withoutSMTP request; realSMTP delivery stillunverified."
+  },
+  "publication_request": {
+    "date": "2026-10-31",
+    "branch": "main",
+    "destination": "origin/main askmi/ramsider",
+    "authorized": "DeployvisibleformwithmissingSMTPmessage; passwordviaenvironmentlater",
+    "missing_secret_message": "Sign-up is temporarily unavailable. Please try again later or contact support@ramsider.com.",
+    "current_status": "PREPARING_SCOPED_COMMIT"
+  },
+  "publication_local_approval": {
+    "date": "2026-10-31",
+    "verifier": "/root",
+    "scope": "APPROVED_PRODUCTION_FALLBACK_PREPARED",
+    "evidence": "Defaultunsetbuild2+48PASS6SKIP; explicitfalseOFFbuild+9PASS6SKIP; OFFfixturedefault3SKIP; types/lintPASS; nativeincremental2CLEAN; actualProMaxmessageimagesviewed. Priorunchangedclientperf/integrationreused.",
+    "limits": "ActualGoogleSMTPauth/send/inbox notverified; userauthorizednoSMTPfallbackpublication. No syntheticoutboundmail.",
+    "independent_auditor": "/root/audit PREPUSH PASS2026-10-31"
+  }
+}

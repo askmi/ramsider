@@ -1,0 +1,1300 @@
+{
+  "change": "CHG0195",
+  "date": "2026-11-02",
+  "status": "APPROVED_LOCAL_WEB_PUBLICATION_PENDING",
+  "sourceBindings": [
+    {
+      "path": "app/globals.css",
+      "sha256": "9607652250d9bed94a488d3eb6f1237feb1110248efac1034ec61f3bc015566e"
+    },
+    {
+      "path": "components/Story.tsx",
+      "sha256": "d215c632a3fe7a3ae9ac39b4fce7a7d68c8dd390da982dcd7d8f2c4b1eca7f52"
+    },
+    {
+      "path": "lib/product-film-catalog.ts",
+      "sha256": "84ec6eca6acaa2fc5fd3490c466a9e3b643f885c338e0171d25503625988335f"
+    },
+    {
+      "path": "tests/e2e/film-reveal-top.ts",
+      "sha256": "fd95333fc8bb23a93b837211b3b9415efebf1250e437b3827f58dc845b26812f"
+    },
+    {
+      "path": "tests/e2e/project-films.spec.ts",
+      "sha256": "ea901037ba4fd12e59055eb91d122b035f18ae75889cd5eeabb17d64afb6b35b"
+    },
+    {
+      "path": "tests/e2e/project-groups.spec.ts",
+      "sha256": "7bf3987a354e2829faf8525702cbca9992939f5554422d89a7a520378384fa4b"
+    },
+    {
+      "path": "tests/e2e/site.spec.ts",
+      "sha256": "e21c42cbf3220403c79dbf7a49baad57d0e29744d143bf3283ee2b59bbb23a86"
+    }
+  ],
+  "artifactBindings": [
+    {
+      "path": "screenshots/video/projects/groups/pro2/iphone-17-pro-webkit-groups.json",
+      "sha256": "b9570cb8306602904c7c43a1d0679ad3294a8c18fc9fc47aff65d357106656cc"
+    },
+    {
+      "path": "screenshots/video/projects/groups/pro2/iphone-17-pro-webkit-ramsider-ended.png",
+      "sha256": "b843ee98d73e7ad65168e771d265d48cedc35f7d8eb5a5db7b47b74cd678d044"
+    },
+    {
+      "path": "screenshots/video/projects/groups/pro2/iphone-17-pro-webkit-ramsider-list.png",
+      "sha256": "26198eec225c4988fa190710d4bfcf39aded189313c8340443d7aa895a2a48a6"
+    },
+    {
+      "path": "screenshots/video/projects/groups/pro2/iphone-17-pro-webkit-ramsider-playing.png",
+      "sha256": "19d95c440c3a36dedabd3f031544c1a43c92508de1511b23c9747e05181344c2"
+    },
+    {
+      "path": "screenshots/video/projects/groups/pro2/iphone-17-pro-webkit-ramsider-preview.png",
+      "sha256": "aee6a6687ead444d815345496529af9521261fa18b0337b24269059ba547658e"
+    },
+    {
+      "path": "screenshots/video/projects/groups/pro2/iphone-17-pro-webkit-ramsmobile-ended.png",
+      "sha256": "3632ee5d9fbc51868871f60b6b4b2823493d4fc1576715023e4cdb7c4d5d07df"
+    },
+    {
+      "path": "screenshots/video/projects/groups/pro2/iphone-17-pro-webkit-ramsmobile-list.png",
+      "sha256": "d60235291d566484bb567a8ab3591d1fde42f87e22be8c30da118e4f8fbae295"
+    },
+    {
+      "path": "screenshots/video/projects/groups/pro2/iphone-17-pro-webkit-ramsmobile-playing.png",
+      "sha256": "b660c68e848189bf4dac29d18366ba2c6c4831b3c7b8ed31223c32df8fd6ee2c"
+    },
+    {
+      "path": "screenshots/video/projects/groups/pro2/iphone-17-pro-webkit-ramsmobile-preview.png",
+      "sha256": "dd7548de7dfe0ad38c30efc8a15cf2cced8e18a656eba91a6fcdebdebcf64518"
+    },
+    {
+      "path": "screenshots/video/projects/groups/pro2/iphone-17-pro-webkit-ramswear-ended.png",
+      "sha256": "62197331065b405edf1a7bdc765806504b6c724ca3bcce32407b87714e984ba5"
+    },
+    {
+      "path": "screenshots/video/projects/groups/pro2/iphone-17-pro-webkit-ramswear-list.png",
+      "sha256": "f8a5644a402e35666fdccebd84554af940b0c88228bafb32b521d10c97f9b89e"
+    },
+    {
+      "path": "screenshots/video/projects/groups/pro2/iphone-17-pro-webkit-ramswear-playing.png",
+      "sha256": "20f24d351a829a07339b70a37e9aea0b5f0430a3b8f65770e296829bdfb74f4d"
+    },
+    {
+      "path": "screenshots/video/projects/groups/pro2/iphone-17-pro-webkit-ramswear-preview.png",
+      "sha256": "25cf0162f849bbe4745681a36ae10f523fad3697d1faf565e3211f76435d208c"
+    },
+    {
+      "path": "screenshots/video/projects/groups/pro2/iphone-17-pro-webkit-uno-square-preview.png",
+      "sha256": "b350e3a13b7b403a585cdf04947a9b5d7454c216483a56879555d1787fb89cc2"
+    },
+    {
+      "path": "screenshots/video/projects/groups/max1/iphone-17-pro-max-webkit-groups.json",
+      "sha256": "318a259d54786e89518d95dc4b93f5a460969e491a0ca2b4ae4a84f0ee5c5860"
+    },
+    {
+      "path": "screenshots/video/projects/groups/max1/iphone-17-pro-max-webkit-ramsider-ended.png",
+      "sha256": "dc80aaf4d7005b4ab60b00013c3111e84113e93e5dff0bedba2ec09a9750cb26"
+    },
+    {
+      "path": "screenshots/video/projects/groups/max1/iphone-17-pro-max-webkit-ramsider-list.png",
+      "sha256": "7fcc414017f0f6fc700047116112e6358dfdf2a6fd1dc4ebc99abc44f7ca3f9c"
+    },
+    {
+      "path": "screenshots/video/projects/groups/max1/iphone-17-pro-max-webkit-ramsider-playing.png",
+      "sha256": "d12932235bebb823ff884cbf0987dd1cf95e88796d1e6c1140c31d18ffa36b2e"
+    },
+    {
+      "path": "screenshots/video/projects/groups/max1/iphone-17-pro-max-webkit-ramsider-preview.png",
+      "sha256": "288781e76c2971faa8192ef3b1f9cf880d2955ea3886293cf9cefb5a55b72d61"
+    },
+    {
+      "path": "screenshots/video/projects/groups/max1/iphone-17-pro-max-webkit-ramsmobile-ended.png",
+      "sha256": "b3900fde5c9ebe76529e9aa513c58fcc67e299f2af064c24e76296463f9cb127"
+    },
+    {
+      "path": "screenshots/video/projects/groups/max1/iphone-17-pro-max-webkit-ramsmobile-list.png",
+      "sha256": "2a47525ab892bc3ba3f526560bd9e89aad1492ad3325ce3f778887e99a65ea74"
+    },
+    {
+      "path": "screenshots/video/projects/groups/max1/iphone-17-pro-max-webkit-ramsmobile-playing.png",
+      "sha256": "0ae9f72961191648764e87cfccc8ca578f66b5c51e6aeb68749f610b3db605e9"
+    },
+    {
+      "path": "screenshots/video/projects/groups/max1/iphone-17-pro-max-webkit-ramsmobile-preview.png",
+      "sha256": "697fcd792257097f7f5e2bf94a9c703b7135b26c36417006108a638ebdb93367"
+    },
+    {
+      "path": "screenshots/video/projects/groups/max1/iphone-17-pro-max-webkit-ramswear-ended.png",
+      "sha256": "d7db99d78661f1f1e08ba154d0107d93cd9a58063d28da943ad7143fb71fa109"
+    },
+    {
+      "path": "screenshots/video/projects/groups/max1/iphone-17-pro-max-webkit-ramswear-list.png",
+      "sha256": "2224727b63257453cf75619eaa67f4433189dc5741c424f5a693124fa2cd65b4"
+    },
+    {
+      "path": "screenshots/video/projects/groups/max1/iphone-17-pro-max-webkit-ramswear-playing.png",
+      "sha256": "4d15515ce0bd838a251d57910caaacbeef2338a8e62a0d509f4cdb72f2a60331"
+    },
+    {
+      "path": "screenshots/video/projects/groups/max1/iphone-17-pro-max-webkit-ramswear-preview.png",
+      "sha256": "8cb4dabc1eaa8536e0bcc61e0b4f4241ee0885e4f9f82704d7e338890930a8f0"
+    },
+    {
+      "path": "screenshots/video/projects/groups/max1/iphone-17-pro-max-webkit-uno-square-preview.png",
+      "sha256": "aab3d7363f6e710a670d6ad6b09a504a06ebede8dc1f2ce8e0a9b5f3b5cd385d"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/1440x900-preview.png",
+      "sha256": "8cf00a19f5328c01d42aff0e7a3d1594d425a95c0cba7e9c683c1f53e96ed66d"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/320x640-preview.png",
+      "sha256": "47608f28d60cdacadbbaf7c94f17e8bcd738c834cad3930e07730a9546afa658"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/402x650-preview.png",
+      "sha256": "f7d42a29043890b949bd0ffb6cc07e02fb32eb081f8e4e3aa01e5dc93180b90f"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/768x1024-preview.png",
+      "sha256": "4937003c6496e6daa24cedb2d2f269d74e17021ca3f7fcc441673b156f14814f"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/874x402-preview.png",
+      "sha256": "8c3268130fd830d1f3746a32b35934e578df0212a7343e4fcc1415fa2bdfef71"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/android-identity-expanded.png",
+      "sha256": "e8a7621cd6c8e0be1663912fdac7c59912c70063e5d9c30abb0893f1e52f736d"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/android-identity-state.json",
+      "sha256": "75348b121d052e50f94ae718ce872acdc4fb3674f760189d0e1a19c33891f32b"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/arabic-static-fixture.png",
+      "sha256": "8d762e005f8b462bab992d0009932eb34aabc61300b8ac8ffc8658d894dc17b1"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/compiled-locale-fixtures.json",
+      "sha256": "61b20e753c1951472d8b80e063c266923fcecd3e48ab348edc65c4ed25fcadb2"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-error.png",
+      "sha256": "fd151c49dbc0505acea81ee7dc32cd872fe0e6443ea2fe1f45bfb64249b7a40b"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-expanded-navigation.png",
+      "sha256": "6bede7c7b7cc3281c202c72de3a270588ccf4da4f283e1c368d8a5ad9357a9c1"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramsider-asmohookah-expanded.png",
+      "sha256": "273e1db2ee2b32da619f5d35777d605cdf540160ebe085bc2f70d9dc6e6fdb5a"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramsider-asmohookah-list.png",
+      "sha256": "ecf9edd78d15e58f2cab9ebc465caa51da82d1c1f4da84b9a9303737092a2502"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramsider-asmohookah-portrait.png",
+      "sha256": "99d7e22f27783e9c4e10db68a1dc1692dfe803e67526e976d23d75a5f41a8f74"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramsider-cubos-expanded.png",
+      "sha256": "27b460158095c10ff429d4443e8f9d55d7fadb041330dd90b3bf5e74c5483b6e"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramsider-cubos-list.png",
+      "sha256": "058d9faca5003a9f731d0151f9a7cfc31734b3ed8505c41898ee4e030f4f2861"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramsider-cubos-portrait.png",
+      "sha256": "ead939dfa60cd900b7ec19f48f52f867c129278709758fcd710a155fe5366054"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramsider-overview-expanded.png",
+      "sha256": "7ac7015896b4b2509117b864256db69e8ce607f0f686fa596979f4bb4c6c8ce3"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramsider-overview-list.png",
+      "sha256": "4068d3788f090b9aa763b0e980d33f4b21c7cbb321aa1af82ec391288b71d5a2"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramsider-overview-portrait.png",
+      "sha256": "98d7de3f41f85d9ee7a03d581859c7985bd2efa9f32c6a373f99aff2fdab6cad"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramsider-sosuda-expanded.png",
+      "sha256": "08c26b7cae91328758a4bfea6f4978d9bd3fc0052233991de1a5c8f05d89b178"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramsider-sosuda-list.png",
+      "sha256": "f2700cabe3b2534aeed7fa5498ee93b91518612a24c5106d5aa901f1e87c76d2"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramsider-sosuda-portrait.png",
+      "sha256": "a3c159f26b3627d884b1917662f17428de27dbd209ece51993bf33093b4be8b3"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramsmobile-protos-expanded.png",
+      "sha256": "2a40e6e8ce059d442e53c67b5595129cd393208ec2b955f5fb56f608735eb834"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramsmobile-protos-list.png",
+      "sha256": "dfe44c88ba8a47ea9b105852d9e6f83e0f5e285fca6486b88536456b9740944b"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramsmobile-protos-portrait.png",
+      "sha256": "8f652d012ad4e3562d43a3e47c9ff460ca91352bd041414b3d2af245e313d98a"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramsmobile-rev-expanded.png",
+      "sha256": "c8146e942272ea5f655f97dc479e3a59eb920f2c5767acee50a448641c35dddf"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramsmobile-rev-list.png",
+      "sha256": "d1a915152a891c54abf1c9afeafb75c070e43602794a142ffc7171fba874e85f"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramsmobile-rev-portrait.png",
+      "sha256": "a8724a232a745db994f90d4d570e08c0a2141919bbbd1e81c9c42e65b8ccab53"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramswear-expanded.png",
+      "sha256": "88dd15b3e591c68827898c48e8ddb9dcd85d5672ab4ab7883f2e12d42e107bc6"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramswear-list.png",
+      "sha256": "1dbe93408a04e25deb5e90a40a98db04f642657293d9cc93adaf5a633296625d"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-project-ramswear-portrait.png",
+      "sha256": "4f4117ba6d31c66b6edb82590193c0f434cf90e7bd45954cfbbc6449f37333f0"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-ramsider-selected.png",
+      "sha256": "a9ca455a59ad2b84fab5237c61da04e10c82a8df67f44dcc4c5db45086fe00e6"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-ramsmobile-selected.png",
+      "sha256": "1761e7f2e7241984ebfbc9538598c8b68c8a25a4a7067dd37979d5c0e7e7bae7"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-ramswear-selected.png",
+      "sha256": "54a3c242766fc3feba893fc7944eac624631a33c75579cc471af84f1b20620a3"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-rapid-reentry.json",
+      "sha256": "09810fd484f7fcdbd48a7938700d1bc1df55e5cd3850fe332687706fab23a3b1"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-rev-2160-expanded.png",
+      "sha256": "8c2031026a236386845fce7951010537d9d71eb5f4a1f5d2df7f5095068b9a44"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-rev-poster-control.png",
+      "sha256": "4e96945fd62c60ce42fe6d9dfffbe367c4c90053587e64751d592c2ade94d4a9"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-rev-poster-geometry.json",
+      "sha256": "e503018857d886bda18cdc692eafb0b6a7fcd5370326e5e3877387e78e79f50d"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-rev-poster.png",
+      "sha256": "1bb1909d401e8850c6bcfe42b000bca8509fc652faa4f129568ad3bc42c98139"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-rev-qualities.json",
+      "sha256": "018cb118723f2300b32ee68fb2b3bbfef10c152fcd3efdedc2dc23d565b37865"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/desktop-chromium-seven-project-films.json",
+      "sha256": "8a904fc9c94ce67328516899d7b53dab2877ba868f3c95c1d37eaf738044ff2c"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-error.png",
+      "sha256": "31b49bc85b37be402b6221f3b9aa154b20de38e5cdf824bab8a6eb81bbb0faed"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-expanded-navigation.png",
+      "sha256": "885f0906e2133426a175abe656f8adc96d57313750d1fc3cbdbe5cf5fc572c48"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsider-asmohookah-expanded.png",
+      "sha256": "9f065af3801790f9c63145635f77f6339e349517f2b2b7bca39953708790cacf"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsider-asmohookah-list.png",
+      "sha256": "540b16324bf26e3aae4d92157a00a0c36f50ac1b292b7cf691f3a2526655ada3"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsider-asmohookah-manual-portrait.png",
+      "sha256": "0ebf2a1e557fe3f0f473eeaa9494f53893dc8aae7fbbb92b7951f195b7fec2f3"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsider-asmohookah-portrait.png",
+      "sha256": "8f72c0bd59fb85a90ed57cb695f8a7b5ffdc86787a3aa8633f372097422448eb"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsider-cubos-expanded.png",
+      "sha256": "542a67683affd15c2e9f35a10d7e04a2e400d1a7c4db681d7ec0c1d2a609ea0a"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsider-cubos-list.png",
+      "sha256": "92bb18b4be2860da7954e6d4f221b43f3db469b415856470de29f77712569084"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsider-cubos-manual-portrait.png",
+      "sha256": "502756a3d686f168805716d6e0f5e62b695c8f857576e401499b369d85885793"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsider-cubos-portrait.png",
+      "sha256": "875e867d8cfbe67665f3aedbed1f33ef5cacb7befcdb4a7950ca5c4087611ce9"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsider-overview-expanded.png",
+      "sha256": "bf3e616ef8c8f554bdfd51ffc849101f00668e021c50964663d38cdeaa8711b8"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsider-overview-list.png",
+      "sha256": "cc49f450a19c1148b353c02b291be629b782a556bada4094b9ae74f4e4732a72"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsider-overview-manual-portrait.png",
+      "sha256": "feda52190d59f8816431d0fef888b6ab50416feef0297a7f288cd43720ccbe89"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsider-overview-portrait.png",
+      "sha256": "1c2eb18411d7a19fa297f5c2310a48dd53fc07df339c1ddd5896e42405faa038"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsider-sosuda-expanded.png",
+      "sha256": "959137410ec96443eaacf04d2f246827a2f977f3dc044deab2f440023baa8348"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsider-sosuda-list.png",
+      "sha256": "2acbd3fe408c92710fc6848e7e10c1bed924fcd860455e622bfb22ccc0c69a59"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsider-sosuda-manual-portrait.png",
+      "sha256": "9f1ede3b4f1c2d7cbadb4b2351c39eff42b394e819113e42463ded9497aa3a26"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsider-sosuda-portrait.png",
+      "sha256": "9521cfed042ece1b87733b972c9cdc9743df4f0e9bfe028967f6c7a70948c42e"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsmobile-protos-expanded.png",
+      "sha256": "41d1470496e3823a972092d83c2d11bccd82d411de5af62b3328b8a95bc9d1da"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsmobile-protos-list.png",
+      "sha256": "8b9e75771a80d19959b8f236550fc28ae071d70c18584d289a09919a7a7b69cb"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsmobile-protos-manual-portrait.png",
+      "sha256": "3bc3bcb941e41e1627a7a8e1404f92f75cdd4f3fb100cc9f45f4c966a99fdf0b"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsmobile-protos-portrait.png",
+      "sha256": "faf75024f4cd49cac4db3006eed754ed9d385519c248a7ae8d9a8c98244c912f"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsmobile-rev-expanded.png",
+      "sha256": "0d901edf92eb3f0b0df14aaad609a78a3e041283c5912ffdb4191b2c15f2875d"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsmobile-rev-list.png",
+      "sha256": "c7db98e4aa764e12b9b7f7dc81ede29195f233797b558efefd0a2ebc8a739e6e"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsmobile-rev-manual-portrait.png",
+      "sha256": "03e9a9129c5e949c483b2d4b1a1784fcaccca467623c4ecce3e99ea4e46ce81e"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramsmobile-rev-portrait.png",
+      "sha256": "34ef50e48a7c841589f90bb9155d20390e505cc0743c7885c4dfa029f1341e11"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramswear-expanded.png",
+      "sha256": "65017a5ce4b4abd94494a828b879e4dc6e003fbcce81360c3e9708c26d2ebdec"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramswear-list.png",
+      "sha256": "6a952e001242861810fc85a56076d2b39f9fdc8432f181da8aa2550ad8f9e6d5"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramswear-manual-portrait.png",
+      "sha256": "b8ccb967db34852aea4933e7ba64807cde8d8d2feb504c236429a10814af1058"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-project-ramswear-portrait.png",
+      "sha256": "35be6747c85ad80ce365a94977ab8d3e26fb02cd0ba6830360626a68db73b5fa"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-ramsider-selected.png",
+      "sha256": "288781e76c2971faa8192ef3b1f9cf880d2955ea3886293cf9cefb5a55b72d61"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-ramsmobile-selected.png",
+      "sha256": "697fcd792257097f7f5e2bf94a9c703b7135b26c36417006108a638ebdb93367"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-ramswear-selected.png",
+      "sha256": "8cb4dabc1eaa8536e0bcc61e0b4f4241ee0885e4f9f82704d7e338890930a8f0"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-rapid-reentry.json",
+      "sha256": "09810fd484f7fcdbd48a7938700d1bc1df55e5cd3850fe332687706fab23a3b1"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-rev-2160-expanded.png",
+      "sha256": "b5e44fe83a9022f780ef802ea9d22bde9c45dc6e87f3549f11479a2888c1e511"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-rev-poster-control.png",
+      "sha256": "1a0f99ca471307c656ec1dff51bd0ea4ff1d9ea70a49ab74314ce9ae65992d2d"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-rev-poster-geometry.json",
+      "sha256": "7c40c7250bead096bf579df02b26adfc35bd38e4f8a502129bc0e645a0f2acde"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-rev-poster.png",
+      "sha256": "03d12d80f5be4e6ab10ac6787dfdf6c99d85182ccf8d0a397a0ed1a042d401d8"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-rev-qualities.json",
+      "sha256": "48caa3934a3d18cebbdf4b9d6aea07396068b0ecd929bb0e551dc575f7331f99"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-max-webkit-seven-project-films.json",
+      "sha256": "8a904fc9c94ce67328516899d7b53dab2877ba868f3c95c1d37eaf738044ff2c"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-error.png",
+      "sha256": "59997a06278d4346c46a885ae2b2e2d87f35206e6f5a83337a458770b2743c9f"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-expanded-navigation.png",
+      "sha256": "7632833e490f49b970527a336e6014f76d665721e2b7071bef2a269229758103"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsider-asmohookah-expanded.png",
+      "sha256": "4aaeafac2f38fd4f86f95b52baa3e0905993497e15c11f951cc544f390b5822b"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsider-asmohookah-list.png",
+      "sha256": "060770cf0806a7568c30c0eeee4cee922a3a48297d3e799d8d34ec42cce2e4cc"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsider-asmohookah-manual-portrait.png",
+      "sha256": "c4ae5a7b6aa9f5a80934589181c47c47e00ba80123b399d6af4726b8d444ea65"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsider-asmohookah-portrait.png",
+      "sha256": "c92dd507975bb86cd58dae31df99dd9856388b0347cec79884ef4e947c2f2542"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsider-cubos-expanded.png",
+      "sha256": "cebeae271be0fc222fe83741cc6ea7777c7f24a02712683e7fd4e7905ad9f807"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsider-cubos-list.png",
+      "sha256": "c13aa4c099a724d136e6a346bf4e65a910f69fac971b4008c673333893890d52"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsider-cubos-manual-portrait.png",
+      "sha256": "e54f1e6b77dec6c7f1111d884171681fd5c95a5d661ef0692d8500cdc40dc78c"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsider-cubos-portrait.png",
+      "sha256": "8a39817a6113463c3a87b66f0f249dfbfb6b97ff65f93311ea4995a73cee2d27"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsider-overview-expanded.png",
+      "sha256": "29fd24558a7b487ad0b079b829a7e720bd0adc999f779d1e6f4f0324adf008bb"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsider-overview-list.png",
+      "sha256": "d21cbecc65dad891ac482a4c12b54c77edcf9256c1162df3467707c97415b816"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsider-overview-manual-portrait.png",
+      "sha256": "c9daaf1d22794d2120436cc98a79c419cbff00d2572577aeb58f3ff06d8a5ee1"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsider-overview-portrait.png",
+      "sha256": "70519cf3f04b19cfb26dce9f1f41fb1dce1cf61f572659927929220a61301e68"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsider-sosuda-expanded.png",
+      "sha256": "7b2c2e82b7943ac2dc677a484484d809cd7744678734dfde06c6da34eefa37ca"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsider-sosuda-list.png",
+      "sha256": "3cd4d91fcfc6baf617b2889cdd1b540647f7465920f0319e9cd616864c18817e"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsider-sosuda-manual-portrait.png",
+      "sha256": "be9be4be690b9437c38d1787da96c0f5f6b6a9ae1639d349876118f591c38f80"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsider-sosuda-portrait.png",
+      "sha256": "23dc1568a34593110f04c720a96a3a78b95c62703e14be7ad2b4b81ba20e9b09"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsmobile-protos-expanded.png",
+      "sha256": "b174f92dbfe2d6e61ba099883fa894edc96c0db79007665007ea6eca648a887f"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsmobile-protos-list.png",
+      "sha256": "8dce9d7b3316356423965ac649e6e2cc342249a5cd2972efb28fb610bd99d5d4"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsmobile-protos-manual-portrait.png",
+      "sha256": "ca272b5bebba51872ec24f64c6a1dbd47a8209d35f805731b415b258ed15fefa"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsmobile-protos-portrait.png",
+      "sha256": "27efa027ae9c595ee26010fdc8754553a4d32dfc7a4fdacfd293391623fb5651"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsmobile-rev-expanded.png",
+      "sha256": "1b1c8bf1ca3a1b9b56bd2e5e79f20ce5a130bc6d1f08c96e042bb36c144f5516"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsmobile-rev-list.png",
+      "sha256": "84e6d082b840fd34f6f2fc04f20b5e9b721fca35d55ee72a7b404032b41c3da0"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsmobile-rev-manual-portrait.png",
+      "sha256": "23c2e6c344fcef0eef6270fdf1fbd833b755ecd64751bbe92fefabf695fb4a70"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramsmobile-rev-portrait.png",
+      "sha256": "5f684b3e24d59d075bf92883f544c2490da28ce3f16cca7e59c76a599dbfe4f3"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramswear-expanded.png",
+      "sha256": "4b34114452a3b48676be5c4f77bc8e26ebc805c01a7d13d928efda2f2c17504c"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramswear-list.png",
+      "sha256": "2cc4ec67b162368051eca48e7351de01d482fed0da009540cc38fedf3c117b14"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramswear-manual-portrait.png",
+      "sha256": "c5326b62a16e806dc4d8a94a5e0abb72de271284150bcbb878d20491d302bf86"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-project-ramswear-portrait.png",
+      "sha256": "12bf2bf1e5843874cc9705cfb091306fdb74e579bdc4fd419ad6e61b97762132"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-ramsider-selected.png",
+      "sha256": "3a1653af7050f8fa95060715352a940bed6327cc5a9d727b46f6c9889c47a85e"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-ramsmobile-selected.png",
+      "sha256": "dd7548de7dfe0ad38c30efc8a15cf2cced8e18a656eba91a6fcdebdebcf64518"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-ramswear-selected.png",
+      "sha256": "25cf0162f849bbe4745681a36ae10f523fad3697d1faf565e3211f76435d208c"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-rapid-reentry.json",
+      "sha256": "09810fd484f7fcdbd48a7938700d1bc1df55e5cd3850fe332687706fab23a3b1"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-rev-2160-expanded.png",
+      "sha256": "aed03fd773b9d4ebc348db774b63833458922a8069214409a61af3bf6793e1ac"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-rev-poster-control.png",
+      "sha256": "49c2904fc7ba7f1af7554c7f83ef3bf04a0973a68e5097e1c31b0992abaac3cd"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-rev-poster-geometry.json",
+      "sha256": "ac4b439f936903533184d479ac55e33114bc4ad3e487b97bf3eea13326eb77ef"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-rev-poster.png",
+      "sha256": "01091d312cd7f62c1c65f82819e24a574b8b0a9247ed17e106e0014d1179745f"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-rev-qualities.json",
+      "sha256": "6fd7c635a0fad1433d7e8433452d707b946dd6a32ce9936dbef698c38de97d86"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1/iphone-17-pro-webkit-seven-project-films.json",
+      "sha256": "8a904fc9c94ce67328516899d7b53dab2877ba868f3c95c1d37eaf738044ff2c"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/320x740-returned.png",
+      "sha256": "4bb981ff5d50e9d1169fef6d05d907efe259411886d41094fe1d5194234f5a7e"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/402x560-returned.png",
+      "sha256": "978454b066df8d9084246580d1b611822d0f838299c22f239db80ac3cd5030c9"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/768x1024-returned.png",
+      "sha256": "7ae5072a09ab6bb023659f518da71a07e20ed11a026a5f2fe5e0902b4bb33c25"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/desktop-chromium-ar-ramsfood-keyboard.png",
+      "sha256": "0269a4047781076d473bfcc5d2a2727a43beec12ee0dcebc4860164dce8af1c7"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/desktop-chromium-ar-ramsider-keyboard.png",
+      "sha256": "3d8c5ae3440b9d2b04138cc22e2c5a5ca639a66c26499685986487517ba54417"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/desktop-chromium-ar-ramsider-returned.png",
+      "sha256": "3d8c5ae3440b9d2b04138cc22e2c5a5ca639a66c26499685986487517ba54417"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/desktop-chromium-ar-ramsmobile-keyboard.png",
+      "sha256": "8489911ab9bd38fd880aec556417f41047848a85b8a50584cd9145a9c0401a90"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/desktop-chromium-ar-ramsmobile-returned.png",
+      "sha256": "8489911ab9bd38fd880aec556417f41047848a85b8a50584cd9145a9c0401a90"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/desktop-chromium-ar-ramswear-keyboard.png",
+      "sha256": "1fe4c25d671d3332a475cbd0b89860bfc1825f3a347df80abe08244e710c412f"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/desktop-chromium-en-ramsfood-keyboard.png",
+      "sha256": "0016f0c2c043f7df7dd6d6b0e41cea49dcd90874f675dbfb62e0d05efb9e0255"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/desktop-chromium-en-ramsider-keyboard.png",
+      "sha256": "909b6e8554a52ffb2fa2df66a627b9e4d7ff677ecc3c3695650a4382166237b9"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/desktop-chromium-en-ramsider-returned.png",
+      "sha256": "3dd2723a392a8e7f85c6d516de09d24518eaa27132031ad914d0d21c8d33bb44"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/desktop-chromium-en-ramsmobile-keyboard.png",
+      "sha256": "525a2b2a76503bdbd6717b7bfa996508e51cb4f2afb6252a0a8ea999b46c6bf8"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/desktop-chromium-en-ramsmobile-returned.png",
+      "sha256": "525a2b2a76503bdbd6717b7bfa996508e51cb4f2afb6252a0a8ea999b46c6bf8"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/desktop-chromium-en-ramswear-keyboard.png",
+      "sha256": "2631373287fe73478597ad2cfca3bbb8d66b0cd0bea9111329b214ca32686cb5"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/desktop-chromium.json",
+      "sha256": "bd34d2766f76aa0951fbce55ac0cc1b9641bd23d09d3a0533dfefa1103834b39"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-max-webkit-ar-ramsfood-keyboard.png",
+      "sha256": "4cb8e9609bb033543697557ee092371edf39c62c05d667bd11cc856864188899"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-max-webkit-ar-ramsider-keyboard.png",
+      "sha256": "cb34d0c6bd170a75b0eff7a45fa9e95f6e20dcf3962b37192b38712da07123bd"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-max-webkit-ar-ramsider-returned.png",
+      "sha256": "1711c04d017a42a04deb1ae4567780d3430132376cbb72b3fdf76eae1ed3dca4"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-max-webkit-ar-ramsmobile-keyboard.png",
+      "sha256": "b70dae96c201988729a87874a405ced98c7f9e34c7886305f4c6b87a8bb3a5a3"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-max-webkit-ar-ramsmobile-returned.png",
+      "sha256": "b70dae96c201988729a87874a405ced98c7f9e34c7886305f4c6b87a8bb3a5a3"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-max-webkit-ar-ramswear-keyboard.png",
+      "sha256": "0cbf74d3976f733027ad590e5ec162cc7adee23cb49e0fbb80a05a60ca140b2e"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-max-webkit-en-ramsfood-keyboard.png",
+      "sha256": "7dcf375de69effcfa3f71712ef77c5dc3d008ff1fb8ee7a1400d1c8dc97a3d42"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-max-webkit-en-ramsider-keyboard.png",
+      "sha256": "fddbc34f9adb773e8672df27c73007d9057bfc1360fec29c8630e50d1fae3b86"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-max-webkit-en-ramsider-returned.png",
+      "sha256": "231af9fb30ea80a917be5ecb7a028c1e8d66ab91183ad88af9b9bc2eae5c0382"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-max-webkit-en-ramsmobile-keyboard.png",
+      "sha256": "94d73314c8d653e85996fa47707ea89c42a79b549c468a9e459f01042a4df339"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-max-webkit-en-ramsmobile-returned.png",
+      "sha256": "94d73314c8d653e85996fa47707ea89c42a79b549c468a9e459f01042a4df339"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-max-webkit-en-ramswear-keyboard.png",
+      "sha256": "8f2c95edfb5c8003f307f00ea7b957aa441eedd97ed8391bdd977be15e30e3d1"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-max-webkit.json",
+      "sha256": "661a869fc8e4538ee4d389cfe79211a8a7edec6f03d5a35711dd87eed270165f"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-webkit-ar-ramsfood-keyboard.png",
+      "sha256": "355f86a6e2e62075a8f9cc39c370b13556b4287d3641c53f626d9683fa61e060"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-webkit-ar-ramsider-keyboard.png",
+      "sha256": "b5175318d54384048bff2e7d77817809109b0e0a60f6da3d8b5353f678084e68"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-webkit-ar-ramsider-returned.png",
+      "sha256": "b5175318d54384048bff2e7d77817809109b0e0a60f6da3d8b5353f678084e68"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-webkit-ar-ramsmobile-keyboard.png",
+      "sha256": "5cc0d057e22b7b135a791cd125eba3245cf0d26c7e98b15df64431d0a8abb40f"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-webkit-ar-ramsmobile-returned.png",
+      "sha256": "5cc0d057e22b7b135a791cd125eba3245cf0d26c7e98b15df64431d0a8abb40f"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-webkit-ar-ramswear-keyboard.png",
+      "sha256": "b3580c4f238822e877bcaf3f2285ebfe3d7701f7f328587f5584a3e537cc7559"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-webkit-en-ramsfood-keyboard.png",
+      "sha256": "92ebb805ac8f22a0f07ba188a6fcac85519417560edea547ad281596cfe30819"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-webkit-en-ramsider-keyboard.png",
+      "sha256": "7d8ad089e8f3054f0935b804bc0d4c8ee387f54b4dfa48cc606cb7108b8de3d8"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-webkit-en-ramsider-returned.png",
+      "sha256": "af2d11a4698fda806730e91d3d2f79b4ca91490ed6612f76cce775c8e28b0d76"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-webkit-en-ramsmobile-keyboard.png",
+      "sha256": "1c083766a4bddb04c102ef857d7ec0297a0af51a6727ce21d8859e0223d2aa13"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-webkit-en-ramsmobile-returned.png",
+      "sha256": "1c083766a4bddb04c102ef857d7ec0297a0af51a6727ce21d8859e0223d2aa13"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-webkit-en-ramswear-keyboard.png",
+      "sha256": "5af38f5688d393eca54002cc288da58527ca854bf45c76fbff288c9134fbac49"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1/iphone-17-pro-webkit.json",
+      "sha256": "7b0ba493ff91869b37ab6d447083fbeed388cc7d78697fa1e29cb231b555500e"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/1440x900-ramsider-list.png",
+      "sha256": "5f66b0b173d782c9e07ed9b0875e013f35b3ecfd5796dbae42fc039f2b46ae5b"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/1440x900-ramsider-preview.png",
+      "sha256": "bd89af08d4f0ee00b153e409213d37f7a1b0398d107a99f0714ffab3cbee2c18"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/1440x900-ramsmobile-list.png",
+      "sha256": "d96b713f872f2bcbdda4036e1c21bfe4381cd3ebf1b6815f90742c6c455359be"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/1440x900-ramsmobile-preview.png",
+      "sha256": "1761e7f2e7241984ebfbc9538598c8b68c8a25a4a7067dd37979d5c0e7e7bae7"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/1440x900-ramswear-list.png",
+      "sha256": "7abd6e732b29830171df968152cf22d1505670e730a01dcb27419a08ec071caf"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/1440x900-ramswear-preview.png",
+      "sha256": "54a3c242766fc3feba893fc7944eac624631a33c75579cc471af84f1b20620a3"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/320x640-ramsider-list.png",
+      "sha256": "3b1a4ed1c0fe1b17d37ad87e3a458d4fecd2d3f543410fc9dce61aa0735ae941"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/320x640-ramsider-preview.png",
+      "sha256": "d016d9f2fb5200c6650f4139792de6ccd242d05e9824334cd409a2f62b517af4"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/320x640-ramsmobile-list.png",
+      "sha256": "f3e84245d5147b5dca90b36fd3db1fe4a94e41628c7155d1d70a61d5bfa0f65e"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/320x640-ramsmobile-preview.png",
+      "sha256": "8c12f3273756c900e9c22ba4843cde810fe31a738b75cb8dee0b4e061395339c"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/320x640-ramswear-list.png",
+      "sha256": "86f995b1a7bd5900c228d326232a555c066233353eac5d5200e4d48275cb99ec"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/320x640-ramswear-preview.png",
+      "sha256": "f1868248733fb1a90b75d02ebaf642cf8972831748ef158611592d4c1479f456"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/402x560-ramsider-list.png",
+      "sha256": "81ec5d6f981f021b324063141acac8eb9126a4e35ee5df00436a12140a71cece"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/402x560-ramsider-preview.png",
+      "sha256": "62e7178d3fd625a26c5dba3b570e6148429d3bde5da5ebbf127661f49f39b2b0"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/402x560-ramsmobile-list.png",
+      "sha256": "83febc65440bd375bae6fea181a2efb16ae3eb5a58246d7a379669840c0a2d84"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/402x560-ramsmobile-preview.png",
+      "sha256": "1cd1a509667fe06b350acaff338be3ad036c7fdf60830c043bfec48f7c2c20c1"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/402x560-ramswear-list.png",
+      "sha256": "ea8bbafed2e1ae9f387c4a5a80b6b7c32df2aeb9a814f95f0d48bedb05e88db5"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/402x560-ramswear-preview.png",
+      "sha256": "a07b28f176393d1c28e026eadc60daacbcbce1c271fecbee9ad0a6e584c8fcaa"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/768x1024-ramsider-list.png",
+      "sha256": "7eb553d223bb5ff4476c510cac6bf1f2c89a0d45140681218908767a10104d12"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/768x1024-ramsider-preview.png",
+      "sha256": "d30317201857a24cf48f616c06b7f2222190026152edd5d8877a525d4eb8a2fd"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/768x1024-ramsmobile-list.png",
+      "sha256": "ff9e59c751fed3102eaa6ef6c30b9922d5429d5eac84dc9c3c87c7296f272f3b"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/768x1024-ramsmobile-preview.png",
+      "sha256": "5831df54583db2035a70c1cd16aad9b5a1ead034b94b7b2b2b17222ed2a0b772"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/768x1024-ramswear-list.png",
+      "sha256": "63aec7994f82ddac221f4078924e7628c0ab90d699de01aa14a53b617f56d1eb"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/768x1024-ramswear-preview.png",
+      "sha256": "32f4f928f8f7d1d981e14a3be32f0bc03cf64e4cc103e2f29d004750bf6bca4f"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/874x402-ramsider-list.png",
+      "sha256": "b8296af1c67a8241732eab7edaf8a123a88c375c6040bda54114b7d668abcb5a"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/874x402-ramsider-preview.png",
+      "sha256": "860218857c810e0592c9a5c9803d88875cab9b091a324fdb8ece95a715196202"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/874x402-ramsmobile-list.png",
+      "sha256": "6b1e3957daf1ad55a9e8f28065efee9ea7afda186ee103fc1da55835692a9cdb"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/874x402-ramsmobile-preview.png",
+      "sha256": "d32ede5f4a257009f5baeb7d8e5ca2d344aed802c131c81721f5dcf33d35342a"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/874x402-ramswear-list.png",
+      "sha256": "63f77b5c713fc3a1838343f7ff69a94912c2cb0cc2bde9cd73148720bd2fcc66"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/874x402-ramswear-preview.png",
+      "sha256": "ebd6290a17e69020515a671f8450c4e95e86be96a2d467c3e391a65428903f1a"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/desktop-chromium-groups.json",
+      "sha256": "dd61494cd56824fc0c2fe6204b9b070c83dce71ffb16d36bc2cce863f530e457"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/desktop-chromium-ramsider-ended.png",
+      "sha256": "cf05565ea8479caa5cc450a8bb1214c280a8859d603e29bf1fd76da863c7125a"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/desktop-chromium-ramsider-list.png",
+      "sha256": "269f2c1a225a267cec4d35b25668dac6658130f6eba20e5b3d7e1f52ba164010"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/desktop-chromium-ramsider-playing.png",
+      "sha256": "a7fa312f651ae2998f61d7aa9b9aaf46775a83326103c3ac2d28fafbc6289974"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/desktop-chromium-ramsider-preview.png",
+      "sha256": "a1b8867f7db00429e6d230eac3e5344fbf0c217a97c99c51c71ad1dc11ae5b66"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/desktop-chromium-ramsmobile-ended.png",
+      "sha256": "0b497441ef702d5422bb041c6106432a43ee8668dddad4b11e01221765f2e0b0"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/desktop-chromium-ramsmobile-list.png",
+      "sha256": "38a26fb4755ebb4c272a0d0c04b6c5ca8f37bf4256767fc8b3299655b41875f6"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/desktop-chromium-ramsmobile-playing.png",
+      "sha256": "a5d243fdfdfb54afa17fd3b54c590c6e5c893ca63cd71063bbea96753b3bc0da"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/desktop-chromium-ramsmobile-preview.png",
+      "sha256": "1761e7f2e7241984ebfbc9538598c8b68c8a25a4a7067dd37979d5c0e7e7bae7"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/desktop-chromium-ramswear-ended.png",
+      "sha256": "5312dc098fba297a0185017d72794edbc964d9bb54ac513a59808e26cfd50894"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/desktop-chromium-ramswear-list.png",
+      "sha256": "cf33661bc5a0efb15b386abe77a2ed4646a740103fea09e758b6b9d4e3dc4494"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/desktop-chromium-ramswear-playing.png",
+      "sha256": "143477b69b68cea74ff670db2fa596f8ad9cdce322b073f1d8c9a11c9126e423"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/desktop-chromium-ramswear-preview.png",
+      "sha256": "54a3c242766fc3feba893fc7944eac624631a33c75579cc471af84f1b20620a3"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2/desktop-chromium-uno-square-preview.png",
+      "sha256": "b3c440fdf875f23bb66a058763299b231cdef314e9b7af9e5756849d1f6ab504"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-max-webkit-groups.json",
+      "sha256": "318a259d54786e89518d95dc4b93f5a460969e491a0ca2b4ae4a84f0ee5c5860"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-max-webkit-ramsider-ended.png",
+      "sha256": "d479b230c5ff986d13e250b46faaff37485d82d959961e92e1a4014ab06fbb76"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-max-webkit-ramsider-list.png",
+      "sha256": "1ffc6a4b6f6e5ad9a6a73a67a5e05a03c175e1ba3f719cddf79f699602431392"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-max-webkit-ramsider-playing.png",
+      "sha256": "edd2ca815cd5f67af1b651ba59e8078edd9eff17f0ab3ab4941b7b6bc1a8f5be"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-max-webkit-ramsider-preview.png",
+      "sha256": "288781e76c2971faa8192ef3b1f9cf880d2955ea3886293cf9cefb5a55b72d61"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-max-webkit-ramsmobile-ended.png",
+      "sha256": "80e4e6a1dc2012b8e736e7134c34969fe0e29ff14b03e46a7ea2cba4060033f7"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-max-webkit-ramsmobile-list.png",
+      "sha256": "ab7aab662ba0ca6f25dcd277b23ae54169bba24d53610fd6c759b92dd33c72b4"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-max-webkit-ramsmobile-playing.png",
+      "sha256": "639870921862ab2c24aadeee1c1027f2ffb4eaca0fb2e906c6a049e70ef7d533"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-max-webkit-ramsmobile-preview.png",
+      "sha256": "697fcd792257097f7f5e2bf94a9c703b7135b26c36417006108a638ebdb93367"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-max-webkit-ramswear-ended.png",
+      "sha256": "9b9c9f1a0ad37dc16754926790ebd52840fa34911a29037713d9f3c5accbb6f0"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-max-webkit-ramswear-list.png",
+      "sha256": "a51c1cd780a5c2bf24667f97b7170cd09fd0aa344829ea887288a92fdf6165bb"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-max-webkit-ramswear-playing.png",
+      "sha256": "bb4aeeb5b8de712fa3cd32471df2cc14a769210b26bfa429851f13ee641862af"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-max-webkit-ramswear-preview.png",
+      "sha256": "8cb4dabc1eaa8536e0bcc61e0b4f4241ee0885e4f9f82704d7e338890930a8f0"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-max-webkit-uno-square-preview.png",
+      "sha256": "aab3d7363f6e710a670d6ad6b09a504a06ebede8dc1f2ce8e0a9b5f3b5cd385d"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-webkit-groups.json",
+      "sha256": "b9570cb8306602904c7c43a1d0679ad3294a8c18fc9fc47aff65d357106656cc"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-webkit-ramsider-ended.png",
+      "sha256": "6e315235c38c41538605cef81b324e373e504c2acc8f81da9f217d76eaa21e93"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-webkit-ramsider-list.png",
+      "sha256": "ce487ce136659a5188ab2e30bdbea006de0f9918dcbcf83072e31b168d86db72"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-webkit-ramsider-playing.png",
+      "sha256": "a22586507a9663297038a1a8dc7f51c63711554e8c998b1ed741ac24bb26bab9"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-webkit-ramsider-preview.png",
+      "sha256": "aee6a6687ead444d815345496529af9521261fa18b0337b24269059ba547658e"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-webkit-ramsmobile-ended.png",
+      "sha256": "3632ee5d9fbc51868871f60b6b4b2823493d4fc1576715023e4cdb7c4d5d07df"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-webkit-ramsmobile-list.png",
+      "sha256": "03c9692d8fedfae017fb22d9aae6dfaede5952c46e0a76dfcf80f2887de72313"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-webkit-ramsmobile-playing.png",
+      "sha256": "5d28c0cc4b278201cb89f8e6956dd0ac1cc09914e5db22893515aa89d79ef461"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-webkit-ramsmobile-preview.png",
+      "sha256": "dd7548de7dfe0ad38c30efc8a15cf2cced8e18a656eba91a6fcdebdebcf64518"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-webkit-ramswear-ended.png",
+      "sha256": "3e1d464344e980ba62ad31599de9bc67bda4a12968136f26ad327249e9e0c1e7"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-webkit-ramswear-list.png",
+      "sha256": "a97262d9aa797f7bad0fe6baddea546b6463b272365a4661e11dfe8409c2d339"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-webkit-ramswear-playing.png",
+      "sha256": "78dea327f7139d772b5c254d4cef0dc203c99119d97796da92c415dc8cb99a4f"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-webkit-ramswear-preview.png",
+      "sha256": "25cf0162f849bbe4745681a36ae10f523fad3697d1faf565e3211f76435d208c"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final/iphone-17-pro-webkit-uno-square-preview.png",
+      "sha256": "b350e3a13b7b403a585cdf04947a9b5d7454c216483a56879555d1787fb89cc2"
+    },
+    {
+      "path": "screenshots/video/projects/groups/integration/integration.json",
+      "sha256": "8a55640366cbee104a0f58e19dbd8f163f955cf8392e729ccc6bd97e00f8b580"
+    },
+    {
+      "path": "screenshots/video/projects/groups/integration/max-assembled-0.png",
+      "sha256": "5bdf7f2ae4b23bf7d465409994d57cb58566da8c83b98f952263a93c5c7faedc"
+    },
+    {
+      "path": "screenshots/video/projects/groups/integration/max-assembled-12.png",
+      "sha256": "73d9ec0ab9a5b029014faf377e83dc3b45afd005d95f4310a23306b0dc6c77ce"
+    },
+    {
+      "path": "screenshots/video/projects/groups/integration/max-assembled-17.png",
+      "sha256": "352432a7ea2e1c260c5fa5aa70b94cd50b78a88c25cef1dec03d2becd3cff0d4"
+    },
+    {
+      "path": "screenshots/video/projects/groups/integration/max-assembled-6.png",
+      "sha256": "33c6bfb343a5eb7c7d715b812c7189597b92a519947929e499ba77f2670195ce"
+    },
+    {
+      "path": "screenshots/video/projects/groups/integration/max-footer.png",
+      "sha256": "352432a7ea2e1c260c5fa5aa70b94cd50b78a88c25cef1dec03d2becd3cff0d4"
+    },
+    {
+      "path": "screenshots/video/projects/groups/integration/pro-assembled-0.png",
+      "sha256": "ded9f81dec6d3034f5165b275c5a8c56e211cb2a2fec0e98b3bd614e65ba4c93"
+    },
+    {
+      "path": "screenshots/video/projects/groups/integration/pro-assembled-12.png",
+      "sha256": "2fcc4362c015159c1f5f9de39917c4ad341948de7694cdad6518e9ec410ffbe4"
+    },
+    {
+      "path": "screenshots/video/projects/groups/integration/pro-assembled-17.png",
+      "sha256": "74518037019016b36108f84b14d85a29a5361b4e1691e1a136652894e6f33045"
+    },
+    {
+      "path": "screenshots/video/projects/groups/integration/pro-assembled-6.png",
+      "sha256": "65a0ac4c772a929085a278910921e29168a8ec9a172e612ea1eacead06f9953e"
+    },
+    {
+      "path": "screenshots/video/projects/groups/integration/pro-footer.png",
+      "sha256": "74518037019016b36108f84b14d85a29a5361b4e1691e1a136652894e6f33045"
+    },
+    {
+      "path": "screenshots/video/projects/groups/closed/layout.json",
+      "sha256": "7adc3745352b7233392be06e475d3dc08819405c603278e260e8ece0cef6d974"
+    },
+    {
+      "path": "screenshots/video/projects/groups/closed/max-cards-ready.png",
+      "sha256": "17acafd10a8ddc9da954995c0125c4a50ce0ca9b19f73ed0fb6f95650fb79675"
+    },
+    {
+      "path": "screenshots/video/projects/groups/closed/max-diff.png",
+      "sha256": "ebf557e6be24e52ea4671d6b37ab32991368b030f09cccfbda942da892b2ac35"
+    },
+    {
+      "path": "screenshots/video/projects/groups/closed/pro-cards-ready.png",
+      "sha256": "3c107039afdc3d70f34af6472774397184c6d54ccae45a27c48263acb29e3425"
+    },
+    {
+      "path": "screenshots/video/projects/groups/closed/pro-diff.png",
+      "sha256": "98d11b558b9074391b40408958e3a706a3cb59b718f8d5e20a3d301ce97bfdb2"
+    },
+    {
+      "path": "screenshots/video/projects/groups/top-diagnostic/after.png",
+      "sha256": "1d630b4a0a1c2aded36d3838d372d971f36388ff53ce77c4a942ae47da27549e"
+    },
+    {
+      "path": "screenshots/video/projects/groups/top-diagnostic/before.png",
+      "sha256": "1b8fb9f10cc01fd9a7c8ec14502c1ca1b82531b53af1938617474e6857557cbd"
+    },
+    {
+      "path": "screenshots/video/projects/groups/top-diagnostic/states.json",
+      "sha256": "29c7c36ec830fe6b8cdae9b91f02a06892ba0ff80d700a22add197fd40e153da"
+    },
+    {
+      "path": "screenshots/video/projects/groups/narrow-diagnostic2/after.png",
+      "sha256": "7cee9709cba8f79cda539681bcf3549948909773202b006ed0f80166792c5328"
+    },
+    {
+      "path": "screenshots/video/projects/groups/narrow-diagnostic2/before.png",
+      "sha256": "ed2aed6f564887531023019a5c5e9a44e6de8c9c8ebcb211fdea81725c00fd19"
+    },
+    {
+      "path": "screenshots/video/projects/groups/narrow-diagnostic2/states.json",
+      "sha256": "f4e45f9da42e0b29b3b1c72d25a7eab956bf9d01ab43a03b5d54b33e1c6149f1"
+    }
+  ],
+  "checks": {
+    "types4": "PASS exit0",
+    "targetedLint4": "PASS exit0",
+    "productionBuild2": "PASS all18preparedpackages and11SSG locales; runtime source unchanged since build",
+    "nativeReview3": "CLEAN exact seven affected source/test files in isolated snapshot",
+    "projectMatrix1": "26PASS7profileSKIP all three profiles",
+    "focusSite1": "6PASS",
+    "groupPro2": "1PASS14.6s",
+    "groupMax1": "1PASS15.3s",
+    "groupDesktop2": "2PASS29.9s",
+    "groupMobileFinal": "2PASS29.2s finalhelper",
+    "closedCards": "Pro/Max0pixelDiff against approved ready baseline",
+    "integration": "Pro/Max18settledpositions/endgap0/scrollrestorationexact/overflow0/pageerrors0"
+  },
+  "viewports": [
+    "402x874DPR3WebKit",
+    "440x956DPR3WebKit",
+    "320x640",
+    "402x560",
+    "768x1024",
+    "874x402",
+    "1440x900Chromium"
+  ],
+  "behavior": [
+    "originalprojectcards4/2/1",
+    "preview/List exact identities",
+    "actual decoded sevenfilms",
+    "nativeHLS WebKit/MSE Chromium",
+    "fullscreen portrait/rotation/List",
+    "boundedPrevNext",
+    "endedReplayOnly",
+    "11localeARRTL",
+    "keyboard/pointer/touch focus restoration",
+    "144/720/2160 presented frames",
+    "ownMP4fallback/reopenHLS",
+    "rapidclose/sourcecleanup",
+    "UNO7/cache42 unchanged"
+  ],
+  "failureHistory": [
+    "types1/build1 missing helper media closure fixed; types2/build2PASS",
+    "Pro1 incorrect fade/inactive helper assumptions; diagnosed actual hit and repaired, Pro2/Max1PASS",
+    "desktop1 immediate fullscreen-exit coordinates race in helper; bounded real activity polling, desktop2PASS",
+    "narrow-diagnostic1 touch-only call in Chromium copied recipe; diagnostic2 realclicks used instead"
+  ],
+  "limits": [
+    "physicaliPhone/Android/AVKit/XcodeSimulator unavailable",
+    "no fieldINP/Lighthouse/WCAGcertification claim",
+    "whole unrelated lint CHG0181 remainsFAIL37errors23warnings",
+    "performance single synthetic sample; no causal speed/SLA claim",
+    "no reencode or poster/color delivery change",
+    "EVAL-HLS-GROUP-BOUNDARIES controlledNOT_RUN"
+  ],
+  "performanceReceipt": "docs/evidence/video/projects/groups/performance.json",
+  "technicalApproval": {
+    "date": "2026-11-02",
+    "verifier": "/root",
+    "verdict": "APPROVED_LOCAL_WEB",
+    "independentAuditor": "/root/pub_audit",
+    "independentVerdict": "Scope/Stage2/Gates3/4/5 PASS_LOCAL_WEB",
+    "evidence": "7source+286artifact+11runlog hashes exact; actual screenshots inspected; final2mobile+2desktop+26matrixPASS7SKIP+6focus/site; types4/lint4/build2/nativeReview3CLEAN; productionperf+integration"
+  },
+  "publication": "Pending exact new SHA both Vercel targets and canonical browser",
+  "runLogBindings": [
+    {
+      "path": "screenshots/video/projects/groups/types4.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "screenshots/video/projects/groups/lint4.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "screenshots/video/projects/groups/build2.log",
+      "sha256": "ca56461d67892254076b9f6a3267635c6208089ea470ac2400efe9813131a1e8"
+    },
+    {
+      "path": "screenshots/video/projects/groups/native-review3.log",
+      "sha256": "fe07ae572b07111e98169ff4b97f37bafb8a87cae2e297619c2849c46a9a1a09"
+    },
+    {
+      "path": "screenshots/video/projects/groups/matrix1.log",
+      "sha256": "9d823498ebeff7122aad026950452dbb814b4069a64e677a8ba9996c1edf693d"
+    },
+    {
+      "path": "screenshots/video/projects/groups/focus1.log",
+      "sha256": "74827751ea3818673d118dc6603558d8e5b6cc06733a00be6d16db58d5cd568e"
+    },
+    {
+      "path": "screenshots/video/projects/groups/desktop2.log",
+      "sha256": "5d869facd5010c22f82b1c23e0cc55e07104675bf2982f61bbc51bd6849f4997"
+    },
+    {
+      "path": "screenshots/video/projects/groups/mobile-final.log",
+      "sha256": "03d075a55b59d52c7247bd93bf18f8cc002020d07c212acb40007b3f95899d1d"
+    },
+    {
+      "path": "screenshots/video/projects/groups/pro2.log",
+      "sha256": "e3fdbc5956c880dfdb79d980338f83ec825703f4695d58216fb8acd11ae88f70"
+    },
+    {
+      "path": "screenshots/video/projects/groups/max1.log",
+      "sha256": "0f7863fa966b7fca654c734de96bebfe9ac15113db58df371da6b44f4f64dc09"
+    },
+    {
+      "path": "screenshots/video/projects/groups/integration.log",
+      "sha256": "a3166ad72f5cecb30e2624c696c3c7197e2f4b96ef9ec0e24bcde5a39ddfbe38"
+    }
+  ],
+  "rawPerformanceBinding": {
+    "path": "screenshots/scroll-incident/project-films-groups/performance.json",
+    "sha256": "7a6b6f17e60ddd56a9df30147de9c57795821854ce861fdbd6b4e561230cf9cf"
+  },
+  "reviewSnapshotExact": true,
+  "stage6": {
+    "date": "2026-11-02",
+    "verifier": "/root/pub_audit",
+    "verdict": "LOCAL_PREPUSH PASS",
+    "evidence": "Exact19stagedpaths; source7/artifact286/runlog11/rawperf zeroSHA mismatches; clean cached diff; correct main/origin; scoped records/privacy/failurehistory/local vs publication pending truthful"
+  }
+}

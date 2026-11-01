@@ -1,0 +1,35 @@
+{
+  "phase": "project-films-groups",
+  "conditions": "Single cold Chromium mobile402\u00d7874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+  "initial": {
+    "ttfb": 17.299999952316284,
+    "fcp": 400,
+    "lcp": 1308,
+    "cls": 0.0007297865332991844,
+    "jsBytes": 336413,
+    "completedBytes": 3401194,
+    "filmObjects": 15,
+    "readyImages": 29
+  },
+  "scroll": {
+    "samples": 326,
+    "movingFrames": 232,
+    "startY": 0,
+    "endY": 10367,
+    "p95Ms": 32.90000009536743,
+    "over33Ms": 13,
+    "reverseFrames": 0,
+    "maxReverse": 0,
+    "cls": 0.0007297865332991844,
+    "longTasks": [
+      84,
+      70,
+      79,
+      400,
+      62,
+      72,
+      128
+    ]
+  },
+  "errors": []
+}

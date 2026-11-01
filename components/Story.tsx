@@ -346,7 +346,7 @@ export function Story({ locale }: { locale: Locale }) {
       ].map(({ hit, number, link }, i) => <div key={hit}>
         <p className="project-number" style={sourceStyle(75, number, 340, 16)}>{t(locale, 'projectLabel')} {String(i + 1).padStart(2, '0')}</p>
         {i === 0 && <span className="project-active" style={sourceStyle(75, 29545, 105, 14)}>{t(locale, 'active')}</span>}
-        <button id={`project-${['ramsider', 'ramsmobile', 'ramswear', 'ramsfood'][i]}`} type="button" className="project-hit" style={sourceStyle(40, hit, 850)} popoverTarget={i === 3 ? 'project-detail-4' : 'product-film'} {...(i === 3 ? {} : { 'data-film-collection': 'projects', 'data-film-id': ['project-ramsider-overview', 'project-ramsmobile-protos', 'project-ramswear'][i], 'aria-controls': 'product-film', 'aria-haspopup': 'dialog' as const })} aria-label={t(locale, (['project1', 'project2', 'project3', 'project4'] as const)[i])}>
+        <button id={`project-${['ramsider', 'ramsmobile', 'ramswear', 'ramsfood'][i]}`} type="button" className="project-hit" style={sourceStyle(40, hit, 850)} popoverTarget={i === 3 ? 'project-detail-4' : 'product-film'} {...(i === 3 ? {} : { 'data-film-collection': ['ramsider', 'ramsmobile', 'ramswear'][i], 'data-film-id': ['project-ramsider-overview', 'project-ramsmobile-protos', 'project-ramswear'][i], 'aria-controls': 'product-film', 'aria-haspopup': 'dialog' as const })} aria-label={t(locale, (['project1', 'project2', 'project3', 'project4'] as const)[i])}>
           <span className="project-link-row" style={{ top: `${((link - hit) / 941) * 100}cqw` }} aria-hidden="true">
             <span>{t(locale, 'projectLink')}</span><Image className="project-arrow" src="/buttons/Arrow_Right.svg" width={56} height={56} alt="" unoptimized />
           </span>
@@ -356,7 +356,7 @@ export function Story({ locale }: { locale: Locale }) {
       <div hidden><LocaleSwitcher locale={locale} label={t(locale, 'language')} /></div>
     </main><SiteFooter locale={locale} /></PageMediaGate>
     <BackToTop label={t(locale, 'backToTop')} />
-    <ProductFilm locale={locale} copy={productFilmCopy[locale]} closeLabel={t(locale, 'close')} films={selectProductFilms(locale)} collections={{ projects: selectProjectFilms(locale) }} />
+    <ProductFilm locale={locale} copy={productFilmCopy[locale]} closeLabel={t(locale, 'close')} films={selectProductFilms(locale)} collections={{ ramsider: selectProjectFilms(locale, 'ramsider'), ramsmobile: selectProjectFilms(locale, 'ramsmobile'), ramswear: selectProjectFilms(locale, 'ramswear') }} />
     <Popovers locale={locale} captureEnabled={captureEnabled} />
     {captureEnabled && <LaunchCapture copy={launchCopy} />}
   </DialogController>;

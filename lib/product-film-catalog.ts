@@ -51,18 +51,26 @@ export function selectProductFilms(locale: Locale): GalleryFilm[] {
   }));
 }
 
-/** Separate RAMS-GROUP collection. No project media is warmed before intent. */
-export function selectProjectFilms(locale: Locale): GalleryFilm[] {
-  const projects = [
-    ['project-ramsider-overview', `RAMSIDER — ${projectFilmCopy[locale].overview}`],
-    ['project-ramsider-asmohookah', 'RAMSIDER — AsmoHookah'],
-    ['project-ramsider-sosuda', 'RAMSIDER — Sosuda Intera'],
-    ['project-ramsider-cubos', 'RAMSIDER — Cubos Intera'],
-    ['project-ramsmobile-protos', 'RAMSMOBILE — PROTOS'],
-    ['project-ramsmobile-rev', `RAMSMOBILE — ${projectFilmCopy[locale].shortFilm}`],
-    ['project-ramswear', `RAMSWEAR — ${projectFilmCopy[locale].teaser}`],
-  ] as const;
-  return projects.map(([id, title]) => {
+export type ProjectFilmGroup = 'ramsider' | 'ramsmobile' | 'ramswear';
+
+/** Each project owns its playlist. No project media is warmed before intent. */
+export function selectProjectFilms(locale: Locale, group: ProjectFilmGroup): GalleryFilm[] {
+  const projects = {
+    ramsider: [
+      ['project-ramsider-overview', `RAMSIDER — ${projectFilmCopy[locale].overview}`],
+      ['project-ramsider-asmohookah', 'RAMSIDER — AsmoHookah'],
+      ['project-ramsider-sosuda', 'RAMSIDER — Sosuda Intera'],
+      ['project-ramsider-cubos', 'RAMSIDER — Cubos Intera'],
+    ],
+    ramsmobile: [
+      ['project-ramsmobile-protos', 'RAMSMOBILE — PROTOS'],
+      ['project-ramsmobile-rev', `RAMSMOBILE — ${projectFilmCopy[locale].shortFilm}`],
+    ],
+    ramswear: [
+      ['project-ramswear', `RAMSWEAR — ${projectFilmCopy[locale].teaser}`],
+    ],
+  } as const;
+  return projects[group].map(([id, title]) => {
     const asset = registry.assets.find(asset => asset.id === id && asset.active);
     if (!asset) throw new Error(`No approved project film: ${id}`);
     return { ...selectProductFilm(id, locale), preload: [], id, title, duration: asset.duration, poster: `/art/films/projects/${id}.jpg`, posterWidth: 1280, posterHeight: 720, thumbnail: { src: `/art/films/projects/${id}-thumb.jpg`, width: 480, height: 270 } };

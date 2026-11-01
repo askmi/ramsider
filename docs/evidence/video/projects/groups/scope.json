@@ -1,0 +1,58 @@
+{
+  "change": "CHG0195",
+  "date": "2026-11-02",
+  "status": "APPROVED_LOCAL_WEB_PUBLICATION_PENDING",
+  "baseline": "bff6c535efc775fb7cf4ac13534f1e2d1d715055",
+  "request": "Explicitownerchanges/deploy: squareallvideo/preview/playlistmediaframes and isolateeachprojectcollection. User supplied screenshot is visual acceptance target for removing rounded video shell; clean/textreferencecardcomposition unchanged.",
+  "groups": {
+    "ramsider": [
+      "project-ramsider-overview",
+      "project-ramsider-asmohookah",
+      "project-ramsider-sosuda",
+      "project-ramsider-cubos"
+    ],
+    "ramsmobile": [
+      "project-ramsmobile-protos",
+      "project-ramsmobile-rev"
+    ],
+    "ramswear": [
+      "project-ramswear"
+    ]
+  },
+  "mapping": "Eachoriginalprojectcarddata-film-collection becomesramsider/ramsmobile/ramswear; Story suppliesseparate server-selected arrays to existing sharedProductFilm. Removeunionprojectscollection. Defaultfirstfilmwithinownarrayindex0; oldUNOdefaultseven+rememberedindex/preload42unchanged. Existingpreview/List/prevnext/endedNext deriveactivefilms, so scopepropagateswithoutnewplayerstate. RAMSFOOD intentionallyabsent/descriptionretained.",
+  "squareSelectors": [
+    ".product-film",
+    ".film-player",
+    ".product-film video",
+    ".film-gallery__hero",
+    ".film-gallery__hero img",
+    ".film-gallery__item",
+    ".film-gallery__thumbnail",
+    ".film-gallery__thumbnail::after",
+    ".product-film__header desktop",
+    ".film-gallery__list desktop",
+    ".film-playlist",
+    ".film-playlist__item",
+    ".film-playlist__item img",
+    ".film-ended__next img"
+  ],
+  "controls": "Actualplay/close/fullscreen/settings controls retainusability/currentshape; theseareactionsratherthanmediaframes. No blanketradiusreset. Originalsourcecarddecorativeartunchanged.",
+  "geometry": "CSSradiusonly; no encode/crop/color/ICC/source/aspect/object-fit/streamingpolicychanges. Previewfullinnerwidth,16:9projects/proportionalheightwithin1CSSpx, originaldefaultpostergeometryretained. Expandedexistingfit unchanged. Media masters/archives/registry/postersstaybyteexact.",
+  "acceptance": [
+    "Pro402x874thenMax440x956DPR3WebKit actualreadygallery/playingportrait/expanded/List/ended/replay images withallnamedmediaframecorner radii0, matchingimagegeometry; desktop/narrow320/shortphone/tablet/landscape/RTL.",
+    "ExactgroupIDassertionsinpreview+List, noforeignfilm/endedNext, all7decodedthroughowncard, group-specificprevnextboundaries(oneWearnone/twoMobilebounded), focus/scroll/close/reopen/defaultUNOrememberedselection/cache42+no projectmedia beforePlay.",
+    "NewRevselectindex1withinMobile; real144/720/2160rVFC+time/ownfallback720/reopen HLS/nativefullscreen intent/AndroidMSE testedthroughgroup.",
+    "11compiledlocalechecks+AR RTL, keyboardfocus/selection; originalprojectcardrectanglefixretained.",
+    "Nativeactualdiffreview/type/scopedlint/productionbuild/performance/networkrepresentative/assembledintegration; independentgates; exactmainpush/bothdeploy/canonicalgroups/radii/actualpublic4K+byteproof."
+  ],
+  "limitations": [
+    "PhysicaliPhone/Android/AVKit/XcodeSimulator notavailable; no hardwarecertification.",
+    "KnownunrelatedwholelintCHG0181FAIL; targetedchecksmustpass.",
+    "PreviouspublicProsyntheticmouseListcapturetimingcaseOPEN; useactualtouch/hit-test onphoneprofiles and preserveanyfailures.",
+    "EveryQAwriterandframeworkoutput mustusefreshgroupsnamespace orisolatedworkspace; do notoverwritepriorboundproof."
+  ],
+  "sourceReferenceCrops": [
+    "screenshots/video/projects/groups/reference-background.png",
+    "screenshots/video/projects/groups/reference-background_text.png"
+  ]
+}

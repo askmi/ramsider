@@ -1,0 +1,145 @@
+{
+  "date": "2026-11-01",
+  "status": "MEDIA_VALIDATED_UI_PENDING",
+  "checks": [
+    {
+      "id": "project-ramsider-overview",
+      "sourceSHA256": "5fd8b86dfd4b630d507e9ed829d1c96f449a6fcbd592fc277716ceaf5511acf3",
+      "archive": {
+        "bytes": 1381754880,
+        "sha256": "601b0aa70542443e9645c36a4645a9914eaef94aa966ad1884b6529b77e317c8"
+      },
+      "encodingReceiptSHA256": "2e87eb03996430c65a88bb3d73ba3fba8350c313db9e5e217652c9a61a52401f",
+      "validation": "docs/evidence/video/projects/project-ramsider-overview-validation.json",
+      "quality": "docs/evidence/video/projects/project-ramsider-overview-quality.json",
+      "nativeQuality": "docs/evidence/video/projects/project-ramsider-overview-native-quality.json",
+      "fileCount": 1172,
+      "duration": 384.56,
+      "qualities": [
+        144,
+        360,
+        720,
+        1080,
+        1440,
+        2160
+      ],
+      "emergencyPeakBps": 179508
+    },
+    {
+      "id": "project-ramsider-asmohookah",
+      "sourceSHA256": "70446da3f18d01c33c1b07754c04e15cf364644bde26f4b651100a6017431fe3",
+      "archive": {
+        "bytes": 161372160,
+        "sha256": "77567447a7a896bf94c7cf96bb3aa2724a067a63895e7ac6155d35ea4cad48df"
+      },
+      "encodingReceiptSHA256": "455c68c97b5da74161d9444c1cdc8ee7d8939612362240a6a4593ecf97971a27",
+      "validation": "docs/evidence/video/projects/project-ramsider-asmohookah-validation.json",
+      "quality": "docs/evidence/video/projects/project-ramsider-asmohookah-quality.json",
+      "nativeQuality": "docs/evidence/video/projects/project-ramsider-asmohookah-native-quality.json",
+      "fileCount": 140,
+      "duration": 41.92,
+      "qualities": [
+        144,
+        360,
+        720,
+        1080,
+        1440,
+        2160
+      ],
+      "emergencyPeakBps": 165264
+    },
+    {
+      "id": "project-ramsider-sosuda",
+      "sourceSHA256": "7a1f76b253e81bbb76f35be532c98cd87649ad367a764dbfd4ada2be500a1539",
+      "archive": {
+        "bytes": 83281920,
+        "sha256": "325965a95fb2c994504ae2603715a957d84de31e432b48006722a2c4dfdc2268"
+      },
+      "encodingReceiptSHA256": "13f1a54ab4be972faf28e930b9acd00a4cf3d4ad7811e495ff7f6cec2a67efdb",
+      "validation": "docs/evidence/video/projects/project-ramsider-sosuda-validation.json",
+      "quality": "docs/evidence/video/projects/project-ramsider-sosuda-quality.json",
+      "nativeQuality": "docs/evidence/video/projects/project-ramsider-sosuda-native-quality.json",
+      "fileCount": 110,
+      "duration": 30.12,
+      "qualities": [
+        144,
+        360,
+        720,
+        1080,
+        1440,
+        2160
+      ],
+      "emergencyPeakBps": 170856
+    },
+    {
+      "id": "project-ramsider-cubos",
+      "sourceSHA256": "07cf83a06282f42471a46ff96b5f7e2a8c57d6f14954b679066f45cee134e2af",
+      "archive": {
+        "bytes": 70092800,
+        "sha256": "456e8aa520eee664f358f3313cd1dec3bf90f0a51987b62489a103158ccf7e2c"
+      },
+      "encodingReceiptSHA256": "2dad65f16ff0d4d2bb8b257cd5b1291157db53a26abeff45c4a88ba622786534",
+      "validation": "docs/evidence/video/projects/project-ramsider-cubos-validation.json",
+      "quality": "docs/evidence/video/projects/project-ramsider-cubos-quality.json",
+      "nativeQuality": "docs/evidence/video/projects/project-ramsider-cubos-native-quality.json",
+      "fileCount": 80,
+      "duration": 21.16,
+      "qualities": [
+        144,
+        360,
+        720,
+        1080,
+        1440,
+        2160
+      ],
+      "emergencyPeakBps": 161508
+    },
+    {
+      "id": "project-ramsmobile-protos",
+      "sourceSHA256": "eb987f732321a71282c90b2340321e353e4df792cd9ed8db5e8a10d9daf128e9",
+      "archive": {
+        "bytes": 187617280,
+        "sha256": "290ef0502dfed42e7103bd10fb3321201bf4aa2bd9fd058bdb97514269e16634"
+      },
+      "encodingReceiptSHA256": "4a84dd368c214ab447e8a8b8daf06b6cbb0cc7678c2217f49b05865c2a9ec2a5",
+      "validation": "docs/evidence/video/projects/project-ramsmobile-protos-validation.json",
+      "quality": "docs/evidence/video/projects/project-ramsmobile-protos-quality.json",
+      "nativeQuality": "docs/evidence/video/projects/project-ramsmobile-protos-native-quality.json",
+      "fileCount": 170,
+      "duration": 50.72,
+      "qualities": [
+        144,
+        360,
+        720,
+        1080,
+        1440,
+        2160
+      ],
+      "emergencyPeakBps": 182384
+    },
+    {
+      "id": "project-ramswear",
+      "sourceSHA256": "75e0b41b211ee6e9521853ef9cbce5dcbf62747ac2800fe45c366b7af17e8fd2",
+      "archive": {
+        "bytes": 75806720,
+        "sha256": "54a7f9c2a4d689ca151dafc828911761548d72af2169562bc12ad2d880b88b44"
+      },
+      "encodingReceiptSHA256": "aa8850f3a1879f925ada6f176500149d5513adcd15f91a3d4e41476488bc80af",
+      "validation": "docs/evidence/video/projects/project-ramswear-validation.json",
+      "quality": "docs/evidence/video/projects/project-ramswear-quality.json",
+      "nativeQuality": "docs/evidence/video/projects/project-ramswear-native-quality.json",
+      "fileCount": 92,
+      "duration": 24.84,
+      "qualities": [
+        144,
+        360,
+        720,
+        1080,
+        1440,
+        2160
+      ],
+      "emergencyPeakBps": 172736
+    }
+  ],
+  "limits": "Encoding receipts intentionally retain original qualityApproval=PENDING as immutable preparation records; linked later quality/native-quality receipts supply actual media approval evidence. Browser/build/review/publication gates are not yet approved."
+}

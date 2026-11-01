@@ -1,0 +1,244 @@
+{
+  "date": "2026-11-01",
+  "status": "VERIFIED_LOCAL_WEB",
+  "reason": "1280px list thumbnails competed with HLS JS at4Mbps; retain large hero and use480px derived thumbs in80\u2013140CSSpx slots atDPR3. No upscaledhero/crop/style changes.",
+  "totalBytes": 182226,
+  "losslessTotalBytes": 423198,
+  "images": [
+    {
+      "id": "project-ramsider-overview",
+      "reference": "screenshots/video/projects/project-ramsider-overview-poster-source.png",
+      "referenceSHA256": "fc5729c0785ac0dbff71f675764c0178d37b9322729e5ae4a57954645446cfc5",
+      "sourceSHA256": "5fd8b86dfd4b630d507e9ed829d1c96f449a6fcbd592fc277716ceaf5511acf3",
+      "output": "public/art/films/projects/project-ramsider-overview-thumb.jpg",
+      "outputSHA256": "f9099b7b251e243bad0cfefb56e784ce6ef153ace45a0e2f9c5d3ee3c6ea3a6e",
+      "bytes": 20217,
+      "size": [
+        480,
+        270
+      ],
+      "profileSHA256": "3a86279cd2c62b20074f51b3bc68ee69b1d5f45b8ed49a440681b17349f74990",
+      "rgbMean": [
+        0.9649305555555555,
+        0.3988734567901235,
+        0.40945987654320987
+      ],
+      "p99RGB": [
+        4.0,
+        3.0,
+        4.0
+      ],
+      "signedMean": [
+        -0.3662114197530864,
+        -0.11641975308641975,
+        0.06674382716049383
+      ],
+      "maxLocal64RGBMAE": 1.4069010416666667,
+      "alpha": "opaque exact",
+      "crop": "none; same full16:9",
+      "method": "single lossless color-managed source PNG intermediate; PillowLanczos480x270; JPEG95/4:4:4+same explicit sRGB ICC",
+      "losslessCandidate": {
+        "path": "screenshots/video/projects/lossless-poster-candidates/project-ramsider-overview-thumb.webp",
+        "bytes": 48012,
+        "decodedRGBExact": true,
+        "ICCExact": true
+      }
+    },
+    {
+      "id": "project-ramsider-asmohookah",
+      "reference": "screenshots/video/projects/project-ramsider-asmohookah-poster-source.png",
+      "referenceSHA256": "2fc996708de38325a0e0097b854a08eb3b0fce69143ce48caa9a615f569f967a",
+      "sourceSHA256": "70446da3f18d01c33c1b07754c04e15cf364644bde26f4b651100a6017431fe3",
+      "output": "public/art/films/projects/project-ramsider-asmohookah-thumb.jpg",
+      "outputSHA256": "0a80d6e8e0b6c954410073d3fda31ac9c5d99a458f9232ec8317a9f3235c28db",
+      "bytes": 29713,
+      "size": [
+        480,
+        270
+      ],
+      "profileSHA256": "3a86279cd2c62b20074f51b3bc68ee69b1d5f45b8ed49a440681b17349f74990",
+      "rgbMean": [
+        0.9477932098765433,
+        0.5104552469135802,
+        1.1159413580246913
+      ],
+      "p99RGB": [
+        4.0,
+        3.0,
+        5.0
+      ],
+      "signedMean": [
+        0.36615740740740743,
+        0.00716820987654321,
+        0.36194444444444446
+      ],
+      "maxLocal64RGBMAE": 1.5869954427083333,
+      "alpha": "opaque exact",
+      "crop": "none; same full16:9",
+      "method": "single lossless color-managed source PNG intermediate; PillowLanczos480x270; JPEG95/4:4:4+same explicit sRGB ICC",
+      "losslessCandidate": {
+        "path": "screenshots/video/projects/lossless-poster-candidates/project-ramsider-asmohookah-thumb.webp",
+        "bytes": 94930,
+        "decodedRGBExact": true,
+        "ICCExact": true
+      }
+    },
+    {
+      "id": "project-ramsider-sosuda",
+      "reference": "screenshots/video/projects/project-ramsider-sosuda-poster-source.png",
+      "referenceSHA256": "0688d779c527c740d9fef72f7d4509281b6b711075d3b036ac94d2a4af193827",
+      "sourceSHA256": "7a1f76b253e81bbb76f35be532c98cd87649ad367a764dbfd4ada2be500a1539",
+      "output": "public/art/films/projects/project-ramsider-sosuda-thumb.jpg",
+      "outputSHA256": "f3bbe6bba55efad3e46ef98898f939bd0855ac52cf2f4bf365b5b2edb350e765",
+      "bytes": 21613,
+      "size": [
+        480,
+        270
+      ],
+      "profileSHA256": "3a86279cd2c62b20074f51b3bc68ee69b1d5f45b8ed49a440681b17349f74990",
+      "rgbMean": [
+        0.31808641975308644,
+        0.21346450617283952,
+        0.2760108024691358
+      ],
+      "p99RGB": [
+        5.0,
+        4.0,
+        4.0
+      ],
+      "signedMean": [
+        0.05379629629629629,
+        0.07210648148148148,
+        0.08482253086419753
+      ],
+      "maxLocal64RGBMAE": 1.193115234375,
+      "alpha": "opaque exact",
+      "crop": "none; same full16:9",
+      "method": "single lossless color-managed source PNG intermediate; PillowLanczos480x270; JPEG95/4:4:4+same explicit sRGB ICC",
+      "losslessCandidate": {
+        "path": "screenshots/video/projects/lossless-poster-candidates/project-ramsider-sosuda-thumb.webp",
+        "bytes": 23158,
+        "decodedRGBExact": true,
+        "ICCExact": true
+      }
+    },
+    {
+      "id": "project-ramsider-cubos",
+      "reference": "screenshots/video/projects/project-ramsider-cubos-poster-source.png",
+      "referenceSHA256": "62b5dad28829c651da2a7fa6d9fef7c0e96d676d721a6b5d9e42c98250f2db2b",
+      "sourceSHA256": "07cf83a06282f42471a46ff96b5f7e2a8c57d6f14954b679066f45cee134e2af",
+      "output": "public/art/films/projects/project-ramsider-cubos-thumb.jpg",
+      "outputSHA256": "2b0c9c8e94f4ed4296c2c725551d950e9ffb6b458342d34bb16cb3e4b2904de9",
+      "bytes": 30965,
+      "size": [
+        480,
+        270
+      ],
+      "profileSHA256": "3a86279cd2c62b20074f51b3bc68ee69b1d5f45b8ed49a440681b17349f74990",
+      "rgbMean": [
+        0.4646064814814815,
+        0.418858024691358,
+        0.6788117283950618
+      ],
+      "p99RGB": [
+        5.0,
+        4.0,
+        6.0
+      ],
+      "signedMean": [
+        0.06314043209876544,
+        0.02162037037037037,
+        0.011466049382716049
+      ],
+      "maxLocal64RGBMAE": 1.926025390625,
+      "alpha": "opaque exact",
+      "crop": "none; same full16:9",
+      "method": "single lossless color-managed source PNG intermediate; PillowLanczos480x270; JPEG95/4:4:4+same explicit sRGB ICC",
+      "losslessCandidate": {
+        "path": "screenshots/video/projects/lossless-poster-candidates/project-ramsider-cubos-thumb.webp",
+        "bytes": 53104,
+        "decodedRGBExact": true,
+        "ICCExact": true
+      }
+    },
+    {
+      "id": "project-ramsmobile-protos",
+      "reference": "screenshots/video/projects/project-ramsmobile-protos-poster-source.png",
+      "referenceSHA256": "85f4570e9dca34a167c5c83e5b09c16bf140ddd9ebd5e16d9c5f7827611f2bb4",
+      "sourceSHA256": "eb987f732321a71282c90b2340321e353e4df792cd9ed8db5e8a10d9daf128e9",
+      "output": "public/art/films/projects/project-ramsmobile-protos-thumb.jpg",
+      "outputSHA256": "cecd2e9b2c495f7e1fc99fc8548eb992ba49b8826d884bc1de5fac5f70998269",
+      "bytes": 39737,
+      "size": [
+        480,
+        270
+      ],
+      "profileSHA256": "3a86279cd2c62b20074f51b3bc68ee69b1d5f45b8ed49a440681b17349f74990",
+      "rgbMean": [
+        1.0785262345679012,
+        0.7949151234567902,
+        1.0416666666666667
+      ],
+      "p99RGB": [
+        5.0,
+        4.0,
+        6.0
+      ],
+      "signedMean": [
+        -0.08608796296296296,
+        -0.13088734567901233,
+        0.15555555555555556
+      ],
+      "maxLocal64RGBMAE": 1.9769345238095237,
+      "alpha": "opaque exact",
+      "crop": "none; same full16:9",
+      "method": "single lossless color-managed source PNG intermediate; PillowLanczos480x270; JPEG95/4:4:4+same explicit sRGB ICC",
+      "losslessCandidate": {
+        "path": "screenshots/video/projects/lossless-poster-candidates/project-ramsmobile-protos-thumb.webp",
+        "bytes": 94982,
+        "decodedRGBExact": true,
+        "ICCExact": true
+      }
+    },
+    {
+      "id": "project-ramswear",
+      "reference": "screenshots/video/projects/project-ramswear-poster-source.png",
+      "referenceSHA256": "f980338ed38ba83e9ca81ae6bdddedec3592555ad773d4a40d72a60e9b1c434b",
+      "sourceSHA256": "75e0b41b211ee6e9521853ef9cbce5dcbf62747ac2800fe45c366b7af17e8fd2",
+      "output": "public/art/films/projects/project-ramswear-thumb.jpg",
+      "outputSHA256": "cbacd911d8704441ae2b5298f31e050698d5b351c856e27af971509181bfebc3",
+      "bytes": 39981,
+      "size": [
+        480,
+        270
+      ],
+      "profileSHA256": "3a86279cd2c62b20074f51b3bc68ee69b1d5f45b8ed49a440681b17349f74990",
+      "rgbMean": [
+        0.9503549382716049,
+        0.8213194444444445,
+        1.139429012345679
+      ],
+      "p99RGB": [
+        5.0,
+        4.0,
+        6.0
+      ],
+      "signedMean": [
+        -0.10412037037037038,
+        0.06772376543209876,
+        -0.09637345679012346
+      ],
+      "maxLocal64RGBMAE": 1.5741373697916667,
+      "alpha": "opaque exact",
+      "crop": "none; same full16:9",
+      "method": "single lossless color-managed source PNG intermediate; PillowLanczos480x270; JPEG95/4:4:4+same explicit sRGB ICC",
+      "losslessCandidate": {
+        "path": "screenshots/video/projects/lossless-poster-candidates/project-ramswear-thumb.webp",
+        "bytes": 109012,
+        "decodedRGBExact": true,
+        "ICCExact": true
+      }
+    }
+  ],
+  "technicalApproval": "2026-11-01 Codexroot + /root/audit Gate2delivery/Gate3 PASS; exactsource/profile/color checks and actual Pro/Max/narrow/desktop images, final20testmatrix, startuptrace2/network2; no universaldisplayparity claim"
+}

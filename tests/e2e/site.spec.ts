@@ -94,8 +94,9 @@ test('responsive viewport, artwork, and primary actions', async ({ page }, testI
   await expect(firstDocument.getByRole('link')).toHaveAttribute('target', '_blank');
   await expect(page.locator('#certificate-viewer')).toHaveCount(0);
   await page.locator('.project-hit').first().click();
-  await expect(page.locator('#project-detail-1')).toBeVisible();
-  await expect(page.locator('#project-detail-1')).toContainText('Premium Intelligent');
+  await expect(page.locator('#product-film')).toBeVisible();
+  await expect(page.locator('.film-gallery__item')).toHaveCount(6);
+  await expect(page.locator('#film-player')).toHaveAttribute('data-film-id', 'project-ramsider-overview');
   await page.keyboard.press('Escape');
   await page.locator('.key-explorePro').click();
   await expect(page.locator('#unavailable-pro')).toContainText('TiN-Coated Heater');

@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "maxEmergencyPeakKbps": 192.0,
+  "receiptSHA256": "13f1a54ab4be972faf28e930b9acd00a4cf3d4ad7811e495ff7f6cec2a67efdb",
+  "checks": [
+    "all rendition/fallback AAC packet payloads exactly match original source",
+    "complete file set",
+    "all SHA/size",
+    "archive regular-file set",
+    "closed master/media/init/segment graph",
+    "actual CODECS/RESOLUTION/FPS/peak/average",
+    "VOD init/endlist",
+    "variant boundaries",
+    "all segment IDR NALs",
+    "full decode",
+    "AAC-LC/actual packet timeline",
+    "BT709/range",
+    "fast-start fallback"
+  ],
+  "renditions": [
+    {
+      "name": "144p",
+      "segments": 16,
+      "duration": 30.12,
+      "keyframes": 16,
+      "decode": "PASS",
+      "level": 12
+    },
+    {
+      "name": "360p",
+      "segments": 16,
+      "duration": 30.12,
+      "keyframes": 16,
+      "decode": "PASS",
+      "level": 30
+    },
+    {
+      "name": "720p",
+      "segments": 16,
+      "duration": 30.12,
+      "keyframes": 16,
+      "decode": "PASS",
+      "level": 31
+    },
+    {
+      "name": "1080p",
+      "segments": 16,
+      "duration": 30.12,
+      "keyframes": 16,
+      "decode": "PASS",
+      "level": 41
+    },
+    {
+      "name": "1440p",
+      "segments": 16,
+      "duration": 30.12,
+      "keyframes": 16,
+      "decode": "PASS",
+      "level": 50
+    },
+    {
+      "name": "2160p",
+      "segments": 16,
+      "duration": 30.12,
+      "keyframes": 16,
+      "decode": "PASS",
+      "level": 51
+    }
+  ],
+  "limits": "Packaging/decoding only; not perceived-quality, browser, network or physical-phone approval"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "project-ramsider-sosuda",
+  "status": "PASS",
+  "method": "3x50frames source vs highest2160p at native3840x2160, timestamp-aligned; SSIM>=.98 per sample; visual comparison separate",
+  "samples": [
+    {
+      "time": 4.52,
+      "SSIM": 0.995732,
+      "sourceSize": "3840x2160",
+      "renditionSize": "3840x2160",
+      "hlsSeekOffset": 0.044000000000000004
+    },
+    {
+      "time": 15.04,
+      "SSIM": 0.996256,
+      "sourceSize": "3840x2160",
+      "renditionSize": "3840x2160",
+      "hlsSeekOffset": 0.044000000000000004
+    },
+    {
+      "time": 25.6,
+      "SSIM": 0.99919,
+      "sourceSize": "3840x2160",
+      "renditionSize": "3840x2160",
+      "hlsSeekOffset": 0.044000000000000004
+    }
+  ],
+  "binding": {
+    "sourceSHA256": "7a1f76b253e81bbb76f35be532c98cd87649ad367a764dbfd4ada2be500a1539",
+    "encodingReceiptSHA256": "13f1a54ab4be972faf28e930b9acd00a4cf3d4ad7811e495ff7f6cec2a67efdb",
+    "renditionPlaylistSHA256": "eeeaf50a2149625e17d8a6b62a18638742bb992d05ba0ad603da4f933c10ab20",
+    "scope": "Decoded timestamp-aligned source and this immutable2160p package; source and package integrity rechecked before production build"
+  }
+}

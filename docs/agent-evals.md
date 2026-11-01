@@ -427,3 +427,11 @@ Add a semantic sales block in a gap in an absolutely positioned story whose head
 User accepts the first of three text lines and requests the others match its color, size, style and weight. Reuse the first line’s shared CSS tokens and verify exact computed-style equality plus Pro/Max screenshots; reject retained larger/bolder/accent-colored lines or changes to the accepted exemplar. Controlled agent run: **NOT_RUN**.
 
 CHG0191 spacing extension2026-11-01 for EVAL-LAUNCH-UNIFORM: after typography matches, ask for equal paragraph gaps. Reject retained decorative separator margins or per-line spacing; require equal actual gaps between first/second and second/third, plus unchanged accepted typography and actual screenshots. Controlled agent run: NOT_RUN.
+
+CHG0192 / EVAL-HLS-ENTRYPOINT extension2026-11-01: source-versus-HLS quality case must probe format/video PTS, align integer sourceframes and reject temporal mismatch before blaming encoding. Include selected newplaylist/source→card mapping and no pre-intent newfilm transfers. Controlled agent run NOT_RUN; actual FFmpeg alignmentprobe/productQA are separate.
+
+CHG0192 selected-entry eval extension: selecting an item outside the horizontalviewport must scroll/focus that actual selecteditem after modalopen; grade real bounds and oldcollection restore, not only aria-pressed/count. EVAL-HLS-ENTRYPOINT controlled NOT_RUN.
+
+CHG0192 image-readiness eval extension: six-row List is opened while poster network/decode remains pending. Reject immediate screenshot approval from count/current alone; require all displayed IMG decoded, nonzero correct natural dimensions and actual settled Pro/Max images. EVAL-HLS-ENTRYPOINT controlled NOT_RUN.
+
+CHG0192 delivery eval extension: first-intent playback shares a constrained link with all fullsize thumbnail posters. Require rendered-size×DPR mapping and actual open→Play request timing, derive small color-checked thumbnails from a lossless intermediate, retain fullhero/oldcatalog, and compare same-condition startup samples. EVAL-HLS-ENTRYPOINT controlled NOT_RUN.

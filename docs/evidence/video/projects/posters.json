@@ -1,0 +1,260 @@
+[
+  {
+    "id": "project-ramsider-overview",
+    "time": 8,
+    "source": "design/video2/b2c_full_video.mp4",
+    "reference": "screenshots/video/projects/project-ramsider-overview-poster-source.png",
+    "output": "public/art/films/projects/project-ramsider-overview.jpg",
+    "bytes": 99960,
+    "size": [
+      1280,
+      720
+    ],
+    "rgbMAE": [
+      0.9105056423611111,
+      0.32406792534722223,
+      0.3054296875
+    ],
+    "signedMean": [
+      -0.3636631944444275,
+      -0.13459960937501592,
+      0.05404296874999659
+    ],
+    "icc": true,
+    "alpha": "opaque source/output",
+    "crop": "none; whole16:9",
+    "method": "source declared BT709tv -> matrix-aware full-range RGB using FFmpeg, Lanczos resize; sRGB display tag matching web decoded-frame reference; no manual channel adjustment",
+    "p99RGB": [
+      3,
+      2,
+      3
+    ],
+    "maxLocal64RGBMAE": 1.7548828125,
+    "sourceSHA256": "5fd8b86dfd4b630d507e9ed829d1c96f449a6fcbd592fc277716ceaf5511acf3",
+    "outputSHA256": "45591b52bde17c4b3aaf420b3679ed8e6e4e3ae053c552b1035d9f17629551f9",
+    "iccSHA256": "3a86279cd2c62b20074f51b3bc68ee69b1d5f45b8ed49a440681b17349f74990",
+    "losslessCandidate": {
+      "path": "screenshots/video/projects/lossless-poster-candidates/project-ramsider-overview.webp",
+      "bytes": 191346,
+      "decodedRGBExact": true,
+      "iccExact": true,
+      "sha256": "648efc859af3930ea2aa733ec8f02130b749d6b96c92f59122680c4e849af96d"
+    },
+    "selected": "JPEG95/4:4:4/sRGB; meanRGB<=1.007 and p99<=6/255, source/pair visually inspected; 992271B aggregate versus2149572B lossless. No visually-lossless/exact-color-on-all-displays claim."
+  },
+  {
+    "id": "project-ramsider-asmohookah",
+    "time": 25,
+    "source": "design/video2/asmohookah sample montage.mp4",
+    "reference": "screenshots/video/projects/project-ramsider-asmohookah-poster-source.png",
+    "output": "public/art/films/projects/project-ramsider-asmohookah.jpg",
+    "bytes": 167576,
+    "size": [
+      1280,
+      720
+    ],
+    "rgbMAE": [
+      0.8201399739583334,
+      0.3953765190972222,
+      1.0060720486111112
+    ],
+    "signedMean": [
+      0.3483235677083343,
+      0.010200737847224417,
+      0.4146940104166674
+    ],
+    "icc": true,
+    "alpha": "opaque source/output",
+    "crop": "none; whole16:9",
+    "method": "source declared BT709tv -> matrix-aware full-range RGB using FFmpeg, Lanczos resize; sRGB display tag matching web decoded-frame reference; no manual channel adjustment",
+    "p99RGB": [
+      3,
+      3,
+      4
+    ],
+    "maxLocal64RGBMAE": 2.232666015625,
+    "sourceSHA256": "70446da3f18d01c33c1b07754c04e15cf364644bde26f4b651100a6017431fe3",
+    "outputSHA256": "521c4477582c8c2c3a27b6fb69ebd5001eb4f4c62106c20450adcbbbeb8a3333",
+    "iccSHA256": "3a86279cd2c62b20074f51b3bc68ee69b1d5f45b8ed49a440681b17349f74990",
+    "losslessCandidate": {
+      "path": "screenshots/video/projects/lossless-poster-candidates/project-ramsider-asmohookah.webp",
+      "bytes": 442036,
+      "decodedRGBExact": true,
+      "iccExact": true,
+      "sha256": "d0eba6d1e09168e5ba96a6719efb17771b4e9eb601039d473f13084b6d7002e4"
+    },
+    "selected": "JPEG95/4:4:4/sRGB; meanRGB<=1.007 and p99<=6/255, source/pair visually inspected; 992271B aggregate versus2149572B lossless. No visually-lossless/exact-color-on-all-displays claim."
+  },
+  {
+    "id": "project-ramsider-sosuda",
+    "time": 25,
+    "source": "design/video2/black studio sosuda intera.mp4",
+    "reference": "screenshots/video/projects/project-ramsider-sosuda-poster-source.png",
+    "output": "public/art/films/projects/project-ramsider-sosuda.jpg",
+    "bytes": 94363,
+    "size": [
+      1280,
+      720
+    ],
+    "rgbMAE": [
+      0.1763715277777778,
+      0.11849826388888889,
+      0.154951171875
+    ],
+    "signedMean": [
+      0.016458333333332575,
+      0.03485460069444457,
+      0.03735785590277807
+    ],
+    "icc": true,
+    "alpha": "opaque source/output",
+    "crop": "none; whole16:9",
+    "method": "source declared BT709tv -> matrix-aware full-range RGB using FFmpeg, Lanczos resize; sRGB display tag matching web decoded-frame reference; no manual channel adjustment",
+    "p99RGB": [
+      3,
+      2,
+      3
+    ],
+    "maxLocal64RGBMAE": 1.57470703125,
+    "sourceSHA256": "7a1f76b253e81bbb76f35be532c98cd87649ad367a764dbfd4ada2be500a1539",
+    "outputSHA256": "2408f1c3881dc3ab56fd64276dac1bf0b35bab0ccda95490c7b601fe730fdc99",
+    "iccSHA256": "3a86279cd2c62b20074f51b3bc68ee69b1d5f45b8ed49a440681b17349f74990",
+    "losslessCandidate": {
+      "path": "screenshots/video/projects/lossless-poster-candidates/project-ramsider-sosuda.webp",
+      "bytes": 98740,
+      "decodedRGBExact": true,
+      "iccExact": true,
+      "sha256": "a5f929ae2f402d2d6ffbbf4c13a5760d6b51f789d53d0e0662b2bf9104f95ee8"
+    },
+    "selected": "JPEG95/4:4:4/sRGB; meanRGB<=1.007 and p99<=6/255, source/pair visually inspected; 992271B aggregate versus2149572B lossless. No visually-lossless/exact-color-on-all-displays claim."
+  },
+  {
+    "id": "project-ramsider-cubos",
+    "time": 17,
+    "source": "design/video2/black studio cubos intera.mp4",
+    "reference": "screenshots/video/projects/project-ramsider-cubos-poster-source.png",
+    "output": "public/art/films/projects/project-ramsider-cubos.jpg",
+    "bytes": 174802,
+    "size": [
+      1280,
+      720
+    ],
+    "rgbMAE": [
+      0.35410264756944443,
+      0.33536458333333335,
+      0.5463389756944445
+    ],
+    "signedMean": [
+      0.0764116753472237,
+      0.019503038194443434,
+      0.0006510416666642982
+    ],
+    "icc": true,
+    "alpha": "opaque source/output",
+    "crop": "none; whole16:9",
+    "method": "source declared BT709tv -> matrix-aware full-range RGB using FFmpeg, Lanczos resize; sRGB display tag matching web decoded-frame reference; no manual channel adjustment",
+    "p99RGB": [
+      5,
+      4,
+      6
+    ],
+    "maxLocal64RGBMAE": 3.053466796875,
+    "sourceSHA256": "07cf83a06282f42471a46ff96b5f7e2a8c57d6f14954b679066f45cee134e2af",
+    "outputSHA256": "6c913d521ce9ae68f05d47b531f3fe0426eeb9ff1e309d6794da91d91d71c8c3",
+    "iccSHA256": "3a86279cd2c62b20074f51b3bc68ee69b1d5f45b8ed49a440681b17349f74990",
+    "losslessCandidate": {
+      "path": "screenshots/video/projects/lossless-poster-candidates/project-ramsider-cubos.webp",
+      "bytes": 298652,
+      "decodedRGBExact": true,
+      "iccExact": true,
+      "sha256": "f5b2791b870ef4bceb7c26241f6376a9b319df6df5c67fe705d48456e45026f1"
+    },
+    "selected": "JPEG95/4:4:4/sRGB; meanRGB<=1.007 and p99<=6/255, source/pair visually inspected; 992271B aggregate versus2149572B lossless. No visually-lossless/exact-color-on-all-displays claim."
+  },
+  {
+    "id": "project-ramsmobile-protos",
+    "time": 12,
+    "source": "design/video2/PROTOS WHITE STUDIO.mp4",
+    "reference": "screenshots/video/projects/project-ramsmobile-protos-poster-source.png",
+    "output": "public/art/films/projects/project-ramsmobile-protos.jpg",
+    "bytes": 207089,
+    "size": [
+      1280,
+      720
+    ],
+    "rgbMAE": [
+      0.9182421875,
+      0.6107953559027778,
+      0.8043977864583334
+    ],
+    "signedMean": [
+      -0.11891710069446049,
+      -0.14774631076389255,
+      0.12730360243054406
+    ],
+    "icc": true,
+    "alpha": "opaque source/output",
+    "crop": "none; whole16:9",
+    "method": "source declared BT709tv -> matrix-aware full-range RGB using FFmpeg, Lanczos resize; sRGB display tag matching web decoded-frame reference; no manual channel adjustment",
+    "p99RGB": [
+      4,
+      3,
+      5
+    ],
+    "maxLocal64RGBMAE": 2.09228515625,
+    "sourceSHA256": "eb987f732321a71282c90b2340321e353e4df792cd9ed8db5e8a10d9daf128e9",
+    "outputSHA256": "7041bb714670b7474cfbc88c0ef6678958c5914b5f4d3a1ca861da0698ba4f22",
+    "iccSHA256": "3a86279cd2c62b20074f51b3bc68ee69b1d5f45b8ed49a440681b17349f74990",
+    "losslessCandidate": {
+      "path": "screenshots/video/projects/lossless-poster-candidates/project-ramsmobile-protos.webp",
+      "bytes": 469688,
+      "decodedRGBExact": true,
+      "iccExact": true,
+      "sha256": "caf53e15b0307023a80e65f1669bc1ad4be6b9c4a8ab57dfc728adcb9f538158"
+    },
+    "selected": "JPEG95/4:4:4/sRGB; meanRGB<=1.007 and p99<=6/255, source/pair visually inspected; 992271B aggregate versus2149572B lossless. No visually-lossless/exact-color-on-all-displays claim."
+  },
+  {
+    "id": "project-ramswear",
+    "time": 12,
+    "source": "design/video2/ramswear teaser.mp4",
+    "reference": "screenshots/video/projects/project-ramswear-poster-source.png",
+    "output": "public/art/films/projects/project-ramswear.jpg",
+    "bytes": 248481,
+    "size": [
+      1280,
+      720
+    ],
+    "rgbMAE": [
+      0.7753016493055556,
+      0.6998687065972222,
+      0.9501453993055555
+    ],
+    "signedMean": [
+      -0.06460286458333364,
+      0.026891276041666856,
+      -0.07307074652777779
+    ],
+    "icc": true,
+    "alpha": "opaque source/output",
+    "crop": "none; whole16:9",
+    "method": "source declared BT709tv -> matrix-aware full-range RGB using FFmpeg, Lanczos resize; sRGB display tag matching web decoded-frame reference; no manual channel adjustment",
+    "p99RGB": [
+      4,
+      4,
+      5
+    ],
+    "maxLocal64RGBMAE": 1.901611328125,
+    "sourceSHA256": "75e0b41b211ee6e9521853ef9cbce5dcbf62747ac2800fe45c366b7af17e8fd2",
+    "outputSHA256": "cfcb1e08326e41170ee29d1e5e9a215bc0bb7a4281b644ec3f1bc18a62403952",
+    "iccSHA256": "3a86279cd2c62b20074f51b3bc68ee69b1d5f45b8ed49a440681b17349f74990",
+    "losslessCandidate": {
+      "path": "screenshots/video/projects/lossless-poster-candidates/project-ramswear.webp",
+      "bytes": 649110,
+      "decodedRGBExact": true,
+      "iccExact": true,
+      "sha256": "fa69fa2abadd6dcc55f2ab2801a74b5fecde07e27d830a7c719cfcae7960f380"
+    },
+    "selected": "JPEG95/4:4:4/sRGB; meanRGB<=1.007 and p99<=6/255, source/pair visually inspected; 992271B aggregate versus2149572B lossless. No visually-lossless/exact-color-on-all-displays claim."
+  }
+]

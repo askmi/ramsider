@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-01",
+  "types": "Final2 PASS/no errors (production build2 also typechecks)",
+  "scopedLint": {
+    "errors": 0,
+    "warnings": 5,
+    "rawLocalLog": "screenshots/video/projects/lint-final2.log"
+  },
+  "fullLint": {
+    "status": "FAIL_UNRELATED_CHG0181",
+    "errors": 37,
+    "warnings": 23,
+    "errorsByPath": {
+      "private-design-package/qa/check_age_gate.cjs": 3,
+      "private-design-package/qa/check_audit_runtime.cjs": 3,
+      "private-design-package/qa/check_contact_runtime.cjs": 3,
+      "private-design-package/qa/check_delivery_policy_runtime.cjs": 3,
+      "private-design-package/qa/check_feed_input.cjs": 3,
+      "private-design-package/qa/check_feed_runtime.cjs": 3,
+      "private-design-package/qa/check_locale_runtime.cjs": 4,
+      "private-design-package/qa/check_materials.cjs": 3,
+      "private-design-package/qa/check_r69_prices.cjs": 3,
+      "private-design-package/qa/check_sale_runtime.cjs": 3,
+      "private-design-package/qa/dom_adapter.cjs": 3,
+      "private-design-package/qa/runtime_check.cjs": 3
+    },
+    "rawLocalLog": "screenshots/video/projects/full-lint.log",
+    "rawPathDetails": "Local ignored full-lint.log; source package not changed or published."
+  },
+  "hardware": {
+    "selectedXcode": "CommandLineTools",
+    "simctl": "unavailable",
+    "physicalPhones": "not accessible; no physical verification claimed"
+  },
+  "nativeReview": {
+    "status": "CLEAN_FINAL_DIFF",
+    "evidence": "screenshots/video/projects/native-review4.log",
+    "verdict": "No actionable regressions; snapshot TypeScript and scoped ESLint pass; root production build and browser separately verified.",
+    "history": "Review1 sandbox tool-init failure; review2 intermediate P1 registry/P2 oldcaller resolved; review3 clean but snapshot omitted pre-existing feed-seam-map dependency, root types always passed. Existing dependency copied for review4, not a product defect."
+  }
+}

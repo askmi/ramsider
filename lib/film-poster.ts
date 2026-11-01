@@ -12,11 +12,11 @@ const apertures: Record<string, [number, number, number, number]> = {
   'inside-ramsider': [114, 0, 1052, 591],
 };
 
-export function filmPosterStyle(id: string): CSSProperties {
-  const [x, y, width, height] = apertures[id] ?? [0, 0, 1280, 591];
+export function filmPosterStyle(id: string, sourceWidth = 1280, sourceHeight = 591): CSSProperties {
+  const [x, y, width, height] = apertures[id] ?? [0, 0, sourceWidth, sourceHeight];
   return {
     '--film-poster-ratio': `${width} / ${height}`,
-    '--film-poster-width': `${1280 / width * 100}%`,
+    '--film-poster-width': `${sourceWidth / width * 100}%`,
     '--film-poster-left': `${-x / width * 100}%`,
     '--film-poster-top': `${-y / height * 100}%`,
   } as CSSProperties;

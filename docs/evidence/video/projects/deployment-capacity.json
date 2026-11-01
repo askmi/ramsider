@@ -1,0 +1,8 @@
+{
+  "date": "2026-11-01",
+  "source": "https://vercel.com/docs/limits",
+  "review": "Official page static uploads section applies CLI source uploads, not this existing Git/LFS build preparation. No provider configuration/account/plan changes authorized or made. Final exact-commit deployment success and public objects must establish actual outcome.",
+  "knownPreparedPublicMediaBytes": 4396870667,
+  "largestNewStaticObject": "fallback.mp4 85829823B; HLS segments are individual small objects, 1381754880B LFS tar is source package hydrated by existing build flow, not runtime single static video object.",
+  "status": "Await actual requested Git deployment after all local gates"
+}

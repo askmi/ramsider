@@ -1,0 +1,571 @@
+{
+  "schema": 1,
+  "id": "project-ramsider-cubos",
+  "audioLocale": "und",
+  "version": "v1",
+  "sourceSHA256": "07cf83a06282f42471a46ff96b5f7e2a8c57d6f14954b679066f45cee134e2af",
+  "source": {
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "aac",
+        "profile": "LC",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "channels": 2,
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "duration": "21.160000"
+      },
+      {
+        "index": 1,
+        "codec_name": "h264",
+        "profile": "High",
+        "codec_type": "video",
+        "width": 3840,
+        "height": 2160,
+        "sample_aspect_ratio": "1:1",
+        "pix_fmt": "yuv420p",
+        "level": 51,
+        "color_range": "tv",
+        "color_space": "bt709",
+        "color_transfer": "bt709",
+        "color_primaries": "bt709",
+        "r_frame_rate": "25/1",
+        "avg_frame_rate": "25/1",
+        "duration": "21.160000"
+      }
+    ],
+    "duration": "21.160000"
+  },
+  "encoder": "ffmpeg version 9.0.2 Copyright (c) 2000-2026 the FFmpeg developers",
+  "audioPolicy": "source-copy",
+  "sourceAudio": {
+    "packets": 994,
+    "bytes": 307587,
+    "sha256": "2dfb57a9092b65be5d88e280f8d3db75f359f4be7c497735f057e949e3f10077"
+  },
+  "reuseReceiptSHA256": null,
+  "recipe": {
+    "segmentSeconds": 2.0,
+    "gopFrames": 50,
+    "preset": "medium",
+    "threads": 4
+  },
+  "width": 3840,
+  "height": 2160,
+  "duration": 21.16,
+  "renditions": [
+    {
+      "name": "144p",
+      "width": 256,
+      "height": 144,
+      "fps": 25.0,
+      "codecs": "avc1.64000c,mp4a.40.2",
+      "bandwidth": 161508,
+      "averageBandwidth": 139736,
+      "segments": 11,
+      "duration": 21.16,
+      "profile": {
+        "name": "144p",
+        "height": 144,
+        "maxVideoKbps": 20,
+        "crf": 30
+      }
+    },
+    {
+      "name": "360p",
+      "width": 640,
+      "height": 360,
+      "fps": 25.0,
+      "codecs": "avc1.64001e,mp4a.40.2",
+      "bandwidth": 840420,
+      "averageBandwidth": 534678,
+      "segments": 11,
+      "duration": 21.16,
+      "profile": {
+        "name": "360p",
+        "height": 360,
+        "maxVideoKbps": 550,
+        "crf": 19
+      }
+    },
+    {
+      "name": "720p",
+      "width": 1280,
+      "height": 720,
+      "fps": 25.0,
+      "codecs": "avc1.64001f,mp4a.40.2",
+      "bandwidth": 2558476,
+      "averageBandwidth": 1687309,
+      "segments": 11,
+      "duration": 21.16,
+      "profile": {
+        "name": "720p",
+        "height": 720,
+        "maxVideoKbps": 2000,
+        "crf": 18
+      }
+    },
+    {
+      "name": "1080p",
+      "width": 1920,
+      "height": 1080,
+      "fps": 25.0,
+      "codecs": "avc1.640029,mp4a.40.2",
+      "bandwidth": 5299952,
+      "averageBandwidth": 3671069,
+      "segments": 11,
+      "duration": 21.16,
+      "profile": {
+        "name": "1080p",
+        "height": 1080,
+        "maxVideoKbps": 4500,
+        "crf": 18,
+        "level": "4.1",
+        "refs": 4
+      }
+    },
+    {
+      "name": "1440p",
+      "width": 2560,
+      "height": 1440,
+      "fps": 25.0,
+      "codecs": "avc1.640032,mp4a.40.2",
+      "bandwidth": 9289032,
+      "averageBandwidth": 6381515,
+      "segments": 11,
+      "duration": 21.16,
+      "profile": {
+        "name": "1440p",
+        "height": 1440,
+        "maxVideoKbps": 8000,
+        "crf": 18
+      }
+    },
+    {
+      "name": "2160p",
+      "width": 3840,
+      "height": 2160,
+      "fps": 25.0,
+      "codecs": "avc1.640033,mp4a.40.2",
+      "bandwidth": 16540392,
+      "averageBandwidth": 12367099,
+      "segments": 11,
+      "duration": 21.16,
+      "profile": {
+        "name": "2160p",
+        "height": 2160,
+        "maxVideoKbps": 14000,
+        "crf": 17
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "1080p/index.m3u8",
+      "bytes": 563,
+      "sha256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f"
+    },
+    {
+      "path": "1080p/init.mp4",
+      "bytes": 1394,
+      "sha256": "497dd68d91335f8f90449108322a5192256fec6849a670776b7b4cf64448c0b2"
+    },
+    {
+      "path": "1080p/segment-00000.m4s",
+      "bytes": 1203025,
+      "sha256": "ec7a1d1a84b13a7a1031857be06b4a22757c3e5508bccf98abb95d24ac8d5b30"
+    },
+    {
+      "path": "1080p/segment-00001.m4s",
+      "bytes": 1324988,
+      "sha256": "59080396a5d78f00400651e8f4afb4cea3aa1a0b55fb2b01e01ebe2046d16997"
+    },
+    {
+      "path": "1080p/segment-00002.m4s",
+      "bytes": 1190771,
+      "sha256": "c527191c84416ceb980a4e3618420eb452a522bb7c75b081c7655f667545d034"
+    },
+    {
+      "path": "1080p/segment-00003.m4s",
+      "bytes": 1158140,
+      "sha256": "1354dcd796bbf7eda97d5f272601d96cd5e0d4ea8aa89ed546738584dea5f38b"
+    },
+    {
+      "path": "1080p/segment-00004.m4s",
+      "bytes": 1224893,
+      "sha256": "280acfd54deb6b70dfacac47c29b89b0fde9df5eda68425eb8e3c4e63c717713"
+    },
+    {
+      "path": "1080p/segment-00005.m4s",
+      "bytes": 1054013,
+      "sha256": "bbf2cb594361ad24a41778ab4212809fed2194d399b3f559e059be7d709e000f"
+    },
+    {
+      "path": "1080p/segment-00006.m4s",
+      "bytes": 603546,
+      "sha256": "f123af357dbb7c4a6af74e370a8569ed315efc23c670b9a43b0f5da97704e8c6"
+    },
+    {
+      "path": "1080p/segment-00007.m4s",
+      "bytes": 984880,
+      "sha256": "77389b41a401ecb44bcd7f418f699607dc13e803f5cd57876f224ab00cbd3559"
+    },
+    {
+      "path": "1080p/segment-00008.m4s",
+      "bytes": 922634,
+      "sha256": "6fa573562c7c958f5035d4538bc5a1743d7f3b54261a747b68b38d5230e2196a"
+    },
+    {
+      "path": "1080p/segment-00009.m4s",
+      "bytes": 35337,
+      "sha256": "6429a59a1122d9b3fbbe06cf095a95e31088463862df5e8502f378a57fd9adce"
+    },
+    {
+      "path": "1080p/segment-00010.m4s",
+      "bytes": 7751,
+      "sha256": "f9b591f505acfa9a32005911d0f4dbead61c599aec9077cf6e0d2776e5aba27c"
+    },
+    {
+      "path": "1440p/index.m3u8",
+      "bytes": 563,
+      "sha256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f"
+    },
+    {
+      "path": "1440p/init.mp4",
+      "bytes": 1394,
+      "sha256": "86353c2343d7c6fecd970f44f5d8c066ae98252aaf8fa30ecb5946ed2725bd8d"
+    },
+    {
+      "path": "1440p/segment-00000.m4s",
+      "bytes": 2190290,
+      "sha256": "c1c3609f01e2846113e7e1d5caaf2554505f79c2ea53a1c94d616b67f3b28fc9"
+    },
+    {
+      "path": "1440p/segment-00001.m4s",
+      "bytes": 2322258,
+      "sha256": "f730de06dc6f2d26694dafa1286affb1ed816d51f5b4df8971b066a94995bcf7"
+    },
+    {
+      "path": "1440p/segment-00002.m4s",
+      "bytes": 2068692,
+      "sha256": "80e4b6cd17ccc5974cd259e688caa500865f2a74f46ab2c3248253577ee40c4c"
+    },
+    {
+      "path": "1440p/segment-00003.m4s",
+      "bytes": 2042134,
+      "sha256": "2c0a709b8df1132cd75df6662721f2aabce01e747ad282e9b70f3297061c5fca"
+    },
+    {
+      "path": "1440p/segment-00004.m4s",
+      "bytes": 2169858,
+      "sha256": "f0879cd3613fba3708cb39a8d833905e4e431435e66883c4dbdfd61abb3a0eb7"
+    },
+    {
+      "path": "1440p/segment-00005.m4s",
+      "bytes": 1829016,
+      "sha256": "b37e47706a286397c488050d85a1baab4209fd29d033e2f3e329990acbf8fdf6"
+    },
+    {
+      "path": "1440p/segment-00006.m4s",
+      "bytes": 1016551,
+      "sha256": "b80d81acdae73421ba837af36928e4a6acc1050ed114e4391389f20759f99bc1"
+    },
+    {
+      "path": "1440p/segment-00007.m4s",
+      "bytes": 1643626,
+      "sha256": "d71d734d86fbf9691e84c19077e58d2b79ea5d155d841b94bda401eeb7377f2c"
+    },
+    {
+      "path": "1440p/segment-00008.m4s",
+      "bytes": 1544095,
+      "sha256": "e864cf7f321dcd11e9f499bd817bafea1f111f9b1924e6a5291879e197c65a4c"
+    },
+    {
+      "path": "1440p/segment-00009.m4s",
+      "bytes": 42129,
+      "sha256": "e139e3094b3186f09af68b3041c6f441174f9632f4ba083792cc49997c87d0e1"
+    },
+    {
+      "path": "1440p/segment-00010.m4s",
+      "bytes": 10457,
+      "sha256": "54a947788c1a44cec35bd2e3d697fc62a545dfda01fd37542c99e8624df7f6c5"
+    },
+    {
+      "path": "144p/index.m3u8",
+      "bytes": 563,
+      "sha256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f"
+    },
+    {
+      "path": "144p/init.mp4",
+      "bytes": 1391,
+      "sha256": "f2e1fbd6553f055f3f4aa7f652cac248c5185c1c97cf044dab4a9bdbc94a1073"
+    },
+    {
+      "path": "144p/segment-00000.m4s",
+      "bytes": 38023,
+      "sha256": "3eb026be4c2333521715c3311dd079c8cfe045a948868d99c9f8939853b5afcc"
+    },
+    {
+      "path": "144p/segment-00001.m4s",
+      "bytes": 39028,
+      "sha256": "cf9f385f00c71a7147807b3092b6110dd92874b785f6e2eaf53844b00326b8c9"
+    },
+    {
+      "path": "144p/segment-00002.m4s",
+      "bytes": 38846,
+      "sha256": "de938b05e0a697899b70c3bf52319444f9e2751350b72317e2306cbba8fc8d9b"
+    },
+    {
+      "path": "144p/segment-00003.m4s",
+      "bytes": 35474,
+      "sha256": "e29e22a7cc02bf1bfcbfb49d6f5639dcc00e7c052839208e84559ce8d596cdb9"
+    },
+    {
+      "path": "144p/segment-00004.m4s",
+      "bytes": 37450,
+      "sha256": "c2f9a20918f7388d865791160c3a9d3752a23b58228f2b248230d07acbdeef11"
+    },
+    {
+      "path": "144p/segment-00005.m4s",
+      "bytes": 40377,
+      "sha256": "f11ff98e313b68303fb9bbec9c53b8202d31969bc21bf8826bc1fef3955cdd58"
+    },
+    {
+      "path": "144p/segment-00006.m4s",
+      "bytes": 38587,
+      "sha256": "ae5621e1d7d485dff47b2eb3e2971be5f37aa9c552b3fee3a2228689e4920d69"
+    },
+    {
+      "path": "144p/segment-00007.m4s",
+      "bytes": 37553,
+      "sha256": "b788fee060703a1105c004c2d5d0c721a9a10e533c3fc1b06f37d7a17a94611a"
+    },
+    {
+      "path": "144p/segment-00008.m4s",
+      "bytes": 40272,
+      "sha256": "e9072b4e1342dc4cf5aecd5060db327667b6a2d464b62a2f307ee40e8f56040e"
+    },
+    {
+      "path": "144p/segment-00009.m4s",
+      "bytes": 22262,
+      "sha256": "83e6a1ec2237e7d4c4cc0409f744fb143808be9fad1451b2341d8050db3e9942"
+    },
+    {
+      "path": "144p/segment-00010.m4s",
+      "bytes": 1731,
+      "sha256": "962deaaf413957ca78b5059fcf35d032bafc9193bd9193b3ea03fb2d5ea08699"
+    },
+    {
+      "path": "2160p/index.m3u8",
+      "bytes": 563,
+      "sha256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f"
+    },
+    {
+      "path": "2160p/init.mp4",
+      "bytes": 1394,
+      "sha256": "76e3798d86b0006173b8de8893b2fa9dc9b685ec8ea11bce79b3e6e7b6cd91c8"
+    },
+    {
+      "path": "2160p/segment-00000.m4s",
+      "bytes": 3929802,
+      "sha256": "397a6f30849f22ae9f8a9193ec2e6af578780b18eeb1de90c1dba5cee9a090ef"
+    },
+    {
+      "path": "2160p/segment-00001.m4s",
+      "bytes": 4080918,
+      "sha256": "ef5d1ab981ae51821569e36a72eb0a265e9a9623f54821e4975bc1239a25a81f"
+    },
+    {
+      "path": "2160p/segment-00002.m4s",
+      "bytes": 3599276,
+      "sha256": "cbb493ca204240d310a7c4697dc928d60ef03484a46ff0454d8f38f78709c89a"
+    },
+    {
+      "path": "2160p/segment-00003.m4s",
+      "bytes": 3598253,
+      "sha256": "31165b868ec8dbc8a1e2d4ec715903d47820494220d054d822fa08514f841e46"
+    },
+    {
+      "path": "2160p/segment-00004.m4s",
+      "bytes": 3794330,
+      "sha256": "c0226c70cf45bbd5fd98a09938e2eff9693df7b785d9121421e81fc46ede63ba"
+    },
+    {
+      "path": "2160p/segment-00005.m4s",
+      "bytes": 3355744,
+      "sha256": "120c5cc0c5d7acc95edb2a953518f5c42e854442b4521b5542bd48ecbe1ef0af"
+    },
+    {
+      "path": "2160p/segment-00006.m4s",
+      "bytes": 2783111,
+      "sha256": "06d5bcef5b9ce82b604699e5127fcdfe650c4071b55c6dda1190dd979b004cab"
+    },
+    {
+      "path": "2160p/segment-00007.m4s",
+      "bytes": 4135098,
+      "sha256": "6bd0bb356938c5f1c1e50db8fe309432c5dced7454b9632aa5d95113e6ce0252"
+    },
+    {
+      "path": "2160p/segment-00008.m4s",
+      "bytes": 3361081,
+      "sha256": "f2fdc1de60f49f8d86da46d6920fdfac87b02b8ddc4395abca1c4be61944a401"
+    },
+    {
+      "path": "2160p/segment-00009.m4s",
+      "bytes": 56284,
+      "sha256": "21beac2aa03e71273b8f69677d654e11f741d64b2dcc3b4d69aef6bc33f5d4fa"
+    },
+    {
+      "path": "2160p/segment-00010.m4s",
+      "bytes": 17079,
+      "sha256": "7f3b4b7062dcc3b474ebff2ce230a45d07a76bc0e488dfedf8f3bfa8ce33e6ed"
+    },
+    {
+      "path": "360p/index.m3u8",
+      "bytes": 563,
+      "sha256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f"
+    },
+    {
+      "path": "360p/init.mp4",
+      "bytes": 1394,
+      "sha256": "04fdefa4c32fc99a34164e246b561e83e9be5a7fc65dc8d262e7d31b3c04c475"
+    },
+    {
+      "path": "360p/segment-00000.m4s",
+      "bytes": 150058,
+      "sha256": "c21d21b2eef284a784a14d7ca916be030ab41d23d2d5349045d8f6e5584d7f84"
+    },
+    {
+      "path": "360p/segment-00001.m4s",
+      "bytes": 210105,
+      "sha256": "4083e25b54b114cceb8401080e7ccad273e8476de35f0b77b04ce373ab30bc3a"
+    },
+    {
+      "path": "360p/segment-00002.m4s",
+      "bytes": 183572,
+      "sha256": "3a5d2c923a76d46628539d9b05e49078ec3e12640df46b0be33d8ac9828c6325"
+    },
+    {
+      "path": "360p/segment-00003.m4s",
+      "bytes": 167220,
+      "sha256": "725fc7ac1d5c8bd1ce94e39e10497b29d3c8690de32fe0c154167f91923cb9e2"
+    },
+    {
+      "path": "360p/segment-00004.m4s",
+      "bytes": 174891,
+      "sha256": "6561be88ed73bd34c4e1af2e733065a51cda2e21015f9ccbd12587f8f8f0a8e7"
+    },
+    {
+      "path": "360p/segment-00005.m4s",
+      "bytes": 135913,
+      "sha256": "f3a5ec3f13c5e6ee87648ef587e53edc040b7257e1ab1982645a92d52de778e8"
+    },
+    {
+      "path": "360p/segment-00006.m4s",
+      "bytes": 101795,
+      "sha256": "ce23122505f8772234b0498fdfc4cd83306c17e01d930efcc1be664b8c82278e"
+    },
+    {
+      "path": "360p/segment-00007.m4s",
+      "bytes": 136495,
+      "sha256": "0b998484a0ceb14f77e7ccdcc044c1ad13b30f65a612264330f4a96bda152e0f"
+    },
+    {
+      "path": "360p/segment-00008.m4s",
+      "bytes": 125032,
+      "sha256": "bb1ae48d207fcffb893b084ed476b78eb785dff17f6481a249ffb6187f53c58b"
+    },
+    {
+      "path": "360p/segment-00009.m4s",
+      "bytes": 25871,
+      "sha256": "50fa9a02434f0c4ef8be93354be84712fe043f19bd3b46c09c72f526376e06d9"
+    },
+    {
+      "path": "360p/segment-00010.m4s",
+      "bytes": 3270,
+      "sha256": "3c368aaddac77b1cf02333efe7cc16e6fd6376c12947aaad027df4d0719c647e"
+    },
+    {
+      "path": "720p/index.m3u8",
+      "bytes": 563,
+      "sha256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f"
+    },
+    {
+      "path": "720p/init.mp4",
+      "bytes": 1392,
+      "sha256": "1b6ad5bffe2fa07428e9f99c9680156b25762b34e1acf22eb63670ae201e03f3"
+    },
+    {
+      "path": "720p/segment-00000.m4s",
+      "bytes": 494889,
+      "sha256": "08ad88c39bf8cbd57f2d9f1f67cc29e0078bc7d4778e4a491a48425dee39ede8"
+    },
+    {
+      "path": "720p/segment-00001.m4s",
+      "bytes": 639619,
+      "sha256": "7f11b22d8948975234f124daf02fc7338076e1178082f3bd38073304147e7155"
+    },
+    {
+      "path": "720p/segment-00002.m4s",
+      "bytes": 576518,
+      "sha256": "e48bb1a9c8f5dd495c0748046be642d4bf31af97ea0bdd76797ad1a723335bcf"
+    },
+    {
+      "path": "720p/segment-00003.m4s",
+      "bytes": 504723,
+      "sha256": "d9e48e71218d234e394d7cf3e37d480247fb714bfc57045c5793b73900a18c39"
+    },
+    {
+      "path": "720p/segment-00004.m4s",
+      "bytes": 561220,
+      "sha256": "73aa019eb6e2c99749834c16c521e69629ee47ed7af96cbde16c3ce2a7e9e227"
+    },
+    {
+      "path": "720p/segment-00005.m4s",
+      "bytes": 450959,
+      "sha256": "a1fd58a0b9cbcea5e0e871b9e1394ff99607c2d4bf8b560e76eaa22078086ea6"
+    },
+    {
+      "path": "720p/segment-00006.m4s",
+      "bytes": 293237,
+      "sha256": "042814cb158d000778254947d41e12e722526620a31b34452753a765d1cb9dcc"
+    },
+    {
+      "path": "720p/segment-00007.m4s",
+      "bytes": 469049,
+      "sha256": "be61ec8df4e66d7afa87b73d005d2820c47d5fef38a73d12350a2cab045bb3b0"
+    },
+    {
+      "path": "720p/segment-00008.m4s",
+      "bytes": 436327,
+      "sha256": "c5095df5c20bc934e10a473b69a3ff050a8393cb83c5fef26e30c69fb861208b"
+    },
+    {
+      "path": "720p/segment-00009.m4s",
+      "bytes": 30911,
+      "sha256": "2cb6e466a3d9374910b4544056828faf2022eeec75b10ddae333b1a33c57a0c5"
+    },
+    {
+      "path": "720p/segment-00010.m4s",
+      "bytes": 5479,
+      "sha256": "96f86aaf3910cc74724d6b3bb476565cb31b47a90cb723277b460d80957ba2de"
+    },
+    {
+      "path": "fallback.mp4",
+      "bytes": 4469045,
+      "sha256": "475870f5177516389d5c0a6f7e3e192cfb212211d2b293376474cba28a93f7bf"
+    },
+    {
+      "path": "master.m3u8",
+      "bytes": 937,
+      "sha256": "169a3d846d044ad71fa1c7d09736e902076afd21156ac7ddcd18b6b643e3ccaf"
+    }
+  ],
+  "archive": {
+    "bytes": 70092800,
+    "sha256": "456e8aa520eee664f358f3313cd1dec3bf90f0a51987b62489a103158ccf7e2c"
+  },
+  "qualityApproval": "PENDING decoded-frame comparison/quality metrics/browser tests"
+}

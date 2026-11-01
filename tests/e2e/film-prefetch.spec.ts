@@ -9,7 +9,7 @@ const registry = JSON.parse(readFileSync('config/product-films.json', 'utf8'));
 const asset = registry.assets.find((a: { active: boolean; id: string; audioLocale: string }) => a.active && a.id === 'uno-introduction' && a.audioLocale === 'en');
 const base = `/films/${asset.directory}`;
 const cacheName = 'film-start-v1';
-const galleryAssets = registry.assets.filter((a: {active:boolean;audioLocale:string}) => a.active && ['en','und'].includes(a.audioLocale));
+const galleryAssets = registry.assets.filter((a: {active:boolean;audioLocale:string;id:string}) => a.active && !a.id.startsWith('project-') && ['en','und'].includes(a.audioLocale));
 const warmCount = galleryAssets.length * 6;
 
 test.beforeEach(({}, info) => { test.skip(info.project.name === 'desktop-firefox', 'Chromium MSE and both native WebKit profiles own cache integration'); });

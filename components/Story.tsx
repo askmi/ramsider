@@ -29,7 +29,7 @@ import { SiteFooter } from './SiteFooter';
 import { WellnessRibbon } from './WellnessRibbon';
 import { ProductFilm } from './ProductFilm';
 import { productFilmCopy } from '@/lib/product-film';
-import { selectProductFilms } from '@/lib/product-film-catalog';
+import { selectProductFilms, selectProjectFilms } from '@/lib/product-film-catalog';
 
 // Source coordinates and overlaps are shared with the color-managed exporter.
 import storyArt from '@/docs/evidence/loading-flow/feed-seam-map.json';
@@ -224,8 +224,6 @@ const modelDetails = {
 } as const;
 
 function Popovers({ locale, captureEnabled }: { locale: Locale; captureEnabled: boolean }) {
-  const projects = ['project1', 'project2', 'project3', 'project4'] as const;
-  const projectBodies = ['project1Body', 'project2Body', 'project3Body', 'project4Body'] as const;
   return <>{blocked.map(([id, key]) => <Panel key={id} id={`unavailable-${id}`} title={t(locale, id === 'commerce' ? 'salesLaunchTitle' : 'unavailableTitle')} locale={locale}>
     <p>{t(locale, key)}</p>
     {id === 'commerce' && captureEnabled && <button type="button" className={captureStyles.entry} data-launch-open>{launchCopy.entry}</button>}
@@ -245,11 +243,10 @@ function Popovers({ locale, captureEnabled }: { locale: Locale; captureEnabled: 
       <p>{t(locale, 'setLaunchBody')}</p>
       {captureEnabled && <button type="button" className={captureStyles.entry} data-launch-open>{launchCopy.setEntry}</button>}
     </Panel>
-    {projects.map((key, i) => <Panel key={key} id={`project-detail-${i + 1}`} title={t(locale, key)} locale={locale}>
-      <p>{textLines(t(locale, projectBodies[i]))}</p>
-      {i === 1 && <p>{textLines(t(locale, 'project2More'))}</p>}
+    <Panel id="project-detail-4" title={t(locale, 'project4')} locale={locale}>
+      <p>{textLines(t(locale, 'project4Body'))}</p>
       <p>{t(locale, 'unavailableProject')}</p>
-    </Panel>)}
+    </Panel>
   </>;
 }
 
@@ -349,7 +346,7 @@ export function Story({ locale }: { locale: Locale }) {
       ].map(({ hit, number, link }, i) => <div key={hit}>
         <p className="project-number" style={sourceStyle(75, number, 340, 16)}>{t(locale, 'projectLabel')} {String(i + 1).padStart(2, '0')}</p>
         {i === 0 && <span className="project-active" style={sourceStyle(75, 29545, 105, 14)}>{t(locale, 'active')}</span>}
-        <button id={`project-${['ramsider', 'ramsmobile', 'ramswear', 'ramsfood'][i]}`} type="button" className="project-hit" style={sourceStyle(40, hit, 850)} popoverTarget={`project-detail-${i + 1}`} aria-label={t(locale, (['project1', 'project2', 'project3', 'project4'] as const)[i])}>
+        <button id={`project-${['ramsider', 'ramsmobile', 'ramswear', 'ramsfood'][i]}`} type="button" className="project-hit" style={sourceStyle(40, hit, 850)} popoverTarget={i === 3 ? 'project-detail-4' : 'product-film'} {...(i === 3 ? {} : { 'data-film-collection': 'projects', 'data-film-id': ['project-ramsider-overview', 'project-ramsmobile-protos', 'project-ramswear'][i], 'aria-controls': 'product-film', 'aria-haspopup': 'dialog' as const })} aria-label={t(locale, (['project1', 'project2', 'project3', 'project4'] as const)[i])}>
           <span className="project-link-row" style={{ top: `${((link - hit) / 941) * 100}cqw` }} aria-hidden="true">
             <span>{t(locale, 'projectLink')}</span><Image className="project-arrow" src="/buttons/Arrow_Right.svg" width={56} height={56} alt="" unoptimized />
           </span>
@@ -359,7 +356,7 @@ export function Story({ locale }: { locale: Locale }) {
       <div hidden><LocaleSwitcher locale={locale} label={t(locale, 'language')} /></div>
     </main><SiteFooter locale={locale} /></PageMediaGate>
     <BackToTop label={t(locale, 'backToTop')} />
-    <ProductFilm locale={locale} copy={productFilmCopy[locale]} closeLabel={t(locale, 'close')} films={selectProductFilms(locale)} />
+    <ProductFilm locale={locale} copy={productFilmCopy[locale]} closeLabel={t(locale, 'close')} films={selectProductFilms(locale)} collections={{ projects: selectProjectFilms(locale) }} />
     <Popovers locale={locale} captureEnabled={captureEnabled} />
     {captureEnabled && <LaunchCapture copy={launchCopy} />}
   </DialogController>;

@@ -1,8 +1,8 @@
 'use client';
 
-import { Component, createElement, useEffect, useLayoutEffect, useRef, useState, type ComponentType, type ReactNode, type RefObject, type KeyboardEvent as ReactKeyboardEvent, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react';
+import { Component, createElement, useEffect, useEffectEvent, useLayoutEffect, useRef, useState, type ComponentType, type ReactNode, type RefObject, type KeyboardEvent as ReactKeyboardEvent, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react';
 import type { FilmCopy } from '@/lib/product-film';
-import type { FilmAsset } from '@/lib/product-film-catalog';
+import type { GalleryFilm } from '@/lib/product-film-catalog';
 import { prepareFilmStart } from '@/lib/film-preload';
 import { cancelFilmSourceSwitch, configureFilmQualities, playProductFilm, releaseFilm, warmFilmEngine } from '@/lib/film-playback';
 import { loadFilmControls } from '@/lib/film-controls-loader';
@@ -12,7 +12,7 @@ import { filmTheme } from '@/lib/film-theme';
 import type { FilmControlsProps } from './FilmControls';
 import type { Locale } from '@/lib/i18n';
 
-export type GalleryFilm = FilmAsset & { id: string; title: string; poster: string; duration: number };
+export type { GalleryFilm } from '@/lib/product-film-catalog';
 class ControlsBoundary extends Component<{ children: ReactNode; media: RefObject<HTMLVideoElement | null>; stage: RefObject<HTMLElement | null> }, { failed: boolean }> {
   state = { failed: false };
   static getDerivedStateFromError() { return { failed: true }; }
@@ -26,7 +26,10 @@ const duration = (seconds: number) => `${Math.floor(seconds / 60)}:${String(Math
 const preserveButtonActivation = (event: ReactKeyboardEvent<HTMLButtonElement>) => { if (event.key === ' ' || event.key === 'Enter') event.stopPropagation(); };
 const PlayIcon = () => <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4.5 20 12 8 19.5Z" /></svg>;
 
-export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCopy; closeLabel: string; locale: Locale; films: GalleryFilm[] }) {
+export function ProductFilm({ copy, closeLabel, locale, films: defaultFilms, collections = {} }: { copy: FilmCopy; closeLabel: string; locale: Locale; films: GalleryFilm[]; collections?: Record<string, GalleryFilm[]> }) {
+  const [collection, setCollection] = useState('default');
+  const films = collections[collection] ?? defaultFilms;
+  const defaultIndex = useRef(0), initialQualities = useRef(defaultFilms[0].qualities);
   const dialog = useRef<HTMLDialogElement>(null), video = useRef<HTMLVideoElement>(null), stage = useRef<HTMLElement>(null);
   const unconfigure = useRef<(() => void) | null>(null);
   const pendingFocus = useRef<'player' | 'gallery' | null>(null);
@@ -46,7 +49,7 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
   const film = films[index], c = galleryCopy[locale];
   useLayoutEffect(() => {
     const applyFocus = () => {
-      if (!dialog.current?.open || !pendingFocus.current) return;
+      if (!opened || !dialog.current?.open || !pendingFocus.current) return;
       if (pendingFocus.current === 'player' && view === 'playing') { video.current?.focus({ preventScroll: true }); pendingFocus.current = null; }
       else if (pendingFocus.current === 'gallery' && view === 'gallery' && (document.fullscreenElement ?? (document as Document & { webkitFullscreenElement?: Element }).webkitFullscreenElement) !== stage.current) {
         const item = dialog.current.querySelector<HTMLButtonElement>('.film-gallery__item[aria-pressed=true]');
@@ -65,7 +68,7 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
     document.addEventListener('fullscreenchange', applyFocus);
     document.addEventListener('webkitfullscreenchange', applyFocus);
     return () => { document.removeEventListener('fullscreenchange', applyFocus); document.removeEventListener('webkitfullscreenchange', applyFocus); };
-  }, [view, index]);
+  }, [view, index, collection, opened]);
   useEffect(() => {
     const media = video.current;
     if (!media) return;
@@ -73,20 +76,21 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
     const upgrade = () => { void loadFilmControls().then(module => { if (alive) setControls(() => module.FilmControls); }).catch(() => {}); };
     const openObserver = new MutationObserver(() => { const isOpen = Boolean(dialog.current?.open); setOpened(isOpen); if (isOpen) upgrade(); });
     if (dialog.current) openObserver.observe(dialog.current, { attributes: true, attributeFilter: ['open'] });
-    unconfigure.current = configureFilmQualities(media, films[0].qualities);
+    unconfigure.current = configureFilmQualities(media, initialQualities.current);
     const feedback = (event: Event) => { if (dialog.current?.open) { const next = (event as CustomEvent<'loading' | 'blocked' | 'error'>).detail; statusRef.current = next; setStatus(next); } };
     media.addEventListener('film-status', feedback);
     const observer = new IntersectionObserver(entries => { if (entries.some(entry => entry.isIntersecting)) { warmFilmEngine(media); upgrade(); observer.disconnect(); } }, { rootMargin: '600px' });
     const opener = document.getElementById('film-play'); if (opener) observer.observe(opener);
     return () => { alive = false; openObserver.disconnect(); observer.disconnect(); media.removeEventListener('film-status', feedback); releaseFilm(media); unconfigure.current?.(); };
-  }, [films]);
+  }, []);
   useEffect(() => {
     const media = video.current;
-    if (!media || (opened && view !== 'gallery')) return;
+    // Only the original gallery owns the authorized background startup cache.
+    if (!media || collection !== 'default' || (opened && view !== 'gallery')) return;
     // One producer owns the union cache; a gallery selection warms its own first six seconds first.
     const ordered = [films[index], ...films.filter((_, i) => i !== index)];
     return prepareFilmStart(media, ordered.map(item => item.preload).filter(plan => plan.length > 0), signal => warmFilmEngine(media, signal));
-  }, [films, index, opened, view]);
+  }, [films, index, opened, view, collection]);
   useEffect(() => {
     const media = video.current, host = stage.current;
     if (!media || !host) return;
@@ -182,9 +186,10 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
     setListOpen(false); setListSelection(null);
     if (restoreFocus) listButton.current?.focus({ preventScroll: true });
   };
-  const select = (next: number, start = false) => {
-    const media = video.current, item = films[next];
+  const select = (next: number, start = false, items = films) => {
+    const media = video.current, item = items[next];
     if (!media || !item) return;
+    if (items === defaultFilms) defaultIndex.current = next;
     galleryArmedIndex.current = null;
     touchPlayEpoch.current++;
     releaseFilm(media); unconfigure.current?.();
@@ -200,18 +205,39 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
     if (galleryArmedIndex.current === position) start();
     else { select(position); galleryArmedIndex.current = position; }
   };
+  const openCollection = useEffectEvent((event: Event) => {
+    const { collection: requested = 'default', filmId } = (event as CustomEvent<{ collection?: string; filmId?: string }>).detail;
+    const items = requested === 'default' ? defaultFilms : collections[requested];
+    if (!items?.length) return;
+    const selected = filmId ? items.findIndex(item => item.id === filmId) : requested === 'default' ? defaultIndex.current : 0;
+    if (selected < 0) return;
+    setCollection(requested);
+    setListOpen(false); setListSelection(null);
+    select(selected, false, items);
+    pendingFocus.current = 'gallery';
+  });
+  useEffect(() => {
+    const panel = dialog.current;
+    if (!panel) return;
+    const open = (event: Event) => openCollection(event);
+    panel.addEventListener('film-open', open);
+    return () => panel.removeEventListener('film-open', open);
+  }, []);
   return <dialog ref={dialog} id="product-film" className="product-film" data-theme={filmTheme} data-view={view} lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} aria-labelledby="product-film-title" onClose={() => {
     if (dialog.current?.open) return;
     galleryArmedIndex.current = null;
     touchPlayEpoch.current++;
     if (video.current) releaseFilm(video.current);
+    // Restore the original collection's single bounded warm-up producer after
+    // any project session, including an early Play that interrupted warm-up.
+    setCollection('default'); setIndex(defaultIndex.current);
     pendingFocus.current = null; setListOpen(false); setListSelection(null); setStatus('idle'); setView('gallery');
     document.getElementById(dialog.current?.dataset.opener ?? '')?.focus({ preventScroll: true });
   }}>
     <div className="film-gallery">
       <header className="product-film__header"><h2 id="product-film-title" tabIndex={-1} autoFocus>{film.title}</h2><button type="button" className="product-film__close" aria-label={closeLabel} onClick={() => dialog.current?.close()}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg></button></header>
-      <div className="film-gallery__main"><button type="button" className="film-gallery__hero" style={filmPosterStyle(film.id)} aria-label={`${c.play}: ${film.title}`} onClick={start}><img src={opened ? film.poster : undefined} width={1280} height={index === 0 ? 715 : 591} alt="" /><span className="film-gallery__play"><PlayIcon /></span><span className="film-gallery__duration">{duration(film.duration)}</span></button><div className="film-gallery__caption"><span dir="ltr">{index + 1} / {films.length}</span></div></div>
-      <div className="film-gallery__list" aria-label={c.select}>{films.map((item, position) => <button type="button" key={item.id} className="film-gallery__item" aria-label={`${c.select}: ${item.title}`} aria-pressed={position === index} onClick={() => activateGallery(position)}><span className="film-gallery__thumbnail" style={filmPosterStyle(item.id)}><img src={opened ? item.poster : undefined} width={1280} height={position === 0 ? 715 : 591} alt="" /></span><span className="film-gallery__item-copy"><span className="film-gallery__item-title">{item.title}</span><span className="film-gallery__item-number"><span className="film-gallery__mobile-number">{String(position + 1).padStart(2, '0')}</span><span className="film-gallery__wide-number" dir="ltr">{position + 1} / {films.length}</span></span></span></button>)}</div>
+      <div className="film-gallery__main"><button type="button" className="film-gallery__hero" style={filmPosterStyle(film.id, film.posterWidth, film.posterHeight)} aria-label={`${c.play}: ${film.title}`} onClick={start}><img src={opened ? film.poster : undefined} width={film.posterWidth ?? 1280} height={film.posterHeight ?? (film.id === 'uno-introduction' ? 715 : 591)} alt="" /><span className="film-gallery__play"><PlayIcon /></span><span className="film-gallery__duration">{duration(film.duration)}</span></button><div className="film-gallery__caption"><span dir="ltr">{index + 1} / {films.length}</span></div></div>
+      <div className="film-gallery__list" aria-label={c.select}>{films.map((item, position) => <button type="button" key={item.id} className="film-gallery__item" aria-label={`${c.select}: ${item.title}`} aria-pressed={position === index} onClick={() => activateGallery(position)}><span className="film-gallery__thumbnail" style={filmPosterStyle(item.id, item.posterWidth, item.posterHeight)}><img src={opened ? (item.thumbnail?.src ?? item.poster) : undefined} width={item.thumbnail?.width ?? item.posterWidth ?? 1280} height={item.thumbnail?.height ?? item.posterHeight ?? (item.id === 'uno-introduction' ? 715 : 591)} alt="" /></span><span className="film-gallery__item-copy"><span className="film-gallery__item-title">{item.title}</span><span className="film-gallery__item-number"><span className="film-gallery__mobile-number">{String(position + 1).padStart(2, '0')}</span><span className="film-gallery__wide-number" dir="ltr">{position + 1} / {films.length}</span></span></span></button>)}</div>
     </div>
     {createElement('media-controller', { ref: stage, className: 'film-player', id: 'film-player', 'data-film-id': film.id, lang: locale, novolumepref: '', nomutedpref: '', gesturesdisabled: '', nohotkeys: '', autohideovercontrols: '', onPointerDownCapture: (event: ReactPointerEvent<HTMLElement>) => {
       const path = event.nativeEvent.composedPath();
@@ -230,7 +256,7 @@ export function ProductFilm({ copy, closeLabel, locale, films }: { copy: FilmCop
     }, 'data-qualities': JSON.stringify(film.qualities.map(quality => quality.height)), defaultstreamtype: 'on-demand', suppressHydrationWarning: true },
       <video key="media" slot="media" ref={video} tabIndex={0} controls controlsList="noplaybackrate" playsInline preload="none" width={film.width} height={film.height} data-delivery={film.delivery} data-media-type={film.mediaType} data-src={film.manifest} data-fallback={film.fallback} data-audio-locale={film.audioLocale} aria-label={film.title} onEnded={() => setView('ended')} onSeeking={() => { const media = video.current; if (!dialog.current?.open || !media || !Number.isFinite(media.duration) || media.currentTime >= media.duration) return; const target = media.dataset.filmSourceSwitchTarget; if (media.dataset.filmSourceSwitch && target !== undefined && Math.abs(media.currentTime - Number(target)) > .05) cancelFilmSourceSwitch(media, media.currentTime); if (!media.dataset.filmSourceSwitch) setView(current => current === 'ended' ? 'playing' : current); }} onLoadStart={() => { if (dialog.current?.open && video.current?.hasAttribute('src')) setStatus(value => value === 'blocked' ? value : 'loading'); }} onWaiting={() => { if (dialog.current?.open && video.current?.hasAttribute('src') && !video.current.paused) setStatus(value => value === 'blocked' ? value : 'loading'); }} onCanPlay={() => setStatus(value => value === 'blocked' ? value : 'ready')} onPlaying={() => { if (dialog.current?.open && video.current && !video.current.paused && video.current.hasAttribute('src')) { setStatus('ready'); setView('playing'); } }} />,
       Controls && <ControlsBoundary key="controls" media={video} stage={stage}><Controls media={video} stage={stage} copy={copy} locale={locale} status={status} previous={() => select(index - 1, true)} next={() => select(index + 1, true)} hasPrevious={index > 0} hasNext={index < films.length - 1} /></ControlsBoundary>,
-      <div className="film-player__top" dir={locale === 'ar' ? 'rtl' : 'ltr'} slot="top-chrome"><span className="film-player__identity">{film.title}</span><button ref={listButton} type="button" className="film-player__list-toggle" aria-expanded={listOpen} aria-controls="film-playlist" onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={() => { if (listOpen) closeList(); else { setListSelection(null); setListOpen(true); stage.current?.removeAttribute('userinactive'); } }}>{c.list}</button><button type="button" className="film-player__close" aria-label={closeLabel} onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={() => dialog.current?.close()}>×</button>{listOpen && <div ref={listPanel} id="film-playlist" className="film-playlist" role="region" aria-label={c.list} onKeyDown={event => { if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); closeList(); } }}><div className="film-playlist__items">{films.map((item, position) => <button type="button" key={item.id} className="film-playlist__item" aria-pressed={listSelection === position} aria-current={position === index ? 'true' : undefined} onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={() => { if (listSelection !== position) { setListSelection(position); return; } closeList(false); if (position === index) { video.current?.focus({ preventScroll: true }); if (video.current && (statusRef.current === 'error' || !video.current.hasAttribute('src'))) { touchPlayEpoch.current++; playProductFilm(video.current); } else { if (video.current && (view === 'ended' || video.current.ended)) { cancelFilmSourceSwitch(video.current, 0); video.current.currentTime = 0; } if (video.current?.paused) void video.current.play().catch(() => {}); } if (view === 'ended') setView('playing'); } else select(position, true); }}><img src={opened ? item.poster : undefined} width={1280} height={position === 0 ? 715 : 591} alt="" /><span>{item.title}</span></button>)}</div></div>}</div>,
+      <div className="film-player__top" dir={locale === 'ar' ? 'rtl' : 'ltr'} slot="top-chrome"><span className="film-player__identity">{film.title}</span><button ref={listButton} type="button" className="film-player__list-toggle" aria-expanded={listOpen} aria-controls="film-playlist" onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={() => { if (listOpen) closeList(); else { setListSelection(null); setListOpen(true); stage.current?.removeAttribute('userinactive'); } }}>{c.list}</button><button type="button" className="film-player__close" aria-label={closeLabel} onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={() => dialog.current?.close()}>×</button>{listOpen && <div ref={listPanel} id="film-playlist" className="film-playlist" role="region" aria-label={c.list} onKeyDown={event => { if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); closeList(); } }}><div className="film-playlist__items">{films.map((item, position) => <button type="button" key={item.id} className="film-playlist__item" aria-pressed={listSelection === position} aria-current={position === index ? 'true' : undefined} onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={() => { if (listSelection !== position) { setListSelection(position); return; } closeList(false); if (position === index) { video.current?.focus({ preventScroll: true }); if (video.current && (statusRef.current === 'error' || !video.current.hasAttribute('src'))) { touchPlayEpoch.current++; playProductFilm(video.current); } else { if (video.current && (view === 'ended' || video.current.ended)) { cancelFilmSourceSwitch(video.current, 0); video.current.currentTime = 0; } if (video.current?.paused) void video.current.play().catch(() => {}); } if (view === 'ended') setView('playing'); } else select(position, true); }}><img src={opened ? (item.thumbnail?.src ?? item.poster) : undefined} width={item.thumbnail?.width ?? item.posterWidth ?? 1280} height={item.thumbnail?.height ?? item.posterHeight ?? (item.id === 'uno-introduction' ? 715 : 591)} alt="" /><span>{item.title}</span></button>)}</div></div>}</div>,
       view === 'ended' && <div className="film-ended" slot="centered-chrome" {...{ noautohide: '' }}><button className="film-ended__replay" type="button" aria-label={c.replay} onKeyDownCapture={preserveButtonActivation} onKeyUpCapture={preserveButtonActivation} onClick={start}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 1-2.3-5.7L20 7.5M20 3v4.5h-4.5" /></svg></button></div>)}
     <div className="product-film__notes"><p role="status" aria-live="polite">{status === 'loading' ? copy.loading : status === 'error' ? copy.error : status === 'blocked' ? copy.playHint : ''}</p>{status === 'error' && <button type="button" onClick={() => { if (video.current) playProductFilm(video.current); }}>{copy.retry}</button>}</div>
   </dialog>;

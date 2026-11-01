@@ -1,0 +1,40 @@
+[
+  {
+    "name": "144p",
+    "height": 144,
+    "maxVideoKbps": 20,
+    "crf": 30
+  },
+  {
+    "name": "360p",
+    "height": 360,
+    "maxVideoKbps": 550,
+    "crf": 19
+  },
+  {
+    "name": "720p",
+    "height": 720,
+    "maxVideoKbps": 2000,
+    "crf": 18
+  },
+  {
+    "name": "1080p",
+    "height": 1080,
+    "maxVideoKbps": 4500,
+    "crf": 18,
+    "level": "4.1",
+    "refs": 4
+  },
+  {
+    "name": "1440p",
+    "height": 1440,
+    "maxVideoKbps": 8000,
+    "crf": 18
+  },
+  {
+    "name": "2160p",
+    "height": 2160,
+    "maxVideoKbps": 14000,
+    "crf": 17
+  }
+]

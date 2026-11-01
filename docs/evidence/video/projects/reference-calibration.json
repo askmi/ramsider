@@ -1,0 +1,68 @@
+[
+  {
+    "profile": "pro",
+    "width": 402,
+    "dpr": 3,
+    "scaleSourceToCSS": 0.42720510095642933,
+    "reference": "design/references/background_text.png",
+    "cleanReference": "design/references/background.png",
+    "sourceCrop": [
+      0,
+      29250,
+      941,
+      30700
+    ],
+    "anchors": [
+      {
+        "id": "project-ramsider",
+        "sourceHitY": 29370,
+        "actualTopCSS": 69.90625,
+        "actualLeftCSS": 17.078125,
+        "actualWidthCSS": 363.109375
+      },
+      {
+        "id": "project-ramsmobile",
+        "sourceHitY": 29690,
+        "actualTopCSS": 206.609375,
+        "actualLeftCSS": 17.078125,
+        "actualWidthCSS": 363.109375
+      }
+    ],
+    "expectedAnchorGapCSS": 136.7056323060574,
+    "actualAnchorGapCSS": 136.703125,
+    "method": "Root viewed clean then text source crops and actual ready Pro/Max screenshots. After implementation compare same closed region to ready browser baseline; no calibrated Photoshop player reference exists, player uses inherited approved controls/fit policy. Early preview-only baseline images excluded; ready captures wait visible data-media-ready."
+  },
+  {
+    "profile": "max",
+    "width": 440,
+    "dpr": 3,
+    "scaleSourceToCSS": 0.4675876726886291,
+    "reference": "design/references/background_text.png",
+    "cleanReference": "design/references/background.png",
+    "sourceCrop": [
+      0,
+      29250,
+      941,
+      30700
+    ],
+    "anchors": [
+      {
+        "id": "project-ramsider",
+        "sourceHitY": 29370,
+        "actualTopCSS": 69.96875,
+        "actualLeftCSS": 18.703125,
+        "actualWidthCSS": 397.4375
+      },
+      {
+        "id": "project-ramsmobile",
+        "sourceHitY": 29690,
+        "actualTopCSS": 219.59375,
+        "actualLeftCSS": 18.703125,
+        "actualWidthCSS": 397.4375
+      }
+    ],
+    "expectedAnchorGapCSS": 149.62805526036132,
+    "actualAnchorGapCSS": 149.625,
+    "method": "Root viewed clean then text source crops and actual ready Pro/Max screenshots. After implementation compare same closed region to ready browser baseline; no calibrated Photoshop player reference exists, player uses inherited approved controls/fit policy. Early preview-only baseline images excluded; ready captures wait visible data-media-ready."
+  }
+]

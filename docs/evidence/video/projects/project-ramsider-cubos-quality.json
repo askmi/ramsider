@@ -1,0 +1,323 @@
+{
+  "id": "project-ramsider-cubos",
+  "status": "PASS",
+  "method": "3x2s/50frame samples aligned to video PTS minus format start, independently decoded source and highest2160p rendition, VMAF+floatSSIM at1080p, no lossless claim; root visual frame inspection separate",
+  "meanVMAF": 97.39184766666666,
+  "samples": [
+    {
+      "time": 3.16,
+      "hlsVideoSeekOffset": 0.044000000000000004,
+      "frames": 50,
+      "metrics": {
+        "integer_adm2": {
+          "min": 0.989989,
+          "max": 0.996314,
+          "mean": 0.992267,
+          "harmonic_mean": 0.992266
+        },
+        "integer_aim": {
+          "min": 0.00316,
+          "max": 0.007286,
+          "mean": 0.006274,
+          "harmonic_mean": 0.006274
+        },
+        "integer_adm3": {
+          "min": 0.991352,
+          "max": 0.996577,
+          "mean": 0.992997,
+          "harmonic_mean": 0.992996
+        },
+        "integer_adm_scale0": {
+          "min": 0.983195,
+          "max": 0.990335,
+          "mean": 0.984878,
+          "harmonic_mean": 0.984876
+        },
+        "integer_adm_scale1": {
+          "min": 0.976115,
+          "max": 0.991349,
+          "mean": 0.981221,
+          "harmonic_mean": 0.981214
+        },
+        "integer_adm_scale2": {
+          "min": 0.987727,
+          "max": 0.997162,
+          "mean": 0.991047,
+          "harmonic_mean": 0.991043
+        },
+        "integer_adm_scale3": {
+          "min": 0.996025,
+          "max": 0.999592,
+          "mean": 0.997511,
+          "harmonic_mean": 0.997511
+        },
+        "VMAF_integer_feature_motion_sad_score": {
+          "min": 0.0,
+          "max": 3.389717,
+          "mean": 2.385706,
+          "harmonic_mean": 2.247349
+        },
+        "integer_vif_scale0": {
+          "min": 0.791624,
+          "max": 0.891496,
+          "mean": 0.823596,
+          "harmonic_mean": 0.823417
+        },
+        "integer_vif_scale1": {
+          "min": 0.975259,
+          "max": 0.993515,
+          "mean": 0.980814,
+          "harmonic_mean": 0.980802
+        },
+        "integer_vif_scale2": {
+          "min": 0.989028,
+          "max": 0.99732,
+          "mean": 0.991603,
+          "harmonic_mean": 0.9916
+        },
+        "integer_vif_scale3": {
+          "min": 0.994352,
+          "max": 0.998573,
+          "mean": 0.995647,
+          "harmonic_mean": 0.995646
+        },
+        "float_ssim": {
+          "min": 0.997853,
+          "max": 0.999407,
+          "mean": 0.998388,
+          "harmonic_mean": 0.998388
+        },
+        "integer_motion2": {
+          "min": 0.0,
+          "max": 3.280121,
+          "mean": 2.292233,
+          "harmonic_mean": 2.167338
+        },
+        "integer_motion3": {
+          "min": 1.841319,
+          "max": 3.280121,
+          "mean": 2.351811,
+          "harmonic_mean": 2.325032
+        },
+        "vmaf": {
+          "min": 94.504505,
+          "max": 99.776191,
+          "mean": 97.9521,
+          "harmonic_mean": 97.943687
+        }
+      }
+    },
+    {
+      "time": 10.56,
+      "hlsVideoSeekOffset": 0.044000000000000004,
+      "frames": 50,
+      "metrics": {
+        "integer_adm2": {
+          "min": 0.990451,
+          "max": 0.99972,
+          "mean": 0.99757,
+          "harmonic_mean": 0.997567
+        },
+        "integer_aim": {
+          "min": 0.001782,
+          "max": 0.008378,
+          "mean": 0.003238,
+          "harmonic_mean": 0.003236
+        },
+        "integer_adm3": {
+          "min": 0.991036,
+          "max": 0.998818,
+          "mean": 0.997166,
+          "harmonic_mean": 0.997164
+        },
+        "integer_adm_scale0": {
+          "min": 0.987136,
+          "max": 0.998792,
+          "mean": 0.996522,
+          "harmonic_mean": 0.996517
+        },
+        "integer_adm_scale1": {
+          "min": 0.983637,
+          "max": 0.999679,
+          "mean": 0.996445,
+          "harmonic_mean": 0.996437
+        },
+        "integer_adm_scale2": {
+          "min": 0.990066,
+          "max": 0.999503,
+          "mean": 0.997367,
+          "harmonic_mean": 0.997365
+        },
+        "integer_adm_scale3": {
+          "min": 0.994751,
+          "max": 1.00065,
+          "mean": 0.998676,
+          "harmonic_mean": 0.998675
+        },
+        "VMAF_integer_feature_motion_sad_score": {
+          "min": 0.0,
+          "max": 39.962106,
+          "mean": 1.264852,
+          "harmonic_mean": 0.397289
+        },
+        "integer_vif_scale0": {
+          "min": 0.804692,
+          "max": 0.987238,
+          "mean": 0.956951,
+          "harmonic_mean": 0.955782
+        },
+        "integer_vif_scale1": {
+          "min": 0.979764,
+          "max": 0.999209,
+          "mean": 0.996815,
+          "harmonic_mean": 0.996805
+        },
+        "integer_vif_scale2": {
+          "min": 0.991259,
+          "max": 0.999651,
+          "mean": 0.998667,
+          "harmonic_mean": 0.998665
+        },
+        "integer_vif_scale3": {
+          "min": 0.995632,
+          "max": 0.999879,
+          "mean": 0.999379,
+          "harmonic_mean": 0.999379
+        },
+        "float_ssim": {
+          "min": 0.998324,
+          "max": 0.999973,
+          "mean": 0.999797,
+          "harmonic_mean": 0.999797
+        },
+        "integer_motion2": {
+          "min": 0.0,
+          "max": 2.085204,
+          "mean": 0.37846,
+          "harmonic_mean": 0.265345
+        },
+        "integer_motion3": {
+          "min": 0.009821,
+          "max": 2.085204,
+          "mean": 0.419133,
+          "harmonic_mean": 0.287181
+        },
+        "vmaf": {
+          "min": 95.110082,
+          "max": 97.86792,
+          "mean": 97.274311,
+          "harmonic_mean": 97.272285
+        }
+      }
+    },
+    {
+      "time": 18.0,
+      "hlsVideoSeekOffset": 0.044000000000000004,
+      "frames": 50,
+      "metrics": {
+        "integer_adm2": {
+          "min": 0.994956,
+          "max": 1.003511,
+          "mean": 0.997736,
+          "harmonic_mean": 0.997735
+        },
+        "integer_aim": {
+          "min": 0.0,
+          "max": 0.001714,
+          "mean": 0.000465,
+          "harmonic_mean": 0.000465
+        },
+        "integer_adm3": {
+          "min": 0.997299,
+          "max": 1.001163,
+          "mean": 0.998636,
+          "harmonic_mean": 0.998635
+        },
+        "integer_adm_scale0": {
+          "min": 0.997104,
+          "max": 1.0,
+          "mean": 0.998089,
+          "harmonic_mean": 0.998088
+        },
+        "integer_adm_scale1": {
+          "min": 0.994586,
+          "max": 1.000535,
+          "mean": 0.997082,
+          "harmonic_mean": 0.997082
+        },
+        "integer_adm_scale2": {
+          "min": 0.993073,
+          "max": 1.005949,
+          "mean": 0.997575,
+          "harmonic_mean": 0.997572
+        },
+        "integer_adm_scale3": {
+          "min": 0.994136,
+          "max": 1.017204,
+          "mean": 0.998405,
+          "harmonic_mean": 0.998396
+        },
+        "VMAF_integer_feature_motion_sad_score": {
+          "min": 0.0,
+          "max": 0.008374,
+          "mean": 0.006211,
+          "harmonic_mean": 0.006208
+        },
+        "integer_vif_scale0": {
+          "min": 0.997575,
+          "max": 1.000011,
+          "mean": 0.998961,
+          "harmonic_mean": 0.998961
+        },
+        "integer_vif_scale1": {
+          "min": 0.999753,
+          "max": 1.000231,
+          "mean": 0.999992,
+          "harmonic_mean": 0.999992
+        },
+        "integer_vif_scale2": {
+          "min": 0.999838,
+          "max": 1.000234,
+          "mean": 1.00004,
+          "harmonic_mean": 1.00004
+        },
+        "integer_vif_scale3": {
+          "min": 0.99985,
+          "max": 1.000252,
+          "mean": 1.000057,
+          "harmonic_mean": 1.000057
+        },
+        "float_ssim": {
+          "min": 0.999996,
+          "max": 1.0,
+          "mean": 0.999998,
+          "harmonic_mean": 0.999998
+        },
+        "integer_motion2": {
+          "min": 0.0,
+          "max": 0.008074,
+          "mean": 0.006142,
+          "harmonic_mean": 0.006138
+        },
+        "integer_motion3": {
+          "min": 0.000723,
+          "max": 0.008074,
+          "mean": 0.006156,
+          "harmonic_mean": 0.006153
+        },
+        "vmaf": {
+          "min": 96.34963,
+          "max": 98.231507,
+          "mean": 96.949132,
+          "harmonic_mean": 96.947894
+        }
+      }
+    }
+  ],
+  "binding": {
+    "sourceSHA256": "07cf83a06282f42471a46ff96b5f7e2a8c57d6f14954b679066f45cee134e2af",
+    "encodingReceiptSHA256": "2dad65f16ff0d4d2bb8b257cd5b1291157db53a26abeff45c4a88ba622786534",
+    "renditionPlaylistSHA256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f",
+    "scope": "Decoded timestamp-aligned source and this immutable2160p package; source and package integrity rechecked before production build"
+  }
+}

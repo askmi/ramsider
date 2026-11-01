@@ -17,6 +17,7 @@ export function DialogController({ children }: { children: ReactNode }) {
             trigger.focus({ preventScroll: true });
             panel.dataset.opener = trigger.id;
           }
+          panel.dispatchEvent(new CustomEvent('film-open', { detail: { collection: trigger.dataset.filmCollection, filmId: trigger.dataset.filmId } }));
           panel.showModal();
           const video = panel.querySelector<HTMLVideoElement>('video[data-src]');
           if (video) {

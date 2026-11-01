@@ -11,7 +11,7 @@ const assetFor = (audio: string) => registry.assets.find(asset => asset.active &
 const expectedAudio = (_locale: string) => 'en';
 const baseFor = (audio: string) => `/films/${assetFor(audio).directory}`;
 const starter = (audio: string) => ['master.m3u8', '360p/index.m3u8', '360p/init.mp4', ...[0, 1, 2].map(n => `360p/segment-${String(n).padStart(5, '0')}.m4s`)].map(path => `${baseFor(audio)}/${path}`);
-const galleryStarter = (audio:string) => [...starter(audio), ...registry.assets.filter(a=>a.active&&a.audioLocale==='und').flatMap(a=>['master.m3u8','360p/index.m3u8','360p/init.mp4',...[0,1,2].map(n=>`360p/segment-0000${n}.m4s`)].map(p=>`/films/${a.directory}/${p}`))];
+const galleryStarter = (audio:string) => [...starter(audio), ...registry.assets.filter(a=>a.active&&!a.id.startsWith('project-')&&a.audioLocale==='und').flatMap(a=>['master.m3u8','360p/index.m3u8','360p/init.mp4',...[0,1,2].map(n=>`360p/segment-0000${n}.m4s`)].map(p=>`/films/${a.directory}/${p}`))];
 async function ready(page: Page, locale: string) {
   await page.goto(`/${locale}`);
   await expect(page.locator('video')).toHaveAttribute('data-preload', 'ready', { timeout: 45000 });

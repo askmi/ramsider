@@ -1,0 +1,160 @@
+{
+  "date": "2026-11-01",
+  "base": "https://ramsider-main.vercel.app",
+  "conditions": "Real sharedUI qualitymenu144/720/2160; presented rVFC matching selected height and advancingtime; fullwindow/elementfullscreen+cleanup. Silent WebKit emulation/Chromium, not physical AVKit.",
+  "results": [
+    {
+      "name": "pro",
+      "width": 402,
+      "height": 874,
+      "qualities": [
+        {
+          "selected": 144,
+          "firstPresentedMs": 1166,
+          "width": 256,
+          "height": 144,
+          "time": 0.770084659,
+          "playback": "native-hls",
+          "source": "/films/project-ramswear/und-v1/144p/index.m3u8",
+          "muted": true,
+          "volume": 0
+        },
+        {
+          "selected": 720,
+          "firstPresentedMs": 2153,
+          "width": 1280,
+          "height": 720,
+          "time": 1.5391335,
+          "playback": "native-hls",
+          "source": "/films/project-ramswear/und-v1/720p/index.m3u8",
+          "muted": true,
+          "volume": 0
+        },
+        {
+          "selected": 2160,
+          "firstPresentedMs": 4599,
+          "width": 3840,
+          "height": 2160,
+          "time": 2.291169283,
+          "playback": "native-hls",
+          "source": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+          "muted": true,
+          "volume": 0
+        }
+      ],
+      "expanded": true,
+      "cleanup": true,
+      "policyBundles": [
+        {
+          "path": "/_next/static/chunks/16f0cyqpp3xu0.js",
+          "sha256": "21c2eb5bdfe7af06dfde855efd6089e6f7d6c34944a0b1566b4d22e97adc2d3e",
+          "bytes": 19889
+        }
+      ],
+      "errors": [],
+      "status": "PASS"
+    },
+    {
+      "name": "max",
+      "width": 440,
+      "height": 956,
+      "qualities": [
+        {
+          "selected": 144,
+          "firstPresentedMs": 1183,
+          "width": 256,
+          "height": 144,
+          "time": 0.8175509,
+          "playback": "native-hls",
+          "source": "/films/project-ramswear/und-v1/144p/index.m3u8",
+          "muted": true,
+          "volume": 0
+        },
+        {
+          "selected": 720,
+          "firstPresentedMs": 1355,
+          "width": 1280,
+          "height": 720,
+          "time": 1.576532509,
+          "playback": "native-hls",
+          "source": "/films/project-ramswear/und-v1/720p/index.m3u8",
+          "muted": true,
+          "volume": 0
+        },
+        {
+          "selected": 2160,
+          "firstPresentedMs": 29149,
+          "width": 3840,
+          "height": 2160,
+          "time": 2.3407931,
+          "playback": "native-hls",
+          "source": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+          "muted": true,
+          "volume": 0
+        }
+      ],
+      "expanded": true,
+      "cleanup": true,
+      "policyBundles": [
+        {
+          "path": "/_next/static/chunks/16f0cyqpp3xu0.js",
+          "sha256": "21c2eb5bdfe7af06dfde855efd6089e6f7d6c34944a0b1566b4d22e97adc2d3e",
+          "bytes": 19889
+        }
+      ],
+      "errors": [],
+      "status": "PASS"
+    },
+    {
+      "name": "chromium",
+      "width": 1440,
+      "height": 900,
+      "qualities": [
+        {
+          "selected": 144,
+          "firstPresentedMs": 3894,
+          "width": 256,
+          "height": 144,
+          "time": 4.074918,
+          "playback": "mse-hls",
+          "source": "mse-object-url",
+          "muted": true,
+          "volume": 0
+        },
+        {
+          "selected": 720,
+          "firstPresentedMs": 3707,
+          "width": 1280,
+          "height": 720,
+          "time": 8.073983,
+          "playback": "mse-hls",
+          "source": "mse-object-url",
+          "muted": true,
+          "volume": 0
+        },
+        {
+          "selected": 2160,
+          "firstPresentedMs": 11526,
+          "width": 3840,
+          "height": 2160,
+          "time": 16.087956,
+          "playback": "mse-hls",
+          "source": "mse-object-url",
+          "muted": true,
+          "volume": 0
+        }
+      ],
+      "expanded": true,
+      "cleanup": true,
+      "policyBundles": [
+        {
+          "path": "/_next/static/chunks/16f0cyqpp3xu0.js",
+          "sha256": "21c2eb5bdfe7af06dfde855efd6089e6f7d6c34944a0b1566b4d22e97adc2d3e",
+          "bytes": 19889
+        }
+      ],
+      "errors": [],
+      "status": "PASS"
+    }
+  ]
+}

@@ -147,6 +147,8 @@ html:not(:lang(en)) :is(.key-triple,.key-core,.key-touch,.key-water,.key-light,.
 .faq-partnership-link{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-underline-offset:3px}
 .account-hit,.project-hit{position:absolute;z-index:6;background:transparent;border:0;height:calc(105/941*100cqw)}
 .project-hit{height:calc(290/941*100cqw)}
+.project-hit:focus-visible{outline:0}
+.project-hit:focus-visible .project-arrow{outline:2px solid #815013;outline-offset:3px;border-radius:50%}
 .project-link-row{position:absolute;left:calc(35/941*100cqw);width:calc(276/941*100cqw);height:calc(42/941*100cqw);display:flex;align-items:center;justify-content:space-between;color:#97714b;font-size:calc(17/941*100cqw);line-height:1;letter-spacing:.04em;white-space:nowrap}
 .project-arrow{display:block;width:calc(46/941*100cqw);height:calc(46/941*100cqw)}
 .project-hit:hover .project-arrow,.project-hit:focus-visible .project-arrow{filter:brightness(1.15)}

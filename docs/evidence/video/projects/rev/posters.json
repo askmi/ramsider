@@ -1,0 +1,90 @@
+{
+  "change": "CHG0193",
+  "date": "2026-11-01",
+  "source": "design/video2/RAMSMOBILE rev short.mp4",
+  "sourceSHA256": "371864d00820f7387b076546920245a2c3fdaacee72b46e55cf672cca7b8f09f",
+  "sourceFrame": {
+    "width": 3840,
+    "height": 2160,
+    "time": 15,
+    "mediaTime": 15,
+    "canvasColorSpace": "srgb",
+    "muted": true,
+    "volume": 0
+  },
+  "reference": "screenshots/video/projects/rev/poster-source-srgb.png",
+  "referenceSHA256": "df21d874a9e20e6365ce57c6fd7472129dd36132ede1b95f36f4d58d15f5a81c",
+  "method": "ActualsilentnativeWebKit decodedBT709 source atmediaTime15s -> explicitSRGBcanvas1280x720/fullframe andmatte; PNG losslessintermediate/pinnedexplicitSRGBICC noRGBchange; PillowLanczos480thumb, JPEG95/4:4:4 compareagainstlosslessWebP fromsameintermediate. No priorlossyinput/manualchannels.",
+  "images": [
+    {
+      "output": "public/art/films/projects/project-ramsmobile-rev.jpg",
+      "sha256": "adbc987f2aed4a526c4c9120e60055b03dcf1de502605101db936d058cff2157",
+      "bytes": 193381,
+      "size": [
+        1280,
+        720
+      ],
+      "ICCsha256": "3a86279cd2c62b20074f51b3bc68ee69b1d5f45b8ed49a440681b17349f74990",
+      "alpha": "opaque, fullframe/matte unchanged",
+      "meanRGB": [
+        0.5733257378472222,
+        0.4289236111111111,
+        0.6958767361111111
+      ],
+      "signedMean": [
+        0.043748914930555556,
+        -0.003893229166666667,
+        0.006588541666666667
+      ],
+      "p99RGB": [
+        4.0,
+        3.0,
+        5.0
+      ],
+      "maxLocal64MAE": 1.666748046875,
+      "losslessCandidate": {
+        "path": "screenshots/video/projects/rev/poster-lossless.webp",
+        "sha256": "3363645ae661e087e9baac8b6fddb7a1b78426d979746565a6485cc073d3d61c",
+        "bytes": 471680,
+        "decodedRGBExact": true,
+        "ICCExact": true
+      },
+      "status": "COLOR_PASS_BROWSER_PENDING"
+    },
+    {
+      "output": "public/art/films/projects/project-ramsmobile-rev-thumb.jpg",
+      "sha256": "54fc1bac3e48df29b2ef16eaa9031f439cdf7009aac15ebf21c2392ba5d4a1f8",
+      "bytes": 41285,
+      "size": [
+        480,
+        270
+      ],
+      "ICCsha256": "3a86279cd2c62b20074f51b3bc68ee69b1d5f45b8ed49a440681b17349f74990",
+      "alpha": "opaque, fullframe/matte unchanged",
+      "meanRGB": [
+        0.8563966049382716,
+        0.6239274691358024,
+        0.997145061728395
+      ],
+      "signedMean": [
+        0.0723533950617284,
+        0.023912037037037037,
+        0.045154320987654324
+      ],
+      "p99RGB": [
+        6.0,
+        4.0,
+        7.0
+      ],
+      "maxLocal64MAE": 1.8151041666666667,
+      "losslessCandidate": {
+        "path": "screenshots/video/projects/rev/poster-lossless-thumb.webp",
+        "sha256": "6b34cee7701b8d276146770fb8bc43dc090b7efb870f77b40e7629308877ee45",
+        "bytes": 89148,
+        "decodedRGBExact": true,
+        "ICCExact": true
+      },
+      "status": "COLOR_PASS_BROWSER_PENDING"
+    }
+  ]
+}

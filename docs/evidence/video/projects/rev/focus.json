@@ -1,0 +1,76 @@
+{
+  "change": "CHG0194",
+  "date": "2026-11-01",
+  "status": "APPROVED_LOCAL_WEB_READY_TO_PUBLISH",
+  "reportedControl": "OriginalRAMSIDER/projectcard videoentry, samefull-cardcontrolsfor4projects",
+  "report": "Userimage straightbrownrectangleafterselection; actualbeforeProMaxChrome3px#815013 focus-visible outlineon850x290sourcehitbutton.",
+  "cause": "Root reusedglobalfocus-visible onlargeprojecthitarea, verifiedfocusreturnbutcomparedunfocusedcards only.",
+  "solution": "OnlytwoCSSselectors: project-hit:focus-visible outline:0; localized2pxcircle onexistingproject-arrow. Focusreturn/nativebutton/entry/media/artworkunchanged.",
+  "checks": {
+    "scopeAudit": "2026-11-01 /root/pub_audit PASS userimage+actualbeforereproduction",
+    "browser": "focus-final5.log3PASS27.1s:4cards EN+AR eachPro402/Max440DPR3WebKit/Chromium1440, pointerEscape, realShiftTabTab+Enter/Escape, realfilmClose, persessionclose-scrollcheckpoints, wholecardoutlinestylenone/border0/shadownone, keyboardfocusVisibletrue/cardwidth0/arrow2px, readyart/font/twoRAFcaptures; Chromium320x740/402x560/768x1024 overflow0.",
+    "gallery": "after-focus.log6PASS48.1s all3 originalentries/7projects/oldUNO7 +newactual144/720/2160rVFC+time/expanded/List/adjacentnavigation/cleanup. Original26PASS7profileSKIP remainscoverageforunchangedmedia/player/fallback/locales/network.",
+    "integration": "integration-focus Pro+Max18settledpositions/endGap0/errors0/overflow0/exactclose-scrollrestore, rootviewedfooter.",
+    "nativeReview": "native-review7 CLEAN exactfinalCSS/test+newmovie/config/assetsdiff, types6/scopedlint7PASS; reviewarchivepointerlimit supplementedfullvalidation/200objectSHA/mediaauditorPASS.",
+    "build": "build3 PASS18media+11SSG; runtimefinalbeforeQA, no subsequentapplicationchanges.",
+    "performance": {
+      "phase": "project-films-rev-focus-final",
+      "conditions": "Single cold Chromium mobile402×874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+      "initial": {
+        "ttfb": 20.300000190734863,
+        "fcp": 512,
+        "lcp": 1308,
+        "cls": 0.0007297865332991844,
+        "jsBytes": 336413,
+        "completedBytes": 3401176,
+        "filmObjects": 15,
+        "readyImages": 29
+      },
+      "scroll": {
+        "samples": 347,
+        "movingFrames": 214,
+        "startY": 0,
+        "endY": 6636,
+        "p95Ms": 33.19999980926514,
+        "over33Ms": 18,
+        "reverseFrames": 0,
+        "maxReverse": 0,
+        "cls": 0.0007297865332991844,
+        "longTasks": [
+          85,
+          54,
+          379,
+          59,
+          95
+        ]
+      },
+      "errors": []
+    },
+    "visual": "Rootviewedfinal5 readyMaxreturned/Prokeyboard/MaxAR/narrow320+desktopreturned; sectionrectangleabsent/decorativeartpreserved/arrowfocusvisible. No newwhole-pagepixel-fidelityclaim.",
+    "performanceDetail": "screenshots/scroll-incident/project-films-rev-focus-final/performance.json"
+  },
+  "failureHistory": [
+    "Focus1/2 QArawoutlineWidth misleadingwhenstylenone; assert actualpaintedstylenone onpointerreturn, explicit0widthonlyfocus-visible.",
+    "Focus3 QAcomparedscrollacrossinterveningnativeTab navigation; capturecheckpointimmediatelybeforeeachopen. No runtimescrollchange.",
+    "Focus4 browser3PASS butnarrowcapturebeforefullartready; addedexplicitreadywait, final5fullyrerun3PASS. Prioroutputs retaineduniquely."
+  ],
+  "approvals": {
+    "root": "2026-11-01 APPROVED_LOCAL_WEB",
+    "independent": "2026-11-01 /root/pub_audit Gates3/4/5 PASS_LOCAL_WEB; finalperformance3/nativeReview7/types6/lint7; Stage6pending",
+    "user": "Explicitremoveframe/addfilm; implementedresultacceptance NOT_RECORDED",
+    "eval": "EVAL-HLS-ENTRYPOINT controlledNOT_RUN",
+    "stage6": "2026-11-01 /root/pub_audit LOCAL_PREPUSH PASS30scopedpaths/20source232artifactexact/LFSarchive+truthfullosthistory/currentjournalheaders; publication+publicchecksnext"
+  },
+  "sourceSHA256": {
+    "app/globals.css": "93cd042a12376325b1137e9b96981c0fff3efff022e85a730b945f74c026ff5e",
+    "tests/e2e/project-focus.spec.ts": "f4b397519942d42b8a456fbeeb342a1ad6d16379f296b68ad4802ac51670ab53"
+  },
+  "integrityFollowUp": {
+    "path": "screenshots/scroll-incident/project-films-rev-focus/performance.json",
+    "originalSHA256": "3fad56cee6f578f17a9bf0c34517edd74e22cc4f9cf42a131496016f83682995",
+    "originalFullRawStatus": "UNRECOVERED",
+    "retainedExactSummary": "screenshots/video/projects/rev/performance2.log plus priorfocusrecord; oldpath nowexplicitlostrawannotation+summary, notoriginalbytes",
+    "freshIndependentRun": "screenshots/scroll-incident/project-films-rev-focus-final/performance.json",
+    "responsibility": "Rootrecordwriter reusedoutputp asartifactloopvariable, overwritebeforestaging; correcteddistinctoutputvariable/atomicwrite/immediatebindingcheck. Noapplicationfix/modelcomplianceclaim."
+  }
+}

@@ -1,0 +1,2307 @@
+{
+  "change": "CHG0193",
+  "date": "2026-11-01",
+  "status": "APPROVED_LOCAL_WEB_READY_TO_PUBLISH",
+  "baselineCommit": "5dd79b725a41490011cc808bfad5de63c8c30e65",
+  "scope": "New supplied RAMSMOBILE short film, identified from actualframes, project playlist index5 afterPROTOS/beforeRAMSWEAR6; defaultPROTOS unchanged. Sevenprojectfilms plus separate originalUNO7. MissingRAMSFOOD explicitlyallowed; originaldescriptionretained. No newStory/CSS/player/watchdogpolicy.",
+  "media": {
+    "source": "design/video2/RAMSMOBILE rev short.mp4",
+    "sourceSHA256": "371864d00820f7387b076546920245a2c3fdaacee72b46e55cf672cca7b8f09f",
+    "archive": "design/derived/product-films/project-ramsmobile-rev-und-v1.tar",
+    "archiveSHA256": "4230f625cec3c41ccdf3e5ee382f2508dc2517997a723911d18291a0f4f9f146",
+    "archiveBytes": 200591360,
+    "objects": 200,
+    "quality": "Threealigned50frames fullVMAF95.871793–98.445722/active96.402294–98.595599/nativeactive4KSSIM>=.982578; sourceAACallpacketsidentical; fullframe/SDRBT709/source25fps preserved;6rungs144–2160/2sGOP50/last1.04s; emergency188064bps. encode.qualityApproval is immutable preparation-time PENDING, superseded by separatelybound quality+validation+browser receipts.",
+    "posters": "15sactualsilentWebKitSRGBsourceframe→pinnedICC/JPEG95; source-boundlosslessPNGfixture committed. Hero193381B/thumb41285B, browserp99<=4/local64MAE<=1.379/redDrift<=.079, full16:9/matte preserved."
+  },
+  "qa": {
+    "matrix": "26PASS7explicitprofileSKIP in3.3m, final1.log; Pro402x874/Max440x956DPR3WebKit/Chromium1440; eachall7decode/seek/portrait/fullwindow/rotation/List/end/replay/cleanup; new144/720/2160presentedrVFC+timeadvance; own720fallback/menuonly720/reopenHLS; originalUNO7+42cache;11compiledlocale/AR;320/shortphone/768/wide/AndroididentityactualMSEelementfullscreen.",
+    "site": "3PASS responsiveviewport/artwork/primaryactions; site.log",
+    "visual": "Root+independentpub_audit viewed actualPro/Maxposters/newList/highest2160/AR/closedcards/footer; no material mismatch. Both readycards pixelmatchthreshold.12:0differentpixels vs originalapprovedbaseline. Playerreusesapprovedcomposition; no newPhotoshopplayerreference/globalfidelityclaim.",
+    "integration": "Pro+Max18settledpositions/overflow0/endGap0/errors0/exactclose-scrollrestore.",
+    "network": "OneChromium402DPR3/cacheoff/CDP100ms sample percondition:4Mbpsfirst2813.5ms360→720/0poststartwaits;1Mbps6309.2ms360→144/0poststartwaits;10→1→10Mbps720→360→720/briefbufferedoutage/recovery/errors0;0newmedia beforeintent. 6.309s slowstartup disclosed, noSLA/p95.",
+    "build": "build1.log PASS all18mediapackages and11localeSSG. No runtimechangesafterbuild.",
+    "types": "types3.log PASS",
+    "lint": "lint4.log targetedPASS; fullunrelatedCHG0181knownFAIL37errors23warnings unchanged, notpassed.",
+    "nativeReview": "native-review3.log CLEAN actual5source/config/testdiff+newposters/fixture/LFSpointer inisolatedsnapshot; review1 twoP2QAfindingsfixed, review2CLEAN didnotcatch doubleEscape fixturefailure; finalreview3 plus26PASS downstreamsupersedes. No runtimebugfixclaimed.",
+    "performance": {
+      "summary": {
+        "phase": "project-films-rev",
+        "conditions": "Single cold Chromium mobile402×874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+        "initial": {
+          "ttfb": 25.59999990463257,
+          "fcp": 492,
+          "lcp": 1324,
+          "cls": 0.0007297865332991844,
+          "jsBytes": 336413,
+          "completedBytes": 3401158,
+          "filmObjects": 15,
+          "readyImages": 29
+        },
+        "scroll": {
+          "samples": 336,
+          "movingFrames": 171,
+          "startY": 0,
+          "endY": 7141,
+          "p95Ms": 32.60000014305115,
+          "over33Ms": 12,
+          "reverseFrames": 0,
+          "maxReverse": 0,
+          "cls": 0.0007297865332991844,
+          "longTasks": [
+            88,
+            58,
+            436,
+            91,
+            81,
+            134
+          ]
+        },
+        "errors": []
+      },
+      "initial": {
+        "timing": {
+          "name": "http://127.0.0.1:3183/en",
+          "entryType": "navigation",
+          "startTime": 0,
+          "duration": 3935.7000000476837,
+          "navigationId": 1504,
+          "initiatorType": "navigation",
+          "deliveryType": "",
+          "nextHopProtocol": "http/1.1",
+          "renderBlockingStatus": "non-blocking",
+          "contentType": "text/html",
+          "contentEncoding": "gzip",
+          "workerStart": 0,
+          "workerRouterEvaluationStart": 0,
+          "workerCacheLookupStart": 0,
+          "workerMatchedSourceType": "",
+          "workerFinalSourceType": "",
+          "redirectStart": 0,
+          "redirectEnd": 0,
+          "fetchStart": 3.5,
+          "domainLookupStart": 5.200000047683716,
+          "domainLookupEnd": 5.5,
+          "connectStart": 5.5,
+          "secureConnectionStart": 0,
+          "connectEnd": 6,
+          "requestStart": 6.099999904632568,
+          "responseStart": 25.59999990463257,
+          "firstInterimResponseStart": 0,
+          "finalResponseHeadersStart": 25.59999990463257,
+          "responseEnd": 1810.2999999523163,
+          "transferSize": 254222,
+          "encodedBodySize": 253922,
+          "decodedBodySize": 900279,
+          "responseStatus": 200,
+          "serverTiming": [],
+          "unloadEventStart": 0,
+          "unloadEventEnd": 0,
+          "domInteractive": 1823,
+          "domContentLoadedEventStart": 1823,
+          "domContentLoadedEventEnd": 1823.8999998569489,
+          "domComplete": 3935.5,
+          "loadEventStart": 3935.7000000476837,
+          "loadEventEnd": 3935.7000000476837,
+          "type": "navigate",
+          "redirectCount": 0,
+          "activationStart": 0,
+          "criticalCHRestart": 0,
+          "notRestoredReasons": null,
+          "confidence": {
+            "randomizedTriggerRate": 0.4994798,
+            "value": "high"
+          }
+        },
+        "paint": [
+          {
+            "name": "first-paint",
+            "entryType": "paint",
+            "startTime": 492,
+            "duration": 0,
+            "navigationId": 1504,
+            "paintTime": 472.09999990463257,
+            "presentationTime": 492
+          },
+          {
+            "name": "first-contentful-paint",
+            "entryType": "paint",
+            "startTime": 492,
+            "duration": 0,
+            "navigationId": 1504,
+            "paintTime": 472.09999990463257,
+            "presentationTime": 492
+          }
+        ],
+        "lcp": 1324,
+        "cls": 0.0007297865332991844,
+        "resources": [
+          {
+            "type": "link",
+            "path": "/art/story-v2-00.webp",
+            "bytes": 119336,
+            "transfer": 119636
+          },
+          {
+            "type": "link",
+            "path": "/art/brand-mark-white.webp",
+            "bytes": 1082,
+            "transfer": 1382
+          },
+          {
+            "type": "link",
+            "path": "/_next/static/chunks/37bwvwo39glkk.css",
+            "bytes": 1394,
+            "transfer": 1694
+          },
+          {
+            "type": "link",
+            "path": "/_next/static/chunks/0jiz3knqz3yl2.css",
+            "bytes": 15006,
+            "transfer": 15306
+          },
+          {
+            "type": "link",
+            "path": "/_next/static/chunks/3-5k80pt3ds20.js",
+            "bytes": 6122,
+            "transfer": 6422
+          },
+          {
+            "type": "script",
+            "path": "/_next/static/chunks/15orcrkp-_9ct.js",
+            "bytes": 10564,
+            "transfer": 10864
+          },
+          {
+            "type": "script",
+            "path": "/_next/static/chunks/3gzxhq9iq6efl.js",
+            "bytes": 70980,
+            "transfer": 71280
+          },
+          {
+            "type": "script",
+            "path": "/_next/static/chunks/3_yaym1q7aiwc.js",
+            "bytes": 40509,
+            "transfer": 40809
+          },
+          {
+            "type": "script",
+            "path": "/_next/static/chunks/turbopack-3ps7o16pksegz.js",
+            "bytes": 4159,
+            "transfer": 4459
+          },
+          {
+            "type": "script",
+            "path": "/_next/static/chunks/05-c3ty_6dwfk.js",
+            "bytes": 1456,
+            "transfer": 1756
+          },
+          {
+            "type": "script",
+            "path": "/_next/static/chunks/14mrh2-p_w84d.js",
+            "bytes": 12863,
+            "transfer": 13163
+          },
+          {
+            "type": "script",
+            "path": "/_next/static/chunks/16f0cyqpp3xu0.js",
+            "bytes": 7833,
+            "transfer": 8133
+          },
+          {
+            "type": "script",
+            "path": "/_next/static/chunks/1so528r5q2--i.js",
+            "bytes": 74061,
+            "transfer": 74361
+          },
+          {
+            "type": "css",
+            "path": "/fonts/opensans-regular.ttf",
+            "bytes": 78320,
+            "transfer": 78620
+          },
+          {
+            "type": "img",
+            "path": "/art/feature-divider-control.webp",
+            "bytes": 710,
+            "transfer": 1010
+          },
+          {
+            "type": "img",
+            "path": "/art/feature-divider-draw.webp",
+            "bytes": 746,
+            "transfer": 1046
+          },
+          {
+            "type": "img",
+            "path": "/art/feature-divider-intensity.webp",
+            "bytes": 802,
+            "transfer": 1102
+          },
+          {
+            "type": "img",
+            "path": "/art/technology-connector-triple.webp",
+            "bytes": 1642,
+            "transfer": 1942
+          },
+          {
+            "type": "img",
+            "path": "/art/technology-connector-core.webp",
+            "bytes": 1712,
+            "transfer": 2012
+          },
+          {
+            "type": "img",
+            "path": "/art/technology-connector-touch.webp",
+            "bytes": 10026,
+            "transfer": 10326
+          },
+          {
+            "type": "img",
+            "path": "/art/technology-connector-water.webp",
+            "bytes": 2080,
+            "transfer": 2380
+          },
+          {
+            "type": "img",
+            "path": "/art/technology-connector-light.webp",
+            "bytes": 4296,
+            "transfer": 4596
+          },
+          {
+            "type": "img",
+            "path": "/art/technology-connector-armor.webp",
+            "bytes": 4782,
+            "transfer": 5082
+          },
+          {
+            "type": "img",
+            "path": "/art/technology-connector-flow.webp",
+            "bytes": 11570,
+            "transfer": 11870
+          },
+          {
+            "type": "img",
+            "path": "/art/icon-kit/01.webp",
+            "bytes": 944,
+            "transfer": 1244
+          },
+          {
+            "type": "img",
+            "path": "/art/icon-kit/02.webp",
+            "bytes": 816,
+            "transfer": 1116
+          },
+          {
+            "type": "img",
+            "path": "/art/icon-kit/03.webp",
+            "bytes": 1002,
+            "transfer": 1302
+          },
+          {
+            "type": "img",
+            "path": "/art/icon-kit/04.webp",
+            "bytes": 860,
+            "transfer": 1160
+          },
+          {
+            "type": "img",
+            "path": "/art/icon-kit/05.webp",
+            "bytes": 950,
+            "transfer": 1250
+          },
+          {
+            "type": "img",
+            "path": "/art/icon-kit/07.webp",
+            "bytes": 888,
+            "transfer": 1188
+          },
+          {
+            "type": "img",
+            "path": "/art/icon-kit/08.webp",
+            "bytes": 908,
+            "transfer": 1208
+          },
+          {
+            "type": "img",
+            "path": "/art/icon-kit/09.webp",
+            "bytes": 1632,
+            "transfer": 1932
+          },
+          {
+            "type": "img",
+            "path": "/art/icon-kit/10.webp",
+            "bytes": 2040,
+            "transfer": 2340
+          },
+          {
+            "type": "img",
+            "path": "/art/icon-kit/11.webp",
+            "bytes": 1360,
+            "transfer": 1660
+          },
+          {
+            "type": "img",
+            "path": "/art/icon-kit/12.webp",
+            "bytes": 2020,
+            "transfer": 2320
+          },
+          {
+            "type": "css",
+            "path": "/buttons/hero-reserve.svg",
+            "bytes": 406,
+            "transfer": 706
+          },
+          {
+            "type": "css",
+            "path": "/buttons/fire-learn.svg",
+            "bytes": 409,
+            "transfer": 709
+          },
+          {
+            "type": "css",
+            "path": "/art/tech-ring.svg",
+            "bytes": 504,
+            "transfer": 804
+          },
+          {
+            "type": "css",
+            "path": "/buttons/beyond-learn.svg",
+            "bytes": 404,
+            "transfer": 704
+          },
+          {
+            "type": "css",
+            "path": "/buttons/expressions-compare.svg",
+            "bytes": 497,
+            "transfer": 797
+          },
+          {
+            "type": "css",
+            "path": "/buttons/pro-explore.svg",
+            "bytes": 497,
+            "transfer": 797
+          },
+          {
+            "type": "css",
+            "path": "/buttons/gold-explore.svg",
+            "bytes": 498,
+            "transfer": 798
+          },
+          {
+            "type": "css",
+            "path": "/buttons/set-explore.svg",
+            "bytes": 498,
+            "transfer": 798
+          },
+          {
+            "type": "css",
+            "path": "/buttons/order-create.svg",
+            "bytes": 497,
+            "transfer": 797
+          },
+          {
+            "type": "css",
+            "path": "/fonts/opensans-light.ttf",
+            "bytes": 78000,
+            "transfer": 78300
+          },
+          {
+            "type": "css",
+            "path": "/fonts/opensans-button.ttf",
+            "bytes": 84753,
+            "transfer": 85053
+          },
+          {
+            "type": "css",
+            "path": "/fonts/bankgothic.ttf",
+            "bytes": 14070,
+            "transfer": 14370
+          },
+          {
+            "type": "img",
+            "path": "/art/expression-waves.webp",
+            "bytes": 67220,
+            "transfer": 67520
+          },
+          {
+            "type": "css",
+            "path": "/buttons/final-create.svg",
+            "bytes": 506,
+            "transfer": 806
+          },
+          {
+            "type": "fetch",
+            "path": "/art/story-v2-01.webp",
+            "bytes": 275052,
+            "transfer": 275352
+          },
+          {
+            "type": "fetch",
+            "path": "/art/story-v2-02.webp",
+            "bytes": 266580,
+            "transfer": 266880
+          },
+          {
+            "type": "fetch",
+            "path": "/en",
+            "bytes": 576,
+            "transfer": 876
+          },
+          {
+            "type": "fetch",
+            "path": "/en",
+            "bytes": 762,
+            "transfer": 1062
+          },
+          {
+            "type": "fetch",
+            "path": "/en",
+            "bytes": 1005,
+            "transfer": 1305
+          },
+          {
+            "type": "fetch",
+            "path": "/en",
+            "bytes": 136627,
+            "transfer": 136927
+          },
+          {
+            "type": "fetch",
+            "path": "/vendor/hls-worker-1.7.3-runtime.js",
+            "bytes": 40789,
+            "transfer": 41089
+          },
+          {
+            "type": "script",
+            "path": "/_next/static/chunks/43h7fz0_citb4.js",
+            "bytes": 113988,
+            "transfer": 114288
+          },
+          {
+            "type": "fetch",
+            "path": "/films/uno-introduction/en-v3/master.m3u8",
+            "bytes": 937,
+            "transfer": 1237
+          },
+          {
+            "type": "fetch",
+            "path": "/films/uno-introduction/en-v3/360p/index.m3u8",
+            "bytes": 1283,
+            "transfer": 1583
+          },
+          {
+            "type": "fetch",
+            "path": "/films/uno-introduction/en-v3/360p/init.mp4",
+            "bytes": 1394,
+            "transfer": 1694
+          },
+          {
+            "type": "fetch",
+            "path": "/films/uno-introduction/en-v3/360p/segment-00000.m4s",
+            "bytes": 134771,
+            "transfer": 135071
+          },
+          {
+            "type": "fetch",
+            "path": "/art/faq-row-1.webp",
+            "bytes": 9950,
+            "transfer": 10250
+          },
+          {
+            "type": "fetch",
+            "path": "/art/story-v2-03.webp",
+            "bytes": 172728,
+            "transfer": 173028
+          },
+          {
+            "type": "fetch",
+            "path": "/art/faq-row-2.webp",
+            "bytes": 7834,
+            "transfer": 8134
+          },
+          {
+            "type": "fetch",
+            "path": "/films/uno-introduction/en-v3/360p/segment-00001.m4s",
+            "bytes": 149574,
+            "transfer": 149874
+          },
+          {
+            "type": "fetch",
+            "path": "/art/faq-row-3.webp",
+            "bytes": 8988,
+            "transfer": 9288
+          },
+          {
+            "type": "fetch",
+            "path": "/art/faq-row-4.webp",
+            "bytes": 12290,
+            "transfer": 12590
+          },
+          {
+            "type": "fetch",
+            "path": "/art/faq-row-5.webp",
+            "bytes": 11720,
+            "transfer": 12020
+          },
+          {
+            "type": "fetch",
+            "path": "/art/faq-row-6.webp",
+            "bytes": 11930,
+            "transfer": 12230
+          },
+          {
+            "type": "fetch",
+            "path": "/art/story-v2-04.webp",
+            "bytes": 717254,
+            "transfer": 717554
+          },
+          {
+            "type": "fetch",
+            "path": "/films/uno-introduction/en-v3/360p/segment-00002.m4s",
+            "bytes": 152472,
+            "transfer": 152772
+          },
+          {
+            "type": "fetch",
+            "path": "/films/pure-gold/und-v1/master.m3u8",
+            "bytes": 937,
+            "transfer": 1237
+          },
+          {
+            "type": "fetch",
+            "path": "/films/pure-gold/und-v1/360p/index.m3u8",
+            "bytes": 599,
+            "transfer": 899
+          },
+          {
+            "type": "fetch",
+            "path": "/films/pure-gold/und-v1/360p/init.mp4",
+            "bytes": 1394,
+            "transfer": 1694
+          },
+          {
+            "type": "fetch",
+            "path": "/films/pure-gold/und-v1/360p/segment-00000.m4s",
+            "bytes": 76711,
+            "transfer": 77011
+          },
+          {
+            "type": "fetch",
+            "path": "/films/pure-gold/und-v1/360p/segment-00001.m4s",
+            "bytes": 177850,
+            "transfer": 178150
+          },
+          {
+            "type": "fetch",
+            "path": "/films/pure-gold/und-v1/360p/segment-00002.m4s",
+            "bytes": 166683,
+            "transfer": 166983
+          },
+          {
+            "type": "fetch",
+            "path": "/films/evolution/und-v1/master.m3u8",
+            "bytes": 637,
+            "transfer": 937
+          },
+          {
+            "type": "fetch",
+            "path": "/films/evolution/und-v1/360p/index.m3u8",
+            "bytes": 2219,
+            "transfer": 2519
+          },
+          {
+            "type": "fetch",
+            "path": "/films/evolution/und-v1/360p/init.mp4",
+            "bytes": 1394,
+            "transfer": 1694
+          }
+        ],
+        "readyImages": 29,
+        "overflow": false
+      },
+      "scroll": {
+        "lcp": 1324,
+        "cls": 0.0007297865332991844,
+        "longTasks": [
+          88,
+          58,
+          436,
+          91,
+          81,
+          134
+        ],
+        "frames": [
+          {
+            "t": 8954.899999856949,
+            "y": 0
+          },
+          {
+            "t": 8956.899999856949,
+            "y": 0
+          },
+          {
+            "t": 8973.899999856949,
+            "y": 0
+          },
+          {
+            "t": 8990.299999952316,
+            "y": 0
+          },
+          {
+            "t": 9007.799999952316,
+            "y": 0
+          },
+          {
+            "t": 9041,
+            "y": 45
+          },
+          {
+            "t": 9043.299999952316,
+            "y": 105
+          },
+          {
+            "t": 9074.099999904633,
+            "y": 105
+          },
+          {
+            "t": 9075.099999904633,
+            "y": 165
+          },
+          {
+            "t": 9107.5,
+            "y": 165
+          },
+          {
+            "t": 9109,
+            "y": 225
+          },
+          {
+            "t": 9141.200000047684,
+            "y": 225
+          },
+          {
+            "t": 9142.399999856949,
+            "y": 285
+          },
+          {
+            "t": 9174,
+            "y": 285
+          },
+          {
+            "t": 9179.099999904633,
+            "y": 285
+          },
+          {
+            "t": 9190.399999856949,
+            "y": 345
+          },
+          {
+            "t": 9224.200000047684,
+            "y": 345
+          },
+          {
+            "t": 9225.799999952316,
+            "y": 405
+          },
+          {
+            "t": 9257.299999952316,
+            "y": 405
+          },
+          {
+            "t": 9258.399999856949,
+            "y": 465
+          },
+          {
+            "t": 9290.700000047684,
+            "y": 465
+          },
+          {
+            "t": 9291.599999904633,
+            "y": 525
+          },
+          {
+            "t": 9323.599999904633,
+            "y": 525
+          },
+          {
+            "t": 9324.799999952316,
+            "y": 585
+          },
+          {
+            "t": 9357.200000047684,
+            "y": 585
+          },
+          {
+            "t": 9359,
+            "y": 615
+          },
+          {
+            "t": 9374.799999952316,
+            "y": 641
+          },
+          {
+            "t": 9391.299999952316,
+            "y": 667
+          },
+          {
+            "t": 9410.200000047684,
+            "y": 691
+          },
+          {
+            "t": 9423.5,
+            "y": 714
+          },
+          {
+            "t": 9441.399999856949,
+            "y": 735
+          },
+          {
+            "t": 9457.599999904633,
+            "y": 755
+          },
+          {
+            "t": 9474.799999952316,
+            "y": 773
+          },
+          {
+            "t": 9513.700000047684,
+            "y": 790
+          },
+          {
+            "t": 9963.5,
+            "y": 969
+          },
+          {
+            "t": 9994.5,
+            "y": 969
+          },
+          {
+            "t": 10009.700000047684,
+            "y": 969
+          },
+          {
+            "t": 10024.200000047684,
+            "y": 969
+          },
+          {
+            "t": 10056.599999904633,
+            "y": 1014
+          },
+          {
+            "t": 10091.200000047684,
+            "y": 1014
+          },
+          {
+            "t": 10113.299999952316,
+            "y": 1074
+          },
+          {
+            "t": 10132.899999856949,
+            "y": 1074
+          },
+          {
+            "t": 10163.299999952316,
+            "y": 1134
+          },
+          {
+            "t": 10180.399999856949,
+            "y": 1134
+          },
+          {
+            "t": 10212.899999856949,
+            "y": 1194
+          },
+          {
+            "t": 10229,
+            "y": 1194
+          },
+          {
+            "t": 10240.599999904633,
+            "y": 1254
+          },
+          {
+            "t": 10262.200000047684,
+            "y": 1254
+          },
+          {
+            "t": 10279.899999856949,
+            "y": 1254
+          },
+          {
+            "t": 10291.899999856949,
+            "y": 1314
+          },
+          {
+            "t": 10312.200000047684,
+            "y": 1314
+          },
+          {
+            "t": 10330.200000047684,
+            "y": 1314
+          },
+          {
+            "t": 10363.200000047684,
+            "y": 1374
+          },
+          {
+            "t": 10378.799999952316,
+            "y": 1374
+          },
+          {
+            "t": 10390.799999952316,
+            "y": 1434
+          },
+          {
+            "t": 10424.099999904633,
+            "y": 1434
+          },
+          {
+            "t": 10426.099999904633,
+            "y": 1494
+          },
+          {
+            "t": 10456.599999904633,
+            "y": 1494
+          },
+          {
+            "t": 10457.399999856949,
+            "y": 1554
+          },
+          {
+            "t": 10490.200000047684,
+            "y": 1554
+          },
+          {
+            "t": 10492.599999904633,
+            "y": 1554
+          },
+          {
+            "t": 10507.299999952316,
+            "y": 1554
+          },
+          {
+            "t": 10523.700000047684,
+            "y": 1554
+          },
+          {
+            "t": 10540.399999856949,
+            "y": 1554
+          },
+          {
+            "t": 10556.799999952316,
+            "y": 1554
+          },
+          {
+            "t": 10573.700000047684,
+            "y": 1554
+          },
+          {
+            "t": 10589.799999952316,
+            "y": 1554
+          },
+          {
+            "t": 10608.200000047684,
+            "y": 1554
+          },
+          {
+            "t": 10624.099999904633,
+            "y": 1554
+          },
+          {
+            "t": 10640.299999952316,
+            "y": 1554
+          },
+          {
+            "t": 10657.099999904633,
+            "y": 1554
+          },
+          {
+            "t": 10674.200000047684,
+            "y": 1554
+          },
+          {
+            "t": 10690.899999856949,
+            "y": 1554
+          },
+          {
+            "t": 10706.799999952316,
+            "y": 1554
+          },
+          {
+            "t": 10724.599999904633,
+            "y": 1554
+          },
+          {
+            "t": 10740,
+            "y": 1554
+          },
+          {
+            "t": 10757.200000047684,
+            "y": 1554
+          },
+          {
+            "t": 10773.299999952316,
+            "y": 1554
+          },
+          {
+            "t": 10790.099999904633,
+            "y": 1554
+          },
+          {
+            "t": 10807.5,
+            "y": 1554
+          },
+          {
+            "t": 10823.5,
+            "y": 1554
+          },
+          {
+            "t": 10841.200000047684,
+            "y": 1554
+          },
+          {
+            "t": 10874.099999904633,
+            "y": 1599
+          },
+          {
+            "t": 10875.700000047684,
+            "y": 1659
+          },
+          {
+            "t": 10906.700000047684,
+            "y": 1659
+          },
+          {
+            "t": 10907.599999904633,
+            "y": 1719
+          },
+          {
+            "t": 10940.899999856949,
+            "y": 1719
+          },
+          {
+            "t": 10944.799999952316,
+            "y": 1779
+          },
+          {
+            "t": 10974.099999904633,
+            "y": 1779
+          },
+          {
+            "t": 10974.899999856949,
+            "y": 1839
+          },
+          {
+            "t": 11007.299999952316,
+            "y": 1839
+          },
+          {
+            "t": 11009.399999856949,
+            "y": 1899
+          },
+          {
+            "t": 11040.200000047684,
+            "y": 1899
+          },
+          {
+            "t": 11041,
+            "y": 1959
+          },
+          {
+            "t": 11075.5,
+            "y": 1959
+          },
+          {
+            "t": 11078,
+            "y": 2019
+          },
+          {
+            "t": 11107.200000047684,
+            "y": 2019
+          },
+          {
+            "t": 11109.799999952316,
+            "y": 2079
+          },
+          {
+            "t": 11140.099999904633,
+            "y": 2079
+          },
+          {
+            "t": 11142,
+            "y": 2139
+          },
+          {
+            "t": 11173.5,
+            "y": 2139
+          },
+          {
+            "t": 11175.899999856949,
+            "y": 2171
+          },
+          {
+            "t": 11190.599999904633,
+            "y": 2200
+          },
+          {
+            "t": 11207.099999904633,
+            "y": 2228
+          },
+          {
+            "t": 11224,
+            "y": 2255
+          },
+          {
+            "t": 11240.599999904633,
+            "y": 2279
+          },
+          {
+            "t": 11257.5,
+            "y": 2302
+          },
+          {
+            "t": 11274,
+            "y": 2323
+          },
+          {
+            "t": 11290.599999904633,
+            "y": 2343
+          },
+          {
+            "t": 11307.700000047684,
+            "y": 2362
+          },
+          {
+            "t": 11324.200000047684,
+            "y": 2379
+          },
+          {
+            "t": 11340.399999856949,
+            "y": 2395
+          },
+          {
+            "t": 11358,
+            "y": 2410
+          },
+          {
+            "t": 11373.799999952316,
+            "y": 2424
+          },
+          {
+            "t": 11390.899999856949,
+            "y": 2437
+          },
+          {
+            "t": 11407.5,
+            "y": 2449
+          },
+          {
+            "t": 11423.599999904633,
+            "y": 2460
+          },
+          {
+            "t": 11440.599999904633,
+            "y": 2470
+          },
+          {
+            "t": 11457.399999856949,
+            "y": 2479
+          },
+          {
+            "t": 11474.200000047684,
+            "y": 2488
+          },
+          {
+            "t": 11490.5,
+            "y": 2496
+          },
+          {
+            "t": 11506.899999856949,
+            "y": 2496
+          },
+          {
+            "t": 11523.5,
+            "y": 2541
+          },
+          {
+            "t": 11541.700000047684,
+            "y": 2601
+          },
+          {
+            "t": 11562.899999856949,
+            "y": 2601
+          },
+          {
+            "t": 11573.899999856949,
+            "y": 2691
+          },
+          {
+            "t": 11607.099999904633,
+            "y": 2691
+          },
+          {
+            "t": 11608.799999952316,
+            "y": 2751
+          },
+          {
+            "t": 11640.200000047684,
+            "y": 2751
+          },
+          {
+            "t": 11641,
+            "y": 2811
+          },
+          {
+            "t": 11673.599999904633,
+            "y": 2811
+          },
+          {
+            "t": 11675.899999856949,
+            "y": 2871
+          },
+          {
+            "t": 11706.700000047684,
+            "y": 2871
+          },
+          {
+            "t": 11707.5,
+            "y": 2931
+          },
+          {
+            "t": 11740.099999904633,
+            "y": 2931
+          },
+          {
+            "t": 11742.399999856949,
+            "y": 2991
+          },
+          {
+            "t": 11773.399999856949,
+            "y": 2991
+          },
+          {
+            "t": 11777.200000047684,
+            "y": 3051
+          },
+          {
+            "t": 11806.899999856949,
+            "y": 3051
+          },
+          {
+            "t": 11808.200000047684,
+            "y": 3111
+          },
+          {
+            "t": 11840.299999952316,
+            "y": 3111
+          },
+          {
+            "t": 11843.299999952316,
+            "y": 3111
+          },
+          {
+            "t": 11856.599999904633,
+            "y": 3111
+          },
+          {
+            "t": 11874.299999952316,
+            "y": 3111
+          },
+          {
+            "t": 11890.399999856949,
+            "y": 3111
+          },
+          {
+            "t": 11907.700000047684,
+            "y": 3111
+          },
+          {
+            "t": 11924,
+            "y": 3111
+          },
+          {
+            "t": 11940.099999904633,
+            "y": 3111
+          },
+          {
+            "t": 11956.5,
+            "y": 3111
+          },
+          {
+            "t": 11974.299999952316,
+            "y": 3111
+          },
+          {
+            "t": 11990.200000047684,
+            "y": 3111
+          },
+          {
+            "t": 12007.299999952316,
+            "y": 3111
+          },
+          {
+            "t": 12023.399999856949,
+            "y": 3111
+          },
+          {
+            "t": 12040.700000047684,
+            "y": 3111
+          },
+          {
+            "t": 12057.399999856949,
+            "y": 3111
+          },
+          {
+            "t": 12074.5,
+            "y": 3111
+          },
+          {
+            "t": 12090.099999904633,
+            "y": 3111
+          },
+          {
+            "t": 12107,
+            "y": 3111
+          },
+          {
+            "t": 12123.599999904633,
+            "y": 3111
+          },
+          {
+            "t": 12141.200000047684,
+            "y": 3111
+          },
+          {
+            "t": 12157.099999904633,
+            "y": 3111
+          },
+          {
+            "t": 12173.599999904633,
+            "y": 3111
+          },
+          {
+            "t": 12191.599999904633,
+            "y": 3111
+          },
+          {
+            "t": 12224,
+            "y": 3156
+          },
+          {
+            "t": 12225.799999952316,
+            "y": 3216
+          },
+          {
+            "t": 12257.399999856949,
+            "y": 3216
+          },
+          {
+            "t": 12258.099999904633,
+            "y": 3276
+          },
+          {
+            "t": 12290.700000047684,
+            "y": 3276
+          },
+          {
+            "t": 12293.099999904633,
+            "y": 3336
+          },
+          {
+            "t": 12323.5,
+            "y": 3336
+          },
+          {
+            "t": 12326.599999904633,
+            "y": 3396
+          },
+          {
+            "t": 12357.299999952316,
+            "y": 3396
+          },
+          {
+            "t": 12360.099999904633,
+            "y": 3456
+          },
+          {
+            "t": 12390.200000047684,
+            "y": 3456
+          },
+          {
+            "t": 12392.5,
+            "y": 3516
+          },
+          {
+            "t": 12423.899999856949,
+            "y": 3516
+          },
+          {
+            "t": 12426.299999952316,
+            "y": 3576
+          },
+          {
+            "t": 12457,
+            "y": 3576
+          },
+          {
+            "t": 12459,
+            "y": 3636
+          },
+          {
+            "t": 12491.099999904633,
+            "y": 3636
+          },
+          {
+            "t": 12492.399999856949,
+            "y": 3696
+          },
+          {
+            "t": 12524.099999904633,
+            "y": 3696
+          },
+          {
+            "t": 12526.399999856949,
+            "y": 3725
+          },
+          {
+            "t": 12540.700000047684,
+            "y": 3751
+          },
+          {
+            "t": 12557.399999856949,
+            "y": 3777
+          },
+          {
+            "t": 12573.5,
+            "y": 3801
+          },
+          {
+            "t": 12590.599999904633,
+            "y": 3823
+          },
+          {
+            "t": 12607.5,
+            "y": 3845
+          },
+          {
+            "t": 12624.5,
+            "y": 3864
+          },
+          {
+            "t": 12640.700000047684,
+            "y": 3883
+          },
+          {
+            "t": 12656.899999856949,
+            "y": 3900
+          },
+          {
+            "t": 12675.099999904633,
+            "y": 3915
+          },
+          {
+            "t": 12691.099999904633,
+            "y": 3930
+          },
+          {
+            "t": 12706.899999856949,
+            "y": 3944
+          },
+          {
+            "t": 12724,
+            "y": 3957
+          },
+          {
+            "t": 12740.399999856949,
+            "y": 3968
+          },
+          {
+            "t": 12756.899999856949,
+            "y": 3979
+          },
+          {
+            "t": 12773.700000047684,
+            "y": 3989
+          },
+          {
+            "t": 12791,
+            "y": 3999
+          },
+          {
+            "t": 12810.399999856949,
+            "y": 4007
+          },
+          {
+            "t": 12902.799999952316,
+            "y": 4015
+          },
+          {
+            "t": 13002.299999952316,
+            "y": 4050
+          },
+          {
+            "t": 13142,
+            "y": 4064
+          },
+          {
+            "t": 13146.599999904633,
+            "y": 4064
+          },
+          {
+            "t": 13170.099999904633,
+            "y": 4109
+          },
+          {
+            "t": 13196.5,
+            "y": 4109
+          },
+          {
+            "t": 13207.599999904633,
+            "y": 4109
+          },
+          {
+            "t": 13240.599999904633,
+            "y": 4169
+          },
+          {
+            "t": 13242.200000047684,
+            "y": 4229
+          },
+          {
+            "t": 13273.299999952316,
+            "y": 4229
+          },
+          {
+            "t": 13277.599999904633,
+            "y": 4289
+          },
+          {
+            "t": 13307.200000047684,
+            "y": 4289
+          },
+          {
+            "t": 13309.799999952316,
+            "y": 4349
+          },
+          {
+            "t": 13341.099999904633,
+            "y": 4349
+          },
+          {
+            "t": 13343.899999856949,
+            "y": 4409
+          },
+          {
+            "t": 13374.099999904633,
+            "y": 4409
+          },
+          {
+            "t": 13376.099999904633,
+            "y": 4469
+          },
+          {
+            "t": 13406.899999856949,
+            "y": 4469
+          },
+          {
+            "t": 13408.799999952316,
+            "y": 4529
+          },
+          {
+            "t": 13440.899999856949,
+            "y": 4529
+          },
+          {
+            "t": 13441.5,
+            "y": 4589
+          },
+          {
+            "t": 13474,
+            "y": 4589
+          },
+          {
+            "t": 13476.299999952316,
+            "y": 4649
+          },
+          {
+            "t": 13506.899999856949,
+            "y": 4649
+          },
+          {
+            "t": 13509.099999904633,
+            "y": 4678
+          },
+          {
+            "t": 13524.299999952316,
+            "y": 4703
+          },
+          {
+            "t": 13540.799999952316,
+            "y": 4728
+          },
+          {
+            "t": 13557.299999952316,
+            "y": 4751
+          },
+          {
+            "t": 13574.299999952316,
+            "y": 4773
+          },
+          {
+            "t": 13590.599999904633,
+            "y": 4793
+          },
+          {
+            "t": 13607.899999856949,
+            "y": 4812
+          },
+          {
+            "t": 13624.099999904633,
+            "y": 4830
+          },
+          {
+            "t": 13641.200000047684,
+            "y": 4846
+          },
+          {
+            "t": 13657.5,
+            "y": 4861
+          },
+          {
+            "t": 13674.399999856949,
+            "y": 4875
+          },
+          {
+            "t": 13690.299999952316,
+            "y": 4888
+          },
+          {
+            "t": 13708.599999904633,
+            "y": 4900
+          },
+          {
+            "t": 13728.200000047684,
+            "y": 4912
+          },
+          {
+            "t": 13741.099999904633,
+            "y": 4922
+          },
+          {
+            "t": 13758.899999856949,
+            "y": 4932
+          },
+          {
+            "t": 13782.899999856949,
+            "y": 4941
+          },
+          {
+            "t": 13790.599999904633,
+            "y": 4949
+          },
+          {
+            "t": 13807.200000047684,
+            "y": 4956
+          },
+          {
+            "t": 13825,
+            "y": 4963
+          },
+          {
+            "t": 13841.099999904633,
+            "y": 4963
+          },
+          {
+            "t": 13857.599999904633,
+            "y": 5008
+          },
+          {
+            "t": 13876,
+            "y": 5068
+          },
+          {
+            "t": 13889.599999904633,
+            "y": 5157
+          },
+          {
+            "t": 13907.299999952316,
+            "y": 5214
+          },
+          {
+            "t": 13924.5,
+            "y": 5278
+          },
+          {
+            "t": 13940.299999952316,
+            "y": 5338
+          },
+          {
+            "t": 13956.700000047684,
+            "y": 5396
+          },
+          {
+            "t": 13974.700000047684,
+            "y": 5458
+          },
+          {
+            "t": 13991,
+            "y": 5515
+          },
+          {
+            "t": 14006.799999952316,
+            "y": 5575
+          },
+          {
+            "t": 14024.899999856949,
+            "y": 5671
+          },
+          {
+            "t": 14041.099999904633,
+            "y": 5740
+          },
+          {
+            "t": 14058.5,
+            "y": 5812
+          },
+          {
+            "t": 14074.099999904633,
+            "y": 5880
+          },
+          {
+            "t": 14090,
+            "y": 5943
+          },
+          {
+            "t": 14107.099999904633,
+            "y": 6002
+          },
+          {
+            "t": 14124,
+            "y": 6058
+          },
+          {
+            "t": 14140.099999904633,
+            "y": 6110
+          },
+          {
+            "t": 14157.299999952316,
+            "y": 6158
+          },
+          {
+            "t": 14174.200000047684,
+            "y": 6204
+          },
+          {
+            "t": 14193.099999904633,
+            "y": 6247
+          },
+          {
+            "t": 14207.5,
+            "y": 6287
+          },
+          {
+            "t": 14223.599999904633,
+            "y": 6324
+          },
+          {
+            "t": 14239.899999856949,
+            "y": 6359
+          },
+          {
+            "t": 14256.599999904633,
+            "y": 6392
+          },
+          {
+            "t": 14273.899999856949,
+            "y": 6423
+          },
+          {
+            "t": 14291,
+            "y": 6452
+          },
+          {
+            "t": 14307.799999952316,
+            "y": 6478
+          },
+          {
+            "t": 14324,
+            "y": 6503
+          },
+          {
+            "t": 14340.099999904633,
+            "y": 6527
+          },
+          {
+            "t": 14357.899999856949,
+            "y": 6572
+          },
+          {
+            "t": 14374.899999856949,
+            "y": 6632
+          },
+          {
+            "t": 14390.099999904633,
+            "y": 6720
+          },
+          {
+            "t": 14407.899999856949,
+            "y": 6779
+          },
+          {
+            "t": 14424.200000047684,
+            "y": 6842
+          },
+          {
+            "t": 14440.5,
+            "y": 6899
+          },
+          {
+            "t": 14460.299999952316,
+            "y": 6961
+          },
+          {
+            "t": 14475.200000047684,
+            "y": 7021
+          },
+          {
+            "t": 14507.599999904633,
+            "y": 7021
+          },
+          {
+            "t": 14509.399999856949,
+            "y": 7081
+          },
+          {
+            "t": 14540.5,
+            "y": 7081
+          },
+          {
+            "t": 14542.599999904633,
+            "y": 7141
+          },
+          {
+            "t": 14573.599999904633,
+            "y": 7141
+          },
+          {
+            "t": 14574.899999856949,
+            "y": 7141
+          },
+          {
+            "t": 14590.899999856949,
+            "y": 7141
+          },
+          {
+            "t": 14606.399999856949,
+            "y": 7141
+          },
+          {
+            "t": 14624.200000047684,
+            "y": 7141
+          },
+          {
+            "t": 14639.700000047684,
+            "y": 7141
+          },
+          {
+            "t": 14656.799999952316,
+            "y": 7141
+          },
+          {
+            "t": 14672.899999856949,
+            "y": 7141
+          },
+          {
+            "t": 14693.099999904633,
+            "y": 7141
+          },
+          {
+            "t": 14707.5,
+            "y": 7141
+          },
+          {
+            "t": 14723.399999856949,
+            "y": 7141
+          },
+          {
+            "t": 14740.5,
+            "y": 7141
+          },
+          {
+            "t": 14757.299999952316,
+            "y": 7141
+          },
+          {
+            "t": 14773.899999856949,
+            "y": 7141
+          },
+          {
+            "t": 14790,
+            "y": 7141
+          },
+          {
+            "t": 14806.799999952316,
+            "y": 7141
+          },
+          {
+            "t": 14823.700000047684,
+            "y": 7141
+          },
+          {
+            "t": 14840.599999904633,
+            "y": 7141
+          },
+          {
+            "t": 14857,
+            "y": 7141
+          },
+          {
+            "t": 14874.200000047684,
+            "y": 7141
+          },
+          {
+            "t": 14889.599999904633,
+            "y": 7141
+          },
+          {
+            "t": 14907.700000047684,
+            "y": 7141
+          },
+          {
+            "t": 14923.799999952316,
+            "y": 7141
+          },
+          {
+            "t": 14939.899999856949,
+            "y": 7141
+          },
+          {
+            "t": 14957.399999856949,
+            "y": 7141
+          },
+          {
+            "t": 14973.5,
+            "y": 7141
+          },
+          {
+            "t": 14989.899999856949,
+            "y": 7141
+          },
+          {
+            "t": 15007,
+            "y": 7141
+          },
+          {
+            "t": 15023.799999952316,
+            "y": 7141
+          },
+          {
+            "t": 15040.700000047684,
+            "y": 7141
+          },
+          {
+            "t": 15056.700000047684,
+            "y": 7141
+          },
+          {
+            "t": 15073.399999856949,
+            "y": 7141
+          },
+          {
+            "t": 15090.099999904633,
+            "y": 7141
+          },
+          {
+            "t": 15106.599999904633,
+            "y": 7141
+          },
+          {
+            "t": 15123,
+            "y": 7141
+          },
+          {
+            "t": 15140.399999856949,
+            "y": 7141
+          },
+          {
+            "t": 15157.200000047684,
+            "y": 7141
+          },
+          {
+            "t": 15173.200000047684,
+            "y": 7141
+          },
+          {
+            "t": 15189.799999952316,
+            "y": 7141
+          },
+          {
+            "t": 15207.5,
+            "y": 7141
+          },
+          {
+            "t": 15224.599999904633,
+            "y": 7141
+          },
+          {
+            "t": 15240.599999904633,
+            "y": 7141
+          },
+          {
+            "t": 15257.599999904633,
+            "y": 7141
+          },
+          {
+            "t": 15273,
+            "y": 7141
+          },
+          {
+            "t": 15290.399999856949,
+            "y": 7141
+          },
+          {
+            "t": 15307.099999904633,
+            "y": 7141
+          },
+          {
+            "t": 15323.399999856949,
+            "y": 7141
+          },
+          {
+            "t": 15339.799999952316,
+            "y": 7141
+          },
+          {
+            "t": 15357.299999952316,
+            "y": 7141
+          },
+          {
+            "t": 15373.599999904633,
+            "y": 7141
+          }
+        ],
+        "scrolling": false
+      }
+    },
+    "finalIntegration": "CHG0194 after-focus6PASS+focus-final5threeprofilesPASS/build3/types6/scopedlint7/nativeReview7CLEAN. Finalfreshindependentperformance3LCP1308/FCP512/CLS.0007298/JS336413/scrollp9533.2. Priorperformance2rawUNRECOVERED andretainedsummary distinguished inintegrityFollowUp; no runtime/mediachangeafteroriginal26PASS7SKIP.",
+    "finalPerformance": {
+      "phase": "project-films-rev-focus-final",
+      "conditions": "Single cold Chromium mobile402×874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+      "initial": {
+        "ttfb": 20.300000190734863,
+        "fcp": 512,
+        "lcp": 1308,
+        "cls": 0.0007297865332991844,
+        "jsBytes": 336413,
+        "completedBytes": 3401176,
+        "filmObjects": 15,
+        "readyImages": 29
+      },
+      "scroll": {
+        "samples": 347,
+        "movingFrames": 214,
+        "startY": 0,
+        "endY": 6636,
+        "p95Ms": 33.19999980926514,
+        "over33Ms": 18,
+        "reverseFrames": 0,
+        "maxReverse": 0,
+        "cls": 0.0007297865332991844,
+        "longTasks": [
+          85,
+          54,
+          379,
+          59,
+          95
+        ]
+      },
+      "errors": []
+    }
+  },
+  "failureHistory": [
+    "Pro1/Max1wrongstaticcatalogfallbackassertion; changed torealqualitymenu andfixed cleancheckoutfixture dependency.",
+    "Fallback2doubleEscapeclosedactualdialog; changed testgear→menuhidden→dialogvisible→Close. Allfailedlogs/outputs preserved underuniqueignorednamespace.",
+    "Snapshotsetupwrongnext.config.ts assumption fixedactualmjs; LFSreadrequiredsandboxwritepermission, retriedsameauthorizedoperation."
+  ],
+  "approvals": {
+    "scope": "2026-11-01 /root/pub_audit PASS",
+    "media": "2026-11-01 /root/pub_audit Stage2/media PASS",
+    "gates345": "2026-11-01 /root/pub_audit PASS_LOCAL_WEB; rootactualimages/commands APPROVED_LOCAL_WEB",
+    "gate6": "2026-11-01 /root/pub_audit LOCAL_PREPUSH PASS30scopedpaths/20source232artifacts/LFSpointer/currentheaders/lostrawannotation; exactcommitpublicationpending",
+    "user": "Addfilm+publication authorized from recoveredassignment/currentsteering; implementedresultacceptance NOT_RECORDED",
+    "focusGates345": "2026-11-01 /root/pub_audit PASS_LOCAL_WEB finalfocus5/after-focus6/build3/types6/lint7/native7/freshperf3+integration"
+  },
+  "limitations": [
+    "PhysicaliPhone/Android/AVKit/XcodeSimulator unavailable; emulation nothardwarecertification.",
+    "Singleproductionlab samples; nofieldINP/Lighthouse95/WCAGcertification.",
+    "KnownunrelatedwholelintCHG0181 failure.",
+    "HistoricalCHG0192oneoriginalscreenshotUNRECOVERED preserved inoldreceipt; freshCHG0193pathsindependent.",
+    "Controlled EVAL-HLS-ENTRYPOINT NOT_RUN; QAresults do notprove agentmodel improvement."
+  ],
+  "sourceSHA256": {
+    "lib/product-film-catalog.ts": "3de4f49d828535695f1b6a811c24471da28512dc531c85f5c5a3944aa5c72785",
+    "lib/project-film-copy.ts": "70b71f69fff45fbec05dfd47f4806dffdb1f4efb1c0c83d9bd6e70bfb4d2f721",
+    "config/product-films.json": "a7ff93ad57088741d4ae6e6b06f3b480ffc89858a05666a108dbd47da2291d37",
+    "tests/e2e/project-films.spec.ts": "c45bc02d02a0bfa939e30a8e43d7ef51a310a48eaab19ff64d7bfda121a9b556",
+    "tests/e2e/site.spec.ts": "9f7d499f9c51eab4cedb470282aee087310c841959d7e9f284ccd56325e839dc",
+    "tests/fixtures/project-ramsmobile-rev-poster.png": "df21d874a9e20e6365ce57c6fd7472129dd36132ede1b95f36f4d58d15f5a81c",
+    "public/art/films/projects/project-ramsmobile-rev.jpg": "adbc987f2aed4a526c4c9120e60055b03dcf1de502605101db936d058cff2157",
+    "public/art/films/projects/project-ramsmobile-rev-thumb.jpg": "54fc1bac3e48df29b2ef16eaa9031f439cdf7009aac15ebf21c2392ba5d4a1f8",
+    "components/ProductFilm.tsx": "24d6f3992696a7af650b1a463f3193458156b6ee1f915d80ce8a1938408c354a",
+    "components/FilmControls.tsx": "2d68339a8a5541cce6292f956b718c95f8ecfb3af72a3282f4d7cee07a026aa8",
+    "components/Story.tsx": "57a6630ee0b0cdea707e7d2b47f397d6ebd76b6d9601bcaed9b6ffec52b84bc1",
+    "components/DialogController.tsx": "1118b4361f4ca4416328f528ac20855f68575c482681ec595a4f77c50eeac247",
+    "lib/film-playback.ts": "a5d20945e8aabf40f6f5414eeacde6d8132092c2e6ee2ccb252ab056ce5de193",
+    "lib/film-poster.ts": "c8ccc3da72e50cc69b5ead0a954f3dcb773c3856bd7819545d463e343865c66d",
+    "package.json": "50f41a60c3760ac151a332854bcc1b8ad43b3b093dcc8ae14538b0fcf9c5a71b",
+    "package-lock.json": "03dc571eb492805c5376c3c64c7c09356732c15a52d26637cdb4ec618845abbf",
+    "app/globals.css": "93cd042a12376325b1137e9b96981c0fff3efff022e85a730b945f74c026ff5e",
+    "tests/e2e/project-focus.spec.ts": "f4b397519942d42b8a456fbeeb342a1ad6d16379f296b68ad4802ac51670ab53",
+    "playwright.config.mjs": "de014ff6d39baeb18005e8c38d40e6a080745b6ad831584191183de27948ad1f",
+    "tools/prepare-product-film.mjs": "0bcd33d364c1a25d1e74e3757450e9d79cd53fd2d557211c8cb40b76e85477ca"
+  },
+  "artifactSHA256": {
+    "docs/evidence/video/projects/rev/browser-color.json": "1ff36dd3fca17912d7374f0976b8a45705b7134a23e1c9bb0a1a537b8071a21e",
+    "docs/evidence/video/projects/rev/closed-comparison.json": "867bb6bee81d7d47bc5fd6364730ba29c0f1af900cab9f0369b0050665ca3dec",
+    "docs/evidence/video/projects/rev/encode.json": "fa72d70061277fa55c1730c74ce9d2f49eec9a656fe7c650a552a8ea699da416",
+    "docs/evidence/video/projects/rev/network.json": "02ba810e141ff06e01ce7719a81c17071ee82898ce223fb7827308276a953bff",
+    "docs/evidence/video/projects/rev/posters.json": "41855eb0507b86f887b8ff2e95958cc31ce33c0a5fb22be11e6616781641765e",
+    "docs/evidence/video/projects/rev/quality.json": "718b17c3ed639f5e17e739cb7f2d5ad051c485130e6488aff144228e46e33624",
+    "docs/evidence/video/projects/rev/source.json": "115e6084fd18b5214ef9d1826faf6335d7af8be19055ce2021198577fb7ab6ac",
+    "docs/evidence/video/projects/rev/validation.json": "e99c711acc347ccefc537e7388e01aa5679aecb6c8d0356152abb653a0696c29",
+    "screenshots/scroll-incident/project-films-rev/performance.json": "d53dabc47d83e2f3345519a380b817e41e2bc2dcc8631e5b5fdce9e768eb09c4",
+    "screenshots/video/projects/rev/closed/layout.json": "7adc3745352b7233392be06e475d3dc08819405c603278e260e8ece0cef6d974",
+    "screenshots/video/projects/rev/closed/max-cards-ready.png": "17acafd10a8ddc9da954995c0125c4a50ce0ca9b19f73ed0fb6f95650fb79675",
+    "screenshots/video/projects/rev/closed/max-diff.png": "ebf557e6be24e52ea4671d6b37ab32991368b030f09cccfbda942da892b2ac35",
+    "screenshots/video/projects/rev/closed/pro-cards-ready.png": "3c107039afdc3d70f34af6472774397184c6d54ccae45a27c48263acb29e3425",
+    "screenshots/video/projects/rev/closed/pro-diff.png": "98d11b558b9074391b40408958e3a706a3cb59b718f8d5e20a3d301ce97bfdb2",
+    "screenshots/video/projects/rev/final1/1440x900-preview.png": "39540c5b3747772c576a92663d5bd69cc0fbfd2b4b8c7e930470eac8bd6f0a06",
+    "screenshots/video/projects/rev/final1/320x640-preview.png": "92b3ee430546f46721deaa8c334da3b0e3d360ca8ba05e9da9890f24c4a4c54c",
+    "screenshots/video/projects/rev/final1/402x650-preview.png": "a7ec8d40bdb76cf492b55454b82d212b39c39ac01a8a71e5280642df7635970a",
+    "screenshots/video/projects/rev/final1/768x1024-preview.png": "976b4fbb19fcf67364628adafe62d533395c8883a054aa02b67c7889305689d3",
+    "screenshots/video/projects/rev/final1/874x402-preview.png": "74acba570bab847057853e94e152f4d9441febeaa241ec1901516d66166eb881",
+    "screenshots/video/projects/rev/final1/android-identity-expanded.png": "c38896682d4c9d1b50367f129c5003c173dac70e1de110cf0bfa8dff201cb5d4",
+    "screenshots/video/projects/rev/final1/android-identity-state.json": "75348b121d052e50f94ae718ce872acdc4fb3674f760189d0e1a19c33891f32b",
+    "screenshots/video/projects/rev/final1/arabic-static-fixture.png": "7bc19e77ff6728ca04b7a5478bc7e8d2c64f5c7618ac8051075eeb5b27bc987a",
+    "screenshots/video/projects/rev/final1/compiled-locale-fixtures.json": "193780532bd7707121d1f670a83f161b367959432f2239b4df067f947d8c7edc",
+    "screenshots/video/projects/rev/final1/desktop-chromium-error.png": "a0aa5eb388d03b30912fc09b8d4b190b122720dd2766e27e784bf05480e414f6",
+    "screenshots/video/projects/rev/final1/desktop-chromium-expanded-navigation.png": "132436e01fc1f65b62f2bac1a71ca5a6a758f4924f2d50e8933261f13ac4796d",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramsider-asmohookah-expanded.png": "b0343a4f7960cf841219c8059efa790e5d621d3178c7617a1d6db8546a25d1c8",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramsider-asmohookah-list.png": "737cb110645731df1d0a66b01a3f8ff0d5938c666296a30f48817db5893acb27",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramsider-asmohookah-portrait.png": "d11fc4715055c855250e44748484372fd110c7a0c5bf15e33a06406713667067",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramsider-cubos-expanded.png": "422f4877fb2118540ffcbaaee79edd3183bfeb155bed76c0e0cf2de4436a9e31",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramsider-cubos-list.png": "088ef8f285cc53a65b0aedda459e9573638c5b67ed28755b0009255bda680273",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramsider-cubos-portrait.png": "efc6495b81f6f42f12eab4e4417cd68380a0bb156744989ab3de6573573a9b8a",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramsider-overview-expanded.png": "7ac7015896b4b2509117b864256db69e8ce607f0f686fa596979f4bb4c6c8ce3",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramsider-overview-list.png": "fb5bf5370387b4bc0fa8115bcd6484ae7711d3cc8e3a59025e697ddb1222f56e",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramsider-overview-portrait.png": "4769f8a1c1e889e10686aed7488268babdfa6ea580ad34ea02dd0e3e54c513aa",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramsider-sosuda-expanded.png": "4a37c0e80a3f2d370218e8303b69c967a2840c996a7fdd38864f7a4244b8067e",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramsider-sosuda-list.png": "c5b9e2a1652e198adacbe1375d2f02c56f9efd4d324e1ea2fac0b9d512aabbd2",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramsider-sosuda-portrait.png": "c178087f645c70e9ebdcfb90971220749697733490644fa502cf6a18200c2227",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramsmobile-protos-expanded.png": "7feb706fa7edb7089b00f09ded3b08005e599e468b3a4610eb74c65ce6c007aa",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramsmobile-protos-list.png": "5bd891386019eca731c941f107aa20742138561e67067ad99cb408e99f9be46e",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramsmobile-protos-portrait.png": "bee13390970d6df56625fb046a8ae89d59dd841c760cdf6411929d27a5d61b41",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramsmobile-rev-expanded.png": "8e3457843319884bb566734696a1cb23f70ba5ca35df75483dcd3d3f3622aa00",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramsmobile-rev-list.png": "ad828bc02e83eaa12d5e1d220c60321f87b6c0779cad73524d447eab048c9bc2",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramsmobile-rev-portrait.png": "257d053faacdd034ebff0a10e22087b6edc5036a4994d97a0516d3a2c56b4cb8",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramswear-expanded.png": "7aa8e0192d19034a3c3c8e9c13d491a8c04ac77540680ca4b0bf7b486e7315c7",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramswear-list.png": "eba3c7306e92d3eb6ece34d16d452b5f1543b02cb978af09e6166c6df44e9ef0",
+    "screenshots/video/projects/rev/final1/desktop-chromium-project-ramswear-portrait.png": "aa37d1881147e5177b97fd2a76b8439a513b3dcdca56dc2ffe17d9b7071c1f2a",
+    "screenshots/video/projects/rev/final1/desktop-chromium-ramsider-selected.png": "b8f8df09c924adadb52688fbe08c4f94ce344807ec19ea2306b196f9883f9314",
+    "screenshots/video/projects/rev/final1/desktop-chromium-ramsmobile-selected.png": "10ddb35f1fe98ace8b2625912c20581e94f26899f581b41880dccc8e955d1850",
+    "screenshots/video/projects/rev/final1/desktop-chromium-ramswear-selected.png": "19ed8461fd8190631b86e01bd81fabf849b64b25676ea4e803d3a2e36025447b",
+    "screenshots/video/projects/rev/final1/desktop-chromium-rapid-reentry.json": "09810fd484f7fcdbd48a7938700d1bc1df55e5cd3850fe332687706fab23a3b1",
+    "screenshots/video/projects/rev/final1/desktop-chromium-rev-2160-expanded.png": "c9d6f43bdd4a8cfef2eef7d6cea14cc58a1b8370fb5cd18b4b6c2c6142f4e217",
+    "screenshots/video/projects/rev/final1/desktop-chromium-rev-poster-control.png": "f19b67917f8d49c42c1a4dc4b8d6511b13aff505434c45224f5d7e2761b6031a",
+    "screenshots/video/projects/rev/final1/desktop-chromium-rev-poster-geometry.json": "e503018857d886bda18cdc692eafb0b6a7fcd5370326e5e3877387e78e79f50d",
+    "screenshots/video/projects/rev/final1/desktop-chromium-rev-poster.png": "4778751e52d25b9a58f7a8972c36c4bc58c3a4ae5091a5798b59460585a2ab39",
+    "screenshots/video/projects/rev/final1/desktop-chromium-rev-qualities.json": "3a5dd843e2932474cad15e4c0088658f6ab2671f5c8a581ffea84b1458e90406",
+    "screenshots/video/projects/rev/final1/desktop-chromium-seven-project-films.json": "8a904fc9c94ce67328516899d7b53dab2877ba868f3c95c1d37eaf738044ff2c",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-error.png": "ce6b10d29fdb405823b3acf5fd92ef42de1bd0ec52f93328ec4da173973f6b9f",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-expanded-navigation.png": "0f1ddbf2b2045f8ea50625e4b4ba349ef0c24ae020a67f9364d32b38f4260bc2",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsider-asmohookah-expanded.png": "79ef51dc81472bfdfc2ad9cddd3f11571015a0a828c7500d34bf672ffc34bf20",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsider-asmohookah-list.png": "88226ddd8cbb4a255dc9e559a074895390024b8db17d656566ab737f005b5d2b",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsider-asmohookah-manual-portrait.png": "2bdcc6196dbab7fb8d66f7a32a2f6cbaee3bc03c5edcc6649a791d8b67ac248c",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsider-asmohookah-portrait.png": "fe2ea968ba707c59b9ee4e283b2e3f5f0e6d57e061d86d5533494b3bc24fe2f0",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsider-cubos-expanded.png": "f87436157138765bb45c1299628713c9d427957a349069aa44d56c784ed36257",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsider-cubos-list.png": "2f7efb23b0666b6d493d1a7b37a14784d62058775372dca047802f9cad6e73bc",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsider-cubos-manual-portrait.png": "27464df31279cb7e919348aedc45a0e36f7b5758347a1c3233cf523452043f3f",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsider-cubos-portrait.png": "386557406be74b63502bdbeb9e0efc00685e9c10681eb67e39f86a608ddf9333",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsider-overview-expanded.png": "bf3e616ef8c8f554bdfd51ffc849101f00668e021c50964663d38cdeaa8711b8",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsider-overview-list.png": "213dbfbbe86a24821821e57db75b5bf794e368d5d698ccca581cc226c5a1d54a",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsider-overview-manual-portrait.png": "d62ddc1d340ca4cc6b84a0c800aa578a32a39d0b81533b624bc1a7fc3f3ede3e",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsider-overview-portrait.png": "77e520587cf7bd512dee5fbb4944da89e25e25ae489425978358a24a11e13b51",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsider-sosuda-expanded.png": "3d5a2fe75ccf40d56b036e96c895e66792b1a14f18032a08b27e59f90142df13",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsider-sosuda-list.png": "ad8a9fa1422ae7a0399812e4537737df1472c6586ed17596880414dc396ad8cf",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsider-sosuda-manual-portrait.png": "ebbd4b7e1cc1ecfe1945dddf3c506ac7eb656a2e8905e62806cd08627d260e21",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsider-sosuda-portrait.png": "daca85c5b1480922d2142ee6317d1830d03b760e1be5cecea7aaec1b17af45e1",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsmobile-protos-expanded.png": "01e04227e4f763546919883bb07cb722eebf1b904a63833d55df6f0ee757fc1e",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsmobile-protos-list.png": "fa94b54f6d6f6bd34c3487790b09449dac4fb4d5ffe54a8bdc15eb9b476e15a1",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsmobile-protos-manual-portrait.png": "0f5663e31fdc22f4362576ee4bdede564ed1d30ca462d56d161bb08e47e7c94a",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsmobile-protos-portrait.png": "1530ed0525d9c57c73707df456f3deeff6e338a9ea9363178767df09ba5d68c2",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsmobile-rev-expanded.png": "fbaf6d7f27a62ebdc764779c755f97aa6163e44be55f66bb1ed9faade4e945ce",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsmobile-rev-list.png": "98ac31a7083900b5d68c13d91e2ac692cc846c9a124a5504679e523c7897613d",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsmobile-rev-manual-portrait.png": "c7678376e176ea1b8bbacda2ddb2215a4fd6525b6f1e2541dc2de571287aa8ff",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramsmobile-rev-portrait.png": "30d064a1b27c8850160fe3eb3666233bea124495225544fd5a02ccf61dee76df",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramswear-expanded.png": "77e870f4cb9249e2ce3258bb3079fd1041797c9940648a9adc9775da520fd141",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramswear-list.png": "a5e0cf4e66e1b1b1228d3a76735eb08efc58f332b4b6f21f8700ed79e9fdc2aa",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramswear-manual-portrait.png": "1b3458aa1bbb73c5494160ed80e8d375cab39027f5e0ba1904b24fbb30bedfa5",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-project-ramswear-portrait.png": "9c75693e658133872bfe5345f762ee0911a208ff8ee85d8f8bb9263d863c458d",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-ramsider-selected.png": "1c72ea8c3e9d579c273a5bc1c27f0e57347d7261b32b5e55e9815d15221756a0",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-ramsmobile-selected.png": "d0c50f869e1643e7f6f3dd7b48571ae0cae4f615308fbfa2043b8538321fa5a3",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-ramswear-selected.png": "d6a2c95661afc32a0c3471d6a2ff6d0e8cc5fe47bed4ed29c84c578dd8879eb1",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-rapid-reentry.json": "09810fd484f7fcdbd48a7938700d1bc1df55e5cd3850fe332687706fab23a3b1",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-rev-2160-expanded.png": "6aa9ec71b7853d38ea53eb55be33fc2f46fe693692d077ef37f081bad783a5ef",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-rev-poster-control.png": "861ace94e24a10d8ec2156d1a37e54054bc2e506753bca6060fb041cd5f9c2c8",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-rev-poster-geometry.json": "7c40c7250bead096bf579df02b26adfc35bd38e4f8a502129bc0e645a0f2acde",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-rev-poster.png": "f000be028cad5c1e6a2128dd6f450098947463cc85a8fd261ee59aacd141f016",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-rev-qualities.json": "d0cdbc161eeb68926942cf5c561a575971b602c06dfd6552ab61695bf95e2587",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-max-webkit-seven-project-films.json": "8a904fc9c94ce67328516899d7b53dab2877ba868f3c95c1d37eaf738044ff2c",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-error.png": "b27c7f48e39eeec4c3aefe122828f4060b4c5de4288279a5400433345032fb9d",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-expanded-navigation.png": "1c2fe7ef1658a43607e0d18cfc271509e093c78c362ed6b8ee5ac681ec6d5f76",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsider-asmohookah-expanded.png": "cafb4a153c72c3a1290eda8199ddbf9a1add5a6d5815b411610b0b7fb7150f69",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsider-asmohookah-list.png": "463944f030cdcb8a26279e0c851fd4c0ad6e1c9b690b4e8918d08c4879a19416",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsider-asmohookah-manual-portrait.png": "8abc27739caf9d67d5e4516eb3ff6725d579d69aebf9118df0a06ba6d30aed3f",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsider-asmohookah-portrait.png": "8c6d25a7260dec08cefc6de3f12e7138a48fcbb2b5016128ff1923954ce1dd1f",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsider-cubos-expanded.png": "51ab78e3833f575a8295815f0b78d18edefb605889804878abdbde5d42059626",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsider-cubos-list.png": "ade0c88cf5ab61da63b9b10edcfc8db1a6bd1bdf1731a39f2e540f3cb3751688",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsider-cubos-manual-portrait.png": "8d954588d9aa295dda0a7a92f7b0c138f39d6735ede792a6df9a17311d292b3b",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsider-cubos-portrait.png": "660bce071bd758966198e6e2fd68342f4848ef0ed294b2743e8bce64b234f593",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsider-overview-expanded.png": "4dce927aa9a9b03b0c844e9b7d2a6435e59b79c4068bae558bbf455efbd1b656",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsider-overview-list.png": "1e105e8ade5e3884c8235bb3c56e579eec0f0485eb7e346b189d529e06fb80d3",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsider-overview-manual-portrait.png": "89f09f2185ca6b115cd2b7f626d0f3d4787e920f2c9c0336a2208b4914fc4b81",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsider-overview-portrait.png": "a915030b462568c468fe43bdbea7d4b0a0ca8b8f6a51e1cbc05b165f8d0b8b72",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsider-sosuda-expanded.png": "6725ac6db4a01475ca9953cb0aa2f6bc0ba9b12a5cf7e1149a6bd94866c66481",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsider-sosuda-list.png": "5de5e7c48daa0704d3e5498f3ccfd63b0ab1c6d55ed5d415070ea2ec0879641d",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsider-sosuda-manual-portrait.png": "b42ac4cd5c4ed210210916306d3f6be23b3f4dfd57244f979ae4a2dc57dcbe4b",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsider-sosuda-portrait.png": "a72844026762257b7ea82511e4bbf208cdb7492075b8f19c50eb80e62f453562",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsmobile-protos-expanded.png": "d09323a4875e7a02edc6b36342b2397f7e59bf13ee7ea9b152105106af31fdb5",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsmobile-protos-list.png": "52d17e08390d317b819b78fcaadaa151d4293a33df1b952db46c931ee32263bd",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsmobile-protos-manual-portrait.png": "839c53e5cecb5816221bfaa285ec16d7852836a53399de3151ab05ccb994afc7",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsmobile-protos-portrait.png": "e35544e364ca673ee8a45d0bd8ee7eae750050718b4eb2aab0c2b242f48ece60",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsmobile-rev-expanded.png": "36c40d563feb4a9f7d75e7c7eca00a6787ac826e59b4cf7dbe259d3c6f96ee87",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsmobile-rev-list.png": "b11555b51152a86742d173eb67fab10008b7741094b2b6befa96bacf20122f09",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsmobile-rev-manual-portrait.png": "93fcde7317ada7ab7adb23f76ca51c01c507b332c26676f13770a1062dc20761",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramsmobile-rev-portrait.png": "244681d8c4e2a613dc7075ed5b2e2f7f1bffd3eeae955866ec53d3237cb7e823",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramswear-expanded.png": "db008c2594f9250ec7e5359eb00dd68a6c128b5433186b552f66e43697d51a2d",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramswear-list.png": "6cc6b09bcb7aceac0d5705a209f1b695e3e16581c92fe38ef633dab9c06b0c73",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramswear-manual-portrait.png": "fb92db28cea1513ddc9eb2f96af3858c62c755b737826f8a622326486d95072b",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-project-ramswear-portrait.png": "f0c7fb08c506ebe80bda2452ad71338746513f11cfc15ca4df7b7007eb6d60c7",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-ramsider-selected.png": "0ae9588462aac674dbe8d4a828bd60d7c736b7769886d49fb65832ba8f95ab33",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-ramsmobile-selected.png": "61a0babc3b53d4deb12b61dbdc740595ffe26bcffcbb378885eb04cd31a1626a",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-ramswear-selected.png": "35108fe5e58c7755d3f317ccf0870b3bea778cf17b6f1fd171bc335a23539539",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-rapid-reentry.json": "09810fd484f7fcdbd48a7938700d1bc1df55e5cd3850fe332687706fab23a3b1",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-rev-2160-expanded.png": "5b1241ddadc2274c2be8d881efe24d7b09c1ebb30edda0ac7f62214fd188cbf6",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-rev-poster-control.png": "8011410e82af11eb7e4edd5c4f753d602ad2a87053cece57e6d3b28a25ca4773",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-rev-poster-geometry.json": "ac4b439f936903533184d479ac55e33114bc4ad3e487b97bf3eea13326eb77ef",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-rev-poster.png": "36828ba700288204fb3e03daabc1ea2b455cb538e5a99b89b48eeeed204a1e55",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-rev-qualities.json": "0a88bf7d6ca534d17610186ef5ff9a16d71fc93ff237ef86cbec1dd1ecc65e98",
+    "screenshots/video/projects/rev/final1/iphone-17-pro-webkit-seven-project-films.json": "8a904fc9c94ce67328516899d7b53dab2877ba868f3c95c1d37eaf738044ff2c",
+    "screenshots/video/projects/rev/integration/integration.json": "abae23d7b05b0d37f7f82b4500203ff9c031d2e32aa2011dc069567975922d16",
+    "screenshots/video/projects/rev/integration/max-assembled-0.png": "5bdf7f2ae4b23bf7d465409994d57cb58566da8c83b98f952263a93c5c7faedc",
+    "screenshots/video/projects/rev/integration/max-assembled-12.png": "73d9ec0ab9a5b029014faf377e83dc3b45afd005d95f4310a23306b0dc6c77ce",
+    "screenshots/video/projects/rev/integration/max-assembled-17.png": "352432a7ea2e1c260c5fa5aa70b94cd50b78a88c25cef1dec03d2becd3cff0d4",
+    "screenshots/video/projects/rev/integration/max-assembled-6.png": "33c6bfb343a5eb7c7d715b812c7189597b92a519947929e499ba77f2670195ce",
+    "screenshots/video/projects/rev/integration/max-footer.png": "352432a7ea2e1c260c5fa5aa70b94cd50b78a88c25cef1dec03d2becd3cff0d4",
+    "screenshots/video/projects/rev/integration/pro-assembled-0.png": "ded9f81dec6d3034f5165b275c5a8c56e211cb2a2fec0e98b3bd614e65ba4c93",
+    "screenshots/video/projects/rev/integration/pro-assembled-12.png": "2fcc4362c015159c1f5f9de39917c4ad341948de7694cdad6518e9ec410ffbe4",
+    "screenshots/video/projects/rev/integration/pro-assembled-17.png": "74518037019016b36108f84b14d85a29a5361b4e1691e1a136652894e6f33045",
+    "screenshots/video/projects/rev/integration/pro-assembled-6.png": "65a0ac4c772a929085a278910921e29168a8ec9a172e612ea1eacead06f9953e",
+    "screenshots/video/projects/rev/integration/pro-footer.png": "74518037019016b36108f84b14d85a29a5361b4e1691e1a136652894e6f33045",
+    "screenshots/video/projects/rev/poster-source-srgb.png": "df21d874a9e20e6365ce57c6fd7472129dd36132ede1b95f36f4d58d15f5a81c",
+    "screenshots/video/projects/rev/source-sheet.png": "c3110e71ee9d6215a624e6c92463f21433051c7fa7b3befef23c892624d587d2",
+    "screenshots/video/projects/rev/focus-before/result.json": "8de08837777b72840830c59fc8b35c8a0fd7c1b01dc6659d9c4c76eb11aadd70",
+    "screenshots/video/projects/rev/focus-before/pro-returned.png": "34e5b25ce3f27e64481d5073e31fc835f1ff555627874e29ed8c757df6e8647d",
+    "screenshots/video/projects/rev/focus-before/desktop-returned.png": "35b8d0c086bcfee3d4f7d94ce2ae9d33838ba2c238cd664f29126d384fa27883",
+    "screenshots/video/projects/rev/focus-before/max-returned.png": "51cafa214e788c754a2964ccb8e96be83776783fe85287aacd06b635d9d822a3",
+    "screenshots/video/projects/rev/focus-final5/desktop-chromium-ar-ramswear-keyboard.png": "1fe4c25d671d3332a475cbd0b89860bfc1825f3a347df80abe08244e710c412f",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-webkit.json": "7b0ba493ff91869b37ab6d447083fbeed388cc7d78697fa1e29cb231b555500e",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-webkit-ar-ramsider-returned.png": "b5175318d54384048bff2e7d77817809109b0e0a60f6da3d8b5353f678084e68",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-max-webkit-en-ramsider-returned.png": "231af9fb30ea80a917be5ecb7a028c1e8d66ab91183ad88af9b9bc2eae5c0382",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-webkit-en-ramsider-keyboard.png": "e854ef7965a5a9c720607531bdeccd0b76db822a225cd434dd62af843b96e02b",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-max-webkit-ar-ramsmobile-keyboard.png": "b70dae96c201988729a87874a405ced98c7f9e34c7886305f4c6b87a8bb3a5a3",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-max-webkit-ar-ramsider-keyboard.png": "ffcabe391d5207707e0f8df950c690208e44e56e68cb2e0e00828b5c91ef4a01",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-max-webkit-en-ramsmobile-returned.png": "94d73314c8d653e85996fa47707ea89c42a79b549c468a9e459f01042a4df339",
+    "screenshots/video/projects/rev/focus-final5/desktop-chromium-ar-ramsfood-keyboard.png": "0269a4047781076d473bfcc5d2a2727a43beec12ee0dcebc4860164dce8af1c7",
+    "screenshots/video/projects/rev/focus-final5/768x1024-returned.png": "17b0bddf712a16e737d52a2d50c1b9e8af0b4b82e660a4e4a0f2f073670afee2",
+    "screenshots/video/projects/rev/focus-final5/desktop-chromium-en-ramsmobile-returned.png": "525a2b2a76503bdbd6717b7bfa996508e51cb4f2afb6252a0a8ea999b46c6bf8",
+    "screenshots/video/projects/rev/focus-final5/desktop-chromium-en-ramsider-keyboard.png": "909b6e8554a52ffb2fa2df66a627b9e4d7ff677ecc3c3695650a4382166237b9",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-max-webkit-en-ramswear-keyboard.png": "8f2c95edfb5c8003f307f00ea7b957aa441eedd97ed8391bdd977be15e30e3d1",
+    "screenshots/video/projects/rev/focus-final5/402x560-returned.png": "26c9e272e781591cb986813a483f98025745e825632b36bbaf53e3290e709b64",
+    "screenshots/video/projects/rev/focus-final5/desktop-chromium-ar-ramsider-returned.png": "dcfa563e86c698510702a001807e6c6c5f6afcc78e7bfa4dace3a5b76b9bc33f",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-webkit-ar-ramsmobile-keyboard.png": "5cc0d057e22b7b135a791cd125eba3245cf0d26c7e98b15df64431d0a8abb40f",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-webkit-ar-ramswear-keyboard.png": "b3580c4f238822e877bcaf3f2285ebfe3d7701f7f328587f5584a3e537cc7559",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-max-webkit-en-ramsfood-keyboard.png": "7dcf375de69effcfa3f71712ef77c5dc3d008ff1fb8ee7a1400d1c8dc97a3d42",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-max-webkit.json": "661a869fc8e4538ee4d389cfe79211a8a7edec6f03d5a35711dd87eed270165f",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-webkit-ar-ramsfood-keyboard.png": "355f86a6e2e62075a8f9cc39c370b13556b4287d3641c53f626d9683fa61e060",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-webkit-en-ramsmobile-returned.png": "1c083766a4bddb04c102ef857d7ec0297a0af51a6727ce21d8859e0223d2aa13",
+    "screenshots/video/projects/rev/focus-final5/desktop-chromium-ar-ramsmobile-keyboard.png": "8489911ab9bd38fd880aec556417f41047848a85b8a50584cd9145a9c0401a90",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-webkit-en-ramsmobile-keyboard.png": "1c083766a4bddb04c102ef857d7ec0297a0af51a6727ce21d8859e0223d2aa13",
+    "screenshots/video/projects/rev/focus-final5/desktop-chromium-ar-ramsmobile-returned.png": "8489911ab9bd38fd880aec556417f41047848a85b8a50584cd9145a9c0401a90",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-webkit-en-ramsfood-keyboard.png": "92ebb805ac8f22a0f07ba188a6fcac85519417560edea547ad281596cfe30819",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-max-webkit-ar-ramsfood-keyboard.png": "4cb8e9609bb033543697557ee092371edf39c62c05d667bd11cc856864188899",
+    "screenshots/video/projects/rev/focus-final5/desktop-chromium-en-ramsider-returned.png": "3dd2723a392a8e7f85c6d516de09d24518eaa27132031ad914d0d21c8d33bb44",
+    "screenshots/video/projects/rev/focus-final5/desktop-chromium-en-ramsmobile-keyboard.png": "525a2b2a76503bdbd6717b7bfa996508e51cb4f2afb6252a0a8ea999b46c6bf8",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-webkit-en-ramswear-keyboard.png": "5af38f5688d393eca54002cc288da58527ca854bf45c76fbff288c9134fbac49",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-max-webkit-ar-ramswear-keyboard.png": "0cbf74d3976f733027ad590e5ec162cc7adee23cb49e0fbb80a05a60ca140b2e",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-webkit-ar-ramsmobile-returned.png": "5cc0d057e22b7b135a791cd125eba3245cf0d26c7e98b15df64431d0a8abb40f",
+    "screenshots/video/projects/rev/focus-final5/desktop-chromium-ar-ramsider-keyboard.png": "3d8c5ae3440b9d2b04138cc22e2c5a5ca639a66c26499685986487517ba54417",
+    "screenshots/video/projects/rev/focus-final5/320x740-returned.png": "3f9ca210d1a532a1573a31caa9c1dd1605e40097c3252ebd10e37aae7416a18d",
+    "screenshots/video/projects/rev/focus-final5/desktop-chromium.json": "bd34d2766f76aa0951fbce55ac0cc1b9641bd23d09d3a0533dfefa1103834b39",
+    "screenshots/video/projects/rev/focus-final5/desktop-chromium-en-ramsfood-keyboard.png": "0016f0c2c043f7df7dd6d6b0e41cea49dcd90874f675dbfb62e0d05efb9e0255",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-max-webkit-en-ramsmobile-keyboard.png": "94d73314c8d653e85996fa47707ea89c42a79b549c468a9e459f01042a4df339",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-max-webkit-en-ramsider-keyboard.png": "c5aabc9219f990cd6ae1f5be70ab55fb807f955d46976335d08bb38de43ede12",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-webkit-ar-ramsider-keyboard.png": "b5175318d54384048bff2e7d77817809109b0e0a60f6da3d8b5353f678084e68",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-max-webkit-ar-ramsider-returned.png": "1711c04d017a42a04deb1ae4567780d3430132376cbb72b3fdf76eae1ed3dca4",
+    "screenshots/video/projects/rev/focus-final5/desktop-chromium-en-ramswear-keyboard.png": "2631373287fe73478597ad2cfca3bbb8d66b0cd0bea9111329b214ca32686cb5",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-max-webkit-ar-ramsmobile-returned.png": "b70dae96c201988729a87874a405ced98c7f9e34c7886305f4c6b87a8bb3a5a3",
+    "screenshots/video/projects/rev/focus-final5/iphone-17-pro-webkit-en-ramsider-returned.png": "af2d11a4698fda806730e91d3d2f79b4ca91490ed6612f76cce775c8e28b0d76",
+    "screenshots/video/projects/rev/after-focus/iphone-17-pro-webkit-rev-2160-expanded.png": "7492a535a0bac6627250509d57d6b8cb2ff0ef9596af49112b2c42fa21bc7d39",
+    "screenshots/video/projects/rev/after-focus/iphone-17-pro-max-webkit-ramsider-selected.png": "1c72ea8c3e9d579c273a5bc1c27f0e57347d7261b32b5e55e9815d15221756a0",
+    "screenshots/video/projects/rev/after-focus/iphone-17-pro-webkit-ramsmobile-selected.png": "61a0babc3b53d4deb12b61dbdc740595ffe26bcffcbb378885eb04cd31a1626a",
+    "screenshots/video/projects/rev/after-focus/iphone-17-pro-webkit-rev-poster-control.png": "8011410e82af11eb7e4edd5c4f753d602ad2a87053cece57e6d3b28a25ca4773",
+    "screenshots/video/projects/rev/after-focus/desktop-chromium-rev-qualities.json": "fca85a2167d5b27386ecb5761ae47c7a1e29fb84d7b09bf232e83fef77700a99",
+    "screenshots/video/projects/rev/after-focus/desktop-chromium-rev-poster-geometry.json": "e503018857d886bda18cdc692eafb0b6a7fcd5370326e5e3877387e78e79f50d",
+    "screenshots/video/projects/rev/after-focus/desktop-chromium-rev-poster-control.png": "f19b67917f8d49c42c1a4dc4b8d6511b13aff505434c45224f5d7e2761b6031a",
+    "screenshots/video/projects/rev/after-focus/desktop-chromium-ramsider-selected.png": "b8f8df09c924adadb52688fbe08c4f94ce344807ec19ea2306b196f9883f9314",
+    "screenshots/video/projects/rev/after-focus/desktop-chromium-rev-poster.png": "4778751e52d25b9a58f7a8972c36c4bc58c3a4ae5091a5798b59460585a2ab39",
+    "screenshots/video/projects/rev/after-focus/iphone-17-pro-webkit-ramswear-selected.png": "1af3aa237f185dda9d113fca6f77446152be4bcaa798f72f23862a65c5858fc0",
+    "screenshots/video/projects/rev/after-focus/iphone-17-pro-webkit-rev-poster.png": "36828ba700288204fb3e03daabc1ea2b455cb538e5a99b89b48eeeed204a1e55",
+    "screenshots/video/projects/rev/after-focus/iphone-17-pro-webkit-rev-qualities.json": "94f32f1117df590ca99069331553d9bb302d96b71df19693af72c93250253b5e",
+    "screenshots/video/projects/rev/after-focus/iphone-17-pro-webkit-rev-poster-geometry.json": "ac4b439f936903533184d479ac55e33114bc4ad3e487b97bf3eea13326eb77ef",
+    "screenshots/video/projects/rev/after-focus/iphone-17-pro-max-webkit-rev-poster-geometry.json": "7c40c7250bead096bf579df02b26adfc35bd38e4f8a502129bc0e645a0f2acde",
+    "screenshots/video/projects/rev/after-focus/iphone-17-pro-max-webkit-rev-qualities.json": "b969b25c072aaf762a25ffaab06546d7c00ff8e0aa00900bb695cc7604497b09",
+    "screenshots/video/projects/rev/after-focus/desktop-chromium-rev-2160-expanded.png": "7514a75506a44f1de449500911876cd1aa22e4114ab3cdc6bf0d87a061875886",
+    "screenshots/video/projects/rev/after-focus/iphone-17-pro-max-webkit-ramswear-selected.png": "d6a2c95661afc32a0c3471d6a2ff6d0e8cc5fe47bed4ed29c84c578dd8879eb1",
+    "screenshots/video/projects/rev/after-focus/desktop-chromium-ramsmobile-selected.png": "10ddb35f1fe98ace8b2625912c20581e94f26899f581b41880dccc8e955d1850",
+    "screenshots/video/projects/rev/after-focus/iphone-17-pro-max-webkit-rev-poster-control.png": "c24232a99d79a61869b12e8cfaa78ace17f5751ebeb8b9cb77ac10f4dbe13f5f",
+    "screenshots/video/projects/rev/after-focus/iphone-17-pro-max-webkit-rev-2160-expanded.png": "3345a76d4353b4ed55d621430e0dc5f3da7621d8b5fabc1cfd079b7f265967f4",
+    "screenshots/video/projects/rev/after-focus/iphone-17-pro-webkit-ramsider-selected.png": "0ae9588462aac674dbe8d4a828bd60d7c736b7769886d49fb65832ba8f95ab33",
+    "screenshots/video/projects/rev/after-focus/iphone-17-pro-max-webkit-rev-poster.png": "141b0536658f82530679c53044c11060108f3c15710f4f1461c955d7089b48d2",
+    "screenshots/video/projects/rev/after-focus/desktop-chromium-ramswear-selected.png": "19ed8461fd8190631b86e01bd81fabf849b64b25676ea4e803d3a2e36025447b",
+    "screenshots/video/projects/rev/after-focus/iphone-17-pro-max-webkit-ramsmobile-selected.png": "d0c50f869e1643e7f6f3dd7b48571ae0cae4f615308fbfa2043b8538321fa5a3",
+    "screenshots/video/projects/rev/integration-focus/pro-footer.png": "74518037019016b36108f84b14d85a29a5361b4e1691e1a136652894e6f33045",
+    "screenshots/video/projects/rev/integration-focus/pro-assembled-12.png": "2fcc4362c015159c1f5f9de39917c4ad341948de7694cdad6518e9ec410ffbe4",
+    "screenshots/video/projects/rev/integration-focus/pro-assembled-17.png": "74518037019016b36108f84b14d85a29a5361b4e1691e1a136652894e6f33045",
+    "screenshots/video/projects/rev/integration-focus/max-footer.png": "352432a7ea2e1c260c5fa5aa70b94cd50b78a88c25cef1dec03d2becd3cff0d4",
+    "screenshots/video/projects/rev/integration-focus/pro-assembled-6.png": "65a0ac4c772a929085a278910921e29168a8ec9a172e612ea1eacead06f9953e",
+    "screenshots/video/projects/rev/integration-focus/max-assembled-12.png": "73d9ec0ab9a5b029014faf377e83dc3b45afd005d95f4310a23306b0dc6c77ce",
+    "screenshots/video/projects/rev/integration-focus/pro-assembled-0.png": "ded9f81dec6d3034f5165b275c5a8c56e211cb2a2fec0e98b3bd614e65ba4c93",
+    "screenshots/video/projects/rev/integration-focus/max-assembled-17.png": "352432a7ea2e1c260c5fa5aa70b94cd50b78a88c25cef1dec03d2becd3cff0d4",
+    "screenshots/video/projects/rev/integration-focus/max-assembled-6.png": "33c6bfb343a5eb7c7d715b812c7189597b92a519947929e499ba77f2670195ce",
+    "screenshots/video/projects/rev/integration-focus/integration.json": "103cffa517b4f541bc8af149bbccd91a6dd4237c3307bf4efe7805002f0d0267",
+    "screenshots/video/projects/rev/integration-focus/max-assembled-0.png": "5bdf7f2ae4b23bf7d465409994d57cb58566da8c83b98f952263a93c5c7faedc",
+    "docs/evidence/video/projects/rev/focus.json": "16f9bd971b9a4cc8603bd53666d85c8f8e714a08680a54c73758c6e835171033",
+    "screenshots/scroll-incident/project-films-rev-focus-final/performance.json": "054947910593a5085dda6589e6b5f5ad6222d55a3e45432b3c1b242f46ebc56d"
+  },
+  "relatedChange": "CHG0194",
+  "integrityFollowUp": {
+    "path": "screenshots/scroll-incident/project-films-rev-focus/performance.json",
+    "originalSHA256": "3fad56cee6f578f17a9bf0c34517edd74e22cc4f9cf42a131496016f83682995",
+    "originalFullRawStatus": "UNRECOVERED",
+    "retainedExactSummary": "screenshots/video/projects/rev/performance2.log plus priorfocusrecord; oldpath nowexplicitlostrawannotation+summary, notoriginalbytes",
+    "freshIndependentRun": "screenshots/scroll-incident/project-films-rev-focus-final/performance.json",
+    "responsibility": "Rootrecordwriter reusedoutputp asartifactloopvariable, overwritebeforestaging; correcteddistinctoutputvariable/atomicwrite/immediatebindingcheck. Noapplicationfix/modelcomplianceclaim."
+  }
+}

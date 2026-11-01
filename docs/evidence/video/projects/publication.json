@@ -1,30 +1,32 @@
 {
   "change": "CHG0192",
   "date": "2026-11-01",
-  "commit": "25764842409642e8bd2d48564b99dbd0bd699fda",
+  "commit": "5dd79b725a41490011cc808bfad5de63c8c30e65",
   "repository": "askmi/ramsider",
   "destination": "origin/main",
-  "status": "FIRST_COMMIT_DEPLOYED_CORRECTED_NATIVE_STARTUP_APPROVED_LOCAL_PENDING_SECOND_PUBLICATION",
+  "status": "APPROVED_PUBLISHED_AVAILABLE_SIX_FILM_THREE_CARD_WEB_SCOPE",
   "expectedDeploymentContexts": [
-    "Vercel \u2013 ramsider",
-    "Vercel \u2013 ramsider-beta"
+    "Vercel – ramsider",
+    "Vercel – ramsider-beta"
   ],
   "expectedEnvironments": [
     "Production",
     "Preview"
   ],
   "canonical": "https://ramsider-main.vercel.app/en",
-  "localCandidate": "APPROVED_LOCAL_AVAILABLE_SCOPE;23source/assets+155evidence exact, independentScope/Gates2\u20136LOCAL_PREPUSHPASS",
+  "localCandidate": "Historicaloriginalprepush23source/155artifactapproval; currentnativecorrectionlocal2source+127artifactsapproved, publication2-verification.json currentauthority; old155now154exact/oneUNRECOVEREDannotation preserved.",
   "limitations": [
-    "RAMSFOOD source/userchoice still missing; retain original description.",
+    "RAMSFOOD intentionally absent peruser2026-11-01, not an unfinishedexistingtask. AdditionalRAMSMOBILEsource laterreceived; separateCHG0193 tracks integration.",
     "PhysicaliPhone/Android/AVKit unavailable, no fieldINP/Lighthouse/p95 claims.",
     "Full unrelatedlintCHG0181FAIL; scopedtypes/lint/build/native/browser passed."
   ],
   "publicChecks": {
     "coreMatrix": "All3entryprofiles+all6movies each nativePro/Max andChromium PASS via5initialPASS+Pro supplemental1PASS; initialListcaptureautohideFAIL preserved.",
     "objects": "204/90.6MB PASS matchingcommittedregistry+12posters; all /films/immutable, postersdefaultcache. Full15Wear2160objects additionallyallSHA PASS.",
-    "highestQuality": "Firstcommit Chromiummanual144/720/2160PASS; nativecold2160FAIL retained. Directnativefull2160starts24.05s/noerror; correctedprogress-aware15s+120sactivepolicy now approvedLOCAL, realProMaxslowframes+cap/lifecycle+native8 passed. Correctedcommit/publicnativechecks pending.",
-    "directProductionAlias": "UniqueURLredirectvercel.com/login; no bypass/build-ID comparison approved. Canonicalnew3entries/media/currentbrowser verified."
+    "highestQuality": "HISTORICAL_FIRST_COMMIT2576484: Chromiummanual144/720/2160PASS; nativecold2160FAIL/15sfallback preserved. Directnativefull2160starts24.05s/noerror. Superseded bycorrected5dd79b7/public2quality3PASS: actualPro/MaxWebKit+Chromium144/720/2160frames+advancement; Maxkeeps2160untilfirstframe29149ms. See correctedHighestQuality/publication2-verification.json.",
+    "directProductionAlias": "UniqueURLredirectvercel.com/login; no bypass/build-ID comparison approved. Canonicalnew3entries/media/currentbrowser verified.",
+    "correctedHighestQuality": "public2-quality.json3PASS: canonicalPro/MaxWebKit+Chromium actual144/720/2160rVFC+advancingtime/fullwindow(orChromiumelementfullscreen)/cleanup. Max2160firstframe29149ms/no720fallback preserves manualselectionbeyond15s; Pro4599/Chrome11526ms singlecurrentconditions, no universal/causal speedclaim. All3loaded exacttested policybundleSHA21c2eb5...; no physicalAVKitclaim.",
+    "correctedCoreMatrix": "6PASS3.3m all6/threeentry/oldgallery/FOODdescription/portrait/fullscreen/rotation/List/seek/end/replay/cleanup onall3profiles withrealcontrols-reveal fixture; actualimagesviewed."
   },
   "pushHistory": [
     {
@@ -37,34 +39,97 @@
       "attempt": 2,
       "exit": 0,
       "result": "samecommit origin/main push succeeded; previously uploaded6LFS objects reused0B/s, no force/config/auth changes"
+    },
+    {
+      "commit": "5dd79b725a41490011cc808bfad5de63c8c30e65",
+      "exit": 0,
+      "result": "correctedcommit pushedorigin/main, lsremote exactconfirmed; no media/config/auth changes"
     }
   ],
   "deploymentChecks": [
     {
-      "context": "Vercel \u2013 ramsider",
+      "context": "Vercel – ramsider",
+      "state": "success",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider/FgajZhLGaLwXz5uC5U7WcvAB2Rnq"
+    },
+    {
+      "context": "Vercel – ramsider-beta",
+      "state": "success",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/8oh38hWBj12QTLZDfqprnDNELJy7"
+    }
+  ],
+  "remoteSHAConfirmed": "5dd79b725a41490011cc808bfad5de63c8c30e65",
+  "gitHubDeployments": [
+    {
+      "created_at": "2026-11-01T05:05:35Z",
+      "environment": "Production – ramsider",
+      "id": 7468844755,
+      "sha": "5dd79b725a41490011cc808bfad5de63c8c30e65"
+    },
+    {
+      "created_at": "2026-11-01T05:05:31Z",
+      "environment": "Preview – ramsider-beta",
+      "id": 7468843971,
+      "sha": "5dd79b725a41490011cc808bfad5de63c8c30e65"
+    }
+  ],
+  "nextCandidate": "No furthercode/deploymentneeded forprovided6/3scope; finalindependentauditPASS. User accepts absentRAMSFOOD. Additionalfilm awaits source and contentmapping; physicaliOS unverified. AdditionalRAMSMOBILEsource laterreceived andtracked separatelyunderCHG0193; thisreceiptremains historical at itsrecordedcommit.",
+  "previousCommit": "25764842409642e8bd2d48564b99dbd0bd699fda",
+  "previousDeploymentChecks": [
+    {
+      "context": "Vercel – ramsider",
       "state": "success",
       "url": "https://vercel.com/askmi-6282s-projects/ramsider/D1qy4y33JknrbTLivWSKHhNbtxUf"
     },
     {
-      "context": "Vercel \u2013 ramsider-beta",
+      "context": "Vercel – ramsider-beta",
       "state": "success",
       "url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/DTkKZtpL42HVyD2Uk5SSHNDVKnWH"
     }
   ],
-  "remoteSHAConfirmed": "25764842409642e8bd2d48564b99dbd0bd699fda",
-  "gitHubDeployments": [
+  "previousGitHubDeployments": [
     {
       "created_at": "2026-11-01T03:48:54Z",
-      "environment": "Production \u2013 ramsider",
+      "environment": "Production – ramsider",
       "id": 7468218645,
       "sha": "25764842409642e8bd2d48564b99dbd0bd699fda"
     },
     {
       "created_at": "2026-11-01T03:43:57Z",
-      "environment": "Preview \u2013 ramsider-beta",
+      "environment": "Preview – ramsider-beta",
       "id": 7468179621,
       "sha": "25764842409642e8bd2d48564b99dbd0bd699fda"
     }
   ],
-  "nextCandidate": "native-startup.json current2deltafiles/127artifacts; independentScope/Stage2/Gates3/4/5PASS_LOCAL_WEB"
+  "correctedEnvironmentStatuses": {
+    "production": [
+      {
+        "created_at": "2026-11-01T05:05:36Z",
+        "environment": "Production – ramsider",
+        "environment_url": "https://ramsider-l5p28cgg0-askmi-6282s-projects.vercel.app",
+        "id": 21092553358,
+        "log_url": "https://ramsider-l5p28cgg0-askmi-6282s-projects.vercel.app",
+        "state": "success"
+      }
+    ],
+    "preview": [
+      {
+        "created_at": "2026-11-01T05:05:31Z",
+        "environment": "Preview – ramsider-beta",
+        "environment_url": "https://ramsider-beta-kuzjgi5pf-askmi-6282s-projects.vercel.app",
+        "id": 21092550986,
+        "log_url": "https://ramsider-beta-kuzjgi5pf-askmi-6282s-projects.vercel.app",
+        "state": "success"
+      }
+    ]
+  },
+  "currentEvidence": "publication2-verification.json",
+  "technicalApproval": "2026-11-01 root+independent /root/pub_audit APPROVED_PUBLISHED_AVAILABLE_WEB_SCOPE; publication2-verification.json currentauthority.",
+  "userScopeClarification": {
+    "date": "2026-11-01",
+    "statement": "Missing project films were expected; RAMSFOOD absent is accepted, not an unfinished existing-delivery requirement.",
+    "additionalFilm": "Historicalsix-fileinventory supersededwhenRAMSMOBILE rev short.mp4 arrived; actualcontentmappedRAMSMOBILE, integration CHG0193 inrev/verification.json. RAMSFOODabsenceaccepted.",
+    "responsibility": "Root previously misclassified optional absence as BLOCKED. Earlier verdicts preserved as superseded history; no runtime or media change."
+  },
+  "laterScopeNote": "HistoricalCHG0192atrecordedcommit. LaterCHG0193addsnewRAMSMOBILE andCHG0194changesprojectfocusCSS/tests; oldsourcehashesbindtheirhistoricalcommits, nottheintentionalnewcatalog. Freshcurrentproofunderrev/verification.json."
 }

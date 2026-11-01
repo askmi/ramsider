@@ -1,0 +1,544 @@
+{
+  "change": "CHG0192",
+  "date": "2026-11-01",
+  "commit": "5dd79b725a41490011cc808bfad5de63c8c30e65",
+  "repository": "askmi/ramsider",
+  "destination": "origin/main",
+  "canonical": "https://ramsider-main.vercel.app/en",
+  "status": "APPROVED_PUBLISHED_AVAILABLE_SIX_FILM_THREE_CARD_WEB_SCOPE",
+  "availableScope": "All6providedfilms/3matchingcardentries/isolatednewplaylist/existingplayer+oldseven/2s144–2160sourceAAC preserved; manualnativeearlyfallbackcorrected. User accepts absentRAMSFOOD/no separatefilm; originaldescriptionretained. Additionalfilm integration awaits incoming source. AdditionalRAMSMOBILEsource laterreceived andtracked separatelyunderCHG0193; thisreceiptremains historical at itsrecordedcommit.",
+  "deployments": {
+    "production": {
+      "id": 7468844755,
+      "statusId": 21092553358,
+      "state": "success",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider/FgajZhLGaLwXz5uC5U7WcvAB2Rnq"
+    },
+    "preview": {
+      "id": 7468843971,
+      "statusId": 21092550986,
+      "state": "success",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/8oh38hWBj12QTLZDfqprnDNELJy7"
+    }
+  },
+  "publicChecks": {
+    "quality": "3PASS Pro402x874/Max440x956DPR3WebKit/Chromium1440; allactual144/720/2160rVFC+advancement/fullwindow(orChromiumelementfullscreen)/cleanup, samecorrectedpolicybundleSHAbyteexact. HighestfirstframePro4599/Max29149/Chrome11526ms,currentcoldclient/warmCDNsampleonly; Maxkept2160after15s.",
+    "matrix": "6PASS3.3m, eachprofile3originalprojectentries/newisolatedsix/selectedvisible/no media beforePlay/oldseven+Evolution/FOODdescription; all6decode/seek/portrait/manualexpanded/rotation/List/ended/replay/cleanup/focus. Realpost-screenshotcontrolsrevealfixture, no forcedclicks.",
+    "visual": "RootviewedpublicProMaxhighest4Kexpanded, bothsixfilmexpandedcontact sheets andMaxfullList; originalsourceplayerreuse/noPhotoshopreferencefornewplayer, no globalpixel-perfectclaim.",
+    "media": "Firstpublished204objectsSHA/90.6MB+fullWear2160all15objects verified; secondcommit changesonlyruntime/tests/records, originalarchives/catalog/postersbyteunchanged, productionpreparationvalidates17versions. Actualsecondpublicall6playback andselectedhighestframesPASS.",
+    "local": "native-startup.json independentlyapprovedlocalScope/Stage2/Gates3/4/5/6PREPUSH;2delta+127artifactbindingsexact. Build3/types/scopedlint/native8CLEAN, sixreal4Mbpsslow/lifecyclecases+capnotificationlossfaultprobePASS; correctedlocaleonlyrerunPASS.",
+    "performance": "ProductionlabLCP1344/FCP432ms/CLS.0007298/JS336413B/scrollp9532.7ms;4Mbpsfirstframes1329–2297ms/no poststartwaits/ABR720→360→720. ConcurrentQAandonesample, nofieldINP/Lighthouse/causalSLA."
+  },
+  "limitations": [
+    "RAMSFOOD intentionally absent peruser2026-11-01, not an unfinishedexistingtask. AdditionalRAMSMOBILEsource laterreceived; separateCHG0193 tracks integration.",
+    "No physicaliPhone/Android/AVKit/XcodeSimulator; WebKit/Chromiumemulationonly.",
+    "WholeunrelatedlintCHG0181FAIL37errors23warnings, scopedchecksPASS.",
+    "Historicalold155artifacts now154exact/oneUNRECOVEREDoriginalscreenshot; expectedhashandapprovalpreserved inverification.integrityFollowUp. Freshcurrentproofseparate.",
+    "UniqueprotectedproductionURLbuildcomparison unavailable; canonicalactuallyloadedexacttestedcorrectednativepolicybundle inall3profiles.",
+    "Controlled EVAL-HLS-ENTRYPOINT NOT_RUN; productchecks do notproveagenttraining."
+  ],
+  "sourceBindings": {
+    "components/DialogController.tsx": "1118b4361f4ca4416328f528ac20855f68575c482681ec595a4f77c50eeac247",
+    "components/ProductFilm.tsx": "24d6f3992696a7af650b1a463f3193458156b6ee1f915d80ce8a1938408c354a",
+    "components/Story.tsx": "57a6630ee0b0cdea707e7d2b47f397d6ebd76b6d9601bcaed9b6ffec52b84bc1",
+    "config/product-films.json": "ad33f9ff0d92f8bae006bb422def026d265037ba36a3b2e51148e48fea276afc",
+    "lib/film-poster.ts": "c8ccc3da72e50cc69b5ead0a954f3dcb773c3856bd7819545d463e343865c66d",
+    "lib/product-film-catalog.ts": "a7201ecb62c79d86c553a4338f1ec8420038aa7766e02c4f04658c67dc8f24b9",
+    "lib/project-film-copy.ts": "dc1a5f30173a1baf45f5c724b45ebdcbce46b2d811de2cbc9ac59ea333bf205b",
+    "tests/e2e/project-films.spec.ts": "1cfba6dbc1b6cb186a2d349290582ee01f16da74ab86beca662f433b59b11ed3",
+    "tests/e2e/site.spec.ts": "4580db8e91103f5798ebb62117ac4b8fb48cb50fb13906c6a145eff7d8ea3cd6",
+    "tests/e2e/film-locales.spec.ts": "21c70a12d01d3ecd995296ce7bb8943acde78196d6182cb594a1ae7d1fe65736",
+    "tests/e2e/film-prefetch.spec.ts": "e2be88a42f2bd65bc2a089bbaa43fdf820bb9f3d33d121a4b8322c3d9d0719c9",
+    "public/art/films/projects/project-ramsmobile-protos-thumb.jpg": "cecd2e9b2c495f7e1fc99fc8548eb992ba49b8826d884bc1de5fac5f70998269",
+    "public/art/films/projects/project-ramsmobile-protos.jpg": "7041bb714670b7474cfbc88c0ef6678958c5914b5f4d3a1ca861da0698ba4f22",
+    "public/art/films/projects/project-ramsider-cubos.jpg": "6c913d521ce9ae68f05d47b531f3fe0426eeb9ff1e309d6794da91d91d71c8c3",
+    "public/art/films/projects/project-ramsider-sosuda.jpg": "2408f1c3881dc3ab56fd64276dac1bf0b35bab0ccda95490c7b601fe730fdc99",
+    "public/art/films/projects/project-ramsider-cubos-thumb.jpg": "2b0c9c8e94f4ed4296c2c725551d950e9ffb6b458342d34bb16cb3e4b2904de9",
+    "public/art/films/projects/project-ramsider-asmohookah.jpg": "521c4477582c8c2c3a27b6fb69ebd5001eb4f4c62106c20450adcbbbeb8a3333",
+    "public/art/films/projects/project-ramsider-overview-thumb.jpg": "f9099b7b251e243bad0cfefb56e784ce6ef153ace45a0e2f9c5d3ee3c6ea3a6e",
+    "public/art/films/projects/project-ramsider-asmohookah-thumb.jpg": "0a80d6e8e0b6c954410073d3fda31ac9c5d99a458f9232ec8317a9f3235c28db",
+    "public/art/films/projects/project-ramsider-sosuda-thumb.jpg": "f3bbe6bba55efad3e46ef98898f939bd0855ac52cf2f4bf365b5b2edb350e765",
+    "public/art/films/projects/project-ramswear.jpg": "cfcb1e08326e41170ee29d1e5e9a215bc0bb7a4281b644ec3f1bc18a62403952",
+    "public/art/films/projects/project-ramswear-thumb.jpg": "cbacd911d8704441ae2b5298f31e050698d5b351c856e27af971509181bfebc3",
+    "public/art/films/projects/project-ramsider-overview.jpg": "45591b52bde17c4b3aaf420b3679ed8e6e4e3ae053c552b1035d9f17629551f9",
+    "lib/film-playback.ts": "a5d20945e8aabf40f6f5414eeacde6d8132092c2e6ee2ccb252ab056ce5de193",
+    "tests/e2e/native-film-startup.spec.ts": "6ce8293d3bf3b48306338041b6014a82713fdf5a54506166f073fbb94742d484"
+  },
+  "publicArtifactBindings": [
+    {
+      "path": "screenshots/video/projects/public2-quality.log",
+      "sha256": "398bb18ad32572a0c9f6d1a30304cea0c525e814072fb6a07ddaa26a06a019d7",
+      "bytes": 3658
+    },
+    {
+      "path": "docs/evidence/video/projects/public2-quality.json",
+      "sha256": "5a416ba4abd021f4fb9e35b17387f7b64d6b5c8d3bf5532accd7e36a92905009",
+      "bytes": 4316
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser.log",
+      "sha256": "3402aeffca76307c28e5c8d2e1b28ac5547739e3c6c9799541caa5e9d7b9d5e2",
+      "bytes": 1647
+    },
+    {
+      "path": "screenshots/video/projects/deployments2.json",
+      "sha256": "a8ae5453ec35ed4ad360d5667f355bf66f064ad8771703c0bcf6a7dd2358928d",
+      "bytes": 290
+    },
+    {
+      "path": "screenshots/video/projects/production-status2.json",
+      "sha256": "ab3fc6c7d3ca193a72cd3d4480cb799fb0c1c2d257fcb55994d9ee6cbe61fad3",
+      "bytes": 265
+    },
+    {
+      "path": "screenshots/video/projects/preview-status2.json",
+      "sha256": "157db322c5a64ab6582d190cbaf40ad279bab496ff725ab5b8238711a99a614a",
+      "bytes": 277
+    },
+    {
+      "path": "screenshots/video/projects/public2-pro-six-expanded.jpg",
+      "sha256": "a9c021e4ea7659cb9493cf8a14df3c89f8667ffa056b0f0a49def34f35da36fd",
+      "bytes": 133591
+    },
+    {
+      "path": "screenshots/video/projects/public2-max-six-expanded.jpg",
+      "sha256": "54c3d87abec5bf325d7df5004441ad2f9f7a098799f0bb140e04e92157094782",
+      "bytes": 135533
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-root-chromium-expanded-navigation.png",
+      "sha256": "df13190e3357125c2a29e605be9657cd2862ab18b2e99e064eed475433010a1f",
+      "bytes": 285068
+    },
+    {
+      "path": "screenshots/video/projects/public2/pro-2160.png",
+      "sha256": "4a150c324c1d85f1e8e04011e2032d2c0da75775613d4a2e98304dc0e0578777",
+      "bytes": 1007721
+    },
+    {
+      "path": "screenshots/video/projects/public2/max-2160-expanded.png",
+      "sha256": "955716b0f4ebf2e8f4f41730801fa300493622b749aab02af21a7fdae3293029",
+      "bytes": 2869412
+    },
+    {
+      "path": "screenshots/video/projects/public2/pro-2160-expanded.png",
+      "sha256": "336d4765f514626da74a2b0f9973bf42d0eb604c4ee58b3bc1dc447705d78346",
+      "bytes": 2441521
+    },
+    {
+      "path": "screenshots/video/projects/public2/chromium-2160-expanded.png",
+      "sha256": "9fb45976c88d8ce157e01018b774f0f938c6610e11e6dc6faa38bae2c40af700",
+      "bytes": 289386
+    },
+    {
+      "path": "screenshots/video/projects/public2/max-2160.png",
+      "sha256": "3e1b1c4b1fe89e363756b6060d4d1531b140f81fea6917ec5f631e9af7ba13ca",
+      "bytes": 1341974
+    },
+    {
+      "path": "screenshots/video/projects/public2/chromium-2160.png",
+      "sha256": "32a0ce266462c2fb99dfe0708f2b307929b8cefa92abe92f005b26d1f073a13e",
+      "bytes": 219920
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsider-asmohookah-expanded.png",
+      "sha256": "ad4c1d24bff5c16192957e06fda0f6ccf9b5682ca06e495c8d904c2af030ccc5",
+      "bytes": 664741
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsider-sosuda-expanded.png",
+      "sha256": "c1b10850331ca2c3d373a71a5436efd33de5c61a2155bdbfc8de179e43c2aed9",
+      "bytes": 960526
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-ramsider-selected.png",
+      "sha256": "2561fd0dca685eb2b824b448fb900151f2c0aea37716172010f3d5b4ea1f0f6e",
+      "bytes": 1237205
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-ramsmobile-selected.png",
+      "sha256": "6ab2237a059c5c460c3c216d7ef7b26ba958a88c64e2e90264bee6d094c1cfe8",
+      "bytes": 1737030
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsmobile-protos-portrait.png",
+      "sha256": "3df3a6de400c5b2cc836b8387c4e7ccd3c0d34851de1535e709c57d62c899441",
+      "bytes": 1387562
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsmobile-protos-manual-portrait.png",
+      "sha256": "94233d2a8afda86a136a2cac21670c231095c46831abc5b2e185826b63f3d8d0",
+      "bytes": 683384
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-six-films.json",
+      "sha256": "678cb91b57d9b6451a6771347ccd65b1ffdd91994e19c12a46464f9ce1ec7649",
+      "bytes": 328
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-project-ramsider-cubos-list.png",
+      "sha256": "ae89a99d97def7ffaabe8047e92f56c7b80e4af3ade77b7f985c0b1cd7147f3c",
+      "bytes": 237841
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsider-sosuda-list.png",
+      "sha256": "8bb9addb0cc602b2ecef868f9420eae613c558cbbeada5387d93e85707d2f034",
+      "bytes": 977015
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-project-ramsider-sosuda-portrait.png",
+      "sha256": "e474711f9e5e57a5843bd7e14c3db80fa230fe08e576d403bcb6d615d5f40ed1",
+      "bytes": 361341
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramswear-expanded.png",
+      "sha256": "04e7bcd9581a6c980148bb379a488ff665ee754c317f4a18bda21c4b74d5fee5",
+      "bytes": 394317
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsider-asmohookah-list.png",
+      "sha256": "198851a4939f0dcd9e868a8db8e6c00bfa5d37359e879ba125670e529b3eb719",
+      "bytes": 767822
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsider-sosuda-portrait.png",
+      "sha256": "f379e278fa1a267b37f505bbfa23d3d0d76e87e9439cc856f8e6345e7f634205",
+      "bytes": 1044238
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-project-ramswear-expanded.png",
+      "sha256": "67e0d750a11215d0712af670191689f62118c39feb532150b15b7bba901e67a8",
+      "bytes": 966128
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-project-ramsider-asmohookah-list.png",
+      "sha256": "7f5242afb73ad31b118f2d0d03c8933b91fbf3cee0d1e52a86b96c896412d799",
+      "bytes": 484062
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsmobile-protos-list.png",
+      "sha256": "8e4f8b7f20425e46da278e87d7a91bb3196881cd8b136ae0848ca4099fd0427d",
+      "bytes": 1372292
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsider-overview-expanded.png",
+      "sha256": "d6133b8a371f32620ae2895b4efe28627002414e83778e95377b2ba2286b0737",
+      "bytes": 1037452
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-project-ramsmobile-protos-list.png",
+      "sha256": "e218fa5f232173370a5c6f3e79b0a69a749b7d78f107deb36b8239e074c044d4",
+      "bytes": 722584
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsider-cubos-manual-portrait.png",
+      "sha256": "688b3c7b1e2e71037145849a748342430d19d2b49d5190144a0a16aad7e90987",
+      "bytes": 444610
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsmobile-protos-list.png",
+      "sha256": "142092a69a31493560c9660110f9c8ac145453a5d56f696b9398c888a0f8e5f7",
+      "bytes": 1373405
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-project-ramsider-sosuda-list.png",
+      "sha256": "aae4dba2e77fd1c733882c3a85ae9774fa3fff91345984d8e64593a1b216e6e3",
+      "bytes": 428008
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-project-ramsider-cubos-expanded.png",
+      "sha256": "4ec6df306dd5eb959b1a297027dba3afd2c07abadcdfa3f49da4b28313af0cff",
+      "bytes": 171531
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramswear-expanded.png",
+      "sha256": "6755ee5734116c257b5afbe6e24dad804023278058a7a4ed6e2e5f9711f49106",
+      "bytes": 424811
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-project-ramsider-asmohookah-portrait.png",
+      "sha256": "9684f88bbbbbdad8b35185103098df9d68e53b7c844d984f4fe6bd763e0a0e1e",
+      "bytes": 419810
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsider-cubos-portrait.png",
+      "sha256": "aeb2bc6368957045280326335620197a641e09ce70ea9dd0c02132251929cf99",
+      "bytes": 944358
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-project-ramsider-overview-portrait.png",
+      "sha256": "88d2e85e7aa79517e4855117ccdbf2307547fef8ba977894f7ca3edba7c22cfe",
+      "bytes": 250482
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-ramsider-selected.png",
+      "sha256": "a4611bbd9c30f4a94dcfd788bc31f1f305cbc781c5058b741a366363a6bced2a",
+      "bytes": 427801
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsider-overview-manual-portrait.png",
+      "sha256": "3728997c849f7567958616745918f970a3fce1c6d6f7d9c6e2408ff0360bb0fa",
+      "bytes": 1100454
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-ramswear-selected.png",
+      "sha256": "386962ad1aad482b6f6e3abf3fb1ed43acb5de2a8c7a77214e3aadcff968e828",
+      "bytes": 1941768
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsider-cubos-list.png",
+      "sha256": "e5939f4dce5d2c67ca440a7521025eb627e8155ece4668dd3f16e66812a187ab",
+      "bytes": 642117
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsider-overview-expanded.png",
+      "sha256": "bcd7ad5d46a97d1bf1d1a7d817ac2f2e7bec1ef8d9cb9c95cbf0878c89cc8846",
+      "bytes": 787836
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsider-asmohookah-manual-portrait.png",
+      "sha256": "44aaae4e912bc0c9221668bea071e6228be897fc8dd26a445d8854350539d797",
+      "bytes": 747798
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsmobile-protos-portrait.png",
+      "sha256": "8acfd1529c5212a5b388b31010e8ce12cbb9e39b93e44c0842ea12a1046454cb",
+      "bytes": 1130560
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramswear-manual-portrait.png",
+      "sha256": "8df2703be7a7c013203363137cfa3387e309bb6be2aba9e283e80ac9692d8d34",
+      "bytes": 134290
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsider-overview-list.png",
+      "sha256": "c266c8ba1f13f4f2372eb15e848cce6c165c46d7e1675fa149ab4ed464cfd7bc",
+      "bytes": 1171188
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsider-cubos-portrait.png",
+      "sha256": "76bfbb1b9a7ef6dd7fdd6143a4c3e8ec08f7d3acf7947c1d1f60cd56f4db5b20",
+      "bytes": 1015778
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsider-overview-list.png",
+      "sha256": "e7b7502fdf83f2c7932868aaeaa61cb3982a250a0ba2d80097ac04f445762b71",
+      "bytes": 938233
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-project-ramsider-overview-list.png",
+      "sha256": "0f6d30af06305f27af4320762eda1ceaf144b8e27a48c8348f5a5b88431b7910",
+      "bytes": 313870
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsider-asmohookah-portrait.png",
+      "sha256": "9b4d605d2436fa8271885d91f78176515cc5bb4bb19bf791a28ce61ee0cfb2da",
+      "bytes": 1498056
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-project-ramsmobile-protos-expanded.png",
+      "sha256": "f1a00480733998f8776eccbb734c2675bd529e7199ea5bc3e6a444573e35022d",
+      "bytes": 712825
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsider-overview-manual-portrait.png",
+      "sha256": "6e9b8e7121704a8809e1d103f1b927bff972104478d9de12abb9cc9101e0be2c",
+      "bytes": 444906
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-project-ramsider-overview-expanded.png",
+      "sha256": "9e91fb648e9a3c6975aaee51154e9f239a73ef26c1c018b0499a0258f20256f5",
+      "bytes": 410732
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsider-cubos-expanded.png",
+      "sha256": "bcd9d26b2c7f0a1017769b1a9e80a6ec314ea8850e04ac4b08473ce4d9c716e8",
+      "bytes": 1142517
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-project-ramsider-asmohookah-expanded.png",
+      "sha256": "09ea3e8ce6ddd7da1246b2e24d2a0c04f67b386a29d6a12c2f68b358ee620691",
+      "bytes": 598775
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramswear-manual-portrait.png",
+      "sha256": "01e221cb4108a5d311a88cfa5c4618cb7bbafc37a556bb9b3eec2a2e28f70489",
+      "bytes": 128310
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-six-films.json",
+      "sha256": "678cb91b57d9b6451a6771347ccd65b1ffdd91994e19c12a46464f9ce1ec7649",
+      "bytes": 328
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsider-sosuda-manual-portrait.png",
+      "sha256": "5274ea6dcfe1ee68daf9c1649b91fb64d14848e43890e9bf231692aa36bb45bd",
+      "bytes": 358476
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsider-overview-portrait.png",
+      "sha256": "b155a297ba77189b0d74a3fc031fc31aa60476f90e490ffa7ab730948067392a",
+      "bytes": 687243
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsmobile-protos-expanded.png",
+      "sha256": "5317342fa2289a441c7df4df95e5b2f1068b63f770414224f6d5f69b4533495e",
+      "bytes": 1083246
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsider-asmohookah-manual-portrait.png",
+      "sha256": "b06d719999f7d50ce58ceb733b4b867b0290b4574df0e4cc78d6283e552af626",
+      "bytes": 706435
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsider-cubos-expanded.png",
+      "sha256": "559bc987bd22162a8c22ebe08521306b49bde1d1237578a88bbe6c9429188740",
+      "bytes": 1253891
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-ramswear-selected.png",
+      "sha256": "70273fe3f0d2ab13f0ec47753936a8b09cd8af94e6bc74b0fc577732a7aa156b",
+      "bytes": 2273498
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-project-ramsmobile-protos-portrait.png",
+      "sha256": "03bedcd9ca39e56a7855f76b9a72e6b79406d2cbd5d696532bc624476e0b7712",
+      "bytes": 490629
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsider-asmohookah-expanded.png",
+      "sha256": "cd3032705e9349db9a097a4104ea8015783e87627f1ad6766a5fc409c369f3d8",
+      "bytes": 691501
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-six-films.json",
+      "sha256": "678cb91b57d9b6451a6771347ccd65b1ffdd91994e19c12a46464f9ce1ec7649",
+      "bytes": 328
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsider-cubos-list.png",
+      "sha256": "fbe413bf05840e9c15bc2c901f28b0b107950eee5a5ebc116ea40ce8d9ca967d",
+      "bytes": 635442
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsider-sosuda-portrait.png",
+      "sha256": "b748d6a9aab0711cd7eb9d9447fbadc73d1acff9620cd81eb90bfb1fa9c71698",
+      "bytes": 1171961
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-ramsmobile-selected.png",
+      "sha256": "bc829c4438f5933d86b708fbb33a6eb9dd194d62e571f9f954866ee98c01dcfa",
+      "bytes": 746517
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsider-asmohookah-portrait.png",
+      "sha256": "056c0a6697ec794dad530eae4e56fd34b85b319c2a48e3c2ff1ca914feb9984e",
+      "bytes": 1022736
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramswear-list.png",
+      "sha256": "f53ee317e1dbc9a165c5554fd101c908ce14549d5a835ccfd24073742b77be19",
+      "bytes": 574167
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsider-sosuda-list.png",
+      "sha256": "f943d14380fc9d82712e9959ade47b704809f7d9d045a0541c719b9e312c1c9b",
+      "bytes": 787882
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsider-cubos-manual-portrait.png",
+      "sha256": "a332d7aeebc1c4ae4686d376da10fc2df1d2f58466789c40037afca0a7beb65e",
+      "bytes": 425299
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsmobile-protos-manual-portrait.png",
+      "sha256": "c0a64c8b3516de20a99e17327f7e967d48a7aae5fd099c151de505a450fd4599",
+      "bytes": 763667
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsmobile-protos-expanded.png",
+      "sha256": "b9015080a14813835676e3e55e40ee7bd392f202132348f4bfcdd729be603057",
+      "bytes": 1163414
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramswear-portrait.png",
+      "sha256": "948e9388c0a3dd1a5a0942d0ee117e154ce33455baa7b5205ba4ee60df3a6a83",
+      "bytes": 1070093
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-project-ramsider-sosuda-expanded.png",
+      "sha256": "5fa1b2e1dcc19059c713376284be76f839f0bd84b1308b839badaf5faabd67d9",
+      "bytes": 589009
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-ramsider-selected.png",
+      "sha256": "cad9edb177c04bd00d3a523b0c89be331aec98008db3bafe7990a6227dd44266",
+      "bytes": 1110200
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsider-sosuda-expanded.png",
+      "sha256": "dda137302580dadd4ad8f7eed7008ed39206f5cb340d057f398761e5f19c7274",
+      "bytes": 851936
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-project-ramswear-portrait.png",
+      "sha256": "4baf0356da0f388031943a369f751b846d436ad989c0ed2d8746be25e517abca",
+      "bytes": 615919
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramswear-list.png",
+      "sha256": "2c647dd394997261c5b069ea304acd33d4c8e3a39d76cbaa50f2ce7a6ff4a33a",
+      "bytes": 900761
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-project-ramswear-list.png",
+      "sha256": "114a1d1685c0157dbfef8b6c67ba78e823b607fb4b73aa31332fd756a03ba46e",
+      "bytes": 806986
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsider-overview-portrait.png",
+      "sha256": "1523835eb36c087b6522b21decb42ef0d0a779b04e1f476320aa9479f1eb3fa7",
+      "bytes": 919697
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-ramswear-selected.png",
+      "sha256": "808233434875e9e89af07d68f86da0c342b19d0797cd6c64d5669e7002265c97",
+      "bytes": 879386
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-ramsmobile-selected.png",
+      "sha256": "76e1e4581af987494dae0b6ae484e63e708d41c1ef1b96a0e5bff23c1a27d32d",
+      "bytes": 2094637
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-webkit-project-ramsider-sosuda-manual-portrait.png",
+      "sha256": "c1db53a1d9c848dc9667d6bae881e813036c6652a3f63e187a405b8c0aa8a9ee",
+      "bytes": 314074
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramswear-portrait.png",
+      "sha256": "0dcc7e3ccd15e775c03cbe2e4734742f1faeebcfddd7d6c4290064bd2a7d70ac",
+      "bytes": 1190365
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/desktop-chromium-project-ramsider-cubos-portrait.png",
+      "sha256": "3b72ac4cf3fcf783307a221cd17bedfe5ef5399b628dd61ac433fba89fa0863d",
+      "bytes": 206832
+    },
+    {
+      "path": "screenshots/video/projects/public2-browser/iphone-17-pro-max-webkit-project-ramsider-asmohookah-list.png",
+      "sha256": "525cbd3a73a177f11353e76ef7dc92ffb4a59910b0df7c414035d84df0987cab",
+      "bytes": 833580
+    }
+  ],
+  "localReceiptSHA256": "212800984e87e2479a2ccde42a5280afd00796bc92f3767b347f89e7a3f4b273",
+  "technicalApproval": "2026-11-01 /root APPROVED_PUBLISHED_AVAILABLE_WEB_SCOPE; independent /root/pub_audit FinalPUBLICATION+RECORDS PASS available6/3scope: exact5dd79b7/bothSUCCESS/quality3PASS/matrix6PASS/actualimages/25HEAD+93public+2local+127artifactandlocalreceiptSHA0mismatch/history154of155+oneUNRECOVERED truthful. RAMSFOOD/physical/unrelatedlint/protectedaliaslimits retained. No approval ofallfourvideoentrypoints orphysicaliOS.",
+  "userResultApproval": "NOT_RECORDED; implementationandimmediate mainpublicationexplicitlyauthorized.",
+  "userScopeClarification": {
+    "date": "2026-11-01",
+    "statement": "Missing project films were expected; RAMSFOOD absent is accepted, not an unfinished existing-delivery requirement.",
+    "additionalFilm": "Historicalsix-fileinventory supersededwhenRAMSMOBILE rev short.mp4 arrived; actualcontentmappedRAMSMOBILE, integration CHG0193 inrev/verification.json. RAMSFOODabsenceaccepted.",
+    "responsibility": "Root previously misclassified optional absence as BLOCKED. Earlier verdicts preserved as superseded history; no runtime or media change."
+  },
+  "laterScopeNote": "HistoricalCHG0192atrecordedcommit. LaterCHG0193addsnewRAMSMOBILE andCHG0194changesprojectfocusCSS/tests; oldsourcehashesbindtheirhistoricalcommits, nottheintentionalnewcatalog. Freshcurrentproofunderrev/verification.json."
+}

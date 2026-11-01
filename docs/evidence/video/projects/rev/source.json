@@ -1,0 +1,32 @@
+{
+  "change": "CHG0193",
+  "date": "2026-11-01",
+  "source": "design/video2/RAMSMOBILE rev short.mp4",
+  "sha256": "371864d00820f7387b076546920245a2c3fdaacee72b46e55cf672cca7b8f09f",
+  "bytes": 380343157,
+  "duration": 61.04,
+  "dimensions": [
+    3840,
+    2160
+  ],
+  "fps": "25/1",
+  "video": "H264High/yuv420p/BT709limited/noRotation",
+  "audio": "AACLC48kHzstereo125909bps; engtagnotproofactualspeech; neutralOriginalAudio/und, packetsunchanged",
+  "mapping": {
+    "id": "project-ramsmobile-rev",
+    "project": "ramsmobile",
+    "after": "project-ramsmobile-protos",
+    "titleKey": "shortFilm",
+    "title": "RAMSMOBILE \u2014 Short Film",
+    "cardDefault": "project-ramsmobile-protos",
+    "newProjectIndex": 5,
+    "ramswearIndex": 6
+  },
+  "geometry": "Whole3840x2160frame including embeddedcinematicmatte retained; no newcrop/fitpolicy;1280x720hero/480x270thumb",
+  "sourceSheet": {
+    "path": "screenshots/video/projects/rev/source-sheet.png",
+    "sha256": "c3110e71ee9d6215a624e6c92463f21433051c7fa7b3befef23c892624d587d2"
+  },
+  "scopeApproval": "2026-11-01 /root sourceframes+metadata verified; independent /root/pub_audit ScopePASS actualffprobe/SHA/frames/refmapping.",
+  "optionalAbsence": "RAMSFOOD intentionallyabsent/useraccepted; not an unfinishedexistingdeliverable."
+}

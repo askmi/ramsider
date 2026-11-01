@@ -1,0 +1,111 @@
+{
+  "date": "2026-11-01",
+  "method": "Actual WebKit Pro/Max DPR3 + Chromium production JPEG against identical source-bound sRGB lossless PNG fixture substituted on same paused poster. ROI is complete changed-pixel bounding box, including entire picture; no outer UI dilutes metrics. Pixel thresholds mean<3/p99<=15/meanRedDrift<2/local64MAE<5; source/JPEG ICC exact separately.",
+  "results": [
+    {
+      "profile": "iphone-17-pro-webkit",
+      "status": "PASS",
+      "pairedScreenshotROI": [
+        0,
+        1079,
+        1206,
+        511
+      ],
+      "meanRGB": [
+        0.6554409946354334,
+        0.48661779166788366,
+        0.7832104967660068
+      ],
+      "p99RGB": [
+        4.0,
+        3.0,
+        4.0
+      ],
+      "signedDriftRGB": [
+        0.07674608042630941,
+        -0.00544894574745321,
+        0.07141396734526974
+      ],
+      "maxLocal64MAE": 1.3748372395833333,
+      "geometry": {
+        "geometry": {
+          "width": 402,
+          "height": 226.125,
+          "naturalWidth": 1280,
+          "naturalHeight": 720
+        },
+        "dpr": 3
+      }
+    },
+    {
+      "profile": "iphone-17-pro-max-webkit",
+      "status": "PASS",
+      "pairedScreenshotROI": [
+        0,
+        1181,
+        1320,
+        561
+      ],
+      "meanRGB": [
+        0.6432277318640955,
+        0.4797291092745638,
+        0.770119645654405
+      ],
+      "p99RGB": [
+        4.0,
+        3.0,
+        4.0
+      ],
+      "signedDriftRGB": [
+        0.0786163776805488,
+        -0.0051625884513585045,
+        0.07159698590179873
+      ],
+      "maxLocal64MAE": 1.3780110677083333,
+      "geometry": {
+        "geometry": {
+          "width": 440,
+          "height": 247.5,
+          "naturalWidth": 1280,
+          "naturalHeight": 720
+        },
+        "dpr": 3
+      }
+    },
+    {
+      "profile": "desktop-chromium",
+      "status": "PASS",
+      "pairedScreenshotROI": [
+        29,
+        260,
+        915,
+        380
+      ],
+      "meanRGB": [
+        0.5868852459016394,
+        0.43306010928961747,
+        0.7318579234972677
+      ],
+      "p99RGB": [
+        3.0,
+        2.0,
+        4.0
+      ],
+      "signedDriftRGB": [
+        0.03783721599079666,
+        -0.04172850158182341,
+        -0.011846419327006039
+      ],
+      "maxLocal64MAE": 1.0352376302083333,
+      "geometry": {
+        "geometry": {
+          "width": 914.921875,
+          "height": 514.640625,
+          "naturalWidth": 1280,
+          "naturalHeight": 720
+        },
+        "dpr": 1
+      }
+    }
+  ]
+}

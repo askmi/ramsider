@@ -1,0 +1,123 @@
+{
+  "date": "2026-11-01",
+  "conditions": "Production build Chromium402x874DPR3/CDP100ms, HTTP cache disabled/serviceworkers blocked/site artwork ready, one sample each; all playback silent. Not physical iPhone/Android/fieldINP or p95.",
+  "beforeIntentProjectBytes": 0,
+  "results": [
+    {
+      "id": "project-ramsmobile-rev",
+      "rateMbps": 4,
+      "firstFrameMs": 2813.5,
+      "events": [
+        {
+          "name": "waiting",
+          "ms": 1523.9000000953674,
+          "time": 0
+        },
+        {
+          "name": "playing",
+          "ms": 2805.7000000476837,
+          "time": 0.000207
+        }
+      ],
+      "qualities": [
+        {
+          "ms": 2813.5,
+          "height": 360,
+          "time": 0.008058
+        },
+        {
+          "ms": 8942.800000190735,
+          "height": 720,
+          "time": 6.092916
+        }
+      ],
+      "time": 7.966688,
+      "playback": "mse-hls",
+      "mediaError": false,
+      "muted": true,
+      "volume": 0,
+      "bytes": 3369980,
+      "postStartWaits": []
+    }
+  ],
+  "slow1Mbps": {
+    "firstFrameMs": 6309.200000047684,
+    "events": [
+      {
+        "name": "waiting",
+        "ms": 19.90000009536743,
+        "time": 0
+      },
+      {
+        "name": "playing",
+        "ms": 6302.200000047684,
+        "time": 0.006946
+      }
+    ],
+    "qualities": [
+      {
+        "ms": 6309.200000047684,
+        "height": 360,
+        "time": 0.013974
+      },
+      {
+        "ms": 8417.600000143051,
+        "height": 144,
+        "time": 2.077363
+      }
+    ],
+    "time": 7.972285,
+    "playback": "mse-hls",
+    "mediaError": false,
+    "muted": true,
+    "volume": 0,
+    "bytes": 815693,
+    "postStartWaits": []
+  },
+  "adaptation": {
+    "trajectory": "10Mbps10s →1Mbps14s →10Mbps16s →.01Mbps2.5s →4Mbps recovery",
+    "firstFrameMs": 885.5,
+    "events": [
+      {
+        "name": "waiting",
+        "ms": 18.200000047683716,
+        "time": 0
+      },
+      {
+        "name": "playing",
+        "ms": 874,
+        "time": 0.001998
+      }
+    ],
+    "qualities": [
+      {
+        "ms": 885.5,
+        "height": 360,
+        "time": 0.013538
+      },
+      {
+        "ms": 2997.7000000476837,
+        "height": 720,
+        "time": 2.078039
+      },
+      {
+        "ms": 18997.5,
+        "height": 360,
+        "time": 18.081583
+      },
+      {
+        "ms": 34996.700000047684,
+        "height": 720,
+        "time": 34.081293
+      }
+    ],
+    "time": 44.500589,
+    "playback": "mse-hls",
+    "mediaError": false,
+    "muted": true,
+    "volume": 0,
+    "bytes": 9187852,
+    "postStartWaits": []
+  },
+  "errors": []
+}

@@ -59,6 +59,7 @@ export function selectProjectFilms(locale: Locale): GalleryFilm[] {
     ['project-ramsider-sosuda', 'RAMSIDER — Sosuda Intera'],
     ['project-ramsider-cubos', 'RAMSIDER — Cubos Intera'],
     ['project-ramsmobile-protos', 'RAMSMOBILE — PROTOS'],
+    ['project-ramsmobile-rev', `RAMSMOBILE — ${projectFilmCopy[locale].shortFilm}`],
     ['project-ramswear', `RAMSWEAR — ${projectFilmCopy[locale].teaser}`],
   ] as const;
   return projects.map(([id, title]) => {

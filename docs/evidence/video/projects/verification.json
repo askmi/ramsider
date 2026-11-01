@@ -269,5 +269,24 @@
     "No fieldINP/Lighthouse/WCAGcertification/p95/SLA claim.",
     "RAMSFOOD source/userchoice unanswered; never mapped smoking film to food.",
     "Unrelated CHG0180/0181/0185 remain open; unrelated dirty notes/assets preserved."
-  ]
+  ],
+  "integrityFollowUp": {
+    "date": "2026-11-01",
+    "status": "HISTORICAL_APPROVAL_PRESERVED_ONE_ARTIFACT_UNRECOVERED",
+    "currentlyExact": "23/23 source/assets and154/155 historical artifacts; original map/hash and prior approval preserved, not rewritten.",
+    "lostOriginal": {
+      "path": "screenshots/video/projects/browser/desktop-chromium-expanded-navigation.png",
+      "expectedSHA256": "132436e01fc1f65b62f2bac1a71ca5a6a758f4924f2d50e8933261f13ac4796d",
+      "status": "UNRECOVERED; threeownedcopiessearched, nooriginalbytesfound"
+    },
+    "overwrittenCandidate": {
+      "path": "screenshots/video/projects/watchdog-root-chromium-expanded-navigation.png",
+      "sha256": "df13190e3357125c2a29e605be9657cd2862ab18b2e99e064eed475433010a1f"
+    },
+    "cause": "Root ran corrected Chromium2 regression from repository root; test internal screenshotwriter reused previouslyboundpath despite distinct Playwright --output.",
+    "prevention": "Inventory internal screenshot/report writers as well as Playwright output; use isolated workspace/unique namespace for each rerun.",
+    "currentIndependentEvidence": "native-startup.json2source+127artifactbindings remainexact; watchdog-browser all3 expanded-navigation images/currentpublic2 separatefreshproof. /root/pub_audit remediationScopePASS, noadditionalbrowserrerunrequiredforhistoricalimage loss.",
+    "approval": "2026-11-01 /root APPROVED_TRUTHFUL_HISTORY_ANNOTATION; independent /root/pub_audit FinalPUBLICATION+RECORDSPASS confirms154/155exact/oneUNRECOVERED/originalexpectedhash+approvalpreserved/currentindependentproof. No claim ofhistoricalbyte recovery."
+  },
+  "laterScopeNote": "HistoricalCHG0192atrecordedcommit. LaterCHG0193addsnewRAMSMOBILE andCHG0194changesprojectfocusCSS/tests; oldsourcehashesbindtheirhistoricalcommits, nottheintentionalnewcatalog. Freshcurrentproofunderrev/verification.json."
 }

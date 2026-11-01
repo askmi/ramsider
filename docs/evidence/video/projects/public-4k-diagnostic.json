@@ -1,0 +1,338 @@
+{
+  "events": [
+    {
+      "t": 9310,
+      "event": "before",
+      "src": "/films/project-ramswear/und-v1/master.m3u8",
+      "attr": "/films/project-ramswear/und-v1/master.m3u8",
+      "mode": "auto",
+      "playback": "native-hls",
+      "paused": false,
+      "ready": 4,
+      "time": 0.21604516639679242,
+      "height": 360,
+      "error": null
+    },
+    {
+      "t": 9955,
+      "event": "attribute",
+      "src": "/films/project-ramswear/und-v1/master.m3u8",
+      "attr": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+      "mode": "2160",
+      "playback": "native-hls",
+      "switch": "true",
+      "paused": false,
+      "ready": 0,
+      "time": 0,
+      "height": 0,
+      "error": null
+    },
+    {
+      "t": 9956,
+      "event": "emptied",
+      "src": "/films/project-ramswear/und-v1/master.m3u8",
+      "attr": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+      "mode": "2160",
+      "playback": "native-hls",
+      "switch": "true",
+      "paused": false,
+      "ready": 0,
+      "time": 0,
+      "height": 0,
+      "error": null
+    },
+    {
+      "t": 9957,
+      "event": "play",
+      "src": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+      "attr": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+      "mode": "2160",
+      "playback": "native-hls",
+      "switch": "true",
+      "paused": false,
+      "ready": 0,
+      "time": 0,
+      "height": 0,
+      "error": null
+    },
+    {
+      "t": 9959,
+      "event": "loadstart",
+      "src": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+      "attr": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+      "mode": "2160",
+      "playback": "native-hls",
+      "switch": "true",
+      "paused": false,
+      "ready": 0,
+      "time": 0,
+      "height": 0,
+      "error": null
+    },
+    {
+      "t": 10720,
+      "event": "loadedmetadata",
+      "src": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+      "attr": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+      "mode": "2160",
+      "playback": "native-hls",
+      "switch": "true",
+      "paused": false,
+      "ready": 1,
+      "time": 0,
+      "height": 0,
+      "error": null
+    },
+    {
+      "t": 10723,
+      "event": "seeking",
+      "src": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+      "attr": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+      "mode": "2160",
+      "playback": "native-hls",
+      "switch": "true",
+      "paused": false,
+      "ready": 1,
+      "time": 0.8496448333184123,
+      "height": 0,
+      "error": null
+    },
+    {
+      "t": 24567,
+      "event": "seeked",
+      "src": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+      "attr": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+      "mode": "2160",
+      "playback": "native-hls",
+      "switch": "true",
+      "paused": false,
+      "ready": 2,
+      "time": 0.8496448333184123,
+      "height": 2160,
+      "error": null
+    },
+    {
+      "t": 24946,
+      "event": "attribute",
+      "src": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+      "attr": "/films/project-ramswear/und-v1/fallback.mp4",
+      "mode": "720",
+      "playback": "mp4-fallback",
+      "switch": "true",
+      "paused": false,
+      "ready": 0,
+      "time": 0,
+      "height": 0,
+      "error": null
+    },
+    {
+      "t": 24948,
+      "event": "emptied",
+      "src": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+      "attr": "/films/project-ramswear/und-v1/fallback.mp4",
+      "mode": "720",
+      "playback": "mp4-fallback",
+      "switch": "true",
+      "paused": false,
+      "ready": 0,
+      "time": 0,
+      "height": 0,
+      "error": null
+    },
+    {
+      "t": 24950,
+      "event": "play",
+      "src": "/films/project-ramswear/und-v1/fallback.mp4",
+      "attr": "/films/project-ramswear/und-v1/fallback.mp4",
+      "mode": "720",
+      "playback": "mp4-fallback",
+      "switch": "true",
+      "paused": false,
+      "ready": 0,
+      "time": 0,
+      "height": 0,
+      "error": null
+    },
+    {
+      "t": 24950,
+      "event": "loadstart",
+      "src": "/films/project-ramswear/und-v1/fallback.mp4",
+      "attr": "/films/project-ramswear/und-v1/fallback.mp4",
+      "mode": "720",
+      "playback": "mp4-fallback",
+      "switch": "true",
+      "paused": false,
+      "ready": 0,
+      "time": 0,
+      "height": 0,
+      "error": null
+    },
+    {
+      "t": 27718,
+      "event": "loadedmetadata",
+      "src": "/films/project-ramswear/und-v1/fallback.mp4",
+      "attr": "/films/project-ramswear/und-v1/fallback.mp4",
+      "mode": "720",
+      "playback": "mp4-fallback",
+      "switch": "true",
+      "paused": false,
+      "ready": 1,
+      "time": 0,
+      "height": 720,
+      "error": null
+    },
+    {
+      "t": 27720,
+      "event": "seeking",
+      "src": "/films/project-ramswear/und-v1/fallback.mp4",
+      "attr": "/films/project-ramswear/und-v1/fallback.mp4",
+      "mode": "720",
+      "playback": "mp4-fallback",
+      "switch": "true",
+      "paused": false,
+      "ready": 1,
+      "time": 0.8496448333184123,
+      "height": 720,
+      "error": null
+    },
+    {
+      "t": 29966,
+      "event": "after20s",
+      "src": "/films/project-ramswear/und-v1/fallback.mp4",
+      "attr": "/films/project-ramswear/und-v1/fallback.mp4",
+      "mode": "720",
+      "playback": "mp4-fallback",
+      "switch": "true",
+      "paused": false,
+      "ready": 1,
+      "time": 0.8496448333184123,
+      "height": 720,
+      "error": null
+    }
+  ],
+  "videoError": null,
+  "requests": [
+    {
+      "path": "/films/project-ramswear/und-v1/master.m3u8",
+      "status": 200,
+      "type": "application/vnd.apple.mpegurl",
+      "length": "937"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/360p/index.m3u8",
+      "status": 200,
+      "type": "application/vnd.apple.mpegurl",
+      "length": "635"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/360p/init.mp4",
+      "status": 200,
+      "type": "video/mp4",
+      "length": "1394"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/360p/segment-00000.m4s",
+      "status": 200,
+      "type": "video/mp4",
+      "length": "121109"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/360p/segment-00001.m4s",
+      "status": 200,
+      "type": "video/mp4",
+      "length": "187492"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/360p/segment-00002.m4s",
+      "status": 200,
+      "type": "video/mp4",
+      "length": "148087"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/360p/segment-00003.m4s",
+      "status": 200,
+      "type": "video/mp4",
+      "length": "147118"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/720p/index.m3u8",
+      "status": 200,
+      "type": "application/vnd.apple.mpegurl",
+      "length": "635"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/720p/init.mp4",
+      "status": 200,
+      "type": "video/mp4",
+      "length": "1392"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+      "status": 200,
+      "type": "application/vnd.apple.mpegurl",
+      "length": "635"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/2160p/init.mp4",
+      "status": 200,
+      "type": "video/mp4",
+      "length": "1394"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/2160p/segment-00000.m4s",
+      "status": 200,
+      "type": "video/mp4",
+      "length": "3934413"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/2160p/segment-00001.m4s",
+      "status": 200,
+      "type": "video/mp4",
+      "length": "3928005"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/fallback.mp4",
+      "status": 206,
+      "type": "video/mp4",
+      "length": "2",
+      "range": "bytes 0-1/4517940"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/fallback.mp4",
+      "status": 206,
+      "type": "video/mp4",
+      "length": "4517940",
+      "range": "bytes 0-4517939/4517940"
+    }
+  ],
+  "errors": [
+    {
+      "path": "/films/project-ramswear/und-v1/360p/segment-00000.m4s",
+      "error": "cancelled"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/360p/segment-00000.m4s",
+      "error": "cancelled"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/360p/segment-00000.m4s",
+      "error": "cancelled"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/720p/segment-00003.m4s",
+      "error": "cancelled"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/2160p/segment-00000.m4s",
+      "error": "cancelled"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/2160p/segment-00001.m4s",
+      "error": "cancelled"
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/fallback.mp4",
+      "error": "cancelled"
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+{
+  "date": "2026-11-01",
+  "conditions": "Production build Chromium402x874DPR3/CDP100ms, HTTP cache disabled/serviceworkers blocked/site artwork ready, one sample each; all playback silent. Not physical iPhone/Android/fieldINP or p95.",
+  "beforeIntentProjectBytes": 0,
+  "results": [
+    {
+      "id": "project-ramsider-overview",
+      "rateMbps": 4,
+      "firstFrameMs": 2297.2999999523163,
+      "events": [
+        {
+          "name": "waiting",
+          "ms": 1228.5,
+          "time": 0
+        },
+        {
+          "name": "playing",
+          "ms": 2298.5,
+          "time": 0.000667
+        }
+      ],
+      "qualities": [
+        {
+          "ms": 2297.2999999523163,
+          "height": 360,
+          "time": 0
+        },
+        {
+          "ms": 4412.099999904633,
+          "height": 144,
+          "time": 2.071006
+        },
+        {
+          "ms": 6429.900000095367,
+          "height": 360,
+          "time": 4.0887
+        }
+      ],
+      "time": 7.959892,
+      "playback": "mse-hls",
+      "mediaError": false,
+      "muted": true,
+      "volume": 0,
+      "bytes": 1500795,
+      "postStartWaits": []
+    },
+    {
+      "id": "project-ramsider-asmohookah",
+      "rateMbps": 4,
+      "firstFrameMs": 1786.6999998092651,
+      "events": [
+        {
+          "name": "waiting",
+          "ms": 19.699999809265137,
+          "time": 0
+        },
+        {
+          "name": "playing",
+          "ms": 1781.5999999046326,
+          "time": 0.002004
+        }
+      ],
+      "qualities": [
+        {
+          "ms": 1786.6999998092651,
+          "height": 360,
+          "time": 0.007075
+        },
+        {
+          "ms": 5897.299999952316,
+          "height": 720,
+          "time": 4.074857
+        }
+      ],
+      "time": 7.967381,
+      "playback": "mse-hls",
+      "mediaError": false,
+      "muted": true,
+      "volume": 0,
+      "bytes": 3679987,
+      "postStartWaits": []
+    },
+    {
+      "id": "project-ramsider-sosuda",
+      "rateMbps": 4,
+      "firstFrameMs": 1328.8999998569489,
+      "events": [
+        {
+          "name": "waiting",
+          "ms": 20.59999990463257,
+          "time": 0
+        },
+        {
+          "name": "playing",
+          "ms": 1338.5999999046326,
+          "time": 0.005866
+        }
+      ],
+      "qualities": [
+        {
+          "ms": 1328.8999998569489,
+          "height": 360,
+          "time": 0
+        },
+        {
+          "ms": 5477.299999952316,
+          "height": 720,
+          "time": 4.098186
+        }
+      ],
+      "time": 7.950185,
+      "playback": "mse-hls",
+      "mediaError": false,
+      "muted": true,
+      "volume": 0,
+      "bytes": 3156921,
+      "postStartWaits": []
+    },
+    {
+      "id": "project-ramsider-cubos",
+      "rateMbps": 4,
+      "firstFrameMs": 1736.4000000953674,
+      "events": [
+        {
+          "name": "waiting",
+          "ms": 19.5,
+          "time": 0
+        },
+        {
+          "name": "playing",
+          "ms": 1718.5,
+          "time": 0.001553
+        }
+      ],
+      "qualities": [
+        {
+          "ms": 1736.5,
+          "height": 360,
+          "time": 0.019495
+        },
+        {
+          "ms": 3830.4000000953674,
+          "height": 144,
+          "time": 2.069536
+        },
+        {
+          "ms": 5847.200000047684,
+          "height": 360,
+          "time": 4.086496
+        },
+        {
+          "ms": 7846.800000190735,
+          "height": 720,
+          "time": 6.086899
+        }
+      ],
+      "time": 7.979827,
+      "playback": "mse-hls",
+      "mediaError": false,
+      "muted": true,
+      "volume": 0,
+      "bytes": 2863892,
+      "postStartWaits": []
+    },
+    {
+      "id": "project-ramsmobile-protos",
+      "rateMbps": 4,
+      "firstFrameMs": 2254.100000143051,
+      "events": [
+        {
+          "name": "waiting",
+          "ms": 19.300000190734863,
+          "time": 0
+        },
+        {
+          "name": "playing",
+          "ms": 2247.600000143051,
+          "time": 0.003254
+        }
+      ],
+      "qualities": [
+        {
+          "ms": 2254.100000143051,
+          "height": 360,
+          "time": 0.00973
+        },
+        {
+          "ms": 4365.900000095367,
+          "height": 144,
+          "time": 2.076041
+        },
+        {
+          "ms": 6364.700000047684,
+          "height": 360,
+          "time": 4.077552
+        }
+      ],
+      "time": 7.985989,
+      "playback": "mse-hls",
+      "mediaError": false,
+      "muted": true,
+      "volume": 0,
+      "bytes": 2368769,
+      "postStartWaits": []
+    },
+    {
+      "id": "project-ramswear",
+      "rateMbps": 4,
+      "firstFrameMs": 1400.5,
+      "events": [
+        {
+          "name": "waiting",
+          "ms": 18.40000009536743,
+          "time": 0
+        },
+        {
+          "name": "playing",
+          "ms": 1391.7000000476837,
+          "time": 0.002436
+        }
+      ],
+      "qualities": [
+        {
+          "ms": 1400.5,
+          "height": 360,
+          "time": 0.011343
+        },
+        {
+          "ms": 5513.100000143051,
+          "height": 720,
+          "time": 4.079448
+        }
+      ],
+      "time": 7.907783,
+      "playback": "mse-hls",
+      "mediaError": false,
+      "muted": true,
+      "volume": 0,
+      "bytes": 3539948,
+      "postStartWaits": []
+    }
+  ],
+  "slow1Mbps": {
+    "firstFrameMs": 1818.2000000476837,
+    "events": [
+      {
+        "name": "waiting",
+        "ms": 19.600000143051147,
+        "time": 0
+      },
+      {
+        "name": "playing",
+        "ms": 1806,
+        "time": 0.002245
+      }
+    ],
+    "qualities": [
+      {
+        "ms": 1818.2000000476837,
+        "height": 360,
+        "time": 0.014357
+      },
+      {
+        "ms": 3963.5,
+        "height": 144,
+        "time": 2.115666
+      },
+      {
+        "ms": 5963.400000095367,
+        "height": 360,
+        "time": 4.115519
+      }
+    ],
+    "time": 7.974896,
+    "playback": "mse-hls",
+    "mediaError": false,
+    "muted": true,
+    "volume": 0,
+    "bytes": 994169,
+    "postStartWaits": []
+  },
+  "adaptation": {
+    "trajectory": "10Mbps16s →1Mbps20s →10Mbps20s →.01Mbps2.5s →4Mbps recovery",
+    "firstFrameMs": 569.7000000476837,
+    "events": [
+      {
+        "name": "waiting",
+        "ms": 19.700000047683716,
+        "time": 0
+      },
+      {
+        "name": "playing",
+        "ms": 552.7000000476837,
+        "time": 0.00297
+      }
+    ],
+    "qualities": [
+      {
+        "ms": 569.7999999523163,
+        "height": 360,
+        "time": 0.019977
+      },
+      {
+        "ms": 2682,
+        "height": 720,
+        "time": 2.088584
+      },
+      {
+        "ms": 24681.400000095367,
+        "height": 360,
+        "time": 24.085792
+      },
+      {
+        "ms": 46679.10000014305,
+        "height": 720,
+        "time": 46.083238
+      }
+    ],
+    "time": 60.521237,
+    "playback": "mse-hls",
+    "mediaError": false,
+    "muted": true,
+    "volume": 0,
+    "bytes": 11769362,
+    "postStartWaits": []
+  },
+  "errors": []
+}

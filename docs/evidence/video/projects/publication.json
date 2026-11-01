@@ -1,0 +1,70 @@
+{
+  "change": "CHG0192",
+  "date": "2026-11-01",
+  "commit": "25764842409642e8bd2d48564b99dbd0bd699fda",
+  "repository": "askmi/ramsider",
+  "destination": "origin/main",
+  "status": "FIRST_COMMIT_DEPLOYED_CORRECTED_NATIVE_STARTUP_APPROVED_LOCAL_PENDING_SECOND_PUBLICATION",
+  "expectedDeploymentContexts": [
+    "Vercel \u2013 ramsider",
+    "Vercel \u2013 ramsider-beta"
+  ],
+  "expectedEnvironments": [
+    "Production",
+    "Preview"
+  ],
+  "canonical": "https://ramsider-main.vercel.app/en",
+  "localCandidate": "APPROVED_LOCAL_AVAILABLE_SCOPE;23source/assets+155evidence exact, independentScope/Gates2\u20136LOCAL_PREPUSHPASS",
+  "limitations": [
+    "RAMSFOOD source/userchoice still missing; retain original description.",
+    "PhysicaliPhone/Android/AVKit unavailable, no fieldINP/Lighthouse/p95 claims.",
+    "Full unrelatedlintCHG0181FAIL; scopedtypes/lint/build/native/browser passed."
+  ],
+  "publicChecks": {
+    "coreMatrix": "All3entryprofiles+all6movies each nativePro/Max andChromium PASS via5initialPASS+Pro supplemental1PASS; initialListcaptureautohideFAIL preserved.",
+    "objects": "204/90.6MB PASS matchingcommittedregistry+12posters; all /films/immutable, postersdefaultcache. Full15Wear2160objects additionallyallSHA PASS.",
+    "highestQuality": "Firstcommit Chromiummanual144/720/2160PASS; nativecold2160FAIL retained. Directnativefull2160starts24.05s/noerror; correctedprogress-aware15s+120sactivepolicy now approvedLOCAL, realProMaxslowframes+cap/lifecycle+native8 passed. Correctedcommit/publicnativechecks pending.",
+    "directProductionAlias": "UniqueURLredirectvercel.com/login; no bypass/build-ID comparison approved. Canonicalnew3entries/media/currentbrowser verified."
+  },
+  "pushHistory": [
+    {
+      "attempt": 1,
+      "exit": 141,
+      "result": "SSH connection closed by remote host while all6LFSobjects upload completed100%/2GB at5.7MBps. Branch update not yet confirmed; read-only ls-remote in progress. No credential or access denial observed.",
+      "remoteResult": "e6381b4 unchanged confirmed before retry"
+    },
+    {
+      "attempt": 2,
+      "exit": 0,
+      "result": "samecommit origin/main push succeeded; previously uploaded6LFS objects reused0B/s, no force/config/auth changes"
+    }
+  ],
+  "deploymentChecks": [
+    {
+      "context": "Vercel \u2013 ramsider",
+      "state": "success",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider/D1qy4y33JknrbTLivWSKHhNbtxUf"
+    },
+    {
+      "context": "Vercel \u2013 ramsider-beta",
+      "state": "success",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/DTkKZtpL42HVyD2Uk5SSHNDVKnWH"
+    }
+  ],
+  "remoteSHAConfirmed": "25764842409642e8bd2d48564b99dbd0bd699fda",
+  "gitHubDeployments": [
+    {
+      "created_at": "2026-11-01T03:48:54Z",
+      "environment": "Production \u2013 ramsider",
+      "id": 7468218645,
+      "sha": "25764842409642e8bd2d48564b99dbd0bd699fda"
+    },
+    {
+      "created_at": "2026-11-01T03:43:57Z",
+      "environment": "Preview \u2013 ramsider-beta",
+      "id": 7468179621,
+      "sha": "25764842409642e8bd2d48564b99dbd0bd699fda"
+    }
+  ],
+  "nextCandidate": "native-startup.json current2deltafiles/127artifacts; independentScope/Stage2/Gates3/4/5PASS_LOCAL_WEB"
+}

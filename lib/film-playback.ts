@@ -96,6 +96,7 @@ export function playProductFilm(video: HTMLVideoElement) {
   let playIntent = true;
   let restoreFallback: (() => void) | undefined;
   let finishSourceSeek: (() => void) | undefined;
+  let nativeStartup: { url: string; remaining: number; started?: number; cap?: ReturnType<typeof setTimeout> } | undefined;
   const clearSourceSwitch = () => {
     if (finishSourceSeek) video.removeEventListener('seeked', finishSourceSeek);
     finishSourceSeek = undefined;
@@ -126,6 +127,27 @@ export function playProductFilm(video: HTMLVideoElement) {
     if (current()) video.dispatchEvent(new CustomEvent('film-status', { detail: value }));
   };
   const clearWatchdog = () => { if (watchdog) clearTimeout(watchdog); watchdog = undefined; };
+  const suspendNativeStartup = () => {
+    if (!nativeStartup) return;
+    if (nativeStartup.cap) clearTimeout(nativeStartup.cap);
+    nativeStartup.cap = undefined;
+    if (nativeStartup.started !== undefined) nativeStartup.remaining -= performance.now() - nativeStartup.started;
+    nativeStartup.started = undefined;
+  };
+  const clearNativeStartup = () => { suspendNativeStartup(); nativeStartup = undefined; };
+  const resumeNativeStartup = () => {
+    if (!nativeStartup || nativeStartup.started !== undefined || !current() || !playIntent || document.hidden) return;
+    nativeStartup.started = performance.now();
+    // Progress can renew inactivity, never this total active-startup budget.
+    nativeStartup.cap = setTimeout(timedOut, Math.max(0, nativeStartup.remaining));
+    if (!watchdog) watchdog = setTimeout(timedOut, 15000);
+  };
+  const onNativeProgress = (event: Event) => {
+    if (!event.isTrusted || !current() || !nativeStartup || video.currentSrc !== nativeStartup.url ||
+      video.paused || !playIntent || document.hidden) return;
+    resumeNativeStartup();
+    clearWatchdog(); watchdog = setTimeout(timedOut, 15000);
+  };
   const fail = () => {
     if (!current()) return;
     status('error');
@@ -138,13 +160,14 @@ export function playProductFilm(video: HTMLVideoElement) {
     status('loading');
     // Repeated waiting notifications must not extend the same stall forever.
     if (!watchdog) watchdog = setTimeout(timedOut, 15000);
+    resumeNativeStartup();
   };
   const attemptPlay = () => {
     if (!current()) return;
     void video.play().catch((error: unknown) => {
       if (!current()) return;
       if (error instanceof DOMException && error.name === 'NotAllowedError') {
-        playIntent = false; clearWatchdog(); status('blocked');
+        playIntent = false; clearWatchdog(); suspendNativeStartup(); status('blocked');
       }
       // Media failures are handled by the engine/native error listener; an
       // AbortError from close/reopen must never poison the next session.
@@ -154,6 +177,7 @@ export function playProductFilm(video: HTMLVideoElement) {
     if (!current()) return;
     if (fallbackUsed || !video.dataset.fallback) { fail(); return; }
     fallbackUsed = true;
+    clearNativeStartup();
     pendingSource ??= { time: video.currentTime, rate: video.playbackRate };
     const position = pendingSource;
     if (restoreFallback) video.removeEventListener('loadedmetadata', restoreFallback);
@@ -191,13 +215,14 @@ export function playProductFilm(video: HTMLVideoElement) {
     if (current() && video.dataset.delivery === 'original' &&
       (!video.videoWidth || !video.videoHeight)) fail();
   };
-  const onPlay = () => { if (current()) playIntent = true; };
-  const onPlaying = () => { if (current()) { playIntent = true; clearWatchdog(); } };
-  const onPause = () => { if (current() && video.paused) { clearWatchdog(); playIntent = false; } };
+  const onPlay = () => { if (current()) { playIntent = true; resumeNativeStartup(); } };
+  const onPlaying = () => { if (current()) { playIntent = true; clearWatchdog(); clearNativeStartup(); } };
+  const onPause = () => { if (current() && video.paused) { clearWatchdog(); suspendNativeStartup(); playIntent = false; } };
   const onVisibility = () => {
-    clearWatchdog();
+    clearWatchdog(); suspendNativeStartup();
     if (current() && !document.hidden && playIntent && video.readyState < 3) {
       status('loading'); watchdog = setTimeout(timedOut, 15000);
+      resumeNativeStartup();
     }
   };
   const session: Session = { quality(height) {
@@ -232,23 +257,26 @@ export function playProductFilm(video: HTMLVideoElement) {
       video.addEventListener('loadedmetadata', restoreFallback);
       selected = height;
       settings(video, available.map(quality => quality.height), selected);
-      clearWatchdog();
+      clearWatchdog(); clearNativeStartup();
+      if (height !== null) nativeStartup = { url: expectedURL, remaining: 120000 };
       beginSourceSwitch();
       video.src = url; video.load();
       if (playIntent) status('loading');
       // Keep the original gesture, including recovery via native Play if the
       // browser rejects it. A paused source switch must never start playback.
-      if (playIntent) { if (!document.hidden) watchdog = setTimeout(timedOut, 15000); attemptPlay(); }
+      if (playIntent) { if (!document.hidden) watchdog = setTimeout(timedOut, 15000); resumeNativeStartup(); attemptPlay(); }
     }
   }, rate(value) { if (pendingSource) pendingSource.rate = value; }, close() {
     if (!alive) return;
-    alive = false; clearWatchdog(); if (recovery) clearTimeout(recovery); hls?.destroy(); hls = undefined;
+    alive = false; clearWatchdog(); clearNativeStartup(); if (recovery) clearTimeout(recovery); hls?.destroy(); hls = undefined;
     video.removeEventListener('error', onError);
     video.removeEventListener('loadedmetadata', onMetadata);
     video.removeEventListener('waiting', waiting);
     video.removeEventListener('playing', onPlaying);
     video.removeEventListener('play', onPlay);
     video.removeEventListener('pause', onPause);
+    video.removeEventListener('progress', onNativeProgress);
+    video.removeEventListener('loadedmetadata', onNativeProgress);
     document.removeEventListener('visibilitychange', onVisibility);
     if (restoreFallback) video.removeEventListener('loadedmetadata', restoreFallback);
     clearSourceSwitch();
@@ -261,6 +289,8 @@ export function playProductFilm(video: HTMLVideoElement) {
   video.addEventListener('playing', onPlaying);
   video.addEventListener('play', onPlay);
   video.addEventListener('pause', onPause);
+  video.addEventListener('progress', onNativeProgress);
+  video.addEventListener('loadedmetadata', onNativeProgress);
   document.addEventListener('visibilitychange', onVisibility);
   status('loading');
   // Also bound manifest/library startup, before a native waiting event exists.

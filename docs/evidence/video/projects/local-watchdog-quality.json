@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-01",
+  "base": "http://127.0.0.1:3000",
+  "conditions": "Real sharedUI qualitymenu144/720/2160; presented rVFC matching selected height and advancingtime; fullwindow/elementfullscreen+cleanup. Silent WebKit emulation/Chromium, not physical AVKit.",
+  "results": [
+    {
+      "name": "pro",
+      "status": "FAIL",
+      "error": "Error: locator.evaluate: Error: No selected-quality presented frame",
+      "errors": []
+    },
+    {
+      "name": "max",
+      "status": "FAIL",
+      "error": "Error: locator.evaluate: Target page, context or browser has been closed",
+      "errors": []
+    }
+  ]
+}

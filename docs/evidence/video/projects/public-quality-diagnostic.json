@@ -1,0 +1,172 @@
+{
+  "play": "fulfilled",
+  "events": [
+    {
+      "t": 8427,
+      "event": "before",
+      "src": "/films/project-ramswear/und-v1/master.m3u8",
+      "attr": "/films/project-ramswear/und-v1/master.m3u8",
+      "mode": "auto",
+      "paused": false,
+      "ready": 4,
+      "time": 0.21010816640357244,
+      "height": 360
+    },
+    {
+      "t": 8433,
+      "event": "pause",
+      "src": "/films/project-ramswear/und-v1/master.m3u8",
+      "attr": "/films/project-ramswear/und-v1/master.m3u8",
+      "mode": "auto",
+      "paused": true,
+      "ready": 4,
+      "time": 0.21010816640357244,
+      "height": 360
+    },
+    {
+      "t": 9052,
+      "event": "attribute",
+      "src": "/films/project-ramswear/und-v1/master.m3u8",
+      "attr": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "mode": "144",
+      "switch": "true",
+      "paused": true,
+      "ready": 0,
+      "time": 0,
+      "height": 0
+    },
+    {
+      "t": 9053,
+      "event": "emptied",
+      "src": "/films/project-ramswear/und-v1/master.m3u8",
+      "attr": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "mode": "144",
+      "switch": "true",
+      "paused": true,
+      "ready": 0,
+      "time": 0,
+      "height": 0
+    },
+    {
+      "t": 9055,
+      "event": "loadstart",
+      "src": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "attr": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "mode": "144",
+      "switch": "true",
+      "paused": true,
+      "ready": 0,
+      "time": 0,
+      "height": 0
+    },
+    {
+      "t": 9089,
+      "event": "play",
+      "src": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "attr": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "mode": "144",
+      "switch": "true",
+      "paused": false,
+      "ready": 0,
+      "time": 0,
+      "height": 0
+    },
+    {
+      "t": 9177,
+      "event": "loadedmetadata",
+      "src": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "attr": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "mode": "144",
+      "switch": "true",
+      "paused": false,
+      "ready": 1,
+      "time": 0,
+      "height": 0
+    },
+    {
+      "t": 9179,
+      "event": "seeking",
+      "src": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "attr": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "mode": "144",
+      "switch": "true",
+      "paused": false,
+      "ready": 1,
+      "time": 0.21010816640357244,
+      "height": 0
+    },
+    {
+      "t": 9466,
+      "event": "seeked",
+      "src": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "attr": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "mode": "144",
+      "switch": "true",
+      "paused": false,
+      "ready": 2,
+      "time": 0.21010816640357244,
+      "height": 144
+    },
+    {
+      "t": 9557,
+      "event": "canplay",
+      "src": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "attr": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "mode": "144",
+      "paused": false,
+      "ready": 4,
+      "time": 0.2101091,
+      "height": 144
+    },
+    {
+      "t": 9559,
+      "event": "playing",
+      "src": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "attr": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "mode": "144",
+      "paused": false,
+      "ready": 4,
+      "time": 0.2101091,
+      "height": 144
+    },
+    {
+      "t": 9572,
+      "event": "canplay",
+      "src": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "attr": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "mode": "144",
+      "paused": false,
+      "ready": 4,
+      "time": 0.210150725,
+      "height": 144
+    },
+    {
+      "t": 9573,
+      "event": "playing",
+      "src": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "attr": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "mode": "144",
+      "paused": false,
+      "ready": 4,
+      "time": 0.210150725,
+      "height": 144
+    },
+    {
+      "t": 14565,
+      "event": "after5s",
+      "src": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "attr": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "mode": "144",
+      "paused": false,
+      "ready": 4,
+      "time": 5.183082140545644,
+      "height": 144
+    }
+  ],
+  "status": {
+    "filmId": "project-ramswear",
+    "qualities": "[144,360,720,1080,1440,2160]",
+    "controls": "ready"
+  },
+  "videoError": null
+}

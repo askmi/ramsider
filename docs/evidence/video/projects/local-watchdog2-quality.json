@@ -1,0 +1,139 @@
+{
+  "date": "2026-11-01",
+  "base": "http://127.0.0.1:3000",
+  "conditions": "Real sharedUI qualitymenu144/720/2160; presented rVFC matching selected height and advancingtime; fullwindow/elementfullscreen+cleanup. Silent WebKit emulation/Chromium, not physical AVKit.",
+  "results": [
+    {
+      "name": "pro",
+      "width": 402,
+      "height": 874,
+      "qualities": [
+        {
+          "selected": 144,
+          "firstPresentedMs": 602,
+          "width": 256,
+          "height": 144,
+          "time": 0.7425601580747592,
+          "playback": "native-hls",
+          "source": "/films/project-ramswear/und-v1/144p/index.m3u8",
+          "muted": true,
+          "volume": 0
+        },
+        {
+          "selected": 720,
+          "firstPresentedMs": 566,
+          "width": 1280,
+          "height": 720,
+          "time": 1.5415240414500981,
+          "playback": "native-hls",
+          "source": "/films/project-ramswear/und-v1/720p/index.m3u8",
+          "muted": true,
+          "volume": 0
+        },
+        {
+          "selected": 2160,
+          "firstPresentedMs": 671,
+          "width": 3840,
+          "height": 2160,
+          "time": 2.3024482,
+          "playback": "native-hls",
+          "source": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+          "muted": true,
+          "volume": 0
+        }
+      ],
+      "expanded": true,
+      "cleanup": true,
+      "errors": [],
+      "status": "PASS"
+    },
+    {
+      "name": "max",
+      "width": 440,
+      "height": 956,
+      "qualities": [
+        {
+          "selected": 144,
+          "firstPresentedMs": 573,
+          "width": 256,
+          "height": 144,
+          "time": 0.8258263164921896,
+          "playback": "native-hls",
+          "source": "/films/project-ramswear/und-v1/144p/index.m3u8",
+          "muted": true,
+          "volume": 0
+        },
+        {
+          "selected": 720,
+          "firstPresentedMs": 549,
+          "width": 1280,
+          "height": 720,
+          "time": 1.604538534,
+          "playback": "native-hls",
+          "source": "/films/project-ramswear/und-v1/720p/index.m3u8",
+          "muted": true,
+          "volume": 0
+        },
+        {
+          "selected": 2160,
+          "firstPresentedMs": 665,
+          "width": 3840,
+          "height": 2160,
+          "time": 2.3641104,
+          "playback": "native-hls",
+          "source": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+          "muted": true,
+          "volume": 0
+        }
+      ],
+      "expanded": true,
+      "cleanup": true,
+      "errors": [],
+      "status": "PASS"
+    },
+    {
+      "name": "chromium",
+      "width": 1440,
+      "height": 900,
+      "qualities": [
+        {
+          "selected": 144,
+          "firstPresentedMs": 3885,
+          "width": 256,
+          "height": 144,
+          "time": 4.081113,
+          "playback": "mse-hls",
+          "source": "mse-object-url",
+          "muted": true,
+          "volume": 0
+        },
+        {
+          "selected": 720,
+          "firstPresentedMs": 1709,
+          "width": 1280,
+          "height": 720,
+          "time": 6.080649,
+          "playback": "mse-hls",
+          "source": "mse-object-url",
+          "muted": true,
+          "volume": 0
+        },
+        {
+          "selected": 2160,
+          "firstPresentedMs": 3741,
+          "width": 3840,
+          "height": 2160,
+          "time": 10.07968,
+          "playback": "mse-hls",
+          "source": "mse-object-url",
+          "muted": true,
+          "volume": 0
+        }
+      ],
+      "expanded": true,
+      "cleanup": true,
+      "errors": [],
+      "status": "PASS"
+    }
+  ]
+}

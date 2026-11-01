@@ -1,0 +1,3064 @@
+{
+  "date": "2026-11-01",
+  "base": "https://ramsider-main.vercel.app",
+  "scope": "All6masters/36variants/36inits; first-middle-last segment each rung;6fallback1024byte206;12posters. Local build separately validated all1764objects. Public full fallback/media bytes not exhaustively downloaded.",
+  "results": [
+    {
+      "path": "/films/project-ramswear/und-v1/1080p/index.m3u8",
+      "expectedBytes": 635,
+      "expectedSHA256": "1fe65f314a48679ceb37c82eab7d5ed5bb02a1e5f3e1b8524098fd823f0cc8d0",
+      "status": 200,
+      "bodyBytes": 635,
+      "bodySHA256": "1fe65f314a48679ceb37c82eab7d5ed5bb02a1e5f3e1b8524098fd823f0cc8d0",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 730
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/1080p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "563ca75248d92733725968c8e4abb0e5c99b9e76b877f4f7ad63a2c33e51510e",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "563ca75248d92733725968c8e4abb0e5c99b9e76b877f4f7ad63a2c33e51510e",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 757
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/1080p/segment-00000.m4s",
+      "expectedBytes": 835359,
+      "expectedSHA256": "c7fa1baa486eab278d63ebc47cf7e65e18994b08a658c4ec7cba9f9c2783114a",
+      "status": 200,
+      "bodyBytes": 835359,
+      "bodySHA256": "c7fa1baa486eab278d63ebc47cf7e65e18994b08a658c4ec7cba9f9c2783114a",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1489
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/1080p/segment-00006.m4s",
+      "expectedBytes": 1337471,
+      "expectedSHA256": "e27793218152cda889fa8ea576cf6495f0a0b7a16be037a984de156711fcb5b8",
+      "status": 200,
+      "bodyBytes": 1337471,
+      "bodySHA256": "e27793218152cda889fa8ea576cf6495f0a0b7a16be037a984de156711fcb5b8",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 2512
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/1080p/segment-00012.m4s",
+      "expectedBytes": 12328,
+      "expectedSHA256": "e33580cce0c06f56a960e4efb54b76359747e0122b0b9b59837118fd0a635004",
+      "status": 200,
+      "bodyBytes": 12328,
+      "bodySHA256": "e33580cce0c06f56a960e4efb54b76359747e0122b0b9b59837118fd0a635004",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 696
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/1440p/index.m3u8",
+      "expectedBytes": 635,
+      "expectedSHA256": "1fe65f314a48679ceb37c82eab7d5ed5bb02a1e5f3e1b8524098fd823f0cc8d0",
+      "status": 200,
+      "bodyBytes": 635,
+      "bodySHA256": "1fe65f314a48679ceb37c82eab7d5ed5bb02a1e5f3e1b8524098fd823f0cc8d0",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 459
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/1440p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "65b67262b24880bc1eb66aca28415f22ae401fafc1e9204d205d57236b27de82",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "65b67262b24880bc1eb66aca28415f22ae401fafc1e9204d205d57236b27de82",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 473
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/1440p/segment-00000.m4s",
+      "expectedBytes": 1541242,
+      "expectedSHA256": "a3f84b8933a07bbf37bf33503c78f021db8da4ef5a52b86b9d554b8627fea8bc",
+      "status": 200,
+      "bodyBytes": 1541242,
+      "bodySHA256": "a3f84b8933a07bbf37bf33503c78f021db8da4ef5a52b86b9d554b8627fea8bc",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 2924
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/1440p/segment-00006.m4s",
+      "expectedBytes": 2354811,
+      "expectedSHA256": "24e69af65b1157e507c643ec89e7723b394bc317c5a1222be49b9b1851f9fae0",
+      "status": 200,
+      "bodyBytes": 2354811,
+      "bodySHA256": "24e69af65b1157e507c643ec89e7723b394bc317c5a1222be49b9b1851f9fae0",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 3368
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/1440p/segment-00012.m4s",
+      "expectedBytes": 14494,
+      "expectedSHA256": "587d62a6f3294a56a2464ff90aacb93e7d05d0a0d3d8d864a8801253740084f5",
+      "status": 200,
+      "bodyBytes": 14494,
+      "bodySHA256": "587d62a6f3294a56a2464ff90aacb93e7d05d0a0d3d8d864a8801253740084f5",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 374
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/144p/index.m3u8",
+      "expectedBytes": 635,
+      "expectedSHA256": "1fe65f314a48679ceb37c82eab7d5ed5bb02a1e5f3e1b8524098fd823f0cc8d0",
+      "status": 200,
+      "bodyBytes": 635,
+      "bodySHA256": "1fe65f314a48679ceb37c82eab7d5ed5bb02a1e5f3e1b8524098fd823f0cc8d0",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 513
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/144p/init.mp4",
+      "expectedBytes": 1391,
+      "expectedSHA256": "e2ccd55f9472842efd4c42b3a22a50fd968590c70ad7c2aff80715a86311b68d",
+      "status": 200,
+      "bodyBytes": 1391,
+      "bodySHA256": "e2ccd55f9472842efd4c42b3a22a50fd968590c70ad7c2aff80715a86311b68d",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 621
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/144p/segment-00000.m4s",
+      "expectedBytes": 36461,
+      "expectedSHA256": "51c53fea008332ca3006da912236b9bba7752fe4d6584c7fb49dcba808b249f8",
+      "status": 200,
+      "bodyBytes": 36461,
+      "bodySHA256": "51c53fea008332ca3006da912236b9bba7752fe4d6584c7fb49dcba808b249f8",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 605
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/144p/segment-00006.m4s",
+      "expectedBytes": 39024,
+      "expectedSHA256": "05761d2a2bec90a88802a3eec17b36f1ee65a5e010a201919389db2a506e984f",
+      "status": 200,
+      "bodyBytes": 39024,
+      "bodySHA256": "05761d2a2bec90a88802a3eec17b36f1ee65a5e010a201919389db2a506e984f",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 536
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/144p/segment-00012.m4s",
+      "expectedBytes": 8150,
+      "expectedSHA256": "693be857c2ff1a69447eb11de7b957a87c7c45e94f09ba7cf77c339502cb00a5",
+      "status": 200,
+      "bodyBytes": 8150,
+      "bodySHA256": "693be857c2ff1a69447eb11de7b957a87c7c45e94f09ba7cf77c339502cb00a5",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 472
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/2160p/index.m3u8",
+      "expectedBytes": 635,
+      "expectedSHA256": "1fe65f314a48679ceb37c82eab7d5ed5bb02a1e5f3e1b8524098fd823f0cc8d0",
+      "status": 200,
+      "bodyBytes": 635,
+      "bodySHA256": "1fe65f314a48679ceb37c82eab7d5ed5bb02a1e5f3e1b8524098fd823f0cc8d0",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 459
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/2160p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "0cf7a1ed8859c8300bcc16021cf86e7c37389ced3e20eecfaeb4ae7cd378e561",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "0cf7a1ed8859c8300bcc16021cf86e7c37389ced3e20eecfaeb4ae7cd378e561",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 437
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/2160p/segment-00000.m4s",
+      "expectedBytes": 3934413,
+      "expectedSHA256": "c80418df897c7a03e446432c2c49a7a02859a36ddac955b08b0b4a1ac4988e6c",
+      "status": 200,
+      "bodyBytes": 3934413,
+      "bodySHA256": "c80418df897c7a03e446432c2c49a7a02859a36ddac955b08b0b4a1ac4988e6c",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 2014
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/2160p/segment-00006.m4s",
+      "expectedBytes": 3805780,
+      "expectedSHA256": "7de89ccb412edb78e7d7ead5cc847cdd36ebb9d4b4f7c62d09b81e25a10ab080",
+      "status": 200,
+      "bodyBytes": 3805780,
+      "bodySHA256": "7de89ccb412edb78e7d7ead5cc847cdd36ebb9d4b4f7c62d09b81e25a10ab080",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1478
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/2160p/segment-00012.m4s",
+      "expectedBytes": 19447,
+      "expectedSHA256": "a09b1cb314b31285348b31788cfc89c20a79d1fdf6e9867debf8b7da9b8b8cbf",
+      "status": 200,
+      "bodyBytes": 19447,
+      "bodySHA256": "a09b1cb314b31285348b31788cfc89c20a79d1fdf6e9867debf8b7da9b8b8cbf",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 370
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/360p/index.m3u8",
+      "expectedBytes": 635,
+      "expectedSHA256": "1fe65f314a48679ceb37c82eab7d5ed5bb02a1e5f3e1b8524098fd823f0cc8d0",
+      "status": 200,
+      "bodyBytes": 635,
+      "bodySHA256": "1fe65f314a48679ceb37c82eab7d5ed5bb02a1e5f3e1b8524098fd823f0cc8d0",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 697
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/360p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "60a2ba5984a1faf9e63b2503bc8976919f85827b9bdea137fd9229044b2c6d5c",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "60a2ba5984a1faf9e63b2503bc8976919f85827b9bdea137fd9229044b2c6d5c",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 788
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/360p/segment-00000.m4s",
+      "expectedBytes": 121109,
+      "expectedSHA256": "d851081bb68d332a0a508156843a17f97d9fbcfda86ad482cf68cbfb83d7c697",
+      "status": 200,
+      "bodyBytes": 121109,
+      "bodySHA256": "d851081bb68d332a0a508156843a17f97d9fbcfda86ad482cf68cbfb83d7c697",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 756
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/360p/segment-00006.m4s",
+      "expectedBytes": 202049,
+      "expectedSHA256": "2272e408732323894e5f689b5747260502834017fa18925e0bf3422ff2c2141b",
+      "status": 200,
+      "bodyBytes": 202049,
+      "bodySHA256": "2272e408732323894e5f689b5747260502834017fa18925e0bf3422ff2c2141b",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 612
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/360p/segment-00012.m4s",
+      "expectedBytes": 9254,
+      "expectedSHA256": "437ae8d7eb842387d5ae9a7601665e7b212011115783ea18811a251012b2ed73",
+      "status": 200,
+      "bodyBytes": 9254,
+      "bodySHA256": "437ae8d7eb842387d5ae9a7601665e7b212011115783ea18811a251012b2ed73",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 403
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/720p/index.m3u8",
+      "expectedBytes": 635,
+      "expectedSHA256": "1fe65f314a48679ceb37c82eab7d5ed5bb02a1e5f3e1b8524098fd823f0cc8d0",
+      "status": 200,
+      "bodyBytes": 635,
+      "bodySHA256": "1fe65f314a48679ceb37c82eab7d5ed5bb02a1e5f3e1b8524098fd823f0cc8d0",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 361
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/720p/init.mp4",
+      "expectedBytes": 1392,
+      "expectedSHA256": "2e8a70a48022be36d7a593f05df520f66e740f2afb74c76300ab038691282b45",
+      "status": 200,
+      "bodyBytes": 1392,
+      "bodySHA256": "2e8a70a48022be36d7a593f05df520f66e740f2afb74c76300ab038691282b45",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 347
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/720p/segment-00000.m4s",
+      "expectedBytes": 387739,
+      "expectedSHA256": "1b4eba9bfadbfab532e566eb6afe57ad03503e140ac619a6cd4e0957dfb47979",
+      "status": 200,
+      "bodyBytes": 387739,
+      "bodySHA256": "1b4eba9bfadbfab532e566eb6afe57ad03503e140ac619a6cd4e0957dfb47979",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 567
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/720p/segment-00006.m4s",
+      "expectedBytes": 621202,
+      "expectedSHA256": "25b3233b6693b20536c32ad7fce2cc5939a1d9c93bea9aa9549e47770cca8c04",
+      "status": 200,
+      "bodyBytes": 621202,
+      "bodySHA256": "25b3233b6693b20536c32ad7fce2cc5939a1d9c93bea9aa9549e47770cca8c04",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1251
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/720p/segment-00012.m4s",
+      "expectedBytes": 10849,
+      "expectedSHA256": "1910b99bb9b4999f5eb1684c33015753e9522ab0b8579d434e6509b2512c49eb",
+      "status": 200,
+      "bodyBytes": 10849,
+      "bodySHA256": "1910b99bb9b4999f5eb1684c33015753e9522ab0b8579d434e6509b2512c49eb",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 382
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/master.m3u8",
+      "expectedBytes": 937,
+      "expectedSHA256": "7fa98ff331eaa4b83327f2e1819959462f421ff8349f9a603ffbee8123164435",
+      "status": 200,
+      "bodyBytes": 937,
+      "bodySHA256": "7fa98ff331eaa4b83327f2e1819959462f421ff8349f9a603ffbee8123164435",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 359
+    },
+    {
+      "path": "/films/project-ramswear/und-v1/fallback.mp4",
+      "range": true,
+      "status": 206,
+      "bodyBytes": 1024,
+      "bodySHA256": "0eeffe5fcf1908be3d2e23d1b1406875a713bacc86c6c0cbb53dbb6eeb544c6e",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": "bytes 0-1023/4517940"
+      },
+      "matches": true,
+      "ms": 689
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/1080p/index.m3u8",
+      "expectedBytes": 1103,
+      "expectedSHA256": "000585992eb179ed23b3aa725dfb7b1b05a50843ba0a9b124440cdf928b10c28",
+      "status": 200,
+      "bodyBytes": 1103,
+      "bodySHA256": "000585992eb179ed23b3aa725dfb7b1b05a50843ba0a9b124440cdf928b10c28",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 365
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/1080p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "463d288470a7a0b61f53ab31ed2ea13bef253485d26499ad24b7348d986dfbf4",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "463d288470a7a0b61f53ab31ed2ea13bef253485d26499ad24b7348d986dfbf4",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 405
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/1080p/segment-00000.m4s",
+      "expectedBytes": 1335799,
+      "expectedSHA256": "699477fd39d8a65db4d05af903d93268885b719546506ad510f99d825e713aee",
+      "status": 200,
+      "bodyBytes": 1335799,
+      "bodySHA256": "699477fd39d8a65db4d05af903d93268885b719546506ad510f99d825e713aee",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1606
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/1080p/segment-00013.m4s",
+      "expectedBytes": 1300442,
+      "expectedSHA256": "f3bf9c98551d05170804ce2d22b1aa0d9b10c181eb6abf671b37e829fcfc99c8",
+      "status": 200,
+      "bodyBytes": 1300442,
+      "bodySHA256": "f3bf9c98551d05170804ce2d22b1aa0d9b10c181eb6abf671b37e829fcfc99c8",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1803
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/1080p/segment-00025.m4s",
+      "expectedBytes": 17003,
+      "expectedSHA256": "ac76b4fba1212b72524cda345aaa0e4ae0f72c416ccd34570225aa3be8fd8056",
+      "status": 200,
+      "bodyBytes": 17003,
+      "bodySHA256": "ac76b4fba1212b72524cda345aaa0e4ae0f72c416ccd34570225aa3be8fd8056",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 351
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/1440p/index.m3u8",
+      "expectedBytes": 1103,
+      "expectedSHA256": "000585992eb179ed23b3aa725dfb7b1b05a50843ba0a9b124440cdf928b10c28",
+      "status": 200,
+      "bodyBytes": 1103,
+      "bodySHA256": "000585992eb179ed23b3aa725dfb7b1b05a50843ba0a9b124440cdf928b10c28",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 364
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/1440p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "2ed8dd42a188201b39d49db461312503e1dd9f15996712d68b6600ccdd6b8dee",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "2ed8dd42a188201b39d49db461312503e1dd9f15996712d68b6600ccdd6b8dee",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 353
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/1440p/segment-00000.m4s",
+      "expectedBytes": 2425708,
+      "expectedSHA256": "a7139bd4de6ce8ea3b50216a63470cda3c8d4d12236790534d5b5ee79ace3871",
+      "status": 200,
+      "bodyBytes": 2425708,
+      "bodySHA256": "a7139bd4de6ce8ea3b50216a63470cda3c8d4d12236790534d5b5ee79ace3871",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 2263
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/1440p/segment-00013.m4s",
+      "expectedBytes": 2248374,
+      "expectedSHA256": "ec6354b8817df5c02427ccada9e2ee57d42ae20adf5c4af0918de93215c693a7",
+      "status": 200,
+      "bodyBytes": 2248374,
+      "bodySHA256": "ec6354b8817df5c02427ccada9e2ee57d42ae20adf5c4af0918de93215c693a7",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1200
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/1440p/segment-00025.m4s",
+      "expectedBytes": 19135,
+      "expectedSHA256": "c8c34891f345a53e0b23ce836a33fd4603283b5ab9595f3dfa35fc81d7a1373a",
+      "status": 200,
+      "bodyBytes": 19135,
+      "bodySHA256": "c8c34891f345a53e0b23ce836a33fd4603283b5ab9595f3dfa35fc81d7a1373a",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 569
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/144p/index.m3u8",
+      "expectedBytes": 1103,
+      "expectedSHA256": "000585992eb179ed23b3aa725dfb7b1b05a50843ba0a9b124440cdf928b10c28",
+      "status": 200,
+      "bodyBytes": 1103,
+      "bodySHA256": "000585992eb179ed23b3aa725dfb7b1b05a50843ba0a9b124440cdf928b10c28",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 525
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/144p/init.mp4",
+      "expectedBytes": 1391,
+      "expectedSHA256": "662904e4932f2fdc0cc10f961e48b964eeffdb03ee823702e8028ff994e1d22c",
+      "status": 200,
+      "bodyBytes": 1391,
+      "bodySHA256": "662904e4932f2fdc0cc10f961e48b964eeffdb03ee823702e8028ff994e1d22c",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 394
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/144p/segment-00000.m4s",
+      "expectedBytes": 42214,
+      "expectedSHA256": "661149f2e3c377eeb4e8aca0735e0cc4c94986d9c803683a00302a9e727579f8",
+      "status": 200,
+      "bodyBytes": 42214,
+      "bodySHA256": "661149f2e3c377eeb4e8aca0735e0cc4c94986d9c803683a00302a9e727579f8",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 467
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/144p/segment-00013.m4s",
+      "expectedBytes": 39620,
+      "expectedSHA256": "7a6efedfc9005d77cd37626aa0a4deeb5eabb26cd8130e69f6573795cef786fe",
+      "status": 200,
+      "bodyBytes": 39620,
+      "bodySHA256": "7a6efedfc9005d77cd37626aa0a4deeb5eabb26cd8130e69f6573795cef786fe",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 452
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/144p/segment-00025.m4s",
+      "expectedBytes": 12607,
+      "expectedSHA256": "e6c60b3930254a32a5a1af8c54722e547196da680ee1c9f4e80347ee08681105",
+      "status": 200,
+      "bodyBytes": 12607,
+      "bodySHA256": "e6c60b3930254a32a5a1af8c54722e547196da680ee1c9f4e80347ee08681105",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 364
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/2160p/index.m3u8",
+      "expectedBytes": 1103,
+      "expectedSHA256": "000585992eb179ed23b3aa725dfb7b1b05a50843ba0a9b124440cdf928b10c28",
+      "status": 200,
+      "bodyBytes": 1103,
+      "bodySHA256": "000585992eb179ed23b3aa725dfb7b1b05a50843ba0a9b124440cdf928b10c28",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 483
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/2160p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "1d46cffdf6ef4d298220d5e70cfa1d32c59cfd08c04f27d12620fbf92a35ccc0",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "1d46cffdf6ef4d298220d5e70cfa1d32c59cfd08c04f27d12620fbf92a35ccc0",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 365
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/2160p/segment-00000.m4s",
+      "expectedBytes": 4361132,
+      "expectedSHA256": "ffdd82fc4e8e67de5ccdd6bed8940df9237411cc811a36a5ea7a45125c5984ba",
+      "status": 200,
+      "bodyBytes": 4361132,
+      "bodySHA256": "ffdd82fc4e8e67de5ccdd6bed8940df9237411cc811a36a5ea7a45125c5984ba",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 2149
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/2160p/segment-00013.m4s",
+      "expectedBytes": 3669809,
+      "expectedSHA256": "d35de96ccf1c5f77cdd7c66b894593354943d136f7189aebd449063abdc4834b",
+      "status": 200,
+      "bodyBytes": 3669809,
+      "bodySHA256": "d35de96ccf1c5f77cdd7c66b894593354943d136f7189aebd449063abdc4834b",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1901
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/2160p/segment-00025.m4s",
+      "expectedBytes": 23313,
+      "expectedSHA256": "15dfb0eed32a1841c3f0b850e9075dd5ecfa37a3b4b408b3810ecd3b061ea9f9",
+      "status": 200,
+      "bodyBytes": 23313,
+      "bodySHA256": "15dfb0eed32a1841c3f0b850e9075dd5ecfa37a3b4b408b3810ecd3b061ea9f9",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 356
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/360p/index.m3u8",
+      "expectedBytes": 1103,
+      "expectedSHA256": "000585992eb179ed23b3aa725dfb7b1b05a50843ba0a9b124440cdf928b10c28",
+      "status": 200,
+      "bodyBytes": 1103,
+      "bodySHA256": "000585992eb179ed23b3aa725dfb7b1b05a50843ba0a9b124440cdf928b10c28",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 380
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/360p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "daebdcb73df40407bb4d7643a95afbec0220a4f27e36cb91da27eef8a5b5acff",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "daebdcb73df40407bb4d7643a95afbec0220a4f27e36cb91da27eef8a5b5acff",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 481
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/360p/segment-00000.m4s",
+      "expectedBytes": 176611,
+      "expectedSHA256": "d8797e9fe06fd02ae72e2b6226b424019bf04bf5b8f7d5bbc25ef66863ba025e",
+      "status": 200,
+      "bodyBytes": 176611,
+      "bodySHA256": "d8797e9fe06fd02ae72e2b6226b424019bf04bf5b8f7d5bbc25ef66863ba025e",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 901
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/360p/segment-00013.m4s",
+      "expectedBytes": 200551,
+      "expectedSHA256": "6dbe35a086deb639050ce09233a62530168919bd316e3aea8959eb04ed8a8e33",
+      "status": 200,
+      "bodyBytes": 200551,
+      "bodySHA256": "6dbe35a086deb639050ce09233a62530168919bd316e3aea8959eb04ed8a8e33",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1130
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/360p/segment-00025.m4s",
+      "expectedBytes": 13850,
+      "expectedSHA256": "567405abd21a9f2b1180311894796592c02dfbba94c8f5edf3a421c6078a7b83",
+      "status": 200,
+      "bodyBytes": 13850,
+      "bodySHA256": "567405abd21a9f2b1180311894796592c02dfbba94c8f5edf3a421c6078a7b83",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 573
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/720p/index.m3u8",
+      "expectedBytes": 1103,
+      "expectedSHA256": "000585992eb179ed23b3aa725dfb7b1b05a50843ba0a9b124440cdf928b10c28",
+      "status": 200,
+      "bodyBytes": 1103,
+      "bodySHA256": "000585992eb179ed23b3aa725dfb7b1b05a50843ba0a9b124440cdf928b10c28",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 448
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/720p/init.mp4",
+      "expectedBytes": 1392,
+      "expectedSHA256": "f249503d9f0e30fabb338163f2aa707cb4a14f3660241b9fcf60f1cf748c4747",
+      "status": 200,
+      "bodyBytes": 1392,
+      "bodySHA256": "f249503d9f0e30fabb338163f2aa707cb4a14f3660241b9fcf60f1cf748c4747",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 345
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/720p/segment-00000.m4s",
+      "expectedBytes": 566872,
+      "expectedSHA256": "508411621304daa83423ddb87adfef7dad44425080e7e0cc7d8bc9388113fd83",
+      "status": 200,
+      "bodyBytes": 566872,
+      "bodySHA256": "508411621304daa83423ddb87adfef7dad44425080e7e0cc7d8bc9388113fd83",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 811
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/720p/segment-00013.m4s",
+      "expectedBytes": 609747,
+      "expectedSHA256": "28823b85a975678d407f4ce84e07a98189f9b4fadd02ea9303f383b06ce144f7",
+      "status": 200,
+      "bodyBytes": 609747,
+      "bodySHA256": "28823b85a975678d407f4ce84e07a98189f9b4fadd02ea9303f383b06ce144f7",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1940
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/720p/segment-00025.m4s",
+      "expectedBytes": 15442,
+      "expectedSHA256": "272f33955cd69d8836f41b6dac226a5bbdd7ea4d1b3b95efb39aeaf4fa4c9be6",
+      "status": 200,
+      "bodyBytes": 15442,
+      "bodySHA256": "272f33955cd69d8836f41b6dac226a5bbdd7ea4d1b3b95efb39aeaf4fa4c9be6",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 355
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/master.m3u8",
+      "expectedBytes": 938,
+      "expectedSHA256": "ec82a2557caed3396c40d17a3accec013985551b4849a5ce367e828c595d151b",
+      "status": 200,
+      "bodyBytes": 938,
+      "bodySHA256": "ec82a2557caed3396c40d17a3accec013985551b4849a5ce367e828c595d151b",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 380
+    },
+    {
+      "path": "/films/project-ramsmobile-protos/und-v1/fallback.mp4",
+      "range": true,
+      "status": 206,
+      "bodyBytes": 1024,
+      "bodySHA256": "42d73f03276c75368b3ce70d8280ea0055ea5fd232d6c932a0be8991b7319412",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": "bytes 0-1023/12237513"
+      },
+      "matches": true,
+      "ms": 722
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/1080p/index.m3u8",
+      "expectedBytes": 563,
+      "expectedSHA256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f",
+      "status": 200,
+      "bodyBytes": 563,
+      "bodySHA256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 363
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/1080p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "497dd68d91335f8f90449108322a5192256fec6849a670776b7b4cf64448c0b2",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "497dd68d91335f8f90449108322a5192256fec6849a670776b7b4cf64448c0b2",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 352
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/1080p/segment-00000.m4s",
+      "expectedBytes": 1203025,
+      "expectedSHA256": "ec7a1d1a84b13a7a1031857be06b4a22757c3e5508bccf98abb95d24ac8d5b30",
+      "status": 200,
+      "bodyBytes": 1203025,
+      "bodySHA256": "ec7a1d1a84b13a7a1031857be06b4a22757c3e5508bccf98abb95d24ac8d5b30",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1638
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/1080p/segment-00005.m4s",
+      "expectedBytes": 1054013,
+      "expectedSHA256": "bbf2cb594361ad24a41778ab4212809fed2194d399b3f559e059be7d709e000f",
+      "status": 200,
+      "bodyBytes": 1054013,
+      "bodySHA256": "bbf2cb594361ad24a41778ab4212809fed2194d399b3f559e059be7d709e000f",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1058
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/1080p/segment-00010.m4s",
+      "expectedBytes": 7751,
+      "expectedSHA256": "f9b591f505acfa9a32005911d0f4dbead61c599aec9077cf6e0d2776e5aba27c",
+      "status": 200,
+      "bodyBytes": 7751,
+      "bodySHA256": "f9b591f505acfa9a32005911d0f4dbead61c599aec9077cf6e0d2776e5aba27c",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 366
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/1440p/index.m3u8",
+      "expectedBytes": 563,
+      "expectedSHA256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f",
+      "status": 200,
+      "bodyBytes": 563,
+      "bodySHA256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 388
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/1440p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "86353c2343d7c6fecd970f44f5d8c066ae98252aaf8fa30ecb5946ed2725bd8d",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "86353c2343d7c6fecd970f44f5d8c066ae98252aaf8fa30ecb5946ed2725bd8d",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 408
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/1440p/segment-00000.m4s",
+      "expectedBytes": 2190290,
+      "expectedSHA256": "c1c3609f01e2846113e7e1d5caaf2554505f79c2ea53a1c94d616b67f3b28fc9",
+      "status": 200,
+      "bodyBytes": 2190290,
+      "bodySHA256": "c1c3609f01e2846113e7e1d5caaf2554505f79c2ea53a1c94d616b67f3b28fc9",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1243
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/1440p/segment-00005.m4s",
+      "expectedBytes": 1829016,
+      "expectedSHA256": "b37e47706a286397c488050d85a1baab4209fd29d033e2f3e329990acbf8fdf6",
+      "status": 200,
+      "bodyBytes": 1829016,
+      "bodySHA256": "b37e47706a286397c488050d85a1baab4209fd29d033e2f3e329990acbf8fdf6",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 2131
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/1440p/segment-00010.m4s",
+      "expectedBytes": 10457,
+      "expectedSHA256": "54a947788c1a44cec35bd2e3d697fc62a545dfda01fd37542c99e8624df7f6c5",
+      "status": 200,
+      "bodyBytes": 10457,
+      "bodySHA256": "54a947788c1a44cec35bd2e3d697fc62a545dfda01fd37542c99e8624df7f6c5",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 516
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/144p/index.m3u8",
+      "expectedBytes": 563,
+      "expectedSHA256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f",
+      "status": 200,
+      "bodyBytes": 563,
+      "bodySHA256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 557
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/144p/init.mp4",
+      "expectedBytes": 1391,
+      "expectedSHA256": "f2e1fbd6553f055f3f4aa7f652cac248c5185c1c97cf044dab4a9bdbc94a1073",
+      "status": 200,
+      "bodyBytes": 1391,
+      "bodySHA256": "f2e1fbd6553f055f3f4aa7f652cac248c5185c1c97cf044dab4a9bdbc94a1073",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 578
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/144p/segment-00000.m4s",
+      "expectedBytes": 38023,
+      "expectedSHA256": "3eb026be4c2333521715c3311dd079c8cfe045a948868d99c9f8939853b5afcc",
+      "status": 200,
+      "bodyBytes": 38023,
+      "bodySHA256": "3eb026be4c2333521715c3311dd079c8cfe045a948868d99c9f8939853b5afcc",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 358
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/144p/segment-00005.m4s",
+      "expectedBytes": 40377,
+      "expectedSHA256": "f11ff98e313b68303fb9bbec9c53b8202d31969bc21bf8826bc1fef3955cdd58",
+      "status": 200,
+      "bodyBytes": 40377,
+      "bodySHA256": "f11ff98e313b68303fb9bbec9c53b8202d31969bc21bf8826bc1fef3955cdd58",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 412
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/144p/segment-00010.m4s",
+      "expectedBytes": 1731,
+      "expectedSHA256": "962deaaf413957ca78b5059fcf35d032bafc9193bd9193b3ea03fb2d5ea08699",
+      "status": 200,
+      "bodyBytes": 1731,
+      "bodySHA256": "962deaaf413957ca78b5059fcf35d032bafc9193bd9193b3ea03fb2d5ea08699",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 332
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/2160p/index.m3u8",
+      "expectedBytes": 563,
+      "expectedSHA256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f",
+      "status": 200,
+      "bodyBytes": 563,
+      "bodySHA256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 382
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/2160p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "76e3798d86b0006173b8de8893b2fa9dc9b685ec8ea11bce79b3e6e7b6cd91c8",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "76e3798d86b0006173b8de8893b2fa9dc9b685ec8ea11bce79b3e6e7b6cd91c8",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 372
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/2160p/segment-00000.m4s",
+      "expectedBytes": 3929802,
+      "expectedSHA256": "397a6f30849f22ae9f8a9193ec2e6af578780b18eeb1de90c1dba5cee9a090ef",
+      "status": 200,
+      "bodyBytes": 3929802,
+      "bodySHA256": "397a6f30849f22ae9f8a9193ec2e6af578780b18eeb1de90c1dba5cee9a090ef",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1401
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/2160p/segment-00005.m4s",
+      "expectedBytes": 3355744,
+      "expectedSHA256": "120c5cc0c5d7acc95edb2a953518f5c42e854442b4521b5542bd48ecbe1ef0af",
+      "status": 200,
+      "bodyBytes": 3355744,
+      "bodySHA256": "120c5cc0c5d7acc95edb2a953518f5c42e854442b4521b5542bd48ecbe1ef0af",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 4278
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/2160p/segment-00010.m4s",
+      "expectedBytes": 17079,
+      "expectedSHA256": "7f3b4b7062dcc3b474ebff2ce230a45d07a76bc0e488dfedf8f3bfa8ce33e6ed",
+      "status": 200,
+      "bodyBytes": 17079,
+      "bodySHA256": "7f3b4b7062dcc3b474ebff2ce230a45d07a76bc0e488dfedf8f3bfa8ce33e6ed",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 431
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/360p/index.m3u8",
+      "expectedBytes": 563,
+      "expectedSHA256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f",
+      "status": 200,
+      "bodyBytes": 563,
+      "bodySHA256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 330
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/360p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "04fdefa4c32fc99a34164e246b561e83e9be5a7fc65dc8d262e7d31b3c04c475",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "04fdefa4c32fc99a34164e246b561e83e9be5a7fc65dc8d262e7d31b3c04c475",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 493
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/360p/segment-00000.m4s",
+      "expectedBytes": 150058,
+      "expectedSHA256": "c21d21b2eef284a784a14d7ca916be030ab41d23d2d5349045d8f6e5584d7f84",
+      "status": 200,
+      "bodyBytes": 150058,
+      "bodySHA256": "c21d21b2eef284a784a14d7ca916be030ab41d23d2d5349045d8f6e5584d7f84",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 841
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/360p/segment-00005.m4s",
+      "expectedBytes": 135913,
+      "expectedSHA256": "f3a5ec3f13c5e6ee87648ef587e53edc040b7257e1ab1982645a92d52de778e8",
+      "status": 200,
+      "bodyBytes": 135913,
+      "bodySHA256": "f3a5ec3f13c5e6ee87648ef587e53edc040b7257e1ab1982645a92d52de778e8",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 638
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/360p/segment-00010.m4s",
+      "expectedBytes": 3270,
+      "expectedSHA256": "3c368aaddac77b1cf02333efe7cc16e6fd6376c12947aaad027df4d0719c647e",
+      "status": 200,
+      "bodyBytes": 3270,
+      "bodySHA256": "3c368aaddac77b1cf02333efe7cc16e6fd6376c12947aaad027df4d0719c647e",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 358
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/720p/index.m3u8",
+      "expectedBytes": 563,
+      "expectedSHA256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f",
+      "status": 200,
+      "bodyBytes": 563,
+      "bodySHA256": "11bc27ed0dedc52127540797cafc474ed51433497d93145f268ed1a488401f9f",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 387
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/720p/init.mp4",
+      "expectedBytes": 1392,
+      "expectedSHA256": "1b6ad5bffe2fa07428e9f99c9680156b25762b34e1acf22eb63670ae201e03f3",
+      "status": 200,
+      "bodyBytes": 1392,
+      "bodySHA256": "1b6ad5bffe2fa07428e9f99c9680156b25762b34e1acf22eb63670ae201e03f3",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 359
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/720p/segment-00000.m4s",
+      "expectedBytes": 494889,
+      "expectedSHA256": "08ad88c39bf8cbd57f2d9f1f67cc29e0078bc7d4778e4a491a48425dee39ede8",
+      "status": 200,
+      "bodyBytes": 494889,
+      "bodySHA256": "08ad88c39bf8cbd57f2d9f1f67cc29e0078bc7d4778e4a491a48425dee39ede8",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 2108
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/720p/segment-00005.m4s",
+      "expectedBytes": 450959,
+      "expectedSHA256": "a1fd58a0b9cbcea5e0e871b9e1394ff99607c2d4bf8b560e76eaa22078086ea6",
+      "status": 200,
+      "bodyBytes": 450959,
+      "bodySHA256": "a1fd58a0b9cbcea5e0e871b9e1394ff99607c2d4bf8b560e76eaa22078086ea6",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1609
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/720p/segment-00010.m4s",
+      "expectedBytes": 5479,
+      "expectedSHA256": "96f86aaf3910cc74724d6b3bb476565cb31b47a90cb723277b460d80957ba2de",
+      "status": 200,
+      "bodyBytes": 5479,
+      "bodySHA256": "96f86aaf3910cc74724d6b3bb476565cb31b47a90cb723277b460d80957ba2de",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 405
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/master.m3u8",
+      "expectedBytes": 937,
+      "expectedSHA256": "169a3d846d044ad71fa1c7d09736e902076afd21156ac7ddcd18b6b643e3ccaf",
+      "status": 200,
+      "bodyBytes": 937,
+      "bodySHA256": "169a3d846d044ad71fa1c7d09736e902076afd21156ac7ddcd18b6b643e3ccaf",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 851
+    },
+    {
+      "path": "/films/project-ramsider-cubos/und-v1/fallback.mp4",
+      "range": true,
+      "status": 206,
+      "bodyBytes": 1024,
+      "bodySHA256": "5793f106525ff602a777210dcfce1523cfa65381412b87ea180bb480b1b7f134",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": "bytes 0-1023/4469045"
+      },
+      "matches": true,
+      "ms": 813
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/1080p/index.m3u8",
+      "expectedBytes": 743,
+      "expectedSHA256": "eeeaf50a2149625e17d8a6b62a18638742bb992d05ba0ad603da4f933c10ab20",
+      "status": 200,
+      "bodyBytes": 743,
+      "bodySHA256": "eeeaf50a2149625e17d8a6b62a18638742bb992d05ba0ad603da4f933c10ab20",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 466
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/1080p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "c0e690466ce03c68fe645a391e12500aa106afcef57075d123f30f3eb5944c1f",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "c0e690466ce03c68fe645a391e12500aa106afcef57075d123f30f3eb5944c1f",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 370
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/1080p/segment-00000.m4s",
+      "expectedBytes": 987148,
+      "expectedSHA256": "b426acb9b28d75f041fb8d37f1acb533cead7a5ddb9573a78312cb9e7797da8c",
+      "status": 200,
+      "bodyBytes": 987148,
+      "bodySHA256": "b426acb9b28d75f041fb8d37f1acb533cead7a5ddb9573a78312cb9e7797da8c",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1494
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/1080p/segment-00008.m4s",
+      "expectedBytes": 972918,
+      "expectedSHA256": "6db2faf662d72209b28d5adfb82b83f5029c1b7c5d17ed85342967f89d98c2e3",
+      "status": 200,
+      "bodyBytes": 972918,
+      "bodySHA256": "6db2faf662d72209b28d5adfb82b83f5029c1b7c5d17ed85342967f89d98c2e3",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1038
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/1080p/segment-00015.m4s",
+      "expectedBytes": 3342,
+      "expectedSHA256": "0255ed1192ac2d47ba261949d256b32bde3835a751a84949887910a366c8de74",
+      "status": 200,
+      "bodyBytes": 3342,
+      "bodySHA256": "0255ed1192ac2d47ba261949d256b32bde3835a751a84949887910a366c8de74",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 350
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/1440p/index.m3u8",
+      "expectedBytes": 743,
+      "expectedSHA256": "eeeaf50a2149625e17d8a6b62a18638742bb992d05ba0ad603da4f933c10ab20",
+      "status": 200,
+      "bodyBytes": 743,
+      "bodySHA256": "eeeaf50a2149625e17d8a6b62a18638742bb992d05ba0ad603da4f933c10ab20",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 372
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/1440p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "5cf9f46a4523f1f931f12dbed4a29e715e9ec0b55825eaad7e549e3bd4d79a0b",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "5cf9f46a4523f1f931f12dbed4a29e715e9ec0b55825eaad7e549e3bd4d79a0b",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 405
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/1440p/segment-00000.m4s",
+      "expectedBytes": 1829177,
+      "expectedSHA256": "ada377880e568d3e62ac8b32000359e8db39ad76dde2f03c7af0101d4b76b572",
+      "status": 200,
+      "bodyBytes": 1829177,
+      "bodySHA256": "ada377880e568d3e62ac8b32000359e8db39ad76dde2f03c7af0101d4b76b572",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1828
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/1440p/segment-00008.m4s",
+      "expectedBytes": 1822011,
+      "expectedSHA256": "b27297be9265041efb9276a1a550514884b6cbf79a9a48e66d267812d5954be9",
+      "status": 200,
+      "bodyBytes": 1822011,
+      "bodySHA256": "b27297be9265041efb9276a1a550514884b6cbf79a9a48e66d267812d5954be9",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1341
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/1440p/segment-00015.m4s",
+      "expectedBytes": 4519,
+      "expectedSHA256": "b75ec197cd6c16334a83956a085c3a8f02c78dd2d2c41fdde9ceafd8a1f444f8",
+      "status": 200,
+      "bodyBytes": 4519,
+      "bodySHA256": "b75ec197cd6c16334a83956a085c3a8f02c78dd2d2c41fdde9ceafd8a1f444f8",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 452
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/144p/index.m3u8",
+      "expectedBytes": 743,
+      "expectedSHA256": "eeeaf50a2149625e17d8a6b62a18638742bb992d05ba0ad603da4f933c10ab20",
+      "status": 200,
+      "bodyBytes": 743,
+      "bodySHA256": "eeeaf50a2149625e17d8a6b62a18638742bb992d05ba0ad603da4f933c10ab20",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 477
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/144p/init.mp4",
+      "expectedBytes": 1391,
+      "expectedSHA256": "1fca4ed19eb5180d818a983670a6f84d1067334a0a33f761cb81de4034a68821",
+      "status": 200,
+      "bodyBytes": 1391,
+      "bodySHA256": "1fca4ed19eb5180d818a983670a6f84d1067334a0a33f761cb81de4034a68821",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 477
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/144p/segment-00000.m4s",
+      "expectedBytes": 42714,
+      "expectedSHA256": "d44f124fd88532a4961bf05fb10107bceff33a61c783500da707a57622ce2e85",
+      "status": 200,
+      "bodyBytes": 42714,
+      "bodySHA256": "d44f124fd88532a4961bf05fb10107bceff33a61c783500da707a57622ce2e85",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 557
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/144p/segment-00008.m4s",
+      "expectedBytes": 38045,
+      "expectedSHA256": "3103c8b2fc81bc888536b6f5fd24fa4497e176a674f32e5e67a5abffc7a6cab9",
+      "status": 200,
+      "bodyBytes": 38045,
+      "bodySHA256": "3103c8b2fc81bc888536b6f5fd24fa4497e176a674f32e5e67a5abffc7a6cab9",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 548
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/144p/segment-00015.m4s",
+      "expectedBytes": 692,
+      "expectedSHA256": "00119bb8aae92e9ce90521aabe694a5593f5c45a331974bfc7de76eac471760d",
+      "status": 200,
+      "bodyBytes": 692,
+      "bodySHA256": "00119bb8aae92e9ce90521aabe694a5593f5c45a331974bfc7de76eac471760d",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 405
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/2160p/index.m3u8",
+      "expectedBytes": 743,
+      "expectedSHA256": "eeeaf50a2149625e17d8a6b62a18638742bb992d05ba0ad603da4f933c10ab20",
+      "status": 200,
+      "bodyBytes": 743,
+      "bodySHA256": "eeeaf50a2149625e17d8a6b62a18638742bb992d05ba0ad603da4f933c10ab20",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 406
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/2160p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "8f73f4eb4305c9402be0aa55001a022ff373e8aca846186dca6beb3ab79ec48b",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "8f73f4eb4305c9402be0aa55001a022ff373e8aca846186dca6beb3ab79ec48b",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 381
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/2160p/segment-00000.m4s",
+      "expectedBytes": 4226572,
+      "expectedSHA256": "ffd165ad93042d95c10fc8d085168e2586dd338b4200d591148c4d913bf40d77",
+      "status": 200,
+      "bodyBytes": 4226572,
+      "bodySHA256": "ffd165ad93042d95c10fc8d085168e2586dd338b4200d591148c4d913bf40d77",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1927
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/2160p/segment-00008.m4s",
+      "expectedBytes": 3597690,
+      "expectedSHA256": "b1711ffb51fe67cedc6baffaebe460f69e3eecfc8eb93b2a2511e57642f348a5",
+      "status": 200,
+      "bodyBytes": 3597690,
+      "bodySHA256": "b1711ffb51fe67cedc6baffaebe460f69e3eecfc8eb93b2a2511e57642f348a5",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1716
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/2160p/segment-00015.m4s",
+      "expectedBytes": 6598,
+      "expectedSHA256": "77f3999fee63474533fe41db40886f1639bbe5b21e4ebeec6f4b23bf729726b3",
+      "status": 200,
+      "bodyBytes": 6598,
+      "bodySHA256": "77f3999fee63474533fe41db40886f1639bbe5b21e4ebeec6f4b23bf729726b3",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 391
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/360p/index.m3u8",
+      "expectedBytes": 743,
+      "expectedSHA256": "eeeaf50a2149625e17d8a6b62a18638742bb992d05ba0ad603da4f933c10ab20",
+      "status": 200,
+      "bodyBytes": 743,
+      "bodySHA256": "eeeaf50a2149625e17d8a6b62a18638742bb992d05ba0ad603da4f933c10ab20",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 368
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/360p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "ffc1c470270f330b76c5b7cb4ae1ef109f418e77729aa33688aa2fe24052f990",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "ffc1c470270f330b76c5b7cb4ae1ef109f418e77729aa33688aa2fe24052f990",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 540
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/360p/segment-00000.m4s",
+      "expectedBytes": 154243,
+      "expectedSHA256": "e0c9372b3010a03fbf01eca6f1b6b9d9f14cc9a34244de83fbc09cfd38e91493",
+      "status": 200,
+      "bodyBytes": 154243,
+      "bodySHA256": "e0c9372b3010a03fbf01eca6f1b6b9d9f14cc9a34244de83fbc09cfd38e91493",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 802
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/360p/segment-00008.m4s",
+      "expectedBytes": 122481,
+      "expectedSHA256": "feb442d0ddd411104af34ad1e7c40f92952675ae92fd3621129bc13ee2f03fa2",
+      "status": 200,
+      "bodyBytes": 122481,
+      "bodySHA256": "feb442d0ddd411104af34ad1e7c40f92952675ae92fd3621129bc13ee2f03fa2",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 745
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/360p/segment-00015.m4s",
+      "expectedBytes": 1562,
+      "expectedSHA256": "c74aa7c99769785d9509d0d045dbe4ac5a0867acce63fb30845d11af050e9b1c",
+      "status": 200,
+      "bodyBytes": 1562,
+      "bodySHA256": "c74aa7c99769785d9509d0d045dbe4ac5a0867acce63fb30845d11af050e9b1c",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 465
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/720p/index.m3u8",
+      "expectedBytes": 743,
+      "expectedSHA256": "eeeaf50a2149625e17d8a6b62a18638742bb992d05ba0ad603da4f933c10ab20",
+      "status": 200,
+      "bodyBytes": 743,
+      "bodySHA256": "eeeaf50a2149625e17d8a6b62a18638742bb992d05ba0ad603da4f933c10ab20",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 398
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/720p/init.mp4",
+      "expectedBytes": 1392,
+      "expectedSHA256": "91c642eb9624ac68d6ba93a0e2192c35d2ec2170bc539f73eac4858aa8ab50ec",
+      "status": 200,
+      "bodyBytes": 1392,
+      "bodySHA256": "91c642eb9624ac68d6ba93a0e2192c35d2ec2170bc539f73eac4858aa8ab50ec",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 347
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/720p/segment-00000.m4s",
+      "expectedBytes": 430632,
+      "expectedSHA256": "56085535991e137b70a8fbec8604adf241e4b354a425229274ecd29014693a76",
+      "status": 200,
+      "bodyBytes": 430632,
+      "bodySHA256": "56085535991e137b70a8fbec8604adf241e4b354a425229274ecd29014693a76",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 755
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/720p/segment-00008.m4s",
+      "expectedBytes": 396790,
+      "expectedSHA256": "999344be5af186c8ed6a7e69c4c1a24dc25c62eb5805e41479e304177c152b55",
+      "status": 200,
+      "bodyBytes": 396790,
+      "bodySHA256": "999344be5af186c8ed6a7e69c4c1a24dc25c62eb5805e41479e304177c152b55",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 695
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/720p/segment-00015.m4s",
+      "expectedBytes": 2604,
+      "expectedSHA256": "fb775bf27fdd66895b422b0c223d098377c0ac270d2a62f04e5e8aa145e6912c",
+      "status": 200,
+      "bodyBytes": 2604,
+      "bodySHA256": "fb775bf27fdd66895b422b0c223d098377c0ac270d2a62f04e5e8aa145e6912c",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 351
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/master.m3u8",
+      "expectedBytes": 937,
+      "expectedSHA256": "eb8529f8fefdab904f678a81f10eab3878452afae939131d47b0b43952ee0e4d",
+      "status": 200,
+      "bodyBytes": 937,
+      "bodySHA256": "eb8529f8fefdab904f678a81f10eab3878452afae939131d47b0b43952ee0e4d",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 342
+    },
+    {
+      "path": "/films/project-ramsider-sosuda/und-v1/fallback.mp4",
+      "range": true,
+      "status": 206,
+      "bodyBytes": 1024,
+      "bodySHA256": "ff327795e9050e9e14d2bb2f3b2c7cd66cda87411e9f9b93fc2f09b4542b26cc",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": "bytes 0-1023/5034422"
+      },
+      "matches": true,
+      "ms": 480
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/1080p/index.m3u8",
+      "expectedBytes": 923,
+      "expectedSHA256": "6bb9ac80e21b2a54dc16c9643a25f615d8a1a75cad927e6aef5c2ef96e65e4e9",
+      "status": 200,
+      "bodyBytes": 923,
+      "bodySHA256": "6bb9ac80e21b2a54dc16c9643a25f615d8a1a75cad927e6aef5c2ef96e65e4e9",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 376
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/1080p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "d23a0910b92507a5d706b735624c69dd52c414ce3949065253e0d4833ed07f10",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "d23a0910b92507a5d706b735624c69dd52c414ce3949065253e0d4833ed07f10",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 365
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/1080p/segment-00000.m4s",
+      "expectedBytes": 1136368,
+      "expectedSHA256": "48215c00a7053db26061b01407a77c3cb562cdf4e8edde49d7f8ec830312bef2",
+      "status": 200,
+      "bodyBytes": 1136368,
+      "bodySHA256": "48215c00a7053db26061b01407a77c3cb562cdf4e8edde49d7f8ec830312bef2",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 807
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/1080p/segment-00010.m4s",
+      "expectedBytes": 1154511,
+      "expectedSHA256": "4de14ca9cee39290535d019e199a7b1e9bf451c9e063156f96b8e5a7677f9a34",
+      "status": 200,
+      "bodyBytes": 1154511,
+      "bodySHA256": "4de14ca9cee39290535d019e199a7b1e9bf451c9e063156f96b8e5a7677f9a34",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1083
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/1080p/segment-00020.m4s",
+      "expectedBytes": 24085,
+      "expectedSHA256": "8679c001e5fed9975a923b2b0ccc9c292ffee5218d373465f7a7245f11540b6b",
+      "status": 200,
+      "bodyBytes": 24085,
+      "bodySHA256": "8679c001e5fed9975a923b2b0ccc9c292ffee5218d373465f7a7245f11540b6b",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 365
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/1440p/index.m3u8",
+      "expectedBytes": 923,
+      "expectedSHA256": "6bb9ac80e21b2a54dc16c9643a25f615d8a1a75cad927e6aef5c2ef96e65e4e9",
+      "status": 200,
+      "bodyBytes": 923,
+      "bodySHA256": "6bb9ac80e21b2a54dc16c9643a25f615d8a1a75cad927e6aef5c2ef96e65e4e9",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 383
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/1440p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "15b8bba109db4a27a634f6d116d2b4c448b25288743d34b146c1a8980d0b935d",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "15b8bba109db4a27a634f6d116d2b4c448b25288743d34b146c1a8980d0b935d",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 377
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/1440p/segment-00000.m4s",
+      "expectedBytes": 1849233,
+      "expectedSHA256": "ed466d7451448bbb642f6458c1228182c8a0306bcd54928f0db955d59d0e965c",
+      "status": 200,
+      "bodyBytes": 1849233,
+      "bodySHA256": "ed466d7451448bbb642f6458c1228182c8a0306bcd54928f0db955d59d0e965c",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 2028
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/1440p/segment-00010.m4s",
+      "expectedBytes": 2029065,
+      "expectedSHA256": "a38971e08dd713731208d09e2664e86fecdc82f4a8f46dbafbeef8f7ace4d4ec",
+      "status": 200,
+      "bodyBytes": 2029065,
+      "bodySHA256": "a38971e08dd713731208d09e2664e86fecdc82f4a8f46dbafbeef8f7ace4d4ec",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1106
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/1440p/segment-00020.m4s",
+      "expectedBytes": 30450,
+      "expectedSHA256": "b5b5218d6b62475820ced025a2b6a1d00574414dbec54852e3440c7e2cc891ed",
+      "status": 200,
+      "bodyBytes": 30450,
+      "bodySHA256": "b5b5218d6b62475820ced025a2b6a1d00574414dbec54852e3440c7e2cc891ed",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 387
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/144p/index.m3u8",
+      "expectedBytes": 923,
+      "expectedSHA256": "6bb9ac80e21b2a54dc16c9643a25f615d8a1a75cad927e6aef5c2ef96e65e4e9",
+      "status": 200,
+      "bodyBytes": 923,
+      "bodySHA256": "6bb9ac80e21b2a54dc16c9643a25f615d8a1a75cad927e6aef5c2ef96e65e4e9",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 479
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/144p/init.mp4",
+      "expectedBytes": 1391,
+      "expectedSHA256": "ae27e0847c69b0d74e51c0ed3510727676aca7b1c0149df14c32c018f5051725",
+      "status": 200,
+      "bodyBytes": 1391,
+      "bodySHA256": "ae27e0847c69b0d74e51c0ed3510727676aca7b1c0149df14c32c018f5051725",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 379
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/144p/segment-00000.m4s",
+      "expectedBytes": 37829,
+      "expectedSHA256": "b3e43cf806da973c6f040f545afef25fd81d00fe5dae7e5142d52dbfbf8ab1e8",
+      "status": 200,
+      "bodyBytes": 37829,
+      "bodySHA256": "b3e43cf806da973c6f040f545afef25fd81d00fe5dae7e5142d52dbfbf8ab1e8",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 411
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/144p/segment-00010.m4s",
+      "expectedBytes": 39685,
+      "expectedSHA256": "0ce5b216392858d4a084089389c8dd77cba1c9430e40b98fac180c1601a3dec9",
+      "status": 200,
+      "bodyBytes": 39685,
+      "bodySHA256": "0ce5b216392858d4a084089389c8dd77cba1c9430e40b98fac180c1601a3dec9",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 420
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/144p/segment-00020.m4s",
+      "expectedBytes": 11893,
+      "expectedSHA256": "5b67890846c80adcf57a69dc0c7ddeafdd36f16c95ebced78a1f2804133c725d",
+      "status": 200,
+      "bodyBytes": 11893,
+      "bodySHA256": "5b67890846c80adcf57a69dc0c7ddeafdd36f16c95ebced78a1f2804133c725d",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 391
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/2160p/index.m3u8",
+      "expectedBytes": 923,
+      "expectedSHA256": "6bb9ac80e21b2a54dc16c9643a25f615d8a1a75cad927e6aef5c2ef96e65e4e9",
+      "status": 200,
+      "bodyBytes": 923,
+      "bodySHA256": "6bb9ac80e21b2a54dc16c9643a25f615d8a1a75cad927e6aef5c2ef96e65e4e9",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 380
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/2160p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "be649324d1ae6ffcf173d53a352c21a8485fcfc28e9ff201b572440e2473b223",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "be649324d1ae6ffcf173d53a352c21a8485fcfc28e9ff201b572440e2473b223",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 422
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/2160p/segment-00000.m4s",
+      "expectedBytes": 4230731,
+      "expectedSHA256": "bc63ed45c97ee11388aaaa644307f44a7d96bd8a2218fe8ed14de6d124057a3c",
+      "status": 200,
+      "bodyBytes": 4230731,
+      "bodySHA256": "bc63ed45c97ee11388aaaa644307f44a7d96bd8a2218fe8ed14de6d124057a3c",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1568
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/2160p/segment-00010.m4s",
+      "expectedBytes": 3479761,
+      "expectedSHA256": "edfd1f0df6dcdb1fa6cf03e8e6a91bd2fe1e2514be59af9331f1833ff5c632c1",
+      "status": 200,
+      "bodyBytes": 3479761,
+      "bodySHA256": "edfd1f0df6dcdb1fa6cf03e8e6a91bd2fe1e2514be59af9331f1833ff5c632c1",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 3269
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/2160p/segment-00020.m4s",
+      "expectedBytes": 43725,
+      "expectedSHA256": "9f49a49c7b1b9ce35bea5b235420b877d6781dce40ad0a3ae6d8495e5d914ce5",
+      "status": 200,
+      "bodyBytes": 43725,
+      "bodySHA256": "9f49a49c7b1b9ce35bea5b235420b877d6781dce40ad0a3ae6d8495e5d914ce5",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 570
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/360p/index.m3u8",
+      "expectedBytes": 923,
+      "expectedSHA256": "6bb9ac80e21b2a54dc16c9643a25f615d8a1a75cad927e6aef5c2ef96e65e4e9",
+      "status": 200,
+      "bodyBytes": 923,
+      "bodySHA256": "6bb9ac80e21b2a54dc16c9643a25f615d8a1a75cad927e6aef5c2ef96e65e4e9",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 369
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/360p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "e9f3370d1b94a782a12ceb347309151cfe4f3dd9ca5cb62965b37d3dfd032c87",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "e9f3370d1b94a782a12ceb347309151cfe4f3dd9ca5cb62965b37d3dfd032c87",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 409
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/360p/segment-00000.m4s",
+      "expectedBytes": 179336,
+      "expectedSHA256": "07b699ab1d351ffd2d626996fb0ba3fcbd30cf3ee20365775ed766c683e30e0b",
+      "status": 200,
+      "bodyBytes": 179336,
+      "bodySHA256": "07b699ab1d351ffd2d626996fb0ba3fcbd30cf3ee20365775ed766c683e30e0b",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 736
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/360p/segment-00010.m4s",
+      "expectedBytes": 188568,
+      "expectedSHA256": "8ac6c65a53f310cba3577e1835108f2ec3942da7032032e18c65c07184c9c7ba",
+      "status": 200,
+      "bodyBytes": 188568,
+      "bodySHA256": "8ac6c65a53f310cba3577e1835108f2ec3942da7032032e18c65c07184c9c7ba",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 619
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/360p/segment-00020.m4s",
+      "expectedBytes": 15401,
+      "expectedSHA256": "ef13f92b4fd1910e153de6b14e362dbe32368852784258633cdae8457574a1ba",
+      "status": 200,
+      "bodyBytes": 15401,
+      "bodySHA256": "ef13f92b4fd1910e153de6b14e362dbe32368852784258633cdae8457574a1ba",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 354
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/720p/index.m3u8",
+      "expectedBytes": 923,
+      "expectedSHA256": "6bb9ac80e21b2a54dc16c9643a25f615d8a1a75cad927e6aef5c2ef96e65e4e9",
+      "status": 200,
+      "bodyBytes": 923,
+      "bodySHA256": "6bb9ac80e21b2a54dc16c9643a25f615d8a1a75cad927e6aef5c2ef96e65e4e9",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 347
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/720p/init.mp4",
+      "expectedBytes": 1392,
+      "expectedSHA256": "e132e7d7fd9618f915f11c8616283a75edaaf7bb06e61d92b02690d74162dcdb",
+      "status": 200,
+      "bodyBytes": 1392,
+      "bodySHA256": "e132e7d7fd9618f915f11c8616283a75edaaf7bb06e61d92b02690d74162dcdb",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 353
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/720p/segment-00000.m4s",
+      "expectedBytes": 497825,
+      "expectedSHA256": "2b36b6e15d5208ef24fb0757fd511fd16862ae3087db939ceab89b585f122463",
+      "status": 200,
+      "bodyBytes": 497825,
+      "bodySHA256": "2b36b6e15d5208ef24fb0757fd511fd16862ae3087db939ceab89b585f122463",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 728
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/720p/segment-00010.m4s",
+      "expectedBytes": 554231,
+      "expectedSHA256": "21cbab57a941cab614143f6e3042d5fbaa7ace7021e4bd13ba0228ae616150c0",
+      "status": 200,
+      "bodyBytes": 554231,
+      "bodySHA256": "21cbab57a941cab614143f6e3042d5fbaa7ace7021e4bd13ba0228ae616150c0",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1089
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/720p/segment-00020.m4s",
+      "expectedBytes": 20058,
+      "expectedSHA256": "a4bd5bc2997a81e5d1fed892dfb9db1f9218176ea98ba720f7ceb765824ba5e4",
+      "status": 200,
+      "bodyBytes": 20058,
+      "bodySHA256": "a4bd5bc2997a81e5d1fed892dfb9db1f9218176ea98ba720f7ceb765824ba5e4",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 363
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/master.m3u8",
+      "expectedBytes": 937,
+      "expectedSHA256": "fa970b054e40c9c36bc5aa6f099abff8b247e27f4fdf24af34cd1010d4a385ba",
+      "status": 200,
+      "bodyBytes": 937,
+      "bodySHA256": "fa970b054e40c9c36bc5aa6f099abff8b247e27f4fdf24af34cd1010d4a385ba",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 401
+    },
+    {
+      "path": "/films/project-ramsider-asmohookah/und-v1/fallback.mp4",
+      "range": true,
+      "status": 206,
+      "bodyBytes": 1024,
+      "bodySHA256": "5344a426b39028617cfe534d9bb12a721954d5edf815674c222f5848a9b3a971",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": "bytes 0-1023/10569292"
+      },
+      "matches": true,
+      "ms": 635
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/1080p/index.m3u8",
+      "expectedBytes": 7115,
+      "expectedSHA256": "abe2e744098794ef45006dfddafc03bd5618ed05284d1f8ac7c0ee79c4ad4434",
+      "status": 200,
+      "bodyBytes": 7115,
+      "bodySHA256": "abe2e744098794ef45006dfddafc03bd5618ed05284d1f8ac7c0ee79c4ad4434",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 391
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/1080p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "a111392e8c020e160ed992afd6fe81b8799703c6656f106bfe128d0cdcc6eb22",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "a111392e8c020e160ed992afd6fe81b8799703c6656f106bfe128d0cdcc6eb22",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 389
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/1080p/segment-00000.m4s",
+      "expectedBytes": 449429,
+      "expectedSHA256": "cfae2ff3a0dc61f494ce2c441cf8a201f28f82773752a4764e8ffb32c36f2707",
+      "status": 200,
+      "bodyBytes": 449429,
+      "bodySHA256": "cfae2ff3a0dc61f494ce2c441cf8a201f28f82773752a4764e8ffb32c36f2707",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 675
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/1080p/segment-00096.m4s",
+      "expectedBytes": 1121973,
+      "expectedSHA256": "bd88663f89b0390f82ea747a020313c591d025b9ac78dcefd28f594889cac7f4",
+      "status": 200,
+      "bodyBytes": 1121973,
+      "bodySHA256": "bd88663f89b0390f82ea747a020313c591d025b9ac78dcefd28f594889cac7f4",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 3773
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/1080p/segment-00192.m4s",
+      "expectedBytes": 8152,
+      "expectedSHA256": "168e1e7db7f74659b95dea4ffd67da42a031fa6056d2b95c9e2cc937ad9263b8",
+      "status": 200,
+      "bodyBytes": 8152,
+      "bodySHA256": "168e1e7db7f74659b95dea4ffd67da42a031fa6056d2b95c9e2cc937ad9263b8",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 354
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/1440p/index.m3u8",
+      "expectedBytes": 7115,
+      "expectedSHA256": "abe2e744098794ef45006dfddafc03bd5618ed05284d1f8ac7c0ee79c4ad4434",
+      "status": 200,
+      "bodyBytes": 7115,
+      "bodySHA256": "abe2e744098794ef45006dfddafc03bd5618ed05284d1f8ac7c0ee79c4ad4434",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 371
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/1440p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "29d13375a9b1e41e24cc6b14b7be168cae99a72cb4e190d5aea829043da05bb5",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "29d13375a9b1e41e24cc6b14b7be168cae99a72cb4e190d5aea829043da05bb5",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 359
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/1440p/segment-00000.m4s",
+      "expectedBytes": 839021,
+      "expectedSHA256": "dde2e61e795065d728896ca910e5a3c06e1575ad638dc3f018b2ebd545a4f20f",
+      "status": 200,
+      "bodyBytes": 839021,
+      "bodySHA256": "dde2e61e795065d728896ca910e5a3c06e1575ad638dc3f018b2ebd545a4f20f",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 807
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/1440p/segment-00096.m4s",
+      "expectedBytes": 1953338,
+      "expectedSHA256": "18362b1d03376a84a53de62563b3cfd665cc945463d15c7ac13326b443a2fb10",
+      "status": 200,
+      "bodyBytes": 1953338,
+      "bodySHA256": "18362b1d03376a84a53de62563b3cfd665cc945463d15c7ac13326b443a2fb10",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 5187
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/1440p/segment-00192.m4s",
+      "expectedBytes": 9914,
+      "expectedSHA256": "5f3403c8d0f72834cfe10ae2c2d5ca979462d95293e22d1bcb63f0088b1adc0f",
+      "status": 200,
+      "bodyBytes": 9914,
+      "bodySHA256": "5f3403c8d0f72834cfe10ae2c2d5ca979462d95293e22d1bcb63f0088b1adc0f",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 364
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/144p/index.m3u8",
+      "expectedBytes": 7115,
+      "expectedSHA256": "abe2e744098794ef45006dfddafc03bd5618ed05284d1f8ac7c0ee79c4ad4434",
+      "status": 200,
+      "bodyBytes": 7115,
+      "bodySHA256": "abe2e744098794ef45006dfddafc03bd5618ed05284d1f8ac7c0ee79c4ad4434",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 398
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/144p/init.mp4",
+      "expectedBytes": 1391,
+      "expectedSHA256": "f65b2d725a5ddedae969a5b018ed89445c7e1b53287d243afe0d01093e013d5a",
+      "status": 200,
+      "bodyBytes": 1391,
+      "bodySHA256": "f65b2d725a5ddedae969a5b018ed89445c7e1b53287d243afe0d01093e013d5a",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 374
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/144p/segment-00000.m4s",
+      "expectedBytes": 32180,
+      "expectedSHA256": "363a792b83802440447af54ad9149f5c4031e39c1bc29a789a2563ce289a9d60",
+      "status": 200,
+      "bodyBytes": 32180,
+      "bodySHA256": "363a792b83802440447af54ad9149f5c4031e39c1bc29a789a2563ce289a9d60",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 367
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/144p/segment-00096.m4s",
+      "expectedBytes": 36379,
+      "expectedSHA256": "e6f610d6bc7b544748034887087259874d6851780f47c9a1f2e2f50078791a54",
+      "status": 200,
+      "bodyBytes": 36379,
+      "bodySHA256": "e6f610d6bc7b544748034887087259874d6851780f47c9a1f2e2f50078791a54",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 361
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/144p/segment-00192.m4s",
+      "expectedBytes": 4384,
+      "expectedSHA256": "abedc48553dfd46c735ca314e3596a9395e3adb68fe91deabbbbddeede05f098",
+      "status": 200,
+      "bodyBytes": 4384,
+      "bodySHA256": "abedc48553dfd46c735ca314e3596a9395e3adb68fe91deabbbbddeede05f098",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 370
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/2160p/index.m3u8",
+      "expectedBytes": 7115,
+      "expectedSHA256": "abe2e744098794ef45006dfddafc03bd5618ed05284d1f8ac7c0ee79c4ad4434",
+      "status": 200,
+      "bodyBytes": 7115,
+      "bodySHA256": "abe2e744098794ef45006dfddafc03bd5618ed05284d1f8ac7c0ee79c4ad4434",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 383
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/2160p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "469967a2126fffe61fa562764a54ee26ba86b3a02f3f5941b725d8bfb54132bf",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "469967a2126fffe61fa562764a54ee26ba86b3a02f3f5941b725d8bfb54132bf",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 364
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/2160p/segment-00000.m4s",
+      "expectedBytes": 3001619,
+      "expectedSHA256": "bb310dc29c548c6ee776d45a54f0751d6c468d8df851410dc48b5f9a7adeba30",
+      "status": 200,
+      "bodyBytes": 3001619,
+      "bodySHA256": "bb310dc29c548c6ee776d45a54f0751d6c468d8df851410dc48b5f9a7adeba30",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1424
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/2160p/segment-00096.m4s",
+      "expectedBytes": 3491500,
+      "expectedSHA256": "2d57bc572bd80f37a41a2322e5335a8dc9ed514e242895a28ba63e60a5b43ef2",
+      "status": 200,
+      "bodyBytes": 3491500,
+      "bodySHA256": "2d57bc572bd80f37a41a2322e5335a8dc9ed514e242895a28ba63e60a5b43ef2",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 2418
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/2160p/segment-00192.m4s",
+      "expectedBytes": 13616,
+      "expectedSHA256": "bc1359486c8d86a24ce477e4801ee52f0fcea257466cca2fe2b7bff663b1e062",
+      "status": 200,
+      "bodyBytes": 13616,
+      "bodySHA256": "bc1359486c8d86a24ce477e4801ee52f0fcea257466cca2fe2b7bff663b1e062",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 451
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/360p/index.m3u8",
+      "expectedBytes": 7115,
+      "expectedSHA256": "abe2e744098794ef45006dfddafc03bd5618ed05284d1f8ac7c0ee79c4ad4434",
+      "status": 200,
+      "bodyBytes": 7115,
+      "bodySHA256": "abe2e744098794ef45006dfddafc03bd5618ed05284d1f8ac7c0ee79c4ad4434",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 402
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/360p/init.mp4",
+      "expectedBytes": 1394,
+      "expectedSHA256": "4d6d1744ba953502ea04ae002d260e4e72170c39f4894cc3eda0bd6d86eddc93",
+      "status": 200,
+      "bodyBytes": 1394,
+      "bodySHA256": "4d6d1744ba953502ea04ae002d260e4e72170c39f4894cc3eda0bd6d86eddc93",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 367
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/360p/segment-00000.m4s",
+      "expectedBytes": 71283,
+      "expectedSHA256": "4659afdd0f103f43ee174285656bc250a8dc2d470ceff2b61e1037e5929d5f23",
+      "status": 200,
+      "bodyBytes": 71283,
+      "bodySHA256": "4659afdd0f103f43ee174285656bc250a8dc2d470ceff2b61e1037e5929d5f23",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 425
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/360p/segment-00096.m4s",
+      "expectedBytes": 137610,
+      "expectedSHA256": "595fb67ed1d0ae0730958bc46133b2d911ec583fede9ad38372293f65f1629e8",
+      "status": 200,
+      "bodyBytes": 137610,
+      "bodySHA256": "595fb67ed1d0ae0730958bc46133b2d911ec583fede9ad38372293f65f1629e8",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 630
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/360p/segment-00192.m4s",
+      "expectedBytes": 5449,
+      "expectedSHA256": "cc4861900b713f4ecc3bc75d3e9b42ec70043fbf0e88b5696c664f831e5a8b43",
+      "status": 200,
+      "bodyBytes": 5449,
+      "bodySHA256": "cc4861900b713f4ecc3bc75d3e9b42ec70043fbf0e88b5696c664f831e5a8b43",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 358
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/720p/index.m3u8",
+      "expectedBytes": 7115,
+      "expectedSHA256": "abe2e744098794ef45006dfddafc03bd5618ed05284d1f8ac7c0ee79c4ad4434",
+      "status": 200,
+      "bodyBytes": 7115,
+      "bodySHA256": "abe2e744098794ef45006dfddafc03bd5618ed05284d1f8ac7c0ee79c4ad4434",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 347
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/720p/init.mp4",
+      "expectedBytes": 1392,
+      "expectedSHA256": "4014f8f12289d1dfaf2e00fd0c1753feabb4df950a807733e923d05afa8ad58e",
+      "status": 200,
+      "bodyBytes": 1392,
+      "bodySHA256": "4014f8f12289d1dfaf2e00fd0c1753feabb4df950a807733e923d05afa8ad58e",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 370
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/720p/segment-00000.m4s",
+      "expectedBytes": 205427,
+      "expectedSHA256": "4dd3981e8131c90f459eae62e5f550a49600869d7682c7cef986a7184e4580a5",
+      "status": 200,
+      "bodyBytes": 205427,
+      "bodySHA256": "4dd3981e8131c90f459eae62e5f550a49600869d7682c7cef986a7184e4580a5",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 537
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/720p/segment-00096.m4s",
+      "expectedBytes": 468634,
+      "expectedSHA256": "bbedfadd8e33a6f9c24cb67c52e4dbd4b0b0d88698b750e0c79464e07f9c6c6f",
+      "status": 200,
+      "bodyBytes": 468634,
+      "bodySHA256": "bbedfadd8e33a6f9c24cb67c52e4dbd4b0b0d88698b750e0c79464e07f9c6c6f",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 771
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/720p/segment-00192.m4s",
+      "expectedBytes": 6868,
+      "expectedSHA256": "28a3c6c55f93660f97ba44708601256f924b4e7dd9d6b85494e28ee1c165609b",
+      "status": 200,
+      "bodyBytes": 6868,
+      "bodySHA256": "28a3c6c55f93660f97ba44708601256f924b4e7dd9d6b85494e28ee1c165609b",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 379
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/master.m3u8",
+      "expectedBytes": 938,
+      "expectedSHA256": "7561188e66ad8abfe899e2d253499102c57691b40761ec991ec9bcf0cd512850",
+      "status": 200,
+      "bodyBytes": 938,
+      "bodySHA256": "7561188e66ad8abfe899e2d253499102c57691b40761ec991ec9bcf0cd512850",
+      "headers": {
+        "Content-Type": "application/vnd.apple.mpegurl",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 354
+    },
+    {
+      "path": "/films/project-ramsider-overview/und-v1/fallback.mp4",
+      "range": true,
+      "status": 206,
+      "bodyBytes": 1024,
+      "bodySHA256": "2e9af6aeb5ee5be0c5758cd7ec8f281983fd33eee88bd3b227532bfbc68dba6b",
+      "headers": {
+        "Content-Type": "video/mp4",
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "Content-Range": "bytes 0-1023/85829823"
+      },
+      "matches": true,
+      "ms": 1973
+    },
+    {
+      "path": "/art/films/projects/project-ramsider-asmohookah-thumb.jpg",
+      "expectedBytes": 29713,
+      "expectedSHA256": "0a80d6e8e0b6c954410073d3fda31ac9c5d99a458f9232ec8317a9f3235c28db",
+      "status": 200,
+      "bodyBytes": 29713,
+      "bodySHA256": "0a80d6e8e0b6c954410073d3fda31ac9c5d99a458f9232ec8317a9f3235c28db",
+      "headers": {
+        "Content-Type": "image/jpeg",
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 338
+    },
+    {
+      "path": "/art/films/projects/project-ramsider-asmohookah.jpg",
+      "expectedBytes": 167576,
+      "expectedSHA256": "521c4477582c8c2c3a27b6fb69ebd5001eb4f4c62106c20450adcbbbeb8a3333",
+      "status": 200,
+      "bodyBytes": 167576,
+      "bodySHA256": "521c4477582c8c2c3a27b6fb69ebd5001eb4f4c62106c20450adcbbbeb8a3333",
+      "headers": {
+        "Content-Type": "image/jpeg",
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 520
+    },
+    {
+      "path": "/art/films/projects/project-ramsider-cubos-thumb.jpg",
+      "expectedBytes": 30965,
+      "expectedSHA256": "2b0c9c8e94f4ed4296c2c725551d950e9ffb6b458342d34bb16cb3e4b2904de9",
+      "status": 200,
+      "bodyBytes": 30965,
+      "bodySHA256": "2b0c9c8e94f4ed4296c2c725551d950e9ffb6b458342d34bb16cb3e4b2904de9",
+      "headers": {
+        "Content-Type": "image/jpeg",
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 357
+    },
+    {
+      "path": "/art/films/projects/project-ramsider-cubos.jpg",
+      "expectedBytes": 174802,
+      "expectedSHA256": "6c913d521ce9ae68f05d47b531f3fe0426eeb9ff1e309d6794da91d91d71c8c3",
+      "status": 200,
+      "bodyBytes": 174802,
+      "bodySHA256": "6c913d521ce9ae68f05d47b531f3fe0426eeb9ff1e309d6794da91d91d71c8c3",
+      "headers": {
+        "Content-Type": "image/jpeg",
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 551
+    },
+    {
+      "path": "/art/films/projects/project-ramsider-overview-thumb.jpg",
+      "expectedBytes": 20217,
+      "expectedSHA256": "f9099b7b251e243bad0cfefb56e784ce6ef153ace45a0e2f9c5d3ee3c6ea3a6e",
+      "status": 200,
+      "bodyBytes": 20217,
+      "bodySHA256": "f9099b7b251e243bad0cfefb56e784ce6ef153ace45a0e2f9c5d3ee3c6ea3a6e",
+      "headers": {
+        "Content-Type": "image/jpeg",
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 370
+    },
+    {
+      "path": "/art/films/projects/project-ramsider-overview.jpg",
+      "expectedBytes": 99960,
+      "expectedSHA256": "45591b52bde17c4b3aaf420b3679ed8e6e4e3ae053c552b1035d9f17629551f9",
+      "status": 200,
+      "bodyBytes": 99960,
+      "bodySHA256": "45591b52bde17c4b3aaf420b3679ed8e6e4e3ae053c552b1035d9f17629551f9",
+      "headers": {
+        "Content-Type": "image/jpeg",
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 467
+    },
+    {
+      "path": "/art/films/projects/project-ramsider-sosuda-thumb.jpg",
+      "expectedBytes": 21613,
+      "expectedSHA256": "f3bbe6bba55efad3e46ef98898f939bd0855ac52cf2f4bf365b5b2edb350e765",
+      "status": 200,
+      "bodyBytes": 21613,
+      "bodySHA256": "f3bbe6bba55efad3e46ef98898f939bd0855ac52cf2f4bf365b5b2edb350e765",
+      "headers": {
+        "Content-Type": "image/jpeg",
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 388
+    },
+    {
+      "path": "/art/films/projects/project-ramsider-sosuda.jpg",
+      "expectedBytes": 94363,
+      "expectedSHA256": "2408f1c3881dc3ab56fd64276dac1bf0b35bab0ccda95490c7b601fe730fdc99",
+      "status": 200,
+      "bodyBytes": 94363,
+      "bodySHA256": "2408f1c3881dc3ab56fd64276dac1bf0b35bab0ccda95490c7b601fe730fdc99",
+      "headers": {
+        "Content-Type": "image/jpeg",
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 516
+    },
+    {
+      "path": "/art/films/projects/project-ramsmobile-protos-thumb.jpg",
+      "expectedBytes": 39737,
+      "expectedSHA256": "cecd2e9b2c495f7e1fc99fc8548eb992ba49b8826d884bc1de5fac5f70998269",
+      "status": 200,
+      "bodyBytes": 39737,
+      "bodySHA256": "cecd2e9b2c495f7e1fc99fc8548eb992ba49b8826d884bc1de5fac5f70998269",
+      "headers": {
+        "Content-Type": "image/jpeg",
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 537
+    },
+    {
+      "path": "/art/films/projects/project-ramsmobile-protos.jpg",
+      "expectedBytes": 207089,
+      "expectedSHA256": "7041bb714670b7474cfbc88c0ef6678958c5914b5f4d3a1ca861da0698ba4f22",
+      "status": 200,
+      "bodyBytes": 207089,
+      "bodySHA256": "7041bb714670b7474cfbc88c0ef6678958c5914b5f4d3a1ca861da0698ba4f22",
+      "headers": {
+        "Content-Type": "image/jpeg",
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 1373
+    },
+    {
+      "path": "/art/films/projects/project-ramswear-thumb.jpg",
+      "expectedBytes": 39981,
+      "expectedSHA256": "cbacd911d8704441ae2b5298f31e050698d5b351c856e27af971509181bfebc3",
+      "status": 200,
+      "bodyBytes": 39981,
+      "bodySHA256": "cbacd911d8704441ae2b5298f31e050698d5b351c856e27af971509181bfebc3",
+      "headers": {
+        "Content-Type": "image/jpeg",
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 757
+    },
+    {
+      "path": "/art/films/projects/project-ramswear.jpg",
+      "expectedBytes": 248481,
+      "expectedSHA256": "cfcb1e08326e41170ee29d1e5e9a215bc0bb7a4281b644ec3f1bc18a62403952",
+      "status": 200,
+      "bodyBytes": 248481,
+      "bodySHA256": "cfcb1e08326e41170ee29d1e5e9a215bc0bb7a4281b644ec3f1bc18a62403952",
+      "headers": {
+        "Content-Type": "image/jpeg",
+        "Cache-Control": "public, max-age=0, must-revalidate",
+        "Content-Range": null
+      },
+      "matches": true,
+      "ms": 910
+    }
+  ],
+  "count": 204,
+  "totalBodyBytes": 90609467,
+  "pass": true
+}

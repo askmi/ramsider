@@ -1,0 +1,670 @@
+{
+  "change": "CHG0192",
+  "date": "2026-11-01",
+  "status": "APPROVED_LOCAL_WEB_PUBLIC_FIX_PENDING",
+  "baselinePublishedCommit": "25764842409642e8bd2d48564b99dbd0bd699fda",
+  "scope": "Native manual-quality startup only; renew15s inactivity on trusted current-source metadata/progress, separate120s active cap; suspendpause/hidden, clearplaying/Auto/newsource/fallback/close. Auto/MSE/default unchanged.",
+  "checks": {
+    "buildTypesScopedLint": "PASS build3/types-final4/lint-final4",
+    "nativeReview": "native8 CLEAN; includes independent isolated lifecycle, browserproof separate",
+    "realStream": "BothPro402x874/Max440x956DPR3WebKit actual4Mbpschunked2160 rVFC3840x2160+advancement after>15s PASS, pause17s/hidden17s/syntheticstall/rapidAuto/closeeachPASS (6cases).",
+    "cap": "Notification-loss fault injection only: actual4Mbps384sOverview/current2160/18trustedprogress,maxgap9114ms/nativepast100s/fallback120654ms/noMediaError PASS. Initial1KB/s and16KB/s fixtures failed to exercisecap and instead invoked valid15sinactivity; preserved.",
+    "regression": "28PASS5SKIP1missingSSGHTMLfixtureFAIL; affectedlocale-only current11HTMLfixturesrerun1PASS. Original16entrypaths, all6projectfilms, qualities, cacheandcleanup bothnativeprofilesPASS. Chromiumoldcollection+manualquality/retry/navigation2PASS.",
+    "qualitySupplement": "local-watchdog2-quality.json Pro/Max/Chromium real144/720/2160 presentedframes+timeadvance/fullwindow+cleanup3PASS; initialunboundedhelpercancelled/noverdict. FirstunboundedhelperProframeTimeoutFAIL/Maxcancelledclosedcontext, causeunisolated; historicalreceipt retained. Metadata/sourcehandoff readiness added in boundedQAhelper, no runtimefix.",
+    "performance": "SinglecoldChromium4Mbps100msCPU4 production LCP1344/FCP432ms/CLS.0007298/JS336413B/scrollp9532.7ms14of322>33ms/no reverse/errors. OtherQA running, not isolatedfield/causal proof.",
+    "network": "network3 sixcoldfirstframes1329\u20132297ms4Mbps/no poststartstalls/errors/fallback;1Mbps1818ms, ABR720\u2192360\u2192720/briefbufferedoutagerecovery;0projectbytesbeforeintent.",
+    "integration": "Pro+Max18settledpositions/endgap0/scrollrestoreexact/nooverflow/errors; rootviewedactualframes/footer/currentbrowserimages.",
+    "unavailable": "No physicaliOS/Android/AVKit/XcodeSimulator, fieldINP/Lighthouse/WCAG95 claim. WholeunrelatedlintCHG0181FAIL. RAMSFOOD source missing; existingdescription retained, fourthvideoentry BLOCKED."
+  },
+  "sourceBindings": [
+    {
+      "path": "lib/film-playback.ts",
+      "sha256": "a5d20945e8aabf40f6f5414eeacde6d8132092c2e6ee2ccb252ab056ce5de193",
+      "bytes": 17822
+    },
+    {
+      "path": "tests/e2e/native-film-startup.spec.ts",
+      "sha256": "6ce8293d3bf3b48306338041b6014a82713fdf5a54506166f073fbb94742d484",
+      "bytes": 9557
+    }
+  ],
+  "artifactBindings": [
+    {
+      "path": "screenshots/video/projects/build3.log",
+      "sha256": "f50f88abde4237cd3d058f21dbb775a751c993cdb4267aae37d3aef2ee3d7111",
+      "bytes": 1731
+    },
+    {
+      "path": "screenshots/video/projects/types-final4.log",
+      "sha256": "8fa1cf5506304e8abac55868e7f1a136c9b1dde57a3981a382da4c21ea129a6f",
+      "bytes": 29
+    },
+    {
+      "path": "screenshots/video/projects/lint-final4.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "screenshots/video/projects/native-review8.log",
+      "sha256": "c7e333237c1b4f064bdd57fd5cca8772414574f35bced3f29473da800623fe33",
+      "bytes": 167034
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-tests.log",
+      "sha256": "92a12cf0a4432c4615b97ca73333bd8a25cc4c13fb99770cafb6d9e0d1e5576a",
+      "bytes": 4979
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-cap2.log",
+      "sha256": "36611d3bbada22d8c3831acd89e13009eba8787171d36384cb1cd18d023523b8",
+      "bytes": 3236
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-cap3.log",
+      "sha256": "9ef1b62e1d9875ef33459881e276ebe30cb4407b7952a27bd234fc32d0e3009e",
+      "bytes": 384
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-regression.log",
+      "sha256": "a057c20379db1d7ecd8174e9ff971c2dd21e953434448828df188611ec099fd4",
+      "bytes": 8301
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-locales2.log",
+      "sha256": "5aab6af4d87e13375c7e3a3d3bc6573e3d4ac6be4c0bd51668b598b7a2e93851",
+      "bytes": 385
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-chromium.log",
+      "sha256": "18a7250a851684865d4470b5fae8f35718681ff0bf6b9616cf05aa7aab633246",
+      "bytes": 555
+    },
+    {
+      "path": "screenshots/video/projects/network3.log",
+      "sha256": "8d86a7a089447f0d58847149e9caab00d9b0e9b2719966c22616b8e41ec53fd8",
+      "bytes": 1362
+    },
+    {
+      "path": "screenshots/video/projects/integration3.log",
+      "sha256": "a3166ad72f5cecb30e2624c696c3c7197e2f4b96ef9ec0e24bcde5a39ddfbe38",
+      "bytes": 98
+    },
+    {
+      "path": "screenshots/video/projects/local-watchdog2-quality.log",
+      "sha256": "cdbf78723936acda77b2d74dbd210c393afd8fe7c40791426ede947a1ed6cc42",
+      "bytes": 4161
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-iphone-17-pro-webkit-2160.png",
+      "sha256": "0fd7507cafbeb9ae1e72eec9a7f8885b3f1dce4c4e6f6aea9e7243b395c2618c",
+      "bytes": 1323778
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-iphone-17-pro-max-webkit-2160.png",
+      "sha256": "9f0afebf64d855a3ec423963b0dcd7da3e07b0e458d70bdff135c83970337dee",
+      "bytes": 1502918
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-cap3/.last-run.json",
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+      "bytes": 45
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-cap3/native-film-startup-lost-p-03613-dent-120-second-startup-cap-iphone-17-pro-webkit/cap-events.json",
+      "sha256": "912f1443586b457b6473920de61617d1d7c9c10d1356702b4967f63186c133bd",
+      "bytes": 5494
+    },
+    {
+      "path": "screenshots/video/projects/integration3/pro-footer.png",
+      "sha256": "74518037019016b36108f84b14d85a29a5361b4e1691e1a136652894e6f33045",
+      "bytes": 3309366
+    },
+    {
+      "path": "screenshots/video/projects/integration3/pro-assembled-12.png",
+      "sha256": "2fcc4362c015159c1f5f9de39917c4ad341948de7694cdad6518e9ec410ffbe4",
+      "bytes": 4239812
+    },
+    {
+      "path": "screenshots/video/projects/integration3/pro-assembled-17.png",
+      "sha256": "74518037019016b36108f84b14d85a29a5361b4e1691e1a136652894e6f33045",
+      "bytes": 3309366
+    },
+    {
+      "path": "screenshots/video/projects/integration3/max-footer.png",
+      "sha256": "352432a7ea2e1c260c5fa5aa70b94cd50b78a88c25cef1dec03d2becd3cff0d4",
+      "bytes": 3824523
+    },
+    {
+      "path": "screenshots/video/projects/integration3/pro-assembled-6.png",
+      "sha256": "65a0ac4c772a929085a278910921e29168a8ec9a172e612ea1eacead06f9953e",
+      "bytes": 5421688
+    },
+    {
+      "path": "screenshots/video/projects/integration3/max-assembled-12.png",
+      "sha256": "73d9ec0ab9a5b029014faf377e83dc3b45afd005d95f4310a23306b0dc6c77ce",
+      "bytes": 4869256
+    },
+    {
+      "path": "screenshots/video/projects/integration3/pro-assembled-0.png",
+      "sha256": "ded9f81dec6d3034f5165b275c5a8c56e211cb2a2fec0e98b3bd614e65ba4c93",
+      "bytes": 2341994
+    },
+    {
+      "path": "screenshots/video/projects/integration3/max-assembled-17.png",
+      "sha256": "352432a7ea2e1c260c5fa5aa70b94cd50b78a88c25cef1dec03d2becd3cff0d4",
+      "bytes": 3824523
+    },
+    {
+      "path": "screenshots/video/projects/integration3/max-assembled-6.png",
+      "sha256": "33c6bfb343a5eb7c7d715b812c7189597b92a519947929e499ba77f2670195ce",
+      "bytes": 6238795
+    },
+    {
+      "path": "screenshots/video/projects/integration3/integration.json",
+      "sha256": "a0b469520180b42caccd49f412447f936c7b6469d5a607fd5fe9d6df19c978d3",
+      "bytes": 3483
+    },
+    {
+      "path": "screenshots/video/projects/integration3/max-assembled-0.png",
+      "sha256": "5bdf7f2ae4b23bf7d465409994d57cb58566da8c83b98f952263a93c5c7faedc",
+      "bytes": 2665553
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsider-asmohookah-expanded.png",
+      "sha256": "cafb4a153c72c3a1290eda8199ddbf9a1add5a6d5815b411610b0b7fb7150f69",
+      "bytes": 1292923
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsider-sosuda-expanded.png",
+      "sha256": "959137410ec96443eaacf04d2f246827a2f977f3dc044deab2f440023baa8348",
+      "bytes": 1934219
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-ramsider-selected.png",
+      "sha256": "598d9eb95ed17e727befa688e7457b17a1b77bf9088e9a15a96776359b64531c",
+      "bytes": 1537925
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-ramsmobile-selected.png",
+      "sha256": "d60234d4144a1890fdc769ac17971e7c66ab63ede61dc146211ece4f2032696c",
+      "bytes": 1736638
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsmobile-protos-portrait.png",
+      "sha256": "5845f7ac3b4d7157b8bba71a9afd576d1dcfa85ccfcf6a38a62dd52f1b1307da",
+      "bytes": 1742265
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsmobile-protos-manual-portrait.png",
+      "sha256": "4c86302e7a12a6a9f4d65ed8230e795d26daebe422e8047d83aa8fa94994ac22",
+      "bytes": 2227299
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-six-films.json",
+      "sha256": "678cb91b57d9b6451a6771347ccd65b1ffdd91994e19c12a46464f9ce1ec7649",
+      "bytes": 328
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-project-ramsider-cubos-list.png",
+      "sha256": "2890c22cbdac2be438645344703d0b6571a89a44461ea2952dc46d74e2dc0a6c",
+      "bytes": 193418
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsider-sosuda-list.png",
+      "sha256": "cba6417d9fdd091098946bec55130baca691669614d71bc48540affa1761f5c4",
+      "bytes": 1756310
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-project-ramsider-sosuda-portrait.png",
+      "sha256": "9e0aef6324e02c39a7f4761a5ea6e15d2140dde3a5f1391bfe530e19623ce7ea",
+      "bytes": 391096
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramswear-expanded.png",
+      "sha256": "db008c2594f9250ec7e5359eb00dd68a6c128b5433186b552f66e43697d51a2d",
+      "bytes": 794013
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsider-asmohookah-list.png",
+      "sha256": "463944f030cdcb8a26279e0c851fd4c0ad6e1c9b690b4e8918d08c4879a19416",
+      "bytes": 1159799
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsider-sosuda-portrait.png",
+      "sha256": "e737af7d99bad5587790591e2c3ff1214d881f50b497f2156d76f0fcff3e58eb",
+      "bytes": 1393129
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-project-ramswear-expanded.png",
+      "sha256": "684072695a1349ea0fa61b019b94054f6aaf78464f2a48328c865b6938c26c6d",
+      "bytes": 108899
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-project-ramsider-asmohookah-list.png",
+      "sha256": "b22c605a1b1829dc1c2f9d3303903209ffe4cc9ef0376c4365ad9b3fd6b6c25b",
+      "bytes": 482064
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-rapid-reentry.json",
+      "sha256": "09810fd484f7fcdbd48a7938700d1bc1df55e5cd3850fe332687706fab23a3b1",
+      "bytes": 67
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsmobile-protos-list.png",
+      "sha256": "84dc5dcc342fea348cfae1bbe10c3247a0c35bb87c25796607e504c37b98dc7d",
+      "bytes": 2018333
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsider-overview-expanded.png",
+      "sha256": "c95905c6fbafe166d5fef1e2aa73908aa362ba924902ae772724e1b0b90597d8",
+      "bytes": 1144792
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-project-ramsmobile-protos-list.png",
+      "sha256": "e468d6150a92e154c8bb664f8bc0c9c6929e6fafb592cf57b190e41b79b039cf",
+      "bytes": 710987
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsider-cubos-manual-portrait.png",
+      "sha256": "6cee9ea20a1c957d0ffe940fed397db4aa1466bafe04e5ca9caa0f08277774b8",
+      "bytes": 1421703
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsmobile-protos-list.png",
+      "sha256": "e8d5f5b0e08d8f02ff2e882a15fff90beb2abb9bfa5c0efcc86bf88d358c6754",
+      "bytes": 2345393
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-project-ramsider-sosuda-list.png",
+      "sha256": "0dba5f9505c91f30d4435edae1333bda97543c7b818cc167ab0a45b69f495bf0",
+      "bytes": 372456
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-project-ramsider-cubos-expanded.png",
+      "sha256": "afa54ab7bf888881d291f9c57cb7e0252c93f7ed01ba862d568372851cfc1b5d",
+      "bytes": 133730
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramswear-expanded.png",
+      "sha256": "449ef7042503fc8d4cb0185a2b71d37b63ed6668489223ca5b9eb998949f40df",
+      "bytes": 922241
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-project-ramsider-asmohookah-portrait.png",
+      "sha256": "6f016bab0e5368b4bf6e9dc395fd8f13c262371cd8b88e159a34031440fda22e",
+      "bytes": 409310
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsider-cubos-portrait.png",
+      "sha256": "d2095975e602ff2f876a7a879bc4dcad8a88379f1f5d6e87aca41fc15c157dee",
+      "bytes": 930631
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-error.png",
+      "sha256": "b27c7f48e39eeec4c3aefe122828f4060b4c5de4288279a5400433345032fb9d",
+      "bytes": 993632
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-project-ramsider-overview-portrait.png",
+      "sha256": "49ac16787c528f7fb6e43cbabfa4c740f9a13e438637ace0a2449d11dc14f3d4",
+      "bytes": 201275
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-ramsider-selected.png",
+      "sha256": "d69d40865e96cd0a12cb72d660cf9bddce5706252d733ab6350bc143ba284af5",
+      "bytes": 428780
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsider-overview-manual-portrait.png",
+      "sha256": "780c26048818a7f2ded1be0e66746a03490411d4ffef8cf4d12c1becad4a85c3",
+      "bytes": 1211277
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-ramswear-selected.png",
+      "sha256": "d85a032acb872faee5a5681e3a4eaeed77e416d570168eabd0493d57cd0270f1",
+      "bytes": 1941359
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsider-cubos-list.png",
+      "sha256": "2191fae6876513c4bde568b2dade187e3408c2f4ed302d79011f538db7acb225",
+      "bytes": 2395916
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsider-overview-expanded.png",
+      "sha256": "48d0e355dab878a6dedec4dcdd0c89f8e752b1db0a1be67c64cd52895e77157e",
+      "bytes": 1009043
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsider-asmohookah-manual-portrait.png",
+      "sha256": "af95c155b5738597f397dc20468d7aa1cdac6050460ab65f8a9fa7cf4d6f8554",
+      "bytes": 2401862
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsmobile-protos-portrait.png",
+      "sha256": "c15c86d5be6dd39a6bf271f29981f32ea966bded656debf447b85ac015089149",
+      "bytes": 1521465
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramswear-manual-portrait.png",
+      "sha256": "68b25ece02bdebb3afa697d614becaab19e32eaa3ad0db4ea8a5dd4a9922a978",
+      "bytes": 342018
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsider-overview-list.png",
+      "sha256": "6348ab569cc1a58c0b58d792db2c5eb28b861c70653c6a256105b49e8f1fe7e2",
+      "bytes": 1250750
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsider-cubos-portrait.png",
+      "sha256": "8a01786c4c9e5f910e4aaba865c4df8c817def743243fb71de16bc07a7dab038",
+      "bytes": 1069148
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-expanded-navigation.png",
+      "sha256": "1ab0c6952b9d76050d873863a13d9f9155e7641767d09aee34bd13090c8b9c76",
+      "bytes": 1704590
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsider-overview-list.png",
+      "sha256": "1908538a3318a3dd7d2429781f38c589476a44ef486a83fa8de69a4e947e387f",
+      "bytes": 1092219
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-project-ramsider-overview-list.png",
+      "sha256": "3709da97c89096882d6a296af9384a75230ca2121d9d1c88f6aee832aec0996b",
+      "bytes": 260178
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsider-asmohookah-portrait.png",
+      "sha256": "422c6dda8704c2f86fc6f13348416219537170ad1b605e0504b8a49303973438",
+      "bytes": 1628176
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-project-ramsmobile-protos-expanded.png",
+      "sha256": "503b7801df70cb8db22161b0e6232b7e27ca7db6cadf412f692d8aab4c88fe04",
+      "bytes": 719363
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsider-overview-manual-portrait.png",
+      "sha256": "93359bad896ee5ef550918c91ab5e8eced2819dd2f805c62cb86f64698800112",
+      "bytes": 1089281
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-project-ramsider-overview-expanded.png",
+      "sha256": "e9c1f3ea31ee08bafc17605d9ec65a231ed40dc60e2d4de5ed17025ed00a8b14",
+      "bytes": 302968
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsider-cubos-expanded.png",
+      "sha256": "5188b0fe388a0d85bf1cd31c8d6c4f9c371b2f85b666082c572b97f11fbc87e9",
+      "bytes": 2479341
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-project-ramsider-asmohookah-expanded.png",
+      "sha256": "e56a2d4ee66dd0f55ec69ab5668ba0a57ced3c2d7693730d549c42a5cb3c9a23",
+      "bytes": 601191
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-expanded-navigation.png",
+      "sha256": "4280c9e91cfa56820f758c5565a5c57d610ed30e9b59e742e35c9f20256add56",
+      "bytes": 1912164
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramswear-manual-portrait.png",
+      "sha256": "e497befc524fb4b1ffdac397c9e64d2f2b7ee55d4a94ccf7ff02376e74fd848c",
+      "bytes": 314211
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-error.png",
+      "sha256": "91a5995150cf05b757678ecf32ae6a5b4f436be0dfba02c443c1cbfad3c981f2",
+      "bytes": 120845
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-six-films.json",
+      "sha256": "678cb91b57d9b6451a6771347ccd65b1ffdd91994e19c12a46464f9ce1ec7649",
+      "bytes": 328
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsider-sosuda-manual-portrait.png",
+      "sha256": "8f361cf10ec00973df047617f9fe689d4a2f12abdd5e8768f23e4e896ac91be5",
+      "bytes": 1189674
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-error.png",
+      "sha256": "9f3d1d0f15d375b74e18306755cbc33b720e0425b306d0e91670f11bc2b2e2b9",
+      "bytes": 790862
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsider-overview-portrait.png",
+      "sha256": "bd8318440778cfce58824ff9706cd9488870259ad5481fa88eecce1c5c760bfc",
+      "bytes": 1290345
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/compiled-locale-fixtures.json",
+      "sha256": "8e55cf837685234a3e6706850b899bc6074afa96969f6003d07ab9354f72cb95",
+      "bytes": 1355
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsmobile-protos-expanded.png",
+      "sha256": "0fcecc1cffcafe2b4f1ea6586cf9b922ad6be369d1e6035cba90d9f575ba06de",
+      "bytes": 1849925
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsider-asmohookah-manual-portrait.png",
+      "sha256": "2176678b365b323653b4fb058ce4caccbd4d129bfea9c5c995bcf66ff8207d7f",
+      "bytes": 2205218
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsider-cubos-expanded.png",
+      "sha256": "3923ef24cb103ae1f81bd177d247762665404c721d504685ca898a91a236b5a3",
+      "bytes": 2798106
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-ramswear-selected.png",
+      "sha256": "089aa7727a302d1c6a59790c432cb97101976c39899f5f1cd3c8691f9e543da3",
+      "bytes": 2270734
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-project-ramsmobile-protos-portrait.png",
+      "sha256": "7aef59492023d3449ebb218f81b041c335309dcb9ad60629acc989fbfd00c98d",
+      "bytes": 482022
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-expanded-navigation.png",
+      "sha256": "cfca6f07b8d6d7e273105ea11b6a9f530e4f9607b10b213e20499395025279b7",
+      "bytes": 319109
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsider-asmohookah-expanded.png",
+      "sha256": "9f065af3801790f9c63145635f77f6339e349517f2b2b7bca39953708790cacf",
+      "bytes": 1413706
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-six-films.json",
+      "sha256": "678cb91b57d9b6451a6771347ccd65b1ffdd91994e19c12a46464f9ce1ec7649",
+      "bytes": 328
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsider-cubos-list.png",
+      "sha256": "ade0c88cf5ab61da63b9b10edcfc8db1a6bd1bdf1731a39f2e540f3cb3751688",
+      "bytes": 2088345
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsider-sosuda-portrait.png",
+      "sha256": "00d83498b237183a0238da169f584d0dc5dd4e228b506988cd45a41a097da5f5",
+      "bytes": 1594065
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-ramsmobile-selected.png",
+      "sha256": "bc829c4438f5933d86b708fbb33a6eb9dd194d62e571f9f954866ee98c01dcfa",
+      "bytes": 746517
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsider-asmohookah-portrait.png",
+      "sha256": "456c98a49fc7db15be58c99165573fb619ae9e18f86246d961fedb406f35a232",
+      "bytes": 1383125
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramswear-list.png",
+      "sha256": "b950063d428fdbde19ba342957993b8eb83793a68e1d81eca8872a011215ea23",
+      "bytes": 2373314
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-rapid-reentry.json",
+      "sha256": "09810fd484f7fcdbd48a7938700d1bc1df55e5cd3850fe332687706fab23a3b1",
+      "bytes": 67
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsider-sosuda-list.png",
+      "sha256": "984b0b7679010c7f461520870dbca0b1b4cd1b7f7293808d1d1b2d92fbe56f60",
+      "bytes": 1510174
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/arabic-static-fixture.png",
+      "sha256": "73602591402191287603681bea11ff43745e94cd7d0eaa60bb719e180e6e22fd",
+      "bytes": 2149769
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsider-cubos-manual-portrait.png",
+      "sha256": "3d7a0120e4ca5d6b98102b028e204cccc9896d48100397bea83913acdc4fdba6",
+      "bytes": 1271187
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsmobile-protos-manual-portrait.png",
+      "sha256": "b0a4b487ce0364cbad8601e334e9908fa330c111032c1ac9cbb49b2282398f82",
+      "bytes": 2524525
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsmobile-protos-expanded.png",
+      "sha256": "d8ce3d32441075ddad1c8ebc3509ee4a631d60dea85817dfe491c3d8edebc9fa",
+      "bytes": 2126876
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramswear-portrait.png",
+      "sha256": "4d5e4497648594518e6f30c513794b51c5c18f4878b2e5562bc8cf1681f788de",
+      "bytes": 1734413
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-project-ramsider-sosuda-expanded.png",
+      "sha256": "64e165f85105262445e07720afd4f3cc7f8e9986d7220a09ca34c977d59496bf",
+      "bytes": 522241
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-ramsider-selected.png",
+      "sha256": "197a6206ae50d4a5fb17451188e0e998428abe9898a0b4aaac1ed5af252c4f89",
+      "bytes": 1267961
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsider-sosuda-expanded.png",
+      "sha256": "7b2c2e82b7943ac2dc677a484484d809cd7744678734dfde06c6da34eefa37ca",
+      "bytes": 1695661
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-project-ramswear-portrait.png",
+      "sha256": "72cdc140c5c105b86a00fa1acd466d4eb10aaee4d8d828ad790a4de5a61e8008",
+      "bytes": 254772
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramswear-list.png",
+      "sha256": "78d56a060645a5c01e4eaf3a713177ab351f3b5b66e4d3e1485827c9709e5202",
+      "bytes": 2045250
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-project-ramswear-list.png",
+      "sha256": "4e7b5ece33d79778642caa04084947d4da9e67eda59a18fd1e70bc937e3d48ac",
+      "bytes": 233276
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsider-overview-portrait.png",
+      "sha256": "dfdddd1d581d8769742676bac6d6b43abad0e7bf38c917c290f4ad7402ac1cc3",
+      "bytes": 1395687
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-ramswear-selected.png",
+      "sha256": "808233434875e9e89af07d68f86da0c342b19d0797cd6c64d5669e7002265c97",
+      "bytes": 879386
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-ramsmobile-selected.png",
+      "sha256": "8ed72bac6922c71229c07b589dfd06d4d226f6a14ea1495ad1e470b2b42a3af1",
+      "bytes": 2090543
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-webkit-project-ramsider-sosuda-manual-portrait.png",
+      "sha256": "f0318f25eefaa345b466aa98818eccfce9084ddbff55b9288014480eb2b34ce1",
+      "bytes": 1087755
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramswear-portrait.png",
+      "sha256": "bd391d342b11418dcb805bf823c1148db51b3f758f3ac2114e8e0a2e551444b9",
+      "bytes": 2018592
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/desktop-chromium-project-ramsider-cubos-portrait.png",
+      "sha256": "c2af62bf384d05c44d3778fb2f4b321ec6ffe657eead7432cd1e9e5f258c26c9",
+      "bytes": 187650
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-browser/iphone-17-pro-max-webkit-project-ramsider-asmohookah-list.png",
+      "sha256": "7e774484f81d75f684b0aa3f3640c97c4326a3c6daa84f31b35cb91e7c9fbd1e",
+      "bytes": 1325363
+    },
+    {
+      "path": "screenshots/video/projects/local-watchdog2/pro-2160.png",
+      "sha256": "0e09458e3391ed2ab1fb0b7ff0fd56de73481651cfa2cccc0f5cc92425b2ce78",
+      "bytes": 1360973
+    },
+    {
+      "path": "screenshots/video/projects/local-watchdog2/max-2160-expanded.png",
+      "sha256": "67515027c058061c943ad6d1e59564b501eb0697c126a4811678fd09fa6f6cf7",
+      "bytes": 2869510
+    },
+    {
+      "path": "screenshots/video/projects/local-watchdog2/pro-2160-expanded.png",
+      "sha256": "485bec64c030c2283521ebcda1a6a272054312da76ab639b1583bec3d4e87ce2",
+      "bytes": 2441157
+    },
+    {
+      "path": "screenshots/video/projects/local-watchdog2/chromium-2160-expanded.png",
+      "sha256": "1fc7669cdddd26b993826cc1aef4ac9947f731dda8189d3c84212ed26352d26e",
+      "bytes": 496223
+    },
+    {
+      "path": "screenshots/video/projects/local-watchdog2/max-2160.png",
+      "sha256": "ec237507f815f0672c9c9cb6c63594b2b663712f27414d62a9a3f301ccf978e7",
+      "bytes": 1739113
+    },
+    {
+      "path": "screenshots/video/projects/local-watchdog2/chromium-2160.png",
+      "sha256": "75e34609b2a5761d11e423e3bf15fb9f0af2af1086039f7c53df2cd57c13f14a",
+      "bytes": 321193
+    },
+    {
+      "path": "docs/evidence/video/projects/network3.json",
+      "sha256": "bf306ebc380a1d93de26317bd175b30cc376a1f69e3a01c5ac2a14f7c491926c",
+      "bytes": 6963
+    },
+    {
+      "path": "docs/evidence/video/projects/local-watchdog2-quality.json",
+      "sha256": "1454d5c4fccdef0162ec03e93b323637de5e71ba48005f476de0f11aa9a8064d",
+      "bytes": 3642
+    },
+    {
+      "path": "screenshots/scroll-incident/project-films-watchdog/performance.json",
+      "sha256": "b615071d47d336c99c3158e6855ff708fb364d87e43d9ae51e38d22ec767fbed",
+      "bytes": 35718
+    },
+    {
+      "path": "docs/evidence/video/projects/local-watchdog-quality.json",
+      "sha256": "2921c759e19ec23fe98f3a08607ab9405042a1335c925d118ee9ba14a1c907ce",
+      "bytes": 620
+    },
+    {
+      "path": "screenshots/video/projects/watchdog-cap2/native-film-startup-contin-f2fe0-dent-120-second-startup-cap-iphone-17-pro-webkit/cap-events.json",
+      "sha256": "ba3e7528abfb90717a9a6fad5f8926699737eba1003e4408199ce4769d08563d",
+      "bytes": 1869
+    }
+  ],
+  "technicalApproval": "2026-11-01 /root APPROVED_LOCAL_AVAILABLE_SCOPE; independent /root/pub_audit Scope/Stage2/Gates3/4/5 PASS_LOCAL_WEB from actualsource/snapshot/logs/images. Stage6staging/publication pending. 2026-11-01 /root/pub_audit Stage6LOCAL_PREPUSH PASS:22scopedpaths/cachedcheck0/2delta+127artifact+23originalbindings; countcorrection verified.",
+  "userResultApproval": "NOT_RECORDED; routineimplementation/publication authorized by recoveredtask"
+}

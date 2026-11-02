@@ -212,9 +212,11 @@ const blocked = [
 
 function Panel({ id, title, locale, children }: { id: string; title: string; locale: Locale; children: ReactNode }) {
   return <dialog id={id} className="availability" aria-labelledby={`${id}-title`}>
-    <h2 id={`${id}-title`}>{title.replaceAll('\n', ' ')}</h2>
-    {children}
-    <button id={`close-${id}`} type="button" popoverTarget={id} popoverTargetAction="hide">{t(locale, 'close')}</button>
+    <div className="availability__header">
+      <h2 id={`${id}-title`} dir={locale === 'ar' ? 'rtl' : 'ltr'}>{title.replaceAll('\n', ' ')}</h2>
+      <button id={`close-${id}`} className="availability__close" type="button" aria-label={t(locale, 'close')} popoverTarget={id} popoverTargetAction="hide"><span aria-hidden="true">×</span></button>
+    </div>
+    <div className="availability__body" tabIndex={0} role="region" aria-labelledby={`${id}-title`}>{children}</div>
   </dialog>;
 }
 
@@ -321,10 +323,13 @@ export function Story({ locale }: { locale: Locale }) {
       {storyNodes.filter(node => node.y < 28207).map((node, index) => <Fragment key={`${node.key}-${index}`}>
         <OverlayNode node={node} locale={locale} />
         {node.id === 'hero-reserve' && <section id="distributor-launch" className="distributor-launch" style={sourceStyle(75, 1730, 790)} aria-labelledby="distributor-launch-title">
-          <Image className="distributor-launch__orbit" src="/art/expression-waves.webp" width={701} height={401} alt="" aria-hidden="true" unoptimized loading="lazy" fetchPriority="low" draggable={false} />
-          <p className="distributor-launch__heritage">{t(locale, 'developmentHeritage')}</p>
-          <h2 id="distributor-launch-title">{t(locale, 'distributorOrders')}</h2>
-          <p className="distributor-launch__date">{t(locale, 'distributorLaunch')}</p>
+          <div className="distributor-launch__copy">
+            <Image className="distributor-launch__orbit distributor-launch__orbit--left" src="/art/expression-waves.webp" width={701} height={401} alt="" aria-hidden="true" unoptimized loading="lazy" fetchPriority="low" draggable={false} />
+            <Image className="distributor-launch__orbit distributor-launch__orbit--right" src="/art/expression-waves.webp" width={701} height={401} alt="" aria-hidden="true" unoptimized loading="lazy" fetchPriority="low" draggable={false} />
+            <p className="distributor-launch__heritage">{t(locale, 'developmentHeritage')}</p>
+            <h2 id="distributor-launch-title">{t(locale, 'distributorOrders')}</h2>
+            <p className="distributor-launch__date">{t(locale, 'distributorLaunch')}</p>
+          </div>
         </section>}
         {node.id === 'fire-learn' && <EmberScene labels={emberCopy[locale]} />}
       </Fragment>)}

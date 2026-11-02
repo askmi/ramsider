@@ -1,0 +1,34 @@
+{
+  "change": "CHG0196",
+  "date": "2026-11-03",
+  "status": "LOCAL_WEB_VERIFIED_PENDING_FINAL_AUDIT",
+  "baseline": "8821ecb4fb2f8b4bc95b6f98ce3f5ced7b9dbb67",
+  "request": "Compact goldorbit tightly around actual three-line announcement; correct detached upper-left arc.",
+  "baselineMeasured": "Pro402DPR3 text glyph maxwidth478.58source/overallglyphY1728.18..1867.58; section790width/135.77height. Orbit790x451.88 at75,1550; nativealpha32 left14,18..181,220 right519,177..686,379; actualasymmetricleft/rightarcs notimagebox determine fit.",
+  "geometryContract": {
+    "asset": "public/art/expression-waves.webp",
+    "sha256": "2c4cc6c937304be46d420ef2e441c65fbff026fd117729c9d3a83dac3a70e6f7",
+    "native": [
+      701,
+      401
+    ],
+    "proposal": "Semantic three-line max-content grid inside unchanged section x75/y1730/w790; two source image instances clipped to leftx0..225/rightx490..701; nativeimageheight230% actualgridheight/widthauto. Eachcentered using alpha32 midpoint119/401 and278/401 respectively; left/right52sourcepx padding. SharedURL means same67,220Bresource, no newasset/encode/clientJS. Centraloriginalglints omitted fromthisdecoration tokeeptextclear; originalCompareinstanceunchanged.",
+    "noDistortion": "Each image owncontentbox renderedWidth*401/701 matchesheight within1CSSpx; no nonuniformscale/filter/colorconversion.",
+    "predictedProVisibleBounds": "Envelope about560sourcewide x189..750, y1719..1876 vs478.6source text at230.7..709.3,y1728..1868. Approx17CSSpx sideclearance and4CSSpx top/bottom at402 baseline; tune after realimages if touchingglyphs."
+  },
+  "acceptance": [
+    "InspectactualProthenMaxscreenshots withuserattachment andbaseline; visiblearcsfitthree-lineblock, upperleftno longerupinreflection",
+    "MeasureactualtextRangeenvelope andalpha32visiblearcs notfullimageboxes; balancedsideclearance target12..24CSSpx atPro, top/bottom0..12CSSpx; no materialglyphocclusion; inspectmiddleline/firstlinecorner",
+    "Preservecopy/3singlelines/equaltypography/gaps/source1730/hero+WhyFire/nooverflow; allnativeimageaspects",
+    "320/402short/440/768/874landscape/1440; originalCompareasset/geometry untouched+CTAactualopen/close; Reserve/contact/noJS/routepolicy",
+    "types/scopedlint/build/nativeReview/productionperf+assembledintegration; independentgateapproval; no physicaldeviceorfieldmetricsclaim"
+  ],
+  "sourceEvidence": [
+    "screenshots/distributor-fit/baseline/pro-composition.png",
+    "screenshots/distributor-fit/baseline/geometry.json",
+    "screenshots/distributor-orbit/reference-clean.png",
+    "screenshots/distributor-orbit/reference-text.png",
+    "screenshots/distributor-orbit/asset-on-neutral.png"
+  ],
+  "verification": "docs/evidence/info-dialogs/verification.json"
+}

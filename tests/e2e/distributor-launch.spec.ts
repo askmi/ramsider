@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { mkdir } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
 import { waitForVisibleMedia } from './helpers/media';
 
 test('distributor launch copy fits the reflection gap and preserves existing controls', async ({ page }, info) => {
@@ -11,7 +11,8 @@ test('distributor launch copy fits the reflection gap and preserves existing con
   await page.evaluate(() => document.fonts.ready);
   await waitForVisibleMedia(page);
   await page.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; });
-  const dir = `screenshots/distributor-orbit/${process.env.LAUNCH_PUBLIC ? 'public' : 'local'}`;
+  const dir = process.env.DISTRIBUTOR_CAPTURE_DIR ?? 'screenshots/distributor-fit/default';
+  const measurements: unknown[] = [];
   await mkdir(dir, { recursive: true });
   const section = page.locator('#distributor-launch');
   await expect(section).toHaveAccessibleName('Distributor Orders & Pre-Orders');
@@ -40,18 +41,25 @@ test('distributor launch copy fits the reflection gap and preserves existing con
       const canvas = document.querySelector('.canvas')!.getBoundingClientRect();
       const box = el.getBoundingClientRect();
       const fire = document.querySelector('.key-fire')!.getBoundingClientRect();
-      const orbit = el.querySelector<HTMLImageElement>('.distributor-launch__orbit')!;
-      const frame = orbit.getBoundingClientRect();
+      const copy = el.querySelector('.distributor-launch__copy')!.getBoundingClientRect();
+      const glyphs = [...el.querySelectorAll('p,h2')].map(line => { const range = document.createRange(); range.selectNodeContents(line); return range.getBoundingClientRect(); });
+      const text = { left: Math.min(...glyphs.map(r => r.left)), right: Math.max(...glyphs.map(r => r.right)), top: Math.min(...glyphs.map(r => r.top)), bottom: Math.max(...glyphs.map(r => r.bottom)) };
+      // Visible alpha>=32 source bounds, independently measured from the immutable artwork.
+      const sourceArcs = [[14,18,181,220],[519,177,686,379]];
+      const arcs = [...el.querySelectorAll<HTMLImageElement>('.distributor-launch__orbit')].map((image, i) => {
+        const frame=image.getBoundingClientRect(), [left,top,right,bottom]=sourceArcs[i];
+        return { width:frame.width,height:frame.height,naturalWidth:image.naturalWidth,naturalHeight:image.naturalHeight,
+          visible:{left:frame.left+left/701*frame.width,right:frame.left+right/701*frame.width,top:frame.top+top/401*frame.height,bottom:frame.top+bottom/401*frame.height},
+          pointerEvents:getComputedStyle(image).pointerEvents,hidden:image.getAttribute('aria-hidden'),alt:image.alt };
+      });
+      const visible={left:Math.min(...arcs.map(a=>a.visible.left)),right:Math.max(...arcs.map(a=>a.visible.right)),top:Math.min(...arcs.map(a=>a.visible.top)),bottom:Math.max(...arcs.map(a=>a.visible.bottom))};
       return {
         width: innerWidth, overflow: document.documentElement.scrollWidth > innerWidth,
         y: (box.top - canvas.top) / canvas.width * 941,
         end: (box.bottom - canvas.top) / canvas.width * 941,
         fire: (fire.top - canvas.top) / canvas.width * 941,
-        orbit: { width: frame.width, height: frame.height, parentWidth: box.width,
-          sourceY: (frame.top - canvas.top) / canvas.width * 941,
-          sourceEnd: (frame.bottom - canvas.top) / canvas.width * 941,
-          naturalWidth: orbit.naturalWidth, naturalHeight: orbit.naturalHeight,
-          pointerEvents: getComputedStyle(orbit).pointerEvents, hidden: orbit.getAttribute('aria-hidden'), alt: orbit.alt },
+        text, copy: {width:copy.width,height:copy.height}, arcs, visible,
+        clearance:{left:text.left-visible.left,right:visible.right-text.right,top:text.top-visible.top,bottom:visible.bottom-text.bottom},
         lines: [...el.querySelectorAll('p,h2')].map(line => {
           const style = getComputedStyle(line);
           return { font: style.fontFamily, weight: style.fontWeight,
@@ -67,12 +75,23 @@ test('distributor launch copy fits the reflection gap and preserves existing con
     expect(geometry.y).toBeCloseTo(1730, 0);
     expect(geometry.end).toBeLessThan(2000);
     expect(geometry.fire).toBeCloseTo(2048, 0);
-    expect(geometry.orbit.naturalWidth).toBe(701); expect(geometry.orbit.naturalHeight).toBe(401);
-    expect(geometry.orbit.width).toBeCloseTo(geometry.orbit.parentWidth, 0);
-    expect(Math.abs(geometry.orbit.height - geometry.orbit.width * 401 / 701)).toBeLessThan(1);
-    expect(geometry.orbit.sourceY).toBeCloseTo(1550, 0);
-    expect(geometry.orbit.sourceEnd).toBeLessThan(geometry.fire);
-    expect(geometry.orbit.pointerEvents).toBe('none'); expect(geometry.orbit.hidden).toBe('true'); expect(geometry.orbit.alt).toBe('');
+    expect(geometry.arcs).toHaveLength(2);
+    for (const arc of geometry.arcs) {
+      expect(arc.naturalWidth).toBe(701); expect(arc.naturalHeight).toBe(401);
+      expect(Math.abs(arc.height-arc.width*401/701)).toBeLessThan(1);
+      expect(arc.pointerEvents).toBe('none'); expect(arc.hidden).toBe('true'); expect(arc.alt).toBe('');
+    }
+    expect(geometry.copy.width).toBeCloseTo(geometry.text.right-geometry.text.left,0);
+    expect(geometry.visible.right-geometry.visible.left).toBeLessThan((geometry.text.right-geometry.text.left)*1.35);
+    expect(geometry.clearance.left).toBeGreaterThan(8); expect(geometry.clearance.right).toBeGreaterThan(8);
+    expect(Math.abs(geometry.clearance.left-geometry.clearance.right)).toBeLessThan(2);
+    expect(geometry.clearance.top).toBeGreaterThanOrEqual(0); expect(geometry.clearance.bottom).toBeGreaterThanOrEqual(0);
+    expect(geometry.clearance.top).toBeLessThan(14); expect(geometry.clearance.bottom).toBeLessThan(14);
+    expect(Math.abs(geometry.clearance.top-geometry.clearance.bottom)).toBeLessThan(3);
+    if (viewport.width===402 || viewport.width===440) {
+      expect(geometry.clearance.left).toBeLessThan(24); expect(geometry.clearance.right).toBeLessThan(24);
+    }
+    measurements.push({viewport,geometry});
     for (const line of geometry.lines) {
       expect(line.font).toContain('OpenSans'); expect(line.fits).toBe(true);
       expect(line.height).toBeLessThanOrEqual(line.lineHeight + 1);
@@ -103,6 +122,7 @@ test('distributor launch copy fits the reflection gap and preserves existing con
   await expect(page.locator('#launch-capture')).toBeVisible();
   await page.keyboard.press('Escape');
   expect(errors).toEqual([]);
+  await writeFile(`${dir}/${info.project.name}-geometry.json`,JSON.stringify({measurements,errors},null,2));
 });
 
 test('launch announcement remains semantic with JavaScript disabled', async ({ browser }, info) => {

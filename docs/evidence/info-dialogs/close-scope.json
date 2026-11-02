@@ -1,0 +1,24 @@
+{
+  "change": "CHG0197",
+  "date": "2026-11-03",
+  "status": "LOCAL_WEB_VERIFIED_PENDING_FINAL_AUDIT",
+  "panels": [
+    "unavailable-commerce",
+    "unavailable-account",
+    "unavailable-compare",
+    "unavailable-pro",
+    "unavailable-gold",
+    "unavailable-set",
+    "project-detail-4"
+  ],
+  "source": "components/Story.tsx Panel +app/globals.css availability",
+  "target": "Shared header closeX copied existingLaunchCapture close size/shape/colors; flexdialog header nonshrink andbody minheight0 scroll; translatedaria/nativehideID/Escape/focusreturn/CTA retained",
+  "acceptance": [
+    "originalhero-reserve click\u2192commerceactualProthenMaxscreenshots; X44top8right8; Close no longerbottompill",
+    "all7panels andlongcontent320/short/landscape/1440 actualXhit+Close/Escape+keyboardfocusreturn/bodylastcontentaccessible",
+    "JoinLaunchList actualopens existingcapture no submit/overlap",
+    "combinedCHG0196actualpixels/reviewbuild/perf/integration/records"
+  ],
+  "reference": "/var/folders/zz/rg7fqt550kq6vr4fn6b2h7vw0000gn/T/codex-clipboard-a4db4c49-36c8-414c-b1f2-21fe5f33a685.png",
+  "verification": "docs/evidence/info-dialogs/verification.json"
+}

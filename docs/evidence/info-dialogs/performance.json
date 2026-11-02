@@ -1,0 +1,46 @@
+{
+  "changes": [
+    "CHG0196",
+    "CHG0197"
+  ],
+  "date": "2026-11-03",
+  "summary": {
+    "phase": "orbit-info-close",
+    "conditions": "Single cold Chromium mobile402\u00d7874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+    "initial": {
+      "ttfb": 259.19999980926514,
+      "fcp": 712,
+      "lcp": 1540,
+      "cls": 0.0009706117296485489,
+      "jsBytes": 336413,
+      "completedBytes": 3401765,
+      "filmObjects": 15,
+      "readyImages": 29
+    },
+    "scroll": {
+      "samples": 306,
+      "movingFrames": 229,
+      "startY": 0,
+      "endY": 13259,
+      "p95Ms": 32.60000014305115,
+      "over33Ms": 9,
+      "reverseFrames": 0,
+      "maxReverse": 0,
+      "cls": 0.0009706117296485489,
+      "longTasks": [
+        88,
+        55,
+        415,
+        54,
+        65,
+        104
+      ]
+    },
+    "errors": []
+  },
+  "raw": {
+    "path": "screenshots/scroll-incident/orbit-info-close/performance.json",
+    "sha256": "99bcd847b650bbefe6ab086c3170f3828779b34669bd331212bc77cb009e925a"
+  },
+  "assessment": "No added client boundary/JS or media encoding. Two decorative instances share immutable same 67,220B URL. Existing static SSG and server Story retained; single synthetic run, no causal before/after or field INP/Lighthouse claim."
+}

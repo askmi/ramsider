@@ -1,10 +1,16 @@
 # Expression waves — source-to-UI map (CHG-0052, superseded by CHG-0059)
 
-## Current Web Overlay and Launch Reuse — 2026-11-01 (CHG0191)
+## Current Web Overlay and Text-Fitted Launch Arcs — 2026-11-03 (CHG0196)
 
-The current runtime asset is `public/art/expression-waves.webp`: 701×401, alpha and embedded profile, 67,220 bytes; SHA-256 `2c4cc6c937304be46d420ef2e441c65fbff026fd117729c9d3a83dac3a70e6f7`. Reuse its bytes and native ratio; the PNG/extraction notes below describe history, not the current runtime path.
+Runtime asset remains `public/art/expression-waves.webp`: 701×401, alpha and embedded profile,67,220 bytes; SHA-256 `2c4cc6c937304be46d420ef2e441c65fbff026fd117729c9d3a83dac3a70e6f7`. Source bytes, color and original Compare placement x120/y14665/w701 are unchanged.
 
-The original Compare placement remains x120/y14665/w701. The launch announcement reuses the same URL as decorative art behind the three live lines: x75/y1550/w790, proportional height 451.9 source px; text remains x75/y1730/w790 with shared8sourcepx line gap. The image is aria-hidden, noninteractive and lazy/low priority, with no crop, filter, rotation or asset conversion. Browser validation must inspect central glints against the text and assert native image ratio, scene bounds, equal gaps and unchanged typography. Evidence/approval follow in `docs/evidence/sales-launch/distributor-orbit.json` after verification; no pixel-fidelity claim for a new finished render.
+Launch text stays in its source section x75/y1730/w790 with shared8-source-pixel row gaps and identical typography. A max-content copy grid measures the actual longest line; two noninteractive, aria-hidden image instances reuse the same URL. Each full image preserves701:401 ratio with height230% of the actual copy height and width auto. Clip the left instance to native x0..225 and right to x490..701, preserving both complete visible arcs. Align their alpha32 vertical midpoints119/401 and278/401 to the copy center, with52-source-pixel outward side offsets. The central glints are omitted from this launch decoration; the original Compare image remains complete.
+
+Measure visible arc bounds against DOM text ranges, rather than certifying fit from transparent full-image boxes. Expected Pro fit is approximately17CSSpx side clearance and4CSSpx top/bottom; real browser screenshots and no glyph occlusion decide approval. Evidence: `docs/evidence/sales-launch/distributor-fit/`. No raster export, new client boundary or additional image URL is introduced.
+
+### Historical CHG0191 placement, superseded by CHG0196
+
+The initial launch reuse placed one full image at x75/y1550/w790, proportional height451.9sourcepx, with text atx75/y1730/w790. That technically approved broad composition left the upper-left arc detached from text in the user's mobile screenshot. Its old checks and approvals remain historical; they do not establish the corrected fit.
 
 ## Historical designer asset — 2026-10-05
 
@@ -22,6 +28,6 @@ Source inspection order: `design/references/background.png`, then `background_te
 
 Extract the RGB pixels of these masked regions from the composite over the clean image, with transparent pixels elsewhere. Do not redraw the waves or serve the composite as a background. Place the derived `public/art/expression-waves.png` at source x=120, y=14665, width=700 (source CSS scale 402/941 on Pro); keep it noninteractive and hidden from assistive technology. The existing live `expressions` and `choose` text boxes center on source x=470.5. B08 retains its mapped reference center at x=465.5 (about 2 CSS px left of the text axis on Pro), with localized pill widths provided by `lib/button-localized-widths.json`; this small reference offset should not be “corrected” to an arbitrary new position. Verify on real Pro/Pro Max WebKit screenshots against the source crop and check all 11 locales for centered text/button, overflow, visible waves, and clickable B08.
 
-## Applied and checked
+## Historical application and checks
 
 `tools/generate-expression-waves.mjs` produces the 700×400 transparent PNG; `components/Story.tsx` places it below live content and lazy-loads it. Real Pro/Pro Max WebKit screenshots, a contact sheet covering all 11 locales, the aligned Pro diff, behavior log and lazy/performance checks are under [expression-wave evidence](evidence/expression-waves/). The 5-source-px B08 center offset is present in the reference.

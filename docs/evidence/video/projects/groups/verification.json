@@ -1,7 +1,7 @@
 {
   "change": "CHG0195",
   "date": "2026-11-02",
-  "status": "APPROVED_LOCAL_WEB_PUBLICATION_PENDING",
+  "status": "APPROVED_LOCAL_WEB",
   "sourceBindings": [
     {
       "path": "app/globals.css",
@@ -1239,7 +1239,12 @@
     "independentVerdict": "Scope/Stage2/Gates3/4/5 PASS_LOCAL_WEB",
     "evidence": "7source+286artifact+11runlog hashes exact; actual screenshots inspected; final2mobile+2desktop+26matrixPASS7SKIP+6focus/site; types4/lint4/build2/nativeReview3CLEAN; productionperf+integration"
   },
-  "publication": "Pending exact new SHA both Vercel targets and canonical browser",
+  "publication": {
+    "status": "ROOT_APPROVED_PUBLISHED_WEB_SCOPE",
+    "date": "2026-11-02",
+    "commit": "8821ecb4fb2f8b4bc95b6f98ce3f5ced7b9dbb67",
+    "receipt": "docs/evidence/video/projects/groups/publication.json"
+  },
   "runLogBindings": [
     {
       "path": "screenshots/video/projects/groups/types4.log",

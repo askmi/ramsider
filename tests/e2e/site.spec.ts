@@ -289,15 +289,15 @@ test('mapped exploration dialogs contain focus and restore their triggers', asyn
       await expect(dialog).toContainText('TiN-Coated Heater');
       await expect(dialog).toContainText('Platinum Sensors');
     }
-    // Wrap both directions: native dialogs make the underlying page inert.
+    // Native browser chrome can appear as a body sentinel while the background stays inert.
     const close = dialog.getByRole('button', { name: id.startsWith('technology') ? 'Close technology viewer' : 'Close' });
     await close.focus();
-    await page.keyboard.press('Tab');
-    await page.keyboard.press('Tab');
-    expect(await page.evaluate(() => !!document.activeElement?.closest('dialog[open]'))).toBe(true);
-    await page.keyboard.press('Shift+Tab');
-    await page.keyboard.press('Shift+Tab');
-    expect(await page.evaluate(() => !!document.activeElement?.closest('dialog[open]'))).toBe(true);
+    for (const key of ['Tab', 'Tab', 'Shift+Tab', 'Shift+Tab']) {
+      await page.keyboard.press(key);
+      expect(await page.evaluate(() => document.activeElement === document.body || Boolean(document.activeElement?.closest('dialog[open]')))).toBe(true);
+    }
+    await page.locator('#home-link').evaluate(el => (el as HTMLElement).focus());
+    await expect(page.locator('#home-link')).not.toBeFocused();
     if (id === 'expressions-compare') await page.screenshot({ path: `screenshots/actual/comparison-${testInfo.project.name}.png`, scale: 'css' });
     await page.keyboard.press('Escape');
     await expect(dialog).toHaveCount(0);

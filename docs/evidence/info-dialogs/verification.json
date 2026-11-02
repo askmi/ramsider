@@ -1,0 +1,398 @@
+{
+  "changes": [
+    "CHG0196",
+    "CHG0197"
+  ],
+  "date": "2026-11-03",
+  "status": "APPROVED_LOCAL_WEB_PENDING_PUBLICATION",
+  "baseline": "8821ecb4fb2f8b4bc95b6f98ce3f5ced7b9dbb67",
+  "sourceBindings": [
+    {
+      "path": "app/globals.css",
+      "sha256": "9eb3192f24b83fef48f1dedb667a89d0792ff506457c5f3894ec86329492225e"
+    },
+    {
+      "path": "components/Story.tsx",
+      "sha256": "31840fad14ca176bacf4e6595e9fdcce77d7418d86b504c3390d2cdd4c362011"
+    },
+    {
+      "path": "tests/e2e/distributor-launch.spec.ts",
+      "sha256": "093588e74cee7a8c2afde5a681b0c14c12a5ca079f15f69e6c39f391942312ff"
+    },
+    {
+      "path": "tests/e2e/info-dialog-close.spec.ts",
+      "sha256": "94e37b0906324ece70f4bcee0d48b890e2d63a332af1d068503ed65831f94831"
+    },
+    {
+      "path": "tests/e2e/site.spec.ts",
+      "sha256": "133e82dde13e51c0a2dd8cd872ff20b03528181177473daa6c066585136a2fa6"
+    }
+  ],
+  "asset": {
+    "path": "public/art/expression-waves.webp",
+    "sha256": "2c4cc6c937304be46d420ef2e441c65fbff026fd117729c9d3a83dac3a70e6f7"
+  },
+  "artifactBindings": [
+    {
+      "path": "screenshots/distributor-fit/final1/desktop-chromium-1440.png",
+      "sha256": "5a5af231fb88985c494bb7848260cb5938aef02b965ec8e3d8bacff53eded21b"
+    },
+    {
+      "path": "screenshots/distributor-fit/final1/desktop-chromium-320.png",
+      "sha256": "b21e2236094957159e6bd3ccb0dd1ecb532d48c65ec34c4946e370b546d4d45f"
+    },
+    {
+      "path": "screenshots/distributor-fit/final1/desktop-chromium-768.png",
+      "sha256": "94126203d8533f1ced5e825c6d922579425eae61b428370a88afe9c608b92558"
+    },
+    {
+      "path": "screenshots/distributor-fit/final1/desktop-chromium-874.png",
+      "sha256": "e4cb2dd88098d3a6aa35adc1c2fba35db6c97d2a1faa67b6d41cb526680dc8d7"
+    },
+    {
+      "path": "screenshots/distributor-fit/final1/desktop-chromium-composition.png",
+      "sha256": "7c48980ea01a9ff9a8c3103466e57641546e42e9a10959fc456ca274bc2bba91"
+    },
+    {
+      "path": "screenshots/distributor-fit/final1/desktop-chromium-geometry.json",
+      "sha256": "4b225577ee0cc96c84484500ec11d7eb016f7582040bc587ef42e73bcf0022b2"
+    },
+    {
+      "path": "screenshots/distributor-fit/final1/iphone-17-pro-max-webkit-320.png",
+      "sha256": "d0dc903a05c6b1a78ed83b8b99404632a8f8a7359199d1a7c9ae69ada760ab9a"
+    },
+    {
+      "path": "screenshots/distributor-fit/final1/iphone-17-pro-max-webkit-440.png",
+      "sha256": "5da500726675eb605055ac5b59b41a4f3c8c4164e20d556e6a673e6d758098dc"
+    },
+    {
+      "path": "screenshots/distributor-fit/final1/iphone-17-pro-max-webkit-768.png",
+      "sha256": "14583410ce0f5b7c041902c8418bda2ef33dfd1fa5c677f452d16b8eea95dedb"
+    },
+    {
+      "path": "screenshots/distributor-fit/final1/iphone-17-pro-max-webkit-874.png",
+      "sha256": "b19c4c9f39ba185241b23ef369c25f1d880329193804896783ef9e406dc99a5b"
+    },
+    {
+      "path": "screenshots/distributor-fit/final1/iphone-17-pro-max-webkit-composition.png",
+      "sha256": "fd3514d9b666c786a196b7380cf34661beecb1e99d7c469d45eef79c3be3584c"
+    },
+    {
+      "path": "screenshots/distributor-fit/final1/iphone-17-pro-max-webkit-geometry.json",
+      "sha256": "295109c84325cbc7bd4e8f202c7e04834a54056a98632d7f86deccb2d3e94daa"
+    },
+    {
+      "path": "screenshots/distributor-fit/final1/iphone-17-pro-webkit-320.png",
+      "sha256": "65c4568a94f3e8e6bbf766ab2ef3fb5d8265614111895995d76ab472200fd1e6"
+    },
+    {
+      "path": "screenshots/distributor-fit/final1/iphone-17-pro-webkit-402.png",
+      "sha256": "5f7173ae9b46434719c549ea30ad0ece39d9de788e61e727284cef6c5e60f483"
+    },
+    {
+      "path": "screenshots/distributor-fit/final1/iphone-17-pro-webkit-768.png",
+      "sha256": "56f4650fab3445be6b1976c9991ba6ecf23c4879b755cda7b47a5059f42f6fa5"
+    },
+    {
+      "path": "screenshots/distributor-fit/final1/iphone-17-pro-webkit-874.png",
+      "sha256": "b19c4c9f39ba185241b23ef369c25f1d880329193804896783ef9e406dc99a5b"
+    },
+    {
+      "path": "screenshots/distributor-fit/final1/iphone-17-pro-webkit-composition.png",
+      "sha256": "ef9836a350dee30f39d79efdfe2ae51a663887784ed784654712ba81a9ae0781"
+    },
+    {
+      "path": "screenshots/distributor-fit/final1/iphone-17-pro-webkit-geometry.json",
+      "sha256": "e40ff7c4e61085b8d51086407431d3ba2388780874ac7cfc6dbaae813d3708d8"
+    },
+    {
+      "path": "screenshots/distributor-fit/original/desktop-original-compare.png",
+      "sha256": "be9c08b66dedf2f58bf1dfe6e0085b5ebcf5299275c706382b8b2d8f4dcabdec"
+    },
+    {
+      "path": "screenshots/distributor-fit/original/max-original-compare.png",
+      "sha256": "ee07b6413dd9f8fe1a38e57a729c45363292e9b6ee0d023dfd9518853d0cdddc"
+    },
+    {
+      "path": "screenshots/distributor-fit/original/pro-original-compare.png",
+      "sha256": "65674b3868f443214b2d3d5afebf44b11d9e3e084ea8f83141da9c996581905d"
+    },
+    {
+      "path": "screenshots/info-dialogs/pro3/iphone-17-pro-webkit-ar-unavailable-commerce.png",
+      "sha256": "7aaa69c14b1831d0a0becadd443b3cf4b43fdd99383f180cdb74ecbba3c78383"
+    },
+    {
+      "path": "screenshots/info-dialogs/pro3/iphone-17-pro-webkit-ar-unavailable-compare.png",
+      "sha256": "7ac2a9ca7c43e70a79974d4418325483ea5c43f4f13dbe6a0813332a6155dd42"
+    },
+    {
+      "path": "screenshots/info-dialogs/pro3/iphone-17-pro-webkit-locale-rtl.json",
+      "sha256": "0678fe22c51276f0cc2b3c00b21b992bc933c91bd4070aaeb7aa957b95b98d5e"
+    },
+    {
+      "path": "screenshots/info-dialogs/pro3/iphone-17-pro-webkit-unavailable-commerce-initial.png",
+      "sha256": "6c0ab6f9c275b3cd584fd4bbd008d7d8fc0c2316028f566b588211be2bd2e85b"
+    },
+    {
+      "path": "screenshots/info-dialogs/pro3/iphone-17-pro-webkit-unavailable-commerce-keyboard-scroll.png",
+      "sha256": "a684424911370a6c05c8c27a6b36df706d93bcbb0c527648421233a7eac74be1"
+    },
+    {
+      "path": "screenshots/info-dialogs/pro3/iphone-17-pro-webkit-unavailable-compare-initial.png",
+      "sha256": "a8907be992430fc7b68524e6f5eae6e2a61152abf257139674adf6719d9ebde2"
+    },
+    {
+      "path": "screenshots/info-dialogs/pro3/iphone-17-pro-webkit-unavailable-compare-keyboard-scroll.png",
+      "sha256": "850fb436221fe139fcfcaf8a04f31a1ab7522d70b10a1147432fc427ae90c5ca"
+    },
+    {
+      "path": "screenshots/info-dialogs/pro3/iphone-17-pro-webkit.json",
+      "sha256": "b1e5f7137fd4576e2556c2c034a922d928fb8cd039619f91237cb726223b76fc"
+    },
+    {
+      "path": "screenshots/info-dialogs/max1/iphone-17-pro-max-webkit-unavailable-commerce-initial.png",
+      "sha256": "507023f15ce2b1a32410b2a0c643f482d367c745897d993676f8a1498a039a59"
+    },
+    {
+      "path": "screenshots/info-dialogs/max1/iphone-17-pro-max-webkit-unavailable-commerce-keyboard-scroll.png",
+      "sha256": "4676cf64520ff02acdf8403d81ea5fe3ba98d64b366d977196c0d161cf924454"
+    },
+    {
+      "path": "screenshots/info-dialogs/max1/iphone-17-pro-max-webkit-unavailable-compare-initial.png",
+      "sha256": "6e4cb24c569fa22e6932d716f1c531e9ef9818bfa76cab5c857e902b62d1d1dc"
+    },
+    {
+      "path": "screenshots/info-dialogs/max1/iphone-17-pro-max-webkit-unavailable-compare-keyboard-scroll.png",
+      "sha256": "dadde6e28deff3966829162e830f451287b4f809d8a63eaf38d54143bb062cb3"
+    },
+    {
+      "path": "screenshots/info-dialogs/max1/iphone-17-pro-max-webkit.json",
+      "sha256": "b1e5f7137fd4576e2556c2c034a922d928fb8cd039619f91237cb726223b76fc"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/1440x900-unavailable-commerce.png",
+      "sha256": "bad7afdf8a16e44f05fde2745ff95a3af06152d703f28654c3aff330ec099d65"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/1440x900-unavailable-compare.png",
+      "sha256": "0b7679fad2f2901d5f8f46da384502336385cb3d46e65c577973b64e22cedc47"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/1440x900-unavailable-set.png",
+      "sha256": "a44cda3af461c68dae68b454ef5001a851146fc253c015803d9d86b9fe4a7967"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/320x568-unavailable-commerce.png",
+      "sha256": "c994fd1c3f2f8c630cfe4eae2e12ff716f0e4e22071d99358eee844099be9514"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/320x568-unavailable-compare.png",
+      "sha256": "fbf3a41284562a41242be79bb464b86b5d0c62524a2e7a2bd947e0a634be1ff8"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/320x568-unavailable-set.png",
+      "sha256": "4b81fb80ef52a96a26b96b0edcfb7ff8b43db1096aa0bf24f7975d979a1e3a59"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/402x300-unavailable-commerce.png",
+      "sha256": "1762fd8a0862cbca9897a4c175eaee1a155a64f4ff2108dff5c0d32c119e0438"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/402x300-unavailable-compare.png",
+      "sha256": "8454d80a6e58e8f2fb76d9904aadb3b1e36bbb395f5daf9d8be8be542fe88a86"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/402x300-unavailable-set.png",
+      "sha256": "59a456766ddd0327e5d02a0356788cdbca89ab62a4db33b30bfcde4b7b6cf69b"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/768x1024-unavailable-commerce.png",
+      "sha256": "1c93aa4b1b362b57007018f5b999b4da7ff1a3df57a507146b4b0ceb3659ac7c"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/768x1024-unavailable-compare.png",
+      "sha256": "c61dd06ffc5b160893e390abd4cc2a08423528a7956e23d0b4e15eb8e0c638a3"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/768x1024-unavailable-set.png",
+      "sha256": "c1f65f9d17735e9b6b7bcf0b381fdba1cfb097e65601f83c22f5fc1d999cd0ed"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/874x402-unavailable-commerce.png",
+      "sha256": "2fd2d894777fa341a8f625fc9db0a3da71726537b0c6bc6a9cdc50fc61487fee"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/874x402-unavailable-compare.png",
+      "sha256": "41abe2356a2d92c71f63e5a52b87cd4155704493901fe6ee06bfa510210a243e"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/874x402-unavailable-set.png",
+      "sha256": "4828919e8a668713d46a7ee91b28b932e51d3b06235d89291f9a34e1f481b157"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/adaptation.json",
+      "sha256": "e9867c24fa9a6afd167835c3ec2110e8e4df8c7b62c56fc55c3fbc7c4f640198"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/desktop-chromium-unavailable-commerce-initial.png",
+      "sha256": "3868110a3e32a1465f9fb4bdbc22b5e5e9b496c45191301d7a9f9dc0ca9151bb"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/desktop-chromium-unavailable-commerce-keyboard-scroll.png",
+      "sha256": "a4c4421c95b6b044900e4d89de48e83f2abd373b33271f416df947af447645e0"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/desktop-chromium-unavailable-compare-initial.png",
+      "sha256": "d4ae1cfa77fa69e27e5c4e8e4a0ab896937850c238a46c22e070348947477c65"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/desktop-chromium-unavailable-compare-keyboard-scroll.png",
+      "sha256": "0b7679fad2f2901d5f8f46da384502336385cb3d46e65c577973b64e22cedc47"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1/desktop-chromium.json",
+      "sha256": "b1e5f7137fd4576e2556c2c034a922d928fb8cd039619f91237cb726223b76fc"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome-locale1/desktop-chromium-ar-unavailable-commerce.png",
+      "sha256": "90e0670a289c267f1a5bf1167436b048f511882788842af5daf9f6c871b69ff8"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome-locale1/desktop-chromium-ar-unavailable-compare.png",
+      "sha256": "da5b65b1d985677f96f893efeabab98a65a6eb69a44e0d009f46f2e001e5224d"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome-locale1/desktop-chromium-locale-rtl.json",
+      "sha256": "0678fe22c51276f0cc2b3c00b21b992bc933c91bd4070aaeb7aa957b95b98d5e"
+    },
+    {
+      "path": "screenshots/info-dialogs/integration/integration.json",
+      "sha256": "76477dfdc8097ea6cb321fe28e5678f76c3ff4c98da6f33e161137ec4621cb94"
+    },
+    {
+      "path": "screenshots/info-dialogs/integration/max-assembled-0.png",
+      "sha256": "eaacb159d323ee7c10bc78fc3d5bea1b6ebc2f89e8ddbe22ee8b092f819fbde2"
+    },
+    {
+      "path": "screenshots/info-dialogs/integration/max-assembled-12.png",
+      "sha256": "73d9ec0ab9a5b029014faf377e83dc3b45afd005d95f4310a23306b0dc6c77ce"
+    },
+    {
+      "path": "screenshots/info-dialogs/integration/max-assembled-17.png",
+      "sha256": "352432a7ea2e1c260c5fa5aa70b94cd50b78a88c25cef1dec03d2becd3cff0d4"
+    },
+    {
+      "path": "screenshots/info-dialogs/integration/max-assembled-6.png",
+      "sha256": "33c6bfb343a5eb7c7d715b812c7189597b92a519947929e499ba77f2670195ce"
+    },
+    {
+      "path": "screenshots/info-dialogs/integration/max-footer.png",
+      "sha256": "352432a7ea2e1c260c5fa5aa70b94cd50b78a88c25cef1dec03d2becd3cff0d4"
+    },
+    {
+      "path": "screenshots/info-dialogs/integration/pro-assembled-0.png",
+      "sha256": "410c5a925a5e8ed7693dda64813c4608dca5699bb82635a63b9469b17d8f98e5"
+    },
+    {
+      "path": "screenshots/info-dialogs/integration/pro-assembled-12.png",
+      "sha256": "2fcc4362c015159c1f5f9de39917c4ad341948de7694cdad6518e9ec410ffbe4"
+    },
+    {
+      "path": "screenshots/info-dialogs/integration/pro-assembled-17.png",
+      "sha256": "74518037019016b36108f84b14d85a29a5361b4e1691e1a136652894e6f33045"
+    },
+    {
+      "path": "screenshots/info-dialogs/integration/pro-assembled-6.png",
+      "sha256": "65a0ac4c772a929085a278910921e29168a8ec9a172e612ea1eacead06f9953e"
+    },
+    {
+      "path": "screenshots/info-dialogs/integration/pro-footer.png",
+      "sha256": "74518037019016b36108f84b14d85a29a5361b4e1691e1a136652894e6f33045"
+    },
+    {
+      "path": "screenshots/distributor-fit/final1.log",
+      "sha256": "4b978efdf4366d03168d958659e4ba2ee7bcfb0e7b7f728d4221e726b3a4f8b7"
+    },
+    {
+      "path": "screenshots/distributor-fit/original.log",
+      "sha256": "70bc9215b210e41906436f39ae7f8c9c4ba8f70da815f0e598fd1b092614191b"
+    },
+    {
+      "path": "screenshots/distributor-fit/original-compare.json",
+      "sha256": "caa3fe524c9238e465ac44f16e4d108c3ca73b654b5dcf6a33c85d384bf7b9a1"
+    },
+    {
+      "path": "screenshots/info-dialogs/pro3.log",
+      "sha256": "cbae27af0f94c909cd073cb656659c3cf7e7a83e2b453fe8189d559b5ac5eae1"
+    },
+    {
+      "path": "screenshots/info-dialogs/max1.log",
+      "sha256": "775e48530e473f392794130a5ad982e9cd59201b24690bc60a6658af7469ebd4"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome1.log",
+      "sha256": "00ca030360dbf3453e2aa5a4d4496bdf3e14c406d76029d5a50dc3b6fb385d78"
+    },
+    {
+      "path": "screenshots/info-dialogs/chrome-locale1.log",
+      "sha256": "c4347b2e32a4c45a5eb6cefb712bbb40c0a4af9e7ef1fd9b2f9f4fa6fedb47e5"
+    },
+    {
+      "path": "screenshots/info-dialogs/integration.log",
+      "sha256": "a3166ad72f5cecb30e2624c696c3c7197e2f4b96ef9ec0e24bcde5a39ddfbe38"
+    },
+    {
+      "path": "screenshots/info-dialogs/integration.mjs",
+      "sha256": "22d6bc58bee6ac207b13af5b5588625099ffc6b463352af0b4d3953f5aa44461"
+    },
+    {
+      "path": "screenshots/distributor-fit/original.mjs",
+      "sha256": "e31999597104387b3d7c26b70cf6b254e9d6d2c9ff8d076e62ae2f8ac41bc2b1"
+    },
+    {
+      "path": "screenshots/scroll-incident/orbit-info-close/performance.json",
+      "sha256": "99bcd847b650bbefe6ab086c3170f3828779b34669bd331212bc77cb009e925a"
+    }
+  ],
+  "checks": {
+    "orbit": "final1:6PASS all3profiles/noJS; actual glyph-alpha balanced clearance Pro~17px side/3.8px vertical Max~19/4.2; native701:401 retained",
+    "originalCompare": "3profiles sourceY14665/sourceW701/native ratio actualCompare open/Escape/focusPASS",
+    "infoPro": "pro3:2PASS1profile skip; actual originalhero initial and separate keyboardstate; all7, real11redirects and localArabic fixture",
+    "infoMax": "max1:1PASS2profile skips all7",
+    "infoChrome": "chrome1:5PASS 27.9s includes all7/five extra viewports and dependent site+sales originalcontrols; chrome-locale1:1PASS4.2s actual11redirects+localArabic7",
+    "integration": "18settledscrollpositions each Pro/Max after heroReserve->X; endGap0/errors0; actualassembledcaptures viewed",
+    "static": "types3/lint3/build3 all exit0; 18prepared packages11SSG",
+    "nativeReview": "native-review3 CLEAN exact five-file snapshot. Reviewer browser blocked read-only sandbox; actual browser QA above. Review2 P2 fixed dependent focus test and affected check rerunPASS."
+  },
+  "technicalApproval": [
+    {
+      "date": "2026-11-03",
+      "verifier": "/root",
+      "result": "LOCAL_WEB_PASS",
+      "evidence": "Actual Pro then Max screenshots and responsive/RTL/native interaction checks inspected; scoped static/build/native review and measured production performance complete."
+    },
+    {
+      "date": "2026-11-03",
+      "verifier": "/root/pub_audit",
+      "result": "Gate3+4+5 PASS_LOCAL 2026-11-03; Stage6 pending"
+    },
+    {
+      "date": "2026-11-03",
+      "verifier": "/root/pub_audit",
+      "result": "Stage6 PASS_LOCAL_PREPUSH; exact20staged/source5/artifact80 bindings and scoped ownership checked, record-only historicalpending correction reaudited."
+    }
+  ],
+  "limits": [
+    "Physical iPhone/Android not tested",
+    "Arabic is retained local generated SSG fixture; public locale policy redirects to English",
+    "No finished updated render supplied: user defect screenshot plus measured glyph fit, no exact-new-render pixel claim",
+    "Full lint unrelated CHG0181 remains known37errors23warnings; scoped lintPASS",
+    "CHG0198 OPEN_PRIVACY_METADATA: earlier runtime identifiers in tool output cannot be removed; no credential observed in that line. Actual agent privacy behaviorFAIL, controlledevalNOT_RUN."
+  ],
+  "history": [
+    "Initial localserver sandbox bindEPERM recovered scoped escalation; initial connection failure noPASS",
+    "InfoPro1 genericfirstcommerce initial and postkeyboardcapture not accepted originalhero pointerappearance; explicithero +separatecaptures added",
+    "NativeReview2 found countdependent Site focus assertion; corrected native body sentinel/backgroundinert test and reran",
+    "Chrome1 grep omitted locale test; separate exact locale run PASS"
+  ]
+}

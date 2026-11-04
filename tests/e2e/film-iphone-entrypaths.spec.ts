@@ -25,7 +25,7 @@ async function seek(page: Page, time: number) {
   await page.locator('video').evaluate((v: HTMLVideoElement, t) => { v.pause(); v.currentTime = t; }, time);
   await expect.poll(() => page.locator('video').evaluate((v: HTMLVideoElement) => !v.seeking && v.readyState >= 2 && v.videoWidth > 0), { timeout: 30000 }).toBe(true);
 }
-async function open(page: Page, index = 3, query = '') {
+async function open(page: Page, index = 3, query = '?iphonePlayer=window') {
   await page.goto(`/en${query}`);
   await page.locator('#film-play').scrollIntoViewIfNeeded(); await page.locator('#film-play').click();
   await page.locator('.film-gallery__item').nth(index).click(); await page.locator('.film-gallery__hero').click();
@@ -141,7 +141,7 @@ test('all seven films keep decoded playback and own controls across both origina
 });
 
 for (const url of [false, true]) test(`explicit native ${url ? 'URL' : 'menu'} remains reversible and rotation never interrupts it`, async ({ page }, info) => {
-  await open(page, 2, url ? '?iphonePlayer=native' : ''); await seek(page, 10); const before = await identity(page);
+  await open(page, 2, url ? '?iphonePlayer=native' : '?iphonePlayer=window'); await seek(page, 10); const before = await identity(page);
   if (url) await full(page).click();
   else { await full(page).click(); await menu(page); await page.locator('.film-menu-native').click(); }
   expect((await native(page)).enters).toBe(1); await windowMode(page, false);

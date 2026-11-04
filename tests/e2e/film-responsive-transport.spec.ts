@@ -14,7 +14,7 @@ for (const locale of ['en', 'ar'] as const) {
     const max = info.project.name.includes('max');
     const portrait = max ? { width: 440, height: 956 } : { width: 402, height: 874 };
     const landscape = { width: portrait.height, height: portrait.width };
-    await page.goto(`/${locale}`);
+    await page.goto(`/${locale}?iphonePlayer=window`);
     test.skip(locale === 'ar' && new URL(page.url()).pathname === '/en', 'Arabic runtime disabled by English-only presentation');
     await page.locator('#film-play').scrollIntoViewIfNeeded();
     await page.waitForTimeout(1500); // Let the lazily hydrated gallery attach its click handler.
@@ -70,7 +70,7 @@ for (const locale of ['en', 'ar'] as const) {
 test('desktop transport follows actual frame width across compact, tablet and wide screens', async ({ page }, info) => {
   test.skip(info.project.name !== 'desktop-chromium', 'Actual standard fullscreen in Chromium');
   await silenceTestMedia(page);
-  await page.goto('/en');
+  await page.goto('/en?iphonePlayer=window');
   await page.waitForFunction(() => document.documentElement.hasAttribute('data-media-hydrated'));
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click();
@@ -105,7 +105,7 @@ test('reported Evolution frame fills the landscape player with a single transpor
   const viewport = info.project.name.includes('max') ? { width: 956, height: 440 } : { width: 874, height: 402 };
   await silenceTestMedia(page);
   await page.setViewportSize(viewport);
-  await page.goto('/en');
+  await page.goto('/en?iphonePlayer=window');
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click();
   await page.locator('.film-gallery__item').nth(2).click();

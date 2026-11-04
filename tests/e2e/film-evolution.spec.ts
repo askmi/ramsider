@@ -8,7 +8,7 @@ test.use({serviceWorkers:'block'});
 test.setTimeout(120000);
 test.beforeEach(async({page},info)=>{await silenceTestMedia(page);if(info.project.name.includes('iphone'))await emulateCustomFullscreenLayout(page);});
 async function open(page:Page,locale='en'){
- await page.goto('/'+locale);await page.locator('#film-play').scrollIntoViewIfNeeded();await page.locator('#film-play').click();await page.locator('.film-gallery__item').nth(2).click();await page.locator('.film-gallery__hero').click();
+ await page.goto('/'+locale+'?iphonePlayer=window');await page.locator('#film-play').scrollIntoViewIfNeeded();await page.locator('#film-play').click();await page.locator('.film-gallery__item').nth(2).click();await page.locator('.film-gallery__hero').click();
  await expect(page.locator('video')).toHaveAttribute('data-delivery','hls');await expect(page.locator('video')).toHaveAttribute('data-src','/films/evolution/und-v1/master.m3u8');
  await expect.poll(()=>page.locator('video').evaluate((v:HTMLVideoElement)=>v.currentTime),{timeout:20000}).toBeGreaterThan(.2);
  await expect(page.locator('#film-player')).toHaveAttribute('data-controls','ready',{timeout:20000});

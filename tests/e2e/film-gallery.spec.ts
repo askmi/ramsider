@@ -28,7 +28,7 @@ test('gallery posters, all seven films, controls and cleanup', async ({ page }, 
   const posterRequests: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   page.on('request', request => { if (request.url().includes('/art/films/')) posterRequests.push(request.url()); });
-  await page.goto('/en');
+  await page.goto('/en?iphonePlayer=window');
   await page.evaluate(() => document.fonts.ready);
   const viewport = page.viewportSize()!;
   if (info.project.name.includes('iphone')) expect(await page.evaluate(() => [innerWidth, devicePixelRatio])).toEqual([viewport.width, 3]);
@@ -100,7 +100,7 @@ test('gallery posters, all seven films, controls and cleanup', async ({ page }, 
 });
 
 test('film navigation, end choices and full-window gallery', async ({ page }, info) => {
-  await page.goto('/en');
+  await page.goto('/en?iphonePlayer=window');
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click();
   await page.locator('.film-gallery__hero').click();
@@ -168,7 +168,7 @@ test('landscape gallery and Arabic layout remain usable', async ({ page }, info)
   test.skip(info.project.name !== 'iphone-17-pro-webkit', 'One mobile WebKit owner for the adaptation matrix');
   await page.setViewportSize({ width: 874, height: 402 });
   for (const locale of ['en', 'ar']) {
-    await page.goto(`/${locale}`);
+    await page.goto(`/${locale}?iphonePlayer=window`);
     await page.locator('#film-play').scrollIntoViewIfNeeded();
     await page.locator('#film-play').click();
     const dialog = page.locator('#product-film');
@@ -193,7 +193,7 @@ test('narrow transport keeps full touch targets and seek usable', async ({ page 
   test.skip(info.project.name !== 'iphone-17-pro-webkit', 'One WebKit owner for narrow-width target matrix');
   for (const width of [320, 375, 402, 440]) {
     await page.setViewportSize({ width, height: 874 });
-    await page.goto('/en');
+    await page.goto('/en?iphonePlayer=window');
     await page.locator('#film-play').scrollIntoViewIfNeeded();
     await page.locator('#film-play').click();
     await page.locator('.film-gallery__hero').click();
@@ -221,7 +221,7 @@ test('narrow transport keeps full touch targets and seek usable', async ({ page 
 
 test('last film ends without inventing a next film', async ({ page }, info) => {
   test.skip(info.project.name !== 'iphone-17-pro-webkit', 'One WebKit owner for the final item boundary');
-  await page.goto('/en');
+  await page.goto('/en?iphonePlayer=window');
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click();
   await page.locator('.film-gallery__item').nth(6).click();
@@ -241,7 +241,7 @@ test('last film ends without inventing a next film', async ({ page }, info) => {
 
 test('keyboard activates player actions with Space', async ({ page }, info) => {
   test.skip(info.project.name !== 'desktop-chromium', 'One keyboard owner');
-  await page.goto('/en');
+  await page.goto('/en?iphonePlayer=window');
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click();
   await page.locator('.film-gallery__hero').click();
@@ -267,7 +267,7 @@ test('keyboard activates player actions with Space', async ({ page }, info) => {
 test('wide short landscape preserves the entire selected poster', async ({ page }, info) => {
   test.skip(info.project.name !== 'desktop-chromium', 'One wide-viewport owner');
   await page.setViewportSize({ width: 1440, height: 400 });
-  await page.goto('/en');
+  await page.goto('/en?iphonePlayer=window');
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click();
   const img = page.locator('.film-gallery__hero img');

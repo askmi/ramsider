@@ -14,7 +14,7 @@ async function closePlayer(page: Page) {
 }
 
 async function start(page: Page, locale: 'en' | 'ar') {
-  await page.goto(`/${locale}`);
+  await page.goto(`/${locale}?iphonePlayer=window`);
   test.skip(locale === 'ar' && new URL(page.url()).pathname === '/en', 'Arabic runtime disabled by English-only presentation');
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click();

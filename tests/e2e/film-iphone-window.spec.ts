@@ -10,7 +10,7 @@ test.beforeEach(async({page},info)=>{
  test.skip(!info.project.name.includes('iphone'),'Actual iPhone WebKit web layer; native API calls below are explicitly adapters');
  await silenceTestMedia(page);await mkdir(out,{recursive:true});
 });
-async function open(page:Page,locale='en',query=''){
+async function open(page:Page,locale='en',query='?iphonePlayer=window'){
  await page.goto(`/${locale}${query}`);await page.locator('#film-play').scrollIntoViewIfNeeded();await page.locator('#film-play').click();await page.locator('.film-gallery__item').nth(2).click();await page.locator('.film-gallery__hero').click();
  await expect(page.locator('#film-player')).toHaveAttribute('data-controls','ready');
  await expect.poll(()=>page.locator('video').evaluate((v:HTMLVideoElement)=>v.currentTime),{timeout:30000}).toBeGreaterThan(.2);
@@ -66,7 +66,7 @@ test('original fullscreen fills actual iPhone viewport and Evolution aperture th
 });
 
 for(const urlOverride of[false,true])test(`native fallback ${urlOverride?'URL':'live settings'} keeps source/time and existing Apple lifecycle`,async({page},info)=>{
- await open(page,'en',urlOverride?'?iphonePlayer=native':'');await seek(page,10);await nativeAdapter(page);
+ await open(page,'en',urlOverride?'?iphonePlayer=native':'?iphonePlayer=window');await seek(page,10);await nativeAdapter(page);
  const before=await page.locator('video').evaluate((v:HTMLVideoElement)=>({src:v.currentSrc,time:v.currentTime}));
  if(!urlOverride){await page.locator('.film-fullscreen').click();await page.locator('.film-options__trigger').click();await expect(page.locator('.film-menu-native')).toBeVisible();await settleMenu(page);await page.screenshot({path:`${out}/${info.project.name}-native-menu.png`});await page.locator('.film-menu-native').click();}else await page.locator('.film-fullscreen').click();
  expect((await nativeState(page)).enters).toBe(1);await expect(page.locator('#film-player')).not.toHaveAttribute('data-full-window');await expect(page.locator('#product-film')).not.toHaveAttribute('data-film-expanded');await expect(page.locator('.film-fullscreen')).toHaveAttribute('aria-pressed','true');

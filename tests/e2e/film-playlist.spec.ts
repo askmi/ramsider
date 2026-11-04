@@ -10,7 +10,11 @@ test.setTimeout(120000);
 test('playlist preserves playback and presentation; selection requires a second activation', async ({ page }, info) => {
   test.skip(!info.project.name.includes('iphone'), 'Mobile WebKit profiles');
   for (const locale of ['en', 'ar']) {
-    await page.goto(`/${locale}`);
+    await page.goto(`/${locale}?iphonePlayer=window`);
+    if (locale === 'ar' && new URL(page.url()).pathname === '/en') {
+      test.info().annotations.push({ type: 'coverage', description: 'Arabic runtime disabled by English-only presentation; compiled eleven-locale fixture covers RTL separately' });
+      continue;
+    }
     await page.locator('#film-play').scrollIntoViewIfNeeded();
     await page.locator('#film-play').click();
     await page.locator('.film-gallery__hero').click();
@@ -100,7 +104,7 @@ test('ended state has only an actionable replay button across orientations', asy
   const max = info.project.name.includes('max');
   for (const viewport of [max ? { width: 440, height: 956 } : { width: 402, height: 874 }, max ? { width: 956, height: 440 } : { width: 874, height: 402 }]) {
     await page.setViewportSize(viewport);
-    await page.goto('/en');
+    await page.goto('/en?iphonePlayer=window');
     await page.locator('#film-play').scrollIntoViewIfNeeded();
     await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
     const video = page.locator('video'), host = page.locator('#film-player');
@@ -130,7 +134,7 @@ test('ended state has only an actionable replay button across orientations', asy
 
 test('desktop playlist and ended replay remain clickable in fullscreen', async ({ page }, info) => {
   test.skip(info.project.name !== 'desktop-chromium', 'Desktop Chromium owner');
-  await page.goto('/en'); await page.locator('#film-play').scrollIntoViewIfNeeded();
+  await page.goto('/en?iphonePlayer=window'); await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   const video = page.locator('video'), host = page.locator('#film-player');
   await expect(host).toHaveAttribute('data-controls', 'ready');
@@ -153,7 +157,7 @@ test('playlist remains inside short players and the seventh item is reachable', 
   test.skip(info.project.name !== 'desktop-chromium', 'Short-viewport Chromium owner');
   for (const viewport of [{ width: 510, height: 900 }, { width: 320, height: 240 }, { width: 640, height: 260 }]) {
     await page.setViewportSize(viewport);
-    await page.goto('/en'); await page.locator('#film-play').scrollIntoViewIfNeeded();
+    await page.goto('/en?iphonePlayer=window'); await page.locator('#film-play').scrollIntoViewIfNeeded();
     await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
     const host = page.locator('#film-player');
     await expect(host).toHaveAttribute('data-controls', 'ready');
@@ -181,7 +185,7 @@ test('playlist remains inside short players and the seventh item is reachable', 
 
 test('current playlist item recovers a terminal source error', async ({ page }, info) => {
   test.skip(info.project.name !== 'iphone-17-pro-webkit', 'Native WebKit recovery owner');
-  await page.goto('/en'); await page.locator('#film-play').scrollIntoViewIfNeeded();
+  await page.goto('/en?iphonePlayer=window'); await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   const video = page.locator('video'), host = page.locator('#film-player');
   await expect(host).toHaveAttribute('data-controls', 'ready');
@@ -202,7 +206,7 @@ test('current playlist item recovers a terminal source error', async ({ page }, 
 
 test('replaying the current film cancels a pending native quality position restore', async ({ page }, info) => {
   test.skip(info.project.name !== 'iphone-17-pro-webkit', 'Native WebKit quality-switch owner');
-  await page.goto('/en'); await page.locator('#film-play').scrollIntoViewIfNeeded();
+  await page.goto('/en?iphonePlayer=window'); await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   const video = page.locator('video'), host = page.locator('#film-player');
   await expect(host).toHaveAttribute('data-controls', 'ready');

@@ -36,7 +36,7 @@ async function revealClose(page: Page, touch: boolean) {
   await page.locator('.film-player__close').click();
 }
 async function visit(page: Page, locale = 'en') {
-  await page.goto(`/${locale}`);
+  await page.goto(`/${locale}?iphonePlayer=window`);
   await page.waitForFunction(() => document.documentElement.hasAttribute('data-media-hydrated'));
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   expect(await page.locator('video').evaluate(v => { const m = v as HTMLVideoElement; return m.muted && m.volume === 0; })).toBe(true);
@@ -259,7 +259,7 @@ test('failed optional UI upgrade keeps the same native video usable', async ({ p
     const define = customElements.define.bind(customElements);
     customElements.define = (name, constructor, options) => { if (name === 'media-controller') throw Error('QA optional controls unavailable'); return define(name, constructor, options); };
   });
-  await page.goto('/en'); await page.waitForFunction(() => document.documentElement.hasAttribute('data-media-hydrated'));
+  await page.goto('/en?iphonePlayer=window'); await page.waitForFunction(() => document.documentElement.hasAttribute('data-media-hydrated'));
   await page.locator('#film-play').scrollIntoViewIfNeeded(); await page.locator('video').evaluate(v => { (window as unknown as { originalFilm: Element }).originalFilm = v; });
   expect(await page.locator('video').evaluate(v => { const m = v as HTMLVideoElement; return m.muted && m.volume === 0; })).toBe(true);
   await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
@@ -343,7 +343,7 @@ test('partially constructed optional widgets retain native controls and disabled
     const define = customElements.define.bind(customElements);
     customElements.define = (name, constructor, options) => define(name, name === 'media-play-button' ? class extends HTMLElement {} : constructor, options);
   });
-  await page.goto('/en'); await page.waitForFunction(() => document.documentElement.hasAttribute('data-media-hydrated'));
+  await page.goto('/en?iphonePlayer=window'); await page.waitForFunction(() => document.documentElement.hasAttribute('data-media-hydrated'));
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('video').evaluate(v => { (window as unknown as { originalFilm: Element }).originalFilm = v; });
   expect(await page.locator('video').evaluate(v => { const m = v as HTMLVideoElement; return m.muted && m.volume === 0; })).toBe(true);

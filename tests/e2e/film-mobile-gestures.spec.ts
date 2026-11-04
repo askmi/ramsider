@@ -32,7 +32,7 @@ async function swipe(video: Locator, dx: number, dy = 0, cancel = false) {
 
 test('picture touch toggles once and horizontal swipe seeks without affecting controls', async ({ page }, info) => {
   test.skip(!info.project.name.includes('iphone'), 'Mobile WebKit profiles exercise touchscreen');
-  await page.goto('/en');
+  await page.goto('/en?iphonePlayer=window');
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click();
   await page.locator('.film-gallery__hero').click();
@@ -73,7 +73,7 @@ test('picture touch toggles once and horizontal swipe seeks without affecting co
 
 test('aborted and stale touch play rejections do not mask a genuine playback error', async ({ page }, info) => {
   test.skip(!info.project.name.includes('iphone'), 'Mobile WebKit touch owners');
-  await page.goto('/en');
+  await page.goto('/en?iphonePlayer=window');
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click();
   await page.locator('.film-gallery__hero').click();
@@ -115,7 +115,7 @@ test('aborted and stale touch play rejections do not mask a genuine playback err
 
 test('tap after terminal source failure preserves the Retry action', async ({ page }, info) => {
   test.skip(!info.project.name.includes('iphone'), 'Mobile WebKit touch owners');
-  await page.goto('/en');
+  await page.goto('/en?iphonePlayer=window');
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click();
   await page.locator('.film-gallery__hero').click();

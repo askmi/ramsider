@@ -14,7 +14,7 @@ async function seek(page:Page,time:number){
 async function pixel(page:Page,x:number,y:number){const data=await sharp(await page.screenshot({clip:{x:Math.floor(x),y:Math.floor(y),width:2,height:2},scale:'css'})).removeAlpha().raw().toBuffer();return [...data.subarray(0,3)];}
 test('playlist stays translucent black over actual white and dark decoded video',async({page},info)=>{
  await silenceTestMedia(page);if(info.project.name.includes('iphone'))await emulateCustomFullscreenLayout(page);
- await mkdir('screenshots/video/startup-fix',{recursive:true});await page.goto('/en');await page.locator('#film-play').scrollIntoViewIfNeeded();await page.locator('#film-play').click();await page.locator('.film-gallery__hero').click();await expect(page.locator('#film-player')).toHaveAttribute('data-controls','ready',{timeout:20000});
+ await mkdir('screenshots/video/startup-fix',{recursive:true});await page.goto('/en?iphonePlayer=window');await page.locator('#film-play').scrollIntoViewIfNeeded();await page.locator('#film-play').click();await page.locator('.film-gallery__hero').click();await expect(page.locator('#film-player')).toHaveAttribute('data-controls','ready',{timeout:20000});
  await expect.poll(()=>page.locator('video').evaluate((v:HTMLVideoElement)=>v.currentTime),{timeout:20000}).toBeGreaterThan(.2);
  for(const fullscreen of[false,true]){if(fullscreen)await page.locator('.film-fullscreen').click();
  for(const [name,time]of[['white',56],['dark',7]]as const){await seek(page,time);const host=(await page.locator('#film-player').boundingBox())!;const video=(await page.locator('video').boundingBox())!;const x=host.x+host.width-8,y=video.y+video.height*.55;

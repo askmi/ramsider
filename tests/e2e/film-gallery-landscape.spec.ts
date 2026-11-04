@@ -13,7 +13,7 @@ test('landscape playing and ended compositions in normal and fullscreen', async 
   const max = info.project.name === 'iphone-17-pro-max-webkit';
   const label = max ? 'max' : 'pro';
   await page.setViewportSize(max ? { width: 956, height: 440 } : { width: 874, height: 402 });
-  await page.goto('/en');
+  await page.goto('/en?iphonePlayer=window');
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click();
   await page.locator('.film-gallery__hero').click();

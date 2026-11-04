@@ -1,0 +1,393 @@
+{
+  "changes": [
+    "CHG0186",
+    "CHG0199"
+  ],
+  "date": "2026-11-04",
+  "status": "VERIFIED_LOCAL_ROUTING_PHYSICAL_BLOCKED_PUBLICATION_PENDING",
+  "scope": "Exact supplied patch1603279 against45a7110: native default on iPhone; no FilmControls/CSS/media changes. Native Apple controls explicitly authorized by current owner; older custom-only decision superseded.",
+  "authority": "Current explicit user message mandating attached patch; recovered chat title Добавить полноэкранный плеер для iOS contains main deployment authorization. Result acceptance NOT_RECORDED.",
+  "rotation": "Default native preserves existing ?native semantics: no window auto-entry; inline rotation responsive; Apple fullscreen orientation OS-owned. Explicit ?window retains its auto-rotation. No new automatic native rotation requested or claimed.",
+  "patchSha256": "dfae2d10362e7f65e6befb1f8d40fb2d985a9a492ff5b451409bca3787a5a9b2",
+  "checks": {
+    "build": "PASS production;18 film packages verified,11localeSSG",
+    "typecheck": "PASS delivery rerun",
+    "scopedLint": "PASS delivery rerun0errors",
+    "nativeDefaultPro": "5PASS14.2s;402x874DPR3",
+    "nativeDefaultMax": "5PASS11.9s;440x956DPR3",
+    "windowRegression": "32PASS2explicitprofileSKIP2.6m, bothmobileprofiles/all7originalfilms/rotation/PiP/safeareas/quality/replay",
+    "desktopRegression": "16PASS1profileSKIP43.9s native lifecycle/late-entry/error/realprefixed/AndroididentityelementFullscreen",
+    "projectRegression": "5PASS5profileSKIP2FAIL(initial stale locale route+desktoppointerClose afterFSexit); both failures preserved",
+    "localeCorrection": "1PASS14s all11compiledlocale fixtures+Arabic RTL, queryless matcher retained",
+    "adaptationCorrection": "1PASS21.4s 320/402short/768/874landscape/1440 threeprojectgroups using Escape teardown; pointerClose covered separately",
+    "dependentCustomWindowFixtures": "8PASS2FAIL(initial landscape idleprecondition); corrected letterbox4PASS25.9s. Gallerynavigation2PASS; playlist initial2FAIL inactiveArabicredirect, corrected2PASS15.3s with explicitinactiveannotation.",
+    "nativeReview": {
+      "command": "codex review (scoped actual uncommitted runtime/test diff; static only)",
+      "verdict": "No actionable regressions found in the scoped uncommitted diff, including the new native-default tests. The playlist loop retains English assertions and annotates/bypasses Arabic only after an actual redirect to /en. Review was static; no browsers, agents, or edits were used.",
+      "sourceBindings": [
+        {
+          "path": "lib/film-presentation.ts",
+          "sha256": "230e7183962e7da4168011027b5223c8fa5e4636a45397003cf25fea206fdcbc"
+        },
+        {
+          "path": "tests/e2e/film-controls-visibility.spec.ts",
+          "sha256": "a7b37c744ce190c688b841a47bdf68baccc59fdc5dbbe2b1960283900aead53b"
+        },
+        {
+          "path": "tests/e2e/film-evolution.spec.ts",
+          "sha256": "d86210d5e82f63fc05363f03c513141357d8049753f0343dfb11418745b3841c"
+        },
+        {
+          "path": "tests/e2e/film-gallery-landscape.spec.ts",
+          "sha256": "1ba3a84d22fcb0722c05a77024b0ec8739abf5c298dbc895ceb4a38e76a429bb"
+        },
+        {
+          "path": "tests/e2e/film-gallery-menu.spec.ts",
+          "sha256": "20499454361e5ebc9f4c1107aa3e1377035b7d1c603ef02641a4bdb00487f614"
+        },
+        {
+          "path": "tests/e2e/film-gallery.spec.ts",
+          "sha256": "9697b74d76b6dc0fd2cf49ae80f648ae5a4490acdc5f16e88f14d47cebf2925e"
+        },
+        {
+          "path": "tests/e2e/film-iphone-entrypaths.spec.ts",
+          "sha256": "cd91a40e7f14277f95c96a1b9138a46077f81dc280f1fca55750c1027beeb30c"
+        },
+        {
+          "path": "tests/e2e/film-iphone-window.spec.ts",
+          "sha256": "9ae397b2643bac9dbad559674d95d279b2fa1211b0efc5dea1150137a05401ca"
+        },
+        {
+          "path": "tests/e2e/film-letterbox.spec.ts",
+          "sha256": "1edda5cce0a88b6f34c8805b0299ab4a8b4ea3b5937f489985e2eb3cf63f6e3b"
+        },
+        {
+          "path": "tests/e2e/film-mobile-gestures.spec.ts",
+          "sha256": "adeabe702e44f57045f2398cd7591e28f897ec1bd6fa67c64577d61937b4cea2"
+        },
+        {
+          "path": "tests/e2e/film-mobile-layout.spec.ts",
+          "sha256": "a9a9fed59527ae425ee59e2b25d238a9ed6c25248be88866148a92e92dc39c56"
+        },
+        {
+          "path": "tests/e2e/film-options.spec.ts",
+          "sha256": "0937f17016f2a0df8a26a28c1ba526beac58defbfd3e4a253a7962c3027525e1"
+        },
+        {
+          "path": "tests/e2e/film-playlist-black.spec.ts",
+          "sha256": "e5351c931cf0b5676024f9f5db4253f4955fe3ab946477c0e173ce907d9a4294"
+        },
+        {
+          "path": "tests/e2e/film-playlist-layout.spec.ts",
+          "sha256": "3ca18a1485dd44f469f0f4b843115e33577279c1036bd44d8adcd793737196aa"
+        },
+        {
+          "path": "tests/e2e/film-playlist.spec.ts",
+          "sha256": "a7752c78f685786c8224f228b11688c54dd27428b5bd4989755d291d7e4057da"
+        },
+        {
+          "path": "tests/e2e/film-responsive-transport.spec.ts",
+          "sha256": "c5179e715811c5da1999845a5df94d30bb8ab7a5de599390d83587222e662818"
+        },
+        {
+          "path": "tests/e2e/film-theme.spec.ts",
+          "sha256": "1d42e1f1dfbba84bd99c8fea5d761313b35240238077dca092282c213d533ad9"
+        },
+        {
+          "path": "tests/e2e/film-wide-picture.spec.ts",
+          "sha256": "6bf4170e5481208af86930d694d2157c8d223b4a8913f56f069d2130becb3ad1"
+        },
+        {
+          "path": "tests/e2e/project-films.spec.ts",
+          "sha256": "9aff3efe0a420bb8fda21f92517b5056a9d54db251975e5b8886ca909c26d22d"
+        },
+        {
+          "path": "tests/e2e/project-groups.spec.ts",
+          "sha256": "7dddf65736c0b185fba1847da23897a8d2adff226eba0c39b761c0054bbe52ae"
+        },
+        {
+          "path": "tests/e2e/film-iphone-native-default.spec.ts",
+          "sha256": "e22d1eee80730fafa697bd4b5a95fc14f1bcc62952e77bbbe68cfb72b0f44e15"
+        }
+      ],
+      "exitCode": 0,
+      "sanitizedArtifact": "screenshots/video/iphone-native-default/local/native-review5-verdict.txt"
+    },
+    "visual": "Root+independent auditor actually viewed ProthenMax inline/returned images; page layout source unchanged. Gold video focus ring inherited from nativeEnd. No AppleUI/referencepixel-match claim.",
+    "physicalSafariChrome": "BLOCKED_NO_DEVICE; no AVKit/systembar/framing success inferred from API adapters",
+    "performance": {
+      "phase": "iphone-native-default-2026-11-04",
+      "conditions": "Single cold Chromium mobile402×874DPR3,4Mbps100ms,CPU4;8actualCDPtouchswipes. Not physical Safari/fieldINP/Lighthouse/causal latency proof.",
+      "initial": {
+        "ttfb": 13.799999952316284,
+        "fcp": 416,
+        "lcp": 1324,
+        "cls": 0.0009706117296485489,
+        "jsBytes": 336411,
+        "completedBytes": 3401763,
+        "filmObjects": 15,
+        "readyImages": 29
+      },
+      "scroll": {
+        "samples": 316,
+        "movingFrames": 229,
+        "startY": 0,
+        "endY": 10278,
+        "p95Ms": 32.80000019073486,
+        "over33Ms": 10,
+        "reverseFrames": 0,
+        "maxReverse": 0,
+        "cls": 0.0009706117296485489,
+        "longTasks": [
+          103,
+          53,
+          387,
+          51,
+          57,
+          98
+        ]
+      },
+      "errors": []
+    },
+    "integration": "ProthenMax18settledpositions/device,endGap0/errors0/nooverflow, actualfooterimages rootviewed; initial writer failure preserved, corrected integration2 diagnostic retains evidence.",
+    "exitCodes": {
+      "productionBuild": 0,
+      "deliveryTypecheckAndScopedLint": 0,
+      "nativeReview5": 0,
+      "playlistCorrected": 0,
+      "integration2": 0
+    }
+  },
+  "failures": [
+    "Initial local server EPERM/browserlaunch sandbox abort; explicit escalated reruns passed, no product conclusions from infrastructure failures.",
+    "Review1 root broad URL migration bypassed locale intercept; corrected queryless gallery fixture and actual11locale rerun.",
+    "Review2 root searched window attrs but missed element-only adapter consumers; migrated all applicable consumers, Chromium-only swipe unchanged.",
+    "Existing desktop adaptation close-click twice intercepted after fullscreen restoration; screenshot retained, current runtime desktop behavior unchanged; Escape teardown now tests native dialog cancellation, separate pointerClose coverage retained.",
+    "Legacy letterbox landscape inactivity check failed on bothprofiles before actual transport interaction; real pause/resume setup followed by edge taps4PASS.",
+    "Legacy playlist Arabic layout asserted against redirected English runtime; annotatedinactiveArabic iteration, preservedEnglish checks2PASS and separate11locale fixture.",
+    "Integration1 generic bottom failure retained; corrected final explicitbottomsettle+diagnostic integration2 ProMaxPASS."
+  ],
+  "sourceBindings": [
+    {
+      "path": "lib/film-presentation.ts",
+      "sha256": "230e7183962e7da4168011027b5223c8fa5e4636a45397003cf25fea206fdcbc"
+    },
+    {
+      "path": "tests/e2e/film-controls-visibility.spec.ts",
+      "sha256": "a7b37c744ce190c688b841a47bdf68baccc59fdc5dbbe2b1960283900aead53b"
+    },
+    {
+      "path": "tests/e2e/film-evolution.spec.ts",
+      "sha256": "d86210d5e82f63fc05363f03c513141357d8049753f0343dfb11418745b3841c"
+    },
+    {
+      "path": "tests/e2e/film-gallery-landscape.spec.ts",
+      "sha256": "1ba3a84d22fcb0722c05a77024b0ec8739abf5c298dbc895ceb4a38e76a429bb"
+    },
+    {
+      "path": "tests/e2e/film-gallery-menu.spec.ts",
+      "sha256": "20499454361e5ebc9f4c1107aa3e1377035b7d1c603ef02641a4bdb00487f614"
+    },
+    {
+      "path": "tests/e2e/film-gallery.spec.ts",
+      "sha256": "9697b74d76b6dc0fd2cf49ae80f648ae5a4490acdc5f16e88f14d47cebf2925e"
+    },
+    {
+      "path": "tests/e2e/film-iphone-entrypaths.spec.ts",
+      "sha256": "cd91a40e7f14277f95c96a1b9138a46077f81dc280f1fca55750c1027beeb30c"
+    },
+    {
+      "path": "tests/e2e/film-iphone-window.spec.ts",
+      "sha256": "9ae397b2643bac9dbad559674d95d279b2fa1211b0efc5dea1150137a05401ca"
+    },
+    {
+      "path": "tests/e2e/film-letterbox.spec.ts",
+      "sha256": "1edda5cce0a88b6f34c8805b0299ab4a8b4ea3b5937f489985e2eb3cf63f6e3b"
+    },
+    {
+      "path": "tests/e2e/film-mobile-gestures.spec.ts",
+      "sha256": "adeabe702e44f57045f2398cd7591e28f897ec1bd6fa67c64577d61937b4cea2"
+    },
+    {
+      "path": "tests/e2e/film-mobile-layout.spec.ts",
+      "sha256": "a9a9fed59527ae425ee59e2b25d238a9ed6c25248be88866148a92e92dc39c56"
+    },
+    {
+      "path": "tests/e2e/film-options.spec.ts",
+      "sha256": "0937f17016f2a0df8a26a28c1ba526beac58defbfd3e4a253a7962c3027525e1"
+    },
+    {
+      "path": "tests/e2e/film-playlist-black.spec.ts",
+      "sha256": "e5351c931cf0b5676024f9f5db4253f4955fe3ab946477c0e173ce907d9a4294"
+    },
+    {
+      "path": "tests/e2e/film-playlist-layout.spec.ts",
+      "sha256": "3ca18a1485dd44f469f0f4b843115e33577279c1036bd44d8adcd793737196aa"
+    },
+    {
+      "path": "tests/e2e/film-playlist.spec.ts",
+      "sha256": "a7752c78f685786c8224f228b11688c54dd27428b5bd4989755d291d7e4057da"
+    },
+    {
+      "path": "tests/e2e/film-responsive-transport.spec.ts",
+      "sha256": "c5179e715811c5da1999845a5df94d30bb8ab7a5de599390d83587222e662818"
+    },
+    {
+      "path": "tests/e2e/film-theme.spec.ts",
+      "sha256": "1d42e1f1dfbba84bd99c8fea5d761313b35240238077dca092282c213d533ad9"
+    },
+    {
+      "path": "tests/e2e/film-wide-picture.spec.ts",
+      "sha256": "6bf4170e5481208af86930d694d2157c8d223b4a8913f56f069d2130becb3ad1"
+    },
+    {
+      "path": "tests/e2e/project-films.spec.ts",
+      "sha256": "9aff3efe0a420bb8fda21f92517b5056a9d54db251975e5b8886ca909c26d22d"
+    },
+    {
+      "path": "tests/e2e/project-groups.spec.ts",
+      "sha256": "7dddf65736c0b185fba1847da23897a8d2adff226eba0c39b761c0054bbe52ae"
+    },
+    {
+      "path": "tests/e2e/film-iphone-native-default.spec.ts",
+      "sha256": "e22d1eee80730fafa697bd4b5a95fc14f1bcc62952e77bbbe68cfb72b0f44e15"
+    }
+  ],
+  "artifactBindings": [
+    {
+      "path": "screenshots/video/iphone-native-default/local/iphone-17-pro-webkit-inline.png",
+      "sha256": "62ae723aacbe621492975395770a8ac7e34b6d559e778ebffc040c3b45d81d62"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/iphone-17-pro-max-webkit-returned.png",
+      "sha256": "a62af28701f663bf2e2dafaf37c23d2afb886f94706de216df4d08bd97a97bd1"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/iphone-17-pro-webkit-returned.png",
+      "sha256": "805c2f74c17e20cb8f8edc29c3e3ada77707051ae0ed15c29939a20537b25c18"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/iphone-17-pro-max-webkit-inline.png",
+      "sha256": "182447d3cf75f2ddbac923d0dfa3bef6b58ffb5b102b844363a755fe366e142d"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/integration2/pro-footer.png",
+      "sha256": "74518037019016b36108f84b14d85a29a5361b4e1691e1a136652894e6f33045"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/integration2/max-footer.png",
+      "sha256": "352432a7ea2e1c260c5fa5aa70b94cd50b78a88c25cef1dec03d2becd3cff0d4"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/integration2/results.json",
+      "sha256": "599c1cf5067c58a9c5e531668866a7ece488ced17ed34ee8a6b5a7dcecfd1031"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/integration2/max-diagnostic.json",
+      "sha256": "2bca889dabf04fb30bb958e5256658776a074bdca02a5f5a31a92941037a2688"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/integration2/pro-diagnostic.json",
+      "sha256": "1e85f5e71ed37bd0bd1154544048644532bdf833e0d2664199955e3ae1226017"
+    },
+    {
+      "path": "screenshots/scroll-incident/iphone-native-default-2026-11-04/performance.json",
+      "sha256": "7684a208dd972b48072461eb9b80fde799c9a9d6b3a473394c0a1b8ac9cca4da"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/scoped-lint.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/integration2.log",
+      "sha256": "bd717874f5e92fe1e9af6abd44f3a8e687a449b8461c7ef57ade0fc7e33d84af"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/performance.log",
+      "sha256": "9bd583436b675aa3138a8762cdc2ad2921ea978a3175eb9d736ceab92a1b0bcd"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/fixtures3.log",
+      "sha256": "7466bb33de6f5edbdf9410ec23aab8d9e2754fb14423f94a7b23c23fe75e13c6"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/max-test.log",
+      "sha256": "de4dfc1bf7afaafc7b83fe4591658b06e56ed849e3199b8d9d05262f73678652"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/window-regression.log",
+      "sha256": "9601d39333cb463a73062c04bad1a72fa0f3d49ce90019a85b5d478e88dd9be7"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/playlists2.log",
+      "sha256": "caff0e3b41bd2d1db2c6ebdd0a79e3dd5668bf13de3e581d166fa6e901ea0957"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/adaptation3.log",
+      "sha256": "ec271c7074fecc045b280ac9a6683ab1e73c8938cdc0d322516217360b860653"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/desktop-regression.log",
+      "sha256": "4a31e1e34c46b70fdf70ba594e199d7ef13edc67a2d897d53209448a91b3e270"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/typecheck.log",
+      "sha256": "8fa1cf5506304e8abac55868e7f1a136c9b1dde57a3981a382da4c21ea129a6f"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/adaptation2.log",
+      "sha256": "059d83a885daa8b6ed5246626565f9293b4aa2a847f5b6e55613c15cad20890f"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/integration.log",
+      "sha256": "794c5c949cfb480716bae10952aa5691c0f5782f85b677cc793393de3c6e2d2f"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/project-regression.log",
+      "sha256": "18c6991ea30bc3e3a5453a9aeec99b47a7c8983bfb12d9817bd0e3c48c831477"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/playlists.log",
+      "sha256": "e406fba9d2785d3979a88a2e088c7159df63562cf75ad89880a60b1e89c0a586"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/pro-test2.log",
+      "sha256": "cd586ad291339ce60a32252a9c8643cbf6b1bb38ff35fb45a8bf619b39b43a04"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/letterbox4.log",
+      "sha256": "26ddc8322a1074e33ff8ad9d3e1516e4583aaf9b4e881d9da181665ae0efd853"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/locales2.log",
+      "sha256": "a56e9361be59c0c1adf498f3317bd97522c146a715e9d405339b68e09b09621c"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/build.log",
+      "sha256": "70dcf5350d78e6a8a65e4449b37394690c2aee4fb4714e2d009f4197eeaa8949"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/local/native-review5-verdict.txt",
+      "sha256": "70c4d84cd5cfda7892a026d95e76031ff8f0f56c1b2804ea0bfce4554dc52347"
+    }
+  ],
+  "technicalApproval": {
+    "date": "2026-11-04",
+    "verifier": "/root",
+    "independentAuditor": "/root/audit",
+    "scope": "PASS",
+    "implementation": "PASS",
+    "pageVisual": "PASS_WITH_LIMITS",
+    "behavior": "PASS_WEB_ROUTING_SCOPE",
+    "reviewPerformance": "PASS_LOCAL",
+    "physicalSafariChrome": "BLOCKED_NO_DEVICE",
+    "finalPrepush": "PASS_LOCAL_PREPUSH2026-11-04 /root/audit: exact26indexpaths/21source+29artifacts/4scopeddocsnapshots, cachedcheckclean, no rawreviewlogs/privateassets/unrelatedwork"
+  },
+  "publication": "AUTHORIZED/PENDING exactnewmainSHA/allrequiredGitHubdeploymenttargets/canonicaldynamicbundle+browserverification",
+  "remainingOpen": [
+    "CHG0186 physical native Safari/Chrome acceptance",
+    "CHG0181 pre-existing whole-repo lint failure",
+    "CHG0198 earlier privacy metadata incident"
+  ],
+  "agentEvaluation": "EVAL-VIEWER/EVAL-PRESENTATION controlled NOT_RUN; product QA is not behavioral-eval proof"
+}

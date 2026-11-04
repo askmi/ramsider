@@ -8,7 +8,7 @@ test.setTimeout(150000);
 const root = 'screenshots/video/chg0169';
 async function open(page: Page, locale: string) {
   await silenceTestMedia(page);
-  await page.goto(`/${locale}`);
+  await page.goto(`/${locale}?iphonePlayer=window`);
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click();
   await page.locator('.film-gallery__hero').click();

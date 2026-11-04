@@ -28,7 +28,7 @@ test('both themes cover every player surface and inline controls do not overlap 
   await silenceTestMedia(page);
   const mobile=info.project.name.includes('iphone'); if(mobile) await emulateCustomFullscreenLayout(page);
   const width=info.project.name.includes('max')?440:mobile?402:390;
-  await page.setViewportSize({width,height:874});await page.goto('/en');
+  await page.setViewportSize({width,height:874});await page.goto('/en?iphonePlayer=window');
   await page.locator('#film-play').scrollIntoViewIfNeeded();await page.locator('#film-play').click();
   await expect(page.locator('#product-film')).toHaveAttribute('data-theme','ramsider');
   for(const [theme,ink] of [['ramsider',gold],['default',white]]) {

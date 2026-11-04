@@ -1,3 +1,7 @@
+## Current authority — CHG0186, 2026-11-04
+
+Owner now explicitly mandates the attached native-default patch (1603279 against45a7110), accepting Apple's native fullscreen controls without the custom header. This supersedes earlier custom-only/native-excluded choices retained below as history. The original button selects existing webkitEnterFullscreen on the same playsInline video. Explicit ?iphonePlayer=window preserves historical window mode and automatic window rotation. Default native leaves inline rotation responsive; rotation within Apple fullscreen belongs to iOS. Physical Safari/Chrome entry, system chrome disappearance and OS framing remain unverified without a device. Exact patch applied; local behavior/review/build/type/lint/productionperformance gates independently PASS for web routing. Physical Apple UI remains blocked; result acceptance NOT_RECORDED and exactmain publication pending. Evidence [native-default receipt](evidence/video/iphone-native-default-2026-11-04.json).
+
 # Seven-film gallery — implementation specification
 
 > Presentation authority2026-10-31: latest unified-entrypaths section governs button+orientation behavior; earlier reports are historical. CHG0186's own layer and explicit native fallback remain the chosen architecture.

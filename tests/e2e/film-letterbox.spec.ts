@@ -7,7 +7,7 @@ test.setTimeout(120000);
 test.beforeEach(async ({page})=>silenceTestMedia(page));
 for (const mode of ['inline'] as const) test(`letterbox reveals controls without toggling video: ${mode}`,async ({page},info)=>{
   test.skip(!info.project.name.includes('iphone'), 'Touch WebKit profiles');
-  await page.goto('/en'); await page.locator('#film-play').scrollIntoViewIfNeeded(); await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
+  await page.goto('/en?iphonePlayer=window'); await page.locator('#film-play').scrollIntoViewIfNeeded(); await page.locator('#film-play').click(); await page.locator('.film-gallery__hero').click();
   const player=page.locator('#film-player'),video=page.locator('video'); await expect(player).toHaveAttribute('data-controls','ready'); await expect.poll(()=>video.evaluate(v=>(v as HTMLVideoElement).currentTime),{timeout:30000}).toBeGreaterThan(.2);
   await expect.poll(()=>page.locator('.film-player__top').evaluate(e=>Number(getComputedStyle(e).opacity)),{timeout:10000}).toBe(0);
   const points=await video.evaluate(el=>{const v=el as HTMLVideoElement,r=v.getBoundingClientRect(),s=Math.min(r.width/v.videoWidth,r.height/v.videoHeight),h=v.videoHeight*s,w=v.videoWidth*s;return {x:r.left+r.width/2,blackY:r.top+(r.height-h)/4,pictureY:r.top+r.height/2,verticalGap:r.height-h,horizontalGap:r.width-w};});
@@ -18,7 +18,7 @@ for (const mode of ['inline'] as const) test(`letterbox reveals controls without
 for (const mode of ['landscape', 'fullscreen'] as const) test(`${mode} cover frame edge toggles playback`, async ({ page }, info) => {
   test.skip(!info.project.name.includes('iphone'), 'Touch WebKit profiles; custom fullscreen uses explicit layout adapter');
   if (mode === 'landscape') await page.setViewportSize(info.project.name.includes('max') ? { width: 956, height: 440 } : { width: 874, height: 402 });
-  await page.goto('/en');
+  await page.goto('/en?iphonePlayer=window');
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click();
   await page.locator('.film-gallery__hero').click();
@@ -27,6 +27,14 @@ for (const mode of ['landscape', 'fullscreen'] as const) test(`${mode} cover fra
   if (mode === 'fullscreen') {
     await page.locator('.film-fullscreen').click();
     await expect(page.locator('#film-player')).toHaveAttribute('data-element-fullscreen', 'true');
+  } else {
+    // Starting in landscape auto-enters window mode after the initial Play.
+    // Establish a real transport interaction before testing its idle state.
+    await expect(page.locator('#film-player')).toHaveAttribute('data-controls', 'ready');
+    await page.locator('.film-play-toggle').click();
+    await expect.poll(() => video.evaluate(v => (v as HTMLVideoElement).paused)).toBe(true);
+    await page.locator('.film-play-toggle').click();
+    await expect.poll(() => video.evaluate(v => (v as HTMLVideoElement).paused)).toBe(false);
   }
   await expect(video).toHaveCSS('object-fit', 'cover');
   await expect.poll(() => page.locator('.film-player__top').evaluate(e => Number(getComputedStyle(e).opacity)), { timeout: 10000 }).toBe(0);

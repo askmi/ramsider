@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }) => silenceTestMedia(page));
 test.setTimeout(120000);
 
 async function openFilm(page: Page) {
-  await page.goto('/en');
+  await page.goto('/en?iphonePlayer=window');
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click();
   await page.locator('.film-gallery__hero').click();
@@ -271,7 +271,7 @@ test('native controls stay usable if the optional controls chunk is unavailable'
   expect(controlsChunk, 'identify the actual controls chunk in this build').not.toBe('');
   let blocked = 0;
   await page.route(`**/_next/static/chunks/${controlsChunk}`, route => { blocked++; return route.abort(); });
-  await page.goto('/en');
+  await page.goto('/en?iphonePlayer=window');
   await page.locator('#film-play').scrollIntoViewIfNeeded();
   await page.locator('#film-play').click();
   await page.locator('.film-gallery__hero').click();

@@ -35,7 +35,7 @@ test('original project card selects matching film in isolated collection and res
   const errors: string[] = [], requests: string[] = [];
   page.on('pageerror', e => errors.push(e.message));
   page.on('request', r => { if (/\/films\/project-/.test(r.url())) requests.push(r.url()); });
-  await page.goto('/en');
+  await page.goto('/en?iphonePlayer=window');
   expect(await page.evaluate(() => innerWidth)).toBe(info.project.use.viewport!.width);
   if (info.project.name.includes('iphone')) expect(await page.evaluate(() => devicePixelRatio)).toBe(3);
   for (const [project, selected, count] of entries) {
@@ -73,7 +73,7 @@ test('original project card selects matching film in isolated collection and res
 
 test('all seven project films stay inside their own groups while decoding and releasing the shared video', async ({ page }, info) => {
   const errors: string[] = []; page.on('pageerror', e => errors.push(e.message));
-  await page.goto('/en'); await enter(page, 'ramsider');
+  await page.goto('/en?iphonePlayer=window'); await enter(page, 'ramsider');
   await page.evaluate(() => { Object.assign(window, { projectVideo: document.querySelector('#product-film video') }); });
   for (let i = 0; i < ids.length; i++) {
     if (i > 0) { await top(page); await page.locator('.film-player__close').click(); await enter(page, groupFor(i)); await page.locator('.film-gallery__item').nth(i - groupOffset(i)).click(); }
@@ -127,7 +127,7 @@ test('all seven project films stay inside their own groups while decoding and re
 
 test('project preview and full-height playlist adapt to short, narrow and wide windows', async ({ page }, info) => {
   test.skip(info.project.name.includes('iphone'), 'Representative extra sizes on Chromium; required mobile screenshots in other tests');
-  await page.goto('/en');
+  await page.goto('/en?iphonePlayer=window');
   for (const size of [{width:320,height:640},{width:402,height:650},{width:768,height:1024},{width:874,height:402},{width:1440,height:900}]) {
     await page.setViewportSize(size); await enter(page, 'ramswear');
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
@@ -140,7 +140,7 @@ test('project preview and full-height playlist adapt to short, narrow and wide w
 
 test('project controls retain quality, speed, playlist navigation, retry and cleanup', async ({ page }, info) => {
   const errors: string[] = []; page.on('pageerror', e => errors.push(e.message));
-  await page.goto('/en'); await enter(page, 'ramsider');
+  await page.goto('/en?iphonePlayer=window'); await enter(page, 'ramsider');
   const fail = async (route: import('@playwright/test').Route) => route.abort();
   await page.route('**/films/project-ramsider-overview/und-v1/**', fail);
   await page.locator('.film-gallery__hero').click();
@@ -225,7 +225,7 @@ test('compiled eleven-locale project collection preserves translated labels and 
 
 test('quick close and re-entry cannot let delayed project source override new selection', async ({ page }, info) => {
   const errors: string[] = []; page.on('pageerror', e => errors.push(e.message));
-  await page.goto('/en');
+  await page.goto('/en?iphonePlayer=window');
   await page.route('**/films/project-ramsmobile-protos/und-v1/master.m3u8', async route => { await new Promise(resolve => setTimeout(resolve, 800)); await route.continue().catch(() => {}); });
   for (let i = 0; i < 3; i++) {
     await enter(page, 'ramsmobile'); await page.locator('.film-gallery__hero').click();
@@ -247,7 +247,7 @@ test('closing an early project session resumes only original gallery startup cac
   await silenceTestMedia(context);
   const page = await context.newPage(), projectRequests: string[] = [];
   page.on('request', r => { if (r.url().includes('/films/project-')) projectRequests.push(r.url()); });
-  await page.goto('/en'); await enter(page, 'ramswear');
+  await page.goto('/en?iphonePlayer=window'); await enter(page, 'ramswear');
   await close(page);
   await expect(media(page)).toHaveAttribute('data-preload', 'ready', { timeout: 60000 });
   const files = await page.evaluate(async () => (await (await caches.open('film-start-v1')).keys()).map(k => new URL(k.url).pathname));
@@ -265,7 +265,7 @@ test('Android identity uses MSE and actual element fullscreen for the same proje
   test.skip(info.project.name !== 'desktop-chromium', 'One actual Chromium Android-identity emulator owner; not physical Android');
   const context = await browser.newContext({ baseURL: process.env.BASE_URL ?? 'http://127.0.0.1:3000', viewport: { width: 393, height: 873 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true, serviceWorkers: 'block', userAgent: 'Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36' });
   await silenceTestMedia(context); const page = await context.newPage(), errors: string[] = []; page.on('pageerror', e => errors.push(e.message));
-  await page.goto('/en'); await enter(page, 'ramsmobile'); await page.locator('.film-gallery__hero').click(); await decoded(page);
+  await page.goto('/en?iphonePlayer=window'); await enter(page, 'ramsmobile'); await page.locator('.film-gallery__hero').click(); await decoded(page);
   await expect(media(page)).toHaveAttribute('data-playback', 'mse-hls');
   await page.locator('.film-fullscreen').click(); await expect.poll(() => page.evaluate(() => document.fullscreenElement?.id)).toBe('film-player');
   const cdp = await context.newCDPSession(page);
@@ -286,7 +286,7 @@ test('Android identity uses MSE and actual element fullscreen for the same proje
 });
 
 test('new RAMSMOBILE short film keeps full poster, presented qualities and adjacent films', async ({ page }, info) => {
-  await page.goto('/en'); await enter(page, 'ramsmobile');
+  await page.goto('/en?iphonePlayer=window'); await enter(page, 'ramsmobile');
   await expect(page.locator('#film-player')).toHaveAttribute('data-film-id', 'project-ramsmobile-protos');
   await page.locator('.film-gallery__item').nth(1).click();
   await expect(page.locator('#film-player')).toHaveAttribute('data-film-id', 'project-ramsmobile-rev');
@@ -332,7 +332,7 @@ test('new RAMSMOBILE short film keeps full poster, presented qualities and adjac
 });
 
 test('new RAMSMOBILE film falls back to its own 720p then reopens native or MSE HLS', async ({ page }) => {
-  await page.goto('/en'); await enter(page, 'ramsmobile'); await page.locator('.film-gallery__item').nth(1).click();
+  await page.goto('/en?iphonePlayer=window'); await enter(page, 'ramsmobile'); await page.locator('.film-gallery__item').nth(1).click();
   const blockHls = async (route: import('@playwright/test').Route) => new URL(route.request().url()).pathname.endsWith('.m3u8') ? route.abort() : route.continue();
   await page.route('**/films/project-ramsmobile-rev/und-v1/**', blockHls);
   await page.locator('.film-gallery__hero').click(); await decoded(page); await expect(media(page)).toHaveAttribute('data-playback', 'mp4-fallback');

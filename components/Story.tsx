@@ -198,7 +198,7 @@ function Menus({ locale }: { locale: Locale }) {
     <MenuShell label={t(locale, 'menu')}>
       <nav aria-label={t(locale, 'menu')}>
         <a id="navigation-video" href="#film-play">{t(locale, 'navVideoGallery')}</a>
-        <a id="navigation-hospitality" href="#hospitality-section">{t(locale, 'navHospitality')}</a>
+        <a id="navigation-hospitality" href="https://hospitality.ramsider.com/">{t(locale, 'navHospitality')}</a>
         <a id="navigation-contact" href="#company-contact">{t(locale, 'navContacts')}</a>
       </nav>
     </MenuShell>

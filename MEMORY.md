@@ -1,5 +1,10 @@
 # Ramsider project memory
 
+## Active — CHG0200 Hospitality header destination, 2026-11-05
+
+UserauthorizesheaderHospitalitySolutions→https://hospitality.ramsider.com/ andpublishonm.ramsider.com; same-tab ordinaryanchor chosen. Exactone-line Story.Menus change, existing businessCTA/FAQ unchanged. Updateddependenttests/uniquePRESENTATION_CAPTURE_DIR. LocalProthenMax+desktop3PASS actualnavigation+othermenucontrols,build/types/scopedlint/nativeReviewCLEAN. Rootactualmenuscreenshotsviewed; no visual/clientgraph change. Receipt docs/evidence/presentation/hospitality-header-2026-11-05.json. Publicationpending, verifyexactmainSHA/bothVerceltargets/actualm.ramsider.com; unrelateddirtyworkpreserved. Independent auditorN/A trivialhref edit. ResultacceptanceNOT_RECORDED.
+
+
 ## Active — CHG0186 / CHG0199 Apple native default, 2026-11-04
 
 Current owner explicitly mandates supplied1603279 patch: iphonePlayerDefault window→native on main45a7110, accepting Apple controls without own header. Supersedes older native-excluded/custom-only and capability-first proposals below (historical). Original fullscreen button uses existing webkitEnterFullscreen; playsInline/source/time/HLS unchanged. Explicit ?iphonePlayer=window retains own-window+rotation; default native does not run window-only auto-rotation. Native rotation/system chrome/framing requires physical iOS proof, currently unavailable; no success claim. Appliedexactpatch; nativePro5+Max5PASS, window32PASS2skip, desktop16PASS1skip; locale11+Arabic/adaptation/playlist/gestures/errors/cleanup correctedandverified. Build/types/scopedlint/nativeReview5CLEAN; independent/root/audit Gates2–5PASS_LOCAL_WEB_ROUTING. ProMax18positions/endGap0/errors0, LCP1324ms/CLS.0009706/JS336411B singlelab. Receipt docs/evidence/video/iphone-native-default-2026-11-04.json. Mainpublicationauthorized from recovered chat; independentprepushauditPASS26scopedpaths;publication pending. PhysicalSafariChromeAVKit stillBLOCKED; result acceptance NOT_RECORDED.

@@ -62,6 +62,7 @@
 
 | ID | Тип | Тема | Статус |
 | --- | --- | --- | --- |
+| [CHG0200](#chg0200) | CHANGE | Hospitality header opens external site | VERIFIED_LOCAL; publication pending |
 | [CHG0199](#chg0199) | PUBLICATION / AGENT_DEFECT | Publish actual native-default fullscreen fix | IN_PROGRESS; local gates PASS; publication pending |
 | [CHG0196](#chg0196) | AGENT_DEFECT | Fit gold launch orbit to actual three-line text | VERIFIED_LOCAL_WEB; publication pending |
 | [CHG0197](#chg0197) | AGENT_DEFECT | Top-right close cross for every shared information dialog | VERIFIED_LOCAL_WEB; publication pending |
@@ -5232,3 +5233,15 @@ Status: OPEN. Root used a process-list command with full-command output to ident
 - Stage6 prepush recordaudit2026-11-04 initiallyFAIL: primaryCHG0199 currentexpected still named superseded capability-first proposal and earlier scope/testpending milestones lacked historical labels. Root had appended latestauthority without reconciling allprimaryretrievalfields, repeating CHG0186 recordauthority lesson. Replaced currentexpected with exactnative-defaultpatch/publication, marked prior milestones historical; previousfailedverdict preserved. No runtime/test change, Gates2–5 remainpassed; re-audit pending.
 
 - Stage6 prepush technical approval2026-11-04 independent/root/audit PASS_LOCAL_PREPUSH: directly inspected index26paths/cachedcheck/onmain, exact21sourceworking+index/29artifact bindings/fourdocpartialstage snapshots; no rawreviewlogs/privateassets/unrelateddirtypaths staged. Primarynative-defaultauthority reconciled, earlierfailedverdict preserved. /root APPROVED_AUTHORIZED_MAIN_PUBLICATION_CANDIDATE; next exactpushedSHA/bothVerceltargets/canonicaldynamicbundle+ProMaxpublicrouting/window/desktop checks; physicalAVKit remainsBLOCKED.
+
+<a id="chg0200"></a>
+
+## CHG0200 — Hospitality header opens the Hospitality site
+- Date/source: 2026-11-05; current user relays Founder requests dated04.11 and explicitly authorizes fix+publication on m.ramsider.com.
+- Type/status: CHANGE; VERIFIED_LOCAL / publicationpending. Currentheader HospitalitySolutions→#hospitality-section; expected→https://hospitality.ramsider.com/ in same tab via ordinary semantic anchor.
+- Cause/responsibility: previous menu deliberately retained localsection while businessCTA became external (CHG0187 history); new explicit destination requirement INPUT_CHANGE. No unsupported historicalagentfault inferred. Missedcheck N/A for newinput; acceptance requires original#navigation-hospitality realactivation, exactURL/sametab, othermenulinks unchanged and actualrequestedpublicdomain verification.
+- Mapping/application: suppliedone-linehrefpatch→components/Story.tsx Menus; update dependent oldanchor assertions in presentation-mode/site tests, use unique captures. No style/raster/media/renderingboundary/translation changes; no new target=_blank.
+- Files: components/Story.tsx; tests/e2e/presentation-mode.spec.ts; tests/e2e/site.spec.ts; CHANGELOG.md; scopedcurrentMEMORY/evidence after checks. Unrelateddirtywork preserved.
+- Checks/technicalapproval: APPROVED_LOCAL2026-11-05 /root: Pro1PASS17.8s, thenMax+desktop2PASS26.9s actualheaderclick/sametab/exactexternalURL plusretainedbusinessCTA/othermenuanchors/Escape/focus/11redirects/overflow/longscroll. ActualProthenMaxmenuscreenshotsviewed. Productionbuild/types/scopedlint0errors/nativeReviewCLEAN on3exactsource/testfiles. Destination response intercepted for navigation fixture, no externalhealthclaim. Exactorigin/mainSHA/bothdeploymenttargets/actualm.ramsider.com originalcontrol publicationpending. Receipt docs/evidence/presentation/hospitality-header-2026-11-05.json. Independent auditor N/A: trivialhref edit perAGENTS; no new visual composition/performance strategy to certify. Priorpassinglayout/performance evidence applies unchangedgeometry/clientgraph; no newscoreclaim.
+- Userapproval: implementation+publicationAUTHORIZED currentmessage; resultacceptanceNOT_RECORDED.
+- Lessons/eval: retrieved URLroute-matcher/uniquelegacycapture-path lessons before changing dependentfixtures; no newgeneralizedcause atscope, controlledEVAL-PRESENTATION NOT_RUN.

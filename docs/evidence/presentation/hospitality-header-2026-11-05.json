@@ -1,0 +1,174 @@
+{
+  "change": "CHG0200",
+  "date": "2026-11-05",
+  "status": "VERIFIED_LOCAL_PUBLICATION_PENDING",
+  "request": "Header Hospitality Solutions must open https://hospitality.ramsider.com/; publish on m.ramsider.com. Currentuser relays Founder04.11 and authorizes fix+publication.",
+  "implementation": "Exactone-line Story.Menus href only; same-tab ordinaryanchor, same label/translation/geometry. No MenuShell/CSS/raster/media/clientboundary change.",
+  "checks": {
+    "build": "PASS production18packages/11SSG locales",
+    "typecheck": "PASS",
+    "scopedLint": "PASS0errors",
+    "nativeReview": "The scoped diff correctly changes Hospitality to same-tab external navigation and updates dependent tests while retaining internal-menu coverage through Contacts. No actionable defects found; no files were edited, agents spawned, or browsers launched.",
+    "browser": "3PASS: Pro402x874DPR3 first17.8s, Max440x956DPR3 then desktop1440x9002PASS26.9s. Actual header click→exact externalURL within same page; return+businessCTA unchanged; VideoGallery+Contacts anchors,Escapefocus,11redirects,overflow/longscroll checks retained. Destination response explicitly intercepted for browser fixture, not external service availability proof.",
+    "visual": "Root viewed actual ProthenMaxmenu screenshots; authoredvisiblecomposition unchanged, no pixel-fidelity score claimed.",
+    "performance": "N/A freshbenchmark for href-only change; SSG/Clientgraph/styles/assets unchanged, no new script/runtimecost. Productionbuild checked.",
+    "prepublicationDomain": "ActualGET https://m.ramsider.com/en200 beforechange containsoldanchor; exactrequestedhost must bechecked afterdeployment.",
+    "externalSite": "No form submission or external-service health claim; navigation target tested via fixture.",
+    "independentAuditor": "N/A trivialedit perAGENTS"
+  },
+  "sourceBindings": [
+    {
+      "path": "components/Story.tsx",
+      "sha256": "7cda0c5abaf6b417cb9a774c77826d68579ac8d259c8ea27a44f88752072c720"
+    },
+    {
+      "path": "tests/e2e/presentation-mode.spec.ts",
+      "sha256": "60a8f977410e836e0a38147a8065bd0f94af2a300ce7b8a97daaf7134ce4f423"
+    },
+    {
+      "path": "tests/e2e/site.spec.ts",
+      "sha256": "43645c696919800d2a0e2d8107d8cd1bc5f0f03215471da6ed6889ca928e2710"
+    }
+  ],
+  "artifactBindings": [
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/build.log",
+      "sha256": "8947aafa7b6cbeb3aa465f34d2a07131a9fd8d62385c3ee1aa319e866dd149aa"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/typecheck.log",
+      "sha256": "8fa1cf5506304e8abac55868e7f1a136c9b1dde57a3981a382da4c21ea129a6f"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/lint.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/pro.log",
+      "sha256": "23b2c93604d57d397c53e986e41e380adbe7900ac4c0167094dd29b937c459d9"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/max-desktop.log",
+      "sha256": "eb30e8f27bef2a8a7e73554549c6c07ad25b9f967f29f90230f28b5936a80f1e"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/review-verdict.txt",
+      "sha256": "6ed54f08623f16b3e121ff08bb48d8b7c7ba1db66ec570b43d704ccea3ae2a76"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/iphone-17-pro-max-webkit-menu-320.png",
+      "sha256": "e963aa3ef80608d977e4e15747df2281e91d173e0f828eaf39cee606a18a2cfc"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/desktop-chromium-menu-320.png",
+      "sha256": "90ea5615691041889ed0899050fad8d1b2cf17a69afb0f313608068c6001f558"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/desktop-chromium-hospitality.png",
+      "sha256": "379e43ef07d7bff593524ffe6012391c3d6d67462b4fdf5f3404bb1d38777a5d"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/iphone-17-pro-webkit-menu-320.png",
+      "sha256": "e963aa3ef80608d977e4e15747df2281e91d173e0f828eaf39cee606a18a2cfc"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/desktop-chromium-menu.png",
+      "sha256": "e245c2015a2d2619fd731bc6c9ad266a86b459bcbdcdc14a9932c0b96314113a"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/iphone-17-pro-max-webkit-hospitality.png",
+      "sha256": "4d07140bb8910a5ef901abbec08156c18c84326efd1277400772cbae2211b74f"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/iphone-17-pro-webkit-menu.png",
+      "sha256": "7e37f8c446916cdd290417c282304f71a63186d8a06e3d56b48f481cb22b836e"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/iphone-17-pro-max-webkit-menu.png",
+      "sha256": "afb3cc5c952d78582a524bcdb7778b5e0df2b418dce5e5a4c9ed95aa9db5c015"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/desktop-chromium-menu-768.png",
+      "sha256": "19451e77df52da7ba8eca0cf6b51708671792c927a78654a7814c9a11c80be3d"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/iphone-17-pro-webkit-footer.png",
+      "sha256": "59625f842eb6d41f355cf14c68ee036764a0366dceb5fd9572ab343877a6fc04"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/iphone-17-pro-webkit-menu-768.png",
+      "sha256": "dfd2fab1e2627845699bea9bf04988d58699007740f3126ba3df824473a398c9"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/desktop-chromium-footer.png",
+      "sha256": "133b8181436110e1a53fdf5fc90867e66d12af3aace9241498a8e236f134b5ba"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/iphone-17-pro-max-webkit-menu-768.png",
+      "sha256": "dfd2fab1e2627845699bea9bf04988d58699007740f3126ba3df824473a398c9"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/desktop-chromium-hero.png",
+      "sha256": "2baae20a1e902d64fa8486a689dffa43d6818c5240c2665debcc1cabe5b9b756"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/iphone-17-pro-webkit-hero.png",
+      "sha256": "5f7173ae9b46434719c549ea30ad0ece39d9de788e61e727284cef6c5e60f483"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/iphone-17-pro-max-webkit-freedom.png",
+      "sha256": "cedbb0c81558f391e78446e39e26e79d2476e22e7ed0d6159a152727dbdee622"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/iphone-17-pro-max-webkit-gallery.png",
+      "sha256": "9224a247c65a45dcf94a6362f319df2776e162d2da4c8dabd9851b103d341ffe"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/iphone-17-pro-webkit-hospitality.png",
+      "sha256": "befe6a852a0204454cfe82f3babec6779b420e74d57a27105abea9d724191de0"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/iphone-17-pro-max-webkit-contacts.png",
+      "sha256": "97397adccdbcec6901edbb2687bda5e7c154b4d0430451bdb742b4b1753f3965"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/iphone-17-pro-webkit-gallery.png",
+      "sha256": "faaa2f8947dcc3e13b9aedbb22642b1c9af192ba72ad1f20452d706ba9992fad"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/desktop-chromium-gallery.png",
+      "sha256": "c42f7955c0922f60a36c9ff3c959f12802d62b4585efc8ae41fd6c4eff3e0881"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/iphone-17-pro-webkit-contacts.png",
+      "sha256": "8759d0fa51feda8bab6e75d81589952e467ddd8567ede2cb169a5e9f5d4578f7"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/iphone-17-pro-max-webkit-footer.png",
+      "sha256": "69c7b09f74b0203bc209e2482e87a9eff7afcaae10b403ad10d2fbd79f540996"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/desktop-chromium-contacts.png",
+      "sha256": "133b8181436110e1a53fdf5fc90867e66d12af3aace9241498a8e236f134b5ba"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/desktop-chromium-freedom.png",
+      "sha256": "6d055d55d4462583e5aa1eb0cfa308f4642f66aef219d5273c94bbd04ec15d17"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/iphone-17-pro-webkit-freedom.png",
+      "sha256": "9b4b603ae969e542937d0df5180be1de2371f97f2adac9f8f756d556f025f3fb"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/local/iphone-17-pro-max-webkit-hero.png",
+      "sha256": "5da500726675eb605055ac5b59b41a4f3c8c4164e20d556e6a673e6d758098dc"
+    }
+  ],
+  "technicalApproval": {
+    "date": "2026-11-05",
+    "verifier": "/root",
+    "scope": "APPROVED_LOCAL_HREF_AND_BROWSER_NAVIGATION",
+    "publication": "PENDING exactSHA/bothGitHubtargets/actualm.ramsider.com"
+  },
+  "userApproval": "Implementation/publicationAUTHORIZED currentmessage; resultacceptanceNOT_RECORDED"
+}

@@ -78,7 +78,7 @@ test('responsive viewport, artwork, and primary actions', async ({ page }, testI
   await page.keyboard.press('Escape');
   await expect(page.locator('.menu')).not.toHaveAttribute('open');
   await page.locator('.menu summary').click();
-  await page.getByRole('navigation', { name: 'Menu' }).locator('a[href="#hospitality-section"]').click();
+  await page.locator('#navigation-contact').click();
   await expect(page.locator('.menu')).not.toHaveAttribute('open');
   const firstDocument = page.locator('.doc-card').first();
   await firstDocument.scrollIntoViewIfNeeded();

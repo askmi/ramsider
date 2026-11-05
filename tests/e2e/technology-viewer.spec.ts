@@ -84,16 +84,32 @@ test('AirShield eighth: source geometry, icon axes, OpenSans and every locale',a
  }
 });
 
-test('all 35 lossless WebP assets preserve original RGBA, size and sRGB profile',async()=>{
+test('35 migrated WebP assets: 12 ribbon tiles stay lossless-exact, 23 photographs are pinned lossy within colour tolerance',async()=>{
  const {default:sharp}=await import('sharp');
  const m=JSON.parse(await readFile('docs/evidence/lossless-webp/manifest.json','utf8'));expect(m.assets).toHaveLength(35);
+ // CHG0199: the 23 technology photographs are re-encoded as sRGB lossy WebP; their current bytes are pinned in the photos-lossy receipt.
+ const lossy=new Map<string,{outputSHA256:string;sourceSHA256:string}>(JSON.parse(await readFile('docs/evidence/photos-lossy/manifest.json','utf8')).assets.map((a:{asset:string;outputSHA256:string;sourceSHA256:string})=>[a.asset,a]));
+ let photographs=0;
  for(const file of m.assets){
   const source=await readFile(file.originalReserve),output=await readFile(file.output);
   expect(createHash('sha256').update(source).digest('hex')).toBe(file.sourceSHA256);
-  expect(createHash('sha256').update(output).digest('hex')).toBe(file.outputSHA256);
-  const a=await sharp(source).ensureAlpha().raw().toBuffer(),b=await sharp(output).ensureAlpha().raw().toBuffer();expect(a.equals(b)).toBe(true);
+  const a=await sharp(source).ensureAlpha().raw().toBuffer(),b=await sharp(output).ensureAlpha().raw().toBuffer();
+  const receipt=lossy.get(file.output);
+  if(receipt){
+   photographs++;
+   expect(receipt.sourceSHA256).toBe(file.outputSHA256); // lossy source was the verified lossless output
+   expect(createHash('sha256').update(output).digest('hex')).toBe(receipt.outputSHA256);
+   const hist=[new Uint32Array(256),new Uint32Array(256),new Uint32Array(256)],sum=[0,0,0];
+   for(let i=0;i<a.length;i+=4)for(let c=0;c<3;c++){const d=Math.abs(a[i+c]-b[i+c]);hist[c][d]++;sum[c]+=d;}
+   const pixels=a.length/4;
+   for(let c=0;c<3;c++){expect(sum[c]/pixels).toBeLessThan(3);let seen=0,p99=255;for(let v=0;v<256;v++){seen+=hist[c][v];if(seen>=pixels*.99){p99=v;break;}}expect(p99).toBeLessThanOrEqual(15);}
+  }else{
+   expect(createHash('sha256').update(output).digest('hex')).toBe(file.outputSHA256);
+   expect(a.equals(b)).toBe(true);
+  }
   const metadata=await sharp(output).metadata();expect(metadata.format).toBe('webp');expect(metadata.width).toBe(file.width);expect(metadata.height).toBe(file.height);expect(metadata.icc?.length).toBeGreaterThan(0);
  }
+ expect(photographs).toBe(23);
 });
 
 test('photos move horizontally; technologies move vertically; source ratio and thin bars hold',async({page})=>{

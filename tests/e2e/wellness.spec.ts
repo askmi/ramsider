@@ -40,7 +40,19 @@ async function frame(page: Page) {
   await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
 }
 
-test('exact source copy, lossless sRGB WebP delivery, every photo entry and complete reading', async ({ page }, info) => {
+// CHG0199: photographs are delivered as sRGB lossy WebP within the pipeline colour tolerance
+// (docs/art-color-pipeline.md): visible RGB mean < 3/255 and p99 <= 15/255 against the PNG master.
+const photoTolerance = { mean: 3, p99: 15 };
+function channelErrors(actual: Buffer, expected: Buffer) {
+  expect(actual.length).toBe(expected.length);
+  const hist = [new Uint32Array(256), new Uint32Array(256), new Uint32Array(256)], sum = [0, 0, 0];
+  for (let i = 0; i < actual.length; i += 4) for (let c = 0; c < 3; c++) { const d = Math.abs(actual[i + c] - expected[i + c]); hist[c][d]++; sum[c] += d; }
+  const pixels = actual.length / 4;
+  const p99 = hist.map(h => { let seen = 0; for (let v = 0; v < 256; v++) { seen += h[v]; if (seen >= pixels * .99) return v; } return 255; });
+  return { mean: sum.map(s => s / pixels), p99 };
+}
+
+test('pinned sRGB lossy WebP delivery within colour tolerance, every photo entry and complete reading', async ({ page }, info) => {
   test.setTimeout(120000); await page.emulateMedia({ reducedMotion: 'reduce' });
   const errors: string[] = [], requests: string[] = [];
   page.on('pageerror', e => errors.push(e.message));
@@ -69,12 +81,16 @@ test('exact source copy, lossless sRGB WebP delivery, every photo entry and comp
     const response = await page.request.get(`/art/wellness/${photos[i]}`);
     expect(response.status()).toBe(200); expect(response.headers()['content-type']).toContain('image/webp');
     const body = await response.body();
-    expect(createHash('sha256').update(body).digest('hex')).toBe(createHash('sha256').update(await readFile(`public/art/wellness/${photos[i]}`)).digest('hex'));
+    const served = createHash('sha256').update(body).digest('hex');
+    expect(served).toBe(createHash('sha256').update(await readFile(`public/art/wellness/${photos[i]}`)).digest('hex'));
+    const receipt = JSON.parse(await readFile('docs/evidence/photos-lossy/manifest.json', 'utf8')).assets.find((a: {asset: string}) => a.asset === `public/art/wellness/${photos[i]}`);
+    expect(receipt?.outputSHA256).toBe(served);
     const metadata = await sharp(body).metadata();
     expect(metadata.format).toBe('webp'); expect(metadata.icc?.length).toBeGreaterThan(0);
     const decodedPixels = await sharp(body, { ignoreIcc: true }).ensureAlpha().raw().toBuffer();
     const master = await sharp(`${root}assets/${photos[i].replace('.webp', '.png')}`, { ignoreIcc: true }).ensureAlpha().raw().toBuffer();
-    expect(decodedPixels.equals(master)).toBe(true);
+    const errors = channelErrors(decodedPixels, master);
+    for (const c of [0, 1, 2]) { expect(errors.mean[c]).toBeLessThan(photoTolerance.mean); expect(errors.p99[c]).toBeLessThanOrEqual(photoTolerance.p99); }
     const size = await image.evaluate(element => { const e=element as HTMLImageElement,b=e.getBoundingClientRect(),s=getComputedStyle(e); return {width:b.width,height:b.height,natural:[e.naturalWidth,e.naturalHeight],fit:s.objectFit,position:s.objectPosition}; });
     expect(size.natural).toEqual([1024,1536]); expect(size.width).toBeCloseTo(width, 0);expect(size.fit).toBe('cover');
     expect(size.height).toBeCloseTo(width * (i === 0 ? (viewport.width >= 600 ? 1 : 1.5) : 1.25), 0);

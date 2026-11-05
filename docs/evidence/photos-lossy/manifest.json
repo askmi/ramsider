@@ -1,0 +1,3445 @@
+{
+ "id": "CHG0199",
+ "dateLocal": "2026-11-05",
+ "mode": "apply",
+ "encoder": "1.6.0; libsharpyuv: 0.4.2",
+ "baseQuality": 90,
+ "retryQuality": 95,
+ "policy": "Founder-approved q90 lossy (A/B 2026-11-05); pipeline fallback thresholds mean>=3, p99>15, red>=2 -> q95 -> lossless kept",
+ "assetCount": 35,
+ "sourceBytes": 42213692,
+ "outputBytes": 4841980,
+ "seconds": 91.3,
+ "assets": [
+  {
+   "asset": "public/art/wellness/01-ritual_uno_white_v3.webp",
+   "width": 1024,
+   "height": 1536,
+   "sourceSHA256": "3613f267ab3900ff2a1dcf07215fec8f615556a34776dfa5896b8fead69fd513",
+   "sourceBytes": 1315836,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 209938,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.373,
+       1.103,
+       1.691
+      ],
+      "rgb_p99_abs": [
+       7,
+       5,
+       9
+      ],
+      "rgb_max_abs": 39,
+      "red_pixels": 1410019,
+      "red_pixels_box": [
+       0,
+       0,
+       1023,
+       1535
+      ],
+      "red_mean_shift": [
+       0.2,
+       0.053,
+       0.409
+      ],
+      "local_max_mae": 5.601,
+      "local_max_mae_block": [
+       320,
+       896
+      ],
+      "local_max_red_shift": 4.22,
+      "local_max_red_block": [
+       640,
+       960
+      ],
+      "sampled_delta_e76_p99": 5.362,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 220118,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.302,
+       1.113,
+       1.576
+      ],
+      "rgb_p99_abs": [
+       7,
+       5,
+       8
+      ],
+      "rgb_max_abs": 42,
+      "red_pixels": 1410019,
+      "red_pixels_box": [
+       0,
+       0,
+       1023,
+       1535
+      ],
+      "red_mean_shift": [
+       -0.018,
+       0.235,
+       0.061
+      ],
+      "local_max_mae": 4.633,
+      "local_max_mae_block": [
+       320,
+       896
+      ],
+      "local_max_red_shift": 1.869,
+      "local_max_red_block": [
+       576,
+       896
+      ],
+      "sampled_delta_e76_p99": 4.53,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 3.3,
+   "outputBytes": 220118,
+   "outputSHA256": "c9f2dcafee9757a747d4a98b6107e0b22799473faea0ce972851ee0b844f02ee"
+  },
+  {
+   "asset": "public/art/wellness/02-water_bouquet.webp",
+   "width": 1024,
+   "height": 1536,
+   "sourceSHA256": "a42b1dcafb6b70565fbb606176c1b3c23516d30771fb8d598b92069d15923f0d",
+   "sourceBytes": 1710568,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 329036,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.829,
+       1.455,
+       2.262
+      ],
+      "rgb_p99_abs": [
+       8,
+       6,
+       11
+      ],
+      "rgb_max_abs": 62,
+      "red_pixels": 1255325,
+      "red_pixels_box": [
+       0,
+       0,
+       1023,
+       1535
+      ],
+      "red_mean_shift": [
+       0.186,
+       -0.035,
+       0.629
+      ],
+      "local_max_mae": 5.393,
+      "local_max_mae_block": [
+       576,
+       768
+      ],
+      "local_max_red_shift": 4.093,
+      "local_max_red_block": [
+       960,
+       640
+      ],
+      "sampled_delta_e76_p99": 6.811,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 342798,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.727,
+       1.456,
+       2.042
+      ],
+      "rgb_p99_abs": [
+       7,
+       6,
+       9
+      ],
+      "rgb_max_abs": 34,
+      "red_pixels": 1255325,
+      "red_pixels_box": [
+       0,
+       0,
+       1023,
+       1535
+      ],
+      "red_mean_shift": [
+       -0.006,
+       0.188,
+       0.096
+      ],
+      "local_max_mae": 4.157,
+      "local_max_mae_block": [
+       384,
+       640
+      ],
+      "local_max_red_shift": 1.396,
+      "local_max_red_block": [
+       576,
+       768
+      ],
+      "sampled_delta_e76_p99": 5.453,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 3.3,
+   "outputBytes": 342798,
+   "outputSHA256": "04cc50c014e3df644416c77ab8ca57ebda2499636e98eb10d1f14817468d5b4d"
+  },
+  {
+   "asset": "public/art/wellness/03-botanicals.webp",
+   "width": 1024,
+   "height": 1536,
+   "sourceSHA256": "787971474838ce6f2cc3eb443731b79f6da2d085317dc03d7cfd425a5c0888cd",
+   "sourceBytes": 1923046,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 411984,
+     "metrics": {
+      "rgb_mean_abs": [
+       2.082,
+       1.69,
+       2.551
+      ],
+      "rgb_p99_abs": [
+       8,
+       6,
+       11
+      ],
+      "rgb_max_abs": 38,
+      "red_pixels": 1386190,
+      "red_pixels_box": [
+       0,
+       0,
+       1023,
+       1535
+      ],
+      "red_mean_shift": [
+       0.295,
+       -0.099,
+       0.684
+      ],
+      "local_max_mae": 5.291,
+      "local_max_mae_block": [
+       320,
+       896
+      ],
+      "local_max_red_shift": 2.099,
+      "local_max_red_block": [
+       512,
+       640
+      ],
+      "sampled_delta_e76_p99": 6.851,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 436580,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.943,
+       1.679,
+       2.332
+      ],
+      "rgb_p99_abs": [
+       7,
+       6,
+       9
+      ],
+      "rgb_max_abs": 32,
+      "red_pixels": 1386190,
+      "red_pixels_box": [
+       0,
+       0,
+       1023,
+       1535
+      ],
+      "red_mean_shift": [
+       0.008,
+       0.163,
+       0.081
+      ],
+      "local_max_mae": 4.418,
+      "local_max_mae_block": [
+       320,
+       896
+      ],
+      "local_max_red_shift": 0.917,
+      "local_max_red_block": [
+       576,
+       640
+      ],
+      "sampled_delta_e76_p99": 5.621,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 3.5,
+   "outputBytes": 436580,
+   "outputSHA256": "5acee454458f507d278b5e3d7f56d51f274d1ba30932078c6880e1b519aba02c"
+  },
+  {
+   "asset": "public/art/wellness/04-capsules_v3.webp",
+   "width": 1024,
+   "height": 1536,
+   "sourceSHA256": "fa66ae9b7281e890dbbbf6728a46505464bb4381edf80b0c4691b680a21b6692",
+   "sourceBytes": 1392408,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 214172,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.469,
+       1.151,
+       1.802
+      ],
+      "rgb_p99_abs": [
+       8,
+       6,
+       11
+      ],
+      "rgb_max_abs": 46,
+      "red_pixels": 1483411,
+      "red_pixels_box": [
+       0,
+       0,
+       1023,
+       1535
+      ],
+      "red_mean_shift": [
+       0.135,
+       0.038,
+       0.388
+      ],
+      "local_max_mae": 5.389,
+      "local_max_mae_block": [
+       512,
+       640
+      ],
+      "local_max_red_shift": 0.89,
+      "local_max_red_block": [
+       640,
+       384
+      ],
+      "sampled_delta_e76_p99": 6.116,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 222432,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.418,
+       1.165,
+       1.725
+      ],
+      "rgb_p99_abs": [
+       7,
+       6,
+       9
+      ],
+      "rgb_max_abs": 45,
+      "red_pixels": 1483411,
+      "red_pixels_box": [
+       0,
+       0,
+       1023,
+       1535
+      ],
+      "red_mean_shift": [
+       -0.074,
+       0.213,
+       -0.006
+      ],
+      "local_max_mae": 4.366,
+      "local_max_mae_block": [
+       576,
+       832
+      ],
+      "local_max_red_shift": 0.73,
+      "local_max_red_block": [
+       896,
+       448
+      ],
+      "sampled_delta_e76_p99": 5.173,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 3.4,
+   "outputBytes": 222432,
+   "outputSHA256": "f66cca8b1faad822b35ff5a4b5ef862d25f3950cc9697231f417e19d014ac81a"
+  },
+  {
+   "asset": "public/art/charcoal/v2-1-0.webp",
+   "width": 1080,
+   "height": 1800,
+   "sourceSHA256": "1bafb9c720c2d94ecaaec3d425c07b01c74f35fb96c8ab471a01e8a4fc8a26a3",
+   "sourceBytes": 1510604,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "default",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 117082,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.127,
+       0.984,
+       1.283
+      ],
+      "rgb_p99_abs": [
+       5,
+       5,
+       6
+      ],
+      "rgb_max_abs": 29,
+      "red_pixels": 784645,
+      "red_pixels_box": [
+       0,
+       0,
+       1079,
+       1799
+      ],
+      "red_mean_shift": [
+       0.041,
+       0.218,
+       0.393
+      ],
+      "local_max_mae": 2.757,
+      "local_max_mae_block": [
+       640,
+       640
+      ],
+      "local_max_red_shift": 1.417,
+      "local_max_red_block": [
+       768,
+       1600
+      ],
+      "sampled_delta_e76_p99": 3.14,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 123098,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.101,
+       1.003,
+       1.263
+      ],
+      "rgb_p99_abs": [
+       5,
+       5,
+       6
+      ],
+      "rgb_max_abs": 27,
+      "red_pixels": 784645,
+      "red_pixels_box": [
+       0,
+       0,
+       1079,
+       1799
+      ],
+      "red_mean_shift": [
+       -0.202,
+       0.402,
+       0.034
+      ],
+      "local_max_mae": 2.588,
+      "local_max_mae_block": [
+       640,
+       704
+      ],
+      "local_max_red_shift": 1.75,
+      "local_max_red_block": [
+       768,
+       1600
+      ],
+      "sampled_delta_e76_p99": 2.955,
+      "sample_step": 4
+     }
+    }
+   },
+   "encodeSeconds": 3.2,
+   "outputBytes": 117082,
+   "outputSHA256": "58a76bde15f646cf8f30008a23e4d209e38d0851951d8f0cdbca468b4c9b0875"
+  },
+  {
+   "asset": "public/art/charcoal/v2-1-1.webp",
+   "width": 1080,
+   "height": 610,
+   "sourceSHA256": "30ee8133218ef1f6e93a294f49530b516644385b2dd223bcb0df4b9bd6f61d25",
+   "sourceBytes": 412508,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "default",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 13586,
+     "metrics": {
+      "rgb_mean_abs": [
+       0.818,
+       0.693,
+       0.964
+      ],
+      "rgb_p99_abs": [
+       3,
+       3,
+       4
+      ],
+      "rgb_max_abs": 26,
+      "red_pixels": 102398,
+      "red_pixels_box": [
+       0,
+       0,
+       1079,
+       609
+      ],
+      "red_mean_shift": [
+       -0.235,
+       0.552,
+       0.532
+      ],
+      "local_max_mae": 1.963,
+      "local_max_mae_block": [
+       576,
+       384
+      ],
+      "local_max_red_shift": 1.131,
+      "local_max_red_block": [
+       576,
+       192
+      ],
+      "sampled_delta_e76_p99": 2.136,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 14170,
+     "metrics": {
+      "rgb_mean_abs": [
+       0.8,
+       0.727,
+       0.949
+      ],
+      "rgb_p99_abs": [
+       3,
+       3,
+       4
+      ],
+      "rgb_max_abs": 32,
+      "red_pixels": 102398,
+      "red_pixels_box": [
+       0,
+       0,
+       1079,
+       609
+      ],
+      "red_mean_shift": [
+       -0.423,
+       0.716,
+       0.22
+      ],
+      "local_max_mae": 1.894,
+      "local_max_mae_block": [
+       576,
+       384
+      ],
+      "local_max_red_shift": 1.523,
+      "local_max_red_block": [
+       576,
+       192
+      ],
+      "sampled_delta_e76_p99": 2.155,
+      "sample_step": 4
+     }
+    }
+   },
+   "encodeSeconds": 0.9,
+   "outputBytes": 13586,
+   "outputSHA256": "d89baad1de4b13a5711c6a6c5fd554f5d65ae29759b49c686710e1541bcaa1e3"
+  },
+  {
+   "asset": "public/art/charcoal/v2-2-0.webp",
+   "width": 1080,
+   "height": 1650,
+   "sourceSHA256": "a8e6022bfa1f1ef349c0263a3f44cefa3f5ba834d751cfcb5bb3164e4962c0e5",
+   "sourceBytes": 1559932,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 164144,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.335,
+       1.154,
+       1.576
+      ],
+      "rgb_p99_abs": [
+       6,
+       5,
+       8
+      ],
+      "rgb_max_abs": 33,
+      "red_pixels": 1391756,
+      "red_pixels_box": [
+       0,
+       0,
+       1079,
+       1649
+      ],
+      "red_mean_shift": [
+       0.144,
+       0.156,
+       0.371
+      ],
+      "local_max_mae": 3.099,
+      "local_max_mae_block": [
+       704,
+       1024
+      ],
+      "local_max_red_shift": 1.228,
+      "local_max_red_block": [
+       384,
+       64
+      ],
+      "sampled_delta_e76_p99": 4.244,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 167106,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.296,
+       1.181,
+       1.534
+      ],
+      "rgb_p99_abs": [
+       6,
+       5,
+       7
+      ],
+      "rgb_max_abs": 20,
+      "red_pixels": 1391756,
+      "red_pixels_box": [
+       0,
+       0,
+       1079,
+       1649
+      ],
+      "red_mean_shift": [
+       -0.117,
+       0.34,
+       0.013
+      ],
+      "local_max_mae": 2.819,
+      "local_max_mae_block": [
+       704,
+       1024
+      ],
+      "local_max_red_shift": 1.457,
+      "local_max_red_block": [
+       384,
+       64
+      ],
+      "sampled_delta_e76_p99": 3.773,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 3.5,
+   "outputBytes": 167106,
+   "outputSHA256": "98be660221c9091f2d74816a4cabd318d9789a070ebc2dd2bd5c00ed0bd3c030"
+  },
+  {
+   "asset": "public/art/charcoal/v2-2-1.webp",
+   "width": 1080,
+   "height": 760,
+   "sourceSHA256": "c24ff2a97e14a2a4b7fad653a9ac620d1f3daaf1b07b63a10f7bcbc09540ed7c",
+   "sourceBytes": 516978,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "default",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 20358,
+     "metrics": {
+      "rgb_mean_abs": [
+       0.852,
+       0.713,
+       1.021
+      ],
+      "rgb_p99_abs": [
+       3,
+       3,
+       4
+      ],
+      "rgb_max_abs": 29,
+      "red_pixels": 554893,
+      "red_pixels_box": [
+       0,
+       0,
+       1079,
+       759
+      ],
+      "red_mean_shift": [
+       0.031,
+       0.276,
+       0.335
+      ],
+      "local_max_mae": 1.848,
+      "local_max_mae_block": [
+       768,
+       0
+      ],
+      "local_max_red_shift": 0.745,
+      "local_max_red_block": [
+       512,
+       64
+      ],
+      "sampled_delta_e76_p99": 2.144,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 21224,
+     "metrics": {
+      "rgb_mean_abs": [
+       0.839,
+       0.744,
+       1.005
+      ],
+      "rgb_p99_abs": [
+       3,
+       3,
+       4
+      ],
+      "rgb_max_abs": 22,
+      "red_pixels": 554893,
+      "red_pixels_box": [
+       0,
+       0,
+       1079,
+       759
+      ],
+      "red_mean_shift": [
+       -0.169,
+       0.419,
+       0.087
+      ],
+      "local_max_mae": 1.792,
+      "local_max_mae_block": [
+       768,
+       0
+      ],
+      "local_max_red_shift": 1.021,
+      "local_max_red_block": [
+       512,
+       64
+      ],
+      "sampled_delta_e76_p99": 2.157,
+      "sample_step": 4
+     }
+    }
+   },
+   "encodeSeconds": 1.5,
+   "outputBytes": 20358,
+   "outputSHA256": "630f38564524b031628f71d3bf824b8cb4d02fa868958c84eda100493c3bd500"
+  },
+  {
+   "asset": "public/art/charcoal/v2-3-0.webp",
+   "width": 1080,
+   "height": 1400,
+   "sourceSHA256": "8724bd1fa0eb01370bb78c41f8b462a598f45a7fbf4e4192230fe6338441e04e",
+   "sourceBytes": 1363976,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 152918,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.437,
+       1.207,
+       1.665
+      ],
+      "rgb_p99_abs": [
+       7,
+       5,
+       8
+      ],
+      "rgb_max_abs": 38,
+      "red_pixels": 1086956,
+      "red_pixels_box": [
+       0,
+       0,
+       1079,
+       1399
+      ],
+      "red_mean_shift": [
+       0.111,
+       0.105,
+       0.356
+      ],
+      "local_max_mae": 3.86,
+      "local_max_mae_block": [
+       832,
+       512
+      ],
+      "local_max_red_shift": 1.081,
+      "local_max_red_block": [
+       832,
+       384
+      ],
+      "sampled_delta_e76_p99": 4.901,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 161936,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.376,
+       1.221,
+       1.588
+      ],
+      "rgb_p99_abs": [
+       6,
+       5,
+       7
+      ],
+      "rgb_max_abs": 22,
+      "red_pixels": 1086956,
+      "red_pixels_box": [
+       0,
+       0,
+       1079,
+       1399
+      ],
+      "red_mean_shift": [
+       -0.129,
+       0.298,
+       -0.038
+      ],
+      "local_max_mae": 3.182,
+      "local_max_mae_block": [
+       832,
+       512
+      ],
+      "local_max_red_shift": 1.256,
+      "local_max_red_block": [
+       128,
+       1152
+      ],
+      "sampled_delta_e76_p99": 4.126,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 2.9,
+   "outputBytes": 161936,
+   "outputSHA256": "41cbb84ae8b3fa024a247e181bd60140d74e4823f1e4891147a070f13cf20580"
+  },
+  {
+   "asset": "public/art/charcoal/v2-3-1.webp",
+   "width": 1080,
+   "height": 660,
+   "sourceSHA256": "78fc139372243565e0b27a4e01919b61d1885c4d9b6663c5109e143cd14788a9",
+   "sourceBytes": 456138,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "default",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 16004,
+     "metrics": {
+      "rgb_mean_abs": [
+       0.836,
+       0.711,
+       1.023
+      ],
+      "rgb_p99_abs": [
+       3,
+       3,
+       4
+      ],
+      "rgb_max_abs": 21,
+      "red_pixels": 323984,
+      "red_pixels_box": [
+       0,
+       0,
+       1079,
+       659
+      ],
+      "red_mean_shift": [
+       -0.149,
+       0.416,
+       0.4
+      ],
+      "local_max_mae": 1.762,
+      "local_max_mae_block": [
+       512,
+       448
+      ],
+      "local_max_red_shift": 0.742,
+      "local_max_red_block": [
+       1024,
+       640
+      ],
+      "sampled_delta_e76_p99": 2.149,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 17212,
+     "metrics": {
+      "rgb_mean_abs": [
+       0.814,
+       0.748,
+       0.995
+      ],
+      "rgb_p99_abs": [
+       3,
+       3,
+       4
+      ],
+      "rgb_max_abs": 15,
+      "red_pixels": 323984,
+      "red_pixels_box": [
+       0,
+       0,
+       1079,
+       659
+      ],
+      "red_mean_shift": [
+       -0.263,
+       0.559,
+       0.109
+      ],
+      "local_max_mae": 1.646,
+      "local_max_mae_block": [
+       576,
+       448
+      ],
+      "local_max_red_shift": 0.968,
+      "local_max_red_block": [
+       64,
+       448
+      ],
+      "sampled_delta_e76_p99": 2.147,
+      "sample_step": 4
+     }
+    }
+   },
+   "encodeSeconds": 1.2,
+   "outputBytes": 16004,
+   "outputSHA256": "a51f95716d996f1e27518c3a4707617d4a9d62d5d924f014bb5f14879a681959"
+  },
+  {
+   "asset": "public/art/charcoal/v2-4-0.webp",
+   "width": 1080,
+   "height": 1600,
+   "sourceSHA256": "c3ed0551c3d2611c0ac8e42d6fe2c6db9c4c898807610af87555558d061738c7",
+   "sourceBytes": 1668994,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 229950,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.549,
+       1.279,
+       1.829
+      ],
+      "rgb_p99_abs": [
+       8,
+       6,
+       10
+      ],
+      "rgb_max_abs": 68,
+      "red_pixels": 1358639,
+      "red_pixels_box": [
+       0,
+       0,
+       1079,
+       1599
+      ],
+      "red_mean_shift": [
+       0.102,
+       0.078,
+       0.441
+      ],
+      "local_max_mae": 4.655,
+      "local_max_mae_block": [
+       448,
+       768
+      ],
+      "local_max_red_shift": 7.378,
+      "local_max_red_block": [
+       320,
+       512
+      ],
+      "sampled_delta_e76_p99": 6.0,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 246590,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.458,
+       1.274,
+       1.697
+      ],
+      "rgb_p99_abs": [
+       7,
+       6,
+       8
+      ],
+      "rgb_max_abs": 35,
+      "red_pixels": 1358639,
+      "red_pixels_box": [
+       0,
+       0,
+       1079,
+       1599
+      ],
+      "red_mean_shift": [
+       -0.093,
+       0.265,
+       -0.002
+      ],
+      "local_max_mae": 3.789,
+      "local_max_mae_block": [
+       448,
+       768
+      ],
+      "local_max_red_shift": 1.548,
+      "local_max_red_block": [
+       192,
+       704
+      ],
+      "sampled_delta_e76_p99": 4.801,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 3.5,
+   "outputBytes": 246590,
+   "outputSHA256": "164e22f897d788e3bbf46f57b11b2cf8bb87a2eefa5eb5c475703c83638225af"
+  },
+  {
+   "asset": "public/art/charcoal/v2-4-1.webp",
+   "width": 1080,
+   "height": 710,
+   "sourceSHA256": "0514059de92e9255da9ab81cd23e703fb503808390d297a76df62bbc48e842e7",
+   "sourceBytes": 471812,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "default",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 17184,
+     "metrics": {
+      "rgb_mean_abs": [
+       0.88,
+       0.711,
+       0.992
+      ],
+      "rgb_p99_abs": [
+       3,
+       3,
+       4
+      ],
+      "rgb_max_abs": 26,
+      "red_pixels": 520452,
+      "red_pixels_box": [
+       0,
+       0,
+       1079,
+       709
+      ],
+      "red_mean_shift": [
+       0.045,
+       0.283,
+       0.269
+      ],
+      "local_max_mae": 1.967,
+      "local_max_mae_block": [
+       576,
+       384
+      ],
+      "local_max_red_shift": 0.781,
+      "local_max_red_block": [
+       832,
+       704
+      ],
+      "sampled_delta_e76_p99": 2.135,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 17746,
+     "metrics": {
+      "rgb_mean_abs": [
+       0.862,
+       0.746,
+       0.975
+      ],
+      "rgb_p99_abs": [
+       3,
+       3,
+       4
+      ],
+      "rgb_max_abs": 24,
+      "red_pixels": 520452,
+      "red_pixels_box": [
+       0,
+       0,
+       1079,
+       709
+      ],
+      "red_mean_shift": [
+       -0.155,
+       0.429,
+       0.015
+      ],
+      "local_max_mae": 1.777,
+      "local_max_mae_block": [
+       576,
+       384
+      ],
+      "local_max_red_shift": 0.731,
+      "local_max_red_block": [
+       64,
+       704
+      ],
+      "sampled_delta_e76_p99": 2.151,
+      "sample_step": 4
+     }
+    }
+   },
+   "encodeSeconds": 1.4,
+   "outputBytes": 17184,
+   "outputSHA256": "232dc80423b59551bdcd2e393cbf50bbd3c3bdc234e452777b7a20495d84e575"
+  },
+  {
+   "asset": "public/art/technology/slides/air-01.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "cf626a135c451678a9bb35677a21b0233d44d48f301cf4cef1326d459bb4541a",
+   "sourceBytes": 1194580,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 96512,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.332,
+       1.11,
+       1.333
+      ],
+      "rgb_p99_abs": [
+       6,
+       5,
+       6
+      ],
+      "rgb_max_abs": 44,
+      "red_pixels": 646364,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       0.114,
+       0.127,
+       0.358
+      ],
+      "local_max_mae": 4.468,
+      "local_max_mae_block": [
+       512,
+       768
+      ],
+      "local_max_red_shift": 4.775,
+      "local_max_red_block": [
+       512,
+       640
+      ],
+      "sampled_delta_e76_p99": 3.393,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 99906,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.271,
+       1.097,
+       1.282
+      ],
+      "rgb_p99_abs": [
+       5,
+       5,
+       5
+      ],
+      "rgb_max_abs": 46,
+      "red_pixels": 646364,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.138,
+       0.288,
+       0.076
+      ],
+      "local_max_mae": 3.63,
+      "local_max_mae_block": [
+       512,
+       768
+      ],
+      "local_max_red_shift": 5.081,
+      "local_max_red_block": [
+       384,
+       640
+      ],
+      "sampled_delta_e76_p99": 2.961,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 2.4,
+   "outputBytes": 99906,
+   "outputSHA256": "5ce0412cc289aabdab389ccf773650e4e1e01043088886a773da8f0e55b1a020"
+  },
+  {
+   "asset": "public/art/technology/slides/air-02.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "88f793245a46cf2c7d74b60127b8017c416916bc3ef6aee6a01482b61b5f9c96",
+   "sourceBytes": 1305880,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 106326,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.426,
+       1.257,
+       1.424
+      ],
+      "rgb_p99_abs": [
+       6,
+       5,
+       6
+      ],
+      "rgb_max_abs": 53,
+      "red_pixels": 1052103,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       0.105,
+       0.148,
+       0.151
+      ],
+      "local_max_mae": 3.541,
+      "local_max_mae_block": [
+       448,
+       640
+      ],
+      "local_max_red_shift": 3.185,
+      "local_max_red_block": [
+       320,
+       512
+      ],
+      "sampled_delta_e76_p99": 3.62,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 110326,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.381,
+       1.261,
+       1.395
+      ],
+      "rgb_p99_abs": [
+       6,
+       5,
+       6
+      ],
+      "rgb_max_abs": 54,
+      "red_pixels": 1052103,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.155,
+       0.316,
+       -0.091
+      ],
+      "local_max_mae": 3.126,
+      "local_max_mae_block": [
+       448,
+       640
+      ],
+      "local_max_red_shift": 2.278,
+      "local_max_red_block": [
+       832,
+       1088
+      ],
+      "sampled_delta_e76_p99": 3.228,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 2.8,
+   "outputBytes": 110326,
+   "outputSHA256": "a3bedd44c5dbaf506952cad4b7bad6bcae652da266246924828666c6d61df4b0"
+  },
+  {
+   "asset": "public/art/technology/slides/aqua-01.webp",
+   "width": 940,
+   "height": 1522,
+   "sourceSHA256": "5b152291f3cb7240ba24ffc0dae1e8dbba896e7b14898cb7ccfed2a18a32ddce",
+   "sourceBytes": 1312672,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 112880,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.618,
+       1.085,
+       1.466
+      ],
+      "rgb_p99_abs": [
+       7,
+       5,
+       7
+      ],
+      "rgb_max_abs": 36,
+      "red_pixels": 3711,
+      "red_pixels_box": [
+       40,
+       151,
+       874,
+       1214
+      ],
+      "red_mean_shift": [
+       -2.989,
+       0.795,
+       3.796
+      ],
+      "local_max_mae": 3.647,
+      "local_max_mae_block": [
+       128,
+       384
+      ],
+      "local_max_red_shift": 13.538,
+      "local_max_red_block": [
+       64,
+       384
+      ],
+      "sampled_delta_e76_p99": 4.028,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 120152,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.539,
+       1.095,
+       1.412
+      ],
+      "rgb_p99_abs": [
+       6,
+       5,
+       6
+      ],
+      "rgb_max_abs": 28,
+      "red_pixels": 3711,
+      "red_pixels_box": [
+       40,
+       151,
+       874,
+       1214
+      ],
+      "red_mean_shift": [
+       -1.198,
+       0.646,
+       1.522
+      ],
+      "local_max_mae": 3.28,
+      "local_max_mae_block": [
+       128,
+       384
+      ],
+      "local_max_red_shift": 3.769,
+      "local_max_red_block": [
+       64,
+       384
+      ],
+      "sampled_delta_e76_p99": 3.729,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 1.8,
+   "outputBytes": 120152,
+   "outputSHA256": "88a9b006c588a981efb7b78906c8dea7c0ddf3dfa266791da04d53841e029d00"
+  },
+  {
+   "asset": "public/art/technology/slides/aqua-02.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "7dc03fda7f882a4666f8a87cafa3fa17007a99614cba2092e9bafabd87883097",
+   "sourceBytes": 1103852,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 104350,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.377,
+       0.973,
+       1.293
+      ],
+      "rgb_p99_abs": [
+       7,
+       5,
+       6
+      ],
+      "rgb_max_abs": 63,
+      "red_pixels": 152,
+      "red_pixels_box": [
+       17,
+       312,
+       658,
+       926
+      ],
+      "red_mean_shift": [
+       -9.829,
+       1.947,
+       13.73
+      ],
+      "local_max_mae": 4.151,
+      "local_max_mae_block": [
+       384,
+       448
+      ],
+      "local_max_red_shift": 12.114,
+      "local_max_red_block": [
+       640,
+       896
+      ],
+      "sampled_delta_e76_p99": 3.819,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 107724,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.334,
+       0.981,
+       1.264
+      ],
+      "rgb_p99_abs": [
+       6,
+       5,
+       6
+      ],
+      "rgb_max_abs": 101,
+      "red_pixels": 152,
+      "red_pixels_box": [
+       17,
+       312,
+       658,
+       926
+      ],
+      "red_mean_shift": [
+       -4.566,
+       2.342,
+       11.868
+      ],
+      "local_max_mae": 3.668,
+      "local_max_mae_block": [
+       384,
+       448
+      ],
+      "local_max_red_shift": 5.489,
+      "local_max_red_block": [
+       640,
+       896
+      ],
+      "sampled_delta_e76_p99": 3.595,
+      "sample_step": 4,
+      "red_rule": "skipped: 152 red pixels < 0.1%"
+     }
+    }
+   },
+   "encodeSeconds": 1.7,
+   "outputBytes": 107724,
+   "outputSHA256": "4c01b6c9f513051f9af5fc05070d5169a707c7c820c4493b677ca2cd7c01a539"
+  },
+  {
+   "asset": "public/art/technology/slides/capsule-01.webp",
+   "width": 940,
+   "height": 1522,
+   "sourceSHA256": "173b2c7cb68101da0bfccdd3b8eb9669585c7a667ede5daca1229d46bae113f6",
+   "sourceBytes": 1496166,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 196208,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.799,
+       1.517,
+       2.007
+      ],
+      "rgb_p99_abs": [
+       11,
+       6,
+       11
+      ],
+      "rgb_max_abs": 100,
+      "red_pixels": 1331527,
+      "red_pixels_box": [
+       0,
+       0,
+       939,
+       1521
+      ],
+      "red_mean_shift": [
+       0.141,
+       0.006,
+       0.402
+      ],
+      "local_max_mae": 7.015,
+      "local_max_mae_block": [
+       768,
+       384
+      ],
+      "local_max_red_shift": 6.3,
+      "local_max_red_block": [
+       192,
+       576
+      ],
+      "sampled_delta_e76_p99": 7.537,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 211446,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.666,
+       1.502,
+       1.87
+      ],
+      "rgb_p99_abs": [
+       8,
+       6,
+       8
+      ],
+      "rgb_max_abs": 86,
+      "red_pixels": 1331527,
+      "red_pixels_box": [
+       0,
+       0,
+       939,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.057,
+       0.228,
+       -0.028
+      ],
+      "local_max_mae": 4.49,
+      "local_max_mae_block": [
+       768,
+       384
+      ],
+      "local_max_red_shift": 1.969,
+      "local_max_red_block": [
+       448,
+       256
+      ],
+      "sampled_delta_e76_p99": 5.067,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 3.1,
+   "outputBytes": 211446,
+   "outputSHA256": "cec2ca5c7abf051cff45957dc279639cdb2f016f99bf9ceadde25ef9f6b38546"
+  },
+  {
+   "asset": "public/art/technology/slides/capsule-02.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "40646d51fe22a5ad5f47e83441ff3e237a8945526da3305ed8daeb330b3f9124",
+   "sourceBytes": 1420494,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 174662,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.792,
+       1.328,
+       2.104
+      ],
+      "rgb_p99_abs": [
+       14,
+       7,
+       14
+      ],
+      "rgb_max_abs": 119,
+      "red_pixels": 1194443,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       0.064,
+       0.053,
+       0.563
+      ],
+      "local_max_mae": 8.086,
+      "local_max_mae_block": [
+       704,
+       832
+      ],
+      "local_max_red_shift": 15.011,
+      "local_max_red_block": [
+       832,
+       832
+      ],
+      "sampled_delta_e76_p99": 10.168,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 183832,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.643,
+       1.324,
+       1.958
+      ],
+      "rgb_p99_abs": [
+       10,
+       7,
+       12
+      ],
+      "rgb_max_abs": 100,
+      "red_pixels": 1194443,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.049,
+       0.263,
+       0.023
+      ],
+      "local_max_mae": 5.879,
+      "local_max_mae_block": [
+       704,
+       832
+      ],
+      "local_max_red_shift": 3.658,
+      "local_max_red_block": [
+       192,
+       512
+      ],
+      "sampled_delta_e76_p99": 7.601,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 2.9,
+   "outputBytes": 183832,
+   "outputSHA256": "1033e20113e9c3c63aec421f661e5f2892b84b20f833f9e906a01e04905361bb"
+  },
+  {
+   "asset": "public/art/technology/slides/capsule-03.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "fbfdaa41e3dea6ee75ce76626f7e08bc479481f569408acdd9bf5ec075de984a",
+   "sourceBytes": 1332698,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 143748,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.471,
+       1.203,
+       1.817
+      ],
+      "rgb_p99_abs": [
+       8,
+       5,
+       9
+      ],
+      "rgb_max_abs": 101,
+      "red_pixels": 1229256,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       0.19,
+       0.015,
+       0.391
+      ],
+      "local_max_mae": 5.157,
+      "local_max_mae_block": [
+       512,
+       640
+      ],
+      "local_max_red_shift": 18.559,
+      "local_max_red_block": [
+       192,
+       448
+      ],
+      "sampled_delta_e76_p99": 5.68,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 158262,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.411,
+       1.218,
+       1.73
+      ],
+      "rgb_p99_abs": [
+       7,
+       6,
+       8
+      ],
+      "rgb_max_abs": 59,
+      "red_pixels": 1229256,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.039,
+       0.217,
+       -0.042
+      ],
+      "local_max_mae": 4.257,
+      "local_max_mae_block": [
+       512,
+       640
+      ],
+      "local_max_red_shift": 4.441,
+      "local_max_red_block": [
+       192,
+       448
+      ],
+      "sampled_delta_e76_p99": 4.597,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 2.9,
+   "outputBytes": 158262,
+   "outputSHA256": "3697b0b3ae1e1cae1cd1a43e0db4345eafe32a56caf530ac0e4b9673b1774b50"
+  },
+  {
+   "asset": "public/art/technology/slides/cyber-01.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "046d59614356b6eea551e64ea48b1f9db183368aeede68d865ef209a2a494c60",
+   "sourceBytes": 1265318,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 120930,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.382,
+       1.216,
+       1.439
+      ],
+      "rgb_p99_abs": [
+       6,
+       5,
+       6
+      ],
+      "rgb_max_abs": 106,
+      "red_pixels": 820492,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       0.087,
+       0.193,
+       0.407
+      ],
+      "local_max_mae": 5.265,
+      "local_max_mae_block": [
+       320,
+       512
+      ],
+      "local_max_red_shift": 29.822,
+      "local_max_red_block": [
+       320,
+       512
+      ],
+      "sampled_delta_e76_p99": 3.675,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 124324,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.348,
+       1.22,
+       1.417
+      ],
+      "rgb_p99_abs": [
+       5,
+       5,
+       6
+      ],
+      "rgb_max_abs": 152,
+      "red_pixels": 820492,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.183,
+       0.382,
+       0.073
+      ],
+      "local_max_mae": 4.447,
+      "local_max_mae_block": [
+       320,
+       512
+      ],
+      "local_max_red_shift": 3.191,
+      "local_max_red_block": [
+       320,
+       832
+      ],
+      "sampled_delta_e76_p99": 3.328,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 2.6,
+   "outputBytes": 124324,
+   "outputSHA256": "310e25a2823b8eeaea0a154d7e973dafb6f203a3e285cf34b75c533242576206"
+  },
+  {
+   "asset": "public/art/technology/slides/cyber-02.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "b6aa2b92b5d8f4aa5d7a4bbe726aa6195b9fe87b96f2f58092160e2b674143cb",
+   "sourceBytes": 673606,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "default",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 77252,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.072,
+       0.926,
+       1.11
+      ],
+      "rgb_p99_abs": [
+       5,
+       4,
+       5
+      ],
+      "rgb_max_abs": 20,
+      "red_pixels": 371400,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       0.031,
+       0.102,
+       0.309
+      ],
+      "local_max_mae": 3.029,
+      "local_max_mae_block": [
+       64,
+       320
+      ],
+      "local_max_red_shift": 3.033,
+      "local_max_red_block": [
+       384,
+       448
+      ],
+      "sampled_delta_e76_p99": 2.846,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 80132,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.047,
+       0.925,
+       1.085
+      ],
+      "rgb_p99_abs": [
+       5,
+       4,
+       5
+      ],
+      "rgb_max_abs": 22,
+      "red_pixels": 371400,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.038,
+       0.18,
+       0.081
+      ],
+      "local_max_mae": 2.534,
+      "local_max_mae_block": [
+       64,
+       320
+      ],
+      "local_max_red_shift": 1.944,
+      "local_max_red_block": [
+       384,
+       1472
+      ],
+      "sampled_delta_e76_p99": 2.733,
+      "sample_step": 4
+     }
+    }
+   },
+   "encodeSeconds": 2.1,
+   "outputBytes": 77252,
+   "outputSHA256": "16915ecb095ffe3e8e15bee97834626e3850e3bdcfb7820b6b09d55da4d89d88"
+  },
+  {
+   "asset": "public/art/technology/slides/heat-02.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "d560da509820418a93b3f1202681e51f3ca5fc1072f75701239e2c332b4d813e",
+   "sourceBytes": 1210042,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 103914,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.314,
+       1.091,
+       1.527
+      ],
+      "rgb_p99_abs": [
+       8,
+       5,
+       11
+      ],
+      "rgb_max_abs": 80,
+      "red_pixels": 125209,
+      "red_pixels_box": [
+       54,
+       142,
+       940,
+       1259
+      ],
+      "red_mean_shift": [
+       -0.909,
+       0.111,
+       2.151
+      ],
+      "local_max_mae": 11.039,
+      "local_max_mae_block": [
+       576,
+       704
+      ],
+      "local_max_red_shift": 8.831,
+      "local_max_red_block": [
+       320,
+       896
+      ],
+      "sampled_delta_e76_p99": 6.9,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 109244,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.254,
+       1.096,
+       1.458
+      ],
+      "rgb_p99_abs": [
+       6,
+       5,
+       8
+      ],
+      "rgb_max_abs": 101,
+      "red_pixels": 125209,
+      "red_pixels_box": [
+       54,
+       142,
+       940,
+       1259
+      ],
+      "red_mean_shift": [
+       -0.43,
+       0.32,
+       0.945
+      ],
+      "local_max_mae": 10.117,
+      "local_max_mae_block": [
+       576,
+       704
+      ],
+      "local_max_red_shift": 3.882,
+      "local_max_red_block": [
+       256,
+       768
+      ],
+      "sampled_delta_e76_p99": 4.993,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 1.9,
+   "outputBytes": 109244,
+   "outputSHA256": "f19590ebc0e0be74a6e7e4c11946c04b17745350af93836efd8c24a9a7e6a057"
+  },
+  {
+   "asset": "public/art/technology/slides/heat-03.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "7a1c19bb1d6df64275c2a8608779c124c7b6fef366883b70148dc4d43f1a6f3f",
+   "sourceBytes": 1311648,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 125640,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.443,
+       1.143,
+       1.479
+      ],
+      "rgb_p99_abs": [
+       7,
+       5,
+       8
+      ],
+      "rgb_max_abs": 44,
+      "red_pixels": 387727,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1030
+      ],
+      "red_mean_shift": [
+       -0.044,
+       0.098,
+       0.734
+      ],
+      "local_max_mae": 4.563,
+      "local_max_mae_block": [
+       768,
+       448
+      ],
+      "local_max_red_shift": 2.763,
+      "local_max_red_block": [
+       768,
+       448
+      ],
+      "sampled_delta_e76_p99": 5.306,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 132204,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.365,
+       1.142,
+       1.411
+      ],
+      "rgb_p99_abs": [
+       6,
+       5,
+       7
+      ],
+      "rgb_max_abs": 38,
+      "red_pixels": 387727,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1030
+      ],
+      "red_mean_shift": [
+       -0.233,
+       0.303,
+       0.196
+      ],
+      "local_max_mae": 3.908,
+      "local_max_mae_block": [
+       192,
+       512
+      ],
+      "local_max_red_shift": 1.62,
+      "local_max_red_block": [
+       128,
+       128
+      ],
+      "sampled_delta_e76_p99": 4.286,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 2.2,
+   "outputBytes": 132204,
+   "outputSHA256": "2dd1c27e57490538d888dc21c65f7d1751eb9a54e84d4bc4b770018313835132"
+  },
+  {
+   "asset": "public/art/technology/slides/heat-04.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "c65ecb6d5d344f49a4be3d7b989dab0c1ee1b5c0346449fa05d93486a257430c",
+   "sourceBytes": 1200408,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 96636,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.378,
+       1.099,
+       1.44
+      ],
+      "rgb_p99_abs": [
+       7,
+       5,
+       8
+      ],
+      "rgb_max_abs": 119,
+      "red_pixels": 267038,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1351
+      ],
+      "red_mean_shift": [
+       -0.137,
+       0.143,
+       0.774
+      ],
+      "local_max_mae": 5.024,
+      "local_max_mae_block": [
+       448,
+       768
+      ],
+      "local_max_red_shift": 20.016,
+      "local_max_red_block": [
+       192,
+       896
+      ],
+      "sampled_delta_e76_p99": 4.813,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 100746,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.302,
+       1.089,
+       1.37
+      ],
+      "rgb_p99_abs": [
+       6,
+       5,
+       6
+      ],
+      "rgb_max_abs": 131,
+      "red_pixels": 267038,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1351
+      ],
+      "red_mean_shift": [
+       -0.222,
+       0.332,
+       0.238
+      ],
+      "local_max_mae": 4.522,
+      "local_max_mae_block": [
+       448,
+       768
+      ],
+      "local_max_red_shift": 5.078,
+      "local_max_red_block": [
+       192,
+       896
+      ],
+      "sampled_delta_e76_p99": 4.048,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 2.0,
+   "outputBytes": 100746,
+   "outputSHA256": "bf4139c74ddbdbbc197092c128c25fb6131e9e984ada0fe5edca36389f77e2b9"
+  },
+  {
+   "asset": "public/art/technology/slides/heat-05.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "aa9a432a824628e71528a37c69cc93c5adcc9d0e69c3d7809e451c8785499fd2",
+   "sourceBytes": 1298888,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 151074,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.465,
+       1.222,
+       1.72
+      ],
+      "rgb_p99_abs": [
+       9,
+       5,
+       13
+      ],
+      "rgb_max_abs": 110,
+      "red_pixels": 616946,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.242,
+       0.273,
+       0.865
+      ],
+      "local_max_mae": 5.923,
+      "local_max_mae_block": [
+       576,
+       704
+      ],
+      "local_max_red_shift": 5.019,
+      "local_max_red_block": [
+       448,
+       384
+      ],
+      "sampled_delta_e76_p99": 8.16,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 157304,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.369,
+       1.204,
+       1.563
+      ],
+      "rgb_p99_abs": [
+       7,
+       5,
+       9
+      ],
+      "rgb_max_abs": 71,
+      "red_pixels": 616946,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.279,
+       0.412,
+       0.293
+      ],
+      "local_max_mae": 4.849,
+      "local_max_mae_block": [
+       576,
+       704
+      ],
+      "local_max_red_shift": 2.852,
+      "local_max_red_block": [
+       448,
+       384
+      ],
+      "sampled_delta_e76_p99": 5.626,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 2.4,
+   "outputBytes": 157304,
+   "outputSHA256": "c59bab53fdbc93ec8d6e6b7609b073fa370ecd1272f1751c502fcfad6bbde4fd"
+  },
+  {
+   "asset": "public/art/technology/slides/mood-01.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "afab387a741c0a4783fb17000847c6ff8143f4cf7d7f81a993afad67b35fc618",
+   "sourceBytes": 1113892,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 70350,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.143,
+       0.907,
+       1.25
+      ],
+      "rgb_p99_abs": [
+       5,
+       4,
+       6
+      ],
+      "rgb_max_abs": 84,
+      "red_pixels": 1007570,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       0.094,
+       0.146,
+       0.27
+      ],
+      "local_max_mae": 4.509,
+      "local_max_mae_block": [
+       320,
+       320
+      ],
+      "local_max_red_shift": 5.911,
+      "local_max_red_block": [
+       384,
+       576
+      ],
+      "sampled_delta_e76_p99": 3.41,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 73990,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.104,
+       0.914,
+       1.2
+      ],
+      "rgb_p99_abs": [
+       5,
+       4,
+       5
+      ],
+      "rgb_max_abs": 48,
+      "red_pixels": 1007570,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.119,
+       0.293,
+       -0.034
+      ],
+      "local_max_mae": 3.583,
+      "local_max_mae_block": [
+       320,
+       320
+      ],
+      "local_max_red_shift": 2.306,
+      "local_max_red_block": [
+       384,
+       768
+      ],
+      "sampled_delta_e76_p99": 2.991,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 2.7,
+   "outputBytes": 73990,
+   "outputSHA256": "f11a68990e49e66bc94ec48daf2d5956844d5752188aaa5b1db94a7ba78eab97"
+  },
+  {
+   "asset": "public/art/technology/slides/mood-02.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "5e18b904aca33826363d3ce3d0d24721ed937fa4c0e6d0c17e6161cfa3ba5be3",
+   "sourceBytes": 1270768,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 108328,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.446,
+       1.07,
+       1.47
+      ],
+      "rgb_p99_abs": [
+       7,
+       5,
+       7
+      ],
+      "rgb_max_abs": 50,
+      "red_pixels": 1181236,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       0.141,
+       0.033,
+       0.28
+      ],
+      "local_max_mae": 3.006,
+      "local_max_mae_block": [
+       704,
+       704
+      ],
+      "local_max_red_shift": 24.915,
+      "local_max_red_block": [
+       512,
+       384
+      ],
+      "sampled_delta_e76_p99": 4.968,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 113614,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.385,
+       1.071,
+       1.418
+      ],
+      "rgb_p99_abs": [
+       6,
+       4,
+       6
+      ],
+      "rgb_max_abs": 68,
+      "red_pixels": 1181236,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.068,
+       0.207,
+       -0.06
+      ],
+      "local_max_mae": 2.656,
+      "local_max_mae_block": [
+       704,
+       704
+      ],
+      "local_max_red_shift": 6.766,
+      "local_max_red_block": [
+       512,
+       384
+      ],
+      "sampled_delta_e76_p99": 4.173,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 2.9,
+   "outputBytes": 113614,
+   "outputSHA256": "aba8b38a6e08f583a14501696137c95ef52fd79023c2e460f5aaa33812e7bc50"
+  },
+  {
+   "asset": "public/art/technology/slides/noble-01.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "6c396905e0100cfb5b95587a9f56014932684516cf2efc3770efdba94a170c8a",
+   "sourceBytes": 863512,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 134430,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.319,
+       1.041,
+       1.451
+      ],
+      "rgb_p99_abs": [
+       8,
+       5,
+       10
+      ],
+      "rgb_max_abs": 34,
+      "red_pixels": 1178075,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.126,
+       0.273,
+       0.46
+      ],
+      "local_max_mae": 3.634,
+      "local_max_mae_block": [
+       640,
+       512
+      ],
+      "local_max_red_shift": 2.624,
+      "local_max_red_block": [
+       640,
+       384
+      ],
+      "sampled_delta_e76_p99": 5.884,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 139214,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.228,
+       1.029,
+       1.265
+      ],
+      "rgb_p99_abs": [
+       7,
+       5,
+       7
+      ],
+      "rgb_max_abs": 27,
+      "red_pixels": 1178075,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.074,
+       0.341,
+       0.113
+      ],
+      "local_max_mae": 2.865,
+      "local_max_mae_block": [
+       640,
+       512
+      ],
+      "local_max_red_shift": 1.452,
+      "local_max_red_block": [
+       128,
+       512
+      ],
+      "sampled_delta_e76_p99": 4.258,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 2.9,
+   "outputBytes": 139214,
+   "outputSHA256": "736dd3c64fdb46d9eb7218873dbd7386dbcfa0a548c82bb7947c8532d939e6db"
+  },
+  {
+   "asset": "public/art/technology/slides/noble-02.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "218f45303c44211604df512012acd35d526440b9f9922a910cbeb943f220fb3e",
+   "sourceBytes": 1458516,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 187970,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.649,
+       1.339,
+       2.09
+      ],
+      "rgb_p99_abs": [
+       10,
+       6,
+       14
+      ],
+      "rgb_max_abs": 56,
+      "red_pixels": 1349163,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       0.08,
+       0.035,
+       0.578
+      ],
+      "local_max_mae": 7.444,
+      "local_max_mae_block": [
+       448,
+       256
+      ],
+      "local_max_red_shift": 7.465,
+      "local_max_red_block": [
+       448,
+       256
+      ],
+      "sampled_delta_e76_p99": 8.423,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 195668,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.564,
+       1.333,
+       1.917
+      ],
+      "rgb_p99_abs": [
+       8,
+       6,
+       10
+      ],
+      "rgb_max_abs": 47,
+      "red_pixels": 1349163,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.13,
+       0.241,
+       0.057
+      ],
+      "local_max_mae": 4.99,
+      "local_max_mae_block": [
+       448,
+       256
+      ],
+      "local_max_red_shift": 3.984,
+      "local_max_red_block": [
+       448,
+       320
+      ],
+      "sampled_delta_e76_p99": 6.185,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 3.1,
+   "outputBytes": 195668,
+   "outputSHA256": "42635b6089448f5f5ead88571acf8df17a9fd44b509798570953b75ab93cae6f"
+  },
+  {
+   "asset": "public/art/technology/slides/poly-01.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "faaefb447fbda57e9bbd57874d6e8abfbf06bafa8aaf72419567a0e163bb461d",
+   "sourceBytes": 1048772,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "default",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 80152,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.166,
+       0.973,
+       1.351
+      ],
+      "rgb_p99_abs": [
+       5,
+       4,
+       5
+      ],
+      "rgb_max_abs": 18,
+      "red_pixels": 1395237,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       0.197,
+       0.067,
+       0.192
+      ],
+      "local_max_mae": 2.217,
+      "local_max_mae_block": [
+       448,
+       768
+      ],
+      "local_max_red_shift": 0.692,
+      "local_max_red_block": [
+       128,
+       704
+      ],
+      "sampled_delta_e76_p99": 2.754,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 83044,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.139,
+       0.977,
+       1.313
+      ],
+      "rgb_p99_abs": [
+       4,
+       4,
+       5
+      ],
+      "rgb_max_abs": 17,
+      "red_pixels": 1395237,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.026,
+       0.212,
+       -0.08
+      ],
+      "local_max_mae": 2.182,
+      "local_max_mae_block": [
+       448,
+       768
+      ],
+      "local_max_red_shift": 0.52,
+      "local_max_red_block": [
+       576,
+       896
+      ],
+      "sampled_delta_e76_p99": 2.648,
+      "sample_step": 4
+     }
+    }
+   },
+   "encodeSeconds": 3.1,
+   "outputBytes": 80152,
+   "outputSHA256": "214e7202d1a23e15a0551d1b0fd0527843996c89eea75fa0caa659d357c48685"
+  },
+  {
+   "asset": "public/art/technology/slides/quick-01.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "666d1c345341d18d10396b4ae028c41515c31740992e51ddfe84cb9260c447f9",
+   "sourceBytes": 1148554,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "default",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 73152,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.173,
+       0.952,
+       1.25
+      ],
+      "rgb_p99_abs": [
+       5,
+       4,
+       6
+      ],
+      "rgb_max_abs": 46,
+      "red_pixels": 1169431,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       0.191,
+       0.064,
+       0.253
+      ],
+      "local_max_mae": 3.449,
+      "local_max_mae_block": [
+       640,
+       704
+      ],
+      "local_max_red_shift": 1.824,
+      "local_max_red_block": [
+       768,
+       448
+      ],
+      "sampled_delta_e76_p99": 3.425,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 77694,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.149,
+       0.977,
+       1.242
+      ],
+      "rgb_p99_abs": [
+       5,
+       5,
+       6
+      ],
+      "rgb_max_abs": 51,
+      "red_pixels": 1169431,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.03,
+       0.242,
+       -0.018
+      ],
+      "local_max_mae": 3.035,
+      "local_max_mae_block": [
+       640,
+       704
+      ],
+      "local_max_red_shift": 2.296,
+      "local_max_red_block": [
+       64,
+       832
+      ],
+      "sampled_delta_e76_p99": 3.188,
+      "sample_step": 4
+     }
+    }
+   },
+   "encodeSeconds": 2.8,
+   "outputBytes": 73152,
+   "outputSHA256": "448de28a5f8de18f4582431263f16ec5a364a4b4d1c9355d7ea9b1e46cb9abca"
+  },
+  {
+   "asset": "public/art/technology/slides/quick-02.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "e02d12180867ea1cf01b838533b6d08e99fc9171c4b24a705f5e865c86b2d4c4",
+   "sourceBytes": 1423536,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 170614,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.621,
+       1.322,
+       1.768
+      ],
+      "rgb_p99_abs": [
+       7,
+       6,
+       8
+      ],
+      "rgb_max_abs": 89,
+      "red_pixels": 1017626,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       0.138,
+       0.068,
+       0.471
+      ],
+      "local_max_mae": 5.156,
+      "local_max_mae_block": [
+       128,
+       448
+      ],
+      "local_max_red_shift": 12.029,
+      "local_max_red_block": [
+       448,
+       384
+      ],
+      "sampled_delta_e76_p99": 4.913,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 181566,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.56,
+       1.354,
+       1.736
+      ],
+      "rgb_p99_abs": [
+       7,
+       6,
+       7
+      ],
+      "rgb_max_abs": 54,
+      "red_pixels": 1017626,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.093,
+       0.275,
+       0.068
+      ],
+      "local_max_mae": 4.117,
+      "local_max_mae_block": [
+       128,
+       448
+      ],
+      "local_max_red_shift": 5.043,
+      "local_max_red_block": [
+       448,
+       384
+      ],
+      "sampled_delta_e76_p99": 4.188,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 2.8,
+   "outputBytes": 181566,
+   "outputSHA256": "7c43e8673d2a2b458d2878e1c9b452962a66aa7d1ad8813053b73d5fe1274188"
+  },
+  {
+   "asset": "public/art/technology/slides/touch-01.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "386f777c6af2adcd8efec24302bbc31ea22cea6775c82f1e39bb81f273252caf",
+   "sourceBytes": 1172272,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 93926,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.285,
+       1.057,
+       1.398
+      ],
+      "rgb_p99_abs": [
+       6,
+       5,
+       7
+      ],
+      "rgb_max_abs": 82,
+      "red_pixels": 887858,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       0.097,
+       0.136,
+       0.325
+      ],
+      "local_max_mae": 5.06,
+      "local_max_mae_block": [
+       512,
+       192
+      ],
+      "local_max_red_shift": 10.857,
+      "local_max_red_block": [
+       128,
+       832
+      ],
+      "sampled_delta_e76_p99": 4.015,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 99028,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.233,
+       1.063,
+       1.349
+      ],
+      "rgb_p99_abs": [
+       6,
+       5,
+       6
+      ],
+      "rgb_max_abs": 94,
+      "red_pixels": 887858,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.071,
+       0.277,
+       0.041
+      ],
+      "local_max_mae": 3.79,
+      "local_max_mae_block": [
+       512,
+       192
+      ],
+      "local_max_red_shift": 3.0,
+      "local_max_red_block": [
+       448,
+       832
+      ],
+      "sampled_delta_e76_p99": 3.498,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 2.6,
+   "outputBytes": 99028,
+   "outputSHA256": "8c2afe08eacce6a7ac1e7af48ab4d0989e4fef0303ea099d18e1f1fd3bddfd82"
+  },
+  {
+   "asset": "public/art/technology/slides/touch-02.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "9a320e95d241399e63faad8836cca4188d19d43cb0cd5c8ea549389efdf75d6f",
+   "sourceBytes": 1112090,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 110632,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.212,
+       0.978,
+       1.322
+      ],
+      "rgb_p99_abs": [
+       7,
+       5,
+       7
+      ],
+      "rgb_max_abs": 66,
+      "red_pixels": 689504,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.003,
+       0.203,
+       0.364
+      ],
+      "local_max_mae": 3.694,
+      "local_max_mae_block": [
+       128,
+       640
+      ],
+      "local_max_red_shift": 22.925,
+      "local_max_red_block": [
+       704,
+       640
+      ],
+      "sampled_delta_e76_p99": 4.564,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 114634,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.17,
+       0.992,
+       1.294
+      ],
+      "rgb_p99_abs": [
+       6,
+       5,
+       6
+      ],
+      "rgb_max_abs": 74,
+      "red_pixels": 689504,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.109,
+       0.337,
+       0.132
+      ],
+      "local_max_mae": 3.288,
+      "local_max_mae_block": [
+       128,
+       640
+      ],
+      "local_max_red_shift": 4.95,
+      "local_max_red_block": [
+       704,
+       640
+      ],
+      "sampled_delta_e76_p99": 3.901,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 2.5,
+   "outputBytes": 114634,
+   "outputSHA256": "03527858978092f8db069c6c000a3613e0b12f7631386fb9dac776496235e7f0"
+  },
+  {
+   "asset": "public/art/technology/slides/touch-03.webp",
+   "width": 941,
+   "height": 1522,
+   "sourceSHA256": "4aba2b041c5d8987a7c01c07fc85b8843fb32f6a5ce3c74e7f0dec314a15f310",
+   "sourceBytes": 1172728,
+   "sourceCodec": "VP8L lossless",
+   "embeddedICC": "sRGB (copied from source)",
+   "quality": 90,
+   "chosen": "sharp_yuv",
+   "fallback": null,
+   "candidates": {
+    "default": {
+     "bytes": 92202,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.324,
+       1.041,
+       1.43
+      ],
+      "rgb_p99_abs": [
+       6,
+       5,
+       8
+      ],
+      "rgb_max_abs": 99,
+      "red_pixels": 614042,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       0.123,
+       0.072,
+       0.476
+      ],
+      "local_max_mae": 4.499,
+      "local_max_mae_block": [
+       64,
+       768
+      ],
+      "local_max_red_shift": 10.456,
+      "local_max_red_block": [
+       640,
+       640
+      ],
+      "sampled_delta_e76_p99": 4.251,
+      "sample_step": 4
+     }
+    },
+    "sharp_yuv": {
+     "bytes": 96466,
+     "metrics": {
+      "rgb_mean_abs": [
+       1.281,
+       1.066,
+       1.392
+      ],
+      "rgb_p99_abs": [
+       5,
+       5,
+       6
+      ],
+      "rgb_max_abs": 73,
+      "red_pixels": 614042,
+      "red_pixels_box": [
+       0,
+       0,
+       940,
+       1521
+      ],
+      "red_mean_shift": [
+       -0.101,
+       0.275,
+       0.136
+      ],
+      "local_max_mae": 3.772,
+      "local_max_mae_block": [
+       64,
+       768
+      ],
+      "local_max_red_shift": 4.923,
+      "local_max_red_block": [
+       128,
+       832
+      ],
+      "sampled_delta_e76_p99": 3.505,
+      "sample_step": 4,
+      "red_rule": "applied"
+     }
+    }
+   },
+   "encodeSeconds": 2.4,
+   "outputBytes": 96466,
+   "outputSHA256": "3bec2117f00736af6fbb83395a0ba3e93dc37a8b1af7b72604fff88b799a9616"
+  }
+ ]
+}

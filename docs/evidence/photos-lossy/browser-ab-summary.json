@@ -1,0 +1,872 @@
+{
+ "pairs": 36,
+ "worstMean": 2.724,
+ "worstP99": 89.0,
+ "worstBlock64": 13.246,
+ "rows": [
+  {
+   "pair": "max_charcoal-open",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.8616,
+   "rgbMeanAbs": [
+    0.686,
+    0.538,
+    0.846
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 14,
+   "worstBlock64MeanAbs": 1.313,
+   "worstBlockXY": [
+    256,
+    192
+   ]
+  },
+  {
+   "pair": "max_charcoal-sec0",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.8616,
+   "rgbMeanAbs": [
+    0.686,
+    0.538,
+    0.846
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 14,
+   "worstBlock64MeanAbs": 1.313,
+   "worstBlockXY": [
+    256,
+    192
+   ]
+  },
+  {
+   "pair": "max_charcoal-sec1",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.865,
+   "rgbMeanAbs": [
+    0.72,
+    0.58,
+    0.919
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 11,
+   "worstBlock64MeanAbs": 1.26,
+   "worstBlockXY": [
+    320,
+    320
+   ]
+  },
+  {
+   "pair": "max_charcoal-sec2",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.866,
+   "rgbMeanAbs": [
+    0.701,
+    0.557,
+    0.891
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 10,
+   "worstBlock64MeanAbs": 1.171,
+   "worstBlockXY": [
+    320,
+    192
+   ]
+  },
+  {
+   "pair": "max_charcoal-sec3",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.8678,
+   "rgbMeanAbs": [
+    0.764,
+    0.587,
+    0.952
+   ],
+   "rgbP99Abs": [
+    3.0,
+    3.0,
+    4.0
+   ],
+   "maxAbs": 11,
+   "worstBlock64MeanAbs": 1.402,
+   "worstBlockXY": [
+    192,
+    448
+   ]
+  },
+  {
+   "pair": "max_technology-CapsuleCode-0",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.6968,
+   "rgbMeanAbs": [
+    0.779,
+    0.621,
+    0.981
+   ],
+   "rgbP99Abs": [
+    4.0,
+    3.0,
+    5.0
+   ],
+   "maxAbs": 32,
+   "worstBlock64MeanAbs": 1.602,
+   "worstBlockXY": [
+    64,
+    448
+   ]
+  },
+  {
+   "pair": "max_technology-CapsuleCode-1",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.6873,
+   "rgbMeanAbs": [
+    0.769,
+    0.59,
+    0.999
+   ],
+   "rgbP99Abs": [
+    5.0,
+    3.0,
+    6.0
+   ],
+   "maxAbs": 40,
+   "worstBlock64MeanAbs": 1.93,
+   "worstBlockXY": [
+    256,
+    512
+   ]
+  },
+  {
+   "pair": "max_technology-CapsuleCode-2",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.69,
+   "rgbMeanAbs": [
+    0.697,
+    0.568,
+    0.919
+   ],
+   "rgbP99Abs": [
+    4.0,
+    3.0,
+    5.0
+   ],
+   "maxAbs": 23,
+   "worstBlock64MeanAbs": 1.441,
+   "worstBlockXY": [
+    256,
+    384
+   ]
+  },
+  {
+   "pair": "max_technology-HeatCore-0",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.687,
+   "rgbMeanAbs": [
+    0.614,
+    0.496,
+    0.762
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 43,
+   "worstBlock64MeanAbs": 1.753,
+   "worstBlockXY": [
+    256,
+    448
+   ]
+  },
+  {
+   "pair": "max_technology-HeatCore-1",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.6888,
+   "rgbMeanAbs": [
+    0.657,
+    0.521,
+    0.762
+   ],
+   "rgbP99Abs": [
+    3.0,
+    3.0,
+    4.0
+   ],
+   "maxAbs": 17,
+   "worstBlock64MeanAbs": 1.54,
+   "worstBlockXY": [
+    64,
+    320
+   ]
+  },
+  {
+   "pair": "max_technology-HeatCore-2",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.6718,
+   "rgbMeanAbs": [
+    0.643,
+    0.515,
+    0.742
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 44,
+   "worstBlock64MeanAbs": 1.539,
+   "worstBlockXY": [
+    192,
+    448
+   ]
+  },
+  {
+   "pair": "max_technology-NobleCraft-0",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.686,
+   "rgbMeanAbs": [
+    0.643,
+    0.521,
+    0.703
+   ],
+   "rgbP99Abs": [
+    4.0,
+    3.0,
+    4.0
+   ],
+   "maxAbs": 17,
+   "worstBlock64MeanAbs": 1.388,
+   "worstBlockXY": [
+    256,
+    448
+   ]
+  },
+  {
+   "pair": "max_technology-NobleCraft-1",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.702,
+   "rgbMeanAbs": [
+    0.734,
+    0.598,
+    0.998
+   ],
+   "rgbP99Abs": [
+    4.0,
+    3.0,
+    5.0
+   ],
+   "maxAbs": 26,
+   "worstBlock64MeanAbs": 1.672,
+   "worstBlockXY": [
+    192,
+    256
+   ]
+  },
+  {
+   "pair": "max_wellness-fig0",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.6448,
+   "rgbMeanAbs": [
+    0.601,
+    0.474,
+    0.77
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 15,
+   "worstBlock64MeanAbs": 1.424,
+   "worstBlockXY": [
+    64,
+    448
+   ]
+  },
+  {
+   "pair": "max_wellness-fig1",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.5902,
+   "rgbMeanAbs": [
+    2.417,
+    2.365,
+    2.724
+   ],
+   "rgbP99Abs": [
+    80.0,
+    86.0,
+    89.0
+   ],
+   "maxAbs": 219,
+   "worstBlock64MeanAbs": 13.246,
+   "worstBlockXY": [
+    256,
+    128
+   ]
+  },
+  {
+   "pair": "max_wellness-fig2",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.5608,
+   "rgbMeanAbs": [
+    0.536,
+    0.401,
+    0.68
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 12,
+   "worstBlock64MeanAbs": 1.294,
+   "worstBlockXY": [
+    64,
+    640
+   ]
+  },
+  {
+   "pair": "max_wellness-fig3",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.5635,
+   "rgbMeanAbs": [
+    0.566,
+    0.412,
+    0.685
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 9,
+   "worstBlock64MeanAbs": 1.281,
+   "worstBlockXY": [
+    192,
+    448
+   ]
+  },
+  {
+   "pair": "max_wellness-open",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.6448,
+   "rgbMeanAbs": [
+    0.601,
+    0.474,
+    0.77
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 15,
+   "worstBlock64MeanAbs": 1.424,
+   "worstBlockXY": [
+    64,
+    448
+   ]
+  },
+  {
+   "pair": "pro_charcoal-open",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.8617,
+   "rgbMeanAbs": [
+    0.678,
+    0.528,
+    0.838
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 13,
+   "worstBlock64MeanAbs": 1.207,
+   "worstBlockXY": [
+    192,
+    192
+   ]
+  },
+  {
+   "pair": "pro_charcoal-sec0",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.8617,
+   "rgbMeanAbs": [
+    0.678,
+    0.528,
+    0.838
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 13,
+   "worstBlock64MeanAbs": 1.207,
+   "worstBlockXY": [
+    192,
+    192
+   ]
+  },
+  {
+   "pair": "pro_charcoal-sec1",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.86,
+   "rgbMeanAbs": [
+    0.674,
+    0.547,
+    0.859
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 9,
+   "worstBlock64MeanAbs": 1.085,
+   "worstBlockXY": [
+    256,
+    256
+   ]
+  },
+  {
+   "pair": "pro_charcoal-sec2",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.8829,
+   "rgbMeanAbs": [
+    0.74,
+    0.576,
+    0.944
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 11,
+   "worstBlock64MeanAbs": 1.321,
+   "worstBlockXY": [
+    256,
+    128
+   ]
+  },
+  {
+   "pair": "pro_charcoal-sec3",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.8754,
+   "rgbMeanAbs": [
+    0.768,
+    0.584,
+    0.964
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 12,
+   "worstBlock64MeanAbs": 1.369,
+   "worstBlockXY": [
+    128,
+    384
+   ]
+  },
+  {
+   "pair": "pro_technology-CapsuleCode-0",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.6865,
+   "rgbMeanAbs": [
+    0.649,
+    0.508,
+    0.805
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 20,
+   "worstBlock64MeanAbs": 1.305,
+   "worstBlockXY": [
+    320,
+    256
+   ]
+  },
+  {
+   "pair": "pro_technology-CapsuleCode-1",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.6849,
+   "rgbMeanAbs": [
+    0.73,
+    0.557,
+    0.949
+   ],
+   "rgbP99Abs": [
+    4.0,
+    3.0,
+    5.0
+   ],
+   "maxAbs": 34,
+   "worstBlock64MeanAbs": 2.06,
+   "worstBlockXY": [
+    256,
+    448
+   ]
+  },
+  {
+   "pair": "pro_technology-CapsuleCode-2",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.6865,
+   "rgbMeanAbs": [
+    0.664,
+    0.535,
+    0.874
+   ],
+   "rgbP99Abs": [
+    3.0,
+    3.0,
+    4.0
+   ],
+   "maxAbs": 21,
+   "worstBlock64MeanAbs": 1.425,
+   "worstBlockXY": [
+    384,
+    128
+   ]
+  },
+  {
+   "pair": "pro_technology-HeatCore-0",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.6831,
+   "rgbMeanAbs": [
+    0.585,
+    0.469,
+    0.726
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 35,
+   "worstBlock64MeanAbs": 1.427,
+   "worstBlockXY": [
+    192,
+    384
+   ]
+  },
+  {
+   "pair": "pro_technology-HeatCore-1",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.685,
+   "rgbMeanAbs": [
+    0.624,
+    0.494,
+    0.73
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 14,
+   "worstBlock64MeanAbs": 1.36,
+   "worstBlockXY": [
+    64,
+    320
+   ]
+  },
+  {
+   "pair": "pro_technology-HeatCore-2",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.668,
+   "rgbMeanAbs": [
+    0.612,
+    0.489,
+    0.709
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 40,
+   "worstBlock64MeanAbs": 1.26,
+   "worstBlockXY": [
+    192,
+    448
+   ]
+  },
+  {
+   "pair": "pro_technology-NobleCraft-0",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.6822,
+   "rgbMeanAbs": [
+    0.617,
+    0.5,
+    0.678
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 14,
+   "worstBlock64MeanAbs": 1.289,
+   "worstBlockXY": [
+    256,
+    384
+   ]
+  },
+  {
+   "pair": "pro_technology-NobleCraft-1",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.6986,
+   "rgbMeanAbs": [
+    0.698,
+    0.562,
+    0.95
+   ],
+   "rgbP99Abs": [
+    4.0,
+    3.0,
+    5.0
+   ],
+   "maxAbs": 23,
+   "worstBlock64MeanAbs": 1.576,
+   "worstBlockXY": [
+    192,
+    192
+   ]
+  },
+  {
+   "pair": "pro_wellness-fig0",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.6419,
+   "rgbMeanAbs": [
+    0.577,
+    0.453,
+    0.739
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 17,
+   "worstBlock64MeanAbs": 1.423,
+   "worstBlockXY": [
+    64,
+    384
+   ]
+  },
+  {
+   "pair": "pro_wellness-fig1",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.5492,
+   "rgbMeanAbs": [
+    0.543,
+    0.381,
+    0.672
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 9,
+   "worstBlock64MeanAbs": 1.183,
+   "worstBlockXY": [
+    384,
+    512
+   ]
+  },
+  {
+   "pair": "pro_wellness-fig2",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.5487,
+   "rgbMeanAbs": [
+    0.573,
+    0.421,
+    0.734
+   ],
+   "rgbP99Abs": [
+    4.0,
+    2.0,
+    5.0
+   ],
+   "maxAbs": 14,
+   "worstBlock64MeanAbs": 1.456,
+   "worstBlockXY": [
+    192,
+    448
+   ]
+  },
+  {
+   "pair": "pro_wellness-fig3",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.5728,
+   "rgbMeanAbs": [
+    0.659,
+    0.502,
+    0.793
+   ],
+   "rgbP99Abs": [
+    4.0,
+    3.0,
+    5.0
+   ],
+   "maxAbs": 16,
+   "worstBlock64MeanAbs": 1.809,
+   "worstBlockXY": [
+    192,
+    384
+   ]
+  },
+  {
+   "pair": "pro_wellness-open",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.6419,
+   "rgbMeanAbs": [
+    0.577,
+    0.453,
+    0.739
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 17,
+   "worstBlock64MeanAbs": 1.423,
+   "worstBlockXY": [
+    64,
+    384
+   ]
+  }
+ ]
+}

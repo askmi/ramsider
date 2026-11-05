@@ -17,4 +17,4 @@ Local red shift is not a fallback criterion in the pipeline (it only steers the 
 2. technology/slides/cyber-01 at (320, 512) — local red 14.5.
 3. technology/slides/heat-04 at (192, 896) — local red 14.5.
 
-Reviewer note (coordinator, 3× zoom): see the PNG; differences, where present, are chroma smoothing on fine edges, no hue change of a whole region. Final visual acceptance belongs to the real-browser Pro/Pro Max gate, which is still open (CHG0199).
+Reviewer note (coordinator, 3× zoom): see the PNG; differences, where present, are chroma smoothing on fine edges, no hue change of a whole region. The real-browser Pro/Pro Max A/B was run afterwards (see local-gates.md, browser-ab-*.png); acceptance on real devices by the developer and Founder remains open (CHG0199).

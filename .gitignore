@@ -73,6 +73,8 @@ next-env.d.ts
 !/docs/evidence/certificates/*.txt
 
 # Reviewed lossless browser comparison evidence
+!/docs/evidence/photos-lossy/review-blocks-*.png
+!/docs/evidence/photos-lossy/browser-ab-*.png
 !/docs/evidence/lossless-webp/contact-pro-0.png
 !/docs/evidence/lossless-webp/contact-max-0.png
 !/docs/evidence/lossless-webp/beta-contact-pro.png
@@ -105,3 +107,4 @@ next-env.d.ts
 /design/derived/product-films/*.partial
 /public/vendor/hls-worker-*.js
 /public/vendor/hls.worker.js.map
+/.venv-tools/

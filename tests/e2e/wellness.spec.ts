@@ -1,13 +1,17 @@
+import { compiledPhotoLocale } from './helpers/compiled-photo-locale';
 import { test, expect, type Page } from '@playwright/test';
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import sharp from 'sharp';
 test.use({serviceWorkers:'block'});
+const captureRoot = process.env.PHOTO_QA_ROOT ? `${process.env.PHOTO_QA_ROOT}/wellness` : 'screenshots/wellness';
+test.beforeEach(async () => { await mkdir(captureRoot, { recursive: true }); });
 
 const dialog = '#wellness-viewer', scroll = '.wellness-scroll';
 const root = 'design/references/RAMSIDER_Wellness_TOP/';
 const photos = ['01-ritual_uno_white_v3.webp', '03-botanicals.webp', '04-capsules_v3.webp', '02-water_bouquet.webp'];
 async function landing(page: Page, locale = 'en') {
+  await compiledPhotoLocale(page, locale);
   await page.goto(`/${locale}`);
   await page.waitForFunction(() => document.documentElement.hasAttribute('data-media-hydrated'));
   await page.locator('#beyond-learn').scrollIntoViewIfNeeded();
@@ -18,6 +22,9 @@ async function open(page: Page, locale = 'en') {
   await expect(page.locator(`${dialog}[open] .wellness-ribbon`)).toBeVisible();
 }
 async function decoded(page: Page) {
+  // Wait for the original blob to commit before decoding; the preview src can change.
+  await expect(page.locator('.wellness-photo img[data-media-ready]')).toHaveCount(4, { timeout: 30000 });
+  await page.waitForFunction(() => [...document.querySelectorAll<HTMLImageElement>('.wellness-photo img')].every(image => image.complete && image.naturalWidth > 0));
   await page.evaluate(async () => {
     await document.fonts.ready;
     await Promise.all([...document.querySelectorAll<HTMLImageElement>('.wellness-photo img')].map(async image => {
@@ -40,7 +47,19 @@ async function frame(page: Page) {
   await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
 }
 
-test('exact source copy, lossless sRGB WebP delivery, every photo entry and complete reading', async ({ page }, info) => {
+// CHG0199: photographs are delivered as sRGB lossy WebP within the pipeline colour tolerance
+// (docs/art-color-pipeline.md): visible RGB mean < 3/255 and p99 <= 15/255 against the PNG master.
+const photoTolerance = { mean: 3, p99: 15 };
+function channelErrors(actual: Buffer, expected: Buffer) {
+  expect(actual.length).toBe(expected.length);
+  const hist = [new Uint32Array(256), new Uint32Array(256), new Uint32Array(256)], sum = [0, 0, 0];
+  for (let i = 0; i < actual.length; i += 4) for (let c = 0; c < 3; c++) { const d = Math.abs(actual[i + c] - expected[i + c]); hist[c][d]++; sum[c] += d; }
+  const pixels = actual.length / 4;
+  const p99 = hist.map(h => { let seen = 0; for (let v = 0; v < 256; v++) { seen += h[v]; if (seen >= pixels * .99) return v; } return 255; });
+  return { mean: sum.map(s => s / pixels), p99 };
+}
+
+test('pinned sRGB lossy WebP delivery within colour tolerance, every photo entry and complete reading', async ({ page }, info) => {
   test.setTimeout(120000); await page.emulateMedia({ reducedMotion: 'reduce' });
   const errors: string[] = [], requests: string[] = [];
   page.on('pageerror', e => errors.push(e.message));
@@ -62,19 +81,23 @@ test('exact source copy, lossless sRGB WebP delivery, every photo entry and comp
   const viewport = page.viewportSize()!;
   if (info.project.name.includes('iphone')) expect(await page.evaluate(() => [innerWidth, devicePixelRatio])).toEqual([info.project.name.includes('max') ? 440 : 402, 3]);
   expect(width).toBe(Math.min(viewport.width, 640));
-  await mkdir('screenshots/wellness', { recursive: true });
+  await mkdir(`${captureRoot}`, { recursive: true });
   const photoResults = [];
   for (let i = 0; i < photos.length; i++) {
     const image = modal.locator('img').nth(i), figure = modal.locator('.wellness-photo').nth(i);
     const response = await page.request.get(`/art/wellness/${photos[i]}`);
     expect(response.status()).toBe(200); expect(response.headers()['content-type']).toContain('image/webp');
     const body = await response.body();
-    expect(createHash('sha256').update(body).digest('hex')).toBe(createHash('sha256').update(await readFile(`public/art/wellness/${photos[i]}`)).digest('hex'));
+    const served = createHash('sha256').update(body).digest('hex');
+    expect(served).toBe(createHash('sha256').update(await readFile(`public/art/wellness/${photos[i]}`)).digest('hex'));
+    const receipt = JSON.parse(await readFile('docs/evidence/photos-lossy/manifest.json', 'utf8')).assets.find((a: {asset: string}) => a.asset === `public/art/wellness/${photos[i]}`);
+    expect(receipt?.outputSHA256).toBe(served);
     const metadata = await sharp(body).metadata();
     expect(metadata.format).toBe('webp'); expect(metadata.icc?.length).toBeGreaterThan(0);
     const decodedPixels = await sharp(body, { ignoreIcc: true }).ensureAlpha().raw().toBuffer();
     const master = await sharp(`${root}assets/${photos[i].replace('.webp', '.png')}`, { ignoreIcc: true }).ensureAlpha().raw().toBuffer();
-    expect(decodedPixels.equals(master)).toBe(true);
+    const errors = channelErrors(decodedPixels, master);
+    for (const c of [0, 1, 2]) { expect(errors.mean[c]).toBeLessThan(photoTolerance.mean); expect(errors.p99[c]).toBeLessThanOrEqual(photoTolerance.p99); }
     const size = await image.evaluate(element => { const e=element as HTMLImageElement,b=e.getBoundingClientRect(),s=getComputedStyle(e); return {width:b.width,height:b.height,natural:[e.naturalWidth,e.naturalHeight],fit:s.objectFit,position:s.objectPosition}; });
     expect(size.natural).toEqual([1024,1536]); expect(size.width).toBeCloseTo(width, 0);expect(size.fit).toBe('cover');
     expect(size.height).toBeCloseTo(width * (i === 0 ? (viewport.width >= 600 ? 1 : 1.5) : 1.25), 0);
@@ -82,22 +105,22 @@ test('exact source copy, lossless sRGB WebP delivery, every photo entry and comp
     // First128px entry must contain the actual image, not a flat decoded placeholder.
     await page.locator(scroll).evaluate((s, top) => s.scrollTo({top,behavior:'instant'}), Math.max(0,y-viewport.height+128)); await frame(page);
     await expect(figure.locator('img')).toHaveAttribute('data-media-ready','');
-    const box = (await figure.boundingBox())!, shot = await page.screenshot({path:`screenshots/wellness/entry-${info.project.name}-${i}.png`,scale:'css'});
+    const box = (await figure.boundingBox())!, shot = await page.screenshot({path:`${captureRoot}/entry-${info.project.name}-${i}.png`,scale:'css'});
     const top = Math.max(0,Math.ceil(box.y)), h = Math.min(100,viewport.height-top-2);
     const pixels = await sharp(shot).extract({left:Math.ceil(box.x)+4,top,width:Math.floor(box.width)-8,height:h}).removeAlpha().raw().toBuffer({resolveWithObject:true});
     const row = pixels.info.width*3;let changed=0;
     for(let j=row;j<pixels.data.length;j++) if(pixels.data[j]!==pixels.data[j%row]) changed++;
     expect(changed).toBeGreaterThan(pixels.info.width*3); photoResults.push({...size,firstEntryChangedChannels:changed});
     await page.locator(scroll).evaluate((s,top)=>s.scrollTo({top,behavior:'instant'}),y); await frame(page);
-    await page.screenshot({path:`screenshots/wellness/photo-${info.project.name}-${i}.png`,scale:'css'});
+    await page.screenshot({path:`${captureRoot}/photo-${info.project.name}-${i}.png`,scale:'css'});
   }
   await page.locator(scroll).evaluate(s=>s.scrollTo({top:s.scrollHeight,behavior:'instant'}));await frame(page);
-  await page.screenshot({path:`screenshots/wellness/end-${info.project.name}.png`,scale:'css'});
+  await page.screenshot({path:`${captureRoot}/end-${info.project.name}.png`,scale:'css'});
   await expect(modal.getByRole('button',{name:'Back to UNO',exact:true})).toBeInViewport();
   const close = modal.getByRole('button',{name:'Close',exact:true});expect((await close.boundingBox())!.height).toBe(44);
   const css = await modal.locator('.wellness-eyebrow').first().evaluate(e=>({color:getComputedStyle(e).color,size:getComputedStyle(e).fontSize}));expect(css.color).toBe('rgb(143, 105, 69)');
   expect(errors).toEqual([]);
-  await writeFile(`screenshots/wellness/composition-${info.project.name}.json`,JSON.stringify({viewport,width,photoResults,eyebrow:css,errors},null,2));
+  await writeFile(`${captureRoot}/composition-${info.project.name}.json`,JSON.stringify({viewport,width,photoResults,eyebrow:css,errors},null,2));
 });
 
 test('keyboard, page lock, three close paths and immediate repeated reopen', async ({page}) => {
@@ -134,7 +157,7 @@ test('failed photo Retry recovers lossless WebP; Close works while pending', asy
   await open(page);const modal=page.locator(dialog),photo=modal.locator('.wellness-photo').first();
   await expect(modal.getByRole('button',{name:'Retry',exact:true})).toBeVisible();
   expect(await buttonContrast(modal.getByRole('button',{name:'Retry',exact:true}))).toBeGreaterThanOrEqual(4.5);
-  await page.screenshot({path:'screenshots/wellness/error.png',scale:'css'});
+  await page.screenshot({path:`${captureRoot}/error.png`,scale:'css'});
   fail=false;await modal.getByRole('button',{name:'Retry',exact:true}).click();await expect(photo.locator('img')).toHaveAttribute('data-media-ready','');
   await page.keyboard.press('Escape');await expect(modal).not.toBeVisible();
   let release!:()=>void;const wait=new Promise<void>(resolve=>release=resolve);
@@ -143,7 +166,7 @@ test('failed photo Retry recovers lossless WebP; Close works while pending', asy
   await modal.locator('.wellness-close').click();await expect(modal).not.toBeVisible();release();
 });
 
-test('eleven locales and responsive geometry including Arabic and short heights', async ({page},info)=>{
+test('compiled eleven locales and responsive geometry including Arabic and short heights', async ({page},info)=>{
   test.skip(info.project.name!=='iphone-17-pro-webkit','One complete locale/adaptation matrix; core behavior runs all profiles.');test.setTimeout(240000);
   await page.emulateMedia({reducedMotion:'reduce'});
   const results=[];
@@ -151,7 +174,7 @@ test('eleven locales and responsive geometry including Arabic and short heights'
     await page.setViewportSize({width:402,height:874});await open(page,locale);await decoded(page);
     await expect(page.locator('.wellness-ribbon')).toHaveAttribute('lang',locale);
     await expect(page.locator('.wellness-ribbon')).toHaveAttribute('dir',locale==='ar'?'rtl':'ltr');
-    if(locale==='ar'){for(let i=0;i<5;i++){const head=page.locator('.wellness-head').nth(i),y=await head.evaluate(e=>(e as HTMLElement).offsetTop);await page.locator(scroll).evaluate((s,top)=>s.scrollTo({top,behavior:'instant'}),y);await frame(page);await page.screenshot({path:`screenshots/wellness/ar-section-${i}.png`,scale:'css'});}}
+    if(locale==='ar'){for(let i=0;i<5;i++){const head=page.locator('.wellness-head').nth(i),y=await head.evaluate(e=>(e as HTMLElement).offsetTop);await page.locator(scroll).evaluate((s,top)=>s.scrollTo({top,behavior:'instant'}),y);await frame(page);await page.screenshot({path:`${captureRoot}/ar-section-${i}.png`,scale:'css'});}}
     const title=await page.locator(`${dialog} h1`).textContent();if(locale!=='en')expect(title).not.toBe('What a BreathCan Bring Back.');
     for(const [width,height] of [[280,650],[402,560],[440,650],[768,1024],[1440,900]]){
       await page.setViewportSize({width,height});await page.evaluate(()=>document.fonts.ready);
@@ -159,12 +182,12 @@ test('eleven locales and responsive geometry including Arabic and short heights'
       const overflow=await page.locator(scroll).evaluate(s=>({width:s.clientWidth,scroll:s.scrollWidth,body:document.documentElement.scrollWidth,inner:innerWidth}));expect(overflow.scroll).toBeLessThanOrEqual(overflow.width+1);expect(overflow.body).toBeLessThanOrEqual(overflow.inner+1);
       await page.locator(scroll).evaluate(s=>s.scrollTo({top:s.scrollHeight,behavior:'instant'}));
       await expect(page.locator(`${dialog} [data-wellness-close]`)).toBeInViewport();
-      if(width===402 || (locale==='ar'&&width===768)){await frame(page);await page.screenshot({path:`screenshots/wellness/adapt-${locale}-${width}.png`,scale:'css'});}
+      if(width===402 || (locale==='ar'&&width===768)){await frame(page);await page.screenshot({path:`${captureRoot}/adapt-${locale}-${width}.png`,scale:'css'});}
       results.push({locale,viewportWidth:width,viewportHeight:height,scrollportWidth:overflow.width,scrollWidth:overflow.scroll,bodyWidth:overflow.body,innerWidth:overflow.inner});
     }
     await page.keyboard.press('Escape');
   }
-  await writeFile('screenshots/wellness/locales-adaptation.json',JSON.stringify(results,null,2));
+  await writeFile(`${captureRoot}/locales-adaptation.json`,JSON.stringify(results,null,2));
 });
 
 test('text reveal and reduced motion react to preference changes',async({page},info)=>{
@@ -188,9 +211,9 @@ test('delayed next photo retains geometry and paints on release, safe-area contr
   await open(page);const photo=page.locator('.wellness-photo').nth(1),viewport=page.locator(scroll);
   const y=await photo.evaluate(e=>(e as HTMLElement).offsetTop);await viewport.evaluate((s,top)=>s.scrollTo({top,behavior:'instant'}),y);
   await expect(photo.locator('img')).not.toHaveAttribute('data-media-ready','');const before=(await photo.boundingBox())!;
-  await expect(photo.locator('img')).toHaveAttribute('data-preview','ready');await expect(page.locator(`${dialog} .media-orbit`)).toHaveCount(0);await page.screenshot({path:`screenshots/wellness/delayed-${info.project.name}.png`,scale:'css'});
+  await expect(photo.locator('img')).toHaveAttribute('data-preview','ready');await expect(page.locator(`${dialog} .media-orbit`)).toHaveCount(0);await page.screenshot({path:`${captureRoot}/delayed-${info.project.name}.png`,scale:'css'});
   release();await expect(photo.locator('img')).toHaveAttribute('data-media-ready','');const after=(await photo.boundingBox())!;expect(after.height).toBeCloseTo(before.height,0);expect(after.y).toBeCloseTo(before.y,0);
-  await frame(page);await page.screenshot({path:`screenshots/wellness/recovered-${info.project.name}.png`,scale:'css'});
+  await frame(page);await page.screenshot({path:`${captureRoot}/recovered-${info.project.name}.png`,scale:'css'});
   // Synthetic inset geometry supplements, never certifies physical browser chrome.
   await page.addStyleTag({content:'.wellness-close{top:59px;right:24px}.wellness-end{padding-bottom:70px}'});
   await viewport.evaluate(s=>s.scrollTo({top:s.scrollHeight,behavior:'instant'}));await expect(page.locator('[data-wellness-close]')).toBeInViewport();
@@ -208,13 +231,13 @@ test('320 and 375 EN/AR preserve photo, controls and full end access',async({pag
       const y=await page.locator('.wellness-head').nth(2).evaluate(e=>(e as HTMLElement).offsetTop);await page.locator(scroll).evaluate((s,top)=>s.scrollTo({top,behavior:'instant'}),y);await frame(page);
       const geometry=await page.locator(scroll).evaluate(s=>({scrollportWidth:s.clientWidth,scrollWidth:s.scrollWidth}));expect(geometry.scrollWidth).toBeLessThanOrEqual(geometry.scrollportWidth+1);
       expect((await page.locator('.wellness-photo').nth(2).boundingBox())!.width).toBeCloseTo(width,0);
-      await page.screenshot({path:`screenshots/wellness/narrow-${locale}-${width}.png`,scale:'css'});
+      await page.screenshot({path:`${captureRoot}/narrow-${locale}-${width}.png`,scale:'css'});
       await page.locator(scroll).evaluate(s=>s.scrollTo({top:s.scrollHeight,behavior:'instant'}));await expect(page.locator('[data-wellness-close]')).toBeInViewport();await expect(page.locator('.wellness-close')).toBeInViewport();
-      await page.screenshot({path:`screenshots/wellness/narrow-end-${locale}-${width}.png`,scale:'css'});rows.push({locale,viewportWidth:width,viewportHeight:812,...geometry});
+      await page.screenshot({path:`${captureRoot}/narrow-end-${locale}-${width}.png`,scale:'css'});rows.push({locale,viewportWidth:width,viewportHeight:812,...geometry});
     }
     await page.locator('.wellness-close').click();
   }
-  await writeFile('screenshots/wellness/narrow-geometry.json',JSON.stringify(rows,null,2));
+  await writeFile(`${captureRoot}/narrow-geometry.json`,JSON.stringify(rows,null,2));
 });
 
 // CHG0134 supersedes abort/restart gallery warming. The shared bounded, demand-prioritized,

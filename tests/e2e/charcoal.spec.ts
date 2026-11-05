@@ -1,10 +1,14 @@
+import { compiledPhotoLocale } from './helpers/compiled-photo-locale';
 import { test, expect } from '@playwright/test';
 import sharp from 'sharp';
 import { mkdir } from 'node:fs/promises';
 test.use({serviceWorkers:'block'});
+const captureRoot = process.env.PHOTO_QA_ROOT ? `${process.env.PHOTO_QA_ROOT}/charcoal` : 'screenshots/charcoal';
+test.beforeEach(async () => { await mkdir(captureRoot, { recursive: true }); });
 
 const dialogSelector = '#charcoal-viewer';
 async function open(page: import('@playwright/test').Page, locale = 'en') {
+  await compiledPhotoLocale(page, locale);
   await page.goto(`/${locale}`);
   await page.evaluate(() => document.fonts.ready);
   await page.locator('#fire-learn').scrollIntoViewIfNeeded();
@@ -41,7 +45,7 @@ test('four blocks, fixed close, focus and scroll restoration, and full bottom ac
   const initialClose = (await close.boundingBox())!;
   expect(initialClose.width).toBeGreaterThanOrEqual(44);
   expect(initialClose.height).toBeGreaterThanOrEqual(44);
-  await mkdir('screenshots/charcoal', { recursive: true });
+  await mkdir(`${captureRoot}`, { recursive: true });
   for (const [index, section] of (await modal.locator('section').all()).entries()) {
     const y = await section.evaluate(e => (e as HTMLElement).offsetTop);
     await scroll.evaluate((e, top) => e.scrollTop = top, y);
@@ -56,7 +60,7 @@ test('four blocks, fixed close, focus and scroll restoration, and full bottom ac
       expect(tile.width).toBeCloseTo(Math.min(viewport.width, 941), 0);
       expect(Math.abs(tile.height - tile.width * tile.sh / tile.sw)).toBeLessThan(1);
     }
-    const capture = await page.screenshot({ path: `screenshots/charcoal/final-${info.project.name}-block-${index + 1}.png`, scale: 'css' });
+    const capture = await page.screenshot({ path: `${captureRoot}/final-${info.project.name}-block-${index + 1}.png`, scale: 'css' });
     // A decoded offscreen IMG can still fail to paint when only its top enters view.
     // Detect the exact repeat-row fallback symptom in the partial next artwork.
     if (index < 3) {
@@ -76,7 +80,7 @@ test('four blocks, fixed close, focus and scroll restoration, and full bottom ac
   expect(await scroll.evaluate(e => Math.abs(e.querySelector('article')!.getBoundingClientRect().bottom - e.getBoundingClientRect().bottom)), 'Hidden raster tail must not extend scrollable height').toBeLessThan(1);
   await expect(modal.locator('footer')).toHaveCount(0);
   await expect(modal.locator('p').last()).toBeInViewport({ ratio: 1 });
-  await page.screenshot({ path: `screenshots/charcoal/final-${info.project.name}-bottom.png`, scale: 'css' });
+  await page.screenshot({ path: `${captureRoot}/final-${info.project.name}-bottom.png`, scale: 'css' });
   await close.click();
   await expect(modal).not.toBeVisible();
   await expect(page.locator('#fire-learn')).toBeFocused();
@@ -96,13 +100,12 @@ test('four blocks, fixed close, focus and scroll restoration, and full bottom ac
   await page.keyboard.press('Escape');
   await expect(modal).not.toBeVisible();
   await expect(page.locator('#fire-learn')).toBeFocused();
-  await page.locator('#choice-learn').click();
+  await expect(page.locator('#choice-learn')).toBeHidden();
   await expect(modal).not.toBeVisible();
-  await expect.poll(() => page.evaluate(() => location.hash)).toBe('#anew');
   expect(errors).toEqual([]);
 });
 
-test('all locales, Arabic RTL, smaller height and representative responsive widths', async ({ page }, info) => {
+test('compiled locales, Arabic RTL, smaller height and representative responsive widths', async ({ page }, info) => {
   test.setTimeout(180000);
   test.skip(!info.project.name.includes('iphone'), 'Locale matrix once per required mobile profile.');
   for (const locale of ['en', 'ru', 'de', 'fr', 'es', 'it', 'tr', 'ar', 'zh', 'ja', 'ko']) {
@@ -125,7 +128,7 @@ test('all locales, Arabic RTL, smaller height and representative responsive widt
     for (const section of result.sections) expect(section.p.bottom).toBeLessThanOrEqual(section.section.bottom);
     if (['ar', 'ru', 'de', 'fr'].includes(locale)) {
       await page.locator('.charcoal-viewer__scroll').evaluate(e => e.scrollTop = 0);
-      await page.screenshot({ path: `screenshots/charcoal/locale-${info.project.name}-${locale}.png`, scale: 'css' });
+      await page.screenshot({ path: `${captureRoot}/locale-${info.project.name}-${locale}.png`, scale: 'css' });
     }
     await page.keyboard.press('Escape');
   }
@@ -136,9 +139,9 @@ test('all locales, Arabic RTL, smaller height and representative responsive widt
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
       await page.locator('.charcoal-viewer__scroll').evaluate(e => e.scrollTop = e.scrollHeight);
       await expect(page.locator('.charcoal-section--4 p')).toBeInViewport({ ratio: 1 });
-      await page.screenshot({ path: `screenshots/charcoal/adaptation-${width}x${height}-bottom.png`, scale: 'css' });
+      await page.screenshot({ path: `${captureRoot}/adaptation-${width}x${height}-bottom.png`, scale: 'css' });
       await page.locator('.charcoal-viewer__scroll').evaluate(e => e.scrollTop = 0);
-      await page.screenshot({ path: `screenshots/charcoal/adaptation-${width}x${height}-top.png`, scale: 'css' });
+      await page.screenshot({ path: `${captureRoot}/adaptation-${width}x${height}-top.png`, scale: 'css' });
       await page.keyboard.press('Escape');
     }
   }
@@ -191,6 +194,7 @@ test('narrow translated last-tile Retry stays fully usable', async ({ page }, in
   await page.setViewportSize({ width: 280, height: 600 });
   let failed = true;
   await page.route('**/art/charcoal/v2-3-1.webp', route => failed ? route.abort() : route.continue());
+  await compiledPhotoLocale(page, 'de');
   await page.goto('/de');
   await page.locator('#fire-learn').scrollIntoViewIfNeeded();
   await page.waitForFunction(() => !document.querySelector('.page-media-overlay'));
@@ -202,7 +206,7 @@ test('narrow translated last-tile Retry stays fully usable', async ({ page }, in
   await expect.poll(async()=>{await area.press('PageDown');await page.waitForTimeout(100);return retry.isVisible();},{timeout:15000,intervals:[100]}).toBe(true);
   await expect(retry).toBeVisible();
   await expect(retry).toBeInViewport({ ratio: 1 });
-  await page.screenshot({ path: 'screenshots/charcoal/footer-correction/narrow-retry.png', scale: 'css' });
+  await page.screenshot({ path: `${captureRoot}/footer-correction/narrow-retry.png`, scale: 'css' });
   failed = false;
   await retry.click();
   await expect(page.locator('.charcoal-section--3 img[data-media-ready]')).toHaveCount(2);

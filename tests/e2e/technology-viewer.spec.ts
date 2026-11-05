@@ -1,5 +1,6 @@
+import { compiledPhotoLocale } from './helpers/compiled-photo-locale';
 import {expect,test} from '@playwright/test';
-import {readFile} from 'node:fs/promises';
+import {readFile,mkdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {openTechnology,settleTechnology} from './helpers/technology';
 import {airShieldCopy} from '../../lib/airshield-descriptions';
@@ -7,7 +8,8 @@ import {capsuleCodeCopy} from '../../lib/capsulecode-descriptions';
 import {locales} from '../../lib/i18n';
 import {silenceTestMedia} from './silent-media';
 test.use({serviceWorkers:'block'});
-test.beforeEach(async({page})=>silenceTestMedia(page));
+const captureRoot = process.env.PHOTO_QA_ROOT ? `${process.env.PHOTO_QA_ROOT}/technology` : '/tmp';
+test.beforeEach(async({page})=>{await mkdir(captureRoot,{recursive:true});await silenceTestMedia(page);});
 
 test('CapsuleCode third group: three proportional photos, exact icon axes, reversible navigation',async({page},info)=>{
  await page.goto('/en');await openTechnology(page);const viewer=page.locator('#technology-viewer');
@@ -28,21 +30,21 @@ test('CapsuleCode third group: three proportional photos, exact icon axes, rever
   });
   expect(Math.abs(data.photoHeight-data.ratioHeight)).toBeLessThan(1);expect(data.photoWidth).toBeCloseTo(data.fitWidth,0);expect(data.overflow).toBe(0);
   expect(data.captions.map(c=>c.x)).toEqual(i===0?[]:i===1?[107,300,516,735]:[105,288,506,733]);for(const c of data.captions)expect(c.align).toBe('center');
-  await viewer.locator('article').screenshot({path:`/tmp/tech03-${info.project.name}-${i+1}-article.png`});await page.screenshot({path:`/tmp/tech03-${info.project.name}-${i+1}.png`});results.push(data);
+  await viewer.locator('article').screenshot({path:`${captureRoot}/tech03-${info.project.name}-${i+1}-article.png`});await page.screenshot({path:`${captureRoot}/tech03-${info.project.name}-${i+1}.png`});results.push(data);
  }
  await expect(viewer).toBeFocused();await page.keyboard.press('ArrowLeft');await ready();await expect(viewer).toHaveAttribute('data-photo-index','1');
  await viewer.locator('footer button').first().click();await ready();await expect(viewer).toHaveAttribute('data-group','HeatCore');await expect(viewer).toHaveAttribute('data-photo-index','0');
  await viewer.locator('footer button').last().click();await ready();await expect(viewer).toHaveAttribute('data-group','CapsuleCode');await expect(viewer).toHaveAttribute('data-photo-index','0');
  await page.keyboard.press('Escape');await expect(viewer).not.toBeVisible();
- await page.screenshot({path:`/tmp/tech03-${info.project.name}-assembled.png`});
- await (await import('node:fs/promises')).writeFile(`/tmp/tech03-${info.project.name}-geometry.json`,JSON.stringify(results,null,2));
+ await page.screenshot({path:`${captureRoot}/tech03-${info.project.name}-assembled.png`});
+ await (await import('node:fs/promises')).writeFile(`${captureRoot}/tech03-${info.project.name}-geometry.json`,JSON.stringify(results,null,2));
 });
 
-test('CapsuleCode translations fit in every locale and Arabic direction is preserved',async({page},info)=>{
+test('compiled CapsuleCode translations fit in every locale and Arabic direction is preserved',async({page},info)=>{
  test.skip(info.project.name!=='iphone-17-pro-webkit','one mobile locale matrix');
  for(const locale of locales){
   expect(capsuleCodeCopy[locale]).toHaveLength(3);
-  await page.goto(`/${locale}`);await openTechnology(page);const v=page.locator('#technology-viewer');await expect(v).toHaveAttribute('aria-busy','false');
+  await compiledPhotoLocale(page,locale);await page.goto(`/${locale}`);await openTechnology(page);const v=page.locator('#technology-viewer');await expect(v).toHaveAttribute('aria-busy','false');
   for(let i=0;i<2;i++){await v.locator('footer button').last().click();await expect(v).toHaveAttribute('aria-busy','false');}
   for(let i=0;i<3;i++){
    if(i){await v.locator('header button').nth(1).click();await expect(v).toHaveAttribute('aria-busy','false');}
@@ -50,15 +52,15 @@ test('CapsuleCode translations fit in every locale and Arabic direction is prese
    await expect(v.locator('.technology-viewer__snapshot')).toHaveCount(0);
    expect(await v.locator('.technology-viewer__capsule .technology-description__box').evaluateAll(boxes=>boxes.filter(e=>e.firstElementChild!.scrollHeight>e.clientHeight+1||e.firstElementChild!.scrollWidth>e.clientWidth+1).length)).toBe(0);
    await expect(v.locator('[data-description-block="capsule-body"] > div')).toHaveAttribute('dir',locale==='ar'?'rtl':'ltr');
-   if(locale==='ar'||locale==='de')await page.screenshot({path:`/tmp/tech03-${locale}-${i+1}.png`});
+   if(locale==='ar'||locale==='de')await page.screenshot({path:`${captureRoot}/tech03-${locale}-${i+1}.png`});
   }
  }
 });
 
-test('AirShield eighth: source geometry, icon axes, OpenSans and every locale',async({page},info)=>{
+test('AirShield eighth: source geometry, icon axes, OpenSans and compiled locales',async({page},info)=>{
  const matrix=info.project.name==='iphone-17-pro-webkit'?locales:['en'] as const;
  for(const locale of matrix){
-  await page.goto(`/${locale}`);await openTechnology(page);const v=page.locator('#technology-viewer');
+  await compiledPhotoLocale(page,locale);await page.goto(`/${locale}`);await openTechnology(page);const v=page.locator('#technology-viewer');
   const ready=()=>settleTechnology(v);await ready();
   for(let i=0;i<7;i++){await v.locator('footer button').last().click();await ready();}
   await expect(v).toHaveAttribute('data-group','AirShield');await expect(v.locator('footer button').last()).toBeEnabled();
@@ -75,7 +77,7 @@ test('AirShield eighth: source geometry, icon axes, OpenSans and every locale',a
    await expect(v.locator('[data-description-block="air-body"] > div')).toHaveAttribute('dir',locale==='ar'?'rtl':'ltr');
    expect(airShieldCopy[locale]).toHaveLength(2);
    if(i)for(const id of ['air-eyebrow','air-headline','air-body'])await expect(v.locator(`[data-description-block="${id}"]`)).toHaveAttribute('width','520');
-   if(['en','ar','de'].includes(locale)){await page.screenshot({path:`/tmp/tech04-${info.project.name}-${locale}-${i+1}.png`});await v.locator('article').screenshot({path:`/tmp/tech04-${info.project.name}-${locale}-${i+1}-article.png`});}
+   if(['en','ar','de'].includes(locale)){await page.screenshot({path:`${captureRoot}/tech04-${info.project.name}-${locale}-${i+1}.png`});await v.locator('article').screenshot({path:`${captureRoot}/tech04-${info.project.name}-${locale}-${i+1}-article.png`});}
   }
   await page.keyboard.press('ArrowRight');await expect(v).toHaveAttribute('data-photo-index','1');
   await v.locator('footer button').first().click();await ready();await expect(v).toHaveAttribute('data-group','AquaSense');
@@ -84,21 +86,37 @@ test('AirShield eighth: source geometry, icon axes, OpenSans and every locale',a
  }
 });
 
-test('all 35 lossless WebP assets preserve original RGBA, size and sRGB profile',async()=>{
+test('35 migrated WebP assets: 12 ribbon tiles stay lossless-exact, 23 photographs are pinned lossy within colour tolerance',async()=>{
  const {default:sharp}=await import('sharp');
  const m=JSON.parse(await readFile('docs/evidence/lossless-webp/manifest.json','utf8'));expect(m.assets).toHaveLength(35);
+ // CHG0199: the 23 technology photographs are re-encoded as sRGB lossy WebP; their current bytes are pinned in the photos-lossy receipt.
+ const lossy=new Map<string,{outputSHA256:string;sourceSHA256:string}>(JSON.parse(await readFile('docs/evidence/photos-lossy/manifest.json','utf8')).assets.map((a:{asset:string;outputSHA256:string;sourceSHA256:string})=>[a.asset,a]));
+ let photographs=0;
  for(const file of m.assets){
   const source=await readFile(file.originalReserve),output=await readFile(file.output);
   expect(createHash('sha256').update(source).digest('hex')).toBe(file.sourceSHA256);
-  expect(createHash('sha256').update(output).digest('hex')).toBe(file.outputSHA256);
-  const a=await sharp(source).ensureAlpha().raw().toBuffer(),b=await sharp(output).ensureAlpha().raw().toBuffer();expect(a.equals(b)).toBe(true);
+  const a=await sharp(source).ensureAlpha().raw().toBuffer(),b=await sharp(output).ensureAlpha().raw().toBuffer();
+  const receipt=lossy.get(file.output);
+  if(receipt){
+   photographs++;
+   expect(receipt.sourceSHA256).toBe(file.outputSHA256); // lossy source was the verified lossless output
+   expect(createHash('sha256').update(output).digest('hex')).toBe(receipt.outputSHA256);
+   const hist=[new Uint32Array(256),new Uint32Array(256),new Uint32Array(256)],sum=[0,0,0];
+   for(let i=0;i<a.length;i+=4)for(let c=0;c<3;c++){const d=Math.abs(a[i+c]-b[i+c]);hist[c][d]++;sum[c]+=d;}
+   const pixels=a.length/4;
+   for(let c=0;c<3;c++){expect(sum[c]/pixels).toBeLessThan(3);let seen=0,p99=255;for(let v=0;v<256;v++){seen+=hist[c][v];if(seen>=pixels*.99){p99=v;break;}}expect(p99).toBeLessThanOrEqual(15);}
+  }else{
+   expect(createHash('sha256').update(output).digest('hex')).toBe(file.outputSHA256);
+   expect(a.equals(b)).toBe(true);
+  }
   const metadata=await sharp(output).metadata();expect(metadata.format).toBe('webp');expect(metadata.width).toBe(file.width);expect(metadata.height).toBe(file.height);expect(metadata.icc?.length).toBeGreaterThan(0);
  }
+ expect(photographs).toBe(23);
 });
 
 test('photos move horizontally; technologies move vertically; source ratio and thin bars hold',async({page})=>{
  for(const locale of ['en','ar']){
-  await page.goto(`/${locale}`);await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
+  await compiledPhotoLocale(page,locale);await page.goto(`/${locale}`);await openTechnology(page);const viewer=page.locator('#technology-viewer');await expect(viewer).toHaveAttribute('aria-busy','false');
   await expect(viewer).toHaveAttribute('data-group','NobleCraft');await expect(viewer.locator('article')).toHaveCount(1);
   const check=async()=>{
    await expect(viewer.locator('.technology-viewer__snapshot')).toHaveCount(0);

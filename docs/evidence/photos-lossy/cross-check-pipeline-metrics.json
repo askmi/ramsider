@@ -1,0 +1,1885 @@
+{
+ "id": "CHG0199",
+ "purpose": "Independent cross-check of the receipt metrics using tools/convert-art-webp.py::color_metrics (Pillow decode, int16 RGBA).",
+ "expected": "origin/main lossless source blob",
+ "actual": "working-tree file (receipt output)",
+ "assets": 35,
+ "lossyAssets": 34,
+ "losslessKept": [
+  "public/art/technology/slides/aqua-02.webp"
+ ],
+ "worstLossy": {
+  "rgb_mae": 2.332,
+  "rgb_p99_abs": 12.0,
+  "local_max_mae": 10.117,
+  "local_max_red_shift": 20.111,
+  "sampled_delta_e76_p99": 7.601,
+  "red_abs_mean": 1.522
+ },
+ "lossyAssetsTrippingPipelineRule": [],
+ "receiptMismatches": [],
+ "rows": [
+  {
+   "asset": "public/art/wellness/01-ritual_uno_white_v3.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.302,
+     1.113,
+     1.576
+    ],
+    "rgb_p99_abs": [
+     7.0,
+     5.0,
+     8.0
+    ],
+    "red_mean_signed": [
+     -0.018,
+     0.235,
+     0.061
+    ],
+    "local_max_mae": 4.633,
+    "local_max_red_shift": 3.058,
+    "sampled_delta_e76_p99": 4.53,
+    "visible_pixels": 1572864
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.302,
+     1.113,
+     1.576
+    ],
+    "rgb_p99_abs": [
+     7,
+     5,
+     8
+    ],
+    "red_mean_shift": [
+     -0.018,
+     0.235,
+     0.061
+    ],
+    "local_max_mae": 4.633,
+    "local_max_red_shift": 3.058,
+    "sampled_delta_e76_p99": 4.53
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/wellness/02-water_bouquet.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.727,
+     1.456,
+     2.042
+    ],
+    "rgb_p99_abs": [
+     7.0,
+     6.0,
+     9.0
+    ],
+    "red_mean_signed": [
+     -0.006,
+     0.188,
+     0.096
+    ],
+    "local_max_mae": 4.157,
+    "local_max_red_shift": 2.468,
+    "sampled_delta_e76_p99": 5.453,
+    "visible_pixels": 1572864
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.727,
+     1.456,
+     2.042
+    ],
+    "rgb_p99_abs": [
+     7,
+     6,
+     9
+    ],
+    "red_mean_shift": [
+     -0.006,
+     0.188,
+     0.096
+    ],
+    "local_max_mae": 4.157,
+    "local_max_red_shift": 2.468,
+    "sampled_delta_e76_p99": 5.453
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/wellness/03-botanicals.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.943,
+     1.679,
+     2.332
+    ],
+    "rgb_p99_abs": [
+     7.0,
+     6.0,
+     9.0
+    ],
+    "red_mean_signed": [
+     0.008,
+     0.163,
+     0.081
+    ],
+    "local_max_mae": 4.418,
+    "local_max_red_shift": 0.972,
+    "sampled_delta_e76_p99": 5.621,
+    "visible_pixels": 1572864
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.943,
+     1.679,
+     2.332
+    ],
+    "rgb_p99_abs": [
+     7,
+     6,
+     9
+    ],
+    "red_mean_shift": [
+     0.008,
+     0.163,
+     0.081
+    ],
+    "local_max_mae": 4.418,
+    "local_max_red_shift": 0.972,
+    "sampled_delta_e76_p99": 5.621
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/wellness/04-capsules_v3.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.418,
+     1.165,
+     1.725
+    ],
+    "rgb_p99_abs": [
+     7.0,
+     6.0,
+     9.0
+    ],
+    "red_mean_signed": [
+     -0.074,
+     0.213,
+     -0.006
+    ],
+    "local_max_mae": 4.366,
+    "local_max_red_shift": 0.853,
+    "sampled_delta_e76_p99": 5.173,
+    "visible_pixels": 1572864
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.418,
+     1.165,
+     1.725
+    ],
+    "rgb_p99_abs": [
+     7,
+     6,
+     9
+    ],
+    "red_mean_shift": [
+     -0.074,
+     0.213,
+     -0.006
+    ],
+    "local_max_mae": 4.366,
+    "local_max_red_shift": 0.853,
+    "sampled_delta_e76_p99": 5.173
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/charcoal/v2-1-0.webp",
+   "chosen": "default",
+   "pipeline": {
+    "rgb_mae": [
+     1.127,
+     0.984,
+     1.283
+    ],
+    "rgb_p99_abs": [
+     5.0,
+     5.0,
+     6.0
+    ],
+    "red_mean_signed": [
+     0.041,
+     0.218,
+     0.393
+    ],
+    "local_max_mae": 2.757,
+    "local_max_red_shift": 2.389,
+    "sampled_delta_e76_p99": 3.14,
+    "visible_pixels": 1944000
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.127,
+     0.984,
+     1.283
+    ],
+    "rgb_p99_abs": [
+     5,
+     5,
+     6
+    ],
+    "red_mean_shift": [
+     0.041,
+     0.218,
+     0.393
+    ],
+    "local_max_mae": 2.757,
+    "local_max_red_shift": 2.389,
+    "sampled_delta_e76_p99": 3.14
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/charcoal/v2-1-1.webp",
+   "chosen": "default",
+   "pipeline": {
+    "rgb_mae": [
+     0.818,
+     0.693,
+     0.964
+    ],
+    "rgb_p99_abs": [
+     3.0,
+     3.0,
+     4.0
+    ],
+    "red_mean_signed": [
+     -0.235,
+     0.552,
+     0.532
+    ],
+    "local_max_mae": 1.963,
+    "local_max_red_shift": 1.829,
+    "sampled_delta_e76_p99": 2.136,
+    "visible_pixels": 658800
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     0.818,
+     0.693,
+     0.964
+    ],
+    "rgb_p99_abs": [
+     3,
+     3,
+     4
+    ],
+    "red_mean_shift": [
+     -0.235,
+     0.552,
+     0.532
+    ],
+    "local_max_mae": 1.963,
+    "local_max_red_shift": 1.829,
+    "sampled_delta_e76_p99": 2.136
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/charcoal/v2-2-0.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.296,
+     1.181,
+     1.534
+    ],
+    "rgb_p99_abs": [
+     6.0,
+     5.0,
+     7.0
+    ],
+    "red_mean_signed": [
+     -0.117,
+     0.34,
+     0.013
+    ],
+    "local_max_mae": 2.819,
+    "local_max_red_shift": 1.531,
+    "sampled_delta_e76_p99": 3.773,
+    "visible_pixels": 1782000
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.296,
+     1.181,
+     1.534
+    ],
+    "rgb_p99_abs": [
+     6,
+     5,
+     7
+    ],
+    "red_mean_shift": [
+     -0.117,
+     0.34,
+     0.013
+    ],
+    "local_max_mae": 2.819,
+    "local_max_red_shift": 1.531,
+    "sampled_delta_e76_p99": 3.773
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/charcoal/v2-2-1.webp",
+   "chosen": "default",
+   "pipeline": {
+    "rgb_mae": [
+     0.852,
+     0.713,
+     1.021
+    ],
+    "rgb_p99_abs": [
+     3.0,
+     3.0,
+     4.0
+    ],
+    "red_mean_signed": [
+     0.031,
+     0.276,
+     0.335
+    ],
+    "local_max_mae": 1.848,
+    "local_max_red_shift": 1.191,
+    "sampled_delta_e76_p99": 2.144,
+    "visible_pixels": 820800
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     0.852,
+     0.713,
+     1.021
+    ],
+    "rgb_p99_abs": [
+     3,
+     3,
+     4
+    ],
+    "red_mean_shift": [
+     0.031,
+     0.276,
+     0.335
+    ],
+    "local_max_mae": 1.848,
+    "local_max_red_shift": 1.191,
+    "sampled_delta_e76_p99": 2.144
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/charcoal/v2-3-0.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.376,
+     1.221,
+     1.588
+    ],
+    "rgb_p99_abs": [
+     6.0,
+     5.0,
+     7.0
+    ],
+    "red_mean_signed": [
+     -0.129,
+     0.298,
+     -0.038
+    ],
+    "local_max_mae": 3.182,
+    "local_max_red_shift": 1.326,
+    "sampled_delta_e76_p99": 4.126,
+    "visible_pixels": 1512000
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.376,
+     1.221,
+     1.588
+    ],
+    "rgb_p99_abs": [
+     6,
+     5,
+     7
+    ],
+    "red_mean_shift": [
+     -0.129,
+     0.298,
+     -0.038
+    ],
+    "local_max_mae": 3.182,
+    "local_max_red_shift": 1.326,
+    "sampled_delta_e76_p99": 4.126
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/charcoal/v2-3-1.webp",
+   "chosen": "default",
+   "pipeline": {
+    "rgb_mae": [
+     0.836,
+     0.711,
+     1.023
+    ],
+    "rgb_p99_abs": [
+     3.0,
+     3.0,
+     4.0
+    ],
+    "red_mean_signed": [
+     -0.149,
+     0.416,
+     0.4
+    ],
+    "local_max_mae": 1.762,
+    "local_max_red_shift": 0.989,
+    "sampled_delta_e76_p99": 2.149,
+    "visible_pixels": 712800
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     0.836,
+     0.711,
+     1.023
+    ],
+    "rgb_p99_abs": [
+     3,
+     3,
+     4
+    ],
+    "red_mean_shift": [
+     -0.149,
+     0.416,
+     0.4
+    ],
+    "local_max_mae": 1.762,
+    "local_max_red_shift": 0.989,
+    "sampled_delta_e76_p99": 2.149
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/charcoal/v2-4-0.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.458,
+     1.274,
+     1.697
+    ],
+    "rgb_p99_abs": [
+     7.0,
+     6.0,
+     8.0
+    ],
+    "red_mean_signed": [
+     -0.093,
+     0.265,
+     -0.002
+    ],
+    "local_max_mae": 3.789,
+    "local_max_red_shift": 2.26,
+    "sampled_delta_e76_p99": 4.799,
+    "visible_pixels": 1728000
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.458,
+     1.274,
+     1.697
+    ],
+    "rgb_p99_abs": [
+     7,
+     6,
+     8
+    ],
+    "red_mean_shift": [
+     -0.093,
+     0.265,
+     -0.002
+    ],
+    "local_max_mae": 3.789,
+    "local_max_red_shift": 2.26,
+    "sampled_delta_e76_p99": 4.801
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.002
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/charcoal/v2-4-1.webp",
+   "chosen": "default",
+   "pipeline": {
+    "rgb_mae": [
+     0.88,
+     0.711,
+     0.992
+    ],
+    "rgb_p99_abs": [
+     3.0,
+     3.0,
+     4.0
+    ],
+    "red_mean_signed": [
+     0.045,
+     0.283,
+     0.269
+    ],
+    "local_max_mae": 1.967,
+    "local_max_red_shift": 0.943,
+    "sampled_delta_e76_p99": 2.134,
+    "visible_pixels": 766800
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     0.88,
+     0.711,
+     0.992
+    ],
+    "rgb_p99_abs": [
+     3,
+     3,
+     4
+    ],
+    "red_mean_shift": [
+     0.045,
+     0.283,
+     0.269
+    ],
+    "local_max_mae": 1.967,
+    "local_max_red_shift": 0.943,
+    "sampled_delta_e76_p99": 2.135
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.001
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/air-01.webp",
+   "chosen": "default",
+   "pipeline": {
+    "rgb_mae": [
+     1.332,
+     1.11,
+     1.333
+    ],
+    "rgb_p99_abs": [
+     6.0,
+     5.0,
+     6.0
+    ],
+    "red_mean_signed": [
+     0.114,
+     0.127,
+     0.358
+    ],
+    "local_max_mae": 4.468,
+    "local_max_red_shift": 7.382,
+    "sampled_delta_e76_p99": 3.393,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.332,
+     1.11,
+     1.333
+    ],
+    "rgb_p99_abs": [
+     6,
+     5,
+     6
+    ],
+    "red_mean_shift": [
+     0.114,
+     0.127,
+     0.358
+    ],
+    "local_max_mae": 4.468,
+    "local_max_red_shift": 7.382,
+    "sampled_delta_e76_p99": 3.393
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/air-02.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.381,
+     1.261,
+     1.395
+    ],
+    "rgb_p99_abs": [
+     6.0,
+     5.0,
+     6.0
+    ],
+    "red_mean_signed": [
+     -0.155,
+     0.316,
+     -0.091
+    ],
+    "local_max_mae": 3.126,
+    "local_max_red_shift": 3.15,
+    "sampled_delta_e76_p99": 3.228,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.381,
+     1.261,
+     1.395
+    ],
+    "rgb_p99_abs": [
+     6,
+     5,
+     6
+    ],
+    "red_mean_shift": [
+     -0.155,
+     0.316,
+     -0.091
+    ],
+    "local_max_mae": 3.126,
+    "local_max_red_shift": 3.15,
+    "sampled_delta_e76_p99": 3.228
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/aqua-01.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.539,
+     1.095,
+     1.412
+    ],
+    "rgb_p99_abs": [
+     6.0,
+     5.0,
+     6.0
+    ],
+    "red_mean_signed": [
+     -1.198,
+     0.646,
+     1.522
+    ],
+    "local_max_mae": 3.28,
+    "local_max_red_shift": 6.026,
+    "sampled_delta_e76_p99": 3.729,
+    "visible_pixels": 1430680
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.539,
+     1.095,
+     1.412
+    ],
+    "rgb_p99_abs": [
+     6,
+     5,
+     6
+    ],
+    "red_mean_shift": [
+     -1.198,
+     0.646,
+     1.522
+    ],
+    "local_max_mae": 3.28,
+    "local_max_red_shift": 6.026,
+    "sampled_delta_e76_p99": 3.729
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/aqua-02.webp",
+   "chosen": "lossless_kept",
+   "pipeline": {
+    "rgb_mae": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rgb_p99_abs": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "red_mean_signed": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "sampled_delta_e76_p99": 0.0,
+    "visible_pixels": 1432202
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/capsule-01.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.666,
+     1.502,
+     1.87
+    ],
+    "rgb_p99_abs": [
+     8.0,
+     6.0,
+     8.0
+    ],
+    "red_mean_signed": [
+     -0.057,
+     0.228,
+     -0.028
+    ],
+    "local_max_mae": 4.49,
+    "local_max_red_shift": 3.756,
+    "sampled_delta_e76_p99": 5.067,
+    "visible_pixels": 1430680
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.666,
+     1.502,
+     1.87
+    ],
+    "rgb_p99_abs": [
+     8,
+     6,
+     8
+    ],
+    "red_mean_shift": [
+     -0.057,
+     0.228,
+     -0.028
+    ],
+    "local_max_mae": 4.49,
+    "local_max_red_shift": 3.756,
+    "sampled_delta_e76_p99": 5.067
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/capsule-02.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.643,
+     1.324,
+     1.958
+    ],
+    "rgb_p99_abs": [
+     10.0,
+     7.0,
+     12.0
+    ],
+    "red_mean_signed": [
+     -0.049,
+     0.263,
+     0.023
+    ],
+    "local_max_mae": 5.879,
+    "local_max_red_shift": 7.268,
+    "sampled_delta_e76_p99": 7.601,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.643,
+     1.324,
+     1.958
+    ],
+    "rgb_p99_abs": [
+     10,
+     7,
+     12
+    ],
+    "red_mean_shift": [
+     -0.049,
+     0.263,
+     0.023
+    ],
+    "local_max_mae": 5.879,
+    "local_max_red_shift": 7.268,
+    "sampled_delta_e76_p99": 7.601
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/capsule-03.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.411,
+     1.218,
+     1.73
+    ],
+    "rgb_p99_abs": [
+     7.0,
+     6.0,
+     8.0
+    ],
+    "red_mean_signed": [
+     -0.039,
+     0.217,
+     -0.042
+    ],
+    "local_max_mae": 4.257,
+    "local_max_red_shift": 11.289,
+    "sampled_delta_e76_p99": 4.597,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.411,
+     1.218,
+     1.73
+    ],
+    "rgb_p99_abs": [
+     7,
+     6,
+     8
+    ],
+    "red_mean_shift": [
+     -0.039,
+     0.217,
+     -0.042
+    ],
+    "local_max_mae": 4.257,
+    "local_max_red_shift": 11.289,
+    "sampled_delta_e76_p99": 4.597
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/cyber-01.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.348,
+     1.22,
+     1.417
+    ],
+    "rgb_p99_abs": [
+     5.0,
+     5.0,
+     6.0
+    ],
+    "red_mean_signed": [
+     -0.183,
+     0.382,
+     0.073
+    ],
+    "local_max_mae": 4.447,
+    "local_max_red_shift": 14.522,
+    "sampled_delta_e76_p99": 3.328,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.348,
+     1.22,
+     1.417
+    ],
+    "rgb_p99_abs": [
+     5,
+     5,
+     6
+    ],
+    "red_mean_shift": [
+     -0.183,
+     0.382,
+     0.073
+    ],
+    "local_max_mae": 4.447,
+    "local_max_red_shift": 14.522,
+    "sampled_delta_e76_p99": 3.328
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/cyber-02.webp",
+   "chosen": "default",
+   "pipeline": {
+    "rgb_mae": [
+     1.072,
+     0.926,
+     1.11
+    ],
+    "rgb_p99_abs": [
+     5.0,
+     4.0,
+     5.0
+    ],
+    "red_mean_signed": [
+     0.031,
+     0.102,
+     0.309
+    ],
+    "local_max_mae": 3.029,
+    "local_max_red_shift": 4.867,
+    "sampled_delta_e76_p99": 2.846,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.072,
+     0.926,
+     1.11
+    ],
+    "rgb_p99_abs": [
+     5,
+     4,
+     5
+    ],
+    "red_mean_shift": [
+     0.031,
+     0.102,
+     0.309
+    ],
+    "local_max_mae": 3.029,
+    "local_max_red_shift": 4.867,
+    "sampled_delta_e76_p99": 2.846
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/heat-02.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.254,
+     1.096,
+     1.458
+    ],
+    "rgb_p99_abs": [
+     6.0,
+     5.0,
+     8.0
+    ],
+    "red_mean_signed": [
+     -0.43,
+     0.32,
+     0.945
+    ],
+    "local_max_mae": 10.117,
+    "local_max_red_shift": 20.111,
+    "sampled_delta_e76_p99": 4.993,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.254,
+     1.096,
+     1.458
+    ],
+    "rgb_p99_abs": [
+     6,
+     5,
+     8
+    ],
+    "red_mean_shift": [
+     -0.43,
+     0.32,
+     0.945
+    ],
+    "local_max_mae": 10.117,
+    "local_max_red_shift": 20.111,
+    "sampled_delta_e76_p99": 4.993
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/heat-03.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.365,
+     1.142,
+     1.411
+    ],
+    "rgb_p99_abs": [
+     6.0,
+     5.0,
+     7.0
+    ],
+    "red_mean_signed": [
+     -0.233,
+     0.303,
+     0.196
+    ],
+    "local_max_mae": 3.908,
+    "local_max_red_shift": 3.35,
+    "sampled_delta_e76_p99": 4.285,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.365,
+     1.142,
+     1.411
+    ],
+    "rgb_p99_abs": [
+     6,
+     5,
+     7
+    ],
+    "red_mean_shift": [
+     -0.233,
+     0.303,
+     0.196
+    ],
+    "local_max_mae": 3.908,
+    "local_max_red_shift": 3.35,
+    "sampled_delta_e76_p99": 4.286
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.001
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/heat-04.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.302,
+     1.089,
+     1.37
+    ],
+    "rgb_p99_abs": [
+     6.0,
+     5.0,
+     6.0
+    ],
+    "red_mean_signed": [
+     -0.222,
+     0.332,
+     0.238
+    ],
+    "local_max_mae": 4.522,
+    "local_max_red_shift": 14.469,
+    "sampled_delta_e76_p99": 4.048,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.302,
+     1.089,
+     1.37
+    ],
+    "rgb_p99_abs": [
+     6,
+     5,
+     6
+    ],
+    "red_mean_shift": [
+     -0.222,
+     0.332,
+     0.238
+    ],
+    "local_max_mae": 4.522,
+    "local_max_red_shift": 14.469,
+    "sampled_delta_e76_p99": 4.048
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/heat-05.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.369,
+     1.204,
+     1.563
+    ],
+    "rgb_p99_abs": [
+     7.0,
+     5.0,
+     9.0
+    ],
+    "red_mean_signed": [
+     -0.279,
+     0.412,
+     0.293
+    ],
+    "local_max_mae": 4.849,
+    "local_max_red_shift": 3.315,
+    "sampled_delta_e76_p99": 5.626,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.369,
+     1.204,
+     1.563
+    ],
+    "rgb_p99_abs": [
+     7,
+     5,
+     9
+    ],
+    "red_mean_shift": [
+     -0.279,
+     0.412,
+     0.293
+    ],
+    "local_max_mae": 4.849,
+    "local_max_red_shift": 3.315,
+    "sampled_delta_e76_p99": 5.626
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/mood-01.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.104,
+     0.914,
+     1.2
+    ],
+    "rgb_p99_abs": [
+     5.0,
+     4.0,
+     5.0
+    ],
+    "red_mean_signed": [
+     -0.119,
+     0.293,
+     -0.034
+    ],
+    "local_max_mae": 3.583,
+    "local_max_red_shift": 4.047,
+    "sampled_delta_e76_p99": 2.991,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.104,
+     0.914,
+     1.2
+    ],
+    "rgb_p99_abs": [
+     5,
+     4,
+     5
+    ],
+    "red_mean_shift": [
+     -0.119,
+     0.293,
+     -0.034
+    ],
+    "local_max_mae": 3.583,
+    "local_max_red_shift": 4.047,
+    "sampled_delta_e76_p99": 2.991
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/mood-02.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.385,
+     1.071,
+     1.418
+    ],
+    "rgb_p99_abs": [
+     6.0,
+     4.0,
+     6.0
+    ],
+    "red_mean_signed": [
+     -0.068,
+     0.207,
+     -0.06
+    ],
+    "local_max_mae": 2.656,
+    "local_max_red_shift": 10.83,
+    "sampled_delta_e76_p99": 4.173,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.385,
+     1.071,
+     1.418
+    ],
+    "rgb_p99_abs": [
+     6,
+     4,
+     6
+    ],
+    "red_mean_shift": [
+     -0.068,
+     0.207,
+     -0.06
+    ],
+    "local_max_mae": 2.656,
+    "local_max_red_shift": 10.83,
+    "sampled_delta_e76_p99": 4.173
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/noble-01.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.228,
+     1.029,
+     1.265
+    ],
+    "rgb_p99_abs": [
+     7.0,
+     5.0,
+     7.0
+    ],
+    "red_mean_signed": [
+     -0.074,
+     0.341,
+     0.113
+    ],
+    "local_max_mae": 2.865,
+    "local_max_red_shift": 2.153,
+    "sampled_delta_e76_p99": 4.258,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.228,
+     1.029,
+     1.265
+    ],
+    "rgb_p99_abs": [
+     7,
+     5,
+     7
+    ],
+    "red_mean_shift": [
+     -0.074,
+     0.341,
+     0.113
+    ],
+    "local_max_mae": 2.865,
+    "local_max_red_shift": 2.153,
+    "sampled_delta_e76_p99": 4.258
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/noble-02.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.564,
+     1.333,
+     1.917
+    ],
+    "rgb_p99_abs": [
+     8.0,
+     6.0,
+     10.0
+    ],
+    "red_mean_signed": [
+     -0.13,
+     0.241,
+     0.057
+    ],
+    "local_max_mae": 4.99,
+    "local_max_red_shift": 7.426,
+    "sampled_delta_e76_p99": 6.185,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.564,
+     1.333,
+     1.917
+    ],
+    "rgb_p99_abs": [
+     8,
+     6,
+     10
+    ],
+    "red_mean_shift": [
+     -0.13,
+     0.241,
+     0.057
+    ],
+    "local_max_mae": 4.99,
+    "local_max_red_shift": 7.426,
+    "sampled_delta_e76_p99": 6.185
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/poly-01.webp",
+   "chosen": "default",
+   "pipeline": {
+    "rgb_mae": [
+     1.166,
+     0.973,
+     1.351
+    ],
+    "rgb_p99_abs": [
+     5.0,
+     4.0,
+     5.0
+    ],
+    "red_mean_signed": [
+     0.197,
+     0.067,
+     0.192
+    ],
+    "local_max_mae": 2.217,
+    "local_max_red_shift": 0.821,
+    "sampled_delta_e76_p99": 2.754,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.166,
+     0.973,
+     1.351
+    ],
+    "rgb_p99_abs": [
+     5,
+     4,
+     5
+    ],
+    "red_mean_shift": [
+     0.197,
+     0.067,
+     0.192
+    ],
+    "local_max_mae": 2.217,
+    "local_max_red_shift": 0.821,
+    "sampled_delta_e76_p99": 2.754
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/quick-01.webp",
+   "chosen": "default",
+   "pipeline": {
+    "rgb_mae": [
+     1.173,
+     0.952,
+     1.25
+    ],
+    "rgb_p99_abs": [
+     5.0,
+     4.0,
+     6.0
+    ],
+    "red_mean_signed": [
+     0.191,
+     0.064,
+     0.253
+    ],
+    "local_max_mae": 3.449,
+    "local_max_red_shift": 3.394,
+    "sampled_delta_e76_p99": 3.424,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.173,
+     0.952,
+     1.25
+    ],
+    "rgb_p99_abs": [
+     5,
+     4,
+     6
+    ],
+    "red_mean_shift": [
+     0.191,
+     0.064,
+     0.253
+    ],
+    "local_max_mae": 3.449,
+    "local_max_red_shift": 3.394,
+    "sampled_delta_e76_p99": 3.425
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.001
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/quick-02.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.56,
+     1.354,
+     1.736
+    ],
+    "rgb_p99_abs": [
+     7.0,
+     6.0,
+     7.0
+    ],
+    "red_mean_signed": [
+     -0.093,
+     0.275,
+     0.068
+    ],
+    "local_max_mae": 4.117,
+    "local_max_red_shift": 7.145,
+    "sampled_delta_e76_p99": 4.188,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.56,
+     1.354,
+     1.736
+    ],
+    "rgb_p99_abs": [
+     7,
+     6,
+     7
+    ],
+    "red_mean_shift": [
+     -0.093,
+     0.275,
+     0.068
+    ],
+    "local_max_mae": 4.117,
+    "local_max_red_shift": 7.145,
+    "sampled_delta_e76_p99": 4.188
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/touch-01.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.233,
+     1.063,
+     1.349
+    ],
+    "rgb_p99_abs": [
+     6.0,
+     5.0,
+     6.0
+    ],
+    "red_mean_signed": [
+     -0.071,
+     0.277,
+     0.041
+    ],
+    "local_max_mae": 3.79,
+    "local_max_red_shift": 3.515,
+    "sampled_delta_e76_p99": 3.498,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.233,
+     1.063,
+     1.349
+    ],
+    "rgb_p99_abs": [
+     6,
+     5,
+     6
+    ],
+    "red_mean_shift": [
+     -0.071,
+     0.277,
+     0.041
+    ],
+    "local_max_mae": 3.79,
+    "local_max_red_shift": 3.515,
+    "sampled_delta_e76_p99": 3.498
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/touch-02.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.17,
+     0.992,
+     1.294
+    ],
+    "rgb_p99_abs": [
+     6.0,
+     5.0,
+     6.0
+    ],
+    "red_mean_signed": [
+     -0.109,
+     0.337,
+     0.132
+    ],
+    "local_max_mae": 3.288,
+    "local_max_red_shift": 9.15,
+    "sampled_delta_e76_p99": 3.901,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.17,
+     0.992,
+     1.294
+    ],
+    "rgb_p99_abs": [
+     6,
+     5,
+     6
+    ],
+    "red_mean_shift": [
+     -0.109,
+     0.337,
+     0.132
+    ],
+    "local_max_mae": 3.288,
+    "local_max_red_shift": 9.15,
+    "sampled_delta_e76_p99": 3.901
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  },
+  {
+   "asset": "public/art/technology/slides/touch-03.webp",
+   "chosen": "sharp_yuv",
+   "pipeline": {
+    "rgb_mae": [
+     1.281,
+     1.066,
+     1.392
+    ],
+    "rgb_p99_abs": [
+     5.0,
+     5.0,
+     6.0
+    ],
+    "red_mean_signed": [
+     -0.101,
+     0.275,
+     0.136
+    ],
+    "local_max_mae": 3.772,
+    "local_max_red_shift": 12.667,
+    "sampled_delta_e76_p99": 3.505,
+    "visible_pixels": 1432202
+   },
+   "receipt": {
+    "rgb_mean_abs": [
+     1.281,
+     1.066,
+     1.392
+    ],
+    "rgb_p99_abs": [
+     5,
+     5,
+     6
+    ],
+    "red_mean_shift": [
+     -0.101,
+     0.275,
+     0.136
+    ],
+    "local_max_mae": 3.772,
+    "local_max_red_shift": 12.667,
+    "sampled_delta_e76_p99": 3.505
+   },
+   "abs_difference": {
+    "rgb_mean": 0.0,
+    "rgb_p99": 0.0,
+    "red_mean_shift": 0.0,
+    "local_max_mae": 0.0,
+    "local_max_red_shift": 0.0,
+    "delta_e": 0.0
+   },
+   "pipeline_fallback_rule_trips": false
+  }
+ ]
+}

@@ -1,0 +1,873 @@
+{
+ "pairs": 36,
+ "worstMean": 2.1,
+ "worstP99": 55.0,
+ "worstBlock64": 11.696,
+ "rows": [
+  {
+   "pair": "max_charcoal-open",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.8638,
+   "rgbMeanAbs": [
+    0.683,
+    0.536,
+    0.843
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 14,
+   "worstBlock64MeanAbs": 1.288,
+   "worstBlockXY": [
+    256,
+    192
+   ]
+  },
+  {
+   "pair": "max_charcoal-sec0",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.8967,
+   "rgbMeanAbs": [
+    0.917,
+    0.791,
+    1.066
+   ],
+   "rgbP99Abs": [
+    4.0,
+    4.0,
+    5.0
+   ],
+   "maxAbs": 25,
+   "worstBlock64MeanAbs": 1.982,
+   "worstBlockXY": [
+    256,
+    192
+   ]
+  },
+  {
+   "pair": "max_charcoal-sec1",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.9008,
+   "rgbMeanAbs": [
+    0.989,
+    0.895,
+    1.189
+   ],
+   "rgbP99Abs": [
+    5.0,
+    4.0,
+    6.0
+   ],
+   "maxAbs": 16,
+   "worstBlock64MeanAbs": 1.998,
+   "worstBlockXY": [
+    320,
+    320
+   ]
+  },
+  {
+   "pair": "max_charcoal-sec2",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.9138,
+   "rgbMeanAbs": [
+    1.032,
+    0.897,
+    1.227
+   ],
+   "rgbP99Abs": [
+    5.0,
+    4.0,
+    6.0
+   ],
+   "maxAbs": 20,
+   "worstBlock64MeanAbs": 2.099,
+   "worstBlockXY": [
+    320,
+    192
+   ]
+  },
+  {
+   "pair": "max_charcoal-sec3",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.8677,
+   "rgbMeanAbs": [
+    0.751,
+    0.578,
+    0.934
+   ],
+   "rgbP99Abs": [
+    3.0,
+    3.0,
+    4.0
+   ],
+   "maxAbs": 11,
+   "worstBlock64MeanAbs": 1.324,
+   "worstBlockXY": [
+    192,
+    448
+   ]
+  },
+  {
+   "pair": "max_technology-CapsuleCode-0",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.6907,
+   "rgbMeanAbs": [
+    0.7,
+    0.553,
+    0.872
+   ],
+   "rgbP99Abs": [
+    4.0,
+    3.0,
+    4.0
+   ],
+   "maxAbs": 28,
+   "worstBlock64MeanAbs": 1.363,
+   "worstBlockXY": [
+    320,
+    256
+   ]
+  },
+  {
+   "pair": "max_technology-CapsuleCode-1",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.6846,
+   "rgbMeanAbs": [
+    0.753,
+    0.577,
+    0.972
+   ],
+   "rgbP99Abs": [
+    5.0,
+    3.0,
+    6.0
+   ],
+   "maxAbs": 36,
+   "worstBlock64MeanAbs": 1.903,
+   "worstBlockXY": [
+    256,
+    512
+   ]
+  },
+  {
+   "pair": "max_technology-CapsuleCode-2",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.6876,
+   "rgbMeanAbs": [
+    0.686,
+    0.553,
+    0.893
+   ],
+   "rgbP99Abs": [
+    4.0,
+    3.0,
+    5.0
+   ],
+   "maxAbs": 22,
+   "worstBlock64MeanAbs": 1.426,
+   "worstBlockXY": [
+    256,
+    384
+   ]
+  },
+  {
+   "pair": "max_technology-HeatCore-0",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.6846,
+   "rgbMeanAbs": [
+    0.605,
+    0.489,
+    0.752
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 42,
+   "worstBlock64MeanAbs": 1.753,
+   "worstBlockXY": [
+    256,
+    448
+   ]
+  },
+  {
+   "pair": "max_technology-HeatCore-1",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.6867,
+   "rgbMeanAbs": [
+    0.646,
+    0.515,
+    0.75
+   ],
+   "rgbP99Abs": [
+    3.0,
+    3.0,
+    4.0
+   ],
+   "maxAbs": 14,
+   "worstBlock64MeanAbs": 1.498,
+   "worstBlockXY": [
+    64,
+    320
+   ]
+  },
+  {
+   "pair": "max_technology-HeatCore-2",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.6688,
+   "rgbMeanAbs": [
+    0.632,
+    0.506,
+    0.73
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 44,
+   "worstBlock64MeanAbs": 1.539,
+   "worstBlockXY": [
+    192,
+    448
+   ]
+  },
+  {
+   "pair": "max_technology-NobleCraft-0",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.6785,
+   "rgbMeanAbs": [
+    0.631,
+    0.514,
+    0.693
+   ],
+   "rgbP99Abs": [
+    4.0,
+    3.0,
+    4.0
+   ],
+   "maxAbs": 15,
+   "worstBlock64MeanAbs": 1.388,
+   "worstBlockXY": [
+    256,
+    448
+   ]
+  },
+  {
+   "pair": "max_technology-NobleCraft-1",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.6992,
+   "rgbMeanAbs": [
+    0.717,
+    0.583,
+    0.968
+   ],
+   "rgbP99Abs": [
+    4.0,
+    3.0,
+    5.0
+   ],
+   "maxAbs": 23,
+   "worstBlock64MeanAbs": 1.591,
+   "worstBlockXY": [
+    192,
+    256
+   ]
+  },
+  {
+   "pair": "max_wellness-fig0",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.6448,
+   "rgbMeanAbs": [
+    0.601,
+    0.474,
+    0.77
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 15,
+   "worstBlock64MeanAbs": 1.424,
+   "worstBlockXY": [
+    64,
+    448
+   ]
+  },
+  {
+   "pair": "max_wellness-fig1",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.5534,
+   "rgbMeanAbs": [
+    0.605,
+    0.422,
+    0.756
+   ],
+   "rgbP99Abs": [
+    4.0,
+    3.0,
+    4.0
+   ],
+   "maxAbs": 10,
+   "worstBlock64MeanAbs": 1.361,
+   "worstBlockXY": [
+    64,
+    512
+   ]
+  },
+  {
+   "pair": "max_wellness-fig2",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.5736,
+   "rgbMeanAbs": [
+    1.786,
+    1.746,
+    2.1
+   ],
+   "rgbP99Abs": [
+    47.0,
+    52.0,
+    55.0
+   ],
+   "maxAbs": 219,
+   "worstBlock64MeanAbs": 11.696,
+   "worstBlockXY": [
+    128,
+    768
+   ]
+  },
+  {
+   "pair": "max_wellness-fig3",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.5477,
+   "rgbMeanAbs": [
+    0.587,
+    0.422,
+    0.714
+   ],
+   "rgbP99Abs": [
+    4.0,
+    3.0,
+    4.0
+   ],
+   "maxAbs": 12,
+   "worstBlock64MeanAbs": 1.353,
+   "worstBlockXY": [
+    192,
+    448
+   ]
+  },
+  {
+   "pair": "max_wellness-open",
+   "size": [
+    440,
+    956
+   ],
+   "changedPixelShare": 0.6448,
+   "rgbMeanAbs": [
+    0.601,
+    0.474,
+    0.77
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 15,
+   "worstBlock64MeanAbs": 1.424,
+   "worstBlockXY": [
+    64,
+    448
+   ]
+  },
+  {
+   "pair": "pro_charcoal-open",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.8664,
+   "rgbMeanAbs": [
+    0.682,
+    0.531,
+    0.843
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 13,
+   "worstBlock64MeanAbs": 1.207,
+   "worstBlockXY": [
+    192,
+    192
+   ]
+  },
+  {
+   "pair": "pro_charcoal-sec0",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.8967,
+   "rgbMeanAbs": [
+    0.923,
+    0.783,
+    1.065
+   ],
+   "rgbP99Abs": [
+    4.0,
+    4.0,
+    5.0
+   ],
+   "maxAbs": 22,
+   "worstBlock64MeanAbs": 1.846,
+   "worstBlockXY": [
+    192,
+    192
+   ]
+  },
+  {
+   "pair": "pro_charcoal-sec1",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.9011,
+   "rgbMeanAbs": [
+    1.015,
+    0.89,
+    1.211
+   ],
+   "rgbP99Abs": [
+    5.0,
+    4.0,
+    6.0
+   ],
+   "maxAbs": 16,
+   "worstBlock64MeanAbs": 2.055,
+   "worstBlockXY": [
+    256,
+    320
+   ]
+  },
+  {
+   "pair": "pro_charcoal-sec2",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.9137,
+   "rgbMeanAbs": [
+    1.019,
+    0.894,
+    1.213
+   ],
+   "rgbP99Abs": [
+    5.0,
+    4.0,
+    6.0
+   ],
+   "maxAbs": 20,
+   "worstBlock64MeanAbs": 2.054,
+   "worstBlockXY": [
+    256,
+    128
+   ]
+  },
+  {
+   "pair": "pro_charcoal-sec3",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.8663,
+   "rgbMeanAbs": [
+    0.753,
+    0.574,
+    0.942
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 10,
+   "worstBlock64MeanAbs": 1.368,
+   "worstBlockXY": [
+    128,
+    384
+   ]
+  },
+  {
+   "pair": "pro_technology-CapsuleCode-0",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.687,
+   "rgbMeanAbs": [
+    0.663,
+    0.52,
+    0.827
+   ],
+   "rgbP99Abs": [
+    3.0,
+    3.0,
+    4.0
+   ],
+   "maxAbs": 20,
+   "worstBlock64MeanAbs": 1.384,
+   "worstBlockXY": [
+    320,
+    256
+   ]
+  },
+  {
+   "pair": "pro_technology-CapsuleCode-1",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.6848,
+   "rgbMeanAbs": [
+    0.73,
+    0.557,
+    0.949
+   ],
+   "rgbP99Abs": [
+    4.0,
+    3.0,
+    5.0
+   ],
+   "maxAbs": 34,
+   "worstBlock64MeanAbs": 2.06,
+   "worstBlockXY": [
+    256,
+    448
+   ]
+  },
+  {
+   "pair": "pro_technology-CapsuleCode-2",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.6866,
+   "rgbMeanAbs": [
+    0.664,
+    0.535,
+    0.874
+   ],
+   "rgbP99Abs": [
+    3.0,
+    3.0,
+    4.0
+   ],
+   "maxAbs": 21,
+   "worstBlock64MeanAbs": 1.425,
+   "worstBlockXY": [
+    384,
+    128
+   ]
+  },
+  {
+   "pair": "pro_technology-HeatCore-0",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.6831,
+   "rgbMeanAbs": [
+    0.585,
+    0.469,
+    0.726
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 35,
+   "worstBlock64MeanAbs": 1.427,
+   "worstBlockXY": [
+    192,
+    384
+   ]
+  },
+  {
+   "pair": "pro_technology-HeatCore-1",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.685,
+   "rgbMeanAbs": [
+    0.624,
+    0.494,
+    0.73
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 14,
+   "worstBlock64MeanAbs": 1.36,
+   "worstBlockXY": [
+    64,
+    320
+   ]
+  },
+  {
+   "pair": "pro_technology-HeatCore-2",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.668,
+   "rgbMeanAbs": [
+    0.612,
+    0.489,
+    0.709
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 40,
+   "worstBlock64MeanAbs": 1.26,
+   "worstBlockXY": [
+    192,
+    448
+   ]
+  },
+  {
+   "pair": "pro_technology-NobleCraft-0",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.6822,
+   "rgbMeanAbs": [
+    0.617,
+    0.5,
+    0.678
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 14,
+   "worstBlock64MeanAbs": 1.289,
+   "worstBlockXY": [
+    256,
+    384
+   ]
+  },
+  {
+   "pair": "pro_technology-NobleCraft-1",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.6986,
+   "rgbMeanAbs": [
+    0.698,
+    0.562,
+    0.95
+   ],
+   "rgbP99Abs": [
+    4.0,
+    3.0,
+    5.0
+   ],
+   "maxAbs": 23,
+   "worstBlock64MeanAbs": 1.576,
+   "worstBlockXY": [
+    192,
+    192
+   ]
+  },
+  {
+   "pair": "pro_wellness-fig0",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.6419,
+   "rgbMeanAbs": [
+    0.577,
+    0.453,
+    0.739
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 17,
+   "worstBlock64MeanAbs": 1.423,
+   "worstBlockXY": [
+    64,
+    384
+   ]
+  },
+  {
+   "pair": "pro_wellness-fig1",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.5493,
+   "rgbMeanAbs": [
+    0.571,
+    0.397,
+    0.713
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 9,
+   "worstBlock64MeanAbs": 1.273,
+   "worstBlockXY": [
+    384,
+    512
+   ]
+  },
+  {
+   "pair": "pro_wellness-fig2",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.5387,
+   "rgbMeanAbs": [
+    0.528,
+    0.386,
+    0.671
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 11,
+   "worstBlock64MeanAbs": 1.288,
+   "worstBlockXY": [
+    192,
+    448
+   ]
+  },
+  {
+   "pair": "pro_wellness-fig3",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.578,
+   "rgbMeanAbs": [
+    1.354,
+    1.203,
+    1.53
+   ],
+   "rgbP99Abs": [
+    6.0,
+    4.0,
+    7.0
+   ],
+   "maxAbs": 219,
+   "worstBlock64MeanAbs": 10.753,
+   "worstBlockXY": [
+    64,
+    128
+   ]
+  },
+  {
+   "pair": "pro_wellness-open",
+   "size": [
+    402,
+    874
+   ],
+   "changedPixelShare": 0.6419,
+   "rgbMeanAbs": [
+    0.577,
+    0.453,
+    0.739
+   ],
+   "rgbP99Abs": [
+    3.0,
+    2.0,
+    4.0
+   ],
+   "maxAbs": 17,
+   "worstBlock64MeanAbs": 1.423,
+   "worstBlockXY": [
+    64,
+    384
+   ]
+  }
+ ],
+ "note": "WebKit iPhone 17 Pro 402x874 and Pro Max 440x956, deviceScaleFactor 3, screenshots scale:'css', fonts awaited (document.fonts.ready) before each shot; A = origin/main lossless files, B = branch q90 files, same production build."
+}

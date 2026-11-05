@@ -1,0 +1,1082 @@
+{
+  "change": "CHG0202",
+  "date": "2026-11-06",
+  "status": "LOCAL_VERIFIED_PUBLICATION_PENDING",
+  "userAuthorization": "Reset beta to checkpoint main, integrate supplied bundle, push/deploy beta. Customer acceptance and main publication remain pending/not authorized.",
+  "mainCheckpoint": "df85ef2884602954f861f8237d2168f4ac8f3783",
+  "originMainUnchanged": "f79645de75c9f63ee665e5aaeb5bb6332bca1d8a",
+  "oldBeta": "47dddd9522f044f25d643fca3d5ea90d1f0f6825",
+  "backupRef": "refs/backup/beta-before-photos-20261106",
+  "bundleHead": "c5370fb0f8e3fde352ad88cfc138823de15027d1",
+  "bundleBase": "45a71109a42c693a3e8d3c42d4f708d74338ccb4",
+  "bundleSHA256": "b97367170055e181cfb43fafb464e47837dd751e56626d1649231907dd1fdb90",
+  "baselineExactBeforeMerge": true,
+  "assetCount": 35,
+  "changedAssets": 34,
+  "losslessFallback": "public/art/technology/slides/aqua-02.webp",
+  "sourceBytes": 42213692,
+  "outputBytes": 5834714,
+  "runtimeComponentsCSSChanged": false,
+  "checks": {
+    "build": "PASS complete18film packages/11SSG locales",
+    "typecheck": "PASS",
+    "scopedESLint": "PASS",
+    "converterControlled": "5PASS including full35 apply exact output and rollback",
+    "nativeReview": "Review1 twoP2; fixed; Review2 no additional concrete bugs",
+    "functional": "54PASS27explicitSKIP0FAIL; Pro thenMax and desktop; compiled11locale/RTL fixtures only loopback, actualpresentation English redirect tested",
+    "browserAB": "70pairs Pro402x874DPR3 thenMax440x956DPR3; fonts/image readiness; all35 images and tile joins; geometry0; maxmean1.291/255 p999/255; root actual screenshots inspected",
+    "color": "All35 source/outputSHA dimensions ICC opaquealpha verified; fresh full regeneration exact output; globalRGBmean<=2.332 p99<=12 globalRed<=1.522; worstlocalred20.111 visually reviewed, no material defect at target viewport",
+    "performance": {
+      "method": "Single cold sample per variant, same frozen production build and local HTTP proxy; Chromium402x874DPR3,4Mbps100msCPU4; original35 bodies vs candidate35 bodies. Not UAE field/device or Lighthouse evidence.",
+      "rows": [
+        {
+          "lcp": 1316,
+          "cls": 0.0009706117296485489,
+          "storyReady": 18877.799999952316,
+          "click": 19039.199999809265,
+          "firstPhoto": 24964.199999809265,
+          "allPhotos": 32554.199999809265,
+          "fcp": 488,
+          "jsEncodedBytes": 405348,
+          "completedResourceEncodedBytes": 14320587,
+          "completedPhotoEncodedBytes": 6341858,
+          "completedPhotoRequests": 4,
+          "requests": [
+            {
+              "path": "/art/wellness/01-ritual_uno_white_v3.webp",
+              "encodedBytes": 1315836,
+              "start": 19085.299999952316,
+              "end": 24878.799999952316
+            },
+            {
+              "path": "/art/wellness/03-botanicals.webp",
+              "encodedBytes": 1923046,
+              "start": 19086.099999904633,
+              "end": 27127.799999952316
+            },
+            {
+              "path": "/art/wellness/04-capsules_v3.webp",
+              "encodedBytes": 1392408,
+              "start": 24959.5,
+              "end": 28882.599999904633
+            },
+            {
+              "path": "/art/wellness/02-water_bouquet.webp",
+              "encodedBytes": 1710568,
+              "start": 28939.299999952316,
+              "end": 32464.699999809265
+            }
+          ],
+          "firstPhotoAfterClickMs": 5925,
+          "allFourAfterClickMs": 13515,
+          "mode": "baseline",
+          "errors": []
+        },
+        {
+          "lcp": 1320,
+          "cls": 0.0009706117296485489,
+          "storyReady": 19025.800000190735,
+          "click": 19401.700000047684,
+          "firstPhoto": 20827.700000047684,
+          "allPhotos": 22520.200000047684,
+          "fcp": 444,
+          "jsEncodedBytes": 405348,
+          "completedResourceEncodedBytes": 9200657,
+          "completedPhotoEncodedBytes": 1221928,
+          "completedPhotoRequests": 4,
+          "requests": [
+            {
+              "path": "/art/wellness/01-ritual_uno_white_v3.webp",
+              "encodedBytes": 220118,
+              "start": 19510.700000047684,
+              "end": 20788.60000014305
+            },
+            {
+              "path": "/art/wellness/03-botanicals.webp",
+              "encodedBytes": 436580,
+              "start": 19512.5,
+              "end": 21529.800000190735
+            },
+            {
+              "path": "/art/wellness/04-capsules_v3.webp",
+              "encodedBytes": 222432,
+              "start": 20819.900000095367,
+              "end": 21673.700000047684
+            },
+            {
+              "path": "/art/wellness/02-water_bouquet.webp",
+              "encodedBytes": 342798,
+              "start": 21696.5,
+              "end": 22486.400000095367
+            }
+          ],
+          "firstPhotoAfterClickMs": 1426,
+          "allFourAfterClickMs": 3118.5,
+          "mode": "candidate",
+          "errors": []
+        }
+      ]
+    },
+    "scroll": {
+      "method": "Local production WebKit programmatic 120RAF longscroll; lab frame intervals, not physical touch/field INP",
+      "rows": [
+        {
+          "name": "pro",
+          "width": 402,
+          "height": 874,
+          "dpr": 3,
+          "frames": 120,
+          "p95FrameMs": 48,
+          "maxFrameMs": 321,
+          "endGap": 0,
+          "overflow": 0,
+          "errors": [],
+          "file": "screenshots/photos-lossy-beta/2026-11-06/integration-pro-footer.png"
+        },
+        {
+          "name": "max",
+          "width": 440,
+          "height": 956,
+          "dpr": 3,
+          "frames": 120,
+          "p95FrameMs": 35,
+          "maxFrameMs": 78,
+          "endGap": 0,
+          "overflow": 0,
+          "errors": [],
+          "file": "screenshots/photos-lossy-beta/2026-11-06/integration-max-footer.png"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "One cold lab sample each, no UAE field network or physical iPhone test. No Lighthouse score or field INP claim.",
+    "Programmatic cold longscroll p95frame48/35ms and max321/78ms: no claim physical smoothness; components/CSS/JS unchanged, overflow/endgap/errors0.",
+    "Old author40PASS20FAIL18SKIP and36ABpairs preserved as historical evidence, not current approval.",
+    "Customer visual acceptance pending; main receives no optimization."
+  ],
+  "technicalApproval": {
+    "date": "2026-11-06",
+    "verifier": "/root",
+    "local": "2026-11-06 /root PASS and independent /root/audit Stage3PASS Stage4PASS Stage5PASS_LOCAL Stage6PASS_LOCAL_PREPUSH, exact61 staged paths; publication separate pending",
+    "publication": "PENDING"
+  },
+  "sourceBindings": [
+    {
+      "path": ".gitignore",
+      "sha256": "22c755f9cd1ab970a67a4b29d6359ee1dbf813d0267e29e4d49fc1e399066e05"
+    },
+    {
+      "path": "docs/art-color-pipeline.md",
+      "sha256": "fda34915758605037539b053c16368a667d260cdb017965db4dc4eda2f0e5f92"
+    },
+    {
+      "path": "docs/evidence/photos-lossy/browser-ab-charcoal-max.png",
+      "sha256": "c076a4be2f8293a239790690b08c29cffc792d5756ef517dfef2509fd7b048f7"
+    },
+    {
+      "path": "docs/evidence/photos-lossy/browser-ab-charcoal-pro.png",
+      "sha256": "2f1cb213d152af969fda656556fe2fa17c3b567394403a8eba0cb7500303d591"
+    },
+    {
+      "path": "docs/evidence/photos-lossy/browser-ab-summary.json",
+      "sha256": "6cd6376b61a310a76dc709d011dfc44827ed4da433cdb682a17052d2eb28f354"
+    },
+    {
+      "path": "docs/evidence/photos-lossy/browser-ab-technology-max.png",
+      "sha256": "81e71abc66c87112fa8893f27014f8ca545c806a610ea3aac177c9027d478842"
+    },
+    {
+      "path": "docs/evidence/photos-lossy/browser-ab-technology-pro.png",
+      "sha256": "c57ee27a091cfc3b6d43f9a1a340ee13c5270cbb8395c14817f5194af437476b"
+    },
+    {
+      "path": "docs/evidence/photos-lossy/browser-ab-wellness-max.png",
+      "sha256": "1cfa1d3717659b3e1267533efd6a1ee74a97e0d4ff39196e6a1a1132755e0096"
+    },
+    {
+      "path": "docs/evidence/photos-lossy/browser-ab-wellness-pro.png",
+      "sha256": "98037202ca17d18429c20104971d1d1f992b7fe10f0e081478160c12a634f8dc"
+    },
+    {
+      "path": "docs/evidence/photos-lossy/cross-check-pipeline-metrics.json",
+      "sha256": "9ed74f5da8db72e075f9f0d1e83ed351569ccd842ce7788e471f23c67993f9e1"
+    },
+    {
+      "path": "docs/evidence/photos-lossy/local-gates.md",
+      "sha256": "b54c90dc40f9f5e6d052820ef3de1775aabd71280c28aa424737960f81a56959"
+    },
+    {
+      "path": "docs/evidence/photos-lossy/manifest.json",
+      "sha256": "ea0998a5d2d0672dba8d84a0543b62f4123e4a5c4593ad5389740849cc0b90e7"
+    },
+    {
+      "path": "docs/evidence/photos-lossy/review-blocks-aqua02-heat02-capsule02.png",
+      "sha256": "d191710a79e865ed6c77fbc08b7091eb643e2add503a3075195e33cc583fa98e"
+    },
+    {
+      "path": "docs/evidence/photos-lossy/review-blocks-red-heat02-cyber01-heat04.png",
+      "sha256": "e912f3e4ff43bdbb6a6338516aa25a845a634b493e4b910fb3a715f3d5e205e4"
+    },
+    {
+      "path": "docs/evidence/photos-lossy/review-blocks.md",
+      "sha256": "699260e9162e6dafa6f7b609e002afe829bb41bd9e1e58eceef8010f9b07ddb8"
+    },
+    {
+      "path": "public/art/charcoal/v2-1-0.webp",
+      "sha256": "58a76bde15f646cf8f30008a23e4d209e38d0851951d8f0cdbca468b4c9b0875"
+    },
+    {
+      "path": "public/art/charcoal/v2-1-1.webp",
+      "sha256": "d89baad1de4b13a5711c6a6c5fd554f5d65ae29759b49c686710e1541bcaa1e3"
+    },
+    {
+      "path": "public/art/charcoal/v2-2-0.webp",
+      "sha256": "98be660221c9091f2d74816a4cabd318d9789a070ebc2dd2bd5c00ed0bd3c030"
+    },
+    {
+      "path": "public/art/charcoal/v2-2-1.webp",
+      "sha256": "630f38564524b031628f71d3bf824b8cb4d02fa868958c84eda100493c3bd500"
+    },
+    {
+      "path": "public/art/charcoal/v2-3-0.webp",
+      "sha256": "41cbb84ae8b3fa024a247e181bd60140d74e4823f1e4891147a070f13cf20580"
+    },
+    {
+      "path": "public/art/charcoal/v2-3-1.webp",
+      "sha256": "a51f95716d996f1e27518c3a4707617d4a9d62d5d924f014bb5f14879a681959"
+    },
+    {
+      "path": "public/art/charcoal/v2-4-0.webp",
+      "sha256": "164e22f897d788e3bbf46f57b11b2cf8bb87a2eefa5eb5c475703c83638225af"
+    },
+    {
+      "path": "public/art/charcoal/v2-4-1.webp",
+      "sha256": "232dc80423b59551bdcd2e393cbf50bbd3c3bdc234e452777b7a20495d84e575"
+    },
+    {
+      "path": "public/art/technology/slides/air-01.webp",
+      "sha256": "e927edfc699c2c683db4bcc7294137db0e1f710fb755bc4eeef9999a5c89d041"
+    },
+    {
+      "path": "public/art/technology/slides/air-02.webp",
+      "sha256": "a3bedd44c5dbaf506952cad4b7bad6bcae652da266246924828666c6d61df4b0"
+    },
+    {
+      "path": "public/art/technology/slides/aqua-01.webp",
+      "sha256": "88a9b006c588a981efb7b78906c8dea7c0ddf3dfa266791da04d53841e029d00"
+    },
+    {
+      "path": "public/art/technology/slides/capsule-01.webp",
+      "sha256": "cec2ca5c7abf051cff45957dc279639cdb2f016f99bf9ceadde25ef9f6b38546"
+    },
+    {
+      "path": "public/art/technology/slides/capsule-02.webp",
+      "sha256": "1033e20113e9c3c63aec421f661e5f2892b84b20f833f9e906a01e04905361bb"
+    },
+    {
+      "path": "public/art/technology/slides/capsule-03.webp",
+      "sha256": "3697b0b3ae1e1cae1cd1a43e0db4345eafe32a56caf530ac0e4b9673b1774b50"
+    },
+    {
+      "path": "public/art/technology/slides/cyber-01.webp",
+      "sha256": "310e25a2823b8eeaea0a154d7e973dafb6f203a3e285cf34b75c533242576206"
+    },
+    {
+      "path": "public/art/technology/slides/cyber-02.webp",
+      "sha256": "16915ecb095ffe3e8e15bee97834626e3850e3bdcfb7820b6b09d55da4d89d88"
+    },
+    {
+      "path": "public/art/technology/slides/heat-02.webp",
+      "sha256": "f19590ebc0e0be74a6e7e4c11946c04b17745350af93836efd8c24a9a7e6a057"
+    },
+    {
+      "path": "public/art/technology/slides/heat-03.webp",
+      "sha256": "2dd1c27e57490538d888dc21c65f7d1751eb9a54e84d4bc4b770018313835132"
+    },
+    {
+      "path": "public/art/technology/slides/heat-04.webp",
+      "sha256": "bf4139c74ddbdbbc197092c128c25fb6131e9e984ada0fe5edca36389f77e2b9"
+    },
+    {
+      "path": "public/art/technology/slides/heat-05.webp",
+      "sha256": "c59bab53fdbc93ec8d6e6b7609b073fa370ecd1272f1751c502fcfad6bbde4fd"
+    },
+    {
+      "path": "public/art/technology/slides/mood-01.webp",
+      "sha256": "f11a68990e49e66bc94ec48daf2d5956844d5752188aaa5b1db94a7ba78eab97"
+    },
+    {
+      "path": "public/art/technology/slides/mood-02.webp",
+      "sha256": "aba8b38a6e08f583a14501696137c95ef52fd79023c2e460f5aaa33812e7bc50"
+    },
+    {
+      "path": "public/art/technology/slides/noble-01.webp",
+      "sha256": "736dd3c64fdb46d9eb7218873dbd7386dbcfa0a548c82bb7947c8532d939e6db"
+    },
+    {
+      "path": "public/art/technology/slides/noble-02.webp",
+      "sha256": "42635b6089448f5f5ead88571acf8df17a9fd44b509798570953b75ab93cae6f"
+    },
+    {
+      "path": "public/art/technology/slides/poly-01.webp",
+      "sha256": "214e7202d1a23e15a0551d1b0fd0527843996c89eea75fa0caa659d357c48685"
+    },
+    {
+      "path": "public/art/technology/slides/quick-01.webp",
+      "sha256": "448de28a5f8de18f4582431263f16ec5a364a4b4d1c9355d7ea9b1e46cb9abca"
+    },
+    {
+      "path": "public/art/technology/slides/quick-02.webp",
+      "sha256": "7c43e8673d2a2b458d2878e1c9b452962a66aa7d1ad8813053b73d5fe1274188"
+    },
+    {
+      "path": "public/art/technology/slides/touch-01.webp",
+      "sha256": "8c2afe08eacce6a7ac1e7af48ab4d0989e4fef0303ea099d18e1f1fd3bddfd82"
+    },
+    {
+      "path": "public/art/technology/slides/touch-02.webp",
+      "sha256": "03527858978092f8db069c6c000a3613e0b12f7631386fb9dac776496235e7f0"
+    },
+    {
+      "path": "public/art/technology/slides/touch-03.webp",
+      "sha256": "3bec2117f00736af6fbb83395a0ba3e93dc37a8b1af7b72604fff88b799a9616"
+    },
+    {
+      "path": "public/art/wellness/01-ritual_uno_white_v3.webp",
+      "sha256": "c9f2dcafee9757a747d4a98b6107e0b22799473faea0ce972851ee0b844f02ee"
+    },
+    {
+      "path": "public/art/wellness/02-water_bouquet.webp",
+      "sha256": "04cc50c014e3df644416c77ab8ca57ebda2499636e98eb10d1f14817468d5b4d"
+    },
+    {
+      "path": "public/art/wellness/03-botanicals.webp",
+      "sha256": "5acee454458f507d278b5e3d7f56d51f274d1ba30932078c6880e1b519aba02c"
+    },
+    {
+      "path": "public/art/wellness/04-capsules_v3.webp",
+      "sha256": "f66cca8b1faad822b35ff5a4b5ef862d25f3950cc9697231f417e19d014ac81a"
+    },
+    {
+      "path": "tests/e2e/art-loading.spec.ts",
+      "sha256": "aa5431c90ca7af5a1e13d5ebaea0221889a15a09ec24c64670e64dfbab0e31a5"
+    },
+    {
+      "path": "tests/e2e/charcoal.spec.ts",
+      "sha256": "bf119418846b84f0d33ef4047f3e5e787d4017f6b0bc713dde383c3d9236efc4"
+    },
+    {
+      "path": "tests/e2e/helpers/compiled-photo-locale.ts",
+      "sha256": "9f9154e2918b72bf11748f66951052e792833aeeaddf6854a398faa58daf8150"
+    },
+    {
+      "path": "tests/e2e/technology-viewer.spec.ts",
+      "sha256": "a25bf1dc9a24d90b6b8b9702a6013da2c25b9457ced457ccccdb7fe1bac4f682"
+    },
+    {
+      "path": "tests/e2e/wellness.spec.ts",
+      "sha256": "f5b9efcf3a42fad4a32f7e7627753e6be92dda8835fe195c8f216b816a454635"
+    },
+    {
+      "path": "tools/convert-photos-lossy.py",
+      "sha256": "fcb522235802071db5c57d02196c3b25f033287b5d474d7e49ddd60a277e30d2"
+    },
+    {
+      "path": "tools/convert-photos-lossy.sources.json",
+      "sha256": "0a2d42e9d40546f23cd8956de9071e52068ca351b065b2671ea3ff1b88c57f8f"
+    }
+  ],
+  "artifactBindings": [
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/scope.json",
+      "sha256": "19f81c23e7f9b15adbcec75ec35c174bed16a410b53ec2774e2cff8a76acf127"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/beta-baseline.json",
+      "sha256": "b576aeab817ec3ba1e0be02d2699b380003a9f7c443bb0086310afb31fff58d7"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/regeneration-verification.json",
+      "sha256": "ae1741cba2b38fb26cb27829eab6f24030b78b126d3b3142bfe1b3c0727cad72"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/quality.json",
+      "sha256": "e371e8111e828a9fe8eda15cea3c58e13cf81f60d4fcb5ad8313bda587585a41"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/converter-checks.json",
+      "sha256": "99f488d2ccdb45a264dad572b0947f5695b081d0a10e46b8b8a6d96792657192"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab-comparison.json",
+      "sha256": "02864fbdb88cbf3f92e7a260507895244f3ee74db8b0b69bb29cfcb243844f22"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab-captures.json",
+      "sha256": "7c589847d16da5946c67d86300b8f8d4bc53d11b8bada6ece8e88e3ead0c008e"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/performance.json",
+      "sha256": "0c54e1a06fe27d9f9b6d155bc3cd9be377aa6c8d4937ee9515cef42edbad5e8e"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/scroll.json",
+      "sha256": "f1729b1dda434a722c920a6a0b0211d15a3be2399bf4c472fba9dc7ff9bb0df4"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/native-review2-snapshot.json",
+      "sha256": "8289305afe2528fb8f617bcfbc28f86d8a7087940fae44b666b728ae20d49679"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/native-review2-verdict.txt",
+      "sha256": "92f003bc2e11bac5f36057afa0dfbe19379491a490c3a963122b02fb4d7b9d51"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/build.log",
+      "sha256": "6034b95a3007c73bb5106b06571e8013223f3704b180ca2b495bb054aeba042b"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/typecheck.log",
+      "sha256": "8fa1cf5506304e8abac55868e7f1a136c9b1dde57a3981a382da4c21ea129a6f"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/lint.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/pro-suite.log",
+      "sha256": "af9d87eeacd5427182fe57fc209d0cc3a7e9de7218d2e5f2c4c19ea2b6cdc6cc"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/max-desktop-suite.log",
+      "sha256": "5ccd94cec68289fac6a4568ad852b71a45cf682f30f6cfecfcee57955ab76255"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/presentation.log",
+      "sha256": "b69ed10cc0281dfd433695cf03aca63fc8526225b6c7877d57d3596afb8c3b6f"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/contact-max-charcoal-0.png",
+      "sha256": "9d52e18f17d9cfce81017bf0fc9f5ab4cf73c4620181bbd912805145cff6277d"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/contact-max-technology-0.png",
+      "sha256": "544015b6ed98bf286b3e63d42d40a56fe44854da943e8d07dcaba2ccd48f8f84"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/contact-max-technology-1.png",
+      "sha256": "70e6a59c7978cb54ae6d2c4be331e5a2c2631137daa63bb727098ee4c0e040f0"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/contact-max-technology-2.png",
+      "sha256": "f5e325ccb509d9adfd93256e885284df89be940426ed35fc8e9054da39e0a12b"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/contact-max-wellness-0.png",
+      "sha256": "aa911c1c9b05a9533bda9e439387974e5ed03c0abf8db3b28dfd583837966f7b"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/contact-pro-charcoal-0.png",
+      "sha256": "5390be4a527a8d7615480bfcbaee803323d92fc6d48c65d3b947881adb2a2720"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/contact-pro-technology-0.png",
+      "sha256": "0bfc73e430521119855a080c4d2186b40fab0bf6bca2c12d6574611e39bc0551"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/contact-pro-technology-1.png",
+      "sha256": "abf513cfeebb3478a0280cdf013500347ac38f487f5135f4a98b14ff4da39167"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/contact-pro-technology-2.png",
+      "sha256": "740f7430fa30ef65e39a44c204d46d0d9928837d915de32bfd5a2b76941432e7"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/contact-pro-wellness-0.png",
+      "sha256": "019248561da0d16f1339029f88fe580122c4ecc275198306f783f655b8b8e664"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/charcoal-0.png",
+      "sha256": "0858d6616c97d327e25a83a06ecc7322dfda4401369e3e863c107c522ed65628"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/charcoal-1.png",
+      "sha256": "c2ef72f3215588e39f026077e4335668b3d7d0cc33a4adbda5ac9c4c233fc767"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/charcoal-2.png",
+      "sha256": "6f51e30ae9192035382ada000fd10132ef02674db63a945e2735ab5b8e1c7cf6"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/charcoal-3.png",
+      "sha256": "3e0ce7619792bb0518c460216e5777261bab45d8ca29f28fc601b44ff8738f23"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/charcoal-join-0.png",
+      "sha256": "b5bb4654f7e1d630b69e2435a2a0a1ceb2aeaa66e8c96003f6b40ec2adf5f88f"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/charcoal-join-1.png",
+      "sha256": "ed30babcc67dfac48a9aa467f192379dd08c2df53ee992084dc362af827e8c3d"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/charcoal-join-2.png",
+      "sha256": "eb6493307906793945bc98fdef41e2c7ea765825f1449cff309cba78db8401e8"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/charcoal-join-3.png",
+      "sha256": "3e0ce7619792bb0518c460216e5777261bab45d8ca29f28fc601b44ff8738f23"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-AirShield-0.png",
+      "sha256": "4b76fd91751bdbb60a0b6d7fb1983b4e7763c261a9b83042cb25308164ce751d"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-AirShield-1.png",
+      "sha256": "2911aa4ee488f8adbf089cd697f43e8e17f386235c38c8dfeabe00c1fd31a491"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-AquaSense-0.png",
+      "sha256": "10fe3ccdb5f156a41d206cb5c5301e70412b9753d04437c80f097e04717d2ec2"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-AquaSense-1.png",
+      "sha256": "aaf81523f3a9fc24230b4f3950649e71d19deb1f60419cd3435aa23c38d7681b"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-CapsuleCode-0.png",
+      "sha256": "0250b2d352574e598e231416e29b566f9a37b0169a5340c5014da16c4cc051b8"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-CapsuleCode-1.png",
+      "sha256": "4579e3078ff222c2e334c945a641a557de9962209560cd14a626de94114748cf"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-CapsuleCode-2.png",
+      "sha256": "782fa320ec8730f745429efdc02441b1eb2aa48b94c6b771eb1c9e470372c2e0"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-CyberMind-0.png",
+      "sha256": "31e3cee0fe143af404c011d9481e257774d6a472b7d7dd581d55e4cc32c6f879"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-CyberMind-1.png",
+      "sha256": "35c3c47eb95ab645bb11d407a3b87de696e6ad4c05970c3042960503d3fe90b8"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-HeatCore-0.png",
+      "sha256": "f783a587167cc77b9528fb493770c33a970021d870700722568ed4cba09940aa"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-HeatCore-1.png",
+      "sha256": "544037975ac0f605fa870efa053f3e5391d6be58932c03f194f8e8a2c869bea7"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-HeatCore-2.png",
+      "sha256": "3dda57021c9e120e0e341bd243f0041e4c99ae9493b6b4eb048d905649369ec1"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-HeatCore-3.png",
+      "sha256": "4f2e7cd96bf00719ce1196fa7f3937357d6026e205338dc55501329c9f278477"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-MoodEngine-0.png",
+      "sha256": "899310642149382ea269b762e41cc3da6da388fe33486b466769ad560d4143a3"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-MoodEngine-1.png",
+      "sha256": "89fcc2d0ec3e50e688818615bb66c71bab6ab213510836a5c04c8131b8322447"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-NobleCraft-0.png",
+      "sha256": "010d2df6c79172016fb2d60c69a8ac64974e9560d85b17dd1aabd7e4d5b61424"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-NobleCraft-1.png",
+      "sha256": "d1e9d822bae5ec0345f2e553f8678b261bf65346c96a7f6377bbe7f089f25c18"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-PolyArmor-0.png",
+      "sha256": "336809e397e14ef35fe37876d9ec98efc7b1514c45f741189599a14e0dc1f38b"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-QuickCell-0.png",
+      "sha256": "f0a62b706827ede303f45d64c891bbf20623c28a32c1ab64397b90e81287cc01"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-QuickCell-1.png",
+      "sha256": "f44e505e91dbc59967aaf552e996a8c1937a3ab22370b5d7a7aba48ed6623fd7"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-TouchLink-0.png",
+      "sha256": "e538be55975b951fcc64ad221676e758efceed5f482f92e3b4f8ba916e537e1c"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-TouchLink-1.png",
+      "sha256": "704bc36b9174fe89b78bd6e79804ebfb6269fde4768aa55b8ba3d2e519ac9af8"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/technology-TouchLink-2.png",
+      "sha256": "6a545effc080945193e50706a56b428fca6926eb2af6d1de84bb5007cbd62560"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/wellness-0.png",
+      "sha256": "75c714c2d8e33bc61276f985f9b85cea72d7b0abde5abf8bac8c982025c12889"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/wellness-1.png",
+      "sha256": "1d7b1abb85d451a4b199d40454c1575152ec334f7f8c6b03ab8de4839c7fb5b1"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/wellness-2.png",
+      "sha256": "a17da19b1b2b11f98a6bd4a3762a3b80a3bae8f7503fd4150fa68e9c511850c0"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/baseline/wellness-3.png",
+      "sha256": "a12f308a5f07781b6a432d323da8dd24a522132b22f3ec3bbe8fa2fbef258309"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/charcoal-0.png",
+      "sha256": "a7f90d25467862bfe695e70c13cda8feaa917faeef4970cd2c3c1e07f975c780"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/charcoal-1.png",
+      "sha256": "fbd82abee7b83cb7de4279b306f2f9b019dd93380b3d46b634c20ffc081fcd04"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/charcoal-2.png",
+      "sha256": "af9e3c4cda183403c982ca99588f85cb99835bd901e6d314ca6d49dcda7eff45"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/charcoal-3.png",
+      "sha256": "7c8717f6c9aa0e645077f56ecf0e009db89a743742f86d051ebebd239763379f"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/charcoal-join-0.png",
+      "sha256": "992ed639912b94e3126a239e3d62bcbf8b27b0fff9bd20cd17565d2763c243ca"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/charcoal-join-1.png",
+      "sha256": "01b0806b27827ba1116d853c3ab57022aa095a99cbd82c51f77fb3b02d88e67d"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/charcoal-join-2.png",
+      "sha256": "4932a8da4b4a0f2ce4d6d57730f83015976e75ae0bd239d52e4903cc8a853ca7"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/charcoal-join-3.png",
+      "sha256": "7c8717f6c9aa0e645077f56ecf0e009db89a743742f86d051ebebd239763379f"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-AirShield-0.png",
+      "sha256": "00860f49b367fa8ec72ad9fbe6e7cc8bf5782ab4a59bb30c8774df0807a833c1"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-AirShield-1.png",
+      "sha256": "31392c25183d06465c9fc325d32e578114b79f065b3c85642757d11aa0126731"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-AquaSense-0.png",
+      "sha256": "5e884b5c9c648ec9bfdbfd8a4c81aaee375f79a27f33482d76e6f3edb89cb7d3"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-AquaSense-1.png",
+      "sha256": "aaf81523f3a9fc24230b4f3950649e71d19deb1f60419cd3435aa23c38d7681b"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-CapsuleCode-0.png",
+      "sha256": "1e73887a109d7b1e5ef04151ea1c4dc274f95006555dec1ed80e59231d216900"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-CapsuleCode-1.png",
+      "sha256": "9524b4c6be65f8333759cc3628ce4be4b8ac4e5fdae9a45805140f23c6dd93be"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-CapsuleCode-2.png",
+      "sha256": "820ce34d7b2d0d0b7470cb8ca7db31d2dc6b8e1655213e7eb8f09d61106c29ce"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-CyberMind-0.png",
+      "sha256": "086e7986c064377c6880302256a90635ab24990937b7204e52103cbd00dea411"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-CyberMind-1.png",
+      "sha256": "8f4f7565fa9e15acb8fe532302d6598b8a95e2b1aed94e45bedae89eb5f15741"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-HeatCore-0.png",
+      "sha256": "0d7b34dab6248cf7b5de9fbaf526491fa341ee89c61997f9255c13cfa357d861"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-HeatCore-1.png",
+      "sha256": "1cb2522c7ed3d740797669b1d9f61166af5cea081c84dfa77e7c577b27214f79"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-HeatCore-2.png",
+      "sha256": "c857d823d04e69d795c4439cd4a8bd134a74f1b9d6520e5e83b6d298af6b6ed8"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-HeatCore-3.png",
+      "sha256": "8adfcb4669157691b6a9411a3f6d0c9805194656c321f2106e1a806897afb4b2"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-MoodEngine-0.png",
+      "sha256": "3c352d3b47a02c5c7d4f08ae209d84a53bdcb4c3f1cab1fbf85bb655d25b4c77"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-MoodEngine-1.png",
+      "sha256": "a56a8f01df7d242939621126d7a35112c9063fda5f44759b8498ae6f4f233d9c"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-NobleCraft-0.png",
+      "sha256": "b3ec476794b0c75f99c6174e37a640a5c158d0b27cb0d2c4c1d90ae6b50f546a"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-NobleCraft-1.png",
+      "sha256": "901d565e6c5c12181ac9d2ae8bd71cbf2bfe89823e5b9e1182b49134b94ee60b"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-PolyArmor-0.png",
+      "sha256": "79404c254986918c7f987396f328e2f473edf2ee02f0e93896743978798c2adf"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-QuickCell-0.png",
+      "sha256": "ef5fd0aa862f838325a2ce99e0775d749ea6339ace5fcd03a156ccf5476bd358"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-QuickCell-1.png",
+      "sha256": "6e7aa94bbe88c3f40b63e0297193a5b517d38338000e18e0fcabf74cefb0d201"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-TouchLink-0.png",
+      "sha256": "b0c98a8f15f0403b21bc006dec0334d1adc413b8c777fdb0f33ed2ea74a695f7"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-TouchLink-1.png",
+      "sha256": "9902061732b92cf1b97d6acf43f2a8aa086010b33344f84ce2b1ad07b18573fe"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/technology-TouchLink-2.png",
+      "sha256": "92ae82ae63294b7154360c5280e74abb729e7037a778551a1ed1a3ce66e4b22d"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/wellness-0.png",
+      "sha256": "5b437dd2c8ec4c828be592cfb62bb707e2413d3c5354ced4ce9da04aa9e36d99"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/wellness-1.png",
+      "sha256": "73c53c46cdc4b405ab9b1a1df578813224575de96ee7cfe36ab810c2bf56beba"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/wellness-2.png",
+      "sha256": "b1c1f894e04185e5eca7bd0997d025272880b80de3b1eb2710630ca65bdcb455"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/max/candidate/wellness-3.png",
+      "sha256": "945f64e1e13d7cbc1e7aaf5d51c16b03f11764c6963830b3dc08a5ffafef25da"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/charcoal-0.png",
+      "sha256": "2b5a09839614324f70d950591d42165e6227cb60bb7b82d2dba2bb047262f063"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/charcoal-1.png",
+      "sha256": "5febd8e319a59dba68d7d4c1760efa54a93f3bf1945bc26cc5f46d6014aff0ee"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/charcoal-2.png",
+      "sha256": "35196914573e8939910afeef8ec76de96f4a31843f5d9442ad51f06fb8663134"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/charcoal-3.png",
+      "sha256": "214d2db9feccea498b01073dd28da65d714e43cae470a5981aae23598e56fb7d"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/charcoal-join-0.png",
+      "sha256": "f47d634a38a63f78e1ba919a5b3e31d00a6460f8b3ed5126e20751cc3cebb516"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/charcoal-join-1.png",
+      "sha256": "90e0834c68093978920740d98dc256fc576e6d5347b3d3bf265976aa3317695d"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/charcoal-join-2.png",
+      "sha256": "dd9e4d2681ad36dd9353598b4854ec6932778c728e9a6f97674e4516cd283ace"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/charcoal-join-3.png",
+      "sha256": "214d2db9feccea498b01073dd28da65d714e43cae470a5981aae23598e56fb7d"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-AirShield-0.png",
+      "sha256": "b0416c51db2eab83f0d8b21861eba30405e716b5af8764021b1d765a4fd01d50"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-AirShield-1.png",
+      "sha256": "e610a99a1dd9948067f5c39eb525282c49475db130e7454bd79db647aa05a83c"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-AquaSense-0.png",
+      "sha256": "172b5720c724b1f18732fd09091571b4bf50dc74610a56c0f6b3bedee91e1bd5"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-AquaSense-1.png",
+      "sha256": "2e43491b7a9a774b8699d180eabce8d6fa35b23e3a380df637d17effb09c142c"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-CapsuleCode-0.png",
+      "sha256": "10dfe7494f8f3c829ada9ac7ff32f0a590ca69ee3be3406398bd3650cc0e3145"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-CapsuleCode-1.png",
+      "sha256": "803f24b2383c70d2e100794d5533fa61b347b96092ee1e7db1c8a4c8dc620efa"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-CapsuleCode-2.png",
+      "sha256": "a02b08c2dc55f803a8457cc6059875e28fdcf4fd01932bcc669079ff817a1ccc"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-CyberMind-0.png",
+      "sha256": "3f0644ffc51db9e41d813427cfe21c2483644376edbe4f421cbea0be522d70fd"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-CyberMind-1.png",
+      "sha256": "6cf3c0765f5bd53c436066b3c4826633a172a50b4e6c54522ab9aa8494196a98"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-HeatCore-0.png",
+      "sha256": "cbd436728e6d4451eb5c5f49759f6d4f0326e1820ebb4b48847c0a8a548e7336"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-HeatCore-1.png",
+      "sha256": "f138ff7541f8b9c1924bb56872b48c49d8029b845916ade6d798a50c0f9775c3"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-HeatCore-2.png",
+      "sha256": "c6354e3ba1a24cd83856e7d0c0fdabcdb696590438a911f32a6cbeb27224f122"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-HeatCore-3.png",
+      "sha256": "a45ef3183f4fd3abb6781686101959447827210d06bd9a495d438f9681bee2b9"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-MoodEngine-0.png",
+      "sha256": "3d1e41eb67b5739a55b4608931745186170bfdff1302b5c76d2feeb3f6656c65"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-MoodEngine-1.png",
+      "sha256": "32eb139e02d5e85ca9f01e057af335a6d3c650c4fda77e48db2fcaadfc55e767"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-NobleCraft-0.png",
+      "sha256": "d1460f5c62bb094d6ae9df2b328d35a800f0729d2dff1ebba5fac09f1b5775c6"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-NobleCraft-1.png",
+      "sha256": "24e7794357372716ba347f33b5c7cce478b373a5afee4ffafa691a56329656a5"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-PolyArmor-0.png",
+      "sha256": "45fd7bed51d040b987df5eee017df2fb2a1c9ba9ee881d577d2f4687692393d1"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-QuickCell-0.png",
+      "sha256": "ec01dee96d5bb16594ff7f70d7959d31c6ee8ff3de07c581c014c9bf5ac1bfb4"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-QuickCell-1.png",
+      "sha256": "7a2576cb2968046ce9d9627d8b0d7170c10886172609ce01b27d231271bbca87"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-TouchLink-0.png",
+      "sha256": "af6c8c30b50aadba465637696bce5b2254c65a2ce52d429b033bbcee3e0198b9"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-TouchLink-1.png",
+      "sha256": "5411215c3c24f968b2b435d7ebed277e7d7441ab740f7a81bc3abeb59352c6b8"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/technology-TouchLink-2.png",
+      "sha256": "ddfdad0d2379aa963dcf6d343fd5a052f34224cd4cd75e533dc8705e1b9a1122"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/wellness-0.png",
+      "sha256": "5cdd8f8344af942a98ce6f1c818310025bc339d41e6f2bd85d4d1b067722205d"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/wellness-1.png",
+      "sha256": "b482009d98af709bcc792ec8656391f1db0a077bceaf6f0868b9b5aa7c88fd26"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/wellness-2.png",
+      "sha256": "833762f4f1774c9c3e805ce2238a7a41ef3df581980fe113edc6a31f4a36983a"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/baseline/wellness-3.png",
+      "sha256": "47d737b5c283e8157bb3d04223008b57fa3c50023d22ce626fd45048f29c208b"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/charcoal-0.png",
+      "sha256": "1d33fccb39578b387d21153878b6a9492153421896376ada4dc36497f3915cb3"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/charcoal-1.png",
+      "sha256": "b3e058b3d9d1de1fc39464101af44645d3e3dd0a6b303524380e1a8d0a5dc3e6"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/charcoal-2.png",
+      "sha256": "f9f4489564ebee2a38f520862ff1c2275f3aa0d20fbbc9c6b20b1c00bbd1d472"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/charcoal-3.png",
+      "sha256": "45770037a9874c9bb6d315e8979f79c12cb7d2960487bb936f4812aa102f6890"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/charcoal-join-0.png",
+      "sha256": "feb1adfb352ddcd747a61c1ea702909eb7f060db78be1777f0032ac917bde32e"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/charcoal-join-1.png",
+      "sha256": "584fd4866b749116489bc6ca62fa16113e77d1c6c8b52eb497419452e347c7fd"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/charcoal-join-2.png",
+      "sha256": "67c09df43715ad214e58b6472789190b1d45307480a1322b4707a89012f829e3"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/charcoal-join-3.png",
+      "sha256": "45770037a9874c9bb6d315e8979f79c12cb7d2960487bb936f4812aa102f6890"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-AirShield-0.png",
+      "sha256": "5537742f3b7949f935d8b8d5fe1d5f3e551233f0b203a4be4073c78321532a82"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-AirShield-1.png",
+      "sha256": "5b430d100f32fa63d14f0549d110db2efb879ccbc3d081c5a5eec3369b02db63"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-AquaSense-0.png",
+      "sha256": "ef7ee5f430d0a14ab8eac76727f7e9146a768ae28bdf30648cac9983ba3624db"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-AquaSense-1.png",
+      "sha256": "2e43491b7a9a774b8699d180eabce8d6fa35b23e3a380df637d17effb09c142c"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-CapsuleCode-0.png",
+      "sha256": "19ae0eff4e5532156542020b2d951e05e480f206d4bdfce78ac8ae57d8fc6d54"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-CapsuleCode-1.png",
+      "sha256": "2f2571920c2dfe27934fb4be9aaf87451e3a547f3e65c39b848af2737cf53bdb"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-CapsuleCode-2.png",
+      "sha256": "ba79efb7ade927fa6cfe53fb75e6b6a54deeb199a6448194318e007bb463aae7"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-CyberMind-0.png",
+      "sha256": "329b666090d9b4c3db9f37b956553aea3cf5b4ac9e6067927b9b27d475ac0982"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-CyberMind-1.png",
+      "sha256": "93959b20edd21b220152e07413f470342a26851d1963e3799720cc1295f9ae0e"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-HeatCore-0.png",
+      "sha256": "1501fd48e06e4374b45f35a9c179063d26708a4f3473d404ab31cbf34b8dc148"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-HeatCore-1.png",
+      "sha256": "35bd2a318597d8b4387df0d9a272affb3067f132ae4ed4be4f6413ae53442cb7"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-HeatCore-2.png",
+      "sha256": "d928fb484be614dabd2b68a51de7a696a31477d1880913114d6405dbfefb83bc"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-HeatCore-3.png",
+      "sha256": "bf9210be6fac81b12aca18cf26c2542b476a7ec4a755adc8a827805d8c5bccd1"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-MoodEngine-0.png",
+      "sha256": "c51cab2053a007078e4db2162564a919c01aff6dd3d94ceaa00166352996bebf"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-MoodEngine-1.png",
+      "sha256": "406a78baf658dbb11e4d0336d6242c6be9f22c77705cf25b33bc406a38f350b3"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-NobleCraft-0.png",
+      "sha256": "a8f8c4cc645049a865ded92be4194761b3e081ccbedb13970cd5792d55327a8f"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-NobleCraft-1.png",
+      "sha256": "de67a29a669e49b95b4517f148121330ab0c0488df332310d6a60aa1b093162a"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-PolyArmor-0.png",
+      "sha256": "7b549bd34ea779492d58656dabb799918409553c3bf03a7e2ab3bec7cde4b25b"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-QuickCell-0.png",
+      "sha256": "a6ceeab02a3984dc4328b4bd4c99da89f248f91f7eff22893c6bafb9bce472ec"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-QuickCell-1.png",
+      "sha256": "d753fd0f57dda6c9ed6a62773ed06b1e06d13651db92c8ae530c39499a73971c"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-TouchLink-0.png",
+      "sha256": "8dbbf981d4fdb1f39d7d5c0db6f8528ce0afb93274a7d9509fdb4a8d8de90174"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-TouchLink-1.png",
+      "sha256": "a3fac2d3427f4e97e4cfc26d43983defdfce90f515e338681873bb5180cdeaee"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/technology-TouchLink-2.png",
+      "sha256": "2d47150fcddfcbe101963dc6f018a560d8b5a8e2daefa56e8b7bdb7940a8bf3b"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/wellness-0.png",
+      "sha256": "6aa2741a51289eb0ced520fbb6c3715c7d1d9d546d4d2204265681c8d0dc1250"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/wellness-1.png",
+      "sha256": "d7157191150a152ac4c2f03ba99ea2aca9cb4ccad1185c27b0252629df1e8b33"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/wellness-2.png",
+      "sha256": "c672a5b75adcd2c3325724a68594e7ae3f25b6f0dce16c058f36427b8198ddff"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/ab/pro/candidate/wellness-3.png",
+      "sha256": "47b83d3d9e137db440c9437bc0e5b2dd1774492dc0ba95683cd8ce63a0355799"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/integration-max-footer.png",
+      "sha256": "97397adccdbcec6901edbb2687bda5e7c154b4d0430451bdb742b4b1753f3965"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/integration-pro-footer.png",
+      "sha256": "8759d0fa51feda8bab6e75d81589952e467ddd8567ede2cb169a5e9f5d4578f7"
+    },
+    {
+      "path": "screenshots/photos-lossy-beta/2026-11-06/review2-final-binding.json",
+      "sha256": "c704622f44717748086a18e192eaa12b9330d058df857215f2ae723d9e2fc4d7"
+    }
+  ],
+  "nativeReviewBinding": {
+    "review2SnapshotSHA256": "ec93de7dd5ad8aefe901ea8674518c63c0306afc5b9a20a70177859604555868",
+    "review2CheckoutDiffSHA256": "ec93de7dd5ad8aefe901ea8674518c63c0306afc5b9a20a70177859604555868",
+    "review2CheckoutStagedSHA256": "ec93de7dd5ad8aefe901ea8674518c63c0306afc5b9a20a70177859604555868",
+    "snapshotExact": true,
+    "workingCurrentReviewedNonJournalPathsExact": 56,
+    "workingCurrentJournalUpdates": "CHANGELOG/MEMORY plusnewLESSONS/evals/receipt afterreview only",
+    "candidateReviewPatch": "historical Review1 input; not Review2 input",
+    "candidateReviewPatchSHA256": "cecf8aba4aca44f884516e537399a86d558c057944136f7fac028531d32959af"
+  }
+}

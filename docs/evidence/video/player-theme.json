@@ -184,7 +184,13 @@
     "independent": "PASS LOCAL_CUSTOM_UI /root/audit 2026-10-29: final5visual/behavior, review/performance, integration and records; all12reviewhashes match",
     "user": "NOT_RECORDED"
   },
-  "publication": "Not requested/current changes local; publicmain remains f76afab",
+  "publication": {
+    "sha": "ec3511789d8d0d14dfdbfd47c358a1e52de2556d",
+    "destination": "origin/main",
+    "status": "ProductionramsiderSUCCESS + automaticPreviewramsider-betaSUCCESS",
+    "evidence": "evolution-original-file.json publication/publicBrowser; actualpublicgoldUI/nohint/18pxtitlechecked",
+    "approval": "/root APPROVED_PUBLIC_BROWSER; independent /root/audit publicationPASS2026-10-29"
+  },
   "remaining": [
     "Physical iPhone/nativeAppleQA unavailable",
     "CHG0174 verticalmatte OPEN, full original source width retained"

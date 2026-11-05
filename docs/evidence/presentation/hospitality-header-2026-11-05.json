@@ -1,7 +1,7 @@
 {
   "change": "CHG0200",
   "date": "2026-11-05",
-  "status": "VERIFIED_LOCAL_PUBLICATION_PENDING",
+  "status": "VERIFIED_LOCAL_REQUESTED_M_PUBLICATION_NOT_MET_AUTOMATION_ACCESS_PENDING",
   "request": "Header Hospitality Solutions must open https://hospitality.ramsider.com/; publish on m.ramsider.com. Currentuser relays Founder04.11 and authorizes fix+publication.",
   "implementation": "Exactone-line Story.Menus href only; same-tab ordinaryanchor, same label/translation/geometry. No MenuShell/CSS/raster/media/clientboundary change.",
   "checks": {
@@ -14,7 +14,9 @@
     "performance": "N/A freshbenchmark for href-only change; SSG/Clientgraph/styles/assets unchanged, no new script/runtimecost. Productionbuild checked.",
     "prepublicationDomain": "ActualGET https://m.ramsider.com/en200 beforechange containsoldanchor; exactrequestedhost must bechecked afterdeployment.",
     "externalSite": "No form submission or external-service health claim; navigation target tested via fixture.",
-    "independentAuditor": "N/A trivialedit perAGENTS"
+    "independentAuditor": "2026-11-05 /root/audit: localsource/evidence consistent PASS_WITH_LIMITS; requested m publication NOT_MET; access BLOCKED_UNESTABLISHED_TRUSTED_VDS_ACCESS, publicbrowser BLOCKED_NETWORK_POLICY.",
+    "publicCanonical": "Unchanged suite Max+Chromium2PASS; Pro failed before header at locale Location /en/?demo=1 instead of literal /en?demo=1, preserved. Focused actual original-header Pro touch supplement PASS402x874DPR3, exacthref/sametab/singlepage with destinationintercept. Root viewed actual ProthenMax menus. Canonical evidence cannot certify requested m.",
+    "publicSuiteLimit": "Pro locale redirect path shape differs from local exact fixture; reason unverified, no app/regression fix claimed. Full unchanged suite remains2PASS1FAIL, supplement is separately scoped."
   },
   "sourceBindings": [
     {
@@ -168,7 +170,173 @@
     "date": "2026-11-05",
     "verifier": "/root",
     "scope": "APPROVED_LOCAL_HREF_AND_BROWSER_NAVIGATION",
-    "publication": "PENDING exactSHA/bothGitHubtargets/actualm.ramsider.com"
+    "publication": "NOT_APPROVED requested m delivery; both Vercel targets success only",
+    "independentAuditor": "2026-11-05 /root/audit Records PASS_WITH_LIMITS:3source+33local+27public hashes exact, bothVercelSUCCESS,2PASS1FAIL+focusedProPASS separated; no mpublicationapproval."
   },
-  "userApproval": "Implementation/publicationAUTHORIZED currentmessage; resultacceptanceNOT_RECORDED"
+  "userApproval": "Implementation/publicationAUTHORIZED currentmessage; resultacceptanceNOT_RECORDED",
+  "hostingAccessReceipt": "screenshots/hospitality-header/2026-11-05/hosting-access.json",
+  "publication": {
+    "commit": "f79645de75c9f63ee665e5aaeb5bb6332bca1d8a",
+    "branch": "main",
+    "remote": "origin/main",
+    "VercelProduction": "SUCCESS deployment7557088385/status21374104855",
+    "VercelPreview": "SUCCESS deployment7557227583/status21374589592",
+    "canonical": "New href observed",
+    "requestedDomain": "m.ramsider.com lastobserved oldhref #hospitality-section after VercelProduction success; NOT_MET",
+    "publicBrowser": "3profiles BLOCKED_NETWORK_POLICY before header; no bypass",
+    "access": "Current user specifiesroot@185.179.189.103. Ordinaryaccept-new/BatcheMode existingidentities attempt rejectedAUTHENTICATION_DENIED255; independentidentityverificationnotclaimed. Need authenticatedVDSsession or validSSHkeyconfiguration; no exposedoldpassword used.",
+    "remoteMutation": "NONE"
+  },
+  "publicArtifactBindings": [
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/commit-status.json",
+      "sha256": "6c682b7e7d64329b927b7316e25ea8ae1b29cdac19e9ac534c5aee1badf723a4"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/deployments.json",
+      "sha256": "1d42b1a52a8380c248cf01cccd2f887da8f503d34ca4a8ad404185bc8bb4a7c8"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/deployment-final-statuses.json",
+      "sha256": "5b8a8cd3b211129b44e75883f420bcc84a63953a56e34cb1ca3f17135cda2573"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/public-domain-diagnostic.json",
+      "sha256": "cb8cee2a12682d56ea87a8a1b827a6ceeed51c27a361b07f26f78e09d16f5262"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/hosting-access.json",
+      "sha256": "d196e01a30c0985f34a96efe9583246fa5948ca3df6d8f65b3f14e2df859f297"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/public.log",
+      "sha256": "82d810282b50ff2ab36714fcd68c1170def0bc9f23560736d1c1ea1a6ff292ae"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public.log",
+      "sha256": "dd800052225a026495eec96885eb9dbf2aacb5d84e3e7494cac678b5761bbea8"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-pro-header.log",
+      "sha256": "268c9abd7db23ca278b98612de4fe7dcea10cd851ac27c7ac31bf8ac7b44bf5a"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public/desktop-chromium-contacts.png",
+      "sha256": "133b8181436110e1a53fdf5fc90867e66d12af3aace9241498a8e236f134b5ba"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public/desktop-chromium-footer.png",
+      "sha256": "133b8181436110e1a53fdf5fc90867e66d12af3aace9241498a8e236f134b5ba"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public/desktop-chromium-freedom.png",
+      "sha256": "6d055d55d4462583e5aa1eb0cfa308f4642f66aef219d5273c94bbd04ec15d17"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public/desktop-chromium-gallery.png",
+      "sha256": "363f66a2679ad78a04b9485fde35bfafb1dfd5dc6285f8ffd431bce74897cba6"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public/desktop-chromium-hero.png",
+      "sha256": "de32d7980ecf811d97f008da1e7b8f0b3db666b3f0f5b4739b5d9c56086bf309"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public/desktop-chromium-hospitality.png",
+      "sha256": "379e43ef07d7bff593524ffe6012391c3d6d67462b4fdf5f3404bb1d38777a5d"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public/desktop-chromium-menu-320.png",
+      "sha256": "90ea5615691041889ed0899050fad8d1b2cf17a69afb0f313608068c6001f558"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public/desktop-chromium-menu-768.png",
+      "sha256": "19451e77df52da7ba8eca0cf6b51708671792c927a78654a7814c9a11c80be3d"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public/desktop-chromium-menu.png",
+      "sha256": "0f75635f0ad7e473f1f7527096dfe4ed7238a6340db2695447386675c96ee634"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public/iphone-17-pro-max-webkit-contacts.png",
+      "sha256": "97397adccdbcec6901edbb2687bda5e7c154b4d0430451bdb742b4b1753f3965"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public/iphone-17-pro-max-webkit-footer.png",
+      "sha256": "69c7b09f74b0203bc209e2482e87a9eff7afcaae10b403ad10d2fbd79f540996"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public/iphone-17-pro-max-webkit-freedom.png",
+      "sha256": "baa0368cb5b3956851446195f47332d8a55a61e1c1e39b55335af8a09fb2ec70"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public/iphone-17-pro-max-webkit-gallery.png",
+      "sha256": "8b3943fb6ce9cb0d27f2751d879d56185bd3f253329b2d303d490fafd9cd91c1"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public/iphone-17-pro-max-webkit-hero.png",
+      "sha256": "5da500726675eb605055ac5b59b41a4f3c8c4164e20d556e6a673e6d758098dc"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public/iphone-17-pro-max-webkit-hospitality.png",
+      "sha256": "e6f79e382eea01dc1f884afa6284b3c898dad12a26d36ef9b134e96e130f9609"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public/iphone-17-pro-max-webkit-menu-320.png",
+      "sha256": "e963aa3ef80608d977e4e15747df2281e91d173e0f828eaf39cee606a18a2cfc"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public/iphone-17-pro-max-webkit-menu-768.png",
+      "sha256": "dfd2fab1e2627845699bea9bf04988d58699007740f3126ba3df824473a398c9"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-public/iphone-17-pro-max-webkit-menu.png",
+      "sha256": "7b49323189519860d900e32e2cde4e02322a04d4ab704c8f1727c3c21253f33c"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/canonical-pro-header/menu.png",
+      "sha256": "7e37f8c446916cdd290417c282304f71a63186d8a06e3d56b48f481cb22b836e"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/resume-access.json",
+      "sha256": "6232cd06c8fbe338eebc455d25763defb6890010de49a59299d4819933bcaf46"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/vds-host-identity.json",
+      "sha256": "2eb26f2b3be266ed6d155c18690f0c529a7cddcd98e220a3096fad44cbf5960b"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/vds-auth-attempt.json",
+      "sha256": "38ee79a79e7c330b56640acd1107448a5cf26117e26abfa8b94fddcbbfa9a9cf"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/vds-access-bridge.json",
+      "sha256": "38b9be37afb4a6fc81a0d797ebd127c5994652b96be1d8f7ee3f9fb4ab6a0d98"
+    },
+    {
+      "path": "screenshots/hospitality-header/2026-11-05/vds-access-bridge-command-check.json",
+      "sha256": "ac1c77b55b9f9c7a971e1d241b37dd6121ad4e492d4358f2e9eedacfa935ad5f"
+    }
+  ],
+  "resumeDeploy": {
+    "date": "2026-11-05",
+    "result": "BLOCKED_UNESTABLISHED_TRUSTED_VDS_ACCESS",
+    "ssh": "exit255 HOST_KEY_NOT_TRUSTED with StrictHostKeyChecking=yes; authorizationUNKNOWN; no bypass/mutation",
+    "Vercel": "Exactf79645d bothlatestSUCCESS reconfirmed",
+    "source": "Unchanged; previous verification remainsvalid",
+    "userInput": "Existing verifiedSSHalias or establishedVDSsession remainsneeded",
+    "independentAudit": "2026-11-05 /root/audit: records PASS_WITH_LIMITS3source+33local+28publicexact; access BLOCKED_HOST_IDENTITY_NOT_TRUSTED, authorizationUNKNOWN. mNOT_MET/publicbrowserpolicyBLOCKED preserved."
+  },
+  "latestAccess": {
+    "source": "Current user SSHtarget",
+    "hostTrust": "Ordinaryfirstconnectionaccept-new, changedkeyrejectionretained",
+    "scopeAudit": "/root/audit PASS_TO_ATTEMPT; independentfingerprintverificationnotexplicitprojectrequirement",
+    "result": "AUTHENTICATION_DENIED255",
+    "serverMutation": "NONE",
+    "codexTerminal": "Open requested, UI returnedqueued; no establishedsession",
+    "remaining": "AuthenticatedVDSsession/validSSHkeyconfiguration",
+    "independentAudit": "2026-11-05 /root/audit PASS_PREPARED_USER_ACTION correctedexactcommand/emptyLFnonLFfixtures; initialFAIL preserved. Userinstallationconfirmationpending, no new servercommand/authattempt.",
+    "humanTerminal": "Userconfirmsauthenticatedsession/clonedrepo; readonlytoolrootpromptseen. Cannotwritecommands viaavailableterminaltool; nativeCodexUI explicitlydenied, no bypass.",
+    "bridge": "Publickeyonly commandcorrectedleadingLF/idempotent/expiry+restrict,3fixturePASS. Userexecutionpending inalreadyconnectedterminal; no servermutation."
+  },
+  "accessBridge": "screenshots/hospitality-header/2026-11-05/vds-access-bridge.json"
 }

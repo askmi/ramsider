@@ -1,7 +1,7 @@
 {
   "change_id": "CHG0189",
   "date": "2026-10-31",
-  "status": "VERIFIED_LOCAL_PENDING_PREPUSH_AUDIT_AND_PUBLICATION",
+  "status": "VERIFIED_PUBLISHED_CONTACT_ICON_AND_EDGE_TOUCH_FIX",
   "user_correction": "Icon-only contact control, same48px translucent style as Up; no visibleUNOlabel; fix nonopening tap.",
   "baseline": [
     {
@@ -239,8 +239,8 @@
       "pageErrors": [],
       "limitations": "Synthetic lab sample, no Lighthouse/fieldINP/physicaliPhone or delivery proof. No backend requests submitted."
     },
-    "independent_audit": "PASS /root/audit2026-10-31 reopenedScope/Gates3/4/5 and exactstagedGate6PREPUSH:12paths/6source+90artifactbindings, oldb86014source/66archive/16publicpreserved; correctedpublictouchcheck pending.",
-    "publication": "PENDING"
+    "independent_audit": "PASS /root/audit2026-10-31 Scope/Gates3/4/5/6PREPUSH +correctedPUBLIC_CONTROL +finalStage6 PUBLISHED_CONTACT_ICON_AND_EDGE_TOUCH_FIX;6committed/current source+90local+35publicbindings/diffcheckmatch. Historicalb86014source/66archive/16publicpreserved; actualSMTP/alias/physicalnotcertified.",
+    "publication": "PASS exactbd43bf4 production7462606222+automaticpreview7462689981 latestSUCCESS; canonicalpublic9iconcases+3contextprofilesPASS"
   },
   "historical_initial_receipt": "implementation.json originalb860sourcebindings+66byte-exactarchivedartifacts and16originalpublicfiles preserved; this receipt describescurrentcorrection",
   "limitations": [
@@ -254,8 +254,9 @@
     "verifier": "/root",
     "scope": "APPROVED_LOCAL_CONTACT_ICON_AND_TOUCH_FIX",
     "evidence": "Build/type/scopedlint/nativeCLEAN,57browserPASS6explicitprofileSKIP; actualPro/Maxpairedicons+tapopen+footers viewed. safe0/34/80 actual3hitpoints/48px/stylematch/12gap/status/keyboard/Up; finalsyntheticLCP1312/CLS.000222/JS335894/scrollp9516.7ms.",
-    "limits": "Publiccorrectedcontrol pending; physicaliPhone notcertified; SMTP/inbox unverified.",
-    "independent_auditor": "/root/audit LOCAL+PREPUSH PASS2026-10-31"
+    "limits": "Correctedpubliccontrol nowverified by public_technical_approval; actualSMTP/inbox, physicaliPhone anddirectaliasassignmentmetadata remainunverified.",
+    "independent_auditor": "/root/audit LOCAL+PREPUSH PASS2026-10-31",
+    "phase": "Historical local/prepush approval; current published result is public_technical_approval."
   },
   "source_bindings": {
     "app/globals.css": "0b4bcf54dba5a01a7cacd6e1e1e7c6931e0909c9ea166cf2baa57a0e1419c6a2",
@@ -871,6 +872,279 @@
         402,
         874
       ]
+    }
+  },
+  "publication": {
+    "sha": "bd43bf4f76ebe0a9f9d9672239857db38a3cefce",
+    "repository": "askmi/ramsider",
+    "branch": "main",
+    "remote_verified": true,
+    "canonical_url": "https://ramsider-main.vercel.app/en",
+    "production": {
+      "state": "success",
+      "deployment_id": 7462606222,
+      "environment": "Production – ramsider",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider/FLfBYFqsfK3DmTvq6N2cTEoxts35",
+      "environment_url": "https://ramsider-dgm8isplh-askmi-6282s-projects.vercel.app"
+    },
+    "automatic_preview": {
+      "state": "success",
+      "deployment_id": 7462689981,
+      "environment": "Preview – ramsider-beta",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/hQrXbzz4TxeZxWJsWUcqBDEs3mmX",
+      "environment_url": "https://ramsider-beta-2ovfbgs36-askmi-6282s-projects.vercel.app"
+    },
+    "public_checks": "9PASS actualtouch/pointerSVG/padding/loweredge safe0/34/80/shared48style/12gap/Up/keyboard/focus/short-landscape/status +3profiles4CTA/guardedreal503fallback/no falseack/noreceipt/errors0/overflow0",
+    "no_mail_limit": "Publiccontext POST has nonemptyhoneypot topreventSMTPsend evenifsecretappears; no realauthentication/inbox proof.",
+    "alias_assignment_metadata": "Not independently inspected; priorVercelread-onlyinspect lackedauth; no reattempt/login/config changes. CanonicalnewUI+exactSHAproductionrecord verified.",
+    "postpush_notes": "Localmetadataonly, no additionalcodepublication required.",
+    "final_records_audit": "PASS2026-10-31, postpushmetadata local, no extra code/redeploy required."
+  },
+  "public_technical_approval": {
+    "date": "2026-10-31",
+    "verifier": "/root",
+    "scope": "APPROVED_PUBLISHED_CONTACT_ICON_AND_EDGE_TOUCH_FIX",
+    "evidence": "Both exactSHAprovidercontextsSUCCESS + production/previewrecords; publicicon9PASS/context3profilesPASS; rootviewedactualpublicPro/Maxpairedicons+Protap-open; independent /root/audit correctedPUBLIC_CONTROLPASS.",
+    "limits": "Boundedoldedgeinterceptionconfirmed/fixed; no universalhardware/allcustomer-browserpromise. ActualSMTP/auth/inbox/directaliasmetadata/physical/fieldINP/Lighthouse unverified.",
+    "independent_auditor": "/root/audit correctedPUBLIC_CONTROL and finalStage6 PUBLISHED_CONTACT_ICON_AND_EDGE_TOUCH_FIX PASS2026-10-31"
+  },
+  "public_artifact_bindings": {
+    "screenshots/lead-capture/launcher-correction/public-icons/desktop-chromium-320x568.png": {
+      "sha256": "3b6a03aecf86073c014dd2a9d4b36f85ab2bb552a48190785590be39aa068344",
+      "css_screenshot_size": [
+        320,
+        568
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-icons/desktop-chromium-402x390.png": {
+      "sha256": "941b03995c968569910bc7151744bc523a5ce689545f133d52c2472f604512ef",
+      "css_screenshot_size": [
+        402,
+        390
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-icons/desktop-chromium-768x1024.png": {
+      "sha256": "4ab622d20a29c7da2f9f7307b8ede5fc4376b1e0604df2f5fb706bbde51a1596",
+      "css_screenshot_size": [
+        768,
+        1024
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-icons/desktop-chromium-874x402.png": {
+      "sha256": "103b246e9069ee661e665eb502f9f8e19369adbe68f88c65308f199690dc8bb9",
+      "css_screenshot_size": [
+        874,
+        402
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-icons/desktop-chromium-icons.png": {
+      "sha256": "2233add50e6c5ea5ba70d971fed75fdbf1b541426632545e1b759d15ea5b1624",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-icons/desktop-chromium-tap-open.png": {
+      "sha256": "8a390d330687e2d52e0d61f0010c317f1e862752daff16a8509d169962c49e5b",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-icons/iphone-17-pro-max-webkit-320x568.png": {
+      "sha256": "45a5462e648420ef1c3cb025eef2a7444005de8ed87227ff810b44dbb28b9125",
+      "css_screenshot_size": [
+        320,
+        568
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-icons/iphone-17-pro-max-webkit-402x390.png": {
+      "sha256": "9bfb3c6fe0519e97ae065ecd257587c7ab7beb0897aa853ac798c5ebeb5a2e8f",
+      "css_screenshot_size": [
+        402,
+        390
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-icons/iphone-17-pro-max-webkit-768x1024.png": {
+      "sha256": "2c14fe7fdd567704acb97bef999fc2d6efd6562ffed964af88bdbfabe5033f22",
+      "css_screenshot_size": [
+        768,
+        1024
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-icons/iphone-17-pro-max-webkit-874x402.png": {
+      "sha256": "c01fe741d7f03f64cb9ec7156f550a577d01371caed3ad1ed4038a34179b4a3e",
+      "css_screenshot_size": [
+        874,
+        402
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-icons/iphone-17-pro-max-webkit-icons.png": {
+      "sha256": "960c8aa33efb92138fa2bf07dd40d7061b572b8b04f85354dd5779734a77a854",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-icons/iphone-17-pro-max-webkit-tap-open.png": {
+      "sha256": "0fd86e442096dfb464d6c205271887353b18e2fab7cc67b86df530e42a06dadd",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-icons/iphone-17-pro-webkit-320x568.png": {
+      "sha256": "45a5462e648420ef1c3cb025eef2a7444005de8ed87227ff810b44dbb28b9125",
+      "css_screenshot_size": [
+        320,
+        568
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-icons/iphone-17-pro-webkit-402x390.png": {
+      "sha256": "9bfb3c6fe0519e97ae065ecd257587c7ab7beb0897aa853ac798c5ebeb5a2e8f",
+      "css_screenshot_size": [
+        402,
+        390
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-icons/iphone-17-pro-webkit-768x1024.png": {
+      "sha256": "2c14fe7fdd567704acb97bef999fc2d6efd6562ffed964af88bdbfabe5033f22",
+      "css_screenshot_size": [
+        768,
+        1024
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-icons/iphone-17-pro-webkit-874x402.png": {
+      "sha256": "c01fe741d7f03f64cb9ec7156f550a577d01371caed3ad1ed4038a34179b4a3e",
+      "css_screenshot_size": [
+        874,
+        402
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-icons/iphone-17-pro-webkit-icons.png": {
+      "sha256": "f96b7765581624548dba35fd192ac820e17f113ea94bfdd64ea58ba3b5301d4a",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-icons/iphone-17-pro-webkit-tap-open.png": {
+      "sha256": "8fc34e261f02db1c7e3f6e82945a2f02a1cfa306a34f1faa8a3321035384fce2",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-context/desktop-final-create.png": {
+      "sha256": "ec70e0560dcd99aebe44312e24b62fc94636314fa759935c4dd20b22730d03b4",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-context/desktop-launcher.png": {
+      "sha256": "e3bdbe2590ab6de0ad309b8bfc957eebffa50b09e50274e5810676b08f0235c9",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-context/desktop-order-create.png": {
+      "sha256": "441da82b3ebbdb301ecf62d124d8bff94c0d30d899c86f678b31718dd29517f1",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-context/desktop-real-api-message.png": {
+      "sha256": "876582fdc3fa9d75d49fc4900b4f89bf8912155e64a1c3676a12a4b550436352",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-context/desktop-set-explore.png": {
+      "sha256": "e540eba3557527e934aae6e7c5ff956aefe7afe87afb85a51dd41b49ce90661a",
+      "css_screenshot_size": [
+        1440,
+        900
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-context/max-final-create.png": {
+      "sha256": "92be7b51fd18d9672791dbb8b4b6c3cd1dc4b1f778e8fd4716ee654e6001196a",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-context/max-launcher.png": {
+      "sha256": "719bd51c5849d93126f97fc7c844b2c49c0cb263fd4dee4d469c996e2bfc4114",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-context/max-order-create.png": {
+      "sha256": "b386b85667dda17de9e75e42a4fd25db31518bc1fe7fe0343b9293323171a689",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-context/max-real-api-message.png": {
+      "sha256": "85fabcacbd8e48f84e58dad306cbbbf7aeaef73e8411a5cd9912050794905313",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-context/max-set-explore.png": {
+      "sha256": "f795ff162cee589398c3a3a78658762c2d81e203f9fc9c19de4bde859dbf17f5",
+      "css_screenshot_size": [
+        440,
+        956
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-context/pro-final-create.png": {
+      "sha256": "cde74722d7565113d3d81e7fd73a138c387d2b8bb574f9b9c51614b12d5f2085",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-context/pro-launcher.png": {
+      "sha256": "b02fb8937f12ea2950efef2ae71a7e43c4d6d073c1d8e965da16973ca630e0ee",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-context/pro-order-create.png": {
+      "sha256": "26bd333de80860f51ad3b3108493bf5f7e80d03af86ccbf9ff17e84345003883",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-context/pro-real-api-message.png": {
+      "sha256": "d753a87d60502f4a6ac5074c72ee341c8e43351b6421bcb62f32ef174aa2e1f2",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-context/pro-set-explore.png": {
+      "sha256": "c162ac70bad62b4ad79fc018e3486fc58990f906d57ad133cecfddf5eb2205af",
+      "css_screenshot_size": [
+        402,
+        874
+      ]
+    },
+    "screenshots/lead-capture/launcher-correction/public-context/results.json": {
+      "sha256": "6fe42fb0b83162c21e2a6fadd687e28317b8cc67b3c1b3dc6347207569872579"
+    },
+    "screenshots/lead-capture/launcher-correction/public-context.mjs": {
+      "sha256": "bba4da5d853d653f331200289e35c3d49fbe5154db2aa77132e62f5402229817"
     }
   }
 }

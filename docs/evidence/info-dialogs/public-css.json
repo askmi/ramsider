@@ -1,0 +1,25 @@
+{
+  "changes": [
+    "CHG0196",
+    "CHG0197"
+  ],
+  "date": "2026-11-03",
+  "commit": "45a71109a42c693a3e8d3c42d4f708d74338ccb4",
+  "canonical": "https://ramsider-main.vercel.app/en",
+  "scope": "Canonical HTML actually referenced stylesheet URLs, decoded public bodies SHA and exact tested local build bytes. No protected alias/auth bypass. Actual public behavior verified separately.",
+  "results": [
+    {
+      "path": "/_next/static/chunks/2_awzscc58y1b.css",
+      "bytes": 75467,
+      "sha256": "4a47e2d07359cc7cb6a97f56b07f2c817f6c98d4c076494d3594150c9bec775b",
+      "localByteMatch": true
+    },
+    {
+      "path": "/_next/static/chunks/37bwvwo39glkk.css",
+      "bytes": 4642,
+      "sha256": "535981d8f8321416726c43e46a4777da560bd32402a6a6920ec19fd95d81b60f",
+      "localByteMatch": true
+    }
+  ],
+  "pass": true
+}

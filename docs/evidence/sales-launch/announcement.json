@@ -1,7 +1,7 @@
 {
   "change": "CHG0188",
   "date": "2026-10-31",
-  "status": "VERIFIED_LOCAL",
+  "status": "VERIFIED_PUBLISHED",
   "base": "69d4b18f8ddb21dbf84681f83a77afa48bdbd464",
   "runtimeAndTests": {
     "components/Story.tsx": "132918ab05efe35ced283da47b21d5d02f8c1ebf155c2ce75112d0b34ddaeba1",
@@ -97,13 +97,61 @@
     "screenshots/sales-launch/iphone-17-pro-webkit-set-explore.png": "1b502d118ca490d38cf577ebaaebccf331357bc80edea391c7b8515fe8db04fd"
   },
   "scope": "Reusableexisting3commercePanelcopy +distinctSetPanel; focusinvokerpreventScroll onlyavailabilitybeforemodal; noCSS/raster/newclientboundary/library/playerchanges.",
-  "audit": "Independent /root/audit Gates1/3/4/5/6 LOCALPREPUSH PASS2026-10-31; publicationpending",
+  "audit": "Independent /root/audit localGates1/3/4/5/6, publicfunctional/publication and finalStage6PUBLISHED_RECORDS PASS2026-10-31",
   "limits": [
     "WebKit deviceemulation; physicaliPhoneNOT_RUN",
     "FullunrelatedregressionsuiteNOT_RUN",
     "NoWCAG/Lighthouse/fieldINPclaim",
     "CHG0185 priorprivacyincidentOPEN; no sensitiveheaders/processenvironment printed in this change"
   ],
-  "technicalApproval": "APPROVED_LOCAL_ANNOUNCEMENTS /root2026-10-31",
-  "userResultApproval": "NOT_RECORDED"
+  "technicalApproval": "APPROVED_PUBLIC_ANNOUNCEMENTS /root2026-10-31",
+  "userResultApproval": "NOT_RECORDED",
+  "publication": {
+    "sha": "1caaa89deb68c3cb11aa2a44e360479a467781b1",
+    "branch": "origin/main",
+    "remoteExact": true,
+    "production": {
+      "state": "SUCCESS",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider/An1pG35wJg5NRq7kArDwRz2e2Vry",
+      "githubDeployment": 7457733841
+    },
+    "preview": {
+      "state": "SUCCESS",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/5G51xyWYYLvpvMvB27snNo4QS1dp",
+      "githubDeployment": 7457762084
+    },
+    "publicQA": "3PASS0FAIL Pro402/Max440DPR3WebKit/Chromium; all4originalclicks/2exactmessages/date/Close+keys/Escape/ownfocus/backgroundinertness/account/reducedmotion320/768. No runtimechangesaftercommit.",
+    "postPushRecords": "Local, no additional codecommit",
+    "canonical": "https://ramsider-main.vercel.app/en",
+    "limits": "Provider unique deployment URLs subject to known SSO protection; no bypass/login or rawheaders. Exactcustomalias assignment not independently inspected; actualcanonicalfunctionalcontent and exactSHAProduction evidence verified separately."
+  },
+  "publicImages": {
+    "screenshots/sales-launch-public/desktop-chromium-hero-reserve-768-reduced.png": "42cd97dd0c8cc469d04ba5c24278790e47182cee35f87b6a9c2f60446c6666c6",
+    "screenshots/sales-launch-public/iphone-17-pro-max-webkit-order-create.png": "1e1dde7b12fe76d332622d3d2307fc7a0453725d9332f23c3d5df4aadd860ec4",
+    "screenshots/sales-launch-public/desktop-chromium-final-create.png": "ab0298704a0253cb017f3c11757253dee7a22a8176dd83d40486908b690fb0e1",
+    "screenshots/sales-launch-public/iphone-17-pro-max-webkit-hero-reserve.png": "f8f5a347208874e5694a93b331441eedb084aba6963121631cb87d93287f9320",
+    "screenshots/sales-launch-public/desktop-chromium-set-explore-320-reduced.png": "61ce5c4ae7ec53ae48bd6b91435f4e2bc64744b2357b35b3ece3303ea2652179",
+    "screenshots/sales-launch-public/iphone-17-pro-webkit-hero-reserve.png": "7eb3452b740f1e87385ea2c26085dbc170104989088de45931afc9e18b9835ed",
+    "screenshots/sales-launch-public/desktop-chromium-set-explore-768-reduced.png": "31c8873d1a79f7406d379114b1da19ba0bd0e7c663b0610b1f8389df0462b27d",
+    "screenshots/sales-launch-public/iphone-17-pro-webkit-order-create.png": "485f728534b5fd4834d89205704d1f9588d82c5bf4b79ed96229096d7929165d",
+    "screenshots/sales-launch-public/desktop-chromium-set-explore.png": "b6ba9e0f81bee9c7043a05ac4de5360e687aad2b48f2f169e3e05488fa6e12ca",
+    "screenshots/sales-launch-public/iphone-17-pro-max-webkit-set-explore.png": "25fc05022557c59866afafd41bde15897321a0e74edc93714585f513dc78f320",
+    "screenshots/sales-launch-public/desktop-chromium-hero-reserve-320-reduced.png": "4c35103d1eef953690274ac495ac532fb2ac9b058bddfde11d183646dfadff19",
+    "screenshots/sales-launch-public/desktop-chromium-hero.png": "de32d7980ecf811d97f008da1e7b8f0b3db666b3f0f5b4739b5d9c56086bf309",
+    "screenshots/sales-launch-public/iphone-17-pro-webkit-hero.png": "933b13dec450f0488776cd8420631533e926493e3dc8f839f21554cad6dc7d1e",
+    "screenshots/sales-launch-public/iphone-17-pro-max-webkit-set-explore-768-reduced.png": "1765417ba901b4f1923f82dda9ca47b8307fb1410ccd31193077c735e92f0cf8",
+    "screenshots/sales-launch-public/desktop-chromium-hero-reserve.png": "372204d0c80ac26d930838b7da1490f508d87db294c43f2e2f2255a6e9250ec6",
+    "screenshots/sales-launch-public/iphone-17-pro-max-webkit-hero-reserve-320-reduced.png": "fa6db1d132d480d21587313b104e601b2dfd0fc9793070d8650570347accb906",
+    "screenshots/sales-launch-public/iphone-17-pro-max-webkit-final-create.png": "ed09f70107bebffbbed35a467593b97f246a8f7aed654271445617ae2969846c",
+    "screenshots/sales-launch-public/iphone-17-pro-webkit-hero-reserve-768-reduced.png": "57abf3b4ceb7f9122fd86adb6951a6d2fd30b10b0e285ae77542a7b62f76e0f9",
+    "screenshots/sales-launch-public/desktop-chromium-order-create.png": "4344a330180cbe02f88029448469cd6578997741ef13c528f49b181c2fb01f76",
+    "screenshots/sales-launch-public/iphone-17-pro-webkit-set-explore-768-reduced.png": "1765417ba901b4f1923f82dda9ca47b8307fb1410ccd31193077c735e92f0cf8",
+    "screenshots/sales-launch-public/iphone-17-pro-webkit-final-create.png": "30e77a403c9ded42a15ad81e7d7421fd4898514f07e52dbf98dbdd1da88c119c",
+    "screenshots/sales-launch-public/iphone-17-pro-webkit-set-explore-320-reduced.png": "2f022e3559a2175a93e9371764d305fc0d8fc381404cc2869aa9a44f18c9e49b",
+    "screenshots/sales-launch-public/iphone-17-pro-webkit-hero-reserve-320-reduced.png": "fa6db1d132d480d21587313b104e601b2dfd0fc9793070d8650570347accb906",
+    "screenshots/sales-launch-public/iphone-17-pro-max-webkit-hero-reserve-768-reduced.png": "57abf3b4ceb7f9122fd86adb6951a6d2fd30b10b0e285ae77542a7b62f76e0f9",
+    "screenshots/sales-launch-public/iphone-17-pro-max-webkit-hero.png": "7b4ef5ad9aa237e738becbd94f5256249e0a99d909308312e1b1cb0558bd501a",
+    "screenshots/sales-launch-public/iphone-17-pro-max-webkit-set-explore-320-reduced.png": "2f022e3559a2175a93e9371764d305fc0d8fc381404cc2869aa9a44f18c9e49b",
+    "screenshots/sales-launch-public/iphone-17-pro-webkit-set-explore.png": "1b502d118ca490d38cf577ebaaebccf331357bc80edea391c7b8515fe8db04fd"
+  }
 }

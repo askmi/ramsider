@@ -390,8 +390,66 @@
       "behavior": "PASS executable browser/adapter scope",
       "reviewPerformance": "PASS affected local software scope",
       "finalRecords": "PASS corrected integration and local records; independent /root/audit 2026-10-28"
-    }
+    },
+    "publication": "APPROVED_LOCAL + PUBLIC_BROWSER /root; independent /root/audit PASS, 2026-10-28; physical iPhone BLOCKED, CHG0168 OPEN"
   },
   "integrationVerdict": "PASS main and independent /root/audit: corrected actual-end captures and coordinates, prior FAIL retained",
-  "integrationFailureHistory": "Initial bottom-labelled screenshots showed mid-page; claim withdrawn. Corrected script walks settled positions and asserts gap<=2 before/after screenshots."
+  "integrationFailureHistory": "Initial bottom-labelled screenshots showed mid-page; claim withdrawn. Corrected script walks settled positions and asserts gap<=2 before/after screenshots.",
+  "publication": {
+    "sha": "0b5ba038e341beb04e4108b96412a512875e9b85",
+    "remote": "origin/main",
+    "remoteExactVerified": true,
+    "deployment": "SUCCESS both expected targets",
+    "publicSmoke": {
+      "status": "PASS18 fresh-context checks",
+      "log": "/private/tmp/ramsider-resume-public8-fresh30.log",
+      "result": "screenshots/video/fullscreen-public/result.json",
+      "scope": "11locale visible-label/source assertions;6Pro/Max WebKit playback/portrait/landscapeEN/AR;1realChromiumfullscreen entry/exit; all playback silent",
+      "failureHistory": [
+        "First rapid full-navigation aggregate pageerror FAIL, tracked separately CHG0168 OPEN.",
+        "Second fresh-context run stopped at default5s controls-ready timeout on Pro landscapeAR;30s explicit retry18PASS, initial cause not proven."
+      ],
+      "excludedVisualEvidence": [
+        "screenshots/video/fullscreen-public/gallery-en.png",
+        "screenshots/video/fullscreen-public/gallery-ar.png"
+      ],
+      "excludedReason": "Caption checks passed but initial screenshots preceded current poster/visible thumbnail decoding; corrected settled captures verified separately.",
+      "settledCaption": {
+        "pass": 2,
+        "log": "/private/tmp/ramsider-public-caption-settled.log",
+        "result": "screenshots/video/fullscreen-public/caption-settled.json",
+        "images": [
+          "screenshots/video/fullscreen-public/gallery-en-settled.png",
+          "screenshots/video/fullscreen-public/gallery-ar-settled.png"
+        ],
+        "mainVerifier": "/root viewed both: actual film7hero/thumbnails decoded, audio labels absent"
+      }
+    },
+    "targets": [
+      {
+        "environment": "Production – ramsider",
+        "id": 7391576391,
+        "state": "success",
+        "createdAt": "2026-10-28T16:43:55Z",
+        "environmentUrl": "https://ramsider-j86nxs44p-askmi-6282s-projects.vercel.app",
+        "providerUrl": "https://vercel.com/askmi-6282s-projects/ramsider/5id2aWPMDGzJWAUTJynu7LoJEU1P"
+      },
+      {
+        "environment": "Preview – ramsider-beta",
+        "id": 7391564784,
+        "state": "success",
+        "createdAt": "2026-10-28T16:43:25Z",
+        "environmentUrl": "https://ramsider-beta-3dglbqtxj-askmi-6282s-projects.vercel.app",
+        "providerUrl": "https://vercel.com/askmi-6282s-projects/ramsider-beta/GWfUQEXPTwPpBV2c4jBaEyJFX8PU"
+      }
+    ],
+    "canonicalDomainShaAssignment": "Not independently confirmed; deployment commit/environment and public functional behavior recorded separately.",
+    "independentFinalAudit": "PASS /root/audit 2026-10-28: exact remote/API deployment evidence, public18PASS+settled2PASS, actual images and unchanged runtime hashes; published software/public-browser scope only",
+    "authoritativeApiEvidence": "/private/tmp/ramsider-resume-publication-api.json",
+    "remoteConfirmation": "Initial git ls-remote exact; final live GitHub refs/heads/main API exact, retained with deployment records/status arrays."
+  },
+  "openDefects": [
+    "CHG0166 physical iPhone fullscreen chrome/events/zoom BLOCKED",
+    "CHG0168 rapid full-navigation resource errors OPEN"
+  ]
 }

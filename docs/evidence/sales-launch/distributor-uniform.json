@@ -1,7 +1,7 @@
 {
   "change": "CHG0191 user style correction",
   "date": "2026-11-01",
-  "status": "VERIFIED_LOCAL_UNIFORM_STYLE",
+  "status": "VERIFIED_PUBLISHED_UNIFORM_STYLE",
   "request": "All three text lines exactly match accepted first-line color, size, style and weight.",
   "cause": "Root originally chose discretionary sales hierarchy (larger orders and bold bronze date); user explicitly rejected that choice and supplied first line as style exemplar. Prior technical approval did not imply user design acceptance.",
   "solution": "Shared section typography: inherited OpenSans,400,normal,#5d5149,clamp(12px,32/941*100cqw,32px),line-height1.25. All p/h2 inherit font and color; only existing spacing retained. No wording, anchor, artwork or CTA change.",
@@ -199,6 +199,88 @@
     "Existing unrelated footer boundary/SMTP/aliasmetadata observations retained in previous receipt."
   ],
   "publication": {
-    "status": "PENDING"
-  }
+    "status": "BOTH_DEPLOYMENTS_SUCCESS_PUBLIC_STYLE_VERIFIED",
+    "commit": "d85b0f074cb2903d3b116eb9633fb19242d7d8a1",
+    "branch": "origin/main",
+    "remoteExact": true,
+    "production": "https://vercel.com/askmi-6282s-projects/ramsider/yz6LQRfHMim7wyALLs68WGok5u7J",
+    "preview": "https://vercel.com/askmi-6282s-projects/ramsider-beta/959CykJkHqM91o2W7JS2dDXRX8vC",
+    "productionDeployment": {
+      "id": 7463742914,
+      "state": "success",
+      "environment": "Production \u2013 ramsider",
+      "url": "https://ramsider-9uql4boka-askmi-6282s-projects.vercel.app"
+    },
+    "canonical": "https://ramsider-main.vercel.app/en",
+    "publicChecks": "6/6 PASS on Pro/Max WebKit and desktop Chromium, exact7computedstyleproperties equal to firstline, widths320/768/874landscape, text/DOM/anchors/noJS-DCL/Reserve/contact/ENredirect; root directly viewed actual publicPro+Maxcomposition",
+    "rootApproval": "APPROVED_PUBLISHED_UNIFORM_STYLE 2026-11-01: exactd85b0f0 bothdeploySUCCESS, public6PASS and actualPro/Maximages directly viewed",
+    "previewDeployment": {
+      "id": 7463778185,
+      "state": "success",
+      "environment": "Preview \u2013 ramsider-beta"
+    }
+  },
+  "publicArtifacts": {
+    "screenshots/distributor-uniform/public/iphone-17-pro-webkit-874.png": {
+      "sha256": "2d2e328ad09000663aee25393d5177a1aec99f4ffbace05f7b876a1bc22e834a",
+      "bytes": 445382
+    },
+    "screenshots/distributor-uniform/public/iphone-17-pro-webkit-320.png": {
+      "sha256": "b3f5879934ea72293fe2177a187886e2989a8c63edffb74c27562842bbd95152",
+      "bytes": 347018
+    },
+    "screenshots/distributor-uniform/public/iphone-17-pro-webkit-composition.png": {
+      "sha256": "56fa29b29f68554262087a2dddbb0aba8a33e7a30de67129999f1e0ed61d8a99",
+      "bytes": 595497
+    },
+    "screenshots/distributor-uniform/public/iphone-17-pro-webkit-768.png": {
+      "sha256": "4a470bc9ce84fd8ca172893604598e597dac5d77c6e85e63189678b3393b1a08",
+      "bytes": 761409
+    },
+    "screenshots/distributor-uniform/public/desktop-chromium-874.png": {
+      "sha256": "289b851d41801fc63cbb16632ed7b662c82fdd6a27bf9ef6a9b975188ecf5b3f",
+      "bytes": 315075
+    },
+    "screenshots/distributor-uniform/public/iphone-17-pro-max-webkit-874.png": {
+      "sha256": "2d2e328ad09000663aee25393d5177a1aec99f4ffbace05f7b876a1bc22e834a",
+      "bytes": 445382
+    },
+    "screenshots/distributor-uniform/public/desktop-chromium-320.png": {
+      "sha256": "ec00d45d2e423ada2717c4bdc6376e12c71e3b84a6fb17fe585a0e842a8bdb78",
+      "bytes": 223905
+    },
+    "screenshots/distributor-uniform/public/iphone-17-pro-max-webkit-320.png": {
+      "sha256": "924c07c856574d40c33f1d1362de1ad59a90ffd5bdfbf4176c023419bbba6ec9",
+      "bytes": 350412
+    },
+    "screenshots/distributor-uniform/public/iphone-17-pro-max-webkit-composition.png": {
+      "sha256": "2ba343e5fa0022b466b2310f5fdb8132f1d6bd1c2705b3007b9fb9f5ce9da16c",
+      "bytes": 696245
+    },
+    "screenshots/distributor-uniform/public/iphone-17-pro-max-webkit-440.png": {
+      "sha256": "d685e713b436429cc4b465b9bcfb920b9734184bd0819b3024b7988236b81150",
+      "bytes": 490967
+    },
+    "screenshots/distributor-uniform/public/desktop-chromium-composition.png": {
+      "sha256": "795f19e071b32f8ce5973fa36418f97049bf18c52adc58164c0ec2983b1b060c",
+      "bytes": 806497
+    },
+    "screenshots/distributor-uniform/public/iphone-17-pro-webkit-402.png": {
+      "sha256": "7ab617752f1ea9f0087fc78202a8b0af58bb696e33a8b0424a13826351ea7273",
+      "bytes": 423674
+    },
+    "screenshots/distributor-uniform/public/iphone-17-pro-max-webkit-768.png": {
+      "sha256": "1fd5c23022250d4974ecfc274ca4da91f7aa3e784c52ebb15b783f560ff9abb6",
+      "bytes": 780305
+    },
+    "screenshots/distributor-uniform/public/desktop-chromium-1440.png": {
+      "sha256": "c7dae0f896ebdc7a1b9b7ccc42bc2c29f3c0fbae1bfa2aa53db2a64f66b8104b",
+      "bytes": 853753
+    },
+    "screenshots/distributor-uniform/public/desktop-chromium-768.png": {
+      "sha256": "7442fd901ece2e2870feaa7fc74c88abc8d562e05cd1db79b0b9f2e4699f3d19",
+      "bytes": 794107
+    }
+  },
+  "supersededSpacingBy": "docs/evidence/sales-launch/distributor-spacing.json; Nov1 user required equal paragraph gaps. Prior uniform-font proof retained as historical."
 }

@@ -1,7 +1,7 @@
 {
   "change": "CHG0191 equal paragraph spacing correction",
   "date": "2026-11-01",
-  "status": "VERIFIED_LOCAL_EQUAL_SPACING",
+  "status": "VERIFIED_PUBLISHED_EQUAL_SPACING",
   "request": "Equal vertical paragraph gaps between all three launch lines; remove larger gap after first.",
   "cause": "Root retained decorative divider with18sourcepx margins on both sides while next gap was8sourcepx. Prior uniform-style test measured typography but omitted pairwise gaps.",
   "solution": "Remove divider span and its CSS/date margin. Parent grid row-gap8/941*100cqw; all3 semantic text lines share same layout and accepted typography.",
@@ -196,6 +196,87 @@
     "No physical iPhone/fieldINP/Lighthouse/WCAG certification; existing unrelated SMTP/aliasmetadata/footer observations unchanged."
   ],
   "publication": {
-    "status": "PENDING"
+    "status": "BOTH_DEPLOYMENTS_SUCCESS_PUBLIC_EQUAL_SPACING_VERIFIED",
+    "commit": "82a3eea993e724da3352dc1e91ef867c4e461d51",
+    "branch": "origin/main",
+    "remoteExact": true,
+    "production": "https://vercel.com/askmi-6282s-projects/ramsider/4FhqGDuumE3R5T6u6JiRiaggNVk7",
+    "preview": "https://vercel.com/askmi-6282s-projects/ramsider-beta/EhM1nTt9psCMcdVa4ksF5NkrGyas",
+    "productionDeployment": {
+      "id": 7463915523,
+      "environment": "Production \u2013 ramsider",
+      "state": "success",
+      "url": "https://ramsider-hlaij9goa-askmi-6282s-projects.vercel.app"
+    },
+    "canonical": "https://ramsider-main.vercel.app/en",
+    "publicChecks": "6PASS Pro/Max WebKit/desktop Chromium plus320/768/874landscape: both actual positive gaps equal within.1px; all7typography properties identical; copy/DOM/anchors/noJS-DCL/ENredirect/ReserveNov20/contactopen pass. Root directly viewed actualpublicPro/Maxcomposition, divider absent/equalspacing.",
+    "rootApproval": "APPROVED_PUBLISHED_EQUAL_SPACING 2026-11-01; exact82a3eea bothdeploymentSUCCESS/public6PASS/rootviewedProMax;3committedsource+30local+15publichashescurrent",
+    "previewDeployment": {
+      "id": 7463951635,
+      "environment": "Preview \u2013 ramsider-beta",
+      "state": "success"
+    }
+  },
+  "publicArtifacts": {
+    "screenshots/distributor-spacing/public/iphone-17-pro-webkit-874.png": {
+      "sha256": "262bd87bdc5b7ca70bd556b43051230f39fb18abc5d022f9707361bbe417a5ba",
+      "bytes": 443432
+    },
+    "screenshots/distributor-spacing/public/iphone-17-pro-webkit-320.png": {
+      "sha256": "19a627bc1e114323ba35e8874d078c6199f6a123c0f9f113378bd9b8aca74c94",
+      "bytes": 347054
+    },
+    "screenshots/distributor-spacing/public/iphone-17-pro-webkit-composition.png": {
+      "sha256": "3c8cb568a9aea55b06c7aee0c95a26b03fbb07668f467a74fc7ffb11a2b1db29",
+      "bytes": 595341
+    },
+    "screenshots/distributor-spacing/public/iphone-17-pro-webkit-768.png": {
+      "sha256": "addadc7feb174d9368a0661eb16f3438af466bb25631849664f17e387f5def9e",
+      "bytes": 761490
+    },
+    "screenshots/distributor-spacing/public/desktop-chromium-874.png": {
+      "sha256": "d3c2fa7028a9dc715f5f7ed00117294a87f4acfb5f615e105874b03882d1e735",
+      "bytes": 312082
+    },
+    "screenshots/distributor-spacing/public/iphone-17-pro-max-webkit-874.png": {
+      "sha256": "262bd87bdc5b7ca70bd556b43051230f39fb18abc5d022f9707361bbe417a5ba",
+      "bytes": 443432
+    },
+    "screenshots/distributor-spacing/public/desktop-chromium-320.png": {
+      "sha256": "a1bfe825988f43a0c354223ab8e03c0447caadbec4891c42c6b26846d34bd23d",
+      "bytes": 223802
+    },
+    "screenshots/distributor-spacing/public/iphone-17-pro-max-webkit-320.png": {
+      "sha256": "295fa9d8db68f8bd88c799344b8902368033b173c8906c56cf74d7a84b7d2031",
+      "bytes": 350380
+    },
+    "screenshots/distributor-spacing/public/iphone-17-pro-max-webkit-composition.png": {
+      "sha256": "dd8da62e00bf2ccf10345751db612d336a0993df24f044375ee8e354a8013506",
+      "bytes": 696372
+    },
+    "screenshots/distributor-spacing/public/iphone-17-pro-max-webkit-440.png": {
+      "sha256": "6afdcc9e82fdfba5978461f40a55fc2679dcd7a82561bd71eedbc6f48d20cc20",
+      "bytes": 491103
+    },
+    "screenshots/distributor-spacing/public/desktop-chromium-composition.png": {
+      "sha256": "4f1fece259adea0d4b1cc8f3b05273129f6f03c74d6553da140ade1cde87437f",
+      "bytes": 806364
+    },
+    "screenshots/distributor-spacing/public/iphone-17-pro-webkit-402.png": {
+      "sha256": "cd10e4d5e4a6ecf04199a9b35be39159a2bbaa3470629f3662422a40386bcc8b",
+      "bytes": 423465
+    },
+    "screenshots/distributor-spacing/public/iphone-17-pro-max-webkit-768.png": {
+      "sha256": "1ca40fd269ce9496d60ce35239aba5a3d0f1f0e3c227d886cd8079a17c782c3f",
+      "bytes": 780666
+    },
+    "screenshots/distributor-spacing/public/desktop-chromium-1440.png": {
+      "sha256": "cb2d801147f7113fe85498485992e9ec0d9aeaf6b7bf24cdfbd411c45317cf5d",
+      "bytes": 843477
+    },
+    "screenshots/distributor-spacing/public/desktop-chromium-768.png": {
+      "sha256": "c8a0b54bb7a700469e52a6186402596fcb079675f451f2310c631df46ea2d067",
+      "bytes": 787370
+    }
   }
 }

@@ -1,7 +1,7 @@
 {
   "change": "CHG0191",
   "date": "2026-10-31",
-  "status": "LOCAL_VERIFIED_PREPUBLICATION",
+  "status": "VERIFIED_PUBLISHED_WEB",
   "request": {
     "copy": [
       "8.5 Years In The Making",
@@ -461,6 +461,230 @@
     "Existing SMTP delivery unavailable without privately supplied environment password; unchanged."
   ],
   "publication": {
-    "status": "PENDING"
-  }
+    "status": "BOTH_DEPLOYMENTS_SUCCESS_PUBLIC_WEB_VERIFIED",
+    "commit": "3c893f7adafca89f5b78eac3c3cf24f4db243fa0",
+    "repository": "askmi/ramsider",
+    "branch": "origin/main",
+    "remoteExact": true,
+    "production": "https://vercel.com/askmi-6282s-projects/ramsider/47nozzugFK7zRsyBoyNBVr1kFt1u",
+    "preview": "https://vercel.com/askmi-6282s-projects/ramsider-beta/5N9ssH5nTkBtKxXtZ1FALGrU1y5j",
+    "productionDeployment": {
+      "id": 7463491574,
+      "environment": "Production \u2013 ramsider",
+      "state": "success",
+      "url": "https://ramsider-jvss1mxx8-askmi-6282s-projects.vercel.app"
+    },
+    "previewDeployment": {
+      "id": 7463525778,
+      "environment": "Preview \u2013 ramsider-beta",
+      "state": "success",
+      "url": "https://ramsider-beta-27t9d9s81-askmi-6282s-projects.vercel.app"
+    },
+    "canonical": "https://ramsider-main.vercel.app/en",
+    "publicChecks": "3 interactive profiles PASS incl Pro/MaxDPR3 exactcopy/fonts/DOM/widths/ReserveNov20/contact actualopen;3 independent noJS DOMContentLoaded+semanticregion profiles PASS;3 actualDPR/geometry profiles PASS. Initial full-load noJS30s2WebKit TIMEOUT preserved, serial90s image-load retry final3/3PASS(Pro60s/Max72s/Chromium66s,3.4m total). This verifies original full-load harness separately from faster semantic readiness.",
+    "publicMetrics": [
+      {
+        "name": "pro",
+        "width": 402,
+        "dpr": 3,
+        "overflow": false,
+        "regionY": 1729.9945584577113,
+        "endY": 1917.7337142412935,
+        "reserveY": 510.98845615671644,
+        "fireY": 2047.9770677860697,
+        "copy": [
+          "8.5 Years In The Making",
+          "Distributor Orders & Pre-Orders",
+          "Open November 2026"
+        ],
+        "fonts": [
+          {
+            "family": "OpenSans, Arial, sans-serif",
+            "weight": "400"
+          },
+          {
+            "family": "OpenSans, Arial, sans-serif",
+            "weight": "400"
+          },
+          {
+            "family": "OpenSans, Arial, sans-serif",
+            "weight": "700"
+          }
+        ]
+      },
+      {
+        "name": "max",
+        "width": 440,
+        "dpr": 3,
+        "overflow": false,
+        "regionY": 1729.989737215909,
+        "endY": 1917.4879971590908,
+        "reserveY": 510.9670099431818,
+        "fireY": 2047.9782315340908,
+        "copy": [
+          "8.5 Years In The Making",
+          "Distributor Orders & Pre-Orders",
+          "Open November 2026"
+        ],
+        "fonts": [
+          {
+            "family": "OpenSans, Arial, sans-serif",
+            "weight": "400"
+          },
+          {
+            "family": "OpenSans, Arial, sans-serif",
+            "weight": "400"
+          },
+          {
+            "family": "OpenSans, Arial, sans-serif",
+            "weight": "700"
+          }
+        ]
+      },
+      {
+        "name": "desktop",
+        "width": 1440,
+        "dpr": 1,
+        "overflow": false,
+        "regionY": 1730,
+        "endY": 1916.53125,
+        "reserveY": 511,
+        "fireY": 2047.9999999999998,
+        "copy": [
+          "8.5 Years In The Making",
+          "Distributor Orders & Pre-Orders",
+          "Open November 2026"
+        ],
+        "fonts": [
+          {
+            "family": "OpenSans, Arial, sans-serif",
+            "weight": "400"
+          },
+          {
+            "family": "OpenSans, Arial, sans-serif",
+            "weight": "400"
+          },
+          {
+            "family": "OpenSans, Arial, sans-serif",
+            "weight": "700"
+          }
+        ]
+      }
+    ],
+    "noJsSemantic": [
+      {
+        "name": "pro",
+        "width": 402,
+        "height": 874,
+        "javaScriptEnabled": false,
+        "readiness": "DOMContentLoaded + semantic region/text assertions, independent of full-page media load",
+        "result": "PASS"
+      },
+      {
+        "name": "max",
+        "width": 440,
+        "height": 956,
+        "javaScriptEnabled": false,
+        "readiness": "DOMContentLoaded + semantic region/text assertions, independent of full-page media load",
+        "result": "PASS"
+      },
+      {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900,
+        "javaScriptEnabled": false,
+        "readiness": "DOMContentLoaded + semantic region/text assertions, independent of full-page media load",
+        "result": "PASS"
+      }
+    ],
+    "rootApproval": "APPROVED_PUBLISHED_WEB 2026-10-31; root directly viewed publicPro/Maxcomposition, userregion and originalanchors match local",
+    "independentAuditor": "/root/audit Stage6 PUBLICATION/FINAL RECORDS PASS 2026-10-31: exactSHA bothdeploymentSUCCESS, directpublicPro/Maximages,4committedsource+33local+20public hashes atgate; subsequently completed noJSretry3PASS independently read, additional21stpubliclog binding root verified."
+  },
+  "publicArtifacts": {
+    "screenshots/distributor-launch/public/metrics.json": {
+      "sha256": "221ec6d14fa71f0a9c7404a5f3c3e75af149550b703f7fbf6bb1fe1b6e049ae6",
+      "bytes": 1861
+    },
+    "screenshots/distributor-launch/public/nojs-dom.json": {
+      "sha256": "55c31d8556926fbb8c7e5e72986a91065c51f106fe34f26b212ef554df29f8dc",
+      "bytes": 685
+    },
+    "screenshots/distributor-launch/public/iphone-17-pro-webkit-874.png": {
+      "sha256": "aa0f17e04a8503dd718820ddd6dbb9a0bbddf77968e05370a0fe6adc9ad991c4",
+      "bytes": 446937
+    },
+    "screenshots/distributor-launch/public/iphone-17-pro-webkit-320.png": {
+      "sha256": "8157cf6d82e04f794394d11d1b5bb09ced874c5a6190336af9f481dee2e60997",
+      "bytes": 348208
+    },
+    "screenshots/distributor-launch/public/metrics.mjs": {
+      "sha256": "9b649986c4d7eda9809ba50c85e2185111db1403f2cb9f517936eaeba1e6910b",
+      "bytes": 2068
+    },
+    "screenshots/distributor-launch/public/iphone-17-pro-webkit-composition.png": {
+      "sha256": "bf6069299709915db3de8da820019dc1ef45b8cb5290cbe532dce33ccbe39cd9",
+      "bytes": 596929
+    },
+    "screenshots/distributor-launch/public/nojs-dom.mjs": {
+      "sha256": "87e6e547265bbbce600641f0c36ca42b52bd0b94831e590d92ffbd425921492d",
+      "bytes": 1121
+    },
+    "screenshots/distributor-launch/public/initial-browser-attempt.log": {
+      "sha256": "b27ee0ef08129fb85f1d8aa69354dd4ddd898aa2731114486f0ff28df5d1e9b1",
+      "bytes": 3757
+    },
+    "screenshots/distributor-launch/public/iphone-17-pro-webkit-768.png": {
+      "sha256": "0d72ec82b5ffd2a7bc65d3e69c730d830a3925771c3b2d32301f01fe744392d2",
+      "bytes": 761451
+    },
+    "screenshots/distributor-launch/public/desktop-chromium-874.png": {
+      "sha256": "dbd2caf5731fd39ff5a0800bc3213fa467ad6098aef9558e91aae1534ccaf96f",
+      "bytes": 317438
+    },
+    "screenshots/distributor-launch/public/iphone-17-pro-max-webkit-874.png": {
+      "sha256": "aa0f17e04a8503dd718820ddd6dbb9a0bbddf77968e05370a0fe6adc9ad991c4",
+      "bytes": 446937
+    },
+    "screenshots/distributor-launch/public/desktop-chromium-320.png": {
+      "sha256": "2cd3eef9a0bfe8c2308848e1e18dfd40a8e6efd34a4053d9c211a04f1a0dde2b",
+      "bytes": 224889
+    },
+    "screenshots/distributor-launch/public/iphone-17-pro-max-webkit-320.png": {
+      "sha256": "4ea8ea4b56a50fedf7774d2328d1618c895a62f61b75e11219eb7714c006f4b9",
+      "bytes": 351731
+    },
+    "screenshots/distributor-launch/public/iphone-17-pro-max-webkit-composition.png": {
+      "sha256": "ed70f96869d2b0267f55614f71640da9cd920417212664f670caee0515d9f6af",
+      "bytes": 697642
+    },
+    "screenshots/distributor-launch/public/iphone-17-pro-max-webkit-440.png": {
+      "sha256": "6fecc2120dac2196b19f0e09857f47d6c283978d3a9d17fc28f8a791bdcfc952",
+      "bytes": 492608
+    },
+    "screenshots/distributor-launch/public/desktop-chromium-composition.png": {
+      "sha256": "5b56a974d567b2531d242d8d99c4f8fde85e636ed3b7efb3aebc4cf66c2953ec",
+      "bytes": 806004
+    },
+    "screenshots/distributor-launch/public/iphone-17-pro-webkit-402.png": {
+      "sha256": "b0d5728807afad334d7490d7022141d6553141d528601468e05efcd142cf2c3b",
+      "bytes": 424949
+    },
+    "screenshots/distributor-launch/public/iphone-17-pro-max-webkit-768.png": {
+      "sha256": "78f8539b3516a888bcfe5a69829b7c8d8f73b1f123d4165ff5a044a467a8128d",
+      "bytes": 779711
+    },
+    "screenshots/distributor-launch/public/desktop-chromium-1440.png": {
+      "sha256": "517dd0f4b924e2715e35328c239dfec32992417d3cc6cb1725f2945ff125989f",
+      "bytes": 858125
+    },
+    "screenshots/distributor-launch/public/desktop-chromium-768.png": {
+      "sha256": "373ffc4d1f8240ecad5c107741f2e6916cb2fcbc908833d06b06fd30170d7017",
+      "bytes": 798895
+    },
+    "screenshots/distributor-launch/public/nojs-full-load-retry.log": {
+      "sha256": "45c4f726d31c6d0133f5ee12d1c2a20abc22eb9b5cb11ad5d8dfdb4eff9e2366",
+      "bytes": 997
+    }
+  },
+  "supersededStyleBy": "docs/evidence/sales-launch/distributor-uniform.json; Nov1 user accepted firstline and required uniform typography. Prior 3c893f7 hierarchy proof retained as historical."
 }

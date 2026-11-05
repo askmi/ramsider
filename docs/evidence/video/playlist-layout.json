@@ -1,7 +1,7 @@
 {
   "date": "2026-10-28",
   "change": "CHG0169",
-  "status": "VERIFIED_LOCAL_PUBLICATION_PENDING",
+  "status": "VERIFIED_PUBLISHED_CUSTOM_PLAYER_SCOPE",
   "baseCommit": "0b5ba038e341beb04e4108b96412a512875e9b85",
   "specification": {
     "narrow": "≤560px seek full inner width, time centred lower row,6controls44px; <320timehidden per permitted option",
@@ -362,8 +362,68 @@
     "verifier": "/root",
     "verdict": "APPROVED_LOCAL",
     "evidence": "build4/types4/lintfinal/review4+5/19PASS/darkframe/finalintegration/isolatedperformance/exact9hashes",
-    "independentFinal": "PASS /root/audit 2026-10-28"
+    "independentFinal": "PASS /root/audit 2026-10-28",
+    "public": "APPROVED_PUBLIC_BROWSER /root2026-10-28; independent /root/audit publication/delivery PASS, customplayer scope"
   },
   "userApproval": "NOT_RECORDED",
-  "publication": "PENDING"
+  "publication": {
+    "sha": "72b28451681bb72ea37a765c7cfa52e0475639fa",
+    "remote": "origin/main",
+    "remoteExactVerified": "GitHub refs/heads/main liveAPI exact",
+    "deployment": "SUCCESS both expected targets",
+    "publicUI": {
+      "status": "PASS6targetedcases6deliberateprofileSKIP",
+      "log": "/private/tmp/ramsider-chg0169-public.log",
+      "screenshots": "screenshots/video/chg0169/public/",
+      "coverage": "Pro/MaxEN/ARportrait/landscape inline+labelledfullscreenadapter;actualChromium280–1440;11locales;fullheight/width/alpha/chromehittests/timecentering and compactfallback",
+      "mainViewed": [
+        "iphone-17-pro-webkit-en-portrait-playlist.png",
+        "iphone-17-pro-max-webkit-ar-landscape-playlist.png",
+        "iphone-17-pro-webkit-en-portrait-transport.png"
+      ]
+    },
+    "canonicalDomainShaAssignment": "Not separately verified; exact provider deployment and public functional evidence kept separate.",
+    "liveApiEvidence": "/private/tmp/ramsider-chg0169-publication-api.json",
+    "targets": [
+      {
+        "created_at": "2026-10-28T18:00:13Z",
+        "environment": "Preview – ramsider-beta",
+        "id": 7393321620,
+        "sha": "72b28451681bb72ea37a765c7cfa52e0475639fa"
+      },
+      {
+        "created_at": "2026-10-28T17:56:58Z",
+        "environment": "Production – ramsider",
+        "id": 7393251474,
+        "sha": "72b28451681bb72ea37a765c7cfa52e0475639fa"
+      }
+    ],
+    "latestProduction": {
+      "created_at": "2026-10-28T17:56:58Z",
+      "environment_url": "https://ramsider-kmls4z0u3-askmi-6282s-projects.vercel.app",
+      "log_url": "https://ramsider-kmls4z0u3-askmi-6282s-projects.vercel.app",
+      "state": "success"
+    },
+    "latestPreview": {
+      "created_at": "2026-10-28T18:00:13Z",
+      "environment_url": "https://ramsider-beta-hxdeqpzl2-askmi-6282s-projects.vercel.app",
+      "log_url": "https://ramsider-beta-hxdeqpzl2-askmi-6282s-projects.vercel.app",
+      "state": "success"
+    },
+    "providerContexts": [
+      {
+        "context": "Vercel – ramsider",
+        "created_at": "2026-10-28T17:56:57Z",
+        "state": "success",
+        "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/D1JAgQA8Hsbb3paAUJjJ3NUdPHY7"
+      },
+      {
+        "context": "Vercel – ramsider-beta",
+        "created_at": "2026-10-28T18:00:12Z",
+        "state": "success",
+        "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/Ds1ZuEUCb2STvJSaUTnPuZPpcSDp"
+      }
+    ],
+    "independentPublicationAudit": "PASS /root/audit 2026-10-28, liveAPI sameSHA bothdeploys/public6PASS/currentimages/copiedspecexact/live9hashes"
+  }
 }

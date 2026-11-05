@@ -1,0 +1,156 @@
+{
+  "date": "2026-10-30",
+  "commit": "e9aaae1d7e3ee916e2c1a65d0fbcfccf850b5f89",
+  "productionDeploymentId": 7436299881,
+  "provider": "https://vercel.com/askmi-6282s-projects/ramsider/HUyba4LsxFetdHEXy6jWdSe8fSPJ",
+  "publicURL": "https://ramsider-main.vercel.app/en",
+  "http": 200,
+  "bothCorrectedAssetsInHTML": true,
+  "scriptPathsMatchLocal": true,
+  "scriptCount": 10,
+  "assets": [
+    {
+      "name": "story-v3-12",
+      "http": 200,
+      "bytes": 213092,
+      "SHA256": "053b644fe12438bd9f263802167c1001dee957a627170a244cfdabc74711fef8",
+      "sourceExact": true
+    },
+    {
+      "name": "story-v3-13",
+      "http": 200,
+      "bytes": 217768,
+      "SHA256": "38b1f6c6f2ea9e213ddcd1faa86f213d2a681563794c7466e5e31a0577195174",
+      "sourceExact": true
+    }
+  ],
+  "exactCanonicalAliasMetadataSeparatelyConfirmed": false,
+  "publicBrowser": [
+    {
+      "name": "pro",
+      "mode": "ready",
+      "heldIndexes": [],
+      "geometry": {
+        "width": 402,
+        "dpr": 3,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 160.2,
+      "errors": []
+    },
+    {
+      "name": "pro",
+      "mode": "upper-preview",
+      "heldIndexes": [
+        12
+      ],
+      "geometry": {
+        "width": 402,
+        "dpr": 3,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 159.46666666666667,
+      "errors": []
+    },
+    {
+      "name": "pro",
+      "mode": "lower-preview",
+      "heldIndexes": [
+        13
+      ],
+      "geometry": {
+        "width": 402,
+        "dpr": 3,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 3.1666666666666714,
+      "errors": []
+    },
+    {
+      "name": "pro",
+      "mode": "both-preview",
+      "heldIndexes": [
+        12,
+        13
+      ],
+      "geometry": {
+        "width": 402,
+        "dpr": 3,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 2.8500000000000085,
+      "errors": []
+    },
+    {
+      "name": "max",
+      "mode": "ready",
+      "heldIndexes": [],
+      "geometry": {
+        "width": 440,
+        "dpr": 3,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 92.18333333333334,
+      "errors": []
+    },
+    {
+      "name": "max",
+      "mode": "upper-preview",
+      "heldIndexes": [
+        12
+      ],
+      "geometry": {
+        "width": 440,
+        "dpr": 3,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 91.35,
+      "errors": []
+    },
+    {
+      "name": "max",
+      "mode": "lower-preview",
+      "heldIndexes": [
+        13
+      ],
+      "geometry": {
+        "width": 440,
+        "dpr": 3,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 3.5333333333333314,
+      "errors": []
+    },
+    {
+      "name": "max",
+      "mode": "both-preview",
+      "heldIndexes": [
+        12,
+        13
+      ],
+      "geometry": {
+        "width": 440,
+        "dpr": 3,
+        "overflow": false
+      },
+      "edgeMaxRowStep": 2.7166666666666686,
+      "errors": []
+    }
+  ],
+  "publicRetryTests": {
+    "passed": 2,
+    "log": "/private/tmp/ramsider-dark-light-public-tests.log"
+  },
+  "actualPublicImagesViewed": [
+    "screenshots/feed-seams/dark-light/public/pro-lower-preview-29264.png",
+    "screenshots/feed-seams/dark-light/public/max-ready-29264.png"
+  ],
+  "aliasMetadataLimit": "No new provider alias-metadata read; prior read timed out. Exact main Production success and actual canonical corrected assets/render independently verified.",
+  "independentAudit": {
+    "verifier": "/root/scroll_auditor",
+    "date": "2026-10-30",
+    "verdict": "PUBLICATION_DELIVERY_RECORDS_PASS",
+    "confirmed": "Exact main/Production SHA success, canonical new assets and10scripts, both source-exact WebPs,8loadingstates,2Retry tests and actual public Pro/Max images",
+    "limits": "Exact provider alias metadata, physical device and CHG0180/0181 not included"
+  }
+}

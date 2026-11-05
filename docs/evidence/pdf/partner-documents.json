@@ -1,7 +1,7 @@
 {
   "change": "CHG0170",
   "date": "2026-10-28",
-  "status": "VERIFIED_LOCAL_PUBLICATION_PENDING",
+  "status": "VERIFIED_PUBLISHED",
   "assets": [
     {
       "sourceName": "RAMSIDER_Franchise_Pro_DIY_Hospitality_27.10.2026.pdf",
@@ -66,16 +66,98 @@
     "newMenuOrSitemapLinks": false,
     "catalogPathTouched": false
   },
-  "publication": "PENDING commit/push",
+  "publication": {
+    "sha": "d02b67eb8a9dcd0485b9be93a4a50bf27b7eff32",
+    "branch": "origin/main",
+    "repository": "askmi/ramsider",
+    "state": "SUCCESS",
+    "domain": "https://ramsider-main.vercel.app",
+    "productionDeploymentId": 7395796690,
+    "deployments": [
+      {
+        "id": 7395869586,
+        "sha": "d02b67eb8a9dcd0485b9be93a4a50bf27b7eff32",
+        "environment": "Preview – ramsider-beta",
+        "created_at": "2026-10-28T19:57:36Z",
+        "latestStatus": {
+          "state": "success",
+          "environment_url": "https://ramsider-beta-9v5lt2784-askmi-6282s-projects.vercel.app",
+          "log_url": "https://ramsider-beta-9v5lt2784-askmi-6282s-projects.vercel.app",
+          "created_at": "2026-10-28T19:57:36Z"
+        }
+      },
+      {
+        "id": 7395796690,
+        "sha": "d02b67eb8a9dcd0485b9be93a4a50bf27b7eff32",
+        "environment": "Production – ramsider",
+        "created_at": "2026-10-28T19:54:14Z",
+        "latestStatus": {
+          "state": "success",
+          "environment_url": "https://ramsider-fx9ax3vhs-askmi-6282s-projects.vercel.app",
+          "log_url": "https://ramsider-fx9ax3vhs-askmi-6282s-projects.vercel.app",
+          "created_at": "2026-10-28T19:54:15Z"
+        }
+      }
+    ],
+    "statuses": [
+      {
+        "context": "Vercel – ramsider",
+        "state": "success",
+        "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/FuytBK6egoY7DhQ64fQRj2jQ1Ckr",
+        "created_at": "2026-10-28T19:54:14Z"
+      },
+      {
+        "context": "Vercel – ramsider-beta",
+        "state": "success",
+        "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/6xnM8BUtd8qScuVGqoGJCm9Mgyh9",
+        "created_at": "2026-10-28T19:57:36Z"
+      }
+    ],
+    "remoteRef": {
+      "ref": "refs/heads/main",
+      "sha": "d02b67eb8a9dcd0485b9be93a4a50bf27b7eff32"
+    }
+  },
   "userResultApproval": "NOT_RECORDED",
   "localCopy": "PASS source=design=public SHA/bytes/%PDF, no reencoding",
   "technicalApproval": {
     "date": "2026-10-28",
     "verifier": "/root",
-    "verdict": "APPROVED_LOCAL_ONLY",
+    "verdict": "APPROVED_LOCAL_AND_PUBLIC_DELIVERY",
     "evidence": "Full source/design/public hashes and production Next HTTP GET200 + Range206 for both files",
     "independentAuditor": "/root/audit",
-    "independentVerdict": "PASS scope and local static delivery; public requested domain BLOCKED pending target/access",
-    "auditorLimit": "Independent network rerun blocked by sandbox socket EPERM; inspected retained main HTTP evidence and all six binaries"
+    "independentVerdict": "PASS scope, local static delivery and publication: exact main SHA, both latest deployments SUCCESS, public GET/range/source hashes inspected",
+    "auditorLimit": "Independent network rerun blocked by sandbox socket EPERM; inspected retained main HTTP evidence and all six binaries",
+    "publicEvidence": "Exact SHA remote main and Production/Preview latestSUCCESS; approved domain both fullGET200/PDF/source-equalSHA/bytes + Range206/prefix1024",
+    "independentPublicationAudit": "PASS /root/audit 2026-10-29 clientdate; scope, publication and reconciled final records"
+  },
+  "publicVerification": {
+    "status": "PASS",
+    "checks": [
+      {
+        "url": "https://ramsider-main.vercel.app/pdf/RAMSIDER_Franchise_Pro_DIY_Hospitality_2026.pdf",
+        "status": 200,
+        "contentType": "application/pdf",
+        "bytes": 7021651,
+        "sha256": "937e74fc46f83e4fcff5a417b40fae1e1ab11815e07c601858595528fad01962",
+        "range": {
+          "status": 206,
+          "bytes": 1024,
+          "contentRange": "bytes 0-1023/7021651"
+        }
+      },
+      {
+        "url": "https://ramsider-main.vercel.app/pdf/RAMSIDER_Catering_Hospitality_2026.pdf",
+        "status": 200,
+        "contentType": "application/pdf",
+        "bytes": 7017274,
+        "sha256": "eb2d14084d391e1b8f98270913dcfffa73a424481ff029d0883590f37550c159",
+        "range": {
+          "status": 206,
+          "bytes": 1024,
+          "contentRange": "bytes 0-1023/7017274"
+        }
+      }
+    ]
   }
 }

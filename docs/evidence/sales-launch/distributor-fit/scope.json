@@ -1,7 +1,7 @@
 {
   "change": "CHG0196",
   "date": "2026-11-03",
-  "status": "LOCAL_WEB_VERIFIED_PENDING_FINAL_AUDIT",
+  "status": "VERIFIED_PUBLISHED_WEB_SCOPE",
   "baseline": "8821ecb4fb2f8b4bc95b6f98ce3f5ced7b9dbb67",
   "request": "Compact goldorbit tightly around actual three-line announcement; correct detached upper-left arc.",
   "baselineMeasured": "Pro402DPR3 text glyph maxwidth478.58source/overallglyphY1728.18..1867.58; section790width/135.77height. Orbit790x451.88 at75,1550; nativealpha32 left14,18..181,220 right519,177..686,379; actualasymmetricleft/rightarcs notimagebox determine fit.",
@@ -30,5 +30,6 @@
     "screenshots/distributor-orbit/reference-text.png",
     "screenshots/distributor-orbit/asset-on-neutral.png"
   ],
-  "verification": "docs/evidence/info-dialogs/verification.json"
+  "verification": "docs/evidence/info-dialogs/verification.json",
+  "publication": "docs/evidence/info-dialogs/publication.json"
 }

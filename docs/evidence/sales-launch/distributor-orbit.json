@@ -1,7 +1,7 @@
 {
   "change": "CHG0191 reused golden orbit around launch text",
   "date": "2026-11-01",
-  "status": "VERIFIED_LOCAL_ORBIT",
+  "status": "VERIFIED_PUBLISHED_ORBIT",
   "request": "Reuse existing golden orbit shown around One Architecture/Two Expressions/Compare PRO&GOLD around accepted three launch lines.",
   "classification": "NEW_INPUT; no defect implied, previous typography/equal spacing preserved.",
   "mapping": {
@@ -305,6 +305,138 @@
     "Existing unrelated footer boundary/SMTP/aliasmetadata/CHG0185 observations remain outside this feature."
   ],
   "publication": {
-    "status": "PENDING"
+    "status": "BOTH_DEPLOYMENTS_SUCCESS_PUBLIC_ORBIT_VERIFIED",
+    "commit": "e6381b4cf1463a3a4ee92972d826f5416070153e",
+    "branch": "origin/main",
+    "remoteExact": true,
+    "production": "https://vercel.com/askmi-6282s-projects/ramsider/FHqdGqBp6tkWNdXmFUwEqwcaJvQf",
+    "preview": "https://vercel.com/askmi-6282s-projects/ramsider-beta/33MnvkQMiexq1dQMgMnqS1DtjUG6",
+    "productionDeployment": {
+      "id": 7464796255,
+      "environment": "Production \u2013 ramsider",
+      "state": "success",
+      "url": "https://ramsider-odjeeitkn-askmi-6282s-projects.vercel.app"
+    },
+    "previewDeployment": {
+      "id": 7464768067,
+      "environment": "Preview \u2013 ramsider-beta",
+      "state": "success",
+      "url": "https://ramsider-beta-4kgd2hah3-askmi-6282s-projects.vercel.app"
+    },
+    "canonical": "https://ramsider-main.vercel.app/en",
+    "publicChecks": "6PASS required3profiles+320/768/landscape: actualDPR,decoded701x401/nativeaspect/source1550..2001.9/fire2048/equalstyles+gaps/readabletext/nooverflow/Reserve/contact/noJS/ENredirect. Additional originalCompare3profiles geometry/button/focus PASS. Root directly viewed actual publicPro/Maxcomposition, samearcs/nativeproportions/readableglyphs. PublicassetHTTPshaexactsource.",
+    "publicNetwork": {
+      "conditions": "Fresh production Chromium402x874DPR3, unthrottled; completed resources at load+fontsReady+3s, not a full-page eventual network total.",
+      "resourceCount": 63,
+      "resourceTransferBytes": 2499967,
+      "resourceEncodedBodyBytes": 2481067,
+      "navigationTransferBytes": 132728,
+      "jsEncodedBodyBytes": 347595,
+      "orbitResources": [
+        {
+          "type": "img",
+          "transferBytes": 67520,
+          "encodedBodyBytes": 67220,
+          "durationMs": 1299.1000001430511
+        }
+      ],
+      "ready": true
+    },
+    "rootApproval": "APPROVED_PUBLISHED_ORBIT 2026-11-01",
+    "independentAuditor": "/root/audit Stage6 PUBLICATION/FINAL RECORDS PASS 2026-11-01: exactSHA bothGitHubcontextsSUCCESS, actualpublicProMaxorbit+originalCompareimages,6browser+3originalCompareprofiles,5committedsource+39local+23public hashes, runtimeclean/diffcheck verified"
+  },
+  "publicArtifacts": {
+    "screenshots/distributor-orbit/public/pro-original-compare.png": {
+      "sha256": "f94f9bd591f55ade5a33ac6648bc28f402395320b27f75075360e5bcc52ebe7c",
+      "bytes": 665598
+    },
+    "screenshots/distributor-orbit/public/iphone-17-pro-webkit-874.png": {
+      "sha256": "fbdc240507433756a6213f7e5b08cfc832566a41c294aaf27b14b848e38c560d",
+      "bytes": 471323
+    },
+    "screenshots/distributor-orbit/public/iphone-17-pro-webkit-320.png": {
+      "sha256": "fc41969fc43bbc2091f573bd5ab786d45e52956e673f83aaade4f906243e52bf",
+      "bytes": 349710
+    },
+    "screenshots/distributor-orbit/public/network-check.mjs": {
+      "sha256": "f63310aa218e658e25d9873cf18441b4e8be144a431793643d89de7da21e598a",
+      "bytes": 1535
+    },
+    "screenshots/distributor-orbit/public/iphone-17-pro-webkit-composition.png": {
+      "sha256": "29e4d46b8939a76a413168529253b27cfd8e9e3a99b2fa50f3ee98eb60884c3b",
+      "bytes": 600890
+    },
+    "screenshots/distributor-orbit/public/desktop-original-compare.png": {
+      "sha256": "be9c08b66dedf2f58bf1dfe6e0085b5ebcf5299275c706382b8b2d8f4dcabdec",
+      "bytes": 1166732
+    },
+    "screenshots/distributor-orbit/public/iphone-17-pro-webkit-768.png": {
+      "sha256": "4165e4becb8295fa1260c08788d583f2dd566a9294b61b92ed541f5efb89035b",
+      "bytes": 780509
+    },
+    "screenshots/distributor-orbit/public/max-original-compare.png": {
+      "sha256": "0fd94a3f18fcc87eadd61206a67424cde07008c456e29d2b7785b70d2bca1c61",
+      "bytes": 783065
+    },
+    "screenshots/distributor-orbit/public/desktop-chromium-874.png": {
+      "sha256": "a12b6cfb2ce3b7afe011f70f69ec3e4c23cc9f56aa5a259c08e0e93af82ece8f",
+      "bytes": 333038
+    },
+    "screenshots/distributor-orbit/public/iphone-17-pro-max-webkit-874.png": {
+      "sha256": "fbdc240507433756a6213f7e5b08cfc832566a41c294aaf27b14b848e38c560d",
+      "bytes": 471323
+    },
+    "screenshots/distributor-orbit/public/desktop-chromium-320.png": {
+      "sha256": "ca24a182a834dc897a00874ee766b8f361cb32d705081de2a0af180f427a756a",
+      "bytes": 226705
+    },
+    "screenshots/distributor-orbit/public/asset-http.json": {
+      "sha256": "a365ee9cb1a17841133240caa2e16dec9333a91a67c66a92f0255abfa965d10e",
+      "bytes": 280
+    },
+    "screenshots/distributor-orbit/public/iphone-17-pro-max-webkit-320.png": {
+      "sha256": "89ab73ab7f162bee63586b21f1b9cc56b2c919fe15919bf3e6477399234699d8",
+      "bytes": 352596
+    },
+    "screenshots/distributor-orbit/public/iphone-17-pro-max-webkit-composition.png": {
+      "sha256": "c92a783155d0681f4ae8816607799cc69e1c79572d98cacc40a50a3481bab9bc",
+      "bytes": 703042
+    },
+    "screenshots/distributor-orbit/public/network.json": {
+      "sha256": "54dc5ed767dae30c148b6d9e01abab21ed705f99e70650d0a591cc39d77eb253",
+      "bytes": 501
+    },
+    "screenshots/distributor-orbit/public/iphone-17-pro-max-webkit-440.png": {
+      "sha256": "c6c95bff77ba8ee2001de211b92cefb9887e4a02fd3d7de3e849dee0093cfc72",
+      "bytes": 497637
+    },
+    "screenshots/distributor-orbit/public/desktop-chromium-composition.png": {
+      "sha256": "5c3e5ff6d766d97baa473e7f65e071747b9566e0b08949972ee0f23082e88a1d",
+      "bytes": 833731
+    },
+    "screenshots/distributor-orbit/public/iphone-17-pro-webkit-402.png": {
+      "sha256": "b84c774d607000bb3f0fcb2ac91a6d3fa193c2c8d9ee3c806281ba402cecf802",
+      "bytes": 429096
+    },
+    "screenshots/distributor-orbit/public/original-compare.json": {
+      "sha256": "caa3fe524c9238e465ac44f16e4d108c3ca73b654b5dcf6a33c85d384bf7b9a1",
+      "bytes": 783
+    },
+    "screenshots/distributor-orbit/public/iphone-17-pro-max-webkit-768.png": {
+      "sha256": "96a252ccf451658746bf60dff9ace4409cf8dc55e53682c1611899f7ce3faa10",
+      "bytes": 801360
+    },
+    "screenshots/distributor-orbit/public/desktop-chromium-1440.png": {
+      "sha256": "825f7f6244cbee2cc41c4d6310485fbf4072d871ef40b779865f27b8f5e022cb",
+      "bytes": 871267
+    },
+    "screenshots/distributor-orbit/public/desktop-chromium-768.png": {
+      "sha256": "682ac40b0f1124de8a4f94969306402fcf815230a60be472003c32594e89e08c",
+      "bytes": 804567
+    },
+    "screenshots/distributor-orbit/public/original-check.mjs": {
+      "sha256": "1835285786839c8fffd2330f9d59822602d1ebefc154cf45b5b45424e56921ac",
+      "bytes": 2077
+    }
   }
 }

@@ -4,7 +4,7 @@
     "CHG0199"
   ],
   "date": "2026-11-04",
-  "status": "VERIFIED_LOCAL_ROUTING_PHYSICAL_BLOCKED_PUBLICATION_PENDING",
+  "status": "VERIFIED_PUBLISHED_WEB_ROUTING_WITH_LIMITS",
   "scope": "Exact supplied patch1603279 against45a7110: native default on iPhone; no FilmControls/CSS/media changes. Native Apple controls explicitly authorized by current owner; older custom-only decision superseded.",
   "authority": "Current explicit user message mandating attached patch; recovered chat title Добавить полноэкранный плеер для iOS contains main deployment authorization. Result acceptance NOT_RECORDED.",
   "rotation": "Default native preserves existing ?native semantics: no window auto-entry; inline rotation responsive; Apple fullscreen orientation OS-owned. Explicit ?window retains its auto-rotation. No new automatic native rotation requested or claimed.",
@@ -381,13 +381,332 @@
     "behavior": "PASS_WEB_ROUTING_SCOPE",
     "reviewPerformance": "PASS_LOCAL",
     "physicalSafariChrome": "BLOCKED_NO_DEVICE",
-    "finalPrepush": "PASS_LOCAL_PREPUSH2026-11-04 /root/audit: exact26indexpaths/21source+29artifacts/4scopeddocsnapshots, cachedcheckclean, no rawreviewlogs/privateassets/unrelatedwork"
+    "finalPrepush": "PASS_LOCAL_PREPUSH2026-11-04 /root/audit: exact26indexpaths/21source+29artifacts/4scopeddocsnapshots, cachedcheckclean, no rawreviewlogs/privateassets/unrelatedwork",
+    "finalPublication": "PASS_PUBLISHED_WEB_ROUTING_WITH_LIMITS2026-11-04 independent/root/audit: refreshedexactSHA GitHubbothSUCCESS;21HEAD/working sources+29local+35public artifactSHA exact; independentcanonicalGET player267834B+CSS75467/4642B byteexact; actualpubliclogs16valid andProthenMax/windowlandscape/desktopListimages examined; physicalSafariChromeAVKit BLOCKED_NO_DEVICE, historical22of60artifactmismatchesOPEN/no reapproval, generatedbootstrapdifferenceuninspected."
   },
-  "publication": "AUTHORIZED/PENDING exactnewmainSHA/allrequiredGitHubdeploymenttargets/canonicaldynamicbundle+browserverification",
+  "publication": {
+    "commit": "9c79961748a7c1b26c9d94f8027d43bcd8cf111e",
+    "repository": "askmi/ramsider",
+    "destination": "origin/main",
+    "remoteExact": true,
+    "status": "BOTH_DEPLOYMENTS_SUCCESS_CANONICAL_WEB_CHECKS_PASS",
+    "canonical": "https://ramsider-main.vercel.app/en",
+    "statuses": {
+      "sha": "9c79961748a7c1b26c9d94f8027d43bcd8cf111e",
+      "statuses": [
+        {
+          "context": "Vercel – ramsider-beta",
+          "description": "Deployment has completed",
+          "state": "success",
+          "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/6kuTok8awQUYtxEC1Pr2AJTvbmzv",
+          "updated_at": "2026-11-04T18:43:00Z"
+        },
+        {
+          "context": "Vercel – ramsider",
+          "description": "Deployment has completed",
+          "state": "success",
+          "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/H8rYJgMd7bmcS2LT17t7p1vtrRh7",
+          "updated_at": "2026-11-04T18:49:20Z"
+        }
+      ]
+    },
+    "deployments": [
+      {
+        "environment": "Production – ramsider",
+        "id": 7554815447,
+        "sha": "9c79961748a7c1b26c9d94f8027d43bcd8cf111e"
+      },
+      {
+        "environment": "Preview – ramsider-beta",
+        "id": 7554675350,
+        "sha": "9c79961748a7c1b26c9d94f8027d43bcd8cf111e"
+      }
+    ],
+    "environmentStatuses": [
+      {
+        "created_at": "2026-11-04T18:49:21Z",
+        "environment": "Production – ramsider",
+        "environment_url": "https://ramsider-gw8rujyqz-askmi-6282s-projects.vercel.app",
+        "id": 21366548480,
+        "log_url": "https://ramsider-gw8rujyqz-askmi-6282s-projects.vercel.app",
+        "state": "success"
+      },
+      {
+        "created_at": "2026-11-04T18:43:01Z",
+        "environment": "Preview – ramsider-beta",
+        "environment_url": "https://ramsider-beta-q486kbstn-askmi-6282s-projects.vercel.app",
+        "id": 21366114947,
+        "log_url": "https://ramsider-beta-q486kbstn-askmi-6282s-projects.vercel.app",
+        "state": "success"
+      }
+    ],
+    "bundleIdentity": {
+      "date": "2026-11-04",
+      "canonical": "https://ramsider-main.vercel.app/en",
+      "playerChunk": {
+        "path": "/_next/static/chunks/08use1w1ip6b4.js",
+        "status": 200,
+        "sha256": "dfee3dbce2c3d49df7abf975940044b7cf5d281e0c56c7b815821dee535bf1fe",
+        "localExact": true
+      },
+      "chunks": [
+        {
+          "path": "/_next/static/chunks/2_awzscc58y1b.css",
+          "status": 200,
+          "sha256": "4a47e2d07359cc7cb6a97f56b07f2c817f6c98d4c076494d3594150c9bec775b",
+          "localExact": true
+        },
+        {
+          "path": "/_next/static/chunks/37bwvwo39glkk.css",
+          "status": 200,
+          "sha256": "535981d8f8321416726c43e46a4777da560bd32402a6a6920ec19fd95d81b60f",
+          "localExact": true
+        },
+        {
+          "path": "/_next/static/chunks/15orcrkp-_9ct.js",
+          "status": 200,
+          "sha256": "69a6bb99c3ffab75664c38bcf12faabd4bb9dc7e300605c030168809b21bc0b9",
+          "localExact": true
+        },
+        {
+          "path": "/_next/static/chunks/14mrh2-p_w84d.js",
+          "status": 200,
+          "sha256": "a3ac200f3ab8bfa57cf78882057741ddb5c0fbc9e2490c5d951c099b37484206",
+          "localExact": true
+        },
+        {
+          "path": "/_next/static/chunks/05-c3ty_6dwfk.js",
+          "status": 200,
+          "sha256": "aee2d073d2a1157cfe5c98907f90b3967de4c3625f9ffb154bd1979ae2b917b0",
+          "localExact": true
+        },
+        {
+          "path": "/_next/static/chunks/3-5k80pt3ds20.js",
+          "status": 200,
+          "sha256": "00511376da26d0c09f9fd839127c7532d37de4c9c450afe5e8906d0cc78d147b",
+          "localExact": true
+        },
+        {
+          "path": "/_next/static/chunks/3_yaym1q7aiwc.js",
+          "status": 200,
+          "sha256": "eb530cd200dad4540f770a34f1a5917829e7eb44bd7e569d0e4601a57de5524c",
+          "localExact": true
+        },
+        {
+          "path": "/_next/static/chunks/118s5zhf5pgaq.js",
+          "status": 200,
+          "sha256": "1f6983ac49b235646044a1b346d5d5fab9bcd95d6dd9c0bc6039ef45a86f36c4",
+          "localExact": true
+        },
+        {
+          "path": "/_next/static/chunks/turbopack-3ps7o16pksegz.js",
+          "status": 200,
+          "sha256": "0bb43ca9a2c7c0f676a98a3e45d14522d9510c410fa068ff7eccaa7994ec9b61",
+          "localExact": false
+        },
+        {
+          "path": "/_next/static/chunks/1so528r5q2--i.js",
+          "status": 200,
+          "sha256": "66fb4502aafbe9588053befa8aace4c2226c0fad6313f1d4cfbb8e5e6ac94bce",
+          "localExact": true
+        },
+        {
+          "path": "/_next/static/chunks/3gzxhq9iq6efl.js",
+          "status": 200,
+          "sha256": "d5de439da1ee98f738ee39179d2461bc242a278520b76b286f1a40fe150f871f",
+          "localExact": true
+        },
+        {
+          "path": "/_next/static/chunks/43h7fz0_citb4.js",
+          "status": 200,
+          "sha256": "b2ecb8d95f76c700036fa2d4493fd4349b1292da5de6a3435fe2874d0563fe54",
+          "localExact": true
+        },
+        {
+          "path": "/_next/static/chunks/08use1w1ip6b4.js",
+          "status": 200,
+          "sha256": "dfee3dbce2c3d49df7abf975940044b7cf5d281e0c56c7b815821dee535bf1fe",
+          "localExact": true
+        }
+      ]
+    },
+    "bundleLimit": "Actual feature module and both CSS byteexactlocaltestedbuild;12of13loadedstaticchunks exact, one generated Turbopackbootstrap has no matching local bytes; cause not inspected, no wholegraphidentity claim.",
+    "publicChecks": {
+      "proNative": "4PASS1initial5sreadyFAIL1.3m; isolatednativeURL retry1PASS16.5s under publiconly30sexpectconfig. Originaldefaultbutton/lifecycle alreadypassed.",
+      "maxNative": "5PASS1.2m",
+      "explicitWindow": "4PASS1.3m ProthenMax originalbutton/keyboard/mediarequest/rotation",
+      "desktop": "2PASS1.3m actualAndroididentityChromiumelementFullscreen + all3projectgroups",
+      "validScenarios": 16,
+      "initialFailedChecksRetained": 1,
+      "physicalSafariChrome": "BLOCKED_NO_DEVICE; APIadapter notAVKit/systembar/framing proof"
+    },
+    "technicalApproval": {
+      "date": "2026-11-04",
+      "verifier": "/root",
+      "status": "APPROVED_PUBLISHED_WEB_ROUTING",
+      "independentAuditor": "PASS_PUBLISHED_WEB_ROUTING_WITH_LIMITS2026-11-04 independent/root/audit: refreshedexactSHA GitHubbothSUCCESS;21HEAD/working sources+29local+35public artifactSHA exact; independentcanonicalGET player267834B+CSS75467/4642B byteexact; actualpubliclogs16valid andProthenMax/windowlandscape/desktopListimages examined; physicalSafariChromeAVKit BLOCKED_NO_DEVICE, historical22of60artifactmismatchesOPEN/no reapproval, generatedbootstrapdifferenceuninspected."
+    },
+    "directVercelRead": "BLOCKED_NETWORK_BUSINESS_POLICY; own directCLIreads stopped, no bypass. Exact environment/status evidence from permitted GitHub.",
+    "postPushRecords": "LOCAL_ONLY; committedruntime/testsource unchanged"
+  },
   "remainingOpen": [
     "CHG0186 physical native Safari/Chrome acceptance",
     "CHG0181 pre-existing whole-repo lint failure",
-    "CHG0198 earlier privacy metadata incident"
+    "CHG0198 earlier privacy metadata incident",
+    "CHG0186 historical22artifact mismatches; prior images overwritten by root legacyQA default roots, currentproof separate"
   ],
-  "agentEvaluation": "EVAL-VIEWER/EVAL-PRESENTATION controlled NOT_RUN; product QA is not behavioral-eval proof"
+  "agentEvaluation": "EVAL-VIEWER/EVAL-PRESENTATION controlled NOT_RUN; product QA is not behavioral-eval proof",
+  "historicalEvidenceIntegrity": {
+    "status": "OPEN_HISTORICAL_ARTIFACT_INTEGRITY",
+    "receipt": "docs/evidence/video/iphone-entrypaths.json",
+    "originalArtifactCount": 60,
+    "currentHashMismatches": 22,
+    "evidence": "screenshots/video/iphone-native-default/historical-artifact-integrity.json",
+    "cause": "Root reused legacy tests default screenshot roots; old expectedhashes retained, originals not recovered. Current native-default proof has dedicated roots and freshbindings; no oldimage reapproval.",
+    "agentBehavior": "FAIL; EVAL-VIEWER/EVAL-PRESENTATION controlled NOT_RUN",
+    "otherLegacyReceipts": "NOT_AUDITED;22mismatches refers only to60artifact entrypaths receipt, no whole historical-artifact integrity claim"
+  },
+  "publicArtifactBindings": [
+    {
+      "path": "screenshots/video/iphone-native-default/public/bundle-identity.json",
+      "sha256": "b10c29877877b4289ec2d22b4d0f8ce1433c38e1a4a1de955f0ce2a7a3498b7d"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/pro/iphone-17-pro-webkit-inline.png",
+      "sha256": "f020473bdba6ed3d8112eb858ac21d5960af0cd3d9a23377905e4944e5c0c57a"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/pro/iphone-17-pro-webkit-returned.png",
+      "sha256": "e3387ad24b25baacd847520dd8892dd7c1244430d29273a9b985efcb826b28aa"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/groups/desktop-chromium-groups.json",
+      "sha256": "dd61494cd56824fc0c2fe6204b9b070c83dce71ffb16d36bc2cce863f530e457"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/groups/desktop-chromium-ramswear-playing.png",
+      "sha256": "57e2015e0ecab96e95292c74870a6e9a25a789a223d3d08f2e4ecdc43dd0d1b5"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/groups/desktop-chromium-ramswear-preview.png",
+      "sha256": "54a3c242766fc3feba893fc7944eac624631a33c75579cc471af84f1b20620a3"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/groups/desktop-chromium-ramswear-list.png",
+      "sha256": "2c125c26c135901ca542aa87ad38fae578b472e0c33992176d233a6d135c1fdd"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/groups/desktop-chromium-ramsmobile-preview.png",
+      "sha256": "1761e7f2e7241984ebfbc9538598c8b68c8a25a4a7067dd37979d5c0e7e7bae7"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/groups/desktop-chromium-ramsmobile-playing.png",
+      "sha256": "3a1d09f3f76973435e8490dc2904cf414c350b51f6af6a89974b9721a7d5a69d"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/groups/desktop-chromium-ramsider-ended.png",
+      "sha256": "c6be0b3e86b395e48befd9f1e63a8d2c925ec096a78403053877b3e52a37c421"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/groups/desktop-chromium-ramswear-ended.png",
+      "sha256": "2b494c4d28eb95dcd7c40eca745e34b5484875305362320921366603e2a0506d"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/groups/desktop-chromium-ramsmobile-ended.png",
+      "sha256": "3d7c64e20e70b5444d964298cb06ebfbc6823ce2ae4a03e5a77a5e4f312ac0ee"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/groups/desktop-chromium-ramsider-list.png",
+      "sha256": "2e1d90b6dcf698f24c5c5dd3269b1487596c84bda04c6001d33120e85af4cad5"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/groups/desktop-chromium-ramsider-preview.png",
+      "sha256": "a1b8867f7db00429e6d230eac3e5344fbf0c217a97c99c51c71ad1dc11ae5b66"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/groups/desktop-chromium-ramsider-playing.png",
+      "sha256": "8e6519f8689b9cc2bc204131a72113bdec15914e78fb2baaa83006614d7b4ae5"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/groups/desktop-chromium-ramsmobile-list.png",
+      "sha256": "26458d7e66623d170618d5953642ada60ab9a0a0ffe8881919747243cc56f33a"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/groups/desktop-chromium-uno-square-preview.png",
+      "sha256": "b3c440fdf875f23bb66a058763299b231cdef314e9b7af9e5756849d1f6ab504"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/max/iphone-17-pro-max-webkit-returned.png",
+      "sha256": "e1e363808da37b95fc33f159f3947b38fa89c317921b1e62f74f0bb946752c01"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/max/iphone-17-pro-max-webkit-inline.png",
+      "sha256": "f5897d2ebf67a2dddc628ce73750b535a614fe6f3ac857768411d9e0652d9efd"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/window/iphone-17-pro-max-webkit-manual-portrait.png",
+      "sha256": "587c7a1ce632865175b2b0819a514eb0f97a1ab37bbb903e00faa07388943e9d"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/window/iphone-17-pro-webkit-manual-landscape.png",
+      "sha256": "43e4d1aca8934fae677535287d54d6c1dab4407fb2f1dee24bb857e6340278b4"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/window/iphone-17-pro-max-webkit-manual-landscape.png",
+      "sha256": "b5611386df4ed74a26fb71bc76315704ab06d09490d1f18a3066574412f3ba4a"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public/window/iphone-17-pro-webkit-manual-portrait.png",
+      "sha256": "b2fd441e3e0c4d66fa65d9c95815e4452ea788ba10422e7a112e463f08de66c2"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public-window.log",
+      "sha256": "440b0c5227123b3372de237b3e83ef793d2c11ad8714737ee1e3ff73140d66ec"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public-desktop.log",
+      "sha256": "9992c678b520a07880023fb7a12689e509e4c0a941e0f1bd5287672ae9f01f35"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public-pro-retry.log",
+      "sha256": "de710c9567d1fbeaa401f1f6829f8209916597eb40b18656169df90724fdf0e0"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public-bundle.log",
+      "sha256": "4ac14bbcaffe816d8fbe4d9ee2d734d210e7f628e581ce83ca29027013fde211"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public-pro.log",
+      "sha256": "f10eb82a8882144977afdd18a419127a5cf676cf54b5037ec0dfeffb439437bc"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public-max.log",
+      "sha256": "b343f9fe6e20ac737a8908391a37a94af4e3466fdcac049c26f2a6d2e2f846a3"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/commit-status.json",
+      "sha256": "3e6abc597189558352fa231e6efe3447208da15fa1fd5ccd7ea45f69f992e859"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/deployments.json",
+      "sha256": "711a555751ba94f164cca9c4b591e36981043669a35496ac5be08411882d067e"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/deployment-7554815447-status.json",
+      "sha256": "de0a0af82d5b90bbc8ee9b1352d79ed1ff61510ebf08325720c3df498c1c217f"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/deployment-7554675350-status.json",
+      "sha256": "1516fd159436558e76546bb999f41ca412b946e6e8b740e2421868e263f35a45"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/historical-artifact-integrity.json",
+      "sha256": "d89b987ae243fa8f2bea8ca0d917807d8b7b53ffc7282ae8b81e80a7c681d5d2"
+    },
+    {
+      "path": "screenshots/video/iphone-native-default/public-playwright.config.mjs",
+      "sha256": "d87227b6e6d51c609a9cfad8cfd0ba9d463a3828a6478c32c5d480db87f2c021"
+    }
+  ],
+  "cleanup": "Task-owned localproduction3191 server stopped aftercwdguard; runtime/testworkingdiffempty; originalunrelateddirtydocs/privateassets preserved"
 }

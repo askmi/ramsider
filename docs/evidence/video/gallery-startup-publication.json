@@ -1,0 +1,112 @@
+{
+  "sha": "fe6c4994244c00d992494500c63c95c731f0e59d",
+  "canonical": "https://ramsider-main.vercel.app/en",
+  "htmlEvolutionHLS": true,
+  "htmlOriginalSelected": false,
+  "scriptsMatchTestedBuild": true,
+  "startupFiles": [
+    {
+      "path": "master.m3u8",
+      "status": 200,
+      "bytes": 637,
+      "sha256": "731cba57a0b29dbc1b1b4c3575f36960d55a68e5c81f17d373bae5d38c811ce9",
+      "exact": true
+    },
+    {
+      "path": "360p/index.m3u8",
+      "status": 200,
+      "bytes": 2219,
+      "sha256": "f75219755856c5696433d959179d7351b11f3fe6109fdc3ab0341bb2bf4967a4",
+      "exact": true
+    },
+    {
+      "path": "360p/init.mp4",
+      "status": 200,
+      "bytes": 1394,
+      "sha256": "158120256efbee9d2c332e024f67161e01b7c64d518808e99063f9a0173e02fa",
+      "exact": true
+    },
+    {
+      "path": "360p/segment-00000.m4s",
+      "status": 200,
+      "bytes": 150574,
+      "sha256": "fba23d13a95a7a2951077bdb3c84b2d27475683855ddcb855808dd40b7a1cfee",
+      "exact": true
+    },
+    {
+      "path": "360p/segment-00001.m4s",
+      "status": 200,
+      "bytes": 148331,
+      "sha256": "4deb8d986b860c54854fe5a5cc99cb1426dc5f2166a44a5720676bea6bcc4864",
+      "exact": true
+    },
+    {
+      "path": "360p/segment-00002.m4s",
+      "status": 200,
+      "bytes": 142814,
+      "sha256": "4aa61c89f54ee7d665fcd2b54d3e7d6a79a1631ce456fe106c211f74f8b15b7e",
+      "exact": true
+    }
+  ],
+  "allStartupExact": true,
+  "browser": {
+    "startupAndPlaylist": "6PASS /private/tmp/film-start-public.log",
+    "decodedFramesAndFullscreen": "3PASS /private/tmp/film-start-public-frames.log",
+    "profiles": [
+      "WebKit Pro402x874DPR3",
+      "WebKit Max440x956DPR3",
+      "portrait/landscape/short390x664",
+      "Chromium actual fullscreen1440x900/844x390"
+    ],
+    "actual": "42objects warmed, Evolution3startupsegments servedcachehit, >6.2s actualplayback/close/reopen no rewarm; white/darker-frame pixel and screenshot assertions; decoded10/109s fullwidthframes; silent/error0",
+    "screenshots": {
+      "screenshots/video/startup-fix-public/desktop-chromium-1440-10-evolution.png": "c7f72f990c07093dcfa34650c4c8ff63d0489daf4ce0e689b6dd4cf8e204a4bb",
+      "screenshots/video/startup-fix-public/desktop-chromium-1440-109-evolution.png": "d416a971bc8a496a653687373b2852445f45bb9fb9ef57f0092324b3f45b4226",
+      "screenshots/video/startup-fix-public/desktop-chromium-844-10-evolution.png": "b8376ebc82de37246d57aab5e96723371921b3932d5295845ca29d99438ad507",
+      "screenshots/video/startup-fix-public/desktop-chromium-844-109-evolution.png": "4466df624583886f5638d067cf03b55862500ff9ea58e3d51d12841ca3525066",
+      "screenshots/video/startup-fix-public/desktop-chromium-dark-fullscreen-playlist.png": "951c0e34a476520db9b146c5323f86e387bf1342d3311625b62368b75761d519",
+      "screenshots/video/startup-fix-public/desktop-chromium-dark-inline-playlist.png": "7c185c1178b8473568859eb46c583b99fa390525b1894232c9ba86e69fc6b800",
+      "screenshots/video/startup-fix-public/desktop-chromium-white-fullscreen-playlist.png": "cb10d3d52788c381236e233c3f9b811aea794ca98f4929b7bda440780f5e679f",
+      "screenshots/video/startup-fix-public/desktop-chromium-white-inline-playlist.png": "55edf4761ef44e88f51462bc889c95afc1bbdb6141f0ad565e4d6ae0143991ff",
+      "screenshots/video/startup-fix-public/iphone-17-pro-max-webkit-440-10-evolution.png": "a5de6ba0327946089a2bc883abd8d1ab3e80edf16a8352278bcc1c10fcfc0a4c",
+      "screenshots/video/startup-fix-public/iphone-17-pro-max-webkit-440-109-evolution.png": "0d3eea02f774faedc9a253b277feee25c0e52403af58e1dd5db999757d5b57f4",
+      "screenshots/video/startup-fix-public/iphone-17-pro-max-webkit-956-10-evolution.png": "da6611d4e19541e72aebc38b5976772b6afdb60e25ad3422a6c671f77dcf8982",
+      "screenshots/video/startup-fix-public/iphone-17-pro-max-webkit-956-109-evolution.png": "c50325daea503c91744749359a54371c566461a315eeb6b43e4dc3ab08acb5ab",
+      "screenshots/video/startup-fix-public/iphone-17-pro-max-webkit-dark-fullscreen-playlist.png": "5166fe3908e6157f055768148d3d9883d28006d2a1b81867039ef085d21070cb",
+      "screenshots/video/startup-fix-public/iphone-17-pro-max-webkit-dark-inline-playlist.png": "085f6f49abc9afe620a30cd9259a541acce720a624591ef797bf77c5c92cd359",
+      "screenshots/video/startup-fix-public/iphone-17-pro-max-webkit-white-fullscreen-playlist.png": "840e93548d1b97248ec3d09ce9530e44e69d806aabd00d47157745e0da1d5344",
+      "screenshots/video/startup-fix-public/iphone-17-pro-max-webkit-white-inline-playlist.png": "2f8b4ba39e8a8b7d69eb7a7627bc880037bdf92b3f0906cc86b5f8430d12a0d0",
+      "screenshots/video/startup-fix-public/iphone-17-pro-webkit-390-10-evolution.png": "b8dbdfc4f9b7db04aba6788bf28e6defbe69652641a94ffb90307c9950d38c3a",
+      "screenshots/video/startup-fix-public/iphone-17-pro-webkit-390-109-evolution.png": "f04beb52387c35211eb04e4670ae6e23a829a5c1e61ba49902b7abf7d3742282",
+      "screenshots/video/startup-fix-public/iphone-17-pro-webkit-402-10-evolution.png": "3d4cee74bc97c2008606d866a8168beffb5c007eee00d11c7314b7689181ea1b",
+      "screenshots/video/startup-fix-public/iphone-17-pro-webkit-402-109-evolution.png": "a557033419e78b1121b84b108967f8ef2e0c29c84c1e0a329efc2721f7c45740",
+      "screenshots/video/startup-fix-public/iphone-17-pro-webkit-874-10-evolution.png": "be2c8cc556449ad43d0e51fca94ed066a46bb2f09d7891d74a1522c4d6e15cb4",
+      "screenshots/video/startup-fix-public/iphone-17-pro-webkit-874-109-evolution.png": "6e0d46719a6c6df105240765e2d8219957df150dfeae46dc0be67a0a3e82957e",
+      "screenshots/video/startup-fix-public/iphone-17-pro-webkit-dark-fullscreen-playlist.png": "4090818612a9f1025c30344c4b3c84838e0b1ed49d7bb71972d1c0347e4c46a1",
+      "screenshots/video/startup-fix-public/iphone-17-pro-webkit-dark-inline-playlist.png": "960ebe427f8abad3d702c8e96043513901f15525968c91f89d177d89c2f672d7",
+      "screenshots/video/startup-fix-public/iphone-17-pro-webkit-white-fullscreen-playlist.png": "a7433c328412ce0283b3ba3ac828d1b8e137a0116e2c8ef0e0d372f7389079bc",
+      "screenshots/video/startup-fix-public/iphone-17-pro-webkit-white-inline-playlist.png": "365c690e0e36827611ae33c91bf0a91f20dc744e535ced292290a78a8ad27270"
+    }
+  },
+  "production": {
+    "id": 7439662869,
+    "sha": "fe6c4994244c00d992494500c63c95c731f0e59d",
+    "environment": "Production – ramsider",
+    "latestState": "success",
+    "provider": "https://vercel.com/askmi-6282s-projects/ramsider/8hRwjcrSXTvJj7yWkQEtyrwgZQwB",
+    "environmentURL": "https://ramsider-6mjsfxuha-askmi-6282s-projects.vercel.app",
+    "completedAtUTC": "2026-10-30T13:37:46Z"
+  },
+  "technicalApproval": {
+    "date": "2026-10-30",
+    "verifier": "/root",
+    "verdict": "APPROVED_PUBLISHED_GALLERY_STARTUP",
+    "independentPublicationAudit": "PASS /root/scroll_auditor2026-10-30"
+  },
+  "limits": [
+    "Physical iPhone/native Apple OSfullscreen not verified",
+    "Provider alias metadata separately not queried; exactGitHubProductionSUCCESS and actual canonicalnewbuild/catalog/6assethashes independently confirmed",
+    "Local benchmarks apply namedwarm/early/networkconditions only",
+    "Unrelated CHG0180/0181/0185 remainOPEN; credential-like process-output revocationNOT_VERIFIED"
+  ]
+}

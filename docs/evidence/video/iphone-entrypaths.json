@@ -1,7 +1,7 @@
 {
   "change": "CHG0186 unified iPhone entrypaths",
   "date": "2026-10-31",
-  "status": "VERIFIED_LOCAL_WEB / READY_FOR_SCOPED_MAIN_PUBLICATION / PHYSICAL_IPHONE_NOT_VERIFIED",
+  "status": "VERIFIED_PUBLISHED_WEB / PHYSICAL_IPHONE_NOT_VERIFIED",
   "baseline": "1caaa89",
   "sources": {
     "app/globals.css": "ff26a0c41d9cf3426223dcc39d8299310a46e3f6265ba32af584909a1d6a38ee",
@@ -142,8 +142,8 @@
     "screenshots/video/iphone-entrypaths/iphone-17-pro-max-webkit-film6.png": "36f0bf8b161319d5986cffe433c531afc50cad7f20e74eea5af44e178b070f8b"
   },
   "technicalApproval": {
-    "root": "/root APPROVED_LOCAL_WEB_AND_SCOPED_PUBLICATION_CANDIDATE2026-10-31",
-    "independent": "/root/research_closeout scope/Gates3/4/5/6 PASS_LOCAL_WEB2026-10-31; final26stagedfiles/17source+60artifactSHA verified; public/physical gates separate"
+    "root": "/root APPROVED_PUBLIC_WEB2026-10-31; actualcanonicaloriginalcontrol androtation/default/nativefallback/all7 tested; physicalscopeexcluded",
+    "independent": "/root/publication_closeout PASS_PUBLICATION_AND_FINAL_RECORDS_WITH_WEB_LIMITS2026-10-31; checked17committedsource+60local+57publicartifactSHA, logs/probe/twoactualimages. Prior /root/research_closeout localGates1/3/4/5/6PASS retained; its laterunreturnedpublicationturn notcounted."
   },
   "limits": [
     "Physical iPhone/iOS/AVKit unavailable",
@@ -151,5 +151,281 @@
     "English-only current presentation; inactive RTL not claimed",
     "Full unrelated suite/whole-repo lint/field INP/Lighthouse not certified",
     "No source/audio/HLS encoding changes"
-  ]
+  ],
+  "publication": {
+    "commit": "c5d355babf52f7e6a432e0504bc908b78168cc4e",
+    "branch": "origin/main",
+    "push": "SUCCESS",
+    "protectedBeta": "47dddd9522f044f25d643fca3d5ea90d1f0f6825",
+    "deployment": "SUCCESS_BOTH_EXPECTED_TARGETS",
+    "expected": [
+      "Production ramsider",
+      "automatic Preview ramsider-beta"
+    ],
+    "canonical": "https://ramsider-main.vercel.app/en",
+    "remoteMainExact": true,
+    "protectedBetaUnchanged": true,
+    "production": {
+      "id": 7458619792,
+      "environment": "Production – ramsider",
+      "state": "success",
+      "provider": "https://vercel.com/askmi-6282s-projects/ramsider/CiEdc82rPQ2oiz5TiuycwiFUWbd9",
+      "deploymentURL": "https://ramsider-gsdz4l39p-askmi-6282s-projects.vercel.app"
+    },
+    "automaticPreview": {
+      "id": 7458590314,
+      "environment": "Preview – ramsider-beta",
+      "state": "success",
+      "provider": "https://vercel.com/askmi-6282s-projects/ramsider-beta/7cNUCZrvVnfyzLHQFYC3ZWgKMkLj"
+    },
+    "publicQA": "16 valid scenarios (initial15PASS1 controls-ready5s deadlineFAIL + boundedrepeat1PASS with2317ms observedwait and30sdeadline); additional2short-submenuPASS. Pro/MaxWebKit DPR3 originaltouch/button/keyboard/requests/orientation/manualauto/7decodedfilms/Evolution10+109/nativeURL+menu/samevideo-time/close/PiP/safehits; errors0. Native API explicitly mocked for fallback intent, not physical AVKit.",
+    "publicProbe": {
+      "date": "2026-10-31",
+      "scope": "Canonical public site, modern mobile WebKit DPR3; native entry mocked solely to observe original button intent, not AVKit/OS framing.",
+      "observation": {
+        "nativeCalls": 0,
+        "windowFlag": true,
+        "url": "https://ramsider-main.vercel.app/en",
+        "viewport": [
+          844,
+          390,
+          3
+        ],
+        "video": {
+          "time": 10,
+          "decoded": [
+            640,
+            360
+          ],
+          "src": "https://ramsider-main.vercel.app/films/evolution/und-v1/master.m3u8"
+        }
+      },
+      "errors": [],
+      "scripts": [
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/3-5k80pt3ds20.js",
+          "status": 200,
+          "bytes": 17697,
+          "sha256": "00511376da26d0c09f9fd839127c7532d37de4c9c450afe5e8906d0cc78d147b",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": false
+        },
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/15orcrkp-_9ct.js",
+          "status": 200,
+          "bytes": 50702,
+          "sha256": "69a6bb99c3ffab75664c38bcf12faabd4bb9dc7e300605c030168809b21bc0b9",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": false
+        },
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/05-c3ty_6dwfk.js",
+          "status": 200,
+          "bytes": 3377,
+          "sha256": "aee2d073d2a1157cfe5c98907f90b3967de4c3625f9ffb154bd1979ae2b917b0",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": false
+        },
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/turbopack-3ps7o16pksegz.js",
+          "status": 200,
+          "bytes": 11041,
+          "sha256": "84b493b43fc9dc46366374801bf0b6616036bb6f0d84f442a37e3ce5036297cc",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": false
+        },
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/3ahpim2z-okc0.js",
+          "status": 200,
+          "bytes": 19233,
+          "sha256": "c1800b8f68a8b0cdb44c2254c00b2aae6a105730a3f1023927f459308bff19fd",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": false
+        },
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/14mrh2-p_w84d.js",
+          "status": 200,
+          "bytes": 54646,
+          "sha256": "a3ac200f3ab8bfa57cf78882057741ddb5c0fbc9e2490c5d951c099b37484206",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": false
+        },
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/3gzxhq9iq6efl.js",
+          "status": 200,
+          "bytes": 227315,
+          "sha256": "d5de439da1ee98f738ee39179d2461bc242a278520b76b286f1a40fe150f871f",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": false
+        },
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/3_yaym1q7aiwc.js",
+          "status": 200,
+          "bytes": 150472,
+          "sha256": "eb530cd200dad4540f770a34f1a5917829e7eb44bd7e569d0e4601a57de5524c",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": false
+        },
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/2olypon1jqkhm.js",
+          "status": 200,
+          "bytes": 195996,
+          "sha256": "a33b1da3d61f93382eaf48f34317f9a760cfd706682a0dfcf742567916aa7f00",
+          "iphoneOverride": false,
+          "windowFlag": false,
+          "nativeCall": false
+        },
+        {
+          "url": "https://ramsider-main.vercel.app/_next/static/chunks/1msgj3ruvmf26.js",
+          "status": 200,
+          "bytes": 267834,
+          "sha256": "a1d7990659b424e187bba4a67f3958291217a0240cc920652960fa8eea51dd2b",
+          "iphoneOverride": true,
+          "windowFlag": true,
+          "nativeCall": true
+        }
+      ],
+      "summary": {
+        "scriptCount": 10,
+        "iphoneOverride": true,
+        "windowFlag": true,
+        "nativeCall": true
+      },
+      "candidateBundleMatch": [
+        {
+          "file": "3-5k80pt3ds20.js",
+          "exists": true,
+          "matches": true,
+          "containsNewMode": false
+        },
+        {
+          "file": "15orcrkp-_9ct.js",
+          "exists": true,
+          "matches": true,
+          "containsNewMode": false
+        },
+        {
+          "file": "05-c3ty_6dwfk.js",
+          "exists": true,
+          "matches": true,
+          "containsNewMode": false
+        },
+        {
+          "file": "turbopack-3ps7o16pksegz.js",
+          "exists": true,
+          "matches": false,
+          "containsNewMode": false
+        },
+        {
+          "file": "3ahpim2z-okc0.js",
+          "exists": true,
+          "matches": true,
+          "containsNewMode": false
+        },
+        {
+          "file": "14mrh2-p_w84d.js",
+          "exists": true,
+          "matches": true,
+          "containsNewMode": false
+        },
+        {
+          "file": "3gzxhq9iq6efl.js",
+          "exists": true,
+          "matches": true,
+          "containsNewMode": false
+        },
+        {
+          "file": "3_yaym1q7aiwc.js",
+          "exists": true,
+          "matches": true,
+          "containsNewMode": false
+        },
+        {
+          "file": "2olypon1jqkhm.js",
+          "exists": true,
+          "matches": true,
+          "containsNewMode": false
+        },
+        {
+          "file": "1msgj3ruvmf26.js",
+          "exists": true,
+          "matches": true,
+          "containsNewMode": true
+        }
+      ]
+    },
+    "publicProbeFailures": "Old supplemental helper assumed gallery before hydration, then rotated before Enter despite new autoentry; corrected helper waits readiness and exercises original portrait Enter→rotate. No app/runtime edits.",
+    "publicImagesViewed": "Root directly viewed publicPro manual874402, Maxauto956440 andEvolution10 ownwindow screenshot; no externalframebands in those states.",
+    "limits": "Provider exactalias assignment not separately inspected due known SSO/provider access limit; exactSHA Production evidence + actualcanonicalfunctionalbehavior + featurechunk SHA identical to testedcandidate verified separately. No physicalSafari/AVKit promise or startupSLA.",
+    "postPushRecords": "Local only; no second codecommit or redeploy",
+    "audit": "PASS /root/publication_closeout2026-10-31 within statedwebscope; physicalAVKit and exactprovideraliasassignment notcertified"
+  },
+  "publicSourcesMatchCommit": true,
+  "publicArtifacts": {
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-manual-portrait.png": "587c7a1ce632865175b2b0819a514eb0f97a1ab37bbb903e00faa07388943e9d",
+    "screenshots/video/iphone-entrypaths-public/short-320x240-720.png": "240c72dff7d703b8314ac0f16954c36f2939f948116f51f999a8446a76c203e8",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-186-errors.json": "3d600127da3e79de37b75813282a7d9115df4bf5ee468c947314a5cca8061388",
+    "screenshots/video/iphone-entrypaths-public/public-original-button.png": "bc0e88770660e341aa476df46126b407afdbf2426af634a924f43d789b7886dc",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-evolution-end.png": "c67c66a3540ed8ec4843b5502257e861cad17d1b2bbd537c64e8650b6cb6a193",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-film1.png": "94468339d2c09ad0bf73ce506f180103d648ffc465acd415cf5e3965f8b59d49",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-film3.png": "9304e70228b8f8fc819a076287689928f9b000d05c725f69c0c4918f5b63a7e2",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-films.json": "d5485d8e39ddd97c3f842e93822020042e023587a75727a6ba33ec66c5365ef4",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-188-ready.json": "912ae6c6a962aab5747a038212c7f3964a40195e3d27cd7272659d9ca28fae90",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-film2.png": "e9f03d1f5c3bfab445c96c9975b5e045ac2c901958df99ed323ccf9dd3b6c934",
+    "screenshots/video/iphone-entrypaths-public/short-320x240-native.png": "b15b4962d61150ec5f582d76bd470098e4bdb794c50e300b7f83291e253fc868",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-film6.png": "e05e89504bdadd84ea30afd13907a1ce2d746cf1301136dc3d14f9d05bde4b8a",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-91-errors.json": "33f3a413671e8e8dd95ba6b8262adb0003bb85085fede9ab18a14c7926594bb0",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-manual-landscape.png": "7a67dfb70b520ffc5162a4d14435109788b459f988031dd35cb9eacb211d1841",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-film7.png": "4fdae4f6a71a5890fc8a6335fd0080dcd142d078780abc2f79fdecb6f47505e8",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-manual-landscape.png": "8c7b6001c66f6220dac040638d715a16c95ab71d34b4562935b7f7430c4b0cdc",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-film5.png": "5e64f8210d6d6e1aea4c1288a3887f74d69ad101b9e7f1201a537e8992af098d",
+    "screenshots/video/iphone-entrypaths-public/short-submenu-check.mjs": "1a304b1da7360ee179596fcf08df722702ad5f4e3d61c0d523b7ebb18b2b4560",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-film4.png": "ccab09afdb1339ece6dc1c3048033a2548ec38a5e4807448673fccfd781542c4",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-112-errors.json": "d36f10c4c55d6bc12f194e950e608431aaf8c394f81e888ecce43c173c4bf662",
+    "screenshots/video/iphone-entrypaths-public/public-interaction.json": "365f4e06c9b46be4d84f2d01e98c6284fb182cf28d128fe0979c62388bde43dc",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-170-errors.json": "4b64a9b696edb379cef3b9213e06b11b0a6f94d87dd814f8b921c77e04d685c0",
+    "screenshots/video/iphone-entrypaths-public/short-submenu-checks.json": "4a2d981db8490ffbf48e6f6b25c01885a74d0e046bc34c76e34956e9c099c7ef",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-143-errors.json": "6da8d3ee4a97c02b2346c4acb2001b491c1f54737c5249a41c44204535301398",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-auto-1.png": "e2f03c8ecfe5fddc2e2bccb53f8e62ad7cc9198e5a3f6707e6bbab90cb1522e3",
+    "screenshots/video/iphone-entrypaths-public/check-public.mjs": "926d2a88439b5efd9b71a69b584ec23be64531b2a859234dfb5dfb11c26a56e8",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-72-errors.json": "32897b0e2c21c16c1ee20c4436e504f622e2f4352a4f76fca0581589f3334fff",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-auto-0.png": "4273865611b4b37ff74eecef50be30642eeb1190565cae9ba51ed823ed687074",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-188-errors.json": "3d600127da3e79de37b75813282a7d9115df4bf5ee468c947314a5cca8061388",
+    "screenshots/video/iphone-entrypaths-public/short-568x220-native.png": "e26fe5d0044ac1ceb3c383e6a2977219d5bb335ad58fcae629d5548e1d7019a9",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-short-menu.png": "a6b74b7f298a296a3f7ade632c4f61c1216f42611e1c49c73cf6cf5c291f818b",
+    "screenshots/video/iphone-entrypaths-public/short-568x220-360.png": "64553725d468331ad4a0ae2e8517a82b6d894fd8f2722a4de2f7001715abb090",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-156-errors.json": "924a77513722807b4a0b99f1fc785aa890869c9412d403f4a33d3a1eb0dd67e6",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-evolution-end.png": "8f6f35cb903850aea19c4d0f1137ebb997addc702b4f9c3b7018d5b430899036",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-186-errors.json": "3d600127da3e79de37b75813282a7d9115df4bf5ee468c947314a5cca8061388",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-films.json": "e24a21ba3c29ff05c422e5a3f6fd22d76dc275bf22be4bfa0a4e01b5a34c7e8d",
+    "screenshots/video/iphone-entrypaths-public/short-320x240-360.png": "105b8e7ab5112937f967aafebf262ba806ce3bfce7fa972c5d7f3e276f54fa98",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-91-errors.json": "33f3a413671e8e8dd95ba6b8262adb0003bb85085fede9ab18a14c7926594bb0",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-112-errors.json": "d36f10c4c55d6bc12f194e950e608431aaf8c394f81e888ecce43c173c4bf662",
+    "screenshots/video/iphone-entrypaths-public/public.spec.ts": "9fb2a6018ae2e4090a3a0ad0afc3148b23747d5cb1fe96c8154ece1f29a1eba3",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-film2.png": "34f2aa0e991cef9b65d892a87abdd21b5ffc31c12feab9bd843406b9a7017408",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-film3.png": "292ee090aa46d8dfba9dc00f4efb3781a1d06bc2a8c4e1898e70816fb47abad5",
+    "screenshots/video/iphone-entrypaths-public/short-568x220-720.png": "b605c6de94d2852b6893ae673865e031677c462f4d2ed0cbdd1a8f591b5637c0",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-170-errors.json": "4b64a9b696edb379cef3b9213e06b11b0a6f94d87dd814f8b921c77e04d685c0",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-film1.png": "c0f9e6a840210be253fd173bf0a2171f4e07f083b836c75aeaa13715d07954ec",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-auto-1.png": "bdf85d64653cd69aad6f1a74005a5ea4249ac0e8649982feafaf5d988dccfca3",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-auto-0.png": "5ca3bbf50b84ff49d35ee5dc5b62c8fdefbca8aba608d2802a341e7023870bc5",
+    "screenshots/video/iphone-entrypaths-public/playwright.config.mjs": "9f20fab71d002cc79666b01a8eadf99ffbaffe5a9078f0d736fdcb37607f67a7",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-film4.png": "4f4c6da726eff7d7f095701d59f274aa622e2f224bdd0538a3a3d2f0a7936a95",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-manual-portrait.png": "00f2809d151e114c38996c04734c3dfac997efe851cb8efd97f91c042dce736f",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-film5.png": "fef558a0217fe7d15163e1974c6968d8877fa146398bcabd3ad281c46a02510d",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-143-errors.json": "6da8d3ee4a97c02b2346c4acb2001b491c1f54737c5249a41c44204535301398",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-72-errors.json": "32897b0e2c21c16c1ee20c4436e504f622e2f4352a4f76fca0581589f3334fff",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-film7.png": "3438bda15599367db715f0f8f8099a4f9e2692c2e004fa889221bca4316b4ef4",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-156-errors.json": "924a77513722807b4a0b99f1fc785aa890869c9412d403f4a33d3a1eb0dd67e6",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-webkit-short-menu.png": "af68b129607ad8df8778a5979d8d7ac0de512eb8a02d963c83197bb3a69d4b74",
+    "screenshots/video/iphone-entrypaths-public/iphone-17-pro-max-webkit-film6.png": "93b1c45fa9cf66203a4b8d64502f293f05777c75f5bf89149ade6a97f0f54688"
+  }
 }

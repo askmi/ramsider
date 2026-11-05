@@ -1,0 +1,67 @@
+{
+  "id": "CHG0157",
+  "date": "2026-10-27",
+  "status": "BLOCKED",
+  "branch": "main",
+  "baseSha": "f71fe71a3abbd7936595a63e5dda31b705678857",
+  "customerObservation": "White rectangle across control gradient in Spanish film near displayed 0:56/1:00, logo remains visible; actual device/browser/session/build unknown.",
+  "source": {
+    "locale": "es",
+    "version": "v2",
+    "durationSeconds": 60.04,
+    "dimensions": [
+      3840,
+      2160
+    ],
+    "frameRate": 25,
+    "videoCodec": "h264",
+    "audioCodec": "aac",
+    "colour": "BT.709 limited",
+    "sourceSha256": "2e04c7f37594a3f1d42cdef4e0ed6197eb134494f333f0d78fff93042db2715d",
+    "frameTimesSeconds": [
+      56,
+      59.5
+    ],
+    "samples": "source, fallback, six HLS renditions 144/360/720/1080/1440/2160",
+    "contactSheet": "screenshots/video-white-end/frames-contact.png",
+    "result": "No rectangle observed in sampled decoded frames; this does not certify every frame or physical iOS composition."
+  },
+  "localBrowser": {
+    "profiles": [
+      "iPhone 13 geometry 390x844 DPR3 WebKit",
+      "iPhone 17 Pro 402x874 DPR3 WebKit",
+      "iPhone 17 Pro Max 440x956 DPR3 WebKit",
+      "iPhone 13 geometry Chromium"
+    ],
+    "result": "Spanish HLS playback through end, visible custom controls, hidden controls, and emulated full-window presentation; no matching rectangle observed. Full-window is not native iOS fullscreen.",
+    "receipts": [
+      "screenshots/video-white-end/end-states.json",
+      "screenshots/video-white-end/comparison.png",
+      "screenshots/video-white-end/headed-forced-bar.png"
+    ],
+    "audio": "QA muted and volume 0 before playback"
+  },
+  "networkStall": {
+    "result": "Last segment held on 720p and 360p; playback reached 58.10s with readyState 2 and active loading indicator. No matching rectangle in WebKit screenshot.",
+    "image": "screenshots/video-white-end/pro-real-network-stall.png"
+  },
+  "nativeFallback": {
+    "method": "Block optional FilmControls chunk; actual native video controls remain available; 100px loading indicator absent.",
+    "result": "No matching rectangle in emulated WebKit; native iOS appearance not replicated.",
+    "receipt": "screenshots/video-white-end/fallback-states.json"
+  },
+  "public": {
+    "url": "https://ramsider-main.vercel.app/es",
+    "result": "WebKit 390x844 DPR3 played Spanish HLS to end, selected 360p, full-window fallback and close; no matching rectangle or page errors. Not physical iPhone proof.",
+    "receipt": "screenshots/video-white-end/public-end-states.json"
+  },
+  "hypothesis": "Centered 100x100 loading indicator aligns approximately with customer rectangle. Artificially opaque indicator produces a similar gradient gap but also hides the logo unlike the customer image; CSS stacking removes the artificial gap only. Neither artificial result proves the physical-session cause or a fix.",
+  "limitations": [
+    "No physical iPhone or iOS simulator; xcrun simctl unavailable",
+    "Customer browser/iOS, actual build, cache and controls ownership not established",
+    "No product code or assets changed",
+    "No commit, push or deployment of a speculative fix"
+  ],
+  "audit": "2026-10-27 /root/discipline_audit scope BLOCKED; final records PASS only, no fix approval",
+  "agentEval": "EVAL-HLS-ENTRYPOINT extension NOT_RUN"
+}

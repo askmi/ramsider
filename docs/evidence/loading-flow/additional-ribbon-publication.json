@@ -1,0 +1,656 @@
+{
+  "date": "2026-10-30",
+  "commit": "1c9d1f2da29150549bedd7dc9d0d015588ed1480",
+  "productionDeploymentId": 7437596818,
+  "provider": "https://vercel.com/askmi-6282s-projects/ramsider/2HBLLJXGVyRHUyg6HmjhRznvsg1q",
+  "publicURL": "https://ramsider-main.vercel.app/en",
+  "http": 200,
+  "all8CurrentAssetsInHTML": true,
+  "scriptPathsMatchLocal": true,
+  "scriptCount": 10,
+  "assets": [
+    {
+      "src": "/art/charcoal/v2-1-0.webp",
+      "status": 200,
+      "bytes": 1510604,
+      "sha256": "1bafb9c720c2d94ecaaec3d425c07b01c74f35fb96c8ab471a01e8a4fc8a26a3",
+      "mime": "image/webp"
+    },
+    {
+      "src": "/art/charcoal/v2-1-1.webp",
+      "status": 200,
+      "bytes": 412508,
+      "sha256": "30ee8133218ef1f6e93a294f49530b516644385b2dd223bcb0df4b9bd6f61d25",
+      "mime": "image/webp"
+    },
+    {
+      "src": "/art/charcoal/v2-2-0.webp",
+      "status": 200,
+      "bytes": 1559932,
+      "sha256": "a8e6022bfa1f1ef349c0263a3f44cefa3f5ba834d751cfcb5bb3164e4962c0e5",
+      "mime": "image/webp"
+    },
+    {
+      "src": "/art/charcoal/v2-2-1.webp",
+      "status": 200,
+      "bytes": 516978,
+      "sha256": "c24ff2a97e14a2a4b7fad653a9ac620d1f3daaf1b07b63a10f7bcbc09540ed7c",
+      "mime": "image/webp"
+    },
+    {
+      "src": "/art/charcoal/v2-3-0.webp",
+      "status": 200,
+      "bytes": 1363976,
+      "sha256": "8724bd1fa0eb01370bb78c41f8b462a598f45a7fbf4e4192230fe6338441e04e",
+      "mime": "image/webp"
+    },
+    {
+      "src": "/art/charcoal/v2-3-1.webp",
+      "status": 200,
+      "bytes": 456138,
+      "sha256": "78fc139372243565e0b27a4e01919b61d1885c4d9b6663c5109e143cd14788a9",
+      "mime": "image/webp"
+    },
+    {
+      "src": "/art/charcoal/v2-4-0.webp",
+      "status": 200,
+      "bytes": 1668994,
+      "sha256": "c3ed0551c3d2611c0ac8e42d6fe2c6db9c4c898807610af87555558d061738c7",
+      "mime": "image/webp"
+    },
+    {
+      "src": "/art/charcoal/v2-4-1.webp",
+      "status": 200,
+      "bytes": 471812,
+      "sha256": "0514059de92e9255da9ab81cd23e703fb503808390d297a76df62bbc48e842e7",
+      "mime": "image/webp"
+    }
+  ],
+  "aliasProviderMetadataSeparatelyConfirmed": false,
+  "providerInspection": "Read-only exactdeployment CLI timed out25s; GitHubproductionexactSHA/lateststatus and actualnewcanonicaldelivery checked separately.",
+  "publicBrowser": {
+    "pass": 24,
+    "fail": 0,
+    "states": [
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 0,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 838,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.48611111111111427,
+        "wholeWidthStep": 0.5002908667830184,
+        "file": "screenshots/additional-ribbons/public/pro-section-0-ready.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 0,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 917,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.5972222222222285,
+        "wholeWidthStep": 0.5484126984127045,
+        "file": "screenshots/additional-ribbons/public/max-section-0-ready.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 0,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-1-1.webp"
+        ],
+        "target": {
+          "y": 838,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.27777777777777146,
+        "wholeWidthStep": 0.10471204188482375,
+        "file": "screenshots/additional-ribbons/public/pro-section-0-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 0,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-1-1.webp"
+        ],
+        "target": {
+          "y": 917,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.38888888888888573,
+        "wholeWidthStep": 0.07275132275131568,
+        "file": "screenshots/additional-ribbons/public/max-section-0-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 0,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-0.webp"
+        ],
+        "target": {
+          "y": 838,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.27777777777777146,
+        "wholeWidthStep": 0.10471204188482375,
+        "file": "screenshots/additional-ribbons/public/pro-section-0-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 0,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-0.webp"
+        ],
+        "target": {
+          "y": 917,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.38888888888888573,
+        "wholeWidthStep": 0.06772486772484854,
+        "file": "screenshots/additional-ribbons/public/max-section-0-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 0,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-1-1.webp",
+          "/art/charcoal/v2-2-0.webp"
+        ],
+        "target": {
+          "y": 838,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.27777777777777146,
+        "wholeWidthStep": 0.10471204188482375,
+        "file": "screenshots/additional-ribbons/public/pro-section-0-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 0,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-1-1.webp",
+          "/art/charcoal/v2-2-0.webp"
+        ],
+        "target": {
+          "y": 917,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.38888888888888573,
+        "wholeWidthStep": 0.07275132275131568,
+        "file": "screenshots/additional-ribbons/public/max-section-0-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 1,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 1675,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.625,
+        "wholeWidthStep": 0.7565445026177997,
+        "file": "screenshots/additional-ribbons/public/pro-section-1-ready.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 1,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-1.webp"
+        ],
+        "target": {
+          "y": 1675,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.5277777777777715,
+        "wholeWidthStep": 1.6809191390343017,
+        "file": "screenshots/additional-ribbons/public/pro-section-1-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 1,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 1833,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.4444444444444571,
+        "wholeWidthStep": 0.6494708994708844,
+        "file": "screenshots/additional-ribbons/public/max-section-1-ready.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 1,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-0.webp"
+        ],
+        "target": {
+          "y": 1675,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.5277777777777715,
+        "wholeWidthStep": 1.6809191390343017,
+        "file": "screenshots/additional-ribbons/public/pro-section-1-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 1,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-1.webp"
+        ],
+        "target": {
+          "y": 1833,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.23611111111108585,
+        "wholeWidthStep": 1.1661375661375644,
+        "file": "screenshots/additional-ribbons/public/max-section-1-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 1,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-1.webp",
+          "/art/charcoal/v2-3-0.webp"
+        ],
+        "target": {
+          "y": 1675,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.5277777777777715,
+        "wholeWidthStep": 1.6809191390343017,
+        "file": "screenshots/additional-ribbons/public/pro-section-1-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 1,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-0.webp"
+        ],
+        "target": {
+          "y": 1833,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.19444444444445708,
+        "wholeWidthStep": 1.1661375661375644,
+        "file": "screenshots/additional-ribbons/public/max-section-1-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 2,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 2382,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.5555555555555429,
+        "wholeWidthStep": 0.5005817335660367,
+        "file": "screenshots/additional-ribbons/public/pro-section-2-ready.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 1,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-2-1.webp",
+          "/art/charcoal/v2-3-0.webp"
+        ],
+        "target": {
+          "y": 1833,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.027777777777771462,
+        "wholeWidthStep": 1.1661375661375644,
+        "file": "screenshots/additional-ribbons/public/max-section-1-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 2,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-1.webp"
+        ],
+        "target": {
+          "y": 2382,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.6805555555555429,
+        "wholeWidthStep": 0.18121000581734847,
+        "file": "screenshots/additional-ribbons/public/pro-section-2-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 2,
+        "mode": "ready",
+        "heldPaths": [],
+        "target": {
+          "y": 2607,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.5972222222222285,
+        "wholeWidthStep": 0.544179894179905,
+        "file": "screenshots/additional-ribbons/public/max-section-2-ready.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 2,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-4-0.webp"
+        ],
+        "target": {
+          "y": 2382,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.6805555555555429,
+        "wholeWidthStep": 0.18237347294939354,
+        "file": "screenshots/additional-ribbons/public/pro-section-2-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 2,
+        "mode": "upper-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-1.webp"
+        ],
+        "target": {
+          "y": 2607,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.23611111111108585,
+        "wholeWidthStep": 0.4925925925925867,
+        "file": "screenshots/additional-ribbons/public/max-section-2-upper-preview.png",
+        "errors": []
+      },
+      {
+        "name": "pro",
+        "kind": "section",
+        "index": 2,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-1.webp",
+          "/art/charcoal/v2-4-0.webp"
+        ],
+        "target": {
+          "y": 2382,
+          "width": 402
+        },
+        "actual": {
+          "width": 402,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.6805555555555429,
+        "wholeWidthStep": 0.18121000581734847,
+        "file": "screenshots/additional-ribbons/public/pro-section-2-both-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 2,
+        "mode": "lower-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-4-0.webp"
+        ],
+        "target": {
+          "y": 2607,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.2916666666666856,
+        "wholeWidthStep": 0.4925925925925867,
+        "file": "screenshots/additional-ribbons/public/max-section-2-lower-preview.png",
+        "errors": []
+      },
+      {
+        "name": "max",
+        "kind": "section",
+        "index": 2,
+        "mode": "both-preview",
+        "heldPaths": [
+          "/art/charcoal/v2-3-1.webp",
+          "/art/charcoal/v2-4-0.webp"
+        ],
+        "target": {
+          "y": 2607,
+          "width": 440
+        },
+        "actual": {
+          "width": 440,
+          "dpr": 3,
+          "overflow": false
+        },
+        "maxRowStep": 0.22222222222222854,
+        "wholeWidthStep": 0.4925925925925867,
+        "file": "screenshots/additional-ribbons/public/max-section-2-both-preview.png",
+        "errors": []
+      }
+    ],
+    "wholeWidthMax": 1.6809191390343017
+  },
+  "publicRecovery": {
+    "pass": 6,
+    "fail": 0,
+    "profiles": [
+      "Pro402x874DPR3WebKit",
+      "Max440x956DPR3WebKit"
+    ],
+    "scope": "Actualdeployedcharcoal/Wellness503abortRetry+retainederrorreopen+sectionmaskremoval afterdecode"
+  },
+  "independentAudit": {
+    "date": "2026-10-30",
+    "auditor": "/root/scroll_auditor",
+    "verdict": "PASS",
+    "evidence": "Exactremote/main+Production7437596818latestSUCCESS; independentcanonicalGET/8assetSHA+bytes/10scripts,24publicimagehashes/localbyteidentity,actualedgecrops,6recoveryPASS; localpostpushrecords/limitationsconsistent."
+  },
+  "productionLatestStatus": "success",
+  "productionEnvironment": "Production \u2013 ramsider",
+  "productionEnvironmentURL": "https://ramsider-arjwt4s4r-askmi-6282s-projects.vercel.app",
+  "publicStateImageBindings": {
+    "screenshots/additional-ribbons/public/pro-section-0-ready.png": "984500b7b081e939927ffc2020ce1bb482176eca62cfbea2589ed1f1ccefe5a5",
+    "screenshots/additional-ribbons/public/max-section-0-ready.png": "c0ccced06a7ed40117f10e9f8a93f612af964214f9c1aa1b1f3735d528ba5d6f",
+    "screenshots/additional-ribbons/public/pro-section-0-upper-preview.png": "7ac205c805e7d2b097462701466b6a064bc5186a4aad39f02ae8c3b42e51b333",
+    "screenshots/additional-ribbons/public/max-section-0-upper-preview.png": "249e854cc2547b3cc4523a4c9af3e6a17bb3427825c0569cf55ff06609601ce8",
+    "screenshots/additional-ribbons/public/pro-section-0-lower-preview.png": "51978da59420930a310fbb9adf64a1ab8d18a7e76de691ec8737376c3466d36f",
+    "screenshots/additional-ribbons/public/max-section-0-lower-preview.png": "6d8e36e30a737a5bfce77256a17646b7a3b201eea9aa637ea38d3747deb7c014",
+    "screenshots/additional-ribbons/public/pro-section-0-both-preview.png": "b2c7c2d8ef3e918f9de764fdb2d511f9fb71ab744ec76ae5408e4735ceadb43e",
+    "screenshots/additional-ribbons/public/max-section-0-both-preview.png": "2cb111b84e34f9fbd7fc7f6cfa019d0e91aaa6fe11e35e155517b6ab33ff0365",
+    "screenshots/additional-ribbons/public/pro-section-1-ready.png": "f7bc568a6c395c2b10cdabf6401589876f787a4c20af4757ba8b82881b11c147",
+    "screenshots/additional-ribbons/public/pro-section-1-upper-preview.png": "c0eef11ba80b0186b977d0e25ae14f5355469c7f39278f879bd619f317b86fde",
+    "screenshots/additional-ribbons/public/max-section-1-ready.png": "f1ad6ad68cb6b34f18fa065c451a036d858a59dca751eae429b82a95080b339f",
+    "screenshots/additional-ribbons/public/pro-section-1-lower-preview.png": "552e419f3d1814802c18090315bff65f910d60850a28796736d0c57092973b0f",
+    "screenshots/additional-ribbons/public/max-section-1-upper-preview.png": "b0ade30b06200ae182f60fc9cda71ef36dce934b4eebcaa3d694db5f77476a01",
+    "screenshots/additional-ribbons/public/pro-section-1-both-preview.png": "3cc14ccf8894396dc04e53b0298433f9f0cece4089b5e8f5659874ceedd5d3e9",
+    "screenshots/additional-ribbons/public/max-section-1-lower-preview.png": "320fc8a8d00de205387714d7487c322da5cc07d9723cb7bd1bf91cc33ccd1629",
+    "screenshots/additional-ribbons/public/pro-section-2-ready.png": "f52e8133c153cc91590198998d9448ea4e9ee278e8c4994e81baed5703256817",
+    "screenshots/additional-ribbons/public/max-section-1-both-preview.png": "10d3a5a46f3499dc0b16501fcdecea831718cfb620661e15ce18deb754545eeb",
+    "screenshots/additional-ribbons/public/pro-section-2-upper-preview.png": "06cc2e50f2680576ac0afc8963da763b0014426f62890d580b70f9fc97676176",
+    "screenshots/additional-ribbons/public/max-section-2-ready.png": "0582c2ed2ab379000761d8a91db2dfb49596a5ab6757293ff9021e28d1b90252",
+    "screenshots/additional-ribbons/public/pro-section-2-lower-preview.png": "fd468968f6dcd98ea0ec48e571c7193609e854e5ef7caf50b222cb80fb3028a5",
+    "screenshots/additional-ribbons/public/max-section-2-upper-preview.png": "55379661fe04999f63da2e21966cf3471412fe2b389aead76039abbc2379c9d8",
+    "screenshots/additional-ribbons/public/pro-section-2-both-preview.png": "ef1756f0067093bd1829fb1c392f5aad8bc17ee81a2d47f24c3d46e585bc4507",
+    "screenshots/additional-ribbons/public/max-section-2-lower-preview.png": "4550e08a9e99d3a6187b43f7ca46408bf83e004fabcfc538e3ab644cb8831fc5",
+    "screenshots/additional-ribbons/public/max-section-2-both-preview.png": "4904a7829f565f46ff08af4f96c1135d64d81f364be190ae764e7ba366e72c40"
+  },
+  "actualPublicImagesViewed": [
+    "screenshots/additional-ribbons/public/edge-pro-1-lower-preview.png",
+    "screenshots/additional-ribbons/public/edge-max-0-upper-preview.png",
+    "screenshots/additional-ribbons/public/pro-section-0-ready.png"
+  ],
+  "localPublicScreenshotsExact": 24,
+  "technicalApproval": {
+    "date": "2026-10-30",
+    "verifier": "/root",
+    "verdict": "APPROVED_PUBLISHED_ADDITIONAL_RIBBONS",
+    "evidence": "ExactmainSHAProduction7437596818latestSUCCESS; canonical200/all8imageSHAexact/10clientURLs matchlocal; public24mixedstates0errors and6recoveryPASS; actualready/previewedgeimagesviewed. No physicaldevice/fieldperformance/provideraliasmetadata claim."
+  }
+}

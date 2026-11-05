@@ -2,7 +2,7 @@
   "change": "CHG0176",
   "linkedDefect": "CHG0106 warm HUD only",
   "date": "2026-10-29",
-  "status": "VERIFIED_LOCAL_WEB",
+  "status": "VERIFIED_PUBLIC_BROWSER",
   "scope": {
     "groups": 10,
     "slides": 23,
@@ -35,9 +35,7 @@
     },
     "privacy": "raw reviewlogs local/unpublished; safe final verdict only"
   },
-  "pending": [
-    "publication"
-  ],
+  "pending": [],
   "limitations": [
     "CHG0103 minimum readable font remains open; landscape content shrinks proportionally",
     "physicalSafari/Telegram chrome not verified",
@@ -223,12 +221,117 @@
     "CHG0106 intermittentphysicalmissingpaint"
   ],
   "publication": {
-    "status": "PENDING_GATES",
+    "status": "SUCCESS_PUBLIC_BROWSER",
     "destination": "origin/main",
     "projects": [
       "ramsider Production",
       "ramsider-beta automaticPreview"
     ],
-    "authorization": "continues user-requested push/deploy delivery workflow in this conversation"
+    "authorization": "continues user-requested push/deploy delivery workflow in this conversation",
+    "sha": "1e2f7d12f90fcd216e6497baf02ff9fbc1c515a9",
+    "remoteExactVerified": true,
+    "betaRefUnchanged": "47dddd9522f044f25d643fca3d5ea90d1f0f6825",
+    "providerEvidence": {
+      "sha": "1e2f7d12f90fcd216e6497baf02ff9fbc1c515a9",
+      "statuses": [
+        {
+          "context": "Vercel – ramsider",
+          "state": "success",
+          "description": "Deployment has completed",
+          "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/EMMFrNmcdjVPUZA6DJS2czRjCtcM",
+          "updated_at": "2026-10-29T20:07:03Z"
+        },
+        {
+          "context": "Vercel – ramsider-beta",
+          "state": "success",
+          "description": "Deployment has completed",
+          "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/Ftopxp6eDownn2w1ETRPLSouZqjJ",
+          "updated_at": "2026-10-29T20:11:14Z"
+        }
+      ],
+      "deployments": [
+        {
+          "id": 7423037855,
+          "sha": "1e2f7d12f90fcd216e6497baf02ff9fbc1c515a9",
+          "environment": "Preview – ramsider-beta",
+          "production_environment": false,
+          "latest": {
+            "state": "success",
+            "environment_url": "https://ramsider-beta-iadotk8s8-askmi-6282s-projects.vercel.app",
+            "log_url": "https://ramsider-beta-iadotk8s8-askmi-6282s-projects.vercel.app",
+            "created_at": "2026-10-29T20:11:15Z"
+          }
+        },
+        {
+          "id": 7422948867,
+          "sha": "1e2f7d12f90fcd216e6497baf02ff9fbc1c515a9",
+          "environment": "Production – ramsider",
+          "production_environment": false,
+          "latest": {
+            "state": "success",
+            "environment_url": "https://ramsider-c1dr37jzo-askmi-6282s-projects.vercel.app",
+            "log_url": "https://ramsider-c1dr37jzo-askmi-6282s-projects.vercel.app",
+            "created_at": "2026-10-29T20:07:03Z"
+          }
+        }
+      ]
+    },
+    "domainAssignment": "GitHub exact-SHA Production7422948867 andPreview7423037855 latestSUCCESS; canonical changedfit/warm/focus functionallyverified46states. DirectVercelUI blocked bybusinesspolicy; no bypass/login/configmutation; provideraliasexactSHA assignment notindependentlyconfirmed.",
+    "verifiedDate": "2026-10-30",
+    "publicBrowser": {
+      "baseURL": "https://ramsider-main.vercel.app",
+      "profiles": [
+        {
+          "name": "pro-short",
+          "width": 390,
+          "height": 650,
+          "states": 23,
+          "errors": [],
+          "maxVerticalOverflow": 0,
+          "maxAspectError": 0.010079038257117645,
+          "clipped": 0
+        },
+        {
+          "name": "max-landscape",
+          "width": 956,
+          "height": 440,
+          "states": 23,
+          "errors": [],
+          "maxVerticalOverflow": 0,
+          "maxAspectError": 0.012752391073320268,
+          "clipped": 0
+        }
+      ],
+      "extraChecks": [
+        "lastphotobuttondisables→keyboardbackandforward",
+        "warm8RAFnoHUD",
+        "Escape+openerfocus"
+      ],
+      "actualImagesViewed": [
+        "pro-short-NobleCraft",
+        "max-landscape-TouchLink",
+        "pro-short-PolyArmor"
+      ],
+      "artifacts": "screenshots/technology-fit/public/result.json +sixwholeviewportPNG"
+    },
+    "technicalApproval": {
+      "verifier": "/root",
+      "date": "2026-10-30",
+      "result": "APPROVED_PUBLIC_BROWSER",
+      "independentFinalAudit": "PASS2026-10-30 /root/publication_audit"
+    },
+    "postPushRecords": "local; no postcommit runtimechange",
+    "visualRecheck": {
+      "status": "PASS_EVIDENCE_READING_ERROR_CORRECTED",
+      "reportedIssue": "missing controls on Max PolyArmor screenshot",
+      "mainVerification": "original, preserved copy and fresh filename byte-identical; top/bottom ROI images visibly contain all reported controls; no browser recapture or code change",
+      "sha256": "e1b58fd4265a49cec6c5f3149bde8c149a917b4488b5a352d14478e9a851eea7",
+      "files": [
+        "screenshots/technology-fit/public/max-poly-confirm-top.png",
+        "screenshots/technology-fit/public/max-poly-confirm-bottom.png"
+      ],
+      "independentVerifier": "/root/publication_audit",
+      "conclusion": "All reported controls visibly present in unchanged original and ROI images; prior alert was an evidence-reading error, no product patch or new paint defect established. Existing physical missing-paint issue remains outside approval."
+    }
   }
 }

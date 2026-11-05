@@ -1,7 +1,7 @@
 {
   "change": "CHG0187",
   "date": "2026-10-31",
-  "status": "VERIFIED_LOCAL",
+  "status": "VERIFIED_PUBLISHED",
   "candidateBase": "fe6c4994244c00d992494500c63c95c731f0e59d",
   "runtimeAndTests": {
     "components/Story.tsx": "25e885deecb4f382461a4aff900dee5ee433208ea83e7757bb99e98510817b26",
@@ -78,9 +78,9 @@
     "Pre-existing CHG0180/0181/0185 and physical CHG0186 limits remain open",
     "Full default test:visual retained but NOT_RUN; unavailable language-selector/localized-startup/cross-language-cache tests conditionally SKIP, English redirect/audio/hidden-control cases actually tested."
   ],
-  "technicalApproval": "APPROVED_LOCAL_PRESENTATION /root2026-10-31",
+  "technicalApproval": "APPROVED_PUBLIC_BROWSER /root2026-10-31",
   "userResultApproval": "NOT_RECORDED",
-  "audit": "Independent /root/audit Gates1/3/4/5/6 LOCALPREPUSH PASS2026-10-31; publication pending",
+  "audit": "Independent /root/audit localGates1/3/4/5/6, publication and finalStage6PUBLISHED_RECORDS PASS2026-10-31",
   "images": {
     "screenshots/presentation/iphone-17-pro-max-webkit-menu-320.png": "4ac5c38f7ef954b6003d34da798b7ab3903ffaa11fea50dad851aee89056e7f0",
     "screenshots/presentation/desktop-chromium-menu-320.png": "7f1cbe7ee912c6a7e333f547c486167de426dcaa282946d61d711557fdff64ce",
@@ -109,5 +109,54 @@
     "screenshots/presentation/desktop-chromium-freedom.png": "17a23203c880b9c92e923eef15da0492e5f36d94662192dbd57bc65320aa8975",
     "screenshots/presentation/iphone-17-pro-webkit-freedom.png": "f2f8b3f4ea00f3c9383145bed4e19ca7b6fe94a7ff17e8698697872a6a01859a",
     "screenshots/presentation/iphone-17-pro-max-webkit-hero.png": "7b4ef5ad9aa237e738becbd94f5256249e0a99d909308312e1b1cb0558bd501a"
-  }
+  },
+  "publication": {
+    "sha": "69d4b18f8ddb21dbf84681f83a77afa48bdbd464",
+    "branch": "origin/main",
+    "remoteExact": true,
+    "production": {
+      "state": "SUCCESS",
+      "githubDeployment": 7456275850,
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider/2v37EraH9JdyEzyXwWLs2Nu2LY8k"
+    },
+    "preview": {
+      "state": "SUCCESS",
+      "url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/6YUpbFagQT7pLzwg4GUVMASNHkCX",
+      "githubDeployment": 7456300138
+    },
+    "canonical": "https://ramsider-main.vercel.app/en",
+    "publicQA": "6validPASS=5initial+correctedfirst-hop-slashPro1PASS. OriginalProfixtureFAIL retained. Actual all10HTTP307, finalEN/query/hash; 3nav/hospitalityCTAclick/hiddenchoice/hiddenlocale/gallery7/footer/emberpixels/reducedmotion/offscreen/modal/keyboard; Pro/MaxWebKit+Chromium",
+    "limits": "Unique deployment URL protected by VercelSSO; no authentication/bypass. Exact custom-alias assignment not independently inspected; production exactSHA evidence and actual canonical requested functionality verified separately.",
+    "postPushRecords": "Local; no additional runtimecommit/deploy"
+  },
+  "publicImages": {
+    "screenshots/presentation-public/iphone-17-pro-max-webkit-menu-320.png": "4ac5c38f7ef954b6003d34da798b7ab3903ffaa11fea50dad851aee89056e7f0",
+    "screenshots/presentation-public/desktop-chromium-menu-320.png": "7f1cbe7ee912c6a7e333f547c486167de426dcaa282946d61d711557fdff64ce",
+    "screenshots/presentation-public/desktop-chromium-hospitality.png": "5ca557d1078d8a1ce3a080c390074789d5b3d971c56a782b873b866bf3321663",
+    "screenshots/presentation-public/iphone-17-pro-webkit-menu-320.png": "4ac5c38f7ef954b6003d34da798b7ab3903ffaa11fea50dad851aee89056e7f0",
+    "screenshots/presentation-public/desktop-chromium-menu.png": "0f75635f0ad7e473f1f7527096dfe4ed7238a6340db2695447386675c96ee634",
+    "screenshots/presentation-public/iphone-17-pro-max-webkit-hospitality.png": "50776496fdfbb668b5bd48c92d7390d71dc84da4b5e402cdac121b0d49d7f1d7",
+    "screenshots/presentation-public/iphone-17-pro-webkit-menu.png": "5918bec11f7d49aca62e79234f927316f52aae44d2ecc91ba7c788037645b827",
+    "screenshots/presentation-public/iphone-17-pro-max-webkit-menu.png": "e9693f4c52b33b71655fa53c1aa179571b61f30a7713513586b2086166231126",
+    "screenshots/presentation-public/desktop-chromium-menu-768.png": "19451e77df52da7ba8eca0cf6b51708671792c927a78654a7814c9a11c80be3d",
+    "screenshots/presentation-public/iphone-17-pro-webkit-footer.png": "bb550931da0d26a27455bd67d482163636ada329bf80be8ee159bef9d53ac328",
+    "screenshots/presentation-public/iphone-17-pro-webkit-menu-768.png": "dfd2fab1e2627845699bea9bf04988d58699007740f3126ba3df824473a398c9",
+    "screenshots/presentation-public/desktop-chromium-footer.png": "423354b26d326358e8ebec543e8d990ab5c7ff104c17bd52d63adcf49c55b9ec",
+    "screenshots/presentation-public/iphone-17-pro-max-webkit-menu-768.png": "dfd2fab1e2627845699bea9bf04988d58699007740f3126ba3df824473a398c9",
+    "screenshots/presentation-public/desktop-chromium-hero.png": "de32d7980ecf811d97f008da1e7b8f0b3db666b3f0f5b4739b5d9c56086bf309",
+    "screenshots/presentation-public/iphone-17-pro-webkit-hero.png": "933b13dec450f0488776cd8420631533e926493e3dc8f839f21554cad6dc7d1e",
+    "screenshots/presentation-public/iphone-17-pro-max-webkit-freedom.png": "0d9fd12a23b217a5f0a08946369ae79d2f859e46d1c3425c8dc500fd60e69e87",
+    "screenshots/presentation-public/iphone-17-pro-max-webkit-gallery.png": "97bd9142ea48c49a80ce48e7f9492c2817805a1ff2c4a4f064adfefc73078917",
+    "screenshots/presentation-public/iphone-17-pro-webkit-hospitality.png": "7a35cddebefd1ce5ba4ba9c4e6ff29e2964f01664f08781a8c5cec436c091bbb",
+    "screenshots/presentation-public/iphone-17-pro-max-webkit-contacts.png": "d66b0e9e5dae39dfd6d81ae75bc996b454315e027940d40f5af37e2c7f381d68",
+    "screenshots/presentation-public/iphone-17-pro-webkit-gallery.png": "a598995ac4382b38035778662e545d640f309a7091ac6fa5cfc4c01a83c39e28",
+    "screenshots/presentation-public/desktop-chromium-gallery.png": "7d8455d84590bf975f33ddcc19961e0ddbd1949c6c0fc7b74cfdb9f42630e0e3",
+    "screenshots/presentation-public/iphone-17-pro-webkit-contacts.png": "ecfb4c31dffb1ae8eb40141043339725d03fd25693aa42678cb1de2d28306844",
+    "screenshots/presentation-public/iphone-17-pro-max-webkit-footer.png": "43d91c99c17102d4d1d38c2710cd0ef6f4e452dffcd68beea82c138b8dbcc057",
+    "screenshots/presentation-public/desktop-chromium-contacts.png": "423354b26d326358e8ebec543e8d990ab5c7ff104c17bd52d63adcf49c55b9ec",
+    "screenshots/presentation-public/desktop-chromium-freedom.png": "17a23203c880b9c92e923eef15da0492e5f36d94662192dbd57bc65320aa8975",
+    "screenshots/presentation-public/iphone-17-pro-webkit-freedom.png": "f2f8b3f4ea00f3c9383145bed4e19ca7b6fe94a7ff17e8698697872a6a01859a",
+    "screenshots/presentation-public/iphone-17-pro-max-webkit-hero.png": "7b4ef5ad9aa237e738becbd94f5256249e0a99d909308312e1b1cb0558bd501a"
+  },
+  "incidents": "CHG0185 additional unfiltered protected HEAD exposure of ephemeral nonce/cookie-like metadata; no values persisted in records/commit, revocation/transcriptremovalNOT_VERIFIED"
 }

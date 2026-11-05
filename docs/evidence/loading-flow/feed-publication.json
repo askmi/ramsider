@@ -1,0 +1,55 @@
+{
+  "commit": "76ea9053efbe641fe12bb687b5775c255afbc8e1",
+  "productionDeploymentId": 7433961822,
+  "productionProvider": "https://vercel.com/askmi-6282s-projects/ramsider/AFkLL2V1G51rmfqb7jn6ji8mgy7E",
+  "publicURL": "https://ramsider-main.vercel.app/en",
+  "http": 200,
+  "newStoryAssetInHTML": true,
+  "syncDecodingInHTML": true,
+  "scriptPathsMatchLocal": true,
+  "scriptCount": 10,
+  "heroHTTP": 200,
+  "heroBytes": 119336,
+  "heroHash": "85962e1ff36e7a8b238acba93f2f443f81926e62335dd96eecbee661fe7eb0fb",
+  "heroHashMatchesSource": true,
+  "canonicalAliasProviderAssignmentSeparatelyConfirmed": false,
+  "publicTests": {
+    "passed": 4,
+    "profileSkipped": 2,
+    "log": "/private/tmp/ramsider-feed-public-tests.log"
+  },
+  "publicBrowser": [
+    {
+      "name": "pro",
+      "width": 402,
+      "height": 874,
+      "dpr": 3,
+      "decoding": "sync",
+      "ready": 16,
+      "overflow": false,
+      "errors": []
+    },
+    {
+      "name": "max",
+      "width": 440,
+      "height": 956,
+      "dpr": 3,
+      "decoding": "sync",
+      "ready": 16,
+      "overflow": false,
+      "errors": []
+    }
+  ],
+  "actualPublicImagesViewed": [
+    "screenshots/feed-seams/public-pro-2800.png",
+    "screenshots/feed-seams/public-max-11580.png"
+  ],
+  "aliasProviderRead": "Vercel read-only inspect timed out after28s; publicHTML has new assets+sync and all10 scriptURLs match testedlocal",
+  "independentAudit": {
+    "verifier": "/root/scroll_auditor",
+    "date": "2026-10-30",
+    "verdict": "PUBLICATION_DELIVERY_RECORDS_PASS",
+    "confirmed": "Exact main/Production SHA and success, public4PASS2SKIP, actual Pro/Max pictures and public assets; previous defects preserved",
+    "limitation": "Exact canonical alias provider metadata unavailable; physical iPhone13 and CHG0180/0181 remain outside scope"
+  }
+}

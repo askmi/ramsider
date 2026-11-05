@@ -1,0 +1,283 @@
+{
+  "change": "CHG0186",
+  "date": "2026-11-04",
+  "status": "CAPABILITY_INVESTIGATION_COMPLETE_REQUIRED_FIX_BLOCKED",
+  "runtimeCommit": "45a71109a42c693a3e8d3c42d4f708d74338ccb4",
+  "authorization": "Userrequests immediateexactfix, thenstrictcurrentstateonly/NOhistoryrollback. Owncustomplayer+fullphysicalwidthheight+noBrowserUI+noBlackbars fororiginalbutton+rotation. Nativeplayerexpresslyexcluded.",
+  "historyScope": "Usercanceledhistoryinvestigation. Earlierboundedcomparisonsretainedignoredandnotusedasfixorrollbackevidence; old3186serverstopped. Current3185usedonlyforcurrentcapability.",
+  "sourceBindings": [
+    {
+      "path": "components/FilmControls.tsx",
+      "sha256": "2d68339a8a5541cce6292f956b718c95f8ecfb3af72a3282f4d7cee07a026aa8"
+    },
+    {
+      "path": "lib/film-presentation.ts",
+      "sha256": "401ddebd927a7a90f0896b0154f55ee6658b0f9f14636c59c94437c66630e84b"
+    },
+    {
+      "path": "components/ProductFilm.tsx",
+      "sha256": "24d6f3992696a7af650b1a463f3193458156b6ee1f915d80ce8a1938408c354a"
+    },
+    {
+      "path": "app/globals.css",
+      "sha256": "9eb3192f24b83fef48f1dedb667a89d0792ff506457c5f3894ec86329492225e"
+    }
+  ],
+  "artifactBindings": [
+    {
+      "path": "screenshots/video/customer-fullscreen-2026-11-04/current-capability2/desktop-positive-control-button.png",
+      "sha256": "b8db1f90c4b191424b68d10b1b828dfefc6eec33158d5095792738f5e031bafc"
+    },
+    {
+      "path": "screenshots/video/customer-fullscreen-2026-11-04/current-capability2/max-button.png",
+      "sha256": "a581c905ea44e36faed0e81ebe6e83c0e432cc29830c976b6993e03ecd641063"
+    },
+    {
+      "path": "screenshots/video/customer-fullscreen-2026-11-04/current-capability2/max-rotation.png",
+      "sha256": "ea84fbcefaf9dcf836abc6421683f81c5db1172d8e6886c36eb3efb60395dc58"
+    },
+    {
+      "path": "screenshots/video/customer-fullscreen-2026-11-04/current-capability2/pro-button.png",
+      "sha256": "a1607e1655e3a3e283977d981b0f94254eb86feafc7e8ccec78aa47b01872022"
+    },
+    {
+      "path": "screenshots/video/customer-fullscreen-2026-11-04/current-capability2/pro-rotation.png",
+      "sha256": "29edf676a07b08a974b00616804b5e93f8b75b60c9c7bcd9ca01803044cd4147"
+    },
+    {
+      "path": "screenshots/video/customer-fullscreen-2026-11-04/current-capability2/results.json",
+      "sha256": "97e3e76806159ddd64e2f978a00e9134720266992879f621396a1a7ce63bb825"
+    },
+    {
+      "path": "screenshots/video/customer-fullscreen-2026-11-04/current-capability2.mjs",
+      "sha256": "a68d9b6b464043b1a6934d2b93d9b4493d7767e5983f2b12fa0e6f6b679440cb"
+    },
+    {
+      "path": "screenshots/video/customer-fullscreen-2026-11-04/current-capability2.log",
+      "sha256": "fc99d397501058fd242d9c93d564a680dab1aa3681184c9036a44600b6986185"
+    },
+    {
+      "path": "screenshots/video/customer-fullscreen-2026-11-04/current-capability.mjs",
+      "sha256": "aed0ae9df8ba095e225ddcf77a1bf5cdb22dd0a111e0a634e25062a5bc6d6e81"
+    },
+    {
+      "path": "screenshots/video/customer-fullscreen-2026-11-04/current-capability1.log",
+      "sha256": "15408deffe73d7670712fe874384c316bef0406f1ccafd7dcc5f93e12520b374"
+    },
+    {
+      "path": "screenshots/video/customer-fullscreen-2026-11-04/current-capability1/results.json",
+      "sha256": "ac3aea60331e20b726d4be040398e1e4f01eb01b0250828318ffc7db984233dd"
+    },
+    {
+      "path": "screenshots/video/customer-fullscreen-2026-11-04/current-probe-cleanup.json",
+      "sha256": "f341664011ef72f7abb22b6e2d016beb022ded051068ba12dcca0fb8f023ebd6"
+    }
+  ],
+  "results": {
+    "results": [
+      {
+        "name": "pro",
+        "caps": {
+          "standard": "undefined",
+          "prefixed": "undefined",
+          "enabled": null,
+          "nativeVideo": "function",
+          "initialActive": null
+        },
+        "direct": {
+          "actualUserActivation": true,
+          "methodAvailable": false,
+          "result": "UNSUPPORTED_CONTAINER_API"
+        },
+        "buttonState": {
+          "active": null,
+          "window": "true",
+          "ourControls": true,
+          "videoSize": [
+            640,
+            360
+          ]
+        },
+        "rotation": {
+          "kind": "automatic-entry-from-inline-after-manual-exit",
+          "active": null,
+          "window": "true"
+        },
+        "errors": [],
+        "scope": "Actual Playwright mobileWebKit exposure/click route; NOT physicalSafari or browserchrome proof"
+      },
+      {
+        "name": "max",
+        "caps": {
+          "standard": "undefined",
+          "prefixed": "undefined",
+          "enabled": null,
+          "nativeVideo": "function",
+          "initialActive": null
+        },
+        "direct": {
+          "actualUserActivation": true,
+          "methodAvailable": false,
+          "result": "UNSUPPORTED_CONTAINER_API"
+        },
+        "buttonState": {
+          "active": null,
+          "window": "true",
+          "ourControls": true,
+          "videoSize": [
+            640,
+            360
+          ]
+        },
+        "rotation": {
+          "kind": "automatic-entry-from-inline-after-manual-exit",
+          "active": null,
+          "window": "true"
+        },
+        "errors": [],
+        "scope": "Actual Playwright mobileWebKit exposure/click route; NOT physicalSafari or browserchrome proof"
+      },
+      {
+        "name": "desktop-positive-control",
+        "caps": {
+          "standard": "function",
+          "prefixed": "function",
+          "enabled": true,
+          "nativeVideo": "undefined",
+          "initialActive": null
+        },
+        "direct": null,
+        "buttonState": {
+          "active": "film-player",
+          "window": null,
+          "ourControls": true,
+          "videoSize": [
+            640,
+            360
+          ]
+        },
+        "rotation": null,
+        "errors": [],
+        "scope": "ActualChromium ElementFullscreen positive control on originalbutton; NOT iPhoneproof"
+      }
+    ],
+    "limits": [
+      "No fullscreenAPI mock or fake fullscreen flags",
+      "Direct phone probe intercepts one realbutton click solely to call real exposed containerAPI if any; no productsourcechange",
+      "Phone profiles are emulation, not physicalSafari systemUI; no browserbarabsence or fullrequestedfixapproval",
+      "Rotation by viewport is synthetic, not physical userorientation"
+    ],
+    "runtime": "current45a7110"
+  },
+  "assessment": {
+    "manual": "Pro/Max realtouch activationtrue butstandard/prefixedcontainerfullscreenAPIsundefined in thisinstalledmobileWebKit. No fakeAPIavailability/no syntheticfullscreenflags. Unmodifiedbutton expandswebwindow, actualFullscreennull.",
+    "rotation": "Probe2 explicitlyexitsmanualwindow/assertsinline thenchangesviewporttolandscape; automaticwindowentrytrue actualFullscreennull. Syntheticorientation, notphysicaldeviceproof.",
+    "positiveControl": "UnmodifieddesktopChromiumoriginalbutton actualfullscreenElementfilm-player/ownUIpresent/windowflagabsent. VerifiesprobeandexistingrealAPIpath; notiPhoneproof.",
+    "physical": "No connectedUSBiPhone/iPad namesfound; xcrun--findsimctl exit72 utilityunavailable. No physicalSafari/systemUItestpassed.",
+    "conclusion": "No establishedsupportedcustomcontainerfullphysicalscreenpathforreportedordinaryiPhoneSafari. CurrentimplementationdoesnotmeetrequestednoBrowserresult. NotproofallfutureiOS/browsercontextsareimpossible. No runtimefix/substitute/deployment performed.",
+    "earlierProbeGap": "Probe1 rotationwasretentioninsideexistingmanualwindow, notautomaticentry. Narrowevidenceretained; probe2correctsfixture, notapp."
+  },
+  "primarySources": [
+    {
+      "url": "https://bugs.webkit.org/show_bug.cgi?id=206854",
+      "observed": "NEW asof2026-11-04; supportrequestnotimplementedapproval"
+    },
+    {
+      "url": "https://bugs.webkit.org/show_bug.cgi?id=328773",
+      "observed": "2026-10-24requestforiPhonecustomcontainer fullscreen, DUPLICATEof206854"
+    },
+    {
+      "url": "https://webkit.org/blog/13966/webkit-features-in-safari-16-4/",
+      "observed": "UnprefixedElementFullscreenannouncement explicitlymacOS+iPadOS; notproofeveryiOSversion"
+    },
+    {
+      "url": "https://fullscreen.spec.whatwg.org/#dom-element-requestfullscreen",
+      "observed": "Livingstandard2026-10-19 allows transientactivation OR usergeneratedorientationchange; doNOTclaimrotationuniversallyrequiresanotherclick"
+    },
+    {
+      "url": "https://webkit.org/blog/13878/web-push-for-web-apps-on-ios-and-ipados/",
+      "observed": "HomeScreenmanifeststandalone/fullscreen openswebappoutsidebrowser. AlternativeentrypointrequiresuserchoiceandphysicalQA, NOToriginaltabfix."
+    }
+  ],
+  "productChoice": "RESOLVED2026-11-04: user chooses ordinary browser link FIRST, explicitly Safari ANDChrome on iPhones. HomeScreenwebapp/native substitute notauthorized for currentwork. Do not reask sameentrypointchoice.",
+  "technicalApproval": [
+    {
+      "date": "2026-11-04",
+      "verifier": "/root",
+      "result": "CAPABILITY_FINDINGS_APPROVED_WITH_LIMITS; requestedcustomerfixBLOCKED, no implementation/fixapproval"
+    },
+    {
+      "date": "2026-11-04",
+      "verifier": "/root/pub_audit",
+      "result": "FINAL RECORDS PASS_WITH_LIMITS; source4+12artifactSHAexact/runtimeHEAD45exact/currenttopauthority+records consistent, probe2reviewed. Ownphysical/noBrowser/noBars originalbutton+rotation remainsBLOCKED_NO_VERIFIED_TARGET_PATH; productchoicepending, nofix/native/alternateentry/physicalapproval. Cleanup/no3185/3186listeners confirmed."
+    },
+    {
+      "date": "2026-11-04",
+      "verifier": "/root",
+      "result": "SOURCE_RESEARCH_WITH_LIMITS: ordinarySafariANDChromeiPhone chosen; Chromiummain hosttabletonlyoptin verified with4retainedprimarySHA; no actualChromeiOSapp/physicalfixapproval."
+    },
+    {
+      "date": "2026-11-04",
+      "verifier": "/root/pub_audit",
+      "result": "SOURCE_RESEARCH_WITH_LIMITS + scopedrecords PASS: exactChromeGooglemain provider197-201 andWebClient585-588TABLETonly/readmeWKWebView; snapshot4/runtime4/probe12hashes exact. Productchoice resolved ordinarylinkbothapps, noPWA/native substitution. RequestedresultNOT_MET/BLOCKED_NO_VERIFIED_TARGET_PATH; externalphysicaltargetaccesspending. No runtimefix/deployapproval."
+    },
+    {
+      "date": "2026-11-04",
+      "verifier": "/root",
+      "result": "Factualaccessrecordupdateonly: usercannotconnectphysicaliPhone. RequiredphysicalSafari+ChromeverificationBLOCKED; originalfixNOT_MET. No newtest/source/deploy/fixapproval."
+    }
+  ],
+  "limits": [
+    "InstalledmobilePlaywrightWebKit isnotphysicalSafari",
+    "Pagecapturesexcludebrowser/systemchrome; no noBrowserorfullphysicalscreenclaim",
+    "No blackbarfix/visualredesign/codechange wasapplied",
+    "No newbuild/review/perfchecksforunchangedruntime; separatehistoricalQAinitialmissingseam-mapfixturefailurepreservedandhistoryworkcanceled",
+    "No alternateentrypoint/native/scrolltrick deploymentauthorizedasoriginalcontractfulfillment"
+  ],
+  "cleanup": "Own3185currentQAand3186historyQA listeners stopped with cwdguards; production untouched.",
+  "browserScope": {
+    "required": [
+      "Safari on physicaliPhone",
+      "Chrome app on physicaliPhone"
+    ],
+    "entry": "OrdinaryURL, ownplayer onoriginalbuttonandrotation, wholephysicalscreen/noBrowserUI/noBlackbands",
+    "status": "BLOCKED_NO_VERIFIED_TARGET_PATH; noactualSafari/ChromeiOSphysicalapproval",
+    "physicalAccessQuestion": "RESOLVED2026-11-04: user answered no to connecting iPhone to thisMac. Physical Safari/Chrome target access unavailable; do not reask or infer useracceptance, taskcancellation or permission to substitute UI. Engine/source evidence remains limited."
+  },
+  "chromeIOSPrimaryResearch": {
+    "date": "2026-11-04",
+    "status": "SOURCE_RESEARCH_NOT_INSTALLED_APP_TEST",
+    "source": "CurrentofficialChromiumios/web wraps WKWebView ratherthanBlink. WKWebViewconfiguration enables elementFullscreen onlyifGetWebClient()->EnableFullscreenAPI(). Current ChromeWebClient returnsDEVICE_FORM_FACTOR_TABLET, withcommentOnlyenableoniPad. Therefore desktopChromiumsuccess cannotestablishChromeiPhonesupport; hostprefs are controlledbybrowserapp, notwebsiteJS. ExactcustomerinstalledChrome/iOSbinarysettingsunknown.",
+    "primaryURLs": [
+      "https://chromium.googlesource.com/chromium/src/+/main/ios/web/README.md",
+      "https://chromium.googlesource.com/chromium/src/+/main/ios/web/web_state/ui/wk_web_view_configuration_provider.mm",
+      "https://chromium.googlesource.com/chromium/src/+/main/ios/chrome/browser/web/model/chrome_web_client.mm",
+      "https://developer.apple.com/videos/play/wwdc2022/10049/",
+      "https://developer.apple.com/documentation/webkit/wkpreferences/iselementfullscreenenabled"
+    ],
+    "fileBindings": [
+      {
+        "path": "screenshots/video/customer-fullscreen-2026-11-04/chrome-ios-primary/readme.txt",
+        "sha256": "5d467503ee6218cfe520959b29a7e22386775547ca8b67dabe2fae20d3835483"
+      },
+      {
+        "path": "screenshots/video/customer-fullscreen-2026-11-04/chrome-ios-primary/configuration.txt",
+        "sha256": "a757eb1cfbd1802cba85805c4943281efca3e500c390a92bdcaec9d38987287c"
+      },
+      {
+        "path": "screenshots/video/customer-fullscreen-2026-11-04/chrome-ios-primary/chrome-webclient.txt",
+        "sha256": "54cc3d4bb9a7d580fee1996d07abf18569971c570bd34b0ab4d792d40944aba5"
+      },
+      {
+        "path": "screenshots/video/customer-fullscreen-2026-11-04/chrome-ios-primary/webclient-header.txt",
+        "sha256": "9b54fa50e2495c598b407461ab2e1866b9e588096926ed46f45824682e91c24f"
+      }
+    ],
+    "limits": [
+      "mainlineupstreamsource snapshots notcustomerinstalledAppStoreversion",
+      "No ChromeiOS application launched here",
+      "ChangingUA or desktopChromium isnot testingChromeiOS",
+      "Applehostoptin documentsbrowserappcapability, not awebsitepermission tochange WKPreferences"
+    ]
+  }
+}

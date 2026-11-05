@@ -1,7 +1,7 @@
 {
   "change": "CHG0190",
   "date": "2026-10-31",
-  "status": "VERIFIED_LOCAL_WEB",
+  "status": "VERIFIED_PUBLISHED_WEB",
   "sourceBeta": "47dddd9522f044f25d643fca3d5ea90d1f0f6825",
   "baseMain": "c5d355babf52f7e6a432e0504bc908b78168cc4e",
   "mapping": "first4 exact beta displayed answers incl shipping normalization; support unchanged; venue exact latest user copy; no beta-only links/extended/capsule/commerce; Arabic copied exactly, remaining en fallback marked lang",
@@ -349,10 +349,154 @@
     "screenshots/faq-transfer/tablet-venue.png": "dc04994c42311be97d45df9ed3f3dff183688b71fa1c03722701c7f1945ba2eb"
   },
   "technicalApproval": {
-    "root": "APPROVED_LOCAL_WEB2026-10-31",
-    "independent": "PASS_LOCAL_WEB2026-10-31 /root/faq_audit; Stages1,3,4mainbehavior,5,6 including actualfooter and37artifactSHA; externalformvisibilityBLOCKEDonly"
+    "root": "APPROVED_LOCAL_AND_PUBLIC_MAIN_WEB2026-10-31",
+    "independent": "PASS_LOCAL_WEB2026-10-31 /root/faq_audit; Stages1,3,4mainbehavior,5,6 including actualfooter and37artifactSHA; externalformvisibilityBLOCKEDonly; finalpublication+records PASS_WITH_WEB_LIMITS2026-10-31"
   },
-  "publication": "PENDING",
+  "publication": {
+    "sha": "21a76199bd1475361aaad195e10b0db38929ce96",
+    "repo": "askmi/ramsider",
+    "branch": "main",
+    "remoteExact": true,
+    "betaRefUnchanged": "47dddd9522f044f25d643fca3d5ea90d1f0f6825",
+    "production": {
+      "state": "success",
+      "id": 7459054091,
+      "environment": "Production – ramsider",
+      "provider": "https://vercel.com/askmi-6282s-projects/ramsider/FdTADz1aLo54995hAMCruDhiFrBj",
+      "url": "https://ramsider-mwkbyf26e-askmi-6282s-projects.vercel.app"
+    },
+    "preview": {
+      "state": "success",
+      "provider": "https://vercel.com/askmi-6282s-projects/ramsider-beta/F88g9yZwKYnFJJfAiQwMaxGMUXXU",
+      "id": 7459083753,
+      "environment": "Preview – ramsider-beta",
+      "url": "https://ramsider-beta-6fxdeasbb-askmi-6282s-projects.vercel.app"
+    },
+    "canonical": "https://ramsider-main.vercel.app/en",
+    "canonicalChecks": [
+      {
+        "profile": "pro",
+        "viewport": [
+          402,
+          874
+        ],
+        "dpr": 3,
+        "layout": {
+          "innerScroll": 1,
+          "overflow": 0,
+          "beforeAccount": true,
+          "rows": [
+            {
+              "scroll": 0,
+              "width": 0
+            },
+            {
+              "scroll": 0,
+              "width": 0
+            },
+            {
+              "scroll": 0,
+              "width": 0
+            },
+            {
+              "scroll": 0,
+              "width": 0
+            },
+            {
+              "scroll": 0,
+              "width": 0
+            },
+            {
+              "scroll": 0,
+              "width": 0
+            }
+          ]
+        },
+        "href": "https://hospitality.ramsider.com/#enquiry",
+        "targetHeight": 44,
+        "errors": [],
+        "result": "PASS"
+      },
+      {
+        "profile": "max",
+        "viewport": [
+          440,
+          956
+        ],
+        "dpr": 3,
+        "layout": {
+          "innerScroll": 1,
+          "overflow": 0,
+          "beforeAccount": true,
+          "rows": [
+            {
+              "scroll": 0,
+              "width": 0
+            },
+            {
+              "scroll": 0,
+              "width": 0
+            },
+            {
+              "scroll": 0,
+              "width": 0
+            },
+            {
+              "scroll": 0,
+              "width": 0
+            },
+            {
+              "scroll": 0,
+              "width": 0
+            },
+            {
+              "scroll": 0,
+              "width": 0
+            }
+          ]
+        },
+        "href": "https://hospitality.ramsider.com/#enquiry",
+        "targetHeight": 44,
+        "errors": [],
+        "result": "PASS"
+      },
+      {
+        "profile": "noJS-WebKit",
+        "result": "PASS"
+      }
+    ],
+    "publicArtifacts": {
+      "screenshots/faq-transfer/public/max-ready-all-open.png": "b99dd04bf2ff02105716da2a7ef1ee4955a56df599a5a75e4d68786c1321ddf7",
+      "screenshots/faq-transfer/public/pro-footer.png": "b31bab81b7d061e8e6ebeda41db961140d62b02873230d9d7c5dddea0854c0a9",
+      "screenshots/faq-transfer/public/pro-venue.png": "ca4ed4249ed327a4534d66d55d66b5709a8aee14179a5254f0ed784699b2c9fd",
+      "screenshots/faq-transfer/public/pro-account-join.png": "506f57c21c86010e3647ae19caad1f99fb0e56fc0ef129f2103a7083ec73a2fa",
+      "screenshots/faq-transfer/public/ready-shots.json": "d30c21e99776fbdda8285dc6fac3350bd66da427275bbe3612581bf7f031329b",
+      "screenshots/faq-transfer/public/max-footer.png": "7b3029fbc8e995b6097d92d480c45937394295cb73d7db232110431a1648bec2",
+      "screenshots/faq-transfer/public/max-all-open.png": "6ed6706ffc380f5e0e62973b617cdf894d555d185cc14e12cc5127a54dadf217",
+      "screenshots/faq-transfer/public/max-venue.png": "f7fd7e8e4236d5729f256376753c1addf1a47c56e6bde0290d91577c2c3bab49",
+      "screenshots/faq-transfer/public/checks.json": "36e230235dc51316d165cc3b7e97a248dff3c28877e02f8f1c876db38142e9b9",
+      "screenshots/faq-transfer/public/max-closed.png": "372aaa87ab5ea7b97e500bdb948c14946e965f5f42d3061ccfbe26bd8a6af2eb",
+      "screenshots/faq-transfer/public/max-account-join.png": "baef1d1e3d879ea0a116f803ce6f41e896d3a8e6fa2355ddab50290946fab8c1",
+      "screenshots/faq-transfer/public/pro-all-open.png": "01f3ade10ac38d1cab769ad593e226db59547c448da0385d89fac69aac76ad46",
+      "screenshots/faq-transfer/public/pro-ready-all-open.png": "01f3ade10ac38d1cab769ad593e226db59547c448da0385d89fac69aac76ad46",
+      "screenshots/faq-transfer/public/pro-closed.png": "68097c50d0785a83b5a50618fee092c9cb9a4de37411d3b799749b3b7b50ca30"
+    },
+    "limits": "public *-footer captures are lowerjoin only as in original helper; local actual-footerintegration is separate verified evidence. Provideraliasassignmentmetadata not separately inspected; exactSHAProduction success and canonical exactnewcopy/href/behavior verified. Postpushnotes local.",
+    "publicReadyShots": [
+      {
+        "profile": "pro",
+        "readyImages": 24,
+        "result": "PASS"
+      },
+      {
+        "profile": "max",
+        "readyImages": 24,
+        "result": "PASS"
+      }
+    ],
+    "publicCaptureHistory": "First max-all-open elementcapture included offscreen preview artwork; preserved and superseded for final visual approval by pro/max-ready-all-open after all24 FAQimages data-media-ready+decoded. Main runtime unchanged. Publicfooter filenames are lowerjoin only.",
+    "finalAudit": "PASS_WITH_WEB_LIMITS2026-10-31 /root/faq_audit: finalpublicPro/Maximages, 4committedsourceSHA,37local+14publicartifactSHA, independentfreshGitHubbothSUCCESS exact21a76199. Independentremoteprobe timedout; exactrefs supplied by root repeatedprimaryevidence."
+  },
   "integration": [
     {
       "profile": "pro",

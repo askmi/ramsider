@@ -1,0 +1,92 @@
+{
+  "change": "CHG0186",
+  "date": "2026-11-04",
+  "status": "DIAGNOSIS_COMPLETE_DEFECT_REOPENED",
+  "request": "View customer recording and explain persistent browser toolbar after fullscreen; subsequent user asks why prior production approval did not catch it. No runtime edit/deploy performed in this diagnostic turn.",
+  "head": "45a71109a42c693a3e8d3c42d4f708d74338ccb4",
+  "input": {
+    "path": "/Users/asmirnou/Downloads/IMG_6394.MP4",
+    "sha256": "12841b63dd0c691bfc82edf302ddee53272972b7dc4c38eb9689364727cd29c9"
+  },
+  "probe": {
+    "durationSeconds": 19.4,
+    "dimensions": [
+      592,
+      1280
+    ],
+    "fps": "30/1",
+    "video": "h264",
+    "audio": "aac",
+    "bytes": 6508033
+  },
+  "observations": [
+    {
+      "recordingSeconds": 8,
+      "frame": "screenshots/video/customer-fullscreen-2026-11-04/08s-landscape.png",
+      "transform": "90degree counterclockwise only to view landscape upright",
+      "observed": "Browser address toolbar +tab row above picture; our gold Evolution/List/transport/gear remain. Visible canonical host ramsider-main.vercel.app. Page expanded within browser, not a demonstrated native player."
+    },
+    {
+      "recordingSeconds": 12,
+      "frame": "screenshots/video/customer-fullscreen-2026-11-04/12s-expanded-portrait.png",
+      "observed": "Own expanded gold controls and cropped fullheight picture; bottom browser addressbar and top phone status remain."
+    }
+  ],
+  "sourceBindings": [
+    {
+      "path": "lib/film-presentation.ts",
+      "sha256": "401ddebd927a7a90f0896b0154f55ee6658b0f9f14636c59c94437c66630e84b"
+    },
+    {
+      "path": "components/FilmControls.tsx",
+      "sha256": "2d68339a8a5541cce6292f956b718c95f8ecfb3af72a3282f4d7cee07a026aa8"
+    },
+    {
+      "path": "app/globals.css",
+      "sha256": "9eb3192f24b83fef48f1dedb667a89d0792ff506457c5f3894ec86329492225e"
+    }
+  ],
+  "artifactBindings": [
+    {
+      "path": "screenshots/video/customer-fullscreen-2026-11-04/contact.png",
+      "sha256": "990a125ff10b648d528a6b4eeaa1002e3397b9862aae2a32e0a9a710873fee48"
+    },
+    {
+      "path": "screenshots/video/customer-fullscreen-2026-11-04/08s-landscape.png",
+      "sha256": "0deeed80b2427623f121860300f5f947c17dce3250bd50fff6351e33335f3e70"
+    },
+    {
+      "path": "screenshots/video/customer-fullscreen-2026-11-04/12s-expanded-portrait.png",
+      "sha256": "f67624d5e264211ce29fa8390e9f99d388b817c55160bd96c3c1c831f145ba12"
+    }
+  ],
+  "cause": "DefaultiphonePlayer=window; FilmControls303..311 fullscreen handler sets DOM layout flags, expanded state and returns before native or Element Fullscreen API. Rotation uses same function. CSS100dvw/dvh fills webpage viewport only. Native menu/URL exists but is not default originalbutton. This design reproduces visible symptom; recording not instrumented, exactUA/query/loadedbundle/OSmodel/version unknown. No evidence nativeAPI was attempted and rejected in customer recording.",
+  "responsibility": "AGENT requirement reconciliation and acceptance: web-full-window implementation was approved only for webscope, but no-browser-chrome objective was not made a production acceptance gate for originalbutton. Known limitation was already documented; not a new platform discovery, new source requirement or customer fault. Preserve historical limited approvals and explicit window-mode authorization; neither establishes acceptance of true fullscreen.",
+  "missedCheck": "Actual originalfullscreen control on physical iPhone with addressbar+tabs initiallyvisible: require browserUI absent, own controls retained, decodedpicture fills width+height withoutblackbands and no distortion; entry/exit/rotation verified. DOMviewportcoverage/flags/nativeadapter mocks insufficient. No substitution with nativePlayer.",
+  "prevention": "EVAL-VIEWER/EVAL-PRESENTATION: distinguish window vs native vs element in explicit acceptance; tie no-browser requirement to originalbutton and require system-level observed result before production approval. Actual agent requirement/acceptance behaviorFAIL; controlled evalNOT_RUN. Currentuser2026-11-04 explicitly excludes native substitution; preserve ownplayer+noBrowser+noBars as one acceptance contract. If capability notproven, report unmet requirement before delivery; no newfixpromise.",
+  "technicalApproval": [
+    {
+      "date": "2026-11-04",
+      "verifier": "/root",
+      "result": "DIAGNOSIS_APPROVED_WITH_LIMITS; no fix approval"
+    },
+    {
+      "date": "2026-11-04",
+      "verifier": "/root/pub_audit",
+      "result": "FINAL DIAGNOSTIC + RECORDS PASS_WITH_LIMITS: viewed actual8s/12s frames, input+source3+frame3 SHA exact, runtimeHEAD45 unchanged, earlyreturn source explains symptom. Exactsession unknown. Requested ownfullscreen/noBrowser/noBars remainsOPEN; nofix/native-substitute/deployapproval."
+    }
+  ],
+  "limits": [
+    "No physical iPhone connected; recording is customer physical evidence only",
+    "No exact customer session telemetry/UA/query/build, no specificiOS/browserbug claim",
+    "Native path on customer device not exercised; no guarantee of frame crop or systemcontrols appearance",
+    "No code/assets/encoding/production modifications, so implementation build/native-review/performance gates not rerun for explanation-only documentation"
+  ],
+  "sources": [
+    "https://webkit.org/blog/6784/new-video-policies-for-ios/",
+    "https://bugs.webkit.org/show_bug.cgi?id=206854",
+    "docs/video-gallery-plan.md CHG0186 currentwindow/unifiedentrypaths",
+    "docs/evidence/video/iphone-entrypaths.json"
+  ],
+  "requiredResult": "Own custom player, fullphysicalwidth+height, browserUI absent, blackbands absent. Userexplicitlyrejects nativeApple as remedy because of framing. No native substitution authorized by current correction."
+}

@@ -1,0 +1,88 @@
+{
+  "change": "CHG0199",
+  "date": "2026-11-04",
+  "status": "REOPENED_CAPABILITY_FIRST_REPAIR_PENDING_SCOPE",
+  "request": "Deploycurrentstateonmainandconfirmatleastnonewregression. Explicitdocs-onlyscopecommunicatedtouser: no newplayercodeexists; fulliPhonefullscreenNOT_MET. Userclarified2026-11-04: regressionassurance specifically VIDEOPLAYER; customerwantstotest currentdeployedstate, deployauthorized.",
+  "repository": "askmi/ramsider",
+  "destination": "origin/main",
+  "baseline": "45a71109a42c693a3e8d3c42d4f708d74338ccb4",
+  "runtimeBuildInputObjects": [
+    {
+      "path": "app",
+      "gitObject": "25a37c85a6c2599c010c68d34fb3a8ec6b1d5c43"
+    },
+    {
+      "path": "components",
+      "gitObject": "8917a11fad4b083c16e416ba45bb5fdeee924403"
+    },
+    {
+      "path": "lib",
+      "gitObject": "e65dff5ecc18ed1b385c989454e3e8c27b181e9d"
+    },
+    {
+      "path": "config",
+      "gitObject": "31cb627b01c12e9cd37bd4c667ef57b848f4d23a"
+    },
+    {
+      "path": "public",
+      "gitObject": "c4b93f4abbe5b8dfb87d29f8b4b8f2325ac8b3f5"
+    },
+    {
+      "path": "tools",
+      "gitObject": "07d789dc7e5a1e0d641c33eb71983605afdd883a"
+    },
+    {
+      "path": "types",
+      "gitObject": "6b74ab537ec32b84b3a22f6031ea053d96e6769e"
+    },
+    {
+      "path": "proxy.ts",
+      "gitObject": "b473d0cae51ba8b6c6532af8ef1e23c57010aac4"
+    },
+    {
+      "path": "next.config.mjs",
+      "gitObject": "6cc48cb53060d8c79f0bb372aaafcf5f95444730"
+    },
+    {
+      "path": "package.json",
+      "gitObject": "2d699ea6a35c1a249df9512a0cbf43962926a5f9"
+    },
+    {
+      "path": "package-lock.json",
+      "gitObject": "a1918679dd05bd9f85dded0842e82243d42b8491"
+    },
+    {
+      "path": "tsconfig.json",
+      "gitObject": "07b8946e5ead36c164b5938c2b6bbe58b096078f"
+    },
+    {
+      "path": "docs/evidence/loading-flow/feed-seam-map.json",
+      "gitObject": "2568a804bca513767ea9b4f38dce28a82b936841"
+    }
+  ],
+  "runtimeWorkingDiffEmpty": true,
+  "newRuntimeFiles": false,
+  "checks": {
+    "sourceIdentity": "Alllistedruntime/build/dependency/media trees and importedfeedmapexactbaseline; newcommitmustretainobjects.",
+    "reviewBuild": "No code/sourcechanges, prior45review/build/browserproofcoversunchangedsources; no freshcodegatePASSinvented. NewVercelbuildmustsucceed.",
+    "publication": "BothramsiderProductionandautomaticramsider-betaPreviewexactpushedSHA; canonicalactuallyreferencedCSS/JSdecodedbytescomparebefore/after; boundedpublicinfo/orbit/playerentrysmoke.",
+    "player": "PublicPro/Max/Chromium groupedplaylists/playback/previousnext/endReplay/close and squaremedia; Pro/Max originalbutton+rotation+sevenfilms with explicitlylabellednativeintentfixtures, separate noAPI-mock realengine originalbutton+rotation. No physicalbrowserUI successclaim."
+  },
+  "technicalApproval": [
+    {
+      "date": "2026-11-04",
+      "verifier": "/root/pub_audit",
+      "verdict": "STOPPED_NOT_APPROVED",
+      "scope": "docs-onlypublicationdoesnotfulfillcustomerfullscreenrequest"
+    }
+  ],
+  "limits": [
+    "Noabsolutezero-regressionguarantee; scopeisunchangedsiteimplementation+actualboundedpublicchecks",
+    "ExistingCHG0186ownphysical/noBrowser/noBarsNOT_MET; docsdeployisnotitsfix",
+    "PhysicaliPhoneSafari/Chromeaccessunavailable; source/enginefindingsnotactualappcertification",
+    "KnownunrelatedCHG0181fulllintFAIL andCHG0198privacymetadataissue remainopen",
+    "Unrelatedolderdirtydocs/privateinputs excluded fromstaging"
+  ],
+  "correction": "Userrequires actualfullscreenchange forcustomer test. Docs-onlypublicationwas mistaken scope substitution; nofixexists, donotpublish asrequestedfix.",
+  "candidateScope": "Actualruntimecandidate: preferexposedcontainerAPI before iPhoneownwindowfallback; preserveowncover/nativeexplicit/rotationownership. OriginalordinarySafariANDChromeunsupportedtargetNOT_MET. Customerrequestsdeploychangetotest, notdocs-onlypublication."
+}

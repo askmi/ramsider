@@ -8,8 +8,8 @@
  "policy": "Founder-approved q90 lossy (A/B 2026-11-05); pipeline fallback thresholds mean>=3, p99>15, red>=2 -> q95 -> lossless kept",
  "assetCount": 35,
  "sourceBytes": 42213692,
- "outputBytes": 4841980,
- "seconds": 91.3,
+ "outputBytes": 5834714,
+ "seconds": 98.0,
  "assets": [
   {
    "asset": "public/art/wellness/01-ritual_uno_white_v3.webp",
@@ -54,7 +54,7 @@
        320,
        896
       ],
-      "local_max_red_shift": 4.22,
+      "local_max_red_shift": 7.654,
       "local_max_red_block": [
        640,
        960
@@ -94,18 +94,17 @@
        320,
        896
       ],
-      "local_max_red_shift": 1.869,
+      "local_max_red_shift": 3.058,
       "local_max_red_block": [
        576,
        896
       ],
       "sampled_delta_e76_p99": 4.53,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 3.3,
+   "encodeSeconds": 3.6,
    "outputBytes": 220118,
    "outputSHA256": "c9f2dcafee9757a747d4a98b6107e0b22799473faea0ce972851ee0b844f02ee"
   },
@@ -152,7 +151,7 @@
        576,
        768
       ],
-      "local_max_red_shift": 4.093,
+      "local_max_red_shift": 7.724,
       "local_max_red_block": [
        960,
        640
@@ -192,18 +191,17 @@
        384,
        640
       ],
-      "local_max_red_shift": 1.396,
+      "local_max_red_shift": 2.468,
       "local_max_red_block": [
-       576,
-       768
+       384,
+       448
       ],
       "sampled_delta_e76_p99": 5.453,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 3.3,
+   "encodeSeconds": 3.5,
    "outputBytes": 342798,
    "outputSHA256": "04cc50c014e3df644416c77ab8ca57ebda2499636e98eb10d1f14817468d5b4d"
   },
@@ -250,10 +248,10 @@
        320,
        896
       ],
-      "local_max_red_shift": 2.099,
+      "local_max_red_shift": 4.052,
       "local_max_red_block": [
-       512,
-       640
+       768,
+       960
       ],
       "sampled_delta_e76_p99": 6.851,
       "sample_step": 4
@@ -290,18 +288,17 @@
        320,
        896
       ],
-      "local_max_red_shift": 0.917,
+      "local_max_red_shift": 0.972,
       "local_max_red_block": [
-       576,
-       640
+       704,
+       896
       ],
       "sampled_delta_e76_p99": 5.621,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 3.5,
+   "encodeSeconds": 3.7,
    "outputBytes": 436580,
    "outputSHA256": "5acee454458f507d278b5e3d7f56d51f274d1ba30932078c6880e1b519aba02c"
   },
@@ -348,10 +345,10 @@
        512,
        640
       ],
-      "local_max_red_shift": 0.89,
+      "local_max_red_shift": 3.359,
       "local_max_red_block": [
-       640,
-       384
+       512,
+       640
       ],
       "sampled_delta_e76_p99": 6.116,
       "sample_step": 4
@@ -388,18 +385,17 @@
        576,
        832
       ],
-      "local_max_red_shift": 0.73,
+      "local_max_red_shift": 0.853,
       "local_max_red_block": [
-       896,
-       448
+       576,
+       832
       ],
       "sampled_delta_e76_p99": 5.173,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 3.4,
+   "encodeSeconds": 3.7,
    "outputBytes": 222432,
    "outputSHA256": "f66cca8b1faad822b35ff5a4b5ef862d25f3950cc9697231f417e19d014ac81a"
   },
@@ -446,14 +442,13 @@
        640,
        640
       ],
-      "local_max_red_shift": 1.417,
+      "local_max_red_shift": 2.389,
       "local_max_red_block": [
-       768,
-       1600
+       384,
+       832
       ],
       "sampled_delta_e76_p99": 3.14,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     },
     "sharp_yuv": {
@@ -487,10 +482,10 @@
        640,
        704
       ],
-      "local_max_red_shift": 1.75,
+      "local_max_red_shift": 2.304,
       "local_max_red_block": [
-       768,
-       1600
+       384,
+       768
       ],
       "sampled_delta_e76_p99": 2.955,
       "sample_step": 4
@@ -544,14 +539,13 @@
        576,
        384
       ],
-      "local_max_red_shift": 1.131,
+      "local_max_red_shift": 1.829,
       "local_max_red_block": [
-       576,
+       384,
        192
       ],
       "sampled_delta_e76_p99": 2.136,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     },
     "sharp_yuv": {
@@ -585,10 +579,10 @@
        576,
        384
       ],
-      "local_max_red_shift": 1.523,
+      "local_max_red_shift": 1.844,
       "local_max_red_block": [
-       576,
-       192
+       192,
+       448
       ],
       "sampled_delta_e76_p99": 2.155,
       "sample_step": 4
@@ -642,10 +636,10 @@
        704,
        1024
       ],
-      "local_max_red_shift": 1.228,
+      "local_max_red_shift": 1.344,
       "local_max_red_block": [
-       384,
-       64
+       448,
+       0
       ],
       "sampled_delta_e76_p99": 4.244,
       "sample_step": 4
@@ -682,18 +676,17 @@
        704,
        1024
       ],
-      "local_max_red_shift": 1.457,
+      "local_max_red_shift": 1.531,
       "local_max_red_block": [
-       384,
-       64
+       448,
+       0
       ],
       "sampled_delta_e76_p99": 3.773,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 3.5,
+   "encodeSeconds": 3.8,
    "outputBytes": 167106,
    "outputSHA256": "98be660221c9091f2d74816a4cabd318d9789a070ebc2dd2bd5c00ed0bd3c030"
   },
@@ -740,14 +733,13 @@
        768,
        0
       ],
-      "local_max_red_shift": 0.745,
+      "local_max_red_shift": 1.191,
       "local_max_red_block": [
        512,
        64
       ],
       "sampled_delta_e76_p99": 2.144,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     },
     "sharp_yuv": {
@@ -781,7 +773,7 @@
        768,
        0
       ],
-      "local_max_red_shift": 1.021,
+      "local_max_red_shift": 1.447,
       "local_max_red_block": [
        512,
        64
@@ -791,7 +783,7 @@
      }
     }
    },
-   "encodeSeconds": 1.5,
+   "encodeSeconds": 1.6,
    "outputBytes": 20358,
    "outputSHA256": "630f38564524b031628f71d3bf824b8cb4d02fa868958c84eda100493c3bd500"
   },
@@ -838,10 +830,10 @@
        832,
        512
       ],
-      "local_max_red_shift": 1.081,
+      "local_max_red_shift": 2.182,
       "local_max_red_block": [
-       832,
-       384
+       768,
+       576
       ],
       "sampled_delta_e76_p99": 4.901,
       "sample_step": 4
@@ -878,18 +870,17 @@
        832,
        512
       ],
-      "local_max_red_shift": 1.256,
+      "local_max_red_shift": 1.326,
       "local_max_red_block": [
-       128,
-       1152
+       512,
+       1344
       ],
       "sampled_delta_e76_p99": 4.126,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 2.9,
+   "encodeSeconds": 3.1,
    "outputBytes": 161936,
    "outputSHA256": "41cbb84ae8b3fa024a247e181bd60140d74e4823f1e4891147a070f13cf20580"
   },
@@ -936,14 +927,13 @@
        512,
        448
       ],
-      "local_max_red_shift": 0.742,
+      "local_max_red_shift": 0.989,
       "local_max_red_block": [
-       1024,
-       640
+       64,
+       64
       ],
       "sampled_delta_e76_p99": 2.149,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     },
     "sharp_yuv": {
@@ -977,10 +967,10 @@
        576,
        448
       ],
-      "local_max_red_shift": 0.968,
+      "local_max_red_shift": 1.166,
       "local_max_red_block": [
        64,
-       448
+       64
       ],
       "sampled_delta_e76_p99": 2.147,
       "sample_step": 4
@@ -1034,7 +1024,7 @@
        448,
        768
       ],
-      "local_max_red_shift": 7.378,
+      "local_max_red_shift": 12.047,
       "local_max_red_block": [
        320,
        512
@@ -1074,18 +1064,17 @@
        448,
        768
       ],
-      "local_max_red_shift": 1.548,
+      "local_max_red_shift": 2.26,
       "local_max_red_block": [
-       192,
-       704
+       320,
+       512
       ],
       "sampled_delta_e76_p99": 4.801,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 3.5,
+   "encodeSeconds": 3.7,
    "outputBytes": 246590,
    "outputSHA256": "164e22f897d788e3bbf46f57b11b2cf8bb87a2eefa5eb5c475703c83638225af"
   },
@@ -1132,14 +1121,13 @@
        576,
        384
       ],
-      "local_max_red_shift": 0.781,
+      "local_max_red_shift": 0.943,
       "local_max_red_block": [
-       832,
-       704
+       192,
+       448
       ],
       "sampled_delta_e76_p99": 2.135,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     },
     "sharp_yuv": {
@@ -1173,17 +1161,17 @@
        576,
        384
       ],
-      "local_max_red_shift": 0.731,
+      "local_max_red_shift": 1.076,
       "local_max_red_block": [
-       64,
-       704
+       128,
+       512
       ],
       "sampled_delta_e76_p99": 2.151,
       "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 1.4,
+   "encodeSeconds": 1.5,
    "outputBytes": 17184,
    "outputSHA256": "232dc80423b59551bdcd2e393cbf50bbd3c3bdc234e452777b7a20495d84e575"
   },
@@ -1196,7 +1184,7 @@
    "sourceCodec": "VP8L lossless",
    "embeddedICC": "sRGB (copied from source)",
    "quality": 90,
-   "chosen": "sharp_yuv",
+   "chosen": "default",
    "fallback": null,
    "candidates": {
     "default": {
@@ -1230,7 +1218,7 @@
        512,
        768
       ],
-      "local_max_red_shift": 4.775,
+      "local_max_red_shift": 7.382,
       "local_max_red_block": [
        512,
        640
@@ -1270,20 +1258,19 @@
        512,
        768
       ],
-      "local_max_red_shift": 5.081,
+      "local_max_red_shift": 8.814,
       "local_max_red_block": [
-       384,
+       512,
        640
       ],
       "sampled_delta_e76_p99": 2.961,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 2.4,
-   "outputBytes": 99906,
-   "outputSHA256": "5ce0412cc289aabdab389ccf773650e4e1e01043088886a773da8f0e55b1a020"
+   "encodeSeconds": 2.5,
+   "outputBytes": 96512,
+   "outputSHA256": "e927edfc699c2c683db4bcc7294137db0e1f710fb755bc4eeef9999a5c89d041"
   },
   {
    "asset": "public/art/technology/slides/air-02.webp",
@@ -1328,10 +1315,10 @@
        448,
        640
       ],
-      "local_max_red_shift": 3.185,
+      "local_max_red_shift": 4.297,
       "local_max_red_block": [
-       320,
-       512
+       128,
+       704
       ],
       "sampled_delta_e76_p99": 3.62,
       "sample_step": 4
@@ -1368,18 +1355,17 @@
        448,
        640
       ],
-      "local_max_red_shift": 2.278,
+      "local_max_red_shift": 3.15,
       "local_max_red_block": [
-       832,
-       1088
+       704,
+       576
       ],
       "sampled_delta_e76_p99": 3.228,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 2.8,
+   "encodeSeconds": 3.0,
    "outputBytes": 110326,
    "outputSHA256": "a3bedd44c5dbaf506952cad4b7bad6bcae652da266246924828666c6d61df4b0"
   },
@@ -1426,9 +1412,9 @@
        128,
        384
       ],
-      "local_max_red_shift": 13.538,
+      "local_max_red_shift": 13.886,
       "local_max_red_block": [
-       64,
+       128,
        384
       ],
       "sampled_delta_e76_p99": 4.028,
@@ -1466,14 +1452,13 @@
        128,
        384
       ],
-      "local_max_red_shift": 3.769,
+      "local_max_red_shift": 6.026,
       "local_max_red_block": [
        64,
        384
       ],
       "sampled_delta_e76_p99": 3.729,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
@@ -1490,8 +1475,8 @@
    "sourceCodec": "VP8L lossless",
    "embeddedICC": "sRGB (copied from source)",
    "quality": 90,
-   "chosen": "sharp_yuv",
-   "fallback": null,
+   "chosen": "default",
+   "fallback": "lossless_kept",
    "candidates": {
     "default": {
      "bytes": 104350,
@@ -1524,7 +1509,7 @@
        384,
        448
       ],
-      "local_max_red_shift": 12.114,
+      "local_max_red_shift": 17.443,
       "local_max_red_block": [
        640,
        896
@@ -1564,20 +1549,19 @@
        384,
        448
       ],
-      "local_max_red_shift": 5.489,
+      "local_max_red_shift": 17.943,
       "local_max_red_block": [
        640,
        896
       ],
       "sampled_delta_e76_p99": 3.595,
-      "sample_step": 4,
-      "red_rule": "skipped: 152 red pixels < 0.1%"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 1.7,
-   "outputBytes": 107724,
-   "outputSHA256": "4c01b6c9f513051f9af5fc05070d5169a707c7c820c4493b677ca2cd7c01a539"
+   "encodeSeconds": 3.5,
+   "outputBytes": 1103852,
+   "outputSHA256": "7dc03fda7f882a4666f8a87cafa3fa17007a99614cba2092e9bafabd87883097"
   },
   {
    "asset": "public/art/technology/slides/capsule-01.webp",
@@ -1622,10 +1606,10 @@
        768,
        384
       ],
-      "local_max_red_shift": 6.3,
+      "local_max_red_shift": 12.156,
       "local_max_red_block": [
-       192,
-       576
+       448,
+       256
       ],
       "sampled_delta_e76_p99": 7.537,
       "sample_step": 4
@@ -1662,18 +1646,17 @@
        768,
        384
       ],
-      "local_max_red_shift": 1.969,
+      "local_max_red_shift": 3.756,
       "local_max_red_block": [
        448,
        256
       ],
       "sampled_delta_e76_p99": 5.067,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 3.1,
+   "encodeSeconds": 3.3,
    "outputBytes": 211446,
    "outputSHA256": "cec2ca5c7abf051cff45957dc279639cdb2f016f99bf9ceadde25ef9f6b38546"
   },
@@ -1720,10 +1703,10 @@
        704,
        832
       ],
-      "local_max_red_shift": 15.011,
+      "local_max_red_shift": 31.006,
       "local_max_red_block": [
-       832,
-       832
+       448,
+       768
       ],
       "sampled_delta_e76_p99": 10.168,
       "sample_step": 4
@@ -1760,18 +1743,17 @@
        704,
        832
       ],
-      "local_max_red_shift": 3.658,
+      "local_max_red_shift": 7.268,
       "local_max_red_block": [
-       192,
-       512
+       448,
+       768
       ],
       "sampled_delta_e76_p99": 7.601,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 2.9,
+   "encodeSeconds": 3.1,
    "outputBytes": 183832,
    "outputSHA256": "1033e20113e9c3c63aec421f661e5f2892b84b20f833f9e906a01e04905361bb"
   },
@@ -1818,9 +1800,9 @@
        512,
        640
       ],
-      "local_max_red_shift": 18.559,
+      "local_max_red_shift": 34.562,
       "local_max_red_block": [
-       192,
+       128,
        448
       ],
       "sampled_delta_e76_p99": 5.68,
@@ -1858,18 +1840,17 @@
        512,
        640
       ],
-      "local_max_red_shift": 4.441,
+      "local_max_red_shift": 11.289,
       "local_max_red_block": [
-       192,
+       64,
        448
       ],
       "sampled_delta_e76_p99": 4.597,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 2.9,
+   "encodeSeconds": 3.2,
    "outputBytes": 158262,
    "outputSHA256": "3697b0b3ae1e1cae1cd1a43e0db4345eafe32a56caf530ac0e4b9673b1774b50"
   },
@@ -1956,18 +1937,17 @@
        320,
        512
       ],
-      "local_max_red_shift": 3.191,
+      "local_max_red_shift": 14.522,
       "local_max_red_block": [
        320,
-       832
+       512
       ],
       "sampled_delta_e76_p99": 3.328,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 2.6,
+   "encodeSeconds": 2.8,
    "outputBytes": 124324,
    "outputSHA256": "310e25a2823b8eeaea0a154d7e973dafb6f203a3e285cf34b75c533242576206"
   },
@@ -2014,14 +1994,13 @@
        64,
        320
       ],
-      "local_max_red_shift": 3.033,
+      "local_max_red_shift": 4.867,
       "local_max_red_block": [
        384,
        448
       ],
       "sampled_delta_e76_p99": 2.846,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     },
     "sharp_yuv": {
@@ -2055,17 +2034,17 @@
        64,
        320
       ],
-      "local_max_red_shift": 1.944,
+      "local_max_red_shift": 4.489,
       "local_max_red_block": [
        384,
-       1472
+       448
       ],
       "sampled_delta_e76_p99": 2.733,
       "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 2.1,
+   "encodeSeconds": 2.2,
    "outputBytes": 77252,
    "outputSHA256": "16915ecb095ffe3e8e15bee97834626e3850e3bdcfb7820b6b09d55da4d89d88"
   },
@@ -2112,7 +2091,7 @@
        576,
        704
       ],
-      "local_max_red_shift": 8.831,
+      "local_max_red_shift": 21.559,
       "local_max_red_block": [
        320,
        896
@@ -2152,14 +2131,13 @@
        576,
        704
       ],
-      "local_max_red_shift": 3.882,
+      "local_max_red_shift": 20.111,
       "local_max_red_block": [
-       256,
-       768
+       192,
+       896
       ],
       "sampled_delta_e76_p99": 4.993,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
@@ -2210,10 +2188,10 @@
        768,
        448
       ],
-      "local_max_red_shift": 2.763,
+      "local_max_red_shift": 5.017,
       "local_max_red_block": [
-       768,
-       448
+       0,
+       896
       ],
       "sampled_delta_e76_p99": 5.306,
       "sample_step": 4
@@ -2250,14 +2228,13 @@
        192,
        512
       ],
-      "local_max_red_shift": 1.62,
+      "local_max_red_shift": 3.35,
       "local_max_red_block": [
-       128,
-       128
+       0,
+       896
       ],
       "sampled_delta_e76_p99": 4.286,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
@@ -2308,7 +2285,7 @@
        448,
        768
       ],
-      "local_max_red_shift": 20.016,
+      "local_max_red_shift": 50.969,
       "local_max_red_block": [
        192,
        896
@@ -2348,14 +2325,13 @@
        448,
        768
       ],
-      "local_max_red_shift": 5.078,
+      "local_max_red_shift": 14.469,
       "local_max_red_block": [
        192,
        896
       ],
       "sampled_delta_e76_p99": 4.048,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
@@ -2406,7 +2382,7 @@
        576,
        704
       ],
-      "local_max_red_shift": 5.019,
+      "local_max_red_shift": 9.537,
       "local_max_red_block": [
        448,
        384
@@ -2446,18 +2422,17 @@
        576,
        704
       ],
-      "local_max_red_shift": 2.852,
+      "local_max_red_shift": 3.315,
       "local_max_red_block": [
        448,
        384
       ],
       "sampled_delta_e76_p99": 5.626,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 2.4,
+   "encodeSeconds": 2.5,
    "outputBytes": 157304,
    "outputSHA256": "c59bab53fdbc93ec8d6e6b7609b073fa370ecd1272f1751c502fcfad6bbde4fd"
   },
@@ -2504,7 +2479,7 @@
        320,
        320
       ],
-      "local_max_red_shift": 5.911,
+      "local_max_red_shift": 13.448,
       "local_max_red_block": [
        384,
        576
@@ -2544,18 +2519,17 @@
        320,
        320
       ],
-      "local_max_red_shift": 2.306,
+      "local_max_red_shift": 4.047,
       "local_max_red_block": [
-       384,
-       768
+       64,
+       1216
       ],
       "sampled_delta_e76_p99": 2.991,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 2.7,
+   "encodeSeconds": 2.9,
    "outputBytes": 73990,
    "outputSHA256": "f11a68990e49e66bc94ec48daf2d5956844d5752188aaa5b1db94a7ba78eab97"
   },
@@ -2642,18 +2616,17 @@
        704,
        704
       ],
-      "local_max_red_shift": 6.766,
+      "local_max_red_shift": 10.83,
       "local_max_red_block": [
        512,
        384
       ],
       "sampled_delta_e76_p99": 4.173,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 2.9,
+   "encodeSeconds": 3.1,
    "outputBytes": 113614,
    "outputSHA256": "aba8b38a6e08f583a14501696137c95ef52fd79023c2e460f5aaa33812e7bc50"
   },
@@ -2700,7 +2673,7 @@
        640,
        512
       ],
-      "local_max_red_shift": 2.624,
+      "local_max_red_shift": 5.752,
       "local_max_red_block": [
        640,
        384
@@ -2740,18 +2713,17 @@
        640,
        512
       ],
-      "local_max_red_shift": 1.452,
+      "local_max_red_shift": 2.153,
       "local_max_red_block": [
-       128,
-       512
+       0,
+       128
       ],
       "sampled_delta_e76_p99": 4.258,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 2.9,
+   "encodeSeconds": 3.1,
    "outputBytes": 139214,
    "outputSHA256": "736dd3c64fdb46d9eb7218873dbd7386dbcfa0a548c82bb7947c8532d939e6db"
   },
@@ -2798,7 +2770,7 @@
        448,
        256
       ],
-      "local_max_red_shift": 7.465,
+      "local_max_red_shift": 12.497,
       "local_max_red_block": [
        448,
        256
@@ -2838,18 +2810,17 @@
        448,
        256
       ],
-      "local_max_red_shift": 3.984,
+      "local_max_red_shift": 7.426,
       "local_max_red_block": [
        448,
-       320
+       256
       ],
       "sampled_delta_e76_p99": 6.185,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 3.1,
+   "encodeSeconds": 3.4,
    "outputBytes": 195668,
    "outputSHA256": "42635b6089448f5f5ead88571acf8df17a9fd44b509798570953b75ab93cae6f"
   },
@@ -2896,14 +2867,13 @@
        448,
        768
       ],
-      "local_max_red_shift": 0.692,
+      "local_max_red_shift": 0.821,
       "local_max_red_block": [
-       128,
+       832,
        704
       ],
       "sampled_delta_e76_p99": 2.754,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     },
     "sharp_yuv": {
@@ -2937,17 +2907,17 @@
        448,
        768
       ],
-      "local_max_red_shift": 0.52,
+      "local_max_red_shift": 0.579,
       "local_max_red_block": [
-       576,
-       896
+       896,
+       768
       ],
       "sampled_delta_e76_p99": 2.648,
       "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 3.1,
+   "encodeSeconds": 3.3,
    "outputBytes": 80152,
    "outputSHA256": "214e7202d1a23e15a0551d1b0fd0527843996c89eea75fa0caa659d357c48685"
   },
@@ -2994,14 +2964,13 @@
        640,
        704
       ],
-      "local_max_red_shift": 1.824,
+      "local_max_red_shift": 3.394,
       "local_max_red_block": [
-       768,
-       448
+       64,
+       896
       ],
       "sampled_delta_e76_p99": 3.425,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     },
     "sharp_yuv": {
@@ -3045,7 +3014,7 @@
      }
     }
    },
-   "encodeSeconds": 2.8,
+   "encodeSeconds": 3.0,
    "outputBytes": 73152,
    "outputSHA256": "448de28a5f8de18f4582431263f16ec5a364a4b4d1c9355d7ea9b1e46cb9abca"
   },
@@ -3092,10 +3061,10 @@
        128,
        448
       ],
-      "local_max_red_shift": 12.029,
+      "local_max_red_shift": 16.476,
       "local_max_red_block": [
-       448,
-       384
+       768,
+       704
       ],
       "sampled_delta_e76_p99": 4.913,
       "sample_step": 4
@@ -3132,18 +3101,17 @@
        128,
        448
       ],
-      "local_max_red_shift": 5.043,
+      "local_max_red_shift": 7.145,
       "local_max_red_block": [
        448,
        384
       ],
       "sampled_delta_e76_p99": 4.188,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 2.8,
+   "encodeSeconds": 3.0,
    "outputBytes": 181566,
    "outputSHA256": "7c43e8673d2a2b458d2878e1c9b452962a66aa7d1ad8813053b73d5fe1274188"
   },
@@ -3190,10 +3158,10 @@
        512,
        192
       ],
-      "local_max_red_shift": 10.857,
+      "local_max_red_shift": 13.75,
       "local_max_red_block": [
-       128,
-       832
+       576,
+       576
       ],
       "sampled_delta_e76_p99": 4.015,
       "sample_step": 4
@@ -3230,18 +3198,17 @@
        512,
        192
       ],
-      "local_max_red_shift": 3.0,
+      "local_max_red_shift": 3.515,
       "local_max_red_block": [
-       448,
-       832
+       192,
+       768
       ],
       "sampled_delta_e76_p99": 3.498,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 2.6,
+   "encodeSeconds": 2.8,
    "outputBytes": 99028,
    "outputSHA256": "8c2afe08eacce6a7ac1e7af48ab4d0989e4fef0303ea099d18e1f1fd3bddfd82"
   },
@@ -3328,18 +3295,17 @@
        128,
        640
       ],
-      "local_max_red_shift": 4.95,
+      "local_max_red_shift": 9.15,
       "local_max_red_block": [
        704,
        640
       ],
       "sampled_delta_e76_p99": 3.901,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 2.5,
+   "encodeSeconds": 2.6,
    "outputBytes": 114634,
    "outputSHA256": "03527858978092f8db069c6c000a3613e0b12f7631386fb9dac776496235e7f0"
   },
@@ -3386,7 +3352,7 @@
        64,
        768
       ],
-      "local_max_red_shift": 10.456,
+      "local_max_red_shift": 21.867,
       "local_max_red_block": [
        640,
        640
@@ -3426,18 +3392,17 @@
        64,
        768
       ],
-      "local_max_red_shift": 4.923,
+      "local_max_red_shift": 12.667,
       "local_max_red_block": [
-       128,
-       832
+       0,
+       1088
       ],
       "sampled_delta_e76_p99": 3.505,
-      "sample_step": 4,
-      "red_rule": "applied"
+      "sample_step": 4
      }
     }
    },
-   "encodeSeconds": 2.4,
+   "encodeSeconds": 2.5,
    "outputBytes": 96466,
    "outputSHA256": "3bec2117f00736af6fbb83395a0ba3e93dc37a8b1af7b72604fff88b799a9616"
   }

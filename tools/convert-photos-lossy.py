@@ -16,8 +16,9 @@ and `-sharp_yuv` candidates, decoded and measured against the exact source
 (visible-pixel RGB mean / p99, local 64 px errors, red shift, sampled CIE Lab
 ΔE76 p99). The owner-approved base quality is 90 (Founder 2026-11-05 on A/B
 pairs). A candidate that trips the pipeline fallback thresholds (mean ≥ 3/255,
-p99 > 15/255 or mean red shift ≥ 2/255) is retried at q95; if q95 also trips,
-the asset keeps its lossless file and the receipt records the fallback.
+p99 > 15/255 or worst-channel mean signed shift on red-dominant pixels ≥ 2/255,
+no minimum pixel count) is retried at q95; if q95 also trips, the asset keeps
+its lossless file and the receipt records the fallback.
 
 Only the Python standard library plus the cwebp/dwebp/webpinfo binaries are
 required (Pillow is intentionally not needed), so the tool runs in the same
@@ -63,9 +64,10 @@ ASSETS = [
     "technology/slides/touch-01", "technology/slides/touch-02",
     "technology/slides/touch-03",
 ]
-# sha256 of the lossless sources at branch creation (origin/main 45a7110).
-PINNED = json.loads((ROOT / "tools/convert-photos-lossy.sources.json").read_text()) \
-    if (ROOT / "tools/convert-photos-lossy.sources.json").exists() else {}
+# sha256 of the lossless sources at branch creation (origin/main 45a7110). Mandatory.
+PINNED_PATH = ROOT / "tools/convert-photos-lossy.sources.json"
+PINNED = json.loads(PINNED_PATH.read_text())
+assert set(PINNED) == set(ASSETS), "pinned source list must cover exactly the asset list"
 
 
 def sha256(path: Path) -> str:
@@ -166,7 +168,7 @@ def color_metrics(width: int, height: int, expected: bytes, actual: bytes, sampl
             if block_px < 64:
                 continue
             sums = [0, 0, 0]
-            red_shift = 0
+            red_shift = [0, 0, 0]
             red_n = 0
             for y in rows:
                 start = y * row_bytes + left * 3
@@ -176,12 +178,16 @@ def color_metrics(width: int, height: int, expected: bytes, actual: bytes, sampl
                 for x in range(right - left):
                     if red_mask[base + x]:
                         red_n += 1
-                        red_shift += signed[(base + x) * 3]
+                        j = (base + x) * 3
+                        red_shift[0] += signed[j]; red_shift[1] += signed[j + 1]; red_shift[2] += signed[j + 2]
             block_mae = max(sums) / block_px
             if block_mae > local_max_mae:
                 local_max_mae, local_max_mae_block = block_mae, [left, top]
-            if red_n >= 32 and abs(red_shift / red_n) > local_max_red:
-                local_max_red, local_max_red_block = abs(red_shift / red_n), [left, top]
+            if red_n >= 32:
+                # worst channel of the mean signed shift on the block's red pixels (as convert-art-webp.py)
+                block_red_shift = max(abs(s / red_n) for s in red_shift)
+                if block_red_shift > local_max_red:
+                    local_max_red, local_max_red_block = block_red_shift, [left, top]
     # sampled ΔE76 p99 (every `sample`-th pixel in both axes)
     deltas = []
     for y in range(0, height, sample):
@@ -208,23 +214,12 @@ def color_metrics(width: int, height: int, expected: bytes, actual: bytes, sampl
     }
 
 
-RED_RULE_MIN_SHARE = 0.001  # global red-shift rule needs >= 0.1% red-dominant pixels
-
-
-def trips_fallback(m: dict, pixels: int) -> bool:
-    """Pipeline fallback thresholds (docs/art-color-pipeline.md).
-
-    Deviation, recorded in the receipt: the global mean red-shift rule is only
-    applied when red-dominant pixels are at least RED_RULE_MIN_SHARE of the
-    image. Below that (e.g. technology/slides/aqua-02: 152 of 1,432,402 pixels,
-    one small orange dot) the mean is a statistic of a few edge pixels and the
-    64 px local red rule plus the reviewed crop cover it instead.
-    """
-    red = abs(m["red_mean_shift"][0]) if m["red_mean_shift"] else 0.0
-    red_rule_applies = m["red_pixels"] >= pixels * RED_RULE_MIN_SHARE
-    m["red_rule"] = ("applied" if red_rule_applies
-                     else f"skipped: {m['red_pixels']} red pixels < {RED_RULE_MIN_SHARE:.1%}")
-    return max(m["rgb_mean_abs"]) >= 3 or max(m["rgb_p99_abs"]) > 15 or (red_rule_applies and red >= 2)
+def trips_fallback(m: dict) -> bool:
+    """Pipeline fallback thresholds, exactly as tools/convert-art-webp.py:
+    visible RGB mean >= 3/255, p99 > 15/255, or worst-channel mean signed shift
+    on red-dominant pixels >= 2/255 (no minimum red-pixel count)."""
+    red = max(map(abs, m["red_mean_shift"])) if m["red_mean_shift"] else 0.0
+    return max(m["rgb_mean_abs"]) >= 3 or max(m["rgb_p99_abs"]) > 15 or red >= 2
 
 
 def encode(source: Path, target: Path, quality: int, sharp: bool) -> None:
@@ -277,7 +272,7 @@ def main() -> int:
         for key in keys:
             source = ART / f"{key}.webp"
             source_sha = sha256(source)
-            if PINNED and PINNED.get(key) != source_sha:
+            if PINNED.get(key) != source_sha:
                 print(f"ABORT {key}: source sha {source_sha[:12]} != pinned {str(PINNED.get(key))[:12]}", file=sys.stderr)
                 return 1
             info = webp_info(source)
@@ -287,10 +282,10 @@ def main() -> int:
             result = choose(source, temp, width, height, expected, BASE_QUALITY)
             chosen_metrics = result["candidates"][result["chosen"]]["metrics"]
             fallback = None
-            if trips_fallback(chosen_metrics, width * height):
+            if trips_fallback(chosen_metrics):
                 retry = choose(source, temp, width, height, expected, RETRY_QUALITY)
                 retry_metrics = retry["candidates"][retry["chosen"]]["metrics"]
-                if trips_fallback(retry_metrics, width * height):
+                if trips_fallback(retry_metrics):
                     fallback = "lossless_kept"
                 else:
                     fallback = f"retry_q{RETRY_QUALITY}"

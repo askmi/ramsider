@@ -2,6 +2,7 @@ import { ProgressiveImage } from './ProgressiveImage';
 import previews from '@/lib/media-previews.json';
 import { company, companyCopy } from '@/lib/company';
 import type { Locale } from '@/lib/i18n';
+import { LegalNavigation } from './LegalNavigation';
 
 export function SiteFooter({ locale }: { locale: Locale }) {
   const copy = companyCopy[locale];
@@ -39,6 +40,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           </ul>
         </nav>
       </section>
+      <LegalNavigation locale={locale} />
     </div>
   </footer>;
 }

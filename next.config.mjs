@@ -2,7 +2,11 @@
 const config = {
   // Presentation mode: retain translations, but serve every locale entry in English.
   async redirects() {
-    return [{
+    return [...['privacy', 'terms', 'delivery'].map(document => ({
+      source: `/${document}`,
+      destination: `/en/${document}`,
+      permanent: true,
+    })), {
       source: '/:locale(de|fr|es|it|ru|tr|ar|zh|ja|ko)/:path*',
       destination: '/en/:path*',
       permanent: false,

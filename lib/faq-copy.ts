@@ -23,6 +23,10 @@ export function faqAnswer(id: string, locale: Locale) {
   return { language, text: answers[language][id as keyof typeof answers.en] };
 }
 
+export function shippingTermsReference(locale: Locale) {
+  return locale === 'ar' ? 'شروط وأحكام البيع، القسم 6.3' : 'Terms and Conditions of Sale §6.3';
+}
+
 export const venueFaq = {
   before: 'To view franchise and venue partnership terms, go to the ',
   link: 'Hospitality section',

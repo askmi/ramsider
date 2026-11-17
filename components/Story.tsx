@@ -24,7 +24,7 @@ import { EmberScene } from './EmberScene';
 import { emberCopy } from '@/lib/ember-copy';
 import { certificates, type CertificateId } from '@/lib/certificates';
 import { company, companyCopy } from '@/lib/company';
-import { faqAnswer, venueFaq } from '@/lib/faq-copy';
+import { faqAnswer, shippingTermsReference, venueFaq } from '@/lib/faq-copy';
 import { SiteFooter } from './SiteFooter';
 import { WellnessRibbon } from './WellnessRibbon';
 import { ProductFilm } from './ProductFilm';
@@ -183,10 +183,21 @@ function Faq({ locale }: { locale: Locale }) {
         ? <span lang="en" dir="ltr">{venueFaq.before}<a className="faq-partnership-link" href={venueFaq.href}>{venueFaq.link}</a>{venueFaq.after}</span>
         : question.id === 'support'
         ? <>{companyCopy[locale].support} <a className="faq-contact-link" href={company.emailHref}><bdi dir="ltr">{company.email}</bdi></a></>
+        : question.id === 'shipping'
+        ? <ShippingAnswer locale={locale} />
         : <span lang={faqAnswer(question.id, locale).language} dir={locale === 'ar' ? 'rtl' : 'ltr'}>{faqAnswer(question.id, locale).text}</span>}</p>
       </details>
     </div>)}
   </div>;
+}
+
+function ShippingAnswer({ locale }: { locale: Locale }) {
+  const answer = faqAnswer('shipping', locale);
+  const reference = shippingTermsReference(locale);
+  const [before, after] = answer.text.split(reference);
+  return <span lang={answer.language} dir={answer.language === 'ar' ? 'rtl' : 'ltr'}>
+    {before}<Link className="faq-partnership-link" href="/en/terms#6.3" hrefLang="en" prefetch={false}>{reference}</Link>{after}
+  </span>;
 }
 
 function Menus({ locale }: { locale: Locale }) {

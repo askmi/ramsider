@@ -30,3 +30,5 @@ For substantive project work, start with the short [MEMORY.md](MEMORY.md) to see
 `PROMPT.txt` is the original long brief. `SUMMARY.txt` is a later question-by-question synthesis. They are source records. Where their suggestions differ, `AGENTS.md` and explicit current user direction decide the workflow. Historical app code in Git is not the rebuild specification.
 
 [docs/wellness-story.md](docs/wellness-story.md) is the pre-code mapping, exact-copy/PNG contract and verification receipt for Beyond Shisha Learn more (CHG0130). Read it when changing this ribbon or its foreground loading priority.
+
+[docs/server-deployment.md](docs/server-deployment.md) is the maintained, verified VDS map and deployment/rollback runbook for Ramsider Next, Hospitality, Nginx host routing, TLS and systemd. Its sanitized evidence is docs/evidence/server-deployment/deployment.json. Consult it before server deployment; runtime credentials are never stored there.

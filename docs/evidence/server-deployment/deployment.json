@@ -1,0 +1,578 @@
+{
+  "change": "CHG0204",
+  "date": "2026-11-18",
+  "status": "INVENTORY_VERIFIED_PLAN_AWAITING_AUDIT",
+  "baselineCommit": "f79645de75c9f63ee665e5aaeb5bb6332bca1d8a",
+  "verifiedProductSourceCommit": "7464028eb1a2fdbeaa702639f181c73ece4f1ae2",
+  "ramsider": {
+    "path": {
+      "path": "/root/ramsider",
+      "realPath": "/root/ramsider",
+      "isSymlink": false,
+      "ownerUid": 0
+    },
+    "startup": {
+      "Type": "simple",
+      "User": "root",
+      "WorkingDirectory": "/root/ramsider",
+      "ExecStart": "\"/root/.nvm/versions/node/v24.22.2/bin/node\" /root/ramsider/node_modules/next/dist/bin/next start --hostname 127.0.0.1 --port 3000",
+      "Restart": "on-failure",
+      "RestartSec": "5",
+      "environmentVariableNames": [
+        "NODE_ENV"
+      ]
+    },
+    "unitSha256": "4371e54907217d7f9d99945fb0bc0bb9ada08c02cf598896a61f2a6ad98d43fa",
+    "git": {
+      "branch": "main",
+      "head": "f79645de75c9f63ee665e5aaeb5bb6332bca1d8a",
+      "status": "?? zzzz-ramsider-next",
+      "lastCommit": "f79645de75c9f63ee665e5aaeb5bb6332bca1d8a 2026-11-05T00:22:59+04:00 Open Hospitality site from header navigation",
+      "originIdentity": "git@github.com:askmi/ramsider.git"
+    },
+    "dependencyFiles": {
+      "package.json": {
+        "bytes": 1240,
+        "sha256": "50f41a60c3760ac151a332854bcc1b8ad43b3b093dcc8ae14538b0fcf9c5a71b"
+      },
+      "package-lock.json": {
+        "bytes": 239143,
+        "sha256": "03dc571eb492805c5376c3c64c7c09356732c15a52d26637cdb4ec618845abbf"
+      }
+    },
+    "untrackedPreserve": {
+      "name": "zzzz-ramsider-next",
+      "sha256": "3d7c73f1886e79fd1a2cb5ef572b3ff3ed6608babe45cb7680ac591e2bb23950",
+      "bytes": 817,
+      "mode": "0o644",
+      "isSymlink": false
+    },
+    "nodeVersion": "v24.22.2",
+    "noninteractiveNodeOnPath": false
+  },
+  "nginx": {
+    "syntaxOk": true,
+    "loadedFileCount": 25,
+    "configurationManifestSha256": "8af1758dc82ef81563ed4ae2229bf39bcaf8a30eb70dd524e66e655ae4536db0",
+    "taskFiles": {
+      "/etc/nginx/sites-enabled/hospitality_preview": {
+        "realPath": "/etc/nginx/sites-available/hospitality_preview",
+        "sha256": "c38824206d57c340f86bf6af34e703dc1625f340c97e96c5437c01fd0d2f1524",
+        "routing": [
+          "server {",
+          "listen 8088;",
+          "server_name _;",
+          "root /var/www/hospitality/site;",
+          "location / { try_files $uri $uri/ =404; }",
+          "}"
+        ]
+      },
+      "/etc/nginx/sites-enabled/ramsider-main": {
+        "realPath": "/etc/nginx/sites-enabled/ramsider-main",
+        "sha256": "9e4bf5e82152ccc9fe7311dc1351fe0b78e4dab0902e51f16929bfa905afbce9",
+        "routing": [
+          "server {",
+          "listen 80;",
+          "server_name ramsider.com www.ramsider.com;",
+          "location /.well-known/acme-challenge/ { root /var/www/hospitality/site; }",
+          "location / { return 301 https://ramsider.com$request_uri; }",
+          "}",
+          "server {",
+          "listen 443 ssl;",
+          "server_name www.ramsider.com;",
+          "ssl_certificate /etc/letsencrypt/live/ramsider.com/fullchain.pem;",
+          "ssl_certificate_key /etc/letsencrypt/live/ramsider.com/privkey.pem;",
+          "include /etc/letsencrypt/options-ssl-nginx.conf;",
+          "return 301 https://ramsider.com$request_uri;",
+          "}",
+          "server {",
+          "listen 443 ssl;",
+          "server_name ramsider.com;",
+          "ssl_certificate /etc/letsencrypt/live/ramsider.com/fullchain.pem;",
+          "ssl_certificate_key /etc/letsencrypt/live/ramsider.com/privkey.pem;",
+          "include /etc/letsencrypt/options-ssl-nginx.conf;",
+          "location ^~ /.well-known/acme-challenge/ { root /var/www/hospitality/site; }",
+          "location ~ ^/partnership/?$ { return 301 \"https://hospitality.ramsider.com/#enquiry\"; }",
+          "location ~ ^/qr/?$ { return 301 https://hospitality.ramsider.com/; }",
+          "location ^~ /pdf/ { root /var/www/ramsider-legacy; }",
+          "location ^~ /assets/files/ { root /var/www/ramsider-legacy; }",
+          "location / {",
+          "proxy_pass http://127.0.0.1:3000;",
+          "}",
+          "}"
+        ]
+      },
+      "/etc/nginx/sites-enabled/zz_hospitality": {
+        "realPath": "/etc/nginx/sites-available/hospitality",
+        "sha256": "a012753d06fb50e7782b6cb2408b133fd168e16d850d36d29d7db10da850e050",
+        "routing": [
+          "server {",
+          "listen 80;",
+          "server_name hospitality.ramsider.com;",
+          "location /.well-known/acme-challenge/ { root /var/www/hospitality/site; }",
+          "location / { return 301 https://hospitality.ramsider.com$request_uri; }",
+          "}",
+          "server {",
+          "listen 443 ssl;",
+          "server_name hospitality.ramsider.com;",
+          "ssl_certificate /etc/letsencrypt/live/hospitality.ramsider.com/fullchain.pem;",
+          "ssl_certificate_key /etc/letsencrypt/live/hospitality.ramsider.com/privkey.pem;",
+          "include /etc/letsencrypt/options-ssl-nginx.conf;",
+          "root /var/www/hospitality/site;",
+          "location = /api/partner { proxy_pass http://127.0.0.1:18080; proxy_set_header Host $host; proxy_set_header X-Forwarded-For $remote_addr; proxy_set_header X-Real-IP $remote_addr; proxy_set_header X-Forwarded-Proto https; client_max_body_size 32k; }",
+          "location ^~ /pdf/ { root /var/www/ramsider-legacy; }",
+          "location ^~ /assets/files/ { root /var/www/ramsider-legacy; }",
+          "location ^~ /b2c/ { return 404; }",
+          "location / { try_files $uri $uri/ =404; }",
+          "}"
+        ]
+      },
+      "/etc/nginx/sites-enabled/zzzz-ramsider-next": {
+        "realPath": "/etc/nginx/sites-available/zzzz-ramsider-next",
+        "sha256": "e69da76d23b785bbaa7fbe24f3a24fd6f596b262c04fe314cb1b122d64aa1ca9",
+        "routing": [
+          "server {",
+          "listen 80;",
+          "server_name m.ramsider.com;",
+          "location /.well-known/acme-challenge/ { root /var/www/hospitality/site; }",
+          "location / { return 301 https://ramsider.com$request_uri; }",
+          "}",
+          "server {",
+          "listen 443 ssl;",
+          "server_name m.ramsider.com;",
+          "ssl_certificate /etc/letsencrypt/live/m.ramsider.com/fullchain.pem; # managed by Certbot",
+          "ssl_certificate_key /etc/letsencrypt/live/m.ramsider.com/privkey.pem; # managed by Certbot",
+          "include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot",
+          "return 301 https://ramsider.com$request_uri;",
+          "}"
+        ]
+      }
+    },
+    "unitSha256": "6c759c229d4dacf65c1f98c1733646f8b979d3e75e13a98bfbcfe26f8a2f793c"
+  },
+  "certificates": {
+    "ramsider.com": {
+      "readOk": true,
+      "publicMetadata": [
+        "sha256 Fingerprint=90:5D:A1:13:01:73:3D:6D:95:DB:34:9C:A7:C9:A6:DD:D3:6D:73:34:7B:6A:ED:5D:D6:5A:E6:E3:29:E8:6D:81",
+        "notBefore=Nov  3 07:50:19 2026 GMT",
+        "notAfter=Feb  1 07:50:18 2027 GMT",
+        "X509v3 Subject Alternative Name: ",
+        "    DNS:ramsider.com, DNS:www.ramsider.com"
+      ]
+    },
+    "m.ramsider.com": {
+      "readOk": true,
+      "publicMetadata": [
+        "sha256 Fingerprint=DF:46:E2:2E:F2:73:94:64:F0:2A:4F:A7:65:A7:FE:86:F4:DE:38:BE:C0:0C:4F:BE:2F:85:FF:63:A7:47:D4:C1",
+        "notBefore=Nov  3 07:52:58 2026 GMT",
+        "notAfter=Feb  1 07:52:57 2027 GMT",
+        "X509v3 Subject Alternative Name: ",
+        "    DNS:m.ramsider.com"
+      ]
+    },
+    "hospitality.ramsider.com": {
+      "readOk": true,
+      "publicMetadata": [
+        "sha256 Fingerprint=E0:08:17:8A:DF:C7:C0:C1:22:A8:1F:B3:30:F9:19:4F:AA:31:CA:9E:F0:7B:51:2D:80:86:38:21:25:A3:84:2F",
+        "notBefore=Oct 30 15:12:52 2026 GMT",
+        "notAfter=Jan 28 15:12:51 2027 GMT",
+        "X509v3 Subject Alternative Name: ",
+        "    DNS:hospitality.ramsider.com"
+      ]
+    }
+  },
+  "certificateTimer": {
+    "NextElapseUSecRealtime": "Wed 2026-11-18 04:03:01 UTC",
+    "ActiveState": "active",
+    "SubState": "waiting",
+    "UnitFileState": "enabled"
+  },
+  "staticTrees": {
+    "hospitalityTree": {
+      "files": 393,
+      "bytes": 2014379603,
+      "manifestSha256": "6b21264a45b93488777a850b2d050a15acd62d56508f0e13c40b369f11d3a9a6"
+    },
+    "legacyTree": {
+      "files": 2,
+      "bytes": 17914200,
+      "manifestSha256": "0cfa6f7c667b4e8cf83dacc689c09eea83e03ace254a84576b78912700c5e2c2"
+    }
+  },
+  "hospitalityIndex": {
+    "bytes": 22065,
+    "sha256": "07bc1413731f85adcd075e3a032e0ad425b3d0540404f05c3d6f3bb6dd3ac51a"
+  },
+  "formListeners": [
+    {
+      "address": "127.0.0.1:18081",
+      "systemdUnit": "ramsider-receiver.service"
+    },
+    {
+      "address": "127.0.0.1:18080",
+      "systemdUnit": "ramsider-form.service"
+    }
+  ],
+  "auxiliaryServices": [
+    {
+      "WorkingDirectory": "/srv/ramsider/form",
+      "User": "ramsider",
+      "Id": "ramsider-form.service",
+      "ActiveState": "active",
+      "SubState": "running",
+      "FragmentPath": "/etc/systemd/system/ramsider-form.service",
+      "unitSha256": "90bae2ecb32209402a9fd017c96b95b9ce41b6858a165a4a5f1431992ad98384"
+    },
+    {
+      "WorkingDirectory": "/srv/ramsider/form",
+      "User": "ramsider",
+      "Id": "ramsider-receiver.service",
+      "ActiveState": "active",
+      "SubState": "running",
+      "FragmentPath": "/etc/systemd/system/ramsider-receiver.service",
+      "unitSha256": "76eba7d5542ea631334a2986f4a04e9661ad43e2a2145df4405b9fe460ccf4fd"
+    },
+    {
+      "WorkingDirectory": "/root/ramsider",
+      "User": "root",
+      "Id": "ramsider.service",
+      "ActiveState": "active",
+      "SubState": "running",
+      "FragmentPath": "/etc/systemd/system/ramsider.service",
+      "unitSha256": "4371e54907217d7f9d99945fb0bc0bb9ada08c02cf598896a61f2a6ad98d43fa"
+    }
+  ],
+  "gitAccess": {
+    "ssh": {
+      "ok": false,
+      "sha": null,
+      "publicKeyDenied": true,
+      "hostTrustFailure": false,
+      "authenticationRequired": false
+    },
+    "https": {
+      "ok": true,
+      "sha": "7464028eb1a2fdbeaa702639f181c73ece4f1ae2",
+      "publicKeyDenied": false,
+      "hostTrustFailure": false,
+      "authenticationRequired": false
+    }
+  },
+  "resources": {
+    "freeDiskBytes": 68848836608,
+    "availableMemoryBytes": 7065329664,
+    "filmFiles": {
+      "files": 4087,
+      "bytes": 4597305284
+    }
+  },
+  "preservationBaselines": {
+    "http": [
+      {
+        "scheme": "http",
+        "host": "ramsider.com",
+        "path": "/en/privacy?routing_probe=1",
+        "status": 301,
+        "location": "https://ramsider.com/en/privacy?routing_probe=1",
+        "contentType": "text/html",
+        "bytes": 162,
+        "sha256": "9e17cb15dd75bbbd5dbb984eda674863c3b10ab72613cf8a39a00c3e11a8492a"
+      },
+      {
+        "scheme": "http",
+        "host": "www.ramsider.com",
+        "path": "/en/privacy?routing_probe=1",
+        "status": 301,
+        "location": "https://ramsider.com/en/privacy?routing_probe=1",
+        "contentType": "text/html",
+        "bytes": 162,
+        "sha256": "9e17cb15dd75bbbd5dbb984eda674863c3b10ab72613cf8a39a00c3e11a8492a"
+      },
+      {
+        "scheme": "https",
+        "host": "www.ramsider.com",
+        "path": "/en/privacy?routing_probe=1",
+        "status": 301,
+        "location": "https://ramsider.com/en/privacy?routing_probe=1",
+        "contentType": "text/html",
+        "bytes": 162,
+        "sha256": "9e17cb15dd75bbbd5dbb984eda674863c3b10ab72613cf8a39a00c3e11a8492a"
+      },
+      {
+        "scheme": "http",
+        "host": "m.ramsider.com",
+        "path": "/en/privacy?routing_probe=1",
+        "status": 301,
+        "location": "https://ramsider.com/en/privacy?routing_probe=1",
+        "contentType": "text/html",
+        "bytes": 162,
+        "sha256": "9e17cb15dd75bbbd5dbb984eda674863c3b10ab72613cf8a39a00c3e11a8492a"
+      },
+      {
+        "scheme": "https",
+        "host": "m.ramsider.com",
+        "path": "/en/privacy?routing_probe=1",
+        "status": 301,
+        "location": "https://ramsider.com/en/privacy?routing_probe=1",
+        "contentType": "text/html",
+        "bytes": 162,
+        "sha256": "9e17cb15dd75bbbd5dbb984eda674863c3b10ab72613cf8a39a00c3e11a8492a"
+      },
+      {
+        "scheme": "http",
+        "host": "hospitality.ramsider.com",
+        "path": "/",
+        "status": 301,
+        "location": "https://hospitality.ramsider.com/",
+        "contentType": "text/html",
+        "bytes": 162,
+        "sha256": "9e17cb15dd75bbbd5dbb984eda674863c3b10ab72613cf8a39a00c3e11a8492a"
+      },
+      {
+        "scheme": "https",
+        "host": "hospitality.ramsider.com",
+        "path": "/",
+        "status": 200,
+        "location": null,
+        "contentType": "text/html",
+        "bytes": 22065,
+        "sha256": "07bc1413731f85adcd075e3a032e0ad425b3d0540404f05c3d6f3bb6dd3ac51a"
+      },
+      {
+        "scheme": "https",
+        "host": "hospitality.ramsider.com",
+        "path": "/privacy",
+        "status": 301,
+        "location": "https://hospitality.ramsider.com/privacy/",
+        "contentType": "text/html",
+        "bytes": 162,
+        "sha256": "9e17cb15dd75bbbd5dbb984eda674863c3b10ab72613cf8a39a00c3e11a8492a"
+      },
+      {
+        "scheme": "https",
+        "host": "hospitality.ramsider.com",
+        "path": "/b2c/",
+        "status": 404,
+        "location": null,
+        "contentType": "text/html",
+        "bytes": 146,
+        "sha256": "55f7d9e99b8e2d4e0e193b2f0275501e6d9c1ebd29cadbea6a0da48a8587e3e0"
+      },
+      {
+        "scheme": "https",
+        "host": "hospitality.ramsider.com",
+        "path": "/api/partner",
+        "status": 404,
+        "location": null,
+        "contentType": "application/json; charset=utf-8",
+        "bytes": 35,
+        "sha256": "632dfebd96f9f2d464863bd7f6491b0398c5ef4dcf16f6c27d6e88df308ac1f5"
+      },
+      {
+        "scheme": "https",
+        "host": "ramsider.com",
+        "path": "/partnership",
+        "status": 301,
+        "location": "https://hospitality.ramsider.com/#enquiry",
+        "contentType": "text/html",
+        "bytes": 162,
+        "sha256": "9e17cb15dd75bbbd5dbb984eda674863c3b10ab72613cf8a39a00c3e11a8492a"
+      },
+      {
+        "scheme": "https",
+        "host": "ramsider.com",
+        "path": "/qr",
+        "status": 301,
+        "location": "https://hospitality.ramsider.com/",
+        "contentType": "text/html",
+        "bytes": 162,
+        "sha256": "9e17cb15dd75bbbd5dbb984eda674863c3b10ab72613cf8a39a00c3e11a8492a"
+      },
+      {
+        "scheme": "https",
+        "host": "ramsider.com",
+        "path": "/en",
+        "status": 200,
+        "location": null,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 905378,
+        "sha256": "6aa412621d044d9a68ad1ab9ca63a6a09699ad29e66cc069214dd63e1560092f"
+      },
+      {
+        "scheme": "https",
+        "host": "ramsider.com",
+        "path": "/api/launch-list",
+        "status": 405,
+        "location": null,
+        "contentType": null,
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "scheme": "https",
+        "host": "ramsider.com",
+        "path": "/en/privacy",
+        "status": 404,
+        "location": null,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 7715,
+        "sha256": "30567023c60e7d6a1b5944411f704a5ade9e564e74b38ccdbcc563e9439dc59f"
+      },
+      {
+        "scheme": "https",
+        "host": "ramsider.com",
+        "path": "/en/terms",
+        "status": 404,
+        "location": null,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 7715,
+        "sha256": "30567023c60e7d6a1b5944411f704a5ade9e564e74b38ccdbcc563e9439dc59f"
+      },
+      {
+        "scheme": "https",
+        "host": "ramsider.com",
+        "path": "/en/delivery",
+        "status": 404,
+        "location": null,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 7715,
+        "sha256": "30567023c60e7d6a1b5944411f704a5ade9e564e74b38ccdbcc563e9439dc59f"
+      },
+      {
+        "scheme": "https",
+        "host": "ramsider.com",
+        "path": "/privacy",
+        "status": 404,
+        "location": null,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 7715,
+        "sha256": "30567023c60e7d6a1b5944411f704a5ade9e564e74b38ccdbcc563e9439dc59f"
+      },
+      {
+        "scheme": "https",
+        "host": "ramsider.com",
+        "path": "/terms",
+        "status": 404,
+        "location": null,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 7715,
+        "sha256": "30567023c60e7d6a1b5944411f704a5ade9e564e74b38ccdbcc563e9439dc59f"
+      },
+      {
+        "scheme": "https",
+        "host": "ramsider.com",
+        "path": "/delivery",
+        "status": 404,
+        "location": null,
+        "contentType": "text/html; charset=utf-8",
+        "bytes": 7715,
+        "sha256": "30567023c60e7d6a1b5944411f704a5ade9e564e74b38ccdbcc563e9439dc59f"
+      },
+      {
+        "scheme": "https",
+        "host": "ramsider.com",
+        "path": "/pdf/Products_Services_v7_final_20261012.pdf",
+        "status": 200,
+        "location": null,
+        "contentType": "application/pdf",
+        "bytes": 8957100,
+        "sha256": "70b773f2a53a0846c081ad9f7c612ab32bf08c9da91eb2b608f1feaaef50cd77"
+      },
+      {
+        "scheme": "https",
+        "host": "hospitality.ramsider.com",
+        "path": "/pdf/Products_Services_v7_final_20261012.pdf",
+        "status": 200,
+        "location": null,
+        "contentType": "application/pdf",
+        "bytes": 8957100,
+        "sha256": "70b773f2a53a0846c081ad9f7c612ab32bf08c9da91eb2b608f1feaaef50cd77"
+      }
+    ],
+    "tls": [
+      {
+        "host": "ramsider.com",
+        "verified": true,
+        "sha256": "905da11301733d6d95db349ca7c9a6ddd36d73347b6aed5dd65ae6e329e86d81",
+        "san": [
+          [
+            "DNS",
+            "ramsider.com"
+          ],
+          [
+            "DNS",
+            "www.ramsider.com"
+          ]
+        ],
+        "notAfter": "Feb  1 07:50:18 2027 GMT",
+        "protocol": "TLSv1.3"
+      },
+      {
+        "host": "www.ramsider.com",
+        "verified": true,
+        "sha256": "905da11301733d6d95db349ca7c9a6ddd36d73347b6aed5dd65ae6e329e86d81",
+        "san": [
+          [
+            "DNS",
+            "ramsider.com"
+          ],
+          [
+            "DNS",
+            "www.ramsider.com"
+          ]
+        ],
+        "notAfter": "Feb  1 07:50:18 2027 GMT",
+        "protocol": "TLSv1.3"
+      },
+      {
+        "host": "m.ramsider.com",
+        "verified": true,
+        "sha256": "df46e22ef2739464f02a4fa765a7fe86f4de38bec00c4fbe2f85ff63a747d4c1",
+        "san": [
+          [
+            "DNS",
+            "m.ramsider.com"
+          ]
+        ],
+        "notAfter": "Feb  1 07:52:57 2027 GMT",
+        "protocol": "TLSv1.3"
+      },
+      {
+        "host": "hospitality.ramsider.com",
+        "verified": true,
+        "sha256": "e008178adfc7c0c122a81fb330f9194faa31ca9ef07b512d8086382125a3842f",
+        "san": [
+          [
+            "DNS",
+            "hospitality.ramsider.com"
+          ]
+        ],
+        "notAfter": "Jan 28 15:12:51 2027 GMT",
+        "protocol": "TLSv1.3"
+      }
+    ]
+  },
+  "plan": {
+    "target": "Pin origin/main after memory-only commit; verify runtime source projection equals7464028",
+    "release": "/root/ramsider-releases/20261118-main",
+    "previous": "/root/ramsider-releases/previous-f79645-20261118",
+    "state": "/root/ramsider-deploy/20261118-main",
+    "prepare": "Clone existing Git repository independently, use HTTPS origin, fetch/pin main; npm ci in isolated directory, copy approved existing films, build production, preserve untracked nginx backup and previous immutable Next static assets",
+    "validate": "Temporary Next on127.0.0.1:3100; source text/aliases/static assets and screenshots via protected SSH tunnel; production remains running",
+    "switch": "Stop only ramsider.service, rename current checkout to previous, rename prepared checkout to /root/ramsider, start same unmodified unit; rollback immediately on failed readiness",
+    "preserve": [
+      "Nginx configuration and process",
+      "all certificates and key files",
+      "Hospitality and legacy bytes",
+      "both form services",
+      "old checkout and untracked file"
+    ],
+    "rollback": "Stop Ramsider; move failed checkout aside; restore previous directory to /root/ramsider; start unchanged service; verify /en200 and original baseline"
+  },
+  "technicalApproval": {
+    "root": "INVENTORY_REVIEWED; deployment pending",
+    "auditor": "2026-11-18 /root/audit inventory/map+planarchitecture/durablememory PASS; full pinned-command gate pending before server mutation"
+  },
+  "userResultApproval": "NOT_RECORDED"
+}

@@ -1,7 +1,7 @@
 {
   "change": "CHG0203",
   "date": "2026-11-18",
-  "status": "VERIFIED_LOCAL_AWAITING_PUBLICATION",
+  "status": "VERIFIED_CORRECTION_CANONICAL_AND_PROVIDER_VDS_NOT_DEPLOYED",
   "baseline": "6dff0517b8daab461a5fbeef828e2205d2edb159",
   "request": "Three EN legal pages: Home above BackToTop, no Contact; remove visible Documents footer heading",
   "sourceFiles": [
@@ -33,7 +33,8 @@
     "performance": "single cold-context production 4Mbps100msCPU4: docsLCP360/328/312ms CLS0 JS148951B (+406B over previous); no art requests. MainLCP1256ms CLS0.0009706; no physicalSafari/fieldINP/Lighthouse claim",
     "failures": "Prior harnessFAIL logs and automatic PNGs retained; all original requested controls now exercised in final-2",
     "visual": "PASS_LOCAL /root and independent /root/audit: all6main-to-legal flowPNGcompletefooter/Home/up, sixendGap0; earlier missingpaintFAILretractedasinterpretationfalsepositive, causeunconfirmed",
-    "captureModes": "FinalcaptureONaffectedtest1PASS. CaptureOFF productionbuild not rerun; no runtimefeaturecodechange, testcondition aligned with existingexplicitOFFsuite"
+    "captureModes": "FinalcaptureONaffectedtest1PASS. CaptureOFF productionbuild not rerun; no runtimefeaturecodechange, testcondition aligned with existingexplicitOFFsuite",
+    "qaServer": "Own3191QAserverstoppedafterlocalchecks"
   },
   "artifacts": [
     {
@@ -311,16 +312,198 @@
     {
       "path": "screenshots/legal-documents/2026-11-18/page-controls/lint-final-3.log",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/public.log",
+      "sha256": "2247b3d0c809b7b7867a66ca12962f124164943700dd60ef9044747aefcc7cb2"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/public-proof.json",
+      "sha256": "3a7b41b9914a17c67af63d099ac297bb991480103306c39f78806dd8c7668d40"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/public-pro.png",
+      "sha256": "b6b15a7cd94502fc68fb171a34c4f7f6e16183eb699aae65780a1ca8a1358230"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/public-max.png",
+      "sha256": "2ba589ff80ccf6bcad9432ee1a5371a340d39b3d4b8350c7f836a89f25d2cedc"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/commit-status.json",
+      "sha256": "d0ca8d7bdba7280f9c0fd17b774a6b7c2b79b066424cff22f3ed8e3bf282f212"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/deployments.json",
+      "sha256": "e211ae986513a603a5cee8c3455f20da83e514afdac9c45d14a6985dde6fb750"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/deployment-production.json",
+      "sha256": "61dd50e6fbdb7f0d7bee00600590c3e01bd5e8beb94a460ee82aa5ebdea98c48"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/deployment-preview.json",
+      "sha256": "62d5ff47a123eb92961aaad2e9f3c3865a566e1aa2fbb81d7071287ffdcb1b99"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/public/iphone-17-pro-webkit/privacy-controls.json",
+      "sha256": "2aea2020533c52139a5d440cb5188c923fd83b9315ba7780e6dd7820d1aafb1a"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/public/iphone-17-pro-webkit/delivery-controls.json",
+      "sha256": "3190bc7c37fe76679d9da11470d80fdce54e809fd5c2d379cdc48902bea48d42"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/public/iphone-17-pro-webkit/terms-controls.json",
+      "sha256": "02c6873ff695caaef0292bab7190af52e04a1e6531c2c741b66e183e4afe23fe"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/public/iphone-17-pro-max-webkit/privacy-controls.json",
+      "sha256": "e88552f03f420cf6920ad5b024b9837e529aab22fd70d2c8cc553c5995cf544b"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/public/iphone-17-pro-max-webkit/delivery-controls.json",
+      "sha256": "ab6e287fd4df7d9a40f9ee54f44b6a6bbbff9565a562093097e2aa224455934a"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/public/iphone-17-pro-max-webkit/terms-controls.json",
+      "sha256": "c4122d3bf5002c04cea51e6aeba0e075121ec92f0764072500995a410bb01a13"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/public-legal/iphone-17-pro-webkit/documents.json",
+      "sha256": "6d59ba210da24f218dea090f88d805052a2c57016a69ead170c898c45f074cd9"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/public-legal/iphone-17-pro-max-webkit/documents.json",
+      "sha256": "6d59ba210da24f218dea090f88d805052a2c57016a69ead170c898c45f074cd9"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/public/iphone-17-pro-webkit/delivery-footer.png",
+      "sha256": "a8a6940a1e822aaaa14d9efdafd04e388841cc38e02284273b8a94b413551a2a"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/public/iphone-17-pro-webkit/privacy-footer.png",
+      "sha256": "9addde69051ac7e48a67a47b04ef204fa3e3a3549566e5253889c0d8f69c9ec0"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/public/iphone-17-pro-webkit/terms-footer.png",
+      "sha256": "8bded23ad045a1a6d5db3c006b2e7aac2137f3db65bfdd1838506e255af9865d"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/public/iphone-17-pro-max-webkit/delivery-footer.png",
+      "sha256": "c2062b6ee6a3b1e5a1c5152eb8edd5f76129eb76a91e8f8a8d029825d61a9d26"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/public/iphone-17-pro-max-webkit/privacy-footer.png",
+      "sha256": "1249b781e8c5c18f486c51319cc5213c00b0df480daffd282b749a140d63d3d5"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/public/iphone-17-pro-max-webkit/terms-footer.png",
+      "sha256": "1d2f2526aff4c2e540b27eca0f5a82ec8d095d929ab42454091af9890eb0761d"
     }
   ],
   "technicalApproval": {
-    "root": "APPROVED_LOCAL2026-11-18: productionstaticroutes/fullcopy/theme, ProMaxactualpixels+touchflows, keyboard/safearea/RTL, native6CLEAN/type/lint/performance; VDSnotmet",
-    "auditor": "2026-11-18 /root/audit Gate3/4 PASS_LOCAL, Gate5 PASS_LOCAL, Gate6 PASS_LOCAL_PREPUSH:11stagedpaths,4reviewedsource+69artifactbindings exact; publication separate"
+    "root": "APPROVED_LOCAL2026-11-18: productionstaticroutes/fullcopy/theme, ProMaxactualpixels+touchflows, keyboard/safearea/RTL, native6CLEAN/type/lint/performance; VDSnotmet; public2026-11-18 APPROVED_CANONICAL_AND_PROVIDER both7464028SUCCESS/public8PASS/images+assets exact, VDSnotmet",
+    "auditor": "2026-11-18 /root/audit Gate3/4 PASS_LOCAL, Gate5 PASS_LOCAL, Gate6 PASS_LOCAL_PREPUSH; finalpublication/records PASS_WITH_VDS_LIMIT: exact7464028/latestbothSUCCESS/canonicalfullsource+public8PASS/pixels/4source+91artifactbindings verified, only4closuredocsdirty; actualramsider.com6URLs404/VDSBLOCKED_NOT_MET"
   },
   "publication": {
-    "main": "PENDING",
-    "Vercel": "PENDING",
-    "ramsider.com": "Prior SSH key rejection remains external blocker; no VDS mutation"
+    "main": {
+      "sha": "7464028eb1a2fdbeaa702639f181c73ece4f1ae2",
+      "branch": "origin/main",
+      "remoteVerified": true
+    },
+    "Vercel": {
+      "commit": "7464028eb1a2fdbeaa702639f181c73ece4f1ae2",
+      "contexts": [
+        {
+          "context": "Vercel \u2013 ramsider-beta",
+          "description": "Deployment has completed",
+          "state": "success",
+          "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/BxVS41TqeZYRLxQ4qobJdTVMacZF",
+          "updated_at": "2026-11-17T22:57:48Z"
+        },
+        {
+          "context": "Vercel \u2013 ramsider",
+          "description": "Deployment has completed",
+          "state": "success",
+          "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/AGLi2A4VyAHdMPdmqYRptcqc1fMG",
+          "updated_at": "2026-11-17T22:58:10Z"
+        }
+      ],
+      "deployments": [
+        {
+          "created_at": "2026-11-17T22:58:10Z",
+          "environment": "Production \u2013 ramsider",
+          "id": 7868668037,
+          "sha": "7464028eb1a2fdbeaa702639f181c73ece4f1ae2"
+        },
+        {
+          "created_at": "2026-11-17T22:57:49Z",
+          "environment": "Preview \u2013 ramsider-beta",
+          "id": 7868661456,
+          "sha": "7464028eb1a2fdbeaa702639f181c73ece4f1ae2"
+        }
+      ],
+      "productionStatus": {
+        "created_at": "2026-11-17T22:58:10Z",
+        "environment": "Production \u2013 ramsider",
+        "environment_url": "https://ramsider-d7tsr8xkn-askmi-6282s-projects.vercel.app",
+        "id": 22475186331,
+        "log_url": "https://ramsider-d7tsr8xkn-askmi-6282s-projects.vercel.app",
+        "state": "success"
+      },
+      "previewStatus": {
+        "created_at": "2026-11-17T22:57:49Z",
+        "environment": "Preview \u2013 ramsider-beta",
+        "environment_url": "https://ramsider-beta-6cktynj2z-askmi-6282s-projects.vercel.app",
+        "id": 22475164850,
+        "log_url": "https://ramsider-beta-6cktynj2z-askmi-6282s-projects.vercel.app",
+        "state": "success"
+      }
+    },
+    "ramsider.com": {
+      "status": "BLOCKED_SSH_KEY_REJECTED_VDS_NOT_UPDATED",
+      "routes": [
+        {
+          "path": "/en/privacy",
+          "status": 404,
+          "finalUrl": "https://ramsider.com/en/privacy"
+        },
+        {
+          "path": "/en/terms",
+          "status": 404,
+          "finalUrl": "https://ramsider.com/en/terms"
+        },
+        {
+          "path": "/en/delivery",
+          "status": 404,
+          "finalUrl": "https://ramsider.com/en/delivery"
+        },
+        {
+          "path": "/privacy",
+          "status": 404,
+          "finalUrl": "https://ramsider.com/privacy"
+        },
+        {
+          "path": "/terms",
+          "status": 404,
+          "finalUrl": "https://ramsider.com/terms"
+        },
+        {
+          "path": "/delivery",
+          "status": 404,
+          "finalUrl": "https://ramsider.com/delivery"
+        }
+      ],
+      "mutation": "None"
+    },
+    "canonical": {
+      "url": "https://ramsider-main.vercel.app",
+      "tests": "8PASS0SKIP Pro402/Max440DPR3:threelegalHome/up/touch/focus/fullsourceparity/aliases/plainfont/theme/noart",
+      "publicAssets": "2referencedCSS+OpenSansTTF byteexactlocal",
+      "pixels": "Rootviewed singlepublic-pro.png thenpublic-max.png, all3footerscompletebothcontrols"
+    }
   },
-  "userResultApproval": "NOT_RECORDED"
+  "userResultApproval": "NOT_RECORDED",
+  "sourceFilesCommit": "7464028eb1a2fdbeaa702639f181c73ece4f1ae2"
 }

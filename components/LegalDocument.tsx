@@ -40,6 +40,6 @@ export function LegalDocument({ document }: { document: DocumentName }) {
         })}
       </article>
     </main>
-    <SiteFooter locale="en" />
+    <SiteFooter locale="en" variant="plain" />
   </div>;
 }

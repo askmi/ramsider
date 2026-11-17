@@ -4,11 +4,11 @@ import { company, companyCopy } from '@/lib/company';
 import type { Locale } from '@/lib/i18n';
 import { LegalNavigation } from './LegalNavigation';
 
-export function SiteFooter({ locale }: { locale: Locale }) {
+export function SiteFooter({ locale, variant = 'artwork' }: { locale: Locale; variant?: 'artwork' | 'plain' }) {
   const copy = companyCopy[locale];
 
-  return <footer id="company" className="site-footer">
-    <ProgressiveImage className="site-footer__art" data-media src="/art/footer-paper.webp" preview={previews["/art/footer-paper.webp"].src} alt="" aria-hidden="true" width={941} height={2588} loading="lazy" decoding="async" />
+  return <footer id="company" className={`site-footer${variant === 'plain' ? ' site-footer--plain' : ''}`}>
+    {variant === 'artwork' && <ProgressiveImage className="site-footer__art" data-media src="/art/footer-paper.webp" preview={previews["/art/footer-paper.webp"].src} alt="" aria-hidden="true" width={941} height={2588} loading="lazy" decoding="async" />}
     <div className="site-footer__inner">
       <section aria-labelledby="company-heading">
         <h2 id="company-heading">{copy.company}</h2>

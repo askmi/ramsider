@@ -53,11 +53,29 @@ test('complete English documents, clause anchors and compatibility URLs', async 
     await page.locator('article > p').last().scrollIntoViewIfNeeded();
     await capture(page, `${document}-end`);
     const footer = page.locator('.site-footer'); await footer.scrollIntoViewIfNeeded();
-    await expect(page.locator('.site-footer__art')).toHaveAttribute('data-media-ready', '', { timeout: 45000 });
+    await expect(footer).toHaveClass(/site-footer--plain/);
+    await expect(footer.locator('img')).toHaveCount(0);
+    const theme = await footer.evaluate(el => {
+      const page = el.parentElement!;
+      return {
+        pageBackground: getComputedStyle(page).backgroundColor,
+        footerBackground: getComputedStyle(el).backgroundColor,
+        pageFont: getComputedStyle(page).fontFamily,
+        footerFont: getComputedStyle(el).fontFamily,
+        regularLoaded: [...window.document.fonts].some(face => face.family === 'OpenSans' && face.weight === '400' && face.status === 'loaded'),
+        rasterRequests: performance.getEntriesByType('resource').filter(entry => /\/art\//.test(entry.name)).map(entry => entry.name),
+      };
+    });
+    expect(theme.pageBackground).toBe('rgb(243, 231, 217)');
+    expect(theme.footerBackground).toBe(theme.pageBackground);
+    expect(theme.footerFont).toBe(theme.pageFont);
+    expect(theme.footerFont).toContain('OpenSans');
+    expect(theme.regularLoaded).toBe(true);
+    expect(theme.rasterRequests).toEqual([]);
     await capture(page, `${document}-footer`);
     const alias = await request.get(`/${document}`, { maxRedirects: 0 });
     expect(alias.status()).toBe(308); expect(alias.headers().location).toBe(legalHref(document));
-    checks.push({ document, textParity: true, alias: alias.status(), sourceCharacters: source.length });
+    checks.push({ document, textParity: true, alias: alias.status(), sourceCharacters: source.length, theme });
   }
   for (const path of ['/en/missing-document', '/en/privacy/extra', '/Privacy_RU.txt']) expect((await request.get(path)).status()).toBe(404);
   await page.goto('/terms#6.3'); await ready(page);
@@ -111,7 +129,7 @@ test('all eleven compiled locale footers keep English targets and Arabic FAQ nav
     await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
     await expect(page.locator('html')).toHaveAttribute('dir', locale === 'ar' ? 'rtl' : 'ltr');
     for (const document of legalDocuments) {
-      const link = footer.getByRole('link', { name: `${legalCopy[locale][document]} (EN)`, exact: true });
+      const link = footer.getByRole('link', { name: legalCopy[locale][document], exact: true });
       await expect(link).toHaveAttribute('href', legalHref(document));
       const box = (await link.boundingBox())!; expect(box.x).toBeGreaterThanOrEqual(0); expect(box.x + box.width).toBeLessThanOrEqual(403);
       expect(await link.evaluate(el => {

@@ -3,7 +3,7 @@
   "date": "2026-11-18",
   "branch": "main",
   "baseline": "df85ef2884602954f861f8237d2168f4ac8f3783",
-  "state": "VERIFIED_LOCAL_PUBLICATION_BLOCKED_SSH",
+  "state": "HISTORICAL_INITIAL_DELIVERY_VISUAL_APPROVAL_SUPERSEDED",
   "routes": {
     "privacy": {
       "canonical": "/en/privacy",
@@ -388,12 +388,118 @@
         "finalURL": "https://ramsider.com/delivery"
       }
     ],
-    "gitPush": "PENDING",
-    "vercel": "PENDING; provider success alone will not certify ramsider.com"
+    "gitPush": {
+      "state": "SUCCESS",
+      "sha": "ea0f46ab5e9312bf61edc2ef28c673c817dfb7e6",
+      "repo": "askmi/ramsider",
+      "branch": "main",
+      "remoteVerified": true,
+      "outgoingCommits": 2,
+      "notes": "Normal authorized push; GitHub reported account bypass of protected-ref rule; no settings/force-push used. Prior df85 docs checkpoint included."
+    },
+    "vercel": {
+      "sha": "ea0f46ab5e9312bf61edc2ef28c673c817dfb7e6",
+      "ramsider": {
+        "state": "success",
+        "deploymentId": 7866382624,
+        "latestStatus": {
+          "created_at": "2026-11-17T21:13:07Z",
+          "environment": "Production – ramsider",
+          "environment_url": "https://ramsider-3znc8i2e1-askmi-6282s-projects.vercel.app",
+          "id": 22467956886,
+          "log_url": "https://ramsider-3znc8i2e1-askmi-6282s-projects.vercel.app",
+          "state": "success"
+        },
+        "evidenceURL": "https://vercel.com/askmi-6282s-projects/ramsider/Aqw66KugB2Sxk1pwWpLWGzRMHczE"
+      },
+      "ramsider-beta": {
+        "state": "success",
+        "evidenceURL": "https://vercel.com/askmi-6282s-projects/ramsider-beta/47QaYB9SU2cQWVxrEFbB7j5jsst3",
+        "deploymentId": 7866522516,
+        "latestStatus": {
+          "created_at": "2026-11-17T21:18:52Z",
+          "environment": "Preview – ramsider-beta",
+          "environment_url": "https://ramsider-beta-ewqqtyukb-askmi-6282s-projects.vercel.app",
+          "id": 22468385037,
+          "log_url": "https://ramsider-beta-ewqqtyukb-askmi-6282s-projects.vercel.app",
+          "state": "success"
+        }
+      }
+    },
+    "canonicalVerification": {
+      "url": "https://ramsider-main.vercel.app",
+      "publicBrowserPass": 4,
+      "explicitOwnershipSkip": 4,
+      "profiles": [
+        "Pro402x874DPR3WebKit",
+        "Max440x956DPR3WebKit"
+      ],
+      "checks": "all3completeapprovedtexts/HTTP200/aliases308/unknown404/languages/canonical/semanticPrivacytable; all3footerlinks+originalFAQ6.3actualclicks; rootviewedactualmobileimages",
+      "actualCSSReferences": 8,
+      "cssByteExactToLocal": true,
+      "doesNotCertify": "ramsider.com"
+    },
+    "actualDomainAfter": [
+      {
+        "path": "/en/privacy",
+        "status": 404,
+        "finalURL": "https://ramsider.com/en/privacy"
+      },
+      {
+        "path": "/en/terms",
+        "status": 404,
+        "finalURL": "https://ramsider.com/en/terms"
+      },
+      {
+        "path": "/en/delivery",
+        "status": 404,
+        "finalURL": "https://ramsider.com/en/delivery"
+      },
+      {
+        "path": "/privacy",
+        "status": 404,
+        "finalURL": "https://ramsider.com/privacy"
+      },
+      {
+        "path": "/terms",
+        "status": 404,
+        "finalURL": "https://ramsider.com/terms"
+      },
+      {
+        "path": "/delivery",
+        "status": 404,
+        "finalURL": "https://ramsider.com/delivery"
+      }
+    ],
+    "providerCLI": "Existing Vercel CLI had no configured credentials; two owninspectcommands stopped without completing login, switching accounts or altering settings. Authenticated GitHub evidence used.",
+    "localQAServer": "Own3190server stopped after checks, no VDSmutation",
+    "commitStatuses": {
+      "sha": "ea0f46ab5e9312bf61edc2ef28c673c817dfb7e6",
+      "statuses": [
+        {
+          "context": "Vercel – ramsider",
+          "created_at": "2026-11-17T21:13:06Z",
+          "description": "Deployment has completed",
+          "state": "success",
+          "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/Aqw66KugB2Sxk1pwWpLWGzRMHczE",
+          "updated_at": "2026-11-17T21:13:06Z"
+        },
+        {
+          "context": "Vercel – ramsider-beta",
+          "created_at": "2026-11-17T21:18:51Z",
+          "description": "Deployment has completed",
+          "state": "success",
+          "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/47QaYB9SU2cQWVxrEFbB7j5jsst3",
+          "updated_at": "2026-11-17T21:18:51Z"
+        }
+      ]
+    },
+    "postPushRecords": "Local supplements only; tested/pushed source code stays exact ea0f46a. No extra publication or user result acceptance inferred.",
+    "currentDNS": "ramsider.com currently resolves to185.179.189.103, matching checkedSSHhost; no host-substitution inference"
   },
   "technicalApproval": {
     "root": "APPROVED_LOCAL 2026-11-18; final production checks and actual images inspected",
-    "auditor": "/root/audit 2026-11-18 scopePASS, final3/4PASS_LOCAL,5PASS_LOCAL,6PASS_LOCAL_PREPUSH; independently checked19staged paths and13source+40artifactbindings0mismatch. Publicdomain NOT_MET"
+    "auditor": "/root/audit 2026-11-18 FINAL PASS_WITH_VDS_BLOCKER: scope/final3-4/5/6LOCAL_PREPUSH pass; final13committedsource+64artifactSHA/bytes0mismatch; exactmain/originea0f46a/bothproviderSUCCESS/canonicalHTTPtextCSSandactualimages verified. Requestedramsider.com6HTTP404 meansBLOCKED/NOT_MET; no whole-task/useracceptance certification."
   },
   "sourceFiles": [
     {
@@ -649,6 +755,128 @@
       "path": "screenshots/legal-documents/2026-11-18/review-snapshot-5.json",
       "bytes": 2084,
       "sha256": "6abacce4d61b2f1a4b5900a5452898970875d28a3b71e6f6b474a2c21a9e9f95"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-pro-1.log",
+      "bytes": 866,
+      "sha256": "1d2c93b8b60a3168d3d11d20f3417713dbacf4bc0f6c86671df494e0887b023c"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-max-1.log",
+      "bytes": 882,
+      "sha256": "d5833e2dd63cfd29d7cd4619cafccdf09237f2f87e3595490da83b1b0671d45c"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-css.json",
+      "bytes": 1740,
+      "sha256": "603e9cb2ff0b3ad24dfe3fa2195e47b66229b16d99b7fb662ee6d5f99e3c3034"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-after.json",
+      "bytes": 610,
+      "sha256": "e524f383ae2b98c78aef0abc19d25e198e1f4060109be8f3b11abd397fc2d306"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/commit-status-detail.json",
+      "bytes": 594,
+      "sha256": "a9ad9d122307f20abaddbd986955e920f6e64da225bf9c0634c7fc4f2cf7582c"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/main-deployment-status.json",
+      "bytes": 265,
+      "sha256": "8cce9733d34eebb7f9a6c5d257f34ce18a72aec2c42018374a7b316d67addd59"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-pro-contact.png",
+      "bytes": 1410863,
+      "sha256": "d73335802209d77d578b5bbea234c6a501d50b505a4fd6867cbb1178841eb6c5"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-max-privacy-table-start-view.png",
+      "bytes": 185253,
+      "sha256": "82ef6e3aa9c787e0239a3254cb60ffc68847eb793988f7392d56cd4549efbdcb"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-max-landing-footer-view.png",
+      "bytes": 633374,
+      "sha256": "517038f5c0da1c64da2401d9efe7754074e0461fc661c3b0b72997c83b4f93c8"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-1/iphone-17-pro-webkit/documents.json",
+      "bytes": 394,
+      "sha256": "e53586fe23c10df7b57419248c254670930f9dac5c9d89367ff8b727ee53b796"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-1/iphone-17-pro-webkit/landing.json",
+      "bytes": 449,
+      "sha256": "f16dfba1f6a80c2c6eb205e51053bb2abb60d57d3adb9513ee45ba551a9da7e7"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-1/iphone-17-pro-webkit/privacy-top.png",
+      "bytes": 400913,
+      "sha256": "b6481292b7224ea2bd1c77f7f43cc9a68af579c1f6d9f1f4ec8507ed9a1341f5"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-1/iphone-17-pro-webkit/terms-clause.png",
+      "bytes": 400515,
+      "sha256": "6d22210f220ac73b5f588650e8a73cde1e6014c8fd8bd0f8b248cb0c4cccd8f0"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-1/iphone-17-pro-webkit/landing-footer.png",
+      "bytes": 3028254,
+      "sha256": "291cef4f6ce409b7033a717c8808d302b9899dbbca64f03375109460b33ab7e0"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-1/iphone-17-pro-webkit/faq-open.png",
+      "bytes": 2364919,
+      "sha256": "cadef300958db933b9b99f71bc2e1fd396ccaf9485cbd1a1486f5254b2f1432f"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-1/iphone-17-pro-max-webkit/documents.json",
+      "bytes": 394,
+      "sha256": "e53586fe23c10df7b57419248c254670930f9dac5c9d89367ff8b727ee53b796"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-1/iphone-17-pro-max-webkit/landing.json",
+      "bytes": 449,
+      "sha256": "027a60ebdca4fd566b8097a42235d455abc4047bef954d007d68f24a75693580"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-1/iphone-17-pro-max-webkit/privacy-top.png",
+      "bytes": 433201,
+      "sha256": "404523dcdbd2cf0d9dca109dfbd733def339e3bc7da50151e69cfc2ae01cf0e1"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-1/iphone-17-pro-max-webkit/terms-clause.png",
+      "bytes": 480510,
+      "sha256": "0da633b1690612d5074982da010767081b91e959062ffd97fb08296aa1b4458b"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-1/iphone-17-pro-max-webkit/landing-footer.png",
+      "bytes": 3464023,
+      "sha256": "e07b109da261bb2deac558ba9883589487aac09a81bb6ec000cb9570018674e7"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/public-1/iphone-17-pro-max-webkit/faq-open.png",
+      "bytes": 2704497,
+      "sha256": "e23f741d51ebfdab87670be00b2a0318c8ca415340809667e4e66242aede6c3d"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/deployments-final.json",
+      "bytes": 290,
+      "sha256": "3e8623d460b5756c3934308ab4114feff3123e48a0a133d6a0a290b8fa381e9a"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/beta-deployment-status-final.json",
+      "bytes": 277,
+      "sha256": "4934ffa69ac40c02cbdc8943c346e9a2e19109a63cbeed8363d3cab57ec5f1c4"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/commit-status-final.json",
+      "bytes": 590,
+      "sha256": "9d46144d081246bfaf547fbe1de0a97fd5be71bc103469da7e166c7fdb891130"
     }
-  ]
+  ],
+  "sourceFilesCommit": "ea0f46ab5e9312bf61edc2ef28c673c817dfb7e6",
+  "supersededVisualAcceptanceBy": "docs/evidence/legal-documents/uniform-theme.json"
 }

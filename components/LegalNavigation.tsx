@@ -8,8 +8,14 @@ export function LegalNavigation({ locale }: { locale: Locale }) {
     <h2 id="legal-documents-heading">{copy.documents}</h2>
     <ul>{legalDocuments.map(document => <li key={document}>
       <Link className="site-footer__link" href={legalHref(document)} hrefLang="en" prefetch={false}>
-        {copy[document]} <bdi dir="ltr">(EN)</bdi>
+        {copy[document]}
       </Link>
     </li>)}</ul>
+    <span className="site-footer__document-language">
+      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
+        <circle cx="8" cy="8" r="6" /><ellipse cx="8" cy="8" rx="2.5" ry="6" /><path d="M2 8h12" />
+      </svg>
+      {copy.english}
+    </span>
   </nav>;
 }

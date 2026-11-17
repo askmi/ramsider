@@ -1,0 +1,566 @@
+{
+  "change": "CHG0203",
+  "correction": "2026-11-18 user requests uniform legal canvas/OpenSans and professional compact footer utility links",
+  "state": "VERIFIED_LOCAL_PUBLICATION_PENDING",
+  "supersedesVisualApprovalOf": "ea0f46ab5e9312bf61edc2ef28c673c817dfb7e6 initial stacked textured legal footer",
+  "sources": {
+    "requests": [
+      "user-background.png2446x1654",
+      "user-layout.png2004x1090"
+    ],
+    "guidance": [
+      "https://design-system.service.gov.uk/components/footer/",
+      "https://designsystem.digital.gov/components/footer/",
+      "https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md"
+    ],
+    "interpretation": "Grouped concise consistent legal utilities informed design; no universal horizontal-layout mandate claimed"
+  },
+  "implementation": {
+    "legal": "Plain footer variant inherits#f3e7d9 background/color/OpenSans, no raster component or requests; same820px readingwidth/24pxgutters, tableheader surface uniform. Sourcelegaltext unchanged. ActualOpenSans-Regular alreadyused inbaseline, no inventedfontsubstitutionfix.",
+    "sharedNavigation": "Three inlineEnglish links PrivacyPolicy/TermsofSale/DeliveryPolicy, naturalwrapnarrow/longlocale, smallDocumentslabel andone localizedEnglish informationalindicator withdecorativeglobe. PerlinkhrefLangEN/44pxtargets/visiblefocus/nativeLinks preserved. >=700singleutilityrow;>=1024bottom40pxasfixeddockoutsidecenteredcontent, mobile144pxsafearea.",
+    "delivery": "Globalhero CSS scopedtohtml:has(.canvas) topreventFirefoxprematurehero fetchonlegals. Sourceassets/preload/geometry unchanged.",
+    "foreground": "Metadata inherits existingdark#382a20 after source-texture contrastfail; finalminimum6.6301 across10measuredpatches"
+  },
+  "verification": {
+    "build": "build4PASS with3SSGdocuments",
+    "types": "types-color-finalPASS",
+    "lint": "lint-color-final scopedPASS; unchangedwhole-repolintCHG0181 notrerun",
+    "browser": "11uniquelegal/themePASS7ownershipSKIP fromfullbuild3 Pro3/Max2/Chrome4/FF2; color-onlyfollowupPro3/Max2/matrixChrome1PASS (sameproductmechanisms), companysubset5PASS1SKIP beforehero-delivery-onlyfix",
+    "matrix": "Finalcolor27legalviewportcases,81blankRGBsamplesexact243/231/217,13actualcustomOpenSans-Regularglyphnodes;9mainviewportssafe70/all3anchorscenterhittable/44pxmin/ratioPASS; widths320/402/440/699/700/1023/1024/1440/2446.11compiledlocalefooter/RTL clicks covered primaryPro.",
+    "screenshots": "Rootviewed ProthenMax plain/main/AR and wide2446/1440/narrow states;36mainpositions+stableRTL. Corrected-footer-final.png actualbrowsercrop, no fabricatedrender.",
+    "integration": "36positions errors/overflow/unready0; Proendgap0,Max.296875CSSpxrounding;ARclearance15.6875/16.296875. Color-onlyfollowupgeometry unchanged.",
+    "hero": "Beforeglobalrootimage→scopedrootcomposition Pro/Max actualRGBAcomparison0changedchannels; no physicalSafariOSchromeclaim",
+    "nativeReview": "Full8file exactdiff CLEAN; subsequent2colorinheritlines CLEAN; isolatedreviewruntime unavailable, rootactualbuild/browserchecks separate",
+    "contrast": "Source-backed sampledtexturepatchmin6.6301499 afterfix; old4.0485FAIL preserved. This is not fullWCAGcertification.",
+    "noJS": "All3documentsHTTP200/fullarticle+3footerlinks inproduction",
+    "sourceParity": "Approved3sourcehashpins+allnormalizedbrowserarticletext PASS; aliases and originalFAQ6.3 PASS"
+  },
+  "performance": {
+    "condition": "Local production; cold context per route; 4Mbps/100ms/CPU4; single sample, Chromium emulated Pro DPR3; no field INP, Lighthouse or physical smoothness claim",
+    "results": [
+      {
+        "route": "/en/privacy",
+        "first": {
+          "ttfbMs": 24.899999976158142,
+          "fcpMs": 468,
+          "lcp": 468,
+          "cls": 0,
+          "resourceTransfer": 250297,
+          "jsTransfer": 148545,
+          "resourceCount": 11,
+          "images": [],
+          "documentBytes": 16857
+        },
+        "scroll": {
+          "p95Ms": 16.700000000000728,
+          "maxMs": 16.800000000000182,
+          "frames": 159
+        }
+      },
+      {
+        "route": "/en/terms",
+        "first": {
+          "ttfbMs": 8.799999952316284,
+          "fcpMs": 336,
+          "lcp": 336,
+          "cls": 0,
+          "resourceTransfer": 250297,
+          "jsTransfer": 148545,
+          "resourceCount": 11,
+          "images": [],
+          "documentBytes": 27729
+        },
+        "scroll": {
+          "p95Ms": 16.799999999999727,
+          "maxMs": 16.800000000000182,
+          "frames": 159
+        }
+      },
+      {
+        "route": "/en/delivery",
+        "first": {
+          "ttfbMs": 8.5,
+          "fcpMs": 324,
+          "lcp": 324,
+          "cls": 0,
+          "resourceTransfer": 250297,
+          "jsTransfer": 148545,
+          "resourceCount": 11,
+          "images": [],
+          "documentBytes": 7496
+        },
+        "scroll": {
+          "p95Ms": 16.799999999999727,
+          "maxMs": 33.29999999999973,
+          "frames": 159
+        }
+      },
+      {
+        "route": "/en",
+        "first": {
+          "ttfbMs": 10.600000023841858,
+          "fcpMs": 392,
+          "lcp": 1264,
+          "cls": 0.0009706117296485489,
+          "resourceTransfer": 2112977,
+          "jsTransfer": 339471,
+          "resourceCount": 68,
+          "images": [
+            {
+              "path": "/art/story-v2-00.webp",
+              "transfer": 119636
+            },
+            {
+              "path": "/art/brand-mark-white.webp",
+              "transfer": 1382
+            },
+            {
+              "path": "/art/feature-divider-control.webp",
+              "transfer": 1010
+            },
+            {
+              "path": "/art/feature-divider-draw.webp",
+              "transfer": 1046
+            },
+            {
+              "path": "/art/feature-divider-intensity.webp",
+              "transfer": 1102
+            },
+            {
+              "path": "/art/technology-connector-triple.webp",
+              "transfer": 1942
+            },
+            {
+              "path": "/art/technology-connector-core.webp",
+              "transfer": 2012
+            },
+            {
+              "path": "/art/technology-connector-touch.webp",
+              "transfer": 10326
+            },
+            {
+              "path": "/art/technology-connector-water.webp",
+              "transfer": 2380
+            },
+            {
+              "path": "/art/technology-connector-light.webp",
+              "transfer": 4596
+            },
+            {
+              "path": "/art/technology-connector-armor.webp",
+              "transfer": 5082
+            },
+            {
+              "path": "/art/technology-connector-flow.webp",
+              "transfer": 11870
+            },
+            {
+              "path": "/art/icon-kit/01.webp",
+              "transfer": 1244
+            },
+            {
+              "path": "/art/icon-kit/02.webp",
+              "transfer": 1116
+            },
+            {
+              "path": "/art/icon-kit/03.webp",
+              "transfer": 1302
+            },
+            {
+              "path": "/art/icon-kit/04.webp",
+              "transfer": 1160
+            },
+            {
+              "path": "/art/icon-kit/05.webp",
+              "transfer": 1250
+            },
+            {
+              "path": "/art/icon-kit/07.webp",
+              "transfer": 1188
+            },
+            {
+              "path": "/art/icon-kit/08.webp",
+              "transfer": 1208
+            },
+            {
+              "path": "/art/icon-kit/09.webp",
+              "transfer": 1932
+            },
+            {
+              "path": "/art/icon-kit/10.webp",
+              "transfer": 2340
+            },
+            {
+              "path": "/art/icon-kit/11.webp",
+              "transfer": 1660
+            },
+            {
+              "path": "/art/icon-kit/12.webp",
+              "transfer": 2320
+            },
+            {
+              "path": "/art/expression-waves.webp",
+              "transfer": 67520
+            },
+            {
+              "path": "/art/story-v2-01.webp",
+              "transfer": 275352
+            },
+            {
+              "path": "/art/story-v2-02.webp",
+              "transfer": 266880
+            },
+            {
+              "path": "/art/faq-row-1.webp",
+              "transfer": 10250
+            },
+            {
+              "path": "/art/story-v2-03.webp",
+              "transfer": 173028
+            },
+            {
+              "path": "/art/faq-row-2.webp",
+              "transfer": 8134
+            },
+            {
+              "path": "/art/faq-row-3.webp",
+              "transfer": 9288
+            },
+            {
+              "path": "/art/faq-row-4.webp",
+              "transfer": 12590
+            },
+            {
+              "path": "/art/faq-row-5.webp",
+              "transfer": 12020
+            }
+          ],
+          "documentBytes": 254897
+        },
+        "scroll": {
+          "p95Ms": 16.700000000000728,
+          "maxMs": 466.60000000000036,
+          "frames": 159
+        }
+      }
+    ],
+    "noJS": [
+      {
+        "route": "/en/privacy",
+        "status": 200,
+        "articleTextLength": 16028,
+        "links": 3
+      },
+      {
+        "route": "/en/terms",
+        "status": 200,
+        "articleTextLength": 31628,
+        "links": 3
+      },
+      {
+        "route": "/en/delivery",
+        "status": 200,
+        "articleTextLength": 5630,
+        "links": 3
+      }
+    ]
+  },
+  "performanceLimits": "Measured build3 beforecolor-onlyfollowup; singlelocalcoldcontextconfigured4Mbps100msCPU4, no fieldINP/Lighthouse/physicalscrollclaim. JS148545 unchanged;images0,182184Bfooterfileomitted perlegalroute. MainLCP1264CLS.0009706/p95frame16.7/max466.6ms retained; no attribution/latencyimprovementclaim. resourceTransfer excludesnavigationHTML. SSGServerComponent remainsappropriate.",
+  "failures": [
+    "Initialmixedtheme/stackednav approvedwithinsufficientcompositionacceptance; usercorrectionreopens sameID.",
+    "InitialFirefoxlegal requestextra119KBhero despiteCSSoverride; scopedmarketingroot fix and fullFirefoxrerunPASS.",
+    "FirstFirefoxautomaticfailurePNG overwrittenbyshareddefaulttest-results; logretained, PNGUNRECOVERED; finalcommandsuniqueoutputpaths.",
+    "Muted12pxmetadata contrastmin4.0485; inheritdarktext correction yields6.6301+, actualscreensrecaptured/reviewfollowupCLEAN."
+  ],
+  "technicalApproval": {
+    "root": "APPROVED_LOCAL 2026-11-18 finaltheme/nav/build4/font/pixel/hits/contrast/native/static/browserproof",
+    "auditor": "/root/audit2026-11-18 expandedScopePASS, finalGate3/4colorreclosePASS_LOCAL,Gate5PASS_LOCAL,Gate6LOCAL_PREPUSHPASS; independently verified15stagedpaths/8source+45artifacts+3retainedassets exact; initial13source+64artifacts historicalea0f/superseded. No useracceptance/VDSpublicationcertified."
+  },
+  "publication": {
+    "mainPush": "PENDING",
+    "vercel": "PENDING",
+    "vds": "No remoteVDSdeploy; previousSSH_PUBLIC_KEY_REJECTED unchanged, originaltaskrequestedramsider.com gateNOT_MET",
+    "userAcceptance": "NOT_RECORDED"
+  },
+  "sourceFiles": [
+    {
+      "path": "app/globals.css",
+      "sha256": "661a9587b4dc6d2a766d5b90b4586cbe5195a89bc83750795ffe1889101de631"
+    },
+    {
+      "path": "components/SiteFooter.tsx",
+      "sha256": "b5d5e90eaf15591d67dbf7ce2588ddae2f0028108bd67753f6b990a4d9e1d285"
+    },
+    {
+      "path": "components/LegalDocument.tsx",
+      "sha256": "43d0bc1c46b32fd0b26ff0e9e8e779d17c82fc9b0aba8fa383cb5b9a099a7e6b"
+    },
+    {
+      "path": "components/LegalDocument.module.css",
+      "sha256": "91b0f9f69434f35b47cadf14c83a689388c3a880985ddebeedbd3b602e723bf5"
+    },
+    {
+      "path": "components/LegalNavigation.tsx",
+      "sha256": "1860373924d2050cf7ec4dcc698035b6ec6267dcb29c880e618dc5f9002960b7"
+    },
+    {
+      "path": "lib/legal-copy.ts",
+      "sha256": "81d15c62369783538c45b5ef88cd771626127e2c31e4431d2d3e6075b865f24b"
+    },
+    {
+      "path": "tests/e2e/legal-documents.spec.ts",
+      "sha256": "cca7658d2bc056ce7e350f6f0bb3a9d541c6e7cd36b3711255e91cec9733c8ae"
+    },
+    {
+      "path": "tests/e2e/legal-theme.spec.ts",
+      "sha256": "c60dcca470ffbb4f7d3c8c6cc5949cdbd430bb5348c31deb84f9e5dc3185ce11"
+    }
+  ],
+  "retainedAssets": [
+    {
+      "path": "public/art/footer-paper.webp",
+      "bytes": 182184,
+      "sha256": "ed5c0a2ecc03abb372c52a82ad831d1174e2a58394e90035af68db5f86a96f4c",
+      "unchangedFrom": "ea0f46ab5e9312bf61edc2ef28c673c817dfb7e6"
+    },
+    {
+      "path": "public/art/story-v2-00.webp",
+      "bytes": 119336,
+      "sha256": "85962e1ff36e7a8b238acba93f2f443f81926e62335dd96eecbee661fe7eb0fb",
+      "unchangedFrom": "ea0f46ab5e9312bf61edc2ef28c673c817dfb7e6"
+    },
+    {
+      "path": "public/fonts/opensans-regular.ttf",
+      "bytes": 130832,
+      "sha256": "33e93bec67d91c396876db50694213802a39e43a911bb5c22322f0dbdf4d5e43",
+      "unchangedFrom": "ea0f46ab5e9312bf61edc2ef28c673c817dfb7e6"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/user-background.png",
+      "bytes": 1316040,
+      "sha256": "2e8bcfc1e0a4ce642724bb0707455236c8e7e49472ab2f8b83fca5e7425367ae"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/user-layout.png",
+      "bytes": 1264427,
+      "sha256": "05c6e0e1697aeaf7cbeca66b5a6d2964a3de88f190103119688c406d8be2b956"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/baseline-fonts.json",
+      "bytes": 981,
+      "sha256": "b0e0c42a7ac4b817fcfd90bf7250176c6accce633305872609d5d4328b140231"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/build-4.log",
+      "bytes": 1873,
+      "sha256": "2c04f3129d0789264d1039525e8f8f96042a32cc201793d51cbca7e534c15b6e"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/types-color-final.log",
+      "bytes": 29,
+      "sha256": "8fa1cf5506304e8abac55868e7f1a136c9b1dde57a3981a382da4c21ea129a6f"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/lint-color-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/pro-color.log",
+      "bytes": 845,
+      "sha256": "5f02378aa291997d5dc8a95caff0c56cd257ef7ce1ee6d40245fcb40f72cc618"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/max-color.log",
+      "bytes": 860,
+      "sha256": "f68b96a3b24bb568c2c894455b5cc134504a9638d32540795e0127ad7bb79edf"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/desktop-final.log",
+      "bytes": 1893,
+      "sha256": "2aaf390731b304edf0a7bbfa9b68b8763550e82b9ea94dacc174d873cfdab1cc"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/matrix-color.log",
+      "bytes": 362,
+      "sha256": "c91bc2f2e6b5a9fdaa6b466c088bf04f016d0acfe7b644b368fe457f66522531"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/company.log",
+      "bytes": 1346,
+      "sha256": "6b720409824d1224489397e8238bb21a41a5ee1b3e41072260c661d28463df6b"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/geometry-color/verification.json",
+      "bytes": 30855,
+      "sha256": "993347da7f219e4b3681e16cd375fa06ab01f7c0af729da32b040e17a42303a5"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/contrast.json",
+      "bytes": 1520,
+      "sha256": "797e6e5dce1b42c529c51a6524af627de9fa4f361009ee87cb141a9975ca6725"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/contrast-final.json",
+      "bytes": 1516,
+      "sha256": "49a5048c57adc2d1f54859976afcfba32d7624ec42de4f2077fc2f768c484282"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/hero-comparison.json",
+      "bytes": 142,
+      "sha256": "2bcdf70cdfc7c8b4d82257ecb45624770a4919b8fcdc0f3f20d0281c2312d5f7"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/performance.json",
+      "bytes": 5628,
+      "sha256": "f41e1461a520e654c5ceea4d8bc9ef4e054be8d2a40b2a09ed77ce15955cf698"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/integration-final/verification.json",
+      "bytes": 5540,
+      "sha256": "2fab9e9b7449dc761f6d88383f6ae96405def57806ac0f3b7562beb2ba508dab"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/integration-final/pro-contact.png",
+      "bytes": 3987234,
+      "sha256": "cc0277bc7341621d5abb68ab48689e4fcbe5592da5823d654498d6f9af0dae71"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/integration-final/max-contact.png",
+      "bytes": 3985382,
+      "sha256": "5772fbd3a8aa4f4382cd72c12809cd9eabd200d7d88f3c107e9b18f1117f71e2"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/review-snapshot.json",
+      "bytes": 1461,
+      "sha256": "1508015f4cfd22625c5a1fab90880e390fabd5d56fee0cb631c58baac108c909"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/review-snapshot-final.json",
+      "bytes": 1404,
+      "sha256": "ec9da2392e788b8414fa61d803966f246ca228c175c6fb1cfc8e17089f0e036d"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/corrected-footer-final.png",
+      "bytes": 29971,
+      "sha256": "859975b398b3fab43f0ae11e01d3c6271cacacf6e7085ac451bbc9c83ecaa1a7"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/geometry-color/delivery-1440-boundary.png",
+      "bytes": 113777,
+      "sha256": "6c1064b99e71e5ca4246977edb7118022d2f4506f5e925e835f44f5516dae38e"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/geometry-color/delivery-2446-boundary.png",
+      "bytes": 274015,
+      "sha256": "432604b49ac533b4e1a70ebea89158139f36aee65f5b19c95dedb209cc9facca"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/geometry-color/landing-320-safe70.png",
+      "bytes": 219286,
+      "sha256": "5cb1721bc0e66e8139d29ba4c3d105339e655f3f7564c6e3e3d6e3b7bc9f7222"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/geometry-color/landing-700-safe70.png",
+      "bytes": 598869,
+      "sha256": "4b53c5cda3a80761d28316c212ec84bc5b134194d0161e6cda4b3ef16f423c5d"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/geometry-color/landing-1024-safe70.png",
+      "bytes": 663312,
+      "sha256": "a0bd09e0fd5e296576e57621388b5d7df1dd0dcd315af40d27d25f1c4499e017"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/geometry-color/landing-2446-safe70.png",
+      "bytes": 1512681,
+      "sha256": "18acfd497c407986b0fd49c15d5371d35d047063a94bd78b201df14493b6f5db"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/color-final/iphone-17-pro-webkit/documents.json",
+      "bytes": 1258,
+      "sha256": "6d59ba210da24f218dea090f88d805052a2c57016a69ead170c898c45f074cd9"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/color-final/iphone-17-pro-webkit/landing.json",
+      "bytes": 449,
+      "sha256": "f16dfba1f6a80c2c6eb205e51053bb2abb60d57d3adb9513ee45ba551a9da7e7"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/color-final/iphone-17-pro-webkit/privacy-table-start.png",
+      "bytes": 348294,
+      "sha256": "fe25f31b9a0f6bd3727c7bef8bfde3284bf997357da46ce74a87e0ec9e544e45"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/color-final/iphone-17-pro-webkit/privacy-footer.png",
+      "bytes": 252661,
+      "sha256": "480480e09a65a0f085adafed083db8a97b789ca315f60ea111f3442e4741c988"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/color-final/iphone-17-pro-webkit/terms-footer.png",
+      "bytes": 249324,
+      "sha256": "85696974b323eda02135872f40b1434466bb89fe5579a3168e265325a303efd4"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/color-final/iphone-17-pro-webkit/delivery-footer.png",
+      "bytes": 262054,
+      "sha256": "dda4f22cf8c7a0ef72346b10b84bceb2004236bba7019408bcc9a8afa0bcf0a6"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/color-final/iphone-17-pro-webkit/landing-footer.png",
+      "bytes": 3129319,
+      "sha256": "55859c9b74831b2678f3ca221813f0ebc9dc4910d3dd80c767de6f275d38fcfa"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/color-final/iphone-17-pro-webkit/faq-open.png",
+      "bytes": 2371781,
+      "sha256": "a1f9bfd9e6166fd890f1f4cd95f41b7f3efc44343663e1b68c288fa10005b1cf"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/color-final/iphone-17-pro-max-webkit/documents.json",
+      "bytes": 1258,
+      "sha256": "6d59ba210da24f218dea090f88d805052a2c57016a69ead170c898c45f074cd9"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/color-final/iphone-17-pro-max-webkit/landing.json",
+      "bytes": 449,
+      "sha256": "027a60ebdca4fd566b8097a42235d455abc4047bef954d007d68f24a75693580"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/color-final/iphone-17-pro-max-webkit/privacy-table-start.png",
+      "bytes": 398316,
+      "sha256": "809dc8000b62bea8a9ea9f0198e13185e6877d5e967d7b2db83dae493b922700"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/color-final/iphone-17-pro-max-webkit/privacy-footer.png",
+      "bytes": 292944,
+      "sha256": "2c709c3c3670c5d73ebccaa3e71029d5e732feb5f020b9658bfa21b56941436e"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/color-final/iphone-17-pro-max-webkit/terms-footer.png",
+      "bytes": 283987,
+      "sha256": "116f47c0814bf26b30d3079cf1e030b2fe24d0ffcb26bb663cc455b91596f009"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/color-final/iphone-17-pro-max-webkit/delivery-footer.png",
+      "bytes": 291668,
+      "sha256": "31da90bc200ec7e78c79cde42d62c3fd4166ad8090e19cde0efb971d5c951c7a"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/color-final/iphone-17-pro-max-webkit/landing-footer.png",
+      "bytes": 3627861,
+      "sha256": "495816ab149ab4413b65fcd4518ef4021e9403a582b3d7ad8d7cba07d3886adb"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/color-final/iphone-17-pro-max-webkit/faq-open.png",
+      "bytes": 2706228,
+      "sha256": "6d4d66884b419de2a6956e52da3ac0cb4f9bcc3d1d88e594a572ce2fca4625c5"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/color-final/iphone-17-pro-webkit/arabic-footer.png",
+      "bytes": 3118161,
+      "sha256": "1b51fc858577b43f4380119c2006bf2a6d2152b69cbeb6cedb102a89fa389476"
+    }
+  ]
+}

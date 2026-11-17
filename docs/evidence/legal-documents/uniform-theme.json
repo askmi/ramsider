@@ -1,7 +1,7 @@
 {
   "change": "CHG0203",
   "correction": "2026-11-18 user requests uniform legal canvas/OpenSans and professional compact footer utility links",
-  "state": "VERIFIED_LOCAL_PUBLICATION_PENDING",
+  "state": "VERIFIED_CORRECTION_CANONICAL_AND_PROVIDER_VDS_NOT_DEPLOYED",
   "supersedesVisualApprovalOf": "ea0f46ab5e9312bf61edc2ef28c673c817dfb7e6 initial stacked textured legal footer",
   "sources": {
     "requests": [
@@ -274,13 +274,106 @@
   ],
   "technicalApproval": {
     "root": "APPROVED_LOCAL 2026-11-18 finaltheme/nav/build4/font/pixel/hits/contrast/native/static/browserproof",
-    "auditor": "/root/audit2026-11-18 expandedScopePASS, finalGate3/4colorreclosePASS_LOCAL,Gate5PASS_LOCAL,Gate6LOCAL_PREPUSHPASS; independently verified15stagedpaths/8source+45artifacts+3retainedassets exact; initial13source+64artifacts historicalea0f/superseded. No useracceptance/VDSpublicationcertified."
+    "auditor": "/root/audit2026-11-18 FINAL PASS_WITH_VDS_LIMIT: correctedscope/3-4/5/6LOCAL andpubliccanonical/provider/records pass; independent8committedsource+66artifact+3retainedassetbindings exact, both6dffdeploymentsSUCCESS, publishedProMaximages/source/CSS/OpenSansfont parity verified. Actualramsider.com6HTTP404=>VDSBLOCKED/NOT_MET; useracceptanceNOT_RECORDED."
   },
   "publication": {
-    "mainPush": "PENDING",
-    "vercel": "PENDING",
+    "mainPush": {
+      "sha": "6dff0517b8daab461a5fbeef828e2205d2edb159",
+      "repo": "askmi/ramsider",
+      "branch": "main",
+      "remoteVerified": true,
+      "state": "SUCCESS"
+    },
+    "vercel": {
+      "sha": "6dff0517b8daab461a5fbeef828e2205d2edb159",
+      "statuses": [
+        {
+          "context": "Vercel – ramsider",
+          "description": "Deployment has completed",
+          "state": "success",
+          "target_url": "https://vercel.com/askmi-6282s-projects/ramsider/CqwW8795Qdu5JvzLsWfT9pcxcVJX",
+          "updated_at": "2026-11-17T22:08:59Z"
+        },
+        {
+          "context": "Vercel – ramsider-beta",
+          "description": "Deployment has completed",
+          "state": "success",
+          "target_url": "https://vercel.com/askmi-6282s-projects/ramsider-beta/CdJQr9gdqMtRBpokeQLjhLPqM6cS",
+          "updated_at": "2026-11-17T22:14:39Z"
+        }
+      ],
+      "main": {
+        "id": 7867654809,
+        "sha": "6dff0517b8daab461a5fbeef828e2205d2edb159",
+        "latest": {
+          "created_at": "2026-11-17T22:08:59Z",
+          "environment": "Production – ramsider",
+          "environment_url": "https://ramsider-3soauj7eo-askmi-6282s-projects.vercel.app",
+          "id": 22471946673,
+          "log_url": "https://ramsider-3soauj7eo-askmi-6282s-projects.vercel.app",
+          "state": "success"
+        }
+      },
+      "beta": {
+        "id": 7867777439,
+        "latest": {
+          "created_at": "2026-11-17T22:14:40Z",
+          "environment": "Preview – ramsider-beta",
+          "environment_url": "https://ramsider-beta-r5j5bcux5-askmi-6282s-projects.vercel.app",
+          "id": 22472336007,
+          "log_url": "https://ramsider-beta-r5j5bcux5-askmi-6282s-projects.vercel.app",
+          "state": "success"
+        }
+      }
+    },
     "vds": "No remoteVDSdeploy; previousSSH_PUBLIC_KEY_REJECTED unchanged, originaltaskrequestedramsider.com gateNOT_MET",
-    "userAcceptance": "NOT_RECORDED"
+    "userAcceptance": "NOT_RECORDED",
+    "canonical": {
+      "url": "https://ramsider-main.vercel.app",
+      "pass": 6,
+      "ownershipSkip": 4,
+      "profiles": "Pro2/Max2/Firefox1/Chromiummatrix1",
+      "checks": "all3sourceparity/uniformfontbackground/noart/aliases/footerclicks/FAQ6.3; publicmatrix27cases81RGB13OpenSansglyph9mainbreakpoints;8actualCSSreferences+fontbyteexactlocal; rootactualpublicProMax/footerimagesviewed"
+    },
+    "mainDeployment": {
+      "id": 7867654809,
+      "sha": "6dff0517b8daab461a5fbeef828e2205d2edb159",
+      "latest": {
+        "created_at": "2026-11-17T22:08:59Z",
+        "environment": "Production – ramsider",
+        "environment_url": "https://ramsider-3soauj7eo-askmi-6282s-projects.vercel.app",
+        "id": 22471946673,
+        "log_url": "https://ramsider-3soauj7eo-askmi-6282s-projects.vercel.app",
+        "state": "success"
+      }
+    },
+    "actualDomainAfter": [
+      {
+        "path": "/en/privacy",
+        "status": 404
+      },
+      {
+        "path": "/en/terms",
+        "status": 404
+      },
+      {
+        "path": "/en/delivery",
+        "status": 404
+      },
+      {
+        "path": "/privacy",
+        "status": 404
+      },
+      {
+        "path": "/terms",
+        "status": 404
+      },
+      {
+        "path": "/delivery",
+        "status": 404
+      }
+    ],
+    "postPushRecords": "LOCAL supplements only; committed source unchanged at6dff051"
   },
   "sourceFiles": [
     {
@@ -561,6 +654,112 @@
       "path": "screenshots/legal-documents/2026-11-18/uniform-theme/color-final/iphone-17-pro-webkit/arabic-footer.png",
       "bytes": 3118161,
       "sha256": "1b51fc858577b43f4380119c2006bf2a6d2152b69cbeb6cedb102a89fa389476"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/main-status.json",
+      "bytes": 265,
+      "sha256": "2f0f12413eb842d367043ffce17512d4c0ac3dfd75780e81db27627d1cdd6083"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/public-css-font.json",
+      "bytes": 2012,
+      "sha256": "0254e7d5f792abbc2568d1588a0d624ae35e47b0f019e8e736dd1be2582f7957"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/actual-domain-after.json",
+      "bytes": 315,
+      "sha256": "d23d62141ab378cd9bae5967ff7e47d82124cc47ebbf31778d8c3a4ecae79b84"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/public-pro.log",
+      "bytes": 845,
+      "sha256": "1b68a93071351bbae899e0ed3649529aebe6c62a9b471f831b1acc2fd103ecb1"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/public-max.log",
+      "bytes": 861,
+      "sha256": "17b7876083db46e6bc79ca20c393b78b68d40c368534ff3f9c1b47cb9568e4dc"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/public-firefox.log",
+      "bytes": 353,
+      "sha256": "0faf991f2e71ecd5dc71e5d09ea4a00999ef25ec1864fdd4dacdce06967df76a"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/public-matrix.log",
+      "bytes": 363,
+      "sha256": "da1f1138dd26a1a5e417ba80fdff01fe5c1b7e2d56c430544fd46fd6e0793a97"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/public-matrix/verification.json",
+      "bytes": 30855,
+      "sha256": "993347da7f219e4b3681e16cd375fa06ab01f7c0af729da32b040e17a42303a5"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/published-footer.png",
+      "bytes": 29971,
+      "sha256": "859975b398b3fab43f0ae11e01d3c6271cacacf6e7085ac451bbc9c83ecaa1a7"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/public-matrix/delivery-2446-boundary.png",
+      "bytes": 274015,
+      "sha256": "432604b49ac533b4e1a70ebea89158139f36aee65f5b19c95dedb209cc9facca"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/public/iphone-17-pro-webkit/documents.json",
+      "bytes": 1258,
+      "sha256": "6d59ba210da24f218dea090f88d805052a2c57016a69ead170c898c45f074cd9"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/public/iphone-17-pro-webkit/landing.json",
+      "bytes": 449,
+      "sha256": "f16dfba1f6a80c2c6eb205e51053bb2abb60d57d3adb9513ee45ba551a9da7e7"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/public/iphone-17-pro-webkit/delivery-footer.png",
+      "bytes": 262054,
+      "sha256": "dda4f22cf8c7a0ef72346b10b84bceb2004236bba7019408bcc9a8afa0bcf0a6"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/public/iphone-17-pro-webkit/landing-footer.png",
+      "bytes": 3129319,
+      "sha256": "55859c9b74831b2678f3ca221813f0ebc9dc4910d3dd80c767de6f275d38fcfa"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/public/iphone-17-pro-max-webkit/documents.json",
+      "bytes": 1258,
+      "sha256": "6d59ba210da24f218dea090f88d805052a2c57016a69ead170c898c45f074cd9"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/public/iphone-17-pro-max-webkit/landing.json",
+      "bytes": 449,
+      "sha256": "027a60ebdca4fd566b8097a42235d455abc4047bef954d007d68f24a75693580"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/public/iphone-17-pro-max-webkit/delivery-footer.png",
+      "bytes": 291668,
+      "sha256": "31da90bc200ec7e78c79cde42d62c3fd4166ad8090e19cde0efb971d5c951c7a"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/public/iphone-17-pro-max-webkit/landing-footer.png",
+      "bytes": 3627861,
+      "sha256": "495816ab149ab4413b65fcd4518ef4021e9403a582b3d7ad8d7cba07d3886adb"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/deployments-final.json",
+      "bytes": 290,
+      "sha256": "d1ff0a6bf88b63f4286445a5d3b4b4eb4b2ba69d79c5f7027441899e93f19117"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/commit-status-final.json",
+      "bytes": 518,
+      "sha256": "156d90e84ce556b19d4a61ac2cef7839a7bddbb1b76be63aaa9e8131d6ee3671"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/uniform-theme/beta-status-final.json",
+      "bytes": 277,
+      "sha256": "046cf84945134e9f7731c734b0e38614427e7e62e6b4780adb6457386f5bc6b5"
     }
-  ]
+  ],
+  "sourceFilesCommit": "6dff0517b8daab461a5fbeef828e2205d2edb159"
 }

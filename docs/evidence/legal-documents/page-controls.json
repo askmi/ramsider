@@ -1,0 +1,326 @@
+{
+  "change": "CHG0203",
+  "date": "2026-11-18",
+  "status": "VERIFIED_LOCAL_AWAITING_PUBLICATION",
+  "baseline": "6dff0517b8daab461a5fbeef828e2205d2edb159",
+  "request": "Three EN legal pages: Home above BackToTop, no Contact; remove visible Documents footer heading",
+  "sourceFiles": [
+    {
+      "path": "app/globals.css",
+      "sha256": "396e9370cfb14825fa5f3605ccd7b2d26f0bddc4d58cab8741bfbcbd3636bc5c"
+    },
+    {
+      "path": "components/LegalDocument.tsx",
+      "sha256": "2c473e1fdba420d1a006f5668d17fa9302de690d0739ec6845e060a5916ba230"
+    },
+    {
+      "path": "components/LegalNavigation.tsx",
+      "sha256": "b9cb5c7920e3832fe2350e9ccef9c7cfc1018e297d72b5498559a945977bf035"
+    },
+    {
+      "path": "tests/e2e/legal-controls.spec.ts",
+      "sha256": "4716db1b87bbe989cda0702d7da8799ab1f3b9808ec3243b31170868ce469bb7"
+    }
+  ],
+  "checks": {
+    "controls": "Finalisolated Pro3PASS1ownershipSKIP, Max3PASS1ownershipSKIP, Chromium4PASS; actualmain\u2192footerlink\u2192legal\u2192Home\u2192nextlegal6flowcaptures/endGap0; priorFirefoxcontrolsPASS and fullmatrix/11locales/RTL asrecorded",
+    "existingLegal": "Pro legal-documents3PASS1ownershipSKIP; Max2PASS2ownershipSKIP; desktop-final total8PASS5ownershipSKIP1new-harnessFAIL (newcontrols finalized separately5PASS3SKIP); all11localeSSGfixture/ArabicFAQ/aliases/fullsourcehashparity PASS",
+    "theme": "27legal cases9widths,81RGBsamples243/231/217,13actualOpenSansglyphnodes;9mainfooterwidths",
+    "build": "Productionbuildcomplete/3legalprerendermanifestentries/prodserverready; shell exitcode not captured in initial tool output",
+    "types": "Final3PASS",
+    "scopedLint": "Final3PASS",
+    "nativeReview": "native6exit0CLEAN exactisolated4files; P2inputmodality/captureOFFtestfindingsfixed; native5wrongcwdexcluded/stoppedexit143. Runtimechecks inactualroot, isolatedreview lacksdeps",
+    "performance": "single cold-context production 4Mbps100msCPU4: docsLCP360/328/312ms CLS0 JS148951B (+406B over previous); no art requests. MainLCP1256ms CLS0.0009706; no physicalSafari/fieldINP/Lighthouse claim",
+    "failures": "Prior harnessFAIL logs and automatic PNGs retained; all original requested controls now exercised in final-2",
+    "visual": "PASS_LOCAL /root and independent /root/audit: all6main-to-legal flowPNGcompletefooter/Home/up, sixendGap0; earlier missingpaintFAILretractedasinterpretationfalsepositive, causeunconfirmed",
+    "captureModes": "FinalcaptureONaffectedtest1PASS. CaptureOFF productionbuild not rerun; no runtimefeaturecodechange, testcondition aligned with existingexplicitOFFsuite"
+  },
+  "artifacts": [
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/build.log",
+      "sha256": "208d457c16a134ae56826cf7fd5621d3ece2fe7c87210f3056ea0a67669ade27"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/types-final.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/lint-final.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2.log",
+      "sha256": "8d76ec42e1eb5daa3bc381b820c87242717961bd5ef268be7d602ea9145a9199"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/desktop-final.log",
+      "sha256": "574808570fa8d731c66d84a9a3d8ff4f93ed09af52579edd6780508f90d7c920"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/pro.log",
+      "sha256": "22d6836f80d629bfb61a7970f3608081efff58ce8622b6258ba608a8eb1122ac"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/max.log",
+      "sha256": "3d314bc524fa161140ff8d773603452a48c537785a240ac172feafa3236a7fcf"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/review-snapshot-final.json",
+      "sha256": "847ae0a61f62eae0ff5f15c485a448a7643f4e905146f302a1b6d05a232e20a1"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/performance.json",
+      "sha256": "e713425e5782dddae85503b66d43beb1dc9b1084fa808a3a6dc933218eaaf31e"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/theme/verification.json",
+      "sha256": "d2b0eb1f10707356d3e5f3506b1387608c7990fe27022489d15a11d1cbab5af5"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/iphone-17-pro-webkit/delivery-footer.png",
+      "sha256": "a8a6940a1e822aaaa14d9efdafd04e388841cc38e02284273b8a94b413551a2a"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/iphone-17-pro-webkit/privacy-top.png",
+      "sha256": "2f23cd88ece876f463820c35f214dd0958252ef16a65333ed77d394433011271"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/iphone-17-pro-webkit/privacy-footer.png",
+      "sha256": "9addde69051ac7e48a67a47b04ef204fa3e3a3549566e5253889c0d8f69c9ec0"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/iphone-17-pro-webkit/delivery-top.png",
+      "sha256": "4b35d21d31b0a5260aa20536041a7f35fcca01e76514ca10d7eaa081d3497bfe"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/iphone-17-pro-webkit/terms-footer.png",
+      "sha256": "8bded23ad045a1a6d5db3c006b2e7aac2137f3db65bfdd1838506e255af9865d"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/iphone-17-pro-webkit/terms-top.png",
+      "sha256": "6258643c939b310426cbbb7554e679c5eec4df7ab28a777f526a52b9bcd62b71"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/desktop-chromium/delivery-footer.png",
+      "sha256": "73146bcb6f5fa725936f467cf2a86dd58463bc48fd711eae00372b024e89ef86"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/desktop-chromium/privacy-top.png",
+      "sha256": "8351982ccee858c3e54ded4abaa800846bbf2bc4088a3cce273c154f8ff38795"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/desktop-chromium/privacy-footer.png",
+      "sha256": "22591aff00a95f44f729128f9d726ea1816b83bb2ff9664ac8fa18acdb9c2196"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/desktop-chromium/delivery-top.png",
+      "sha256": "a9001475c7977dcac951ac7379bc7d3a5f6fdbbefed2975aa53fa7f57e5ee73c"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/desktop-chromium/terms-footer.png",
+      "sha256": "44967c2df8052c3a5a36eadb6dbe7fe4fcddde1553bddd25ff1091963d096d2d"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/desktop-chromium/terms-top.png",
+      "sha256": "b56a2ba0d3f437073b373f0bc2bff3e7746fc313cd1d73ec7fe650e1aa2ef73a"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/desktop-firefox/delivery-footer.png",
+      "sha256": "2d8c1c95346d43422baf9c3b8e97b031891f9762553e1ce5627b8eb060c79e36"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/desktop-firefox/privacy-top.png",
+      "sha256": "3f8e01b9b447d989d9528d53c6c449d305647616dc481b0c3d1a4f81aa30c6bb"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/desktop-firefox/privacy-footer.png",
+      "sha256": "eabfb739dfa47759a60a22e50149e4d97b9456a1a75dfa11ab79a3663641c551"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/desktop-firefox/delivery-top.png",
+      "sha256": "0982e5299d0ca42878c195cebe792b07ce59834611813da4f2ca1d09ff52567b"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/desktop-firefox/terms-footer.png",
+      "sha256": "6b9b182da6c5f5ff55575e7b2e79471e595e4164d544ade9df9058a1d4a52616"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/desktop-firefox/terms-top.png",
+      "sha256": "54630cd3025c324aa29e33fa362122e27718942ccd32eea8b8c884cfacfcb80f"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/iphone-17-pro-max-webkit/delivery-footer.png",
+      "sha256": "c2062b6ee6a3b1e5a1c5152eb8edd5f76129eb76a91e8f8a8d029825d61a9d26"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/iphone-17-pro-max-webkit/privacy-top.png",
+      "sha256": "bd0e4218d65a20efc7beed7db6c51b717a7bfc839dcb30560b7dfdb3215550d1"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/iphone-17-pro-max-webkit/privacy-footer.png",
+      "sha256": "1249b781e8c5c18f486c51319cc5213c00b0df480daffd282b749a140d63d3d5"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/iphone-17-pro-max-webkit/delivery-top.png",
+      "sha256": "c1a61ea51367a140eae944fbbf4ea2f1c270c7c62f27bb2a557d6906b6203bd9"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/iphone-17-pro-max-webkit/terms-footer.png",
+      "sha256": "1d2f2526aff4c2e540b27eca0f5a82ec8d095d929ab42454091af9890eb0761d"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/iphone-17-pro-max-webkit/terms-top.png",
+      "sha256": "8a279337587e1fca6f38865c4b6a0d00bc7fe1f1528da7d703a32b5f54a6c8c6"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/adaptation/delivery-320-safe70.png",
+      "sha256": "8aeb33e4a60086e21d3a98669853b075346d81380249bc58684091b93871c6ff"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/adaptation/main-footer.png",
+      "sha256": "deef3119048b0470afee1a960975ca6f9cab37576314b9bf82ca597006ffb0cc"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/adaptation/delivery-768-safe70.png",
+      "sha256": "c3575512afd315c4be4f30f9de77859ac478c14290b4a389bc051106522863ec"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/adaptation/delivery-1024-safe70.png",
+      "sha256": "2dbfc4b685003982f729226a58ab10ca8051acaa62d614861b6528e3234c55b3"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/adaptation/delivery-1440-safe70.png",
+      "sha256": "719b45829b5530ac7609250ce94537f9a115ff14febf624ee819b0f185912e6b"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/iphone-17-pro-webkit/controls.json",
+      "sha256": "370d329bf90077cc6e6cdcc558b030a0a1f376bf271f6fb038af0310079fafd1"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/desktop-chromium/controls.json",
+      "sha256": "90dd63cbcf00eb0bdf5b0002c90586b603f2c1034abc978d93c4fe7a832751f6"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/desktop-firefox/controls.json",
+      "sha256": "90dd63cbcf00eb0bdf5b0002c90586b603f2c1034abc978d93c4fe7a832751f6"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/final-2/iphone-17-pro-max-webkit/controls.json",
+      "sha256": "1cd141919e997c1021f636199566de91b8ec697a655801e9ec8d9eed3aa2f6ed"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/isolated-pro.log",
+      "sha256": "5fd12e0a5e08c577f4b6b1810739e6cb5adfecf52f15b382ad31aa79a8b709e0"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/isolated-max.log",
+      "sha256": "e5ac08bbffad009a29e1517749acd01023530e25746ac319f911cf4a80550900"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/isolated-desktop.log",
+      "sha256": "6afd48d9a1b68417961eb154193ffe670d1b6191b2846fd6106e658c23529a67"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/types-final-2.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/lint-final-2.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/native-review-result-final.txt",
+      "sha256": "aefd9f298fc38c80fa37f88f17aeca2196f4c494b045e19cfa37340980d5af58"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/navigation.mjs",
+      "sha256": "6ac3b6396814e3ecadea0529ad7874928f2967d73e7fd307b703157c31adaeca"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/navigation/flow.json",
+      "sha256": "6f4b28304a7c158c9a3d99fd798d8c003b038d84adf1afd47f5e15dfeb8a29d5"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/navigation/pro-terms.png",
+      "sha256": "32291634ae9f0c4e399aacd06cb41c43861d273bc9b56078bdfa6284931d0cea"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/navigation/pro-privacy.png",
+      "sha256": "2e605d7db8b981aba8ed967f9884a93f5e3db42459aa4e7478d6dee2fef12796"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/navigation/max-delivery.png",
+      "sha256": "17683ada0640fe4303d6f442f74d0ecca74005917d185f35e97418859963ac21"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/navigation/max-terms.png",
+      "sha256": "e1efffd485e5db98cf68c262198e365a5899c7460bd0516c70e1a038a5d72335"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/navigation/max-privacy.png",
+      "sha256": "2fdf252a743184a73160eb021f677718da42b1d77869e0c7ec663182e1dcbf78"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/navigation/pro-all-three.png",
+      "sha256": "4537f8c02cfd29fdb7eb3cf01c7f618f392bb6f2a5ad1feafc3dc35811ede844"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/navigation/max-all-three.png",
+      "sha256": "d9cbd501321f5d098aedec19c235bf80fa263a77528f38efbad4d277cad625ee"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/navigation/pro-delivery.png",
+      "sha256": "b147a3734f96c3d3ef6c87586bec5e927a7ae1a2ef46d337b4ba04e6bc9b7c43"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/isolated-pro/iphone-17-pro-webkit/privacy-controls.json",
+      "sha256": "2aea2020533c52139a5d440cb5188c923fd83b9315ba7780e6dd7820d1aafb1a"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/isolated-pro/iphone-17-pro-webkit/delivery-controls.json",
+      "sha256": "3190bc7c37fe76679d9da11470d80fdce54e809fd5c2d379cdc48902bea48d42"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/isolated-pro/iphone-17-pro-webkit/terms-controls.json",
+      "sha256": "02c6873ff695caaef0292bab7190af52e04a1e6531c2c741b66e183e4afe23fe"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/isolated-max/iphone-17-pro-max-webkit/privacy-controls.json",
+      "sha256": "e88552f03f420cf6920ad5b024b9837e529aab22fd70d2c8cc553c5995cf544b"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/isolated-max/iphone-17-pro-max-webkit/delivery-controls.json",
+      "sha256": "ab6e287fd4df7d9a40f9ee54f44b6a6bbbff9565a562093097e2aa224455934a"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/isolated-max/iphone-17-pro-max-webkit/terms-controls.json",
+      "sha256": "c4122d3bf5002c04cea51e6aeba0e075121ec92f0764072500995a410bb01a13"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/native-review-result-6.txt",
+      "sha256": "0a14924309de9ef1991a6d528f0eadbcc4c2884ebd31dd6ef9cc291b83ca01d7"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/capture-mode.log",
+      "sha256": "973c9018459010e0aaa227ab68ef9120625d42ea1ac34908477e35611554341e"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/types-final-3.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/page-controls/lint-final-3.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "technicalApproval": {
+    "root": "APPROVED_LOCAL2026-11-18: productionstaticroutes/fullcopy/theme, ProMaxactualpixels+touchflows, keyboard/safearea/RTL, native6CLEAN/type/lint/performance; VDSnotmet",
+    "auditor": "2026-11-18 /root/audit Gate3/4 PASS_LOCAL, Gate5 PASS_LOCAL, Gate6 PASS_LOCAL_PREPUSH:11stagedpaths,4reviewedsource+69artifactbindings exact; publication separate"
+  },
+  "publication": {
+    "main": "PENDING",
+    "Vercel": "PENDING",
+    "ramsider.com": "Prior SSH key rejection remains external blocker; no VDS mutation"
+  },
+  "userResultApproval": "NOT_RECORDED"
+}

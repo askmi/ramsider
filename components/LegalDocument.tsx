@@ -2,6 +2,8 @@ import { Fragment } from 'react';
 import Link from 'next/link';
 import texts from '@/lib/legal-documents.json';
 import type { LegalDocument as DocumentName } from '@/lib/legal-copy';
+import { t } from '@/lib/i18n';
+import { BackToTop } from './BackToTop';
 import { SiteFooter } from './SiteFooter';
 import styles from './LegalDocument.module.css';
 
@@ -23,7 +25,7 @@ export function LegalDocument({ document }: { document: DocumentName }) {
   const tableEnd = tableStart < 0 ? -1 : lines.findIndex(line => line.startsWith('We will not process your Personal Data'));
   if (tableStart >= 0 && tableEnd <= tableStart) throw new Error('Missing Privacy table boundary');
   return <div className={styles.page}>
-    <header className={styles.header}><Link href="/en" prefetch={false}>RAMSIDER UNO — Home</Link></header>
+    <header className={styles.header}><Link id="home-link" href="/en" prefetch={false}>RAMSIDER UNO — Home</Link></header>
     <main className={styles.main} id="document">
       <article lang="en" dir="ltr" aria-labelledby="document-title">
         <h1 id="document-title">{title}</h1>
@@ -41,5 +43,12 @@ export function LegalDocument({ document }: { document: DocumentName }) {
       </article>
     </main>
     <SiteFooter locale="en" variant="plain" />
+    <Link className="home-launcher" href="/en" prefetch={false} aria-label={t('en', 'home')}>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+        <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z" />
+        <path d="M9 21v-8h6v8" />
+      </svg>
+    </Link>
+    <BackToTop label={t('en', 'backToTop')} />
   </div>;
 }

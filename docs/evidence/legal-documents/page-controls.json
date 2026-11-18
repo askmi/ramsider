@@ -505,5 +505,11 @@
     }
   },
   "userResultApproval": "NOT_RECORDED",
-  "sourceFilesCommit": "7464028eb1a2fdbeaa702639f181c73ece4f1ae2"
+  "sourceFilesCommit": "7464028eb1a2fdbeaa702639f181c73ece4f1ae2",
+  "vdsPublicationSupersededBy": {
+    "change": "CHG0204",
+    "receipt": "docs/evidence/server-deployment/deployment.json",
+    "deploymentCommit": "5d291a7330b9a8ae40587aef20893ec0b767c25b",
+    "note": "Earlier VDS404/key-denial entries are historical; actualVDS publication now verified byHTTP/SSG/source; publicbrowser visual check blockedbyexternalcorporatefilter"
+  }
 }

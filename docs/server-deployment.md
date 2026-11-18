@@ -2,6 +2,14 @@
 
 Verified on 2026-11-18 for CHG0204 through the owner's password-authenticated SSH connection. This file is the maintained server map and runbook; MEMORY.md and CONTEXT_INDEX.md route here. The evidence receipt is [deployment.json](evidence/server-deployment/deployment.json). Credentials, environment values, private keys and authentication sockets must never be stored here.
 
+## Current deployment
+
+On 2026-11-18, main5d291a7330b9a8ae40587aef20893ec0b767c25b was built separately, checked on a localhost candidate, then activated through the unchanged ramsider.service. Its runtime source is identical to the previously reviewed7464028 code. Active checkout: `/root/ramsider`, main5d291a7, HTTPS origin. Previous complete checkout: `/root/ramsider-releases/previous-f79645-20261118` atf79645d; the untracked nginx backup and all19 previous immutable static objects are preserved. No production rollback was needed or deliberately exercised.
+
+Public `/en/privacy`, `/en/terms`, `/en/delivery` now return200 with byte-exact verified SSG HTML/full source text; aliases `/privacy`, `/terms`, `/delivery` return308 to their English targets. Twenty-two HTTP baseline checks and all four public TLS identities passed preservation comparison. All29 protected configuration/unit files, Nginx/form processes,393Hospitality files and both legacy files match before deployment. The app service is active with Result=success and NRestarts=0. Nginx was not restarted or reconfigured; temporary candidate3100 and local SSH tunnel are closed.
+
+The candidate passed10Pro/Max WebKit checks; all six footer screenshot comparisons against the approved same-source baseline reported0 differing pixels. A later attempt to inspect the actual public domain in this workstation's browser hit an external corporate prohibited-site403page: ten runner failures are classified BLOCKED, not passed. Public visual/performance approval is not claimed; no browser/security/proxy override was attempted. Direct HTTP/TLS results and deployed SSG hashes establish actual server publication independently.
+
 ## Applications and services
 
 | Component | Confirmed location / listener | Service / role |
@@ -17,7 +25,7 @@ Other legacy/admin virtual hosts also exist. They are outside this rollout and m
 
 Before this deployment, the server checkout is `main` at `f79645de75c9f63ee665e5aaeb5bb6332bca1d8a`. Tracked files are clean. The sole reported untracked file is `/root/ramsider/zzzz-ramsider-next`; preserve it byte-for-byte. It is separate from the active Nginx file, whose real path is `/etc/nginx/sites-available/zzzz-ramsider-next`.
 
-The current process started on November14; that timestamp does not establish a different deployed source commit. The checkout hash, service path and actual HTTP responses are the verified evidence.
+The pre-deployment process started on November14; that timestamp does not establish a different deployed source commit. The checkout hash, service path and actual HTTP responses are the verified evidence.
 
 ## Nginx host routing
 
@@ -75,19 +83,19 @@ Dependencies and product-film registry match the already verified local source. 
 
 ## Deployment plan
 
-This plan still requires its exact target commit and independent pre-mutation approval. Record the resolved main SHA once; do not silently substitute a moving branch tip.
+This procedure was executed for pinned5d291a7 with independent preparation and final-switch approvals. For later deployments, inventory again, choose new unique release/state/backup paths and pin the resolved main SHA once; do not silently substitute a moving tip.
 
-1. Persist the verified map in Git. If that creates a documentation-only main commit after7464028, verify the complete production-source projection remains identical to the reviewed7464028 code before deploying that exact new SHA.
+1. Persist the verified map in Git. If that creates a documentation-only main commit after7464028, verify the complete production-source projection remains identical to the reviewed7464028 code before deploying that exact new SHA. In particular, Story imports docs/evidence/loading-flow/feed-seam-map.json at runtime: docs/ is not a blanket non-runtime directory. Compare the whole Git change list against an explicit reviewed records-only allowlist and preserve every imported data blob. The feed-seam map is byte-identical across7464028 and5d291a7.
 2. Require the old checkout to remain atf79645d with no tracked changes and only the inventoried untracked backup. Recheck configuration/unit fingerprints and adequate free storage/memory. Initial inventory found approximately68.8GB free disk and7.1GB available memory.
 3. Prepare `/root/ramsider-releases/20261118-main` separately; current checkout and its running `.next` remain untouched. Clone the existing Git repository independently, set the new clone's origin to the HTTPS URL, fetch main and verify its exact pinned SHA before checkout. Never run `git reset --hard` or `npm ci` in the live checkout.
 4. Run isolated `npm ci --include=dev --no-audit --no-fund`, copy the existing extracted films independently and run the normal production build. Preserve the untracked backup in the prepared checkout. Retain old immutable `.next/static` objects missing from the new build so already-open pages can still fetch their old URLs; fail if the same static URL has different bytes.
 5. Start a temporary candidate server on `127.0.0.1:3100`. Verify all three complete English documents, aliases, clause6.3, static resources and Home/up behavior; use a local-only SSH tunnel for Pro/Max browser checks. Do not expose a new public listener or send production form submissions.
 6. Only after candidate approval, stop **ramsider.service**, move the old checkout to `/root/ramsider-releases/previous-f79645-20261118`, move the prepared checkout to `/root/ramsider`, then start the same unchanged service. This preserves its absolute WorkingDirectory/ExecStart paths. Expect a brief service restart; never build while production is stopped.
-7. Check readiness immediately. On failure, stop Ramsider, move the failed new checkout aside, restore the previous directory to `/root/ramsider`, start the unchanged service and recheck the old baseline. Preserve failure diagnostics in protected ignored storage.
+7. Check readiness immediately. On failure, stop Ramsider, move the failed new checkout aside, restore the previous directory to `/root/ramsider`, start the unchanged service and recheck the old baseline. Preserve the union of old and new immutable static assets during rollback, without overwriting different bytes at the same URL. Static-copy errors must be reported without preventing restoration of the old service. Preserve failure diagnostics in protected ignored storage.
 8. Compare before/after Nginx files, unit hashes, certificates, both form services, all Hospitality and legacy file manifests, host redirects and old PDF bytes. Confirm public legal URLs/aliases/FAQ and mobile screenshots. Do not reload/restart Nginx, alter certificates or touch Hospitality for this application deployment.
 
-Run state and protected logs belong under `/root/ramsider-deploy/20261118-main`. These three preparation/backup/state paths were absent at inventory; fail rather than overwrite if they unexpectedly appear. The old checkout and logs must remain available for rollback; do not delete them as deployment cleanup.
+Run state and protected logs belong under `/root/ramsider-deploy/20261118-main`. These three preparation/backup/state paths were absent at inventory; fail rather than overwrite if they unexpectedly appear. The state and previous-checkout paths now exist. The prepared release was moved to /root/ramsider and its former staging path is absent; reserve the whole identifier for this run and do not reuse it for another rollout. The old checkout and logs must remain available for rollback; do not delete them as deployment cleanup.
 
 ## Access for later work
 
-The owner's password is entered directly into normal SSH and is never retained. The desktop app's terminal connector is read-only, and CUA app control was denied. A user-started password SSH ControlMaster in a protected temporary directory supplies the agent's command channel. The channel lasts while that SSH session is open; this runbook is durable repository memory, not permanent authentication or model training. Re-establish authorized access on a later session instead of inventing credentials or bypassing host-key checks.
+Administrative SSH destination: `root@185.179.189.103`, port22. The owner's password is entered directly into normal SSH and is never retained. The desktop app's terminal connector is read-only, and CUA app control was denied. A user-started password SSH ControlMaster in a protected temporary directory supplies the agent's command channel. The channel lasts while that SSH session is open; this runbook is durable repository memory, not permanent authentication or model training. Re-establish authorized access on a later session instead of inventing credentials or bypassing host-key checks.

@@ -1,7 +1,7 @@
 {
   "change": "CHG0204",
   "date": "2026-11-18",
-  "status": "INVENTORY_VERIFIED_PLAN_AWAITING_AUDIT",
+  "status": "DEPLOYED_VERIFIED_WITH_PUBLIC_BROWSER_LIMIT",
   "baselineCommit": "f79645de75c9f63ee665e5aaeb5bb6332bca1d8a",
   "verifiedProductSourceCommit": "7464028eb1a2fdbeaa702639f181c73ece4f1ae2",
   "ramsider": {
@@ -554,7 +554,7 @@
     ]
   },
   "plan": {
-    "target": "Pin origin/main after memory-only commit; verify runtime source projection equals7464028",
+    "target": "5d291a7330b9a8ae40587aef20893ec0b767c25b; full runtime projection equals reviewed7464028",
     "release": "/root/ramsider-releases/20261118-main",
     "previous": "/root/ramsider-releases/previous-f79645-20261118",
     "state": "/root/ramsider-deploy/20261118-main",
@@ -571,8 +571,759 @@
     "rollback": "Stop Ramsider; move failed checkout aside; restore previous directory to /root/ramsider; start unchanged service; verify /en200 and original baseline"
   },
   "technicalApproval": {
-    "root": "INVENTORY_REVIEWED; deployment pending",
-    "auditor": "2026-11-18 /root/audit inventory/map+planarchitecture/durablememory PASS; full pinned-command gate pending before server mutation"
+    "root": "2026-11-18 APPROVED_VDS_WITH_PUBLIC_BROWSER_LIMIT: activated5d/3public200/3aliases308/fullSSGbytes/source/29configunitfiles/TLS/Hospitality/legacy/forms/oldstatic preservation; candidate10PASS/six0diff, Native4CLEAN/fault8; publicbrowser403blocked notpassed",
+    "auditor": "2026-11-18 /root/audit final activated/preservation/memory PASS_WITH_BROWSER_LIMIT: activated5d,22HTTP/4TLS/393Hospitality+2legacy/29configunit/service/static preservation,36artifact+4source+runtime-doc hashes exact; publicbrowser10FAIL external403 notpassed; records-content9paths approved, records-onlyFF conditional exactnewSHA/allowlist/runtimeunchanged"
   },
-  "userResultApproval": "NOT_RECORDED"
+  "userResultApproval": "NOT_RECORDED",
+  "deploymentCommit": "5d291a7330b9a8ae40587aef20893ec0b767c25b",
+  "rollout": {
+    "prepare": {
+      "status": "candidate-ready",
+      "target": "5d291a7330b9a8ae40587aef20893ec0b767c25b",
+      "oldStaticObjects": 19,
+      "productionBuildExit": 0,
+      "liveServiceUntouched": true
+    },
+    "candidateHttp": {
+      "target": "5d291a7330b9a8ae40587aef20893ec0b767c25b",
+      "documents": [
+        {
+          "name": "privacy",
+          "status": 200,
+          "fullSourceParity": true,
+          "home": true
+        },
+        {
+          "name": "terms",
+          "status": 200,
+          "fullSourceParity": true,
+          "home": true
+        },
+        {
+          "name": "delivery",
+          "status": 200,
+          "fullSourceParity": true,
+          "home": true
+        }
+      ],
+      "aliases": [
+        {
+          "name": "privacy",
+          "status": 308,
+          "location": "/en/privacy"
+        },
+        {
+          "name": "terms",
+          "status": 308,
+          "location": "/en/terms"
+        },
+        {
+          "name": "delivery",
+          "status": 308,
+          "location": "/en/delivery"
+        }
+      ],
+      "oldStatic": [
+        {
+          "path": "HhJyjEoT0IlLCNSYeFo49/_buildManifest.js",
+          "sha256": "9476e0afd3f9da68a64e6ec58631191fd3eaca62c9f5a377e7517fe9a89e59ea",
+          "status": 200
+        },
+        {
+          "path": "HhJyjEoT0IlLCNSYeFo49/_clientMiddlewareManifest.js",
+          "sha256": "bf1c4a7c0a3f16385c1acfc4b7ce367975c62a445c2b1beca6e7aec7a280b78a",
+          "status": 200
+        },
+        {
+          "path": "HhJyjEoT0IlLCNSYeFo49/_ssgManifest.js",
+          "sha256": "9f68d4130b8c93ac5b741b77082e93fc357c10d41cfbf6895267140937561707",
+          "status": 200
+        },
+        {
+          "path": "chunks/05-c3ty_6dwfk.js",
+          "sha256": "aee2d073d2a1157cfe5c98907f90b3967de4c3625f9ffb154bd1979ae2b917b0",
+          "status": 200
+        },
+        {
+          "path": "chunks/08use1w1ip6b4.js",
+          "sha256": "dfee3dbce2c3d49df7abf975940044b7cf5d281e0c56c7b815821dee535bf1fe",
+          "status": 200
+        },
+        {
+          "path": "chunks/0cz1d0mv5g_q7.js",
+          "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+          "status": 200
+        },
+        {
+          "path": "chunks/118s5zhf5pgaq.js",
+          "sha256": "1f6983ac49b235646044a1b346d5d5fab9bcd95d6dd9c0bc6039ef45a86f36c4",
+          "status": 200
+        },
+        {
+          "path": "chunks/14mrh2-p_w84d.js",
+          "sha256": "a3ac200f3ab8bfa57cf78882057741ddb5c0fbc9e2490c5d951c099b37484206",
+          "status": 200
+        },
+        {
+          "path": "chunks/15orcrkp-_9ct.js",
+          "sha256": "69a6bb99c3ffab75664c38bcf12faabd4bb9dc7e300605c030168809b21bc0b9",
+          "status": 200
+        },
+        {
+          "path": "chunks/1so528r5q2--i.js",
+          "sha256": "66fb4502aafbe9588053befa8aace4c2226c0fad6313f1d4cfbb8e5e6ac94bce",
+          "status": 200
+        },
+        {
+          "path": "chunks/2_awzscc58y1b.css",
+          "sha256": "4a47e2d07359cc7cb6a97f56b07f2c817f6c98d4c076494d3594150c9bec775b",
+          "status": 200
+        },
+        {
+          "path": "chunks/3-5k80pt3ds20.js",
+          "sha256": "00511376da26d0c09f9fd839127c7532d37de4c9c450afe5e8906d0cc78d147b",
+          "status": 200
+        },
+        {
+          "path": "chunks/351-bc_pjazcw.js",
+          "sha256": "305b3c49b5a28ca34ede526a8065f39a6dee5a40a44d8121e7712e2aea74eebd",
+          "status": 200
+        },
+        {
+          "path": "chunks/37bwvwo39glkk.css",
+          "sha256": "535981d8f8321416726c43e46a4777da560bd32402a6a6920ec19fd95d81b60f",
+          "status": 200
+        },
+        {
+          "path": "chunks/3_yaym1q7aiwc.js",
+          "sha256": "eb530cd200dad4540f770a34f1a5917829e7eb44bd7e569d0e4601a57de5524c",
+          "status": 200
+        },
+        {
+          "path": "chunks/3gzxhq9iq6efl.js",
+          "sha256": "d5de439da1ee98f738ee39179d2461bc242a278520b76b286f1a40fe150f871f",
+          "status": 200
+        },
+        {
+          "path": "chunks/43h7fz0_citb4.js",
+          "sha256": "b2ecb8d95f76c700036fa2d4493fd4349b1292da5de6a3435fe2874d0563fe54",
+          "status": 200
+        },
+        {
+          "path": "chunks/turbopack-3ps7o16pksegz.js",
+          "sha256": "0d58f7c126d4b98b11c58ae3b15bdb091a633d20b463f279b1390686b46df326",
+          "status": 200
+        },
+        {
+          "path": "media/favicon.3nfbh7suytgef.ico",
+          "sha256": "b181730c1f44df7f3d2f5169e2796e48bc2681cfb60012b83bc90436ad40d0e6",
+          "status": 200
+        }
+      ],
+      "landingFaq": true,
+      "status": "candidate-http-validated"
+    },
+    "candidateBrowser": {
+      "passed": 10,
+      "failed": 0,
+      "profiles": [
+        "402x874 DPR3 WebKit",
+        "440x956 DPR3 WebKit"
+      ],
+      "footerRegressionPairs": [
+        {
+          "device": "pro",
+          "name": "privacy",
+          "width": 1206,
+          "height": 2622,
+          "differentPixels": 0,
+          "percent": 0
+        },
+        {
+          "device": "pro",
+          "name": "terms",
+          "width": 1206,
+          "height": 2622,
+          "differentPixels": 0,
+          "percent": 0
+        },
+        {
+          "device": "pro",
+          "name": "delivery",
+          "width": 1206,
+          "height": 2622,
+          "differentPixels": 0,
+          "percent": 0
+        },
+        {
+          "device": "max",
+          "name": "privacy",
+          "width": 1320,
+          "height": 2868,
+          "differentPixels": 0,
+          "percent": 0
+        },
+        {
+          "device": "max",
+          "name": "terms",
+          "width": 1320,
+          "height": 2868,
+          "differentPixels": 0,
+          "percent": 0
+        },
+        {
+          "device": "max",
+          "name": "delivery",
+          "width": 1320,
+          "height": 2868,
+          "differentPixels": 0,
+          "percent": 0
+        }
+      ]
+    },
+    "nativeReview": "Native4 exact actual4scripts CLEAN; prior ownership/cache/snapshot findings retained and resolved",
+    "faultFixtures": {
+      "passed": 8,
+      "method": "Local temporary filesystem transaction fixtures with stubbed external services; not a real production rollback test"
+    },
+    "beforeSwitch": {
+      "liveStillOldCommit": true,
+      "protectedFilesMatch": true,
+      "serviceProcessUnchanged": {
+        "ramsider.service": true,
+        "nginx.service": true,
+        "ramsider-form.service": true,
+        "ramsider-receiver.service": true
+      },
+      "oldUntrackedBackupMatch": true
+    },
+    "switch": {
+      "status": "activated",
+      "target": "5d291a7330b9a8ae40587aef20893ec0b767c25b",
+      "previous": "/root/ramsider-releases/previous-f79645-20261118",
+      "service": "ramsider.service",
+      "nginxRestarted": false,
+      "rollback": "not needed"
+    },
+    "after": {
+      "activeGit": {
+        "branch": "main",
+        "head": "5d291a7330b9a8ae40587aef20893ec0b767c25b",
+        "status": "?? zzzz-ramsider-next",
+        "origin": "https://github.com/askmi/ramsider.git"
+      },
+      "backupGitHead": "f79645de75c9f63ee665e5aaeb5bb6332bca1d8a",
+      "newSourceHashesMatch": true,
+      "protectedFilesMatch": true,
+      "untrackedBackupPreserved": true,
+      "serviceStates": {
+        "ramsider.service": {
+          "WorkingDirectory": "/root/ramsider",
+          "ActiveState": "active",
+          "SubState": "running",
+          "processUnchanged": false,
+          "cwdMatches": true,
+          "nodeExecutableMatches": true
+        },
+        "nginx.service": {
+          "WorkingDirectory": "",
+          "ActiveState": "active",
+          "SubState": "running",
+          "processUnchanged": true
+        },
+        "ramsider-form.service": {
+          "WorkingDirectory": "/srv/ramsider/form",
+          "ActiveState": "active",
+          "SubState": "running",
+          "processUnchanged": true
+        },
+        "ramsider-receiver.service": {
+          "WorkingDirectory": "/srv/ramsider/form",
+          "ActiveState": "active",
+          "SubState": "running",
+          "processUnchanged": true
+        }
+      },
+      "hospitalityTree": {
+        "files": 393,
+        "bytes": 2014379603,
+        "manifestSha256": "6b21264a45b93488777a850b2d050a15acd62d56508f0e13c40b369f11d3a9a6"
+      },
+      "legacyTree": {
+        "files": 2,
+        "bytes": 17914200,
+        "manifestSha256": "0cfa6f7c667b4e8cf83dacc689c09eea83e03ace254a84576b78912700c5e2c2"
+      },
+      "publicCertificateSha256": {
+        "ramsider.com": "905da11301733d6d95db349ca7c9a6ddd36d73347b6aed5dd65ae6e329e86d81",
+        "m.ramsider.com": "df46e22ef2739464f02a4fa765a7fe86f4de38bec00c4fbe2f85ff63a747d4c1",
+        "hospitality.ramsider.com": "e008178adfc7c0c122a81fb330f9194faa31ca9ef07b512d8086382125a3842f"
+      },
+      "oldStaticBytesPreserved": true,
+      "nginxSyntaxOk": true,
+      "candidatePortClosed": true
+    },
+    "serviceHealth": {
+      "Result": "success",
+      "NRestarts": "0",
+      "ExecMainStatus": "0",
+      "ActiveState": "active",
+      "SubState": "running"
+    },
+    "httpTlsComparison": {
+      "http": [
+        {
+          "host": "ramsider.com",
+          "path": "/en/privacy?routing_probe=1",
+          "status": 301,
+          "expectedChange": false,
+          "bodyMatchBefore": true,
+          "pass": true
+        },
+        {
+          "host": "www.ramsider.com",
+          "path": "/en/privacy?routing_probe=1",
+          "status": 301,
+          "expectedChange": false,
+          "bodyMatchBefore": true,
+          "pass": true
+        },
+        {
+          "host": "www.ramsider.com",
+          "path": "/en/privacy?routing_probe=1",
+          "status": 301,
+          "expectedChange": false,
+          "bodyMatchBefore": true,
+          "pass": true
+        },
+        {
+          "host": "m.ramsider.com",
+          "path": "/en/privacy?routing_probe=1",
+          "status": 301,
+          "expectedChange": false,
+          "bodyMatchBefore": true,
+          "pass": true
+        },
+        {
+          "host": "m.ramsider.com",
+          "path": "/en/privacy?routing_probe=1",
+          "status": 301,
+          "expectedChange": false,
+          "bodyMatchBefore": true,
+          "pass": true
+        },
+        {
+          "host": "hospitality.ramsider.com",
+          "path": "/",
+          "status": 301,
+          "expectedChange": false,
+          "bodyMatchBefore": true,
+          "pass": true
+        },
+        {
+          "host": "hospitality.ramsider.com",
+          "path": "/",
+          "status": 200,
+          "expectedChange": false,
+          "bodyMatchBefore": true,
+          "pass": true
+        },
+        {
+          "host": "hospitality.ramsider.com",
+          "path": "/privacy",
+          "status": 301,
+          "expectedChange": false,
+          "bodyMatchBefore": true,
+          "pass": true
+        },
+        {
+          "host": "hospitality.ramsider.com",
+          "path": "/b2c/",
+          "status": 404,
+          "expectedChange": false,
+          "bodyMatchBefore": true,
+          "pass": true
+        },
+        {
+          "host": "hospitality.ramsider.com",
+          "path": "/api/partner",
+          "status": 404,
+          "expectedChange": false,
+          "bodyMatchBefore": true,
+          "pass": true
+        },
+        {
+          "host": "ramsider.com",
+          "path": "/partnership",
+          "status": 301,
+          "expectedChange": false,
+          "bodyMatchBefore": true,
+          "pass": true
+        },
+        {
+          "host": "ramsider.com",
+          "path": "/qr",
+          "status": 301,
+          "expectedChange": false,
+          "bodyMatchBefore": true,
+          "pass": true
+        },
+        {
+          "host": "ramsider.com",
+          "path": "/en",
+          "status": 200,
+          "expectedChange": false,
+          "bodyMatchBefore": false,
+          "pass": true
+        },
+        {
+          "host": "ramsider.com",
+          "path": "/api/launch-list",
+          "status": 405,
+          "expectedChange": false,
+          "bodyMatchBefore": true,
+          "pass": true
+        },
+        {
+          "host": "ramsider.com",
+          "path": "/en/privacy",
+          "status": 200,
+          "expectedChange": true,
+          "bodyMatchBefore": false,
+          "pass": true
+        },
+        {
+          "host": "ramsider.com",
+          "path": "/en/terms",
+          "status": 200,
+          "expectedChange": true,
+          "bodyMatchBefore": false,
+          "pass": true
+        },
+        {
+          "host": "ramsider.com",
+          "path": "/en/delivery",
+          "status": 200,
+          "expectedChange": true,
+          "bodyMatchBefore": false,
+          "pass": true
+        },
+        {
+          "host": "ramsider.com",
+          "path": "/privacy",
+          "status": 308,
+          "expectedChange": true,
+          "bodyMatchBefore": false,
+          "pass": true
+        },
+        {
+          "host": "ramsider.com",
+          "path": "/terms",
+          "status": 308,
+          "expectedChange": true,
+          "bodyMatchBefore": false,
+          "pass": true
+        },
+        {
+          "host": "ramsider.com",
+          "path": "/delivery",
+          "status": 308,
+          "expectedChange": true,
+          "bodyMatchBefore": false,
+          "pass": true
+        },
+        {
+          "host": "ramsider.com",
+          "path": "/pdf/Products_Services_v7_final_20261012.pdf",
+          "status": 200,
+          "expectedChange": false,
+          "bodyMatchBefore": true,
+          "pass": true
+        },
+        {
+          "host": "hospitality.ramsider.com",
+          "path": "/pdf/Products_Services_v7_final_20261012.pdf",
+          "status": 200,
+          "expectedChange": false,
+          "bodyMatchBefore": true,
+          "pass": true
+        }
+      ],
+      "tlsByteExact": true,
+      "publicLegalHtmlByteExactToVerifiedDeployedSsg": true
+    },
+    "deployedSsg": {
+      "pages": [
+        {
+          "name": "privacy",
+          "sha256": "ae5afb443234097b263a5d60f1f88febbaea6f22db9ddd61f8638ba8ca99a1d4",
+          "bytes": 66209,
+          "fullSourceParity": true,
+          "homeCount": 1,
+          "obsoleteHeadingCount": 0,
+          "viewportPresent": true
+        },
+        {
+          "name": "terms",
+          "sha256": "a7fabdbc895a322f413ec8d30aab27a6d5633e52e0999bcbc1d3894c88c1343f",
+          "bytes": 104020,
+          "fullSourceParity": true,
+          "homeCount": 1,
+          "obsoleteHeadingCount": 0,
+          "viewportPresent": true
+        },
+        {
+          "name": "delivery",
+          "sha256": "55e379059022e3d072212778dcf95a661c1795ce91b20480ec6c5c60011631bf",
+          "bytes": 35684,
+          "fullSourceParity": true,
+          "homeCount": 1,
+          "obsoleteHeadingCount": 0,
+          "viewportPresent": true
+        }
+      ],
+      "styles": [
+        {
+          "url": "/_next/static/chunks/0f7yn3150d2h_.css",
+          "sha256": "d02d5909c1cd1d4494e7cbdda09529fda132303c7605fcf7f87fbcf4012ce55e",
+          "bytes": 76661
+        },
+        {
+          "url": "/_next/static/chunks/32kf0eafcdd4q.css",
+          "sha256": "7fb8f04e45ebe6409e1a283d1d1f8edc8ffc3fd19b48e0973dae664edf2ad1f6",
+          "bytes": 1954
+        }
+      ],
+      "fonts": [
+        {
+          "url": "/fonts/opensans-regular.ttf",
+          "sha256": "33e93bec67d91c396876db50694213802a39e43a911bb5c22322f0dbdf4d5e43",
+          "bytes": 130832
+        }
+      ]
+    },
+    "publicBrowser": {
+      "runnerPassed": 0,
+      "runnerFailed": 10,
+      "gate": "BLOCKED_CORPORATE_WEB_FILTER_403",
+      "observation": "Managed workstation browser receives a corporate prohibited-site page; width980 belongs to that block page, not Ramsider. No browser/proxy/security override attempted.",
+      "publicPixelApproval": "NOT_GIVEN",
+      "freshPublicBrowserPerformance": "BLOCKED_SAME_EXTERNAL_POLICY; prior source-code lab evidence unchanged; no new public LCP/INP/CLS claim"
+    },
+    "temporaryCandidatePortClosed": true,
+    "temporarySshTunnelClosed": true,
+    "productionRollbackExercised": false
+  },
+  "vercel": {
+    "commit": "5d291a7330b9a8ae40587aef20893ec0b767c25b",
+    "deployments": [
+      {
+        "created_at": "2026-11-17T23:53:27Z",
+        "environment": "Production \u2013 ramsider",
+        "id": 7869727232,
+        "sha": "5d291a7330b9a8ae40587aef20893ec0b767c25b"
+      },
+      {
+        "created_at": "2026-11-17T23:47:40Z",
+        "environment": "Preview \u2013 ramsider-beta",
+        "id": 7869621131,
+        "sha": "5d291a7330b9a8ae40587aef20893ec0b767c25b"
+      }
+    ],
+    "production": [
+      {
+        "created_at": "2026-11-17T23:53:27Z",
+        "environment": "Production \u2013 ramsider",
+        "environment_url": "https://ramsider-ietfhmmym-askmi-6282s-projects.vercel.app",
+        "id": 22478573394,
+        "state": "success"
+      }
+    ],
+    "preview": [
+      {
+        "created_at": "2026-11-17T23:47:40Z",
+        "environment": "Preview \u2013 ramsider-beta",
+        "environment_url": "https://ramsider-beta-5adi50vdk-askmi-6282s-projects.vercel.app",
+        "id": 22478239509,
+        "state": "success"
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/prepare-result.json",
+      "sha256": "3e2c8777514c0d433b574b45bafcc7f16cb08b9e6c978e623014ba6f7739cd96"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/candidate-http.json",
+      "sha256": "af61c880a0f4c6b7c886305290f8dc9216894f7d570a06124c3826fd3c5e3058"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/candidate-browser.log",
+      "sha256": "7d7433059419fb95ea58100c3cc59761218d1af7dfe6b6a0e85b141baae5b078"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/candidate-pro.png",
+      "sha256": "b6b15a7cd94502fc68fb171a34c4f7f6e16183eb699aae65780a1ca8a1358230"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/candidate-max.png",
+      "sha256": "2ba589ff80ccf6bcad9432ee1a5371a340d39b3d4b8350c7f836a89f25d2cedc"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/comparison/verification.json",
+      "sha256": "65b10f96f8e126f5b7a5b1ad71d692ea8e7a0cbe3c540170dbdc7efc81f786e8"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/fault-check.json",
+      "sha256": "c7e67351990739f668b916bd6ad42bd021e1f82b7eaae72fdeebfe8ca2ccc81e"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/native-operations-result-2.txt",
+      "sha256": "82d01bfb0a41da5efea2421a3f3445bafd51d982b53090c5d497b02acb66955e"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/native-operations-result-3.txt",
+      "sha256": "3b446fbde77aad088c6cab24a518187ede7ffc7db375ec5ea8c933528ad23add"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/native-operations-result-4.txt",
+      "sha256": "6c9d0b24489d37241fc77bff9ecf402f58501d216178d98e0af688f8010ececd"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/review-snapshot-4.json",
+      "sha256": "214ae81efd328a3c816d1e7326db4b8a32410ef30fd7e4b1c09edcacf6f49b92"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/before-switch-check.json",
+      "sha256": "2dea2772ec2489ed5e310ae1ff27cac307ca6e161264771b729182ed050e2fc7"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/candidate-approval.json",
+      "sha256": "be78525215d0456459ce3f50854c46f3b3fe3ae270fd146df845275185bb615b"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/launch-switch-result.json",
+      "sha256": "bf0a5421bf32f27dbc24fe3bc873dbddc21c4cc02157e37e9fc49d7a7c0aa5db"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/switch-progress.json",
+      "sha256": "c788c38928b002a50b3b50a4d1dd82c78d2324d0f4071399acdf4f9095f2df0b"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/preservation-after.json",
+      "sha256": "e80e4d1081688856666e1fdc17e202a88b57f4e840ee953f339756530d91b135"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/after.json",
+      "sha256": "9914acfe934b82be39238f9dcfbf2ddcea43681eed956ebfa491d4e3383dfba9"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/preservation-comparison.json",
+      "sha256": "8263e9bce9e98820cba2f733eaffff676496ff9ee2f4ac449ddc5e13638eaf4e"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/ssg-proof.json",
+      "sha256": "e1cc09eb0300448a7f563c3e7b790706a9a8a13cce65ae4d0307a2b8a99db27c"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/service-health.json",
+      "sha256": "d422054158d0f5b90793386326a145159183793a43a6dfb7ac381d4fa7f500c6"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/public-browser.log",
+      "sha256": "51b789be4af801ae2fe9166c62b6787f4510dc45efa5d6179945be41499cdc56"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/read-preflight.json",
+      "sha256": "85461a26c6565f07a0bdafb32aeb65ab033e6df67c329a0f02f5b2aa03e6a498"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/vercel-deployments.json",
+      "sha256": "9a5cbc5ba7d5d77f363a2c4f4b1ee57fe1a0e4794d9186154d3c44a370d0b9e1"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/vercel-production.json",
+      "sha256": "c6734a5c5f4c5a1c0db5c6afc9c07b031fb015937ee3b25cb53939b9b13b9f09"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/vercel-preview.json",
+      "sha256": "dd825cc91b3187239be1247c434c77b1e86f897bc7209dc8fe6d8f6408279cdc"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/prepare.py",
+      "sha256": "945ed86a7870798a64bca285f7d6ec75f9845eb264e0ea0a12f4260f9fc08d9b"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/validate.py",
+      "sha256": "98145eddcdc11cad6698386071cfe98e30924e6b69cfab482207e10719c0adbf"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/switch.py",
+      "sha256": "dc176f71b5e2b2664a19db6cac80f86fcf5760986ce456750cb7bd1f0d21704f"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/launch-switch.py",
+      "sha256": "c3d768cfbde50dce556f232fd74ec1a8ed394f7db5bc40ac9f3db9ad0107992c"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/candidate/iphone-17-pro-webkit/delivery-footer.png",
+      "sha256": "a8a6940a1e822aaaa14d9efdafd04e388841cc38e02284273b8a94b413551a2a"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/candidate/iphone-17-pro-webkit/privacy-footer.png",
+      "sha256": "9addde69051ac7e48a67a47b04ef204fa3e3a3549566e5253889c0d8f69c9ec0"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/candidate/iphone-17-pro-webkit/terms-footer.png",
+      "sha256": "8bded23ad045a1a6d5db3c006b2e7aac2137f3db65bfdd1838506e255af9865d"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/candidate/iphone-17-pro-max-webkit/delivery-footer.png",
+      "sha256": "c2062b6ee6a3b1e5a1c5152eb8edd5f76129eb76a91e8f8a8d029825d61a9d26"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/candidate/iphone-17-pro-max-webkit/privacy-footer.png",
+      "sha256": "1249b781e8c5c18f486c51319cc5213c00b0df480daffd282b749a140d63d3d5"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/candidate/iphone-17-pro-max-webkit/terms-footer.png",
+      "sha256": "1d2f2526aff4c2e540b27eca0f5a82ec8d095d929ab42454091af9890eb0761d"
+    },
+    {
+      "path": "screenshots/legal-documents/2026-11-18/vds-deploy/auto-public/legal-controls-privacy-off-9c315--without-a-Contact-launcher-iphone-17-pro-webkit/test-failed-1.png",
+      "sha256": "40e7708a51d6b8ccc48f4e29a1675212a540c611c605f141cf637fcba008f148"
+    }
+  ],
+  "reviewedSourceFiles": [
+    {
+      "path": "app/globals.css",
+      "sha256": "396e9370cfb14825fa5f3605ccd7b2d26f0bddc4d58cab8741bfbcbd3636bc5c"
+    },
+    {
+      "path": "components/LegalDocument.tsx",
+      "sha256": "2c473e1fdba420d1a006f5668d17fa9302de690d0739ec6845e060a5916ba230"
+    },
+    {
+      "path": "components/LegalNavigation.tsx",
+      "sha256": "b9cb5c7920e3832fe2350e9ccef9c7cfc1018e297d72b5498559a945977bf035"
+    },
+    {
+      "path": "tests/e2e/legal-controls.spec.ts",
+      "sha256": "4716db1b87bbe989cda0702d7da8799ab1f3b9808ec3243b31170868ce469bb7"
+    }
+  ],
+  "runtimeInputsUnderDocs": [
+    {
+      "path": "docs/evidence/loading-flow/feed-seam-map.json",
+      "sha256": "0d467c7eb2f04d8f52d5cac659df38969193a6920753726364094bcf89a2f6ce",
+      "sameAcrossReviewedAndDeployedCommits": true,
+      "consumer": "components/Story.tsx"
+    }
+  ],
+  "recordsSynchronization": {
+    "status": "PENDING_REVIEWED_RECORDS_ONLY_COMMIT_AND_FF",
+    "buildSourceCommit": "5d291a7330b9a8ae40587aef20893ec0b767c25b",
+    "rule": "Pin new record commit, exact reviewed path allowlist over whole Git diff, preserve runtime source/feed-seam-map/.next BUILD_ID and running PID; ff-only without build/restart; verify afterward"
+  }
 }
